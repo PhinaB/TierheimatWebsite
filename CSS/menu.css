@@ -1,0 +1,59 @@
+header {
+    background: #FCFFF9;
+    border-bottom: 2px solid #83B25B;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+}
+
+nav a {
+    margin: 0 20px;
+    position: relative;
+    top: -10px;
+    font-size: 25px;
+}
+
+.logoPicture {
+    height: 80px;
+    margin-left: 20px;
+}
+
+#menuRight {
+    float: right;
+    top: 50px;
+    position: relative;
+}
+
+#smallMenu {
+    display: none;
+    float: right;
+    top: 50px;
+    position: relative;
+}
+
+@media only screen and (max-width: 1600px) {
+    nav a {
+        font-size: 20px;
+        top: -20px;
+    }
+
+    .logoPicture {
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    nav a {
+        margin: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    #smallMenu {
+        display: block;
+    }
+
+    #menuRight {
+        display: none;
+    }
+}

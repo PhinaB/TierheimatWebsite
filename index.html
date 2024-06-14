@@ -2,9 +2,71 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/menu.css" />
     <link rel="stylesheet" href="CSS/all.css" />
+    <link rel="stylesheet" href="CSS/footer.css" />
+
+    <title>Tierheimat</title>
 </head>
 <body>
-    <p>Test mit Umlauten: öäü</p>
+    <header>
+        <nav>
+            <img class="logoPicture" src="img/logo.jpg" />
+
+            <div id="menuRight">
+                <a href="#" disabled="disabled" draggable="false">Start</a>
+                <a href="#" draggable="false">Unsere Tiere</a>
+                <a href="#" draggable="false">Aktuelles</a>
+                <a href="#" draggable="false">Vermisst/Gefunden</a>
+                <a href="#" draggable="false">Service/Infos</a>
+                <a href="#" draggable="false">Login</a>
+            </div>
+
+            <div id="smallMenu">
+                Handymenü
+            </div>
+        </nav>
+    </header>
+    <div class="grid">
+        <main>
+            <div class="tile tileBorder">
+                <a href="" disabled="disabled" draggable="false">Startseite</a>
+            </div>
+            <div class="tile">
+                <h2>Überschrift</h2>
+                <hr class="underHeadline" />
+            </div>
+        </main>
+        <footer>
+            <div>
+                <h4>KONTAKT</h4>
+                <p>
+                    Adresse: Musterstraße 2<br />
+                    12345 Musterhausen<br />
+                    E-Mail: muster@tierheimat.de<br />
+                    Telefon:  0123 4567892
+                </p>
+            </div>
+            <div class="secondFooterChild">
+                <h4>ÖFFNUNGSZEITEN</h4>
+                <p>
+                    Mo - Fr: 10 - 18 Uhr<br />
+                    Sa: 8 - 18 Uhr
+                </p>
+            </div>
+            <div>
+                <h4>UNSER SPENDENKONTO</h4>
+                <p>
+                    Tierheimat GmbH<br />
+                    Tierheimbank Erfurt<br />
+                    IBAN: DE12 3456 7890 1234 1234 55<br />
+                    BIC: ABCDEFGH
+                </p>
+            </div>
+        </footer>
+        <div class="underFooter">Impressum | &copy; 2024 Tierheimat GmbH</div>
+    </div>
 </body>
 </html>
