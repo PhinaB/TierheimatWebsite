@@ -1,3 +1,13 @@
+.grid footer {
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+.gridIndex footer {
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
 footer {
     background: #FCFFF9;
     border-top: 2px solid #83B25B;
@@ -5,21 +15,22 @@ footer {
     box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.2), 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 2;
     margin-bottom: 10px;
-    padding: 0 15% 10px 15%;
+    padding: 15px 15% 25px 15%;
 
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items:center;
 }
 
-    footer div:last-child {
-        text-align: right;
-    }
+footer div:last-child {
+    text-align: right;
+}
+
+footer div {
+    flex-basis: 33%;
+}
 
 .secondFooterChild {
     text-align: center;
@@ -29,11 +40,19 @@ footer h4 {
     margin-bottom: 10px;
 }
 
+.grid .underFooter {
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
+.gridIndex .underFooter {
+    grid-row-start: 5;
+    grid-row-end: 5;
+}
+
 .underFooter {
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 3;
     text-align: center;
     height: 20px;
     padding-bottom: 5px;

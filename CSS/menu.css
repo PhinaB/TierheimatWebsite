@@ -15,7 +15,6 @@ nav a {
 
 .logoPicture {
     height: 80px;
-    margin-left: 20px;
 }
 
 #menuRight {
@@ -24,11 +23,17 @@ nav a {
     position: relative;
 }
 
-#smallMenu {
+.onlySmallMenu {
     display: none;
-    float: right;
-    top: 50px;
-    position: relative;
+}
+
+.menuIcon {
+    font-size: 18px;
+    padding: 5px 0;
+}
+
+.linkLogo {
+    top: 0px;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -45,15 +50,49 @@ nav a {
 @media only screen and (max-width: 1300px) {
     nav a {
         margin: 0 10px;
+        font-size: 16px;
+        top: -25px;
+    }
+    .logoPicture {
+        height: 45px;
     }
 }
 
-@media only screen and (max-width: 1150px) {
-    #smallMenu {
+@media only screen and (max-width: 900px) {
+    .onlySmallMenu {
         display: block;
     }
-
     #menuRight {
-        display: none;
+        display: flex;
+        justify-content:space-around;
+        border-top: 2px solid #83B25B;
+        background: #E8F5DD;
+        /*gap:5px;
+        padding:5px 0;
+        align-items:stretch;*/
+        position:static;
+        width:100%;
+    }
+    #menuRight a {
+        font-size: 13px;
+        display: flex;
+        /*justify-content: flex-start;*/
+        flex-wrap: wrap;
+        text-align: center;
+        padding: 5px 10px;
+        margin: 0;
+        flex-direction: column;
+    }
+    #menuRight a[disabled], #menuRight a:hover {
+        background: #83B25B;
+        color: #E8F5DD;
+    }
+    nav a {
+        top: 0;
+    }
+    .linkLogo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
     }
 }
