@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="fontawesome-6.5.2/css/all.min.css">
 
     <title>Tierheimat</title>
+    <style>
+        .onlySmallMenu {
+            display: none;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .onlySmallMenu {
+                display: inline;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -105,7 +116,7 @@
                 </p>
             </div>
         </footer>
-        <div class="underFooter">Impressum | &copy; 2024 Tierheimat GmbH</div>
+        <div class="underFooter"><a href="normalPage/impressum.html">Impressum</a> | &copy; 2024 Tierheimat GmbH</div>
     </div>
 
     <script src="fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>

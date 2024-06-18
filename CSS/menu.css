@@ -60,7 +60,7 @@ nav a {
 
 @media only screen and (max-width: 900px) {
     .onlySmallMenu {
-        display: block;
+        display: inline;
     }
     #menuRight {
         display: flex;
