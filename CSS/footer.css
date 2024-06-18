@@ -1,11 +1,11 @@
 .grid footer {
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 
 .gridIndex footer {
-    grid-row-start: 4;
-    grid-row-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 footer {
@@ -41,13 +41,13 @@ footer h4 {
 }
 
 .grid .underFooter {
-    grid-row-start: 4;
-    grid-row-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 .gridIndex .underFooter {
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
 
 .underFooter {
