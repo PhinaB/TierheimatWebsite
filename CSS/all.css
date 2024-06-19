@@ -50,18 +50,17 @@ main {
 }
 
 a {
-    font-size:1em;
+    font-size: 1em;
+    color: #83B25B;
+    text-decoration: none;
+}
+
+a[disabled], a:hover {
     color:#000;
-    text-decoration:none;
 }
 
 a[disabled] {
-    color: #83B25B;
     cursor: default;
-}
-
-a:hover {
-    color: #83B25B;
 }
 
 h2 {

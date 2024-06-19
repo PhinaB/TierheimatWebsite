@@ -12,6 +12,7 @@ nav a {
     position: relative;
     top: -10px;
     font-size: 25px;
+    color: #000;
 }
 
 .logoPicture {
@@ -23,6 +24,10 @@ nav a {
     float: right;
     top: 50px;
     position: relative;
+}
+
+nav a[disabled], nav a:hover {
+    color: #83B25B;
 }
 
 .onlySmallMenu {
