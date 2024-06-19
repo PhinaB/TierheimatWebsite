@@ -133,6 +133,23 @@ button:hover {
     cursor: pointer;
 }
 
+.button { /* nur für buttons außerhalb des .box-container gedacht! */
+    padding: 5px 8px;
+}
+
+input, textarea {
+    border: 1px solid #bbbbbb;
+    box-shadow: inset 0 0 5px #dddddd;
+    background: white;
+    border-radius:4px;
+    line-height:230%;
+    padding:0 5px;
+}
+
+textarea {
+    resize:none;
+}
+
 .tile {
     margin: 10px 0 25px 0;
 }
