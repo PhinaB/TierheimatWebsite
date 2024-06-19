@@ -44,13 +44,13 @@ p {
     
 }
 
-.tileBorder, .box-containerUnsereTiere div {
+.box-containerUnsereTiere div {
     border: 1px solid #A0A0A0;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
 
-.tileBorder, .box-containerUnsereTiere div img ~ * {
+.box-containerUnsereTiere div img ~ * {
     padding: 10px 15px;
 }
 
@@ -80,14 +80,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 500px) {
-    .grid, .gridIndex {
-        grid-template-columns: 3% 94% 3%;
-    }
-    .box-containerUnsereTiere div {
-        width: 100%;
-    }
-}
+
 
 
 
