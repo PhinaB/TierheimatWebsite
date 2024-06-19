@@ -5,3 +5,90 @@
     margin-bottom: 20px;
 }
 
+.box-containerUnsereTiere div .buttonWeiter {
+    margin-left:8px;
+    margin-top:10px;
+    
+}
+
+.buttonWeiter {
+    background: #83B25B;
+    color: #fff;
+    border: 1px solid #83B25B;
+    border-radius: 4px;
+    font-size: 0.8em; 
+}
+
+button:hover {
+    background: #FCFFF9;
+    color: #83B25B;
+    cursor: pointer;
+}
+
+p {
+    font-size: 0.9em; 
+}
+
+.box-containerUnsereTiere {
+    display: flex; 
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px 20px;
+  
+}
+
+.box-containerUnsereTiere div {
+    width: 30%;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    
+}
+
+.tileBorder, .box-containerUnsereTiere div {
+    border: 1px solid #A0A0A0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.tileBorder, .box-containerUnsereTiere div img ~ * {
+    padding: 10px 15px;
+}
+
+.box-containerUnsereTiere div img {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .box-containerUnsereTiere {
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+    .box-containerUnsereTiere div {
+        width:calc(50% - 25px);
+    }
+}
+
+
+
+@media only screen and (max-width: 650px) {
+    
+    .box-containerUnsereTiere div {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .grid, .gridIndex {
+        grid-template-columns: 3% 94% 3%;
+    }
+    .box-containerUnsereTiere div {
+        width: 100%;
+    }
+}
+
+
+
+
