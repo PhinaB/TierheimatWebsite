@@ -86,7 +86,7 @@ h3 {
 }
 
 .box-container {
-    display: flex;
+    display: flex; 
     justify-content: space-between;
     align-items: stretch;
     gap: 30px 50px;
@@ -133,7 +133,7 @@ button:hover {
     cursor: pointer;
 }
 
-.button { /* nur für buttons außerhalb des .box-container gedacht! */
+.button { /* nur fï¿½r buttons auï¿½erhalb des .box-container gedacht! */
     padding: 5px 8px;
 }
 
