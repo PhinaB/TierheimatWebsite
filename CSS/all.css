@@ -55,8 +55,16 @@ a {
     text-decoration: none;
 }
 
+.button a {
+    color: white; 
+}
+
+.button a:hoover {
+    color: white; 
+}
+
 a[disabled], a:hover {
-    color:#000;
+    color: #83B25B;
 }
 
 a[disabled] {
