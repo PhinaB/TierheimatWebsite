@@ -1,4 +1,11 @@
 .box-containerVermisstGefundenMelden {
+    border: 1px solid #A0A0A0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+
+.box-containerVermisstGefundenMelden {
 
     display: flex; 
     flex-direction: row; 
@@ -20,6 +27,8 @@
 .box-containerVermisstGefundenMelden div img {
 width: 100%; 
 border-radius: 2px; 
+padding: 0px; 
+
 }
 
 @media only screen and (max-width: 900px)
