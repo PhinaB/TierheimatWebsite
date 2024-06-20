@@ -64,7 +64,7 @@ a {
 }
 
 a[disabled], a:hover {
-    color: #83B25B;
+    color: #000;
 }
 
 a[disabled] {
