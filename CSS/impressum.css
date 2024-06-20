@@ -1,0 +1,25 @@
+main p {
+    text-align:justify;
+    margin:20px 0;
+}
+
+h3 {
+    text-align:center;
+}
+
+dd {
+    margin-left:30px;
+}
+
+dt {
+    margin-bottom:10px;
+    margin-top:5px;
+}
+
+dl {
+    margin: 20px 0;
+}
+
+.button {
+    margin-bottom:20px;
+}

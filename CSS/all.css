@@ -50,18 +50,17 @@ main {
 }
 
 a {
-    font-size:1em;
+    font-size: 1em;
+    color: #83B25B;
+    text-decoration: none;
+}
+
+a[disabled], a:hover {
     color:#000;
-    text-decoration:none;
 }
 
 a[disabled] {
-    color: #83B25B;
     cursor: default;
-}
-
-a:hover {
-    color: #83B25B;
 }
 
 h2 {
@@ -85,6 +84,22 @@ h3 {
     margin-bottom:10px;
 }
 
+.button { /* nur f�r buttons au�erhalb des .box-container gedacht! */
+    padding: 5px 8px;
+    background: #83B25B;
+    color: #fff;
+    border: 1px solid #83B25B;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.button:hover {
+    background: #FCFFF9;
+    color: #83B25B;
+    cursor: pointer;
+}
+
 .box-container {
     display: flex; 
     justify-content: space-between;
@@ -104,8 +119,12 @@ h3 {
     border-radius: 4px;
 }
 
-.tileBorder, .box-container div img ~ * {
+.tileBorder {
     padding: 10px 15px;
+}
+
+.box-container div img ~ * {
+    margin: 10px 15px;
 }
 
 .box-container div img {
@@ -113,28 +132,6 @@ h3 {
     border-top-right-radius: 2px;
     border-bottom: 1px solid #eee;
     width: 100%;
-}
-
-.box-container div button {
-    margin-left:8px;
-    margin-top:15px;
-}
-
-button {
-    background: #83B25B;
-    color: #fff;
-    border: 1px solid #83B25B;
-    border-radius: 4px;
-}
-
-button:hover {
-    background: #FCFFF9;
-    color: #83B25B;
-    cursor: pointer;
-}
-
-.button { /* nur f�r buttons au�erhalb des .box-container gedacht! */
-    padding: 5px 8px;
 }
 
 input, textarea {
@@ -184,12 +181,11 @@ textarea {
 
 @media only screen and (max-width: 900px) {
     .grid, .gridIndex {
-        padding-top: 128px;
+        padding-top: 127px;
     }
 }
 
-@media only screen and (max-width: 650px) {
-    
+@media only screen and (max-width: 650px) {    
     .box-container div {
         width: 100%;
     }

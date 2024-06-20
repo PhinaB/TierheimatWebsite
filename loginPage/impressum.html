@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../CSS/menu.css" />
     <link rel="stylesheet" href="../CSS/all.css" />
     <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/loggedInPage.css" />
 
     <script src="https://kit.fontawesome.com/7e7cac5bab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
@@ -28,13 +29,17 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="../index.html" draggable="false">
+                <a href="index.html" draggable="false">
                     <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
 
+            <span class="user">
+                <i class="fa-solid fa-user"></i> Nutzername
+            </span>
+
             <div id="menuRight">
-                <a href="../index.html" draggable="false">
+                <a href="index.html" draggable="false">
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
                     Start
                 </a>
@@ -42,7 +47,7 @@
                     <i class="fa-solid fa-paw menuIcon onlySmallMenu"></i>
                     Unsere <br class="onlySmallMenu" />Tiere
                 </a>
-                <a disabled="disabled" draggable="false">
+                <a href="aktuelles.html" draggable="false">
                     <i class="fa-solid fa-calendar menuIcon onlySmallMenu"></i>
                     Aktuelles
                 </a>
@@ -54,9 +59,9 @@
                     <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
                     Service/<br class="onlySmallMenu" />Infos
                 </a>
-                <a href="login.html" draggable="false">
-                    <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
-                    Login
+                <a href="../index.html" draggable="false">
+                    <i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i>
+                    Logout
                 </a>
             </div>
         </nav>
@@ -64,9 +69,9 @@
     <div class="grid">
         <main>
             <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                <a href="index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
-                <a disabled="disabled" draggable="false">Aktuelles</a>
+                <a disabled="disabled" draggable="false">Impressum</a>
             </div>
             nur hier rein schreiben
         </main>
@@ -97,7 +102,7 @@
                 </p>
             </div>
         </footer>
-        <div class="underFooter"><a href="impressum.html">Impressum</a> | &copy; 2024 Tierheimat GmbH</div>
+        <div class="underFooter">Impressum | &copy; 2024 Tierheimat GmbH</div>
     </div>
 
     <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>

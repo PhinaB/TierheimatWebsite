@@ -28,9 +28,11 @@
 <body>
     <header>
         <nav>
-            <a href="../index.html" class="linkLogo" draggable="false">
-                <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
-            </a>
+            <span class="linkLogo">
+                <a href="../index.html" draggable="false">
+                    <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
+                </a>
+            </span>
 
             <div id="menuRight">
                 <a href="../index.html" draggable="false">
@@ -63,7 +65,7 @@
     <div class="grid">
         <main>
             <div class="tile tileBorder">
-                <a href="../loginPage/index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
                 <a disabled="disabled" draggable="false">Login</a>
             </div>
@@ -71,27 +73,25 @@
                 <div class="tileBorder tile">
                     <h2>Login</h2>
                     <hr class="underHeadline" />
-                    <form method="get" action="../index.html">
+                    <form method="post">
                         <h3>E-Mail:</h3>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
                         <h3>Passwort:</h3>
                         <input type="password" name="password" required placeholder="Passwort" />
-                        <br />
-                        <button type="submit" class="button">Anmelden</button>
+                        <a href="../loginPage/index.html" class="button marginButton" draggable="false">Anmelden</a>
                     </form>
                 </div>
                 <div class="tileBorder tile">
                     <h2>Registrierung</h2>
                     <hr class="underHeadline" />
-                    <form method="get">
+                    <form method="post">
                         <h3>E-Mail:</h3>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
                         <h3>Passwort:</h3>
                         <input type="password" name="password" required placeholder="Passwort" />
                         <h3>Nutzername:</h3>
-                        <input type="text" name="username" required placeholder="maxMustermann" />
-                        <br />
-                        <button type="submit" class="button">Registrieren</button>
+                        <input type="text" name="username" required placeholder="maxMustermann" max="10" min="3" />
+                        <a class="button marginButton">Registrieren</a>
                     </form>
                 </div>
             </div>

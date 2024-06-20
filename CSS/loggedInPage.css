@@ -1,0 +1,21 @@
+.user {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #768569;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 1300px) {
+    .user {
+        top: 5px;
+        right: 10px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .user {
+        top: 27px;
+    }
+}
