@@ -21,7 +21,7 @@
 .box-absolute {
     
       
-    top: 325px; 
+    top: 140px; 
     left: 5%; 
     right: 5%; 
     
@@ -31,14 +31,29 @@
    
 }
 
-.box-containerUTiereWeiterlesen div img #abbruchButton {
+.Abbruch {
+  
+    background-color: green, 
+}
+
+.box-containerUTiereWeiterlesen div a img{
     
-    width: 10%;
+   
+    width: 20px;
+    float: right; 
  
 }
+
+.inline 
+{
+    display: inline; 
+}
+
+
 .box-containerUTiereWeiterlesen div img {
+   
     border-radius: 2px; 
-    width: 20%; 
+    width: 100%; 
 }
 
 

@@ -17,6 +17,8 @@
     border: 1px solid #83B25B;
     border-radius: 4px;
     font-size: 0.8em; 
+    padding: 5px 8px; 
+    display: inline-block;
 }
 
 button:hover {
