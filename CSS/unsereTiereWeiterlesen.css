@@ -1,0 +1,45 @@
+
+/*Informationen die für die Weiterlesen-Boxen allgemein gelten */
+.box-absolute {
+    position: absolute;
+    box-sizing: border-box;
+
+    z-index: 0; 
+
+    background-color: #FCFFF9;
+    border-radius: 4px; 
+    border: 1px solid #83B25B; 
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    
+    padding: 5%;
+    height: auto;
+    
+}
+
+/*Informationen die je nach Bildschirmgröße variieren */
+
+.box-absolute {
+    
+      
+    top: 325px; 
+    left: 5%; 
+    right: 5%; 
+    
+   
+    width: 90%;
+    min-height: 200px;  
+   
+}
+
+.box-containerUTiereWeiterlesen div img #abbruchButton {
+    
+    width: 10%;
+ 
+}
+.box-containerUTiereWeiterlesen div img {
+    border-radius: 2px; 
+    width: 20%; 
+}
+
+
+
