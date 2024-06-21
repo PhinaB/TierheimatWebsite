@@ -46,13 +46,18 @@ main {
 
 #startbilder {
     width: 100%;
-    height:800px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
     position: relative;
+}
+
+#startbilder::before {
+    content: "";
+    display: block;
+    padding-top: calc(100% / (1920 / 800));
 }
 
 @keyframes bilder {
@@ -87,6 +92,8 @@ main {
 .startbild {
     position: absolute;
     display: inline-block;
+    width:100%;
+    top:0;
 }
 
 a {
