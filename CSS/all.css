@@ -1,5 +1,6 @@
 :root {
     --primary-color: #83B25B;
+    --background-color: #FCFFF9;
 }
 
 * {
@@ -98,7 +99,7 @@ main {
 
 a {
     font-size: 1em;
-    color: #83B25B;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -141,17 +142,17 @@ h3 {
 
 .button { /* nur f�r buttons au�erhalb des .box-container gedacht! */
     padding: 5px 8px;
-    background: #83B25B;
+    background: var(--primary-color);
     color: #fff;
-    border: 1px solid #83B25B;
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
     font-size: 12px;
     display: inline-block;
 }
 
 .button:hover {
-    background: #FCFFF9;
-    color: #83B25B;
+    background: var(--background-color);
+    color: var(--primary-color);
     cursor: pointer;
 }
 
