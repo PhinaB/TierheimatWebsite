@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #83B25B;
+    --background-color: #FCFFF9;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -40,18 +45,61 @@ main {
     grid-row-end: 2;
 }
 
-.startbild {
+#startbilder {
     width: 100%;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
+    position: relative;
+}
+
+#startbilder::before {
+    content: "";
+    display: block;
+    padding-top: calc(100% / (1920 / 800));
+}
+
+@keyframes bilder {
+    0% {
+        opacity: 1;
+    }
+    34% {
+        opacity: 1;
+    }
+    35% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#startbilder img:nth-of-type(1) {
+    animation: bilder 9s infinite;
+}
+
+#startbilder img:nth-of-type(2) {
+    animation: bilder 9s infinite;
+    animation-delay: -6s;
+}
+
+#startbilder img:nth-of-type(3) {
+    animation: bilder 9s infinite;
+    animation-delay: -3s;
+}
+
+.startbild {
+    position: absolute;
+    display: inline-block;
+    width:100%;
+    top:0;
 }
 
 a {
     font-size: 1em;
-    color: #83B25B;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -85,8 +133,8 @@ h3 {
 .underHeadline {
     margin: 0 auto;
     height: 2px;
-    background: #83B25B;
-    color: #83B25B;
+    background: var(--primary-color);
+    color: var(--primary-color);
     width:60px;
     border:0;
     margin-bottom:10px;
@@ -94,17 +142,17 @@ h3 {
 
 .button { /* nur f�r buttons au�erhalb des .box-container gedacht! */
     padding: 5px 8px;
-    background: #83B25B;
+    background: var(--primary-color);
     color: #fff;
-    border: 1px solid #83B25B;
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
     font-size: 12px;
     display: inline-block;
 }
 
 .button:hover {
-    background: #FCFFF9;
-    color: #83B25B;
+    background: var(--background-color);
+    color: var(--primary-color);
     cursor: pointer;
 }
 
@@ -142,7 +190,7 @@ h3 {
     width: 100%;
 }
 
-input, textarea {
+input, textarea, select {
     border: 1px solid #bbbbbb;
     box-shadow: inset 0 0 5px #dddddd;
     background: white;
