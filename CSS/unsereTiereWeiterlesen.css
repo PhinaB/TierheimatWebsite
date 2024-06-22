@@ -4,6 +4,10 @@
     position: absolute;
     box-sizing: border-box;
 
+    left: 5%; 
+    right: 5%; 
+    width: 90%;
+
     z-index: 0; 
 
     background-color: #FCFFF9;
@@ -11,37 +15,26 @@
     border: 1px solid #83B25B; 
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%; 
+    padding-top: 3%; 
+    padding-bottom: 5%;
     height: auto;
     
 }
 
-/*Informationen die je nach Bildschirmgröße variieren */
-
-.box-absolute {
-    
-      
-    top: 140px; 
-    left: 5%; 
-    right: 5%; 
-    
-   
-    width: 90%;
-    min-height: 200px;  
-   
+.Unterelement {
+    width: 100%;
 }
 
-.Abbruch {
   
-    background-color: green, 
+.Kopfelement {
+    width: 100%; 
 }
 
-.box-containerUTiereWeiterlesen div a img{
-    
-   
+.box-absolute .Kopfelement a img{
     width: 20px;
     float: right; 
- 
 }
 
 .inline 
@@ -50,11 +43,91 @@
 }
 
 
-.box-containerUTiereWeiterlesen div img {
+.box-absolute .Unterelement img {
    
     border-radius: 2px; 
     width: 100%; 
 }
+
+
+
+
+/*wenn Bilschirmgröße 600px oder weniger, dann:*/
+@media only screen and (max-width: 600px) {
+    /*Informationen die je nach Bildschirmgröße variieren */
+
+    .box-absolute {
+        /*Abstand zwischen den übereinanderliegenden div-Elementen*/
+        gap: 10px 10px;
+    }
+    .Kopfelement {
+        width: 100%;  
+    }
+    .Unterelement {
+        width: 100%;  
+    }
+}
+
+
+/*wenn Bilschirmgröße 900px oder weniger, dann:*/
+@media only screen and (max-width: 900px) {
+    
+    /*Informationen die je nach Bildschirmgröße variieren */
+    .box-absolute {
+        display: flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        align-items: stretch; 
+     
+        top: 140px; 
+       
+        min-height: 200px;
+        padding-top: 2%; 
+        padding-bottom: 4%;
+        padding-left: 3%; 
+        padding-right: 3%; 
+     }
+    
+    .Kopfelement {
+        width: 100%; 
+        padding-bottom: 2%; 
+    }   
+    .Unterelement {
+            width: calc(50% - 10px);  
+        }
+   
+}
+/*wenn Bilschirmgröße 900px oder mehr, dann:*/
+@media only screen and (min-width: 900.1px) {
+    
+    /*Informationen die je nach Bildschirmgröße variieren */
+    .box-absolute {
+        display: flex;
+        justify-content:space-between;
+        align-items: center; 
+        flex-wrap:wrap;
+        top: 70px; 
+        padding-top: 2%; 
+        padding-bottom: 4%;
+        padding-left: 3%; 
+        padding-right: 3%;  
+    
+        }
+
+    .box-absolute .Kopfelement {
+        width: 100%; 
+        padding-bottom: 2%; 
+        }   
+    .box-absolute .Unterelement {
+            width: calc(50% - 10px);  
+        }
+    
+    
+}
+
+
+    
+
 
 
 
