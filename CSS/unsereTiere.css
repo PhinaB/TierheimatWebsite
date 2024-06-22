@@ -19,6 +19,12 @@
     display: inline-block;
 }
 
+.buttonWeiter:hover {
+    background: #FCFFF9;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
 button:hover {
     background: #FCFFF9;
     color: var(--primary-color);
@@ -66,7 +72,7 @@ select {
     padding:5px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1086px) {
     .box-containerUnsereTiere {
         justify-content:center;
         flex-wrap:wrap;
