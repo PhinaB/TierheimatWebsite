@@ -53,24 +53,52 @@
 
 
 /*wenn Bilschirmgröße 600px oder weniger, dann:*/
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 0px) {
     /*Informationen die je nach Bildschirmgröße variieren */
 
     .box-absolute {
         /*Abstand zwischen den übereinanderliegenden div-Elementen*/
         gap: 10px 10px;
+        top: 140px; 
     }
-    .Kopfelement {
-        width: 100%;  
+    .box-absolute .Kopfelement {
+        width: 100%; 
+        padding-bottom: 1%;  
     }
-    .Unterelement {
+    .box-absolute .Unterelement {
         width: 100%;  
     }
 }
 
+@media only screen and (min-width: 600px) {
+
+   /*Informationen die je nach Bildschirmgröße variieren */
+   .box-absolute {
+    display: flex;
+    justify-content:space-between;
+    align-items: center; 
+    flex-wrap:wrap;
+    top: 140px; 
+    padding-top: 2%; 
+    padding-bottom: 4%;
+    padding-left: 3%; 
+    padding-right: 3%;  
+
+    }
+
+    .box-absolute .Kopfelement {
+    width: 100%; 
+    padding-bottom: 0%; 
+    }   
+    .box-absolute .Unterelement {
+        width: calc(50% - 10px);  
+    }
+
+}
+
 
 /*wenn Bilschirmgröße 900px oder weniger, dann:*/
-@media only screen and (max-width: 900px) {
+@media only screen and (min-width: 733px) {
     
     /*Informationen die je nach Bildschirmgröße variieren */
     .box-absolute {
@@ -88,17 +116,17 @@
         padding-right: 3%; 
      }
     
-    .Kopfelement {
+    .box-absolute .Kopfelement {
         width: 100%; 
         padding-bottom: 2%; 
     }   
-    .Unterelement {
-            width: calc(50% - 10px);  
+    .box-absolute .Unterelement {
+        width: calc(50% - 10px);  
         }
    
 }
 /*wenn Bilschirmgröße 900px oder mehr, dann:*/
-@media only screen and (min-width: 900.1px) {
+@media only screen and (min-width: 900px) {
     
     /*Informationen die je nach Bildschirmgröße variieren */
     .box-absolute {
