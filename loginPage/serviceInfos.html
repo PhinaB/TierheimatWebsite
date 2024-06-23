@@ -91,18 +91,21 @@
                 <form action="..." method="post">
                     <div class="flex-containerFormularHelfen">
                         <div class="Unterstützungsart">
-                            <label for="Unterstützungsart" class="BoldText">Art der Untersützung</label>
+                            <label for="Unterstützungsart" class="BoldText">Art der Hilfe</label>
                             </br>
-                            <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Spazieren gehen (Hunde)
+                            <input type="checkbox" id="SpazierenGehen"name="Unterstützungsart" value="SpazierenGehen"/> 
+                            <label for="SpazierenGehen" class="HelfenUnterpunkt">Spazieren gehen</label>
                             </br>
-                            <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Kleintiersitting
+                            <input type="checkbox" id="Kleintiersitting" name="Unterstützungsart" value="Kleintiersitting"/> 
+                            <label for="Kleintiersitting" class="HelfenUnterpunkt">Kleintiersitting</label>
                             </br>
-                            <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Tiere füttern
+                            <input type="checkbox" id="TiereFüttern"name="Unterstützungsart" value="TiereFüttern"/> 
+                            <label for="TiereFüttern" class="HelfenUnterpunkt">Tiere füttern</label>
                             </br>
                         </div>
 
 
-                        <div>
+                        <div class="Tabelle1">
                             <label for="Datum Zeit" class="BoldText">Ich kann an folgenden Terminen:</label>
                             </br>
                             <table>
@@ -126,7 +129,7 @@
                         </div>
 
                     
-                        <div>
+                        <div class="Tabelle2">
                             <label for="Datum Zeit" class="BoldText">Ich habe wöchentlich Zeit:</label>
                             </br>
                             <table>
@@ -189,8 +192,6 @@
                         </div>
                         </br>
                     </div>
-                    
-                    </br>
 
                     <div class="FußelementFormular">
                         <button class="button" type="submit" value="Absenden">Absenden</button>
