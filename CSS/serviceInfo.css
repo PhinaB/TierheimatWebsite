@@ -30,6 +30,9 @@
 
 @media only screen and (max-width: 1600px)
 {
+    .grid, .gridIndex {
+        grid-template-columns: 3% 94% 3%;
+    }
     
     .box-containerserviceInfo {
         justify-content:center;
