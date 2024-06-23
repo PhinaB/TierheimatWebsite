@@ -8,6 +8,17 @@
 }
 
 
+h3 {
+    text-align: center; 
+    padding-bottom:20px; 
+    }
+    
+.VerweisText {
+        
+    text-decoration: underline; 
+    }
+
+
 .box-containerserviceInfo {
     display: flex; 
     flex-direction: row; 
@@ -16,15 +27,21 @@
     gap: 5px 20px; 
 }
 
+
 .box-containerserviceInfo div {
     width: 50%; 
     box-sizing: border-box;
-    padding: 15px; 
+    padding-top: 15px; 
+    padding-bottom: 15px; 
+    padding-left: 0px; 
 }
 
 .box-containerserviceInfo div img {
     width: 100%; 
     border-radius: 2px; 
+}
+.ZentrierterButton {
+    text-align: center;
 }
 
 
@@ -43,8 +60,35 @@
         width:calc(50% - 25px); 
     }
 
-    .ZentrierterButton {
-        text-align: center; 
+    .TextTrennung {
+        column-count: 1;
+        text-align: justify;  
+       
+    }
+  
+    .quadratischesBild {
+        display: block; 
+       }
+    
+    .hohesBild {
+        display: none; 
+    }
+    
+}
+
+@media only screen and (max-width: 1025px)
+{
+    .grid, .gridIndex {
+        grid-template-columns: 3% 94% 3%;
+    }
+    
+    .box-containerserviceInfo {
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .box-containerserviceInfo div {
+        width:calc(50% - 25px); 
     }
 
     .TextTrennung {
@@ -52,7 +96,13 @@
         text-align: justify;  
        
     }
-
+  
+    .quadratischesBild {
+        display: none; 
+       }
+    .hohesBild {
+        display: block; 
+    }
     
 }
 
@@ -95,6 +145,15 @@
         text-align: justify;  
        
     }
+
+    .hohesBild {
+        display: none; 
+    }
+
+    .quadratischesBild {
+        display: block; 
+    }
+   
 }
     
 @media only screen and (max-width: 600px) {
@@ -106,23 +165,20 @@
         
     }
 
-    .ZentrierterButton {
-        text-align: center; 
-    }
 
     .TextTrennung {
         column-count: 1;
         text-align: justify;  
        
     }
-}
+  
+   .hohesBild {
+    display: none; 
+   }
 
-h3 {
-text-align: center; 
-padding-bottom:20px; 
-}
-
-.VerweisText {
+   .quadratischesBild {
+    display: block; 
+   }
     
-text-decoration: underline; 
 }
+
