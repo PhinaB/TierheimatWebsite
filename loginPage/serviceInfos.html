@@ -75,54 +75,130 @@
             </div>
             
             <div class="tileBorder">
-                <h2>Helfen</h2>
-                <hr class="underHeadline" />
-                <div class="box-containerHelfen">
-                    <p class="SpaltenText">Sie wollen uns Ihre Untersützung anbieten? 
-                     </br>
-                        
-                        Füllen Sie zunächst das folgende Formular aus. 
-                        Sobald wir Ihre Informationen verarbeitet haben werden wir uns bei Ihnen melden. </p>
-                    </br>
+                <div class="KopfelementFormular">
+                    <h2>Helfen</h2>
+                    <hr class="underHeadline" />
+                    <div class="box-containerHelfen">
+                        <p class="SpaltenText">Sie wollen uns Ihre Untersützung anbieten? 
+                        </br>
+                            
+                            Füllen Sie zunächst das folgende Formular aus. 
+                            Sobald wir Ihre Informationen verarbeitet haben werden wir uns bei Ihnen melden. </p>
+                        </br>
+                    </div>
                 </div>
 
                 <form action="..." method="post">
-                    <label for="Unterstützungsart">Art der Untersützung</label>
-                    </br>
-                    <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Spazieren gehen (Hunde)
-                    </br>
-                    <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Kleintiersitting
-                    </br>
-                     <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Tiere füttern
-                     </br>
-                    <label for="Datum Zeit">Ich habe an folgenden Tagen Zeit</label>
-                    </br>
-                    <input type="date" name="Datum1" />
-                    <input type="time" name="Zeit1" />
-                    </br>
-                    <input type="date" name="Datum2" />
-                    <input type="time" name="Zeit2" />
-                    </br>
-                    <input type="date" name="Datum3" />
-                    <input type="time" name="Zeit3" />
+                    <div class="flex-containerFormularHelfen">
+                        <div class="Unterstützungsart">
+                            <label for="Unterstützungsart" class="BoldText">Art der Untersützung</label>
+                            </br>
+                            <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Spazieren gehen (Hunde)
+                            </br>
+                            <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Kleintiersitting
+                            </br>
+                            <input type="checkbox" name="Unterstützungsart" value="spazieren gehen"/> Tiere füttern
+                            </br>
+                        </div>
+
+
+                        <div>
+                            <label for="Datum Zeit" class="BoldText">Ich kann an folgenden Terminen:</label>
+                            </br>
+                            <table>
+                                <tr>
+                                    <th class="linkeSpalte">Datum</th>
+                                    <th class="rechteSpalte">Zeit</th>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte"><input type="date" name="Datum1" /></td>
+                                    <td class="rechteSpalte"><input type="time" name="Zeit1" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte"><input type="date" name="Datum2" /></td>
+                                    <td class="rechteSpalte"><input type="time" name="Zeit2" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte"><input type="date" name="Datum3" /></td>
+                                    <td class="rechteSpalte"><input type="time" name="Zeit3" /></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    
+                        <div>
+                            <label for="Datum Zeit" class="BoldText">Ich habe wöchentlich Zeit:</label>
+                            </br>
+                            <table>
+                                <tr>
+                                    <th class="linkeSpalte">Wochentag</th>
+                                    <th class="rechteSpalte">Zeit</th>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte">
+                                        <select name="Wochentag1">
+                                            <option>Bitte wählen</option>
+                                            <option>Montag</option>
+                                            <option>Diestag</option>
+                                            <option>Mittwoch</option>
+                                            <option>Donnerstag</option>
+                                            <option>Freitag</option>
+                                            <option>Samstag</option>
+                                            <option>Sonntag</option>
+                                        </select>
+                                    </td>
+                                    <td class="rechteSpalte">
+                                        <input type="time" name="Zeit1" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte">
+                                        <select name="Wochentag2">
+                                            <option>Bitte wählen</option>
+                                            <option>Montag</option>
+                                            <option>Diestag</option>
+                                            <option>Mittwoch</option>
+                                            <option>Donnerstag</option>
+                                            <option>Freitag</option>
+                                            <option>Samstag</option>
+                                            <option>Sonntag</option>
+                                        </select>
+                                    </td class="rechteSpalte">
+                                    <td>
+                                        <input type="time" name="Zeit2" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte">
+                                        <select name="Wochentag3">
+                                            <option>Bitte wählen</option>
+                                            <option>Montag</option>
+                                            <option>Diestag</option>
+                                            <option>Mittwoch</option>
+                                            <option>Donnerstag</option>
+                                            <option>Freitag</option>
+                                            <option>Samstag</option>
+                                            <option>Sonntag</option>
+                                        </select>
+                                    </td>
+                                    <td class="rechteSpalte">
+                                        <input type="time" name="Zeit3" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        </br>
+                    </div>
+                    
                     </br>
 
-                    <label for="Datum Zeit">Ich wöchentlich an folgenden Tagen zu folgenden Stunden Zeit:</label>
-                    </br>
-                    <input type="text" name="Wochentag1" />
-                    <input type="time" name="Zeit1" />
-                    </br>
-                    <input type="text" name="Wochentag2" />
-                    <input type="time" name="Zeit2" />
-                    </br>
-                    <input type="text" name="Wochentag3" />
-                    <input type="time" name="Zeit3" />
-
-                    </br>
-                </br>
-                    <button class="button" type="submit" value="Absenden">Absenden</button>
-                    <button class="button" type="reset" value="Zurücksetzen">Zurücksetzen</button>
+                    <div class="FußelementFormular">
+                        <button class="button" type="submit" value="Absenden">Absenden</button>
+                        <button class="button" type="reset" value="Zurücksetzen">Zurücksetzen</button>
+                    </div>
+                    
                 </form>
+               
 
             </div>
             </br>

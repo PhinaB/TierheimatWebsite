@@ -1,3 +1,84 @@
 .SpaltenText {
+    column-count: 1; 
+}
+
+.BoldText {
+   font-weight: bold;  
+}
+
+form > div {
+    box-sizing: border-box; 
+    margin-top: 5px; 
+    margin-bottom: 15px; 
+}
+
+input[type="checkbox"] {
+    margin-top: 10px; 
+    margin-bottom: 5px; 
+}
+
+input[type="checkbox"]:checked {
+    accent-color: var(--primary-color); 
+    
+}
+
+
+select {
+    border: 1px solid #bbbbbb;
+    box-shadow: inset 0 0 5px #dddddd;
+    background:  white;
+    border-radius: 4px;
+    line-height: 230%;
+    padding: 0px 5px;
+}
+table {
+    border-spacing: 0px 5px;
+    width: 100%; 
+   
+}
+
+th {
+    text-align:left; 
+    font-weight:normal; 
+}
+
+.linkeSpalte input {
+    width: 130px; 
+    height: 31px; 
+}
+
+.linkeSpalte select {
+    width: 142px;
+    height: 33px;  
+}
+
+.linkeSpalte {
+    width: 165px; 
+}
+
+.rechteSpalte{
+     width: auto; 
+}
+
+.FußelementFormular {
+    text-align: center; 
+}
+
+.flex-containerFormularHelfen {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly; 
+    align-items: stretch; 
+}
+.box-containerHelfen > p {
     column-count: 2; 
 }
+
+.flex-containerFormularHelfen > div {
+    width: 267px; 
+}
+
+
+
+
+
