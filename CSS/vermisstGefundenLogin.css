@@ -1,0 +1,55 @@
+.Spaltentext {
+    text-align: justify; 
+    column-count: 1; 
+}
+
+.BoldText {
+    font-weight: bold;  
+ }
+
+ .flex-containerVermisstefundenmelden > div {
+    box-sizing: border-box;
+    padding: 5px; 
+ }
+
+ .flex-containerVermisstefundenmelden {
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: nowrap; 
+    justify-content: center; 
+    
+ }
+
+ .FußelementFormular {
+    width:100%; 
+    text-align: center; 
+ }
+
+ select {
+    width: 100%;
+    height: 33px;  
+}
+
+.FeldBreite {
+    width: 97%;
+    height: 33px; 
+}
+
+textarea {
+    width: 97%; 
+    height: 150px; 
+}
+
+input[type="radio"] {
+    margin-top: 10px; 
+    margin-bottom: 5px;  
+}
+
+input[type="radio"]:last-of-type {
+    margin-left: 5%;  
+}
+
+input[type="radio"]:checked {
+    accent-color: var(--primary-color); 
+    
+}
