@@ -30,10 +30,12 @@ h3 {
     width: 50%; 
     box-sizing: border-box;
     padding-bottom: 15px; 
+    
 }
 
 .box-containerserviceInfo div + div {
-    padding-left: 10px;
+    padding-left: 30px;
+    padding-right: 30px; 
 }
 
 .box-containerserviceInfo div img {
@@ -55,8 +57,9 @@ h3 {
     }
 
     .TextTrennung {
-        column-count: 1;
-        text-align: justify;  
+        column-count: 2;
+        text-align: justify;
+        column-gap: 30px;   
        
     }
   
@@ -74,6 +77,10 @@ h3 {
 
     .box-containerserviceInfo div:last-of-type {
         width: 65%;
+    }
+
+    h3 {
+        text-align: left;
     }
     
 }
@@ -106,6 +113,10 @@ h3 {
        }
     .hohesBild {
         display: block; 
+    }
+
+    h3 {
+        text-align: left;
     }
     
 }
@@ -162,6 +173,12 @@ h3 {
     .quadratischesBild {
         display: block; 
     }
+
+    h3 {
+        text-align: center;
+    }
+
+   
    
 }
     
@@ -188,6 +205,10 @@ h3 {
    .quadratischesBild {
     display: block; 
    }
+
+   h3 {
+    text-align: center;
+}
     
 }
 
