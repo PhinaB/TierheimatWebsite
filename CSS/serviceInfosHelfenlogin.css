@@ -97,7 +97,7 @@ th {
    }
 
    .Tabelle1 {
-    width: clac(38%-6px);
+    width: calc(38%-6px);
     padding-left: 30px; 
     padding-right:30px; 
    
@@ -146,7 +146,6 @@ th {
 
 }
 
-
 /*wenn Bilschirmgröße 715px oder wenger, dann:*/
 @media only screen and (max-width: 715px) {
     .flex-containerFormularHelfen {
@@ -182,6 +181,7 @@ th {
     padding-right:25%;
     }
 }
+
 
 
 
