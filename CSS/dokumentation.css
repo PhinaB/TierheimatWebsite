@@ -15,8 +15,10 @@ header a {
 
 .container {
     max-width: 800px;
+    min-height: 950px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 40px 60px;
+    box-sizing: border-box;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -168,6 +170,39 @@ th {
         height: 400px; /* Höhe beim Hover */
         overflow: hidden;
     }
+
+.table tr:last-child {
+    background: #eee;
+}
+
+.table .time {
+    text-align: right;
+}
+
+.headlineTable {
+    background: #D0E1C2;
+}
+
+dd {
+    margin-left: 30px;
+}
+
+dt {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+dl {
+    margin: 20px 0;
+}
+
+h3 {
+    text-align:center;
+}
+
+p {
+    text-align:justify;
+}
 
 @media only screen and (max-width: 880px) {
     .container {
