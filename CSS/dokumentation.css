@@ -1,0 +1,185 @@
+main {
+    line-height: 1.6;
+}
+
+header {
+    background: var(--background-color);
+    width: 100%;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+header a {
+    margin: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+h1, h2, h3 {
+    color: #333;
+    font-weight: normal;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+    ul ul {
+        list-style-type: decimal;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+    }
+
+        ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+.section {
+    margin-top: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="file"],
+    .input-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #b6b3b3;
+}
+
+.centered {
+    text-align: center;
+}
+
+.text-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.text-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#projektanforderungen-image {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    #projektanforderungen-image img {
+        width: 200px; /* Ursprüngliche Breite */
+        height: 100px; /* Ursprüngliche Höhe */
+        transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
+        overflow: hidden;
+    }
+
+        #projektanforderungen-image img:hover {
+            width: 800px; /* Breite beim Hover */
+            height: 400px; /* Höhe beim Hover */
+            overflow: hidden;
+        }
+
+#zeitplan-und-meilensteine-image img {
+    width: 200px; /* Ursprüngliche Breite */
+    height: 100px; /* Ursprüngliche Höhe */
+    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
+    overflow: hidden;
+}
+
+    #zeitplan-und-meilensteine-image img:hover {
+        width: 800px; /* Breite beim Hover */
+        height: 400px; /* Höhe beim Hover */
+        overflow: hidden;
+    }
+
+#aufgabenaufteilung-image img {
+    width: 200px; /* Ursprüngliche Breite */
+    height: 100px; /* Ursprüngliche Höhe */
+    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
+    overflow: hidden;
+}
+
+    #aufgabenaufteilung-image img:hover {
+        width: 800px; /* Breite beim Hover */
+        height: 400px; /* Höhe beim Hover */
+        overflow: hidden;
+    }
+
+#html-struktur-image img {
+    width: 200px; /* Ursprüngliche Breite */
+    height: 100px; /* Ursprüngliche Höhe */
+    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
+    overflow: hidden;
+}
+
+    #html-struktur-image img:hover {
+        width: 800px; /* Breite beim Hover */
+        height: 400px; /* Höhe beim Hover */
+        overflow: hidden;
+    }
+
+#einbindung-von-css-image img {
+    width: 200px; /* Ursprüngliche Breite */
+    height: 100px; /* Ursprüngliche Höhe */
+    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
+    overflow: hidden;
+}
+
+    #einbindung-von-css-image img:hover {
+        width: 800px; /* Breite beim Hover */
+        height: 400px; /* Höhe beim Hover */
+        overflow: hidden;
+    }
+
+@media only screen and (max-width: 880px) {
+    .container {
+        margin:20px;
+    }
+}
