@@ -67,6 +67,14 @@ h3 {
     .hohesBild {
         display: none; 
     }
+
+    .box-containerserviceInfo div:first-of-type {
+        width: 35%;
+    }
+
+    .box-containerserviceInfo div:last-of-type {
+        width: 65%;
+    }
     
 }
 
@@ -81,9 +89,11 @@ h3 {
         flex-wrap:wrap;
     }
 
-    .box-containerserviceInfo div {
+    .box-containerserviceInfo div:first-of-type, .box-containerserviceInfo div:last-of-type {
         width:calc(50% - 25px); 
     }
+
+   
 
     .TextTrennung {
         column-count: 1;
@@ -124,9 +134,14 @@ h3 {
     .grid, .gridIndex {
         grid-template-columns: 3% 94% 3%;
     }
-    .box-containerserviceInfo div {
+    
+
+    .box-containerserviceInfo div:first-of-type {
         width: 100%;
-        
+    }
+
+    .box-containerserviceInfo div:last-of-type {
+        width: 100%;
     }
 
     .ZentrierterButton {
@@ -154,7 +169,7 @@ h3 {
     .grid, .gridIndex {
         grid-template-columns: 3% 94% 3%;
     }
-    .box-containerserviceInfo div {
+    .box-containerserviceInfo div:first-of-type, .box-containerserviceInfo div:last-of-type {
         width: 100%;
         
     }
