@@ -101,6 +101,7 @@ a {
     font-size: 1em;
     color: var(--primary-color);
     text-decoration: none;
+    transition: 0.5s;
 }
 
 a[disabled], a:hover {
@@ -147,6 +148,7 @@ h2 {
     border-radius: 4px;
     font-size: 12px;
     display: inline-block;
+    transition:0.5s;
 }
 
 .button:hover {
