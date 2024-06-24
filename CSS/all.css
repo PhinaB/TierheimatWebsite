@@ -6,7 +6,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: comic sans ms;
+    font-family: comic sans ms, Arial, sans-serif;
 }
 
 .grid, .gridIndex {
@@ -103,14 +103,6 @@ a {
     text-decoration: none;
 }
 
-.button a {
-    color: white; 
-}
-
-.button a:hoover {
-    color: white; 
-}
-
 a[disabled], a:hover {
     color: #000;
 }
@@ -119,15 +111,22 @@ a[disabled] {
     cursor: default;
 }
 
-h2 {
+h1, h2, h3 {
     font-weight: normal;
-    text-align: center;
-    font-size: 1.4em;
-    margin-bottom: 2px;
+    color: #222;
 }
 
-h3 {
-    font-weight: normal;
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom:2px;
+}
+
+h2 {
+    font-size: 1.4em;
+    margin-bottom: 2px;
 }
 
 .underHeadline {
@@ -140,7 +139,7 @@ h3 {
     margin-bottom:10px;
 }
 
-.button { /* nur f�r buttons au�erhalb des .box-container gedacht! */
+.button { /* nur für buttons außerhalb des .box-container gedacht! */
     padding: 5px 8px;
     background: var(--primary-color);
     color: #fff;
