@@ -16,6 +16,7 @@ form > div {
 input[type="checkbox"] {
     margin-top: 10px; 
     margin-bottom: 5px; 
+    
 }
 
 input[type="checkbox"]:checked {
@@ -48,6 +49,7 @@ th {
     width: 130px; 
     height: 31px; 
 }
+
 
 .linkeSpalte select {
     width: 142px;
@@ -109,6 +111,8 @@ th {
     padding-left: 30px; 
     padding-right:30px; 
    }
+
+ 
 }
 
 /*wenn Bilschirmgröße 1069px oder weniger, dann:*/
@@ -180,6 +184,28 @@ th {
     padding-bottom: 10px;
     
     }
+
+    .linkeSpalte {
+        width: 85%;
+    }
+
+    .rechteSpalte{
+        width: 15%; 
+    }
+    .linkeSpalte > input, .linkeSpalte > select{
+        width: 90%; 
+    }
+
+    .linkeSpalte > select{
+        width: 95%; 
+    }
+
+
+    .rechteSpalte > input {
+        width: 70%; 
+    }
+
+   
 }
 
 
