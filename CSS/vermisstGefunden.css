@@ -7,7 +7,6 @@
 }
 
 .box-containerVermisstGefundenMelden {
-
     display: flex; 
     flex-direction: row; 
     justify-content: center; 
@@ -36,27 +35,18 @@
     padding: 0px; 
 }
 
-
 @media only screen and (max-width: 900px) {
     .box-containerVermisstGefundenMelden {
         justify-content:center;
         flex-wrap:wrap;
     }
-
     .box-containerVermisstGefundenMelden div {
         width:100%;
     }
-
     .VerschwindendesBild  {
         display: none; 
     }
-
     .Zentriert {
         text-align: center; 
     }
-
 }
-
-
-
-

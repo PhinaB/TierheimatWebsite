@@ -19,7 +19,7 @@ header a {
     margin: 20px auto;
     padding: 40px 60px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
@@ -32,24 +32,6 @@ ul {
 .section {
     margin-top: 30px;
 }
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-    .input-group label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .input-group input[type="text"],
-    .input-group input[type="file"],
-    .input-group textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
 
 table {
     width: 100%;

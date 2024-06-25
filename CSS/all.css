@@ -1,6 +1,9 @@
 :root {
     --primary-color: #83B25B;
     --background-color: #FCFFF9;
+    --border-color: #A0A0A0;
+    --background-menu-smallDisplay: #E8F5DD;
+    --color-headlines: #222;
 }
 
 * {
@@ -114,7 +117,7 @@ a[disabled] {
 
 h1, h2, h3 {
     font-weight: normal;
-    color: #222;
+    color: var(--color-headlines);
 }
 
 h1, h2 {
@@ -171,7 +174,7 @@ h2 {
 }
 
 .tileBorder, .box-container div {
-    border: 1px solid #A0A0A0;
+    border: 1px solid var(--border-color);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }

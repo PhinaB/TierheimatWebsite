@@ -3,34 +3,6 @@
     margin-bottom: 20px;
 }
 
-.box-containerUnsereTiere div .buttonWeiter {
-    margin-left:8px;
-    margin-top:10px;
-    
-}
-
-.buttonWeiter {
-    background: var(--primary-color);
-    color: #fff;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    font-size: 0.8em; 
-    padding: 5px 8px; 
-    display: inline-block;
-}
-
-.buttonWeiter:hover {
-    background: #FCFFF9;
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
-button:hover {
-    background: #FCFFF9;
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
 p {
     font-size: 0.9em; 
 }
@@ -46,18 +18,18 @@ p {
 .box-containerUnsereTiere div {
     width: 30%;
     box-sizing: border-box;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     
 }
 
 .box-containerUnsereTiere div {
-    border: 1px solid #A0A0A0;
+    border: 1px solid var(--border-color);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
 
 .box-containerUnsereTiere div img ~ * {
-    padding: 10px 15px;
+    margin: 10px 15px;
 }
 
 .box-containerUnsereTiere div img {
@@ -88,9 +60,3 @@ select {
         width: 100%;
     }
 }
-
-
-
-
-
-
