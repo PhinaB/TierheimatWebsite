@@ -25,22 +25,9 @@ header a {
 }
 
 ul {
-    list-style-type: decimal;
-    padding-left: 20px;
+    list-style-type: none;
+    padding: 0;
 }
-
-    ul ul {
-        list-style-type: decimal;
-    }
-
-    ul li {
-        margin-bottom: 10px;
-    }
-
-        ul li a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
 
 .section {
     margin-top: 30px;
@@ -67,19 +54,32 @@ ul {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 table, th, td {
     border: 1px solid #ccc;
+    font-weight:normal;
 }
 
 th, td {
     padding: 10px;
 }
 
-th {
-    background-color: #b6b3b3;
+tr th:first-child, tr td:first-child {
+    text-align:left;
+}
+
+tfoot {
+    background: #eee;
+}
+
+.time {
+    text-align: right;
+}
+
+.headlineTable {
+    background: #D0E1C2;
 }
 
 .centered {
@@ -100,87 +100,22 @@ th {
     align-items: center;
 }
 
-#projektanforderungen-image {
+.imgEffekt {
+    width: 200px; /* Ursprüngliche Breite */
+    transition: width 0.7s ease, height 0.7s ease;
+    overflow: hidden;
+}
+
+.imgEffekt:hover {
+    width: 100%;
+    height: 100%;
+}
+
+.divAroundImgEffekt {
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-    #projektanforderungen-image img {
-        width: 200px; /* Ursprüngliche Breite */
-        height: 100px; /* Ursprüngliche Höhe */
-        transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
-        overflow: hidden;
-    }
-
-        #projektanforderungen-image img:hover {
-            width: 800px; /* Breite beim Hover */
-            height: 400px; /* Höhe beim Hover */
-            overflow: hidden;
-        }
-
-#zeitplan-und-meilensteine-image img {
-    width: 200px; /* Ursprüngliche Breite */
-    height: 100px; /* Ursprüngliche Höhe */
-    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
-    overflow: hidden;
-}
-
-    #zeitplan-und-meilensteine-image img:hover {
-        width: 800px; /* Breite beim Hover */
-        height: 400px; /* Höhe beim Hover */
-        overflow: hidden;
-    }
-
-#aufgabenaufteilung-image img {
-    width: 200px; /* Ursprüngliche Breite */
-    height: 100px; /* Ursprüngliche Höhe */
-    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
-    overflow: hidden;
-}
-
-    #aufgabenaufteilung-image img:hover {
-        width: 800px; /* Breite beim Hover */
-        height: 400px; /* Höhe beim Hover */
-        overflow: hidden;
-    }
-
-#html-struktur-image img {
-    width: 200px; /* Ursprüngliche Breite */
-    height: 100px; /* Ursprüngliche Höhe */
-    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
-    overflow: hidden;
-}
-
-    #html-struktur-image img:hover {
-        width: 800px; /* Breite beim Hover */
-        height: 400px; /* Höhe beim Hover */
-        overflow: hidden;
-    }
-
-#einbindung-von-css-image img {
-    width: 200px; /* Ursprüngliche Breite */
-    height: 100px; /* Ursprüngliche Höhe */
-    transition: width 0.5s, height 0.5s; /* Übergangseffekt für sanftes Vergrößern */
-    overflow: hidden;
-}
-
-    #einbindung-von-css-image img:hover {
-        width: 800px; /* Breite beim Hover */
-        height: 400px; /* Höhe beim Hover */
-        overflow: hidden;
-    }
-
-.table tr:last-child {
-    background: #eee;
-}
-
-.table .time {
-    text-align: right;
-}
-
-.headlineTable {
-    background: #D0E1C2;
+    margin-top: 10px;
 }
 
 dd {
