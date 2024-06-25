@@ -139,6 +139,12 @@ p {
     text-align:justify;
 }
 
+.backButton {
+    text-align: right;
+    padding-top: 20px;
+    display: block;
+}
+
 @media only screen and (max-width: 880px) {
     .container {
         margin:20px;
