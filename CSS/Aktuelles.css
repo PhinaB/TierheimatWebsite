@@ -1,0 +1,50 @@
+/*.box-containerNeuigkeiten1 {
+    display: flex; 
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px 20px;
+  
+}
+
+.box-containerNeuigkeiten1 div {
+    width: 30%;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    
+}
+
+.box-containerNeuigkeiten1 div {
+    border: 1px solid #A0A0A0;
+    box-shadow: 0 0 10px 0 rgba(255, 254, 254, 0.2);
+    border-radius: 4px;
+}
+
+.box-containerNeuigkeiten1 div img {
+    padding: 10px 15px;
+}
+
+.box-containerNeuigkeiten1 div img {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+*/
+.buttonZumArtiekl {
+    background: #83B25B;
+    color: #fff;
+    border: 1px solid #83B25B;
+    border-radius: 4px;
+    font-size: 0.8em; 
+}
+
+button:hover {
+    background: #FCFFF9;
+    color: #83B25B;
+    cursor: pointer;
+}
+
+p {
+    font-size: 0.9em; 
+}
+

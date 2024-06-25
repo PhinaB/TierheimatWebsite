@@ -3,13 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../CSS/menu.css" />
     <link rel="stylesheet" href="../CSS/all.css" />
     <link rel="stylesheet" href="../CSS/footer.css" />
-
+    <link rel="stylesheet" href="../CSS/Aktuelles.css"/>
+    <script src="https://kit.fontawesome.com/7e7cac5bab.js" crossorigin="anonymous"></script> 
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
-
     <title>Tierheimat</title>
     <style>
         .onlySmallMenu {
@@ -21,6 +20,114 @@
                 display: inline;
             }
         }
+
+        .box-containerNeuigkeiten {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: auto;
+            /*padding: 0;     /* nachträglich noch eingefügt, diese und kommende Zeile als Kommentar entfernen um den Rahmen der Box einzubleneden */
+            /*border: none; */
+        }
+
+        .box-containerNeuigkeiten .item {
+            display: flex;
+            width: 100%;
+        }
+
+        .box-containerNeuigkeiten .item img {
+            width: 50%;
+            object-fit: cover; /* Passt das Bild an den Container an */
+        }
+
+        .box-containerNeuigkeiten .description {
+            width: 50%;
+            padding: 10px; /* Fügt Abstand innerhalb der Beschreibung hinzu */
+            box-sizing: border-box;
+        }
+
+        .box-containerNeuigkeiten1 {
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); /*drei gleich große Spalten */
+            gap: 20px;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 1200px; /* auf maximale Breite gesetzt */
+            padding: 0;
+            border: none;
+            background-color: transparent;
+        }
+
+        .box-containerNeuigkeiten1 .item {
+            border: 1px solid #A0A0A0;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            margin: 0;
+        }
+
+        .box-containerNeuigkeiten1 .item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .box-containerNeuigkeiten1 .description {
+            padding: 15px;
+            flex: 1; /* "erlaubt flex-Elemente zu wachsen" */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .box-containerNeuigkeiten1 .description p {
+            display: none; /* Versteckt die Anzeige bis der Button gedrückt wird, dann klappt es aus */
+        }
+
+        .box-containerNeuigkeiten1 .description.active p {
+            display: block; /* hier die Betätigung des Buttons zum Ausklappen des Textes */
+        }
+
+        .box-containerNeuigkeiten1 .description p:first-of-type {
+            display: block; /* Zeigt den ersten Absatz automatisch an */
+        }
+
+        .box-containerNeuigkeiten1 .item:hover {
+            transform: translateY(-10px); /* effeckt zum anheben des Elements */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            /*background-color: #007bff;
+            color: white;*/
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button a {
+            /*color: white;*/
+            text-decoration: none;
+        }
+
+        .buttonZumArtikel {
+            margin-top: 10px;
+            padding: 8px 16px;
+            /*background-color: #007bff;
+            color: white;*/
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -31,10 +138,9 @@
                     <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
-
             <div id="menuRight">
-                <a href="../index.html" draggable="false">
-                    <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
+                <a href="../index.html" draggable="false"> <!-- Verlinkt auf Startseite und deaktiviert drag and drop -->
+                    <i class="fa-solid fa-house menuIcon onlySmallMenu"></i> <!-- sind die Icons für kleines Menü, hier z.B Haus-->
                     Start
                 </a>
                 <a href="unsereTiere.html" draggable="false">
@@ -62,43 +168,165 @@
     </header>
     <div class="grid">
         <main>
-            <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
-                >
-                <a disabled="disabled" draggable="false">Aktuelles</a>
+           
+            <div>
+                <br>
+                <h2>Neues aus dem Tierheim</h2>
+                <hr class="underHeadline" />
+                <div class="box-containerNeuigkeiten tileBorder">
+                    <div class="item">
+                        <img src="../img/Ausbau Tierheim.jpg" alt="Ausbau des Tierheims" />
+                        <div class="description">
+                            <p style="text-align: center;"><b>ERWEITERUNG DES TIERHEIMES</b></p>
+                            <br>
+                            <p>
+                                Sehr geehrte Unterstützer und Freunde unseres Tierheims,<br>
+                                wir freuen uns sehr, Ihnen mitteilen zu können, dass die bauliche Erweiterung unseres Tierheims erfolgreich begonenn hat.<br>
+                                Dank Ihrer großzügigen Spenden und Unterstützung konnten wir neue Unterkünfte und moderne Einrichtungen für unsere Tiere schaffen.<br>
+                                <br>
+                                Diese Erweiterung ermöglicht es uns, noch mehr Tieren in Not zu helfen und ihnen ein vorübergehendes Zuhause zu bieten.
+                                Ein herzliches Dankeschön an alle Spender, freiwilligen Helfer und Partner, die dieses Projekt möglich gemacht haben. <br>
+                                Ihr Engagement und Ihre Großzügigkeit sind ein bedeutender Beitrag zu unserem gemeinsamen Ziel, den Tieren in unserer Obhut das bestmögliche Leben zu ermöglichen. <br>
+                            </p><!--
+                            <button class="buttonZumArtikel">Zum Artikel</button>-->
+                            <!-- wenn Ihr den Button eingefügt haben wollt, bitte oberen KOmmentar entfernen (: -->
+                        </div>
+                    </div>
+                </div>
+                <br>
             </div>
-            nur hier rein schreiben
+            <br>
+            <h2>Weitere Artikel</h2>
+                <hr class="underHeadline" />
+            <div class="box-containerNeuigkeiten1 tileBorder">
+                <div class="item">
+                    <img src="../img/Tierheim-Fest.jfif" alt="15. Jahre Tierheimat" />
+                    <div class="description">
+                        <p style="text-align: center;"><br><b>15. Jahre Tierheimat</b></p>
+                        <br>
+                        <!-- Nach jedem Satz ein <br> wie oben oder ist es dann zu viel des ausgeklappten Textes? -->
+                        <p>
+                            Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück. 
+                            Seit unserer Gründung haben wir unzähligen Tieren ein vorübergehendes Zuhause gegeben und sie erfolgreich in liebevolle Familien vermittelt. 
+                            Dank der großartigen Unterstützung unserer Spender und freiwilligen Helfer konnten wir stetig wachsen und unsere Einrichtungen modernisieren. 
+                            Ein besonderes Highlight unseres Jubiläumsjahres ist die Erweiterung unseres Geländes, die es uns ermöglicht, noch mehr Tiere aufzunehmen. 
+                            Wir laden alle Unterstützer und Freunde herzlich ein, dieses besondere Ereignis mit uns zu feiern und auf viele weitere erfolgreiche Jahre anzustoßen.
+                        </p>
+                        <button class="button">Zum Artikel</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../img/Pokal.jpg" alt="Pokal" />
+                    <div class="description">
+                        <p style="text-align: center;"><br><b>Sieger des Thüringer Tierheimwettbewerb</b></p>
+                        <br>
+                        <p>
+                            Wir freuen uns außerordentlich, bekannt zu geben, dass unser Tierheim den Thüringer Tierheimwettbewerb gewonnen hat. 
+                            Diese Auszeichnung ist ein Beweis für das unermüdliche Engagement unseres Teams und die kontinuierliche Unterstützung unserer Gemeinschaft. 
+                            Der Wettbewerb bewertet Tierheime nach Kriterien wie Tierpflege, Hygienestandards und Öffentlichkeitsarbeit. 
+                            Unser Erfolg in diesem Wettbewerb motiviert uns, weiterhin höchste Standards zu halten und uns stets zu verbessern. 
+                            Wir sind stolz auf diese Anerkennung und danken allen, die zu diesem Erfolg beigetragen haben.
+                        </p>
+                        <button class="button">Zum Artikel</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../img/Tierarzt Student.jpg" alt="Veterinärstudent" />
+                    <div class="description">
+                        <p style="text-align: center;"><br><b>Wir begrüßen unsere neuen Veterinärstudenten!</b></p>
+                        <br>
+                        <p>
+                            Wir heißen einen neuen Veterinärstudenten in unserem Team herzlich willkommen. 
+                            Seine frischen Kenntnisse und seine Leidenschaft für die Tiermedizin werden eine wertvolle Bereicherung für unser Tierheim sein. 
+                            Der Student wird in den kommenden Monaten praktische Erfahrungen sammeln und unser erfahrenes Veterinärteam unterstützen. 
+                            Wir freuen uns darauf, ihn bei seiner Ausbildung zu begleiten und von seinem Enthusiasmus zu profitieren. Gemeinsam werden wir die bestmögliche Versorgung für unsere tierischen Bewohner sicherstellen.
+                        </p>
+                        <button class="button">Zum Artikel</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../img/Friedhof.jpg" alt="Ruhestätte" />
+                    <div class="description">
+                        <p style="text-align: center;"><br><b>Erneuerung der Ruhestätte</b></p>
+                        <br>
+                        <p>
+                            Mit großem Respekt und Hingabe haben wir die Ruhestätte unseres Tierheims erneuert. 
+                            Dieser Ort bietet den Tieren, die uns verlassen haben, eine würdige letzte Ruhe. 
+                            Die Renovierung umfasst neue Gedenktafeln, gepflegte Grünflächen und eine ruhige Atmosphäre, die zum Verweilen und Gedenken einlädt. 
+                            Wir sind dankbar für die Unterstützung unserer Spender, die diese Erneuerung ermöglicht haben. 
+                            Die Ruhestätte ist ein Symbol für unsere tiefe Verbundenheit und Dankbarkeit gegenüber den Tieren, die Teil unserer Gemeinschaft waren.
+                        </p>
+                        <button class="button">Zum Artikel</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../img/glückliche Katze.jpg" alt="Erfolgreiche Tiervermittlung" />
+                    <div class="description">
+                        <p style="text-align: center;"><br><b>Erfolgreiche Tiervermittlung</b></p>
+                        <br>
+                        <p>
+                            In den letzten Monaten konnten wir zahlreiche Tiere erfolgreich in liebevolle Zuhause vermitteln. 
+                            Dank der intensiven Betreuung und Pflege in unserem Tierheim haben die Tiere die besten Voraussetzungen, sich gut in ihren neuen Familien einzuleben. 
+                            Wir sind stolz auf die Fortschritte, die unsere Schützlinge gemacht haben, und danken allen Adoptivfamilien für ihr Vertrauen und ihre Unterstützung. 
+                            Die glücklichen Gesichter der neuen Besitzer und die positive Entwicklung der Tiere motivieren uns, unsere Arbeit mit derselben Hingabe fortzusetzen.
+                        </p>
+                        <button class="button">Zum Artikel</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../img/Tierschutz.png" alt="Erfolgreiche Spendenaktion" />
+                    <div class="description">
+                        <p style="text-align: center;"><br><b>Erfolgreiche Spendenaktion</b></p>
+                        <br>
+                        <p>
+                            Unsere jüngste Spendenaktion war ein großer Erfolg! Dank der Großzügigkeit unserer Unterstützer konnten wir eine beträchtliche Summe sammeln, die direkt in die Verbesserung der Lebensbedingungen unserer Tiere fließt. 
+                            Mit den gesammelten Mitteln werden neue Spielgeräte, verbessertes Futter und medizinische Versorgung finanziert. 
+                            Wir sind überwältigt von der Hilfsbereitschaft und dem Engagement unserer Gemeinschaft und danken jedem Einzelnen, der zu diesem Erfolg beigetragen hat. 
+                            Gemeinsam können wir das Leben unserer Tiere nachhaltig verbessern.
+                        </p>
+                        <button class="button">Zum Artikel</button>
+                    </div>
+                </div>
+            </div>
         </main>
-        <footer>
-            <div>
-                <h4>KONTAKT</h4>
-                <p>
-                    Adresse: Musterstraße 2<br />
-                    12345 Musterhausen<br />
-                    E-Mail: <a href="mailto:muster@tierheimat.de">muster@tierheimat.de</a><br />
-                    Telefon:  0123 4567892
-                </p>
-            </div>
-            <div class="secondFooterChild">
-                <h4>ÖFFNUNGSZEITEN</h4>
-                <p>
-                    Mo - Fr: 10 - 18 Uhr<br />
-                    Sa: 8 - 18 Uhr
-                </p>
-            </div>
-            <div>
-                <h4>UNSER SPENDENKONTO</h4>
-                <p>
-                    Tierheimat e.V.<br />
-                    Tierheimbank Erfurt<br />
-                    IBAN: DE12 3456 7890 1234 1234 55<br />
-                    BIC: ABCDEFGH
-                </p>
-            </div>
-        </footer>
-        <div class="underFooter"><a href="impressum.html">Impressum</a> | &copy; 2024 Tierheimat e.V.</div>
     </div>
-
-    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <br>
+    <footer>
+        <div>
+            <h4>KONTAKT</h4>
+            <p>
+                Adresse: Musterstraße 2<br />
+                12345 Musterhausen<br />
+                E-Mail: muster@tierheimat.de<br />
+                Telefon:  0123 4567892
+            </p>
+        </div>
+        <div class="secondFooterChild">
+            <h4>ÖFFNUNGSZEITEN</h4>
+            <p>
+                Mo - Fr: 10 - 18 Uhr<br />
+                Sa: 8 - 18 Uhr
+            </p>
+        </div>
+        <div>
+            <h4>UNSER SPENDENKONTO</h4>
+            <p>
+                Tierheimat GmbH<br />
+                Tierheimbank Erfurt<br />
+                IBAN: DE12 3456 7890 1234 1234 55<br />
+                BIC: ABCDEFGH
+            </p>
+        </div>
+    </footer>
+    <div class="underFooter"><a href="impressum.html">Impressum</a> | &copy; 2024 Tierheimat GmbH</div>
+</div>
+<script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+<script>
+    document.querySelectorAll('.button').forEach(button => {
+        button.addEventListener('click', function() {
+            this.closest('.description').classList.toggle('active');
+        });
+    });
+</script>
 </body>
 </html>
