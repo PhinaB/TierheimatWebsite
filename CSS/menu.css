@@ -51,7 +51,9 @@ nav a[disabled], nav a:hover {
 }
 
 nav a[disabled]::after {
-    background: var(--background-color);
+    transform: none;
+    transition: none;
+    width: 0;
 }
 
 .onlySmallMenu {
