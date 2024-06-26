@@ -1,6 +1,6 @@
 /*Informationen die für die Weiterlesen-Boxen allgemein gelten */
 .box-absolute { 
-    position: absolute;
+    position: fixed;
 
     display: flex; 
     flex-wrap: nowrap; 
@@ -22,6 +22,9 @@
     height: auto;
 }
 
+.BoldText {
+    font-weight: bold; 
+}
 .Unterelement {
     width: 100%;
 }
@@ -87,6 +90,20 @@
     .Unterelement {
         width: calc(50% - 10px);  
         }  
+
+    .TextTrennung {
+        column-count: 2;
+        text-align: justify;
+        column-gap: 30px;   
+           
+        }
+
+        .niedrigesBild {
+            display: none; 
+        }
+        .hohesBild {
+            display: block; 
+        }
 }
 
 /*wenn Bilschirmgröße 1277px oder weniger, dann:*/
@@ -114,62 +131,170 @@
     .Unterelement {
         width: calc(50% - 10px);  
         }  
+
+    .TextTrennung {
+        column-count: 2;
+        text-align: justify;
+        column-gap: 30px;   
+        }
 }
 
+@media only screen and (max-width: 1123px) {
+    .box-absolute {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column; 
+        justify-content:space-between;
+        align-items: stretch; 
+     
+        top: 65px; 
+        height: 600px; 
+       
+        min-height: 200px;
+        padding-top: 2%; 
+        padding-bottom: 4%;
+        padding-left: 2%; 
+        padding-right: 3%; 
+     }
+    
+    .Kopfelement {
+        width: 100%; 
+        padding-bottom: 0%; 
+    }  
+    
+    .TextTrennung {
+        column-count: 2;
+        text-align: justify;
+        column-gap: 30px;   
+        }
+
+    .Unterelement {
+        width: 98%;
+        display: block;
+        padding-left: 1%; 
+        padding-right: 1%;   
+    }
+
+  
+
+    .niedrigesBild {
+        display: block; 
+    }
+    .hohesBild {
+        display: none; 
+    }
+
+    .Unterelement .niedrigesBild {
+        display: block;
+        margin: auto;
+        width: 40%;    
+    }   
+   
+
+    .Unterelement {
+        align-items: center; 
+    }
+}
 
 
 /*wenn Bilschirmgröße 900px oder weniger, dann:*/
 @media only screen and (max-width: 900px) {
 
     .box-absolute {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content:space-between;
-        align-items: stretch; 
+        
      
-        top: 140px; 
-       
-        min-height: 200px;
-        padding-top: 2%; 
-        padding-bottom: 4%;
-        padding-left: 3%; 
-        padding-right: 3%; 
+        top: 135px; 
+        
      }
-    
-    .Kopfelement {
-        width: 100%; 
-        padding-bottom: 2%; 
-    }   
-    .Unterelement {
-        width: calc(50% - 10px);  
+
+     .Scrollbar {
+        
+        overflow: scroll; 
+        scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
+        scrollbar-width: thin; 
+        border-radius: 4px 4px 4px 4px;
     }
+
+    .Unterelement .niedrigesBild {
+        width: 40%;    
+    } 
    
 }
 
 /*wenn Bilschirmgröße 733px oder weniger, dann:*/
-@media only screen and (max-width: 733px) {
-    
+ @media only screen and (max-width: 882px)
+ {
     .box-absolute {
-         display: flex;
-         justify-content:space-between;
-         align-items: center; 
-         flex-wrap:wrap;
-         top: 140px; 
-         padding-left: 5%;
+        display: flex;
+        flex-direction: column; 
+        justify-content:space-between;
+        align-items: center; 
+        flex-wrap:nowrap;
+        top: 135px; 
+        padding-left: 5%;
         padding-right: 5%;
-        padding-top: 3%;
-        padding-bottom: 5%;  
-     }
-    .Kopfelement {
-         width: 100%; 
-         padding-bottom: 0%; 
-     }   
-     .Unterelement {
-         width: calc(50% - 10px);  
-     }
+        padding-top: 2%;
+        padding-bottom: 5%; 
+        height: 600px; 
+    }
+   .Kopfelement {
+        width: 100%; 
+        padding-bottom: 0%; 
+    }   
+    .Unterelement {
+        width: 100%; 
+        display: block; 
+        padding-left: 5px; 
+        padding-right: 5px; 
+
+    }
+
+    
+    .Unterelement .niedrigesBild {
+        width: 40%; 
+        
+    }   
+   
+
+    .TextTrennung {
+        column-count: 2;
+        text-align: justify;
+        column-gap: 30px;   
+        }
+
+    .Scrollbar {
+        
+        overflow: scroll; 
+        scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
+        scrollbar-width: thin; 
+        border-radius: 4px 4px 4px 4px;
+    }
+
+    .hohesBild {
+        display: none; 
+    }
+
+    .niedrigesBild {
+        display: block; 
+    }
+
  }
 
- @media only screen and (max-width: 733px)
+ @media only screen and (max-width: 620px){
+    .TextTrennung {
+        column-count: 1;
+        text-align: justify;   
+        }
+
+        .Unterelement .niedrigesBild {
+            width: 60%; 
+            
+        }   
+ }
+
+
+
+ @media only screen and (max-width: 570px)
  {
     .box-absolute {
         display: flex;
@@ -180,16 +305,44 @@
         top: 140px; 
         padding-left: 5%;
         padding-right: 5%;
-        padding-top: 3%;
+        padding-top: 2%;
         padding-bottom: 5%; 
+        height: 600px; 
     }
    .Kopfelement {
         width: 100%; 
         padding-bottom: 0%; 
     }   
     .Unterelement {
-        width: 100%;  
-    } 
+        width: 95%; 
+        display: block; 
+        padding-left: 5px; 
+        padding-right: 5px; 
+
+    }
+
+    .TextTrennung {
+        column-count: 1;
+        text-align: justify;
+           
+           
+        }
+
+    .Scrollbar {
+        
+        overflow: scroll; 
+        scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
+        scrollbar-width: thin; 
+        border-radius: 4px 4px 4px 4px;
+       
+    }
+
+    .hohesBild {
+        display: none; 
+    }
+
+    .niedrigesBild {
+        display: block; 
+    }
+
  }
-
-
