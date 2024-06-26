@@ -12,6 +12,7 @@ p {
     justify-content: space-between;
     align-items: stretch;
     gap: 30px 20px;
+    z-index: 0; 
   
 }
 
