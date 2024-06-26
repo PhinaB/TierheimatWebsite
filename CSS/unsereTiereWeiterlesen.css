@@ -1,6 +1,11 @@
 /*Informationen die für die Weiterlesen-Boxen allgemein gelten */
-.box-absolute {
+.box-absolute { 
     position: absolute;
+
+    display: flex; 
+    flex-wrap: nowrap; 
+    flex-direction: row;
+
     box-sizing: border-box;
     left: 5%;
     right: 5%;
@@ -23,9 +28,10 @@
   
 .Kopfelement {
     width: 100%; 
+    padding-bottom: 1%; 
 }
 
-.box-absolute .Kopfelement a img{
+.Kopfelement a img{
     width: 20px;
     float: right; 
 }
@@ -34,59 +40,90 @@
     display: inline; 
 }
 
-.box-absolute .Unterelement img {   
+.Unterelement img {   
     border-radius: 2px; 
     width: 100%; 
 }
 
-
-/*wenn Bilschirmgröße 600px oder weniger, dann:*/
-@media only screen and (min-width: 0px) {                             /* Wird das noch benötigt?? */
-    /*Informationen die je nach Bildschirmgröße variieren */
-
-    .box-absolute {
-        /*Abstand zwischen den übereinanderliegenden div-Elementen*/
-        gap: 10px 10px;
-        top: 140px; 
-    }
-    .box-absolute .Kopfelement {
-        width: 100%; 
-        padding-bottom: 1%;  
-    }
-    .box-absolute .Unterelement {
-        width: 100%;  
-    }
+.Unterelement {
+    width: 100%;  
 }
 
-@media only screen and (min-width: 600px) {
-   /*Informationen die je nach Bildschirmgröße variieren */
-   .box-absolute {
+.box-absolute {
+    /*Abstand zwischen den übereinanderliegenden div-Elementen*/
+    gap: 10px 10px;
+    top: 140px; 
+}
+
+
+
+
+
+
+
+
+/*wenn Bilschirmgröße 2000px oder weniger, dann:*/
+@media only screen and (max-width: 2000px) {
+    
+    
+    .box-absolute {
         display: flex;
         justify-content:space-between;
         align-items: center; 
+        z-index: 1;
         flex-wrap:wrap;
-        top: 140px; 
+        top: 80px; 
         padding-top: 2%; 
         padding-bottom: 4%;
         padding-left: 3%; 
-        padding-right: 3%; 
-    }
-    .box-absolute .Kopfelement {
+        padding-right: 3%;  
+    
+        }
+
+    .Kopfelement {
         width: 100%; 
-        padding-bottom: 0%; 
-    }   
-    .box-absolute .Unterelement {
+        padding-bottom: 1%; 
+        }   
+    .Unterelement {
         width: calc(50% - 10px);  
-    }
+        }  
 }
 
-/*wenn Bilschirmgröße 900px oder weniger, dann:*/
-@media only screen and (min-width: 733px) {
+/*wenn Bilschirmgröße 1277px oder weniger, dann:*/
+@media only screen and (max-width: 1277px) {
     
-    /*Informationen die je nach Bildschirmgröße variieren */
+    
     .box-absolute {
         display: flex;
+        justify-content:space-between;
+        align-items: center; 
+        z-index: 1;
         flex-wrap:wrap;
+        top: 65px; 
+        padding-top: 2%; 
+        padding-bottom: 4%;
+        padding-left: 3%; 
+        padding-right: 3%;  
+    
+        }
+
+    .Kopfelement {
+        width: 100%; 
+        padding-bottom: 1%; 
+        }   
+    .Unterelement {
+        width: calc(50% - 10px);  
+        }  
+}
+
+
+
+/*wenn Bilschirmgröße 900px oder weniger, dann:*/
+@media only screen and (max-width: 900px) {
+
+    .box-absolute {
+        display: flex;
+        flex-wrap: wrap;
         justify-content:space-between;
         align-items: stretch; 
      
@@ -99,40 +136,60 @@
         padding-right: 3%; 
      }
     
-    .box-absolute .Kopfelement {
+    .Kopfelement {
         width: 100%; 
         padding-bottom: 2%; 
     }   
-    .box-absolute .Unterelement {
+    .Unterelement {
         width: calc(50% - 10px);  
     }
    
 }
-/*wenn Bilschirmgröße 900px oder mehr, dann:*/
-@media only screen and (min-width: 900px) {
+
+/*wenn Bilschirmgröße 733px oder weniger, dann:*/
+@media only screen and (max-width: 733px) {
     
-    /*Informationen die je nach Bildschirmgröße variieren */
+    .box-absolute {
+         display: flex;
+         justify-content:space-between;
+         align-items: center; 
+         flex-wrap:wrap;
+         top: 140px; 
+         padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 3%;
+        padding-bottom: 5%;  
+     }
+    .Kopfelement {
+         width: 100%; 
+         padding-bottom: 0%; 
+     }   
+     .Unterelement {
+         width: calc(50% - 10px);  
+     }
+ }
+
+ @media only screen and (max-width: 733px)
+ {
     .box-absolute {
         display: flex;
+        flex-direction: column; 
         justify-content:space-between;
         align-items: center; 
-        z-index: 1;
-        flex-wrap:wrap;
-        top: 70px; 
-        padding-top: 2%; 
-        padding-bottom: 4%;
-        padding-left: 3%; 
-        padding-right: 3%;  
-    
-        }
-
-    .box-absolute .Kopfelement {
+        flex-wrap:nowrap;
+        top: 140px; 
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 3%;
+        padding-bottom: 5%; 
+    }
+   .Kopfelement {
         width: 100%; 
-        padding-bottom: 1%; 
-        }   
-    .box-absolute .Unterelement {
-            width: calc(50% - 10px);  
-        }
-    
-    
-}
+        padding-bottom: 0%; 
+    }   
+    .Unterelement {
+        width: 100%;  
+    } 
+ }
+
+
