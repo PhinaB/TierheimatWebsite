@@ -25,9 +25,7 @@
 .BoldText {
     font-weight: bold; 
 }
-.Unterelement {
-    width: 100%;
-}
+
   
 .Kopfelement {
     width: 100%; 
@@ -39,6 +37,9 @@
     float: right; 
 }
 
+.Unterelement {
+    width: 100%;
+}
 /* div um das Bild mit der Klasse BildWeiter */
 .BildWeiter {
     display: flex;
@@ -111,12 +112,12 @@
            
         }
 
-        .niedrigesBild {
-            display: none; 
-        }
-        .hohesBild {
-            display: flex; 
-        }
+    .niedrigesBild {
+        display: none; 
+    }
+    .hohesBild {
+        display: flex; 
+    }
     
 }
 
@@ -221,6 +222,14 @@
         width: 80%;
         height: auto;
     } 
+
+    .Scrollbar {
+        
+        overflow: scroll; 
+        scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
+        scrollbar-width: thin; 
+        border-radius: 4px 4px 4px 4px;
+    }
     
 
    
@@ -234,13 +243,7 @@
         top: 135px; 
      }
 
-     .Scrollbar {
-        
-        overflow: scroll; 
-        scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
-        scrollbar-width: thin; 
-        border-radius: 4px 4px 4px 4px;
-    }
+   
 
     .niedrigesBild {
         width: 40%;
