@@ -3,9 +3,30 @@
     margin-bottom: 20px;
 }
 
+.außenboxBildwechsel {
+    width: 100%; 
+    height: 80%; 
+    box-sizing: border-box;
+    border: solid black; 
+    overflow: hidden; 
+}
+
+/* Bildwechsel */
+a.bildwechsel1 { 
+    display:block;
+    background-image:url(../img/Lila2.jpg);
+    width: 100%; height: 200px;
+    background-size: 100% auto; 
+     }
+a.bildwechsel1:hover { 
+    background-image:url(../img/Lila.jpg);
+    background-size: 66% 100%;
+ }
+
 p {
     font-size: 0.9em; 
 }
+
 
 .box-containerUnsereTiere {
     display: flex; 
@@ -16,14 +37,15 @@ p {
   
 }
 
-.box-containerUnsereTiere div {
+.box-containerUnsereTiere > div {
     width: 30%;
+    height: auto; 
     box-sizing: border-box;
     padding-bottom: 10px;
     
 }
 
-.box-containerUnsereTiere div {
+.box-containerUnsereTiere > div {
     border: 1px solid var(--border-color);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -38,7 +60,10 @@ p {
     border-top-right-radius: 2px;
     border-bottom: 1px solid #eee;
     width: 100%;
+     
 }
+
+
 
 select {
     font-size: 12px;
@@ -50,14 +75,14 @@ select {
         justify-content:center;
         flex-wrap:wrap;
     }
-    .box-containerUnsereTiere div {
+    .box-containerUnsereTiere > div {
         width:calc(50% - 25px);
     }
 }
 
 @media only screen and (max-width: 650px) {
     
-    .box-containerUnsereTiere div {
+    .box-containerUnsereTiere > div {
         width: 100%;
     }
 }
