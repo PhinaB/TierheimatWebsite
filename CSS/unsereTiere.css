@@ -4,23 +4,27 @@
 }
 
 .außenboxBildwechsel {
-    width: 100%; 
-    height: 80%; 
+    width: 100%;
     box-sizing: border-box;
-    border: solid black; 
-    overflow: hidden; 
+    overflow: hidden;
+    position: relative;
+    padding-bottom: calc(100%/(3/2));
 }
 
 /* Bildwechsel */
-a.bildwechsel1 { 
-    display:block;
-    background-image:url(../img/Lila2.jpg);
-    width: 100%; height: 200px;
-    background-size: 100% auto; 
-     }
+a.bildwechsel1 {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../img/Lila2.jpg);
+    background-size: cover;
+    background-position: center;
+}
 a.bildwechsel1:hover { 
     background-image:url(../img/Lila.jpg);
-    background-size: 66% 100%;
  }
 
 p {
@@ -51,7 +55,7 @@ p {
     border-radius: 4px;
 }
 
-.box-containerUnsereTiere div img ~ * {
+.box-containerUnsereTiere div img ~ *, .box-containerUnsereTiere div div ~ * {
     margin: 10px 15px;
 }
 
