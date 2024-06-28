@@ -221,7 +221,6 @@ textarea {
     overflow: hidden;
     position: relative;
     border-radius: 4px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 a.bildwechsel, a.bildwechsel::before, a.bildwechsel::after {
@@ -244,6 +243,10 @@ a.bildwechsel:hover::before, a.bildwechsel::after {
 
 a.bildwechsel:hover::after, a.bildwechsel::before {
     opacity: 1;
+}
+
+.schattenBild, .aussenboxBildwechsel {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 1600px) {
