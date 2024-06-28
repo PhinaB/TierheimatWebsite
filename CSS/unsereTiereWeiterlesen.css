@@ -32,9 +32,16 @@
     padding-bottom: 1%; 
 }
 
-.Kopfelement a img{
-    width: 20px;
+.Kopfelement a i{
     float: right; 
+    font-size: 1.5em; 
+    color: black; 
+}
+
+.Kopfelement a i:hover{
+    float: right;
+    color: var(--primary-color);
+    
 }
 
 .Unterelement {
@@ -84,6 +91,7 @@
     
     
     .box-absolute {
+        position: absolute;
         display: flex;
         justify-content:space-between;
         align-items: center; 
@@ -127,6 +135,7 @@
     
     .box-absolute {
         display: flex;
+       
         justify-content:space-between;
         align-items: center; 
         z-index: 1;
@@ -176,6 +185,7 @@
 @media only screen and (max-width: 1123px) {
     .box-absolute {
         display: flex;
+        position: fixed;
         flex-wrap: nowrap;
         flex-direction: column; 
         justify-content:space-between;
@@ -305,6 +315,7 @@
 
     .niedrigesBild {
         display: flex; 
+        width: 60%; 
     }
 
     
@@ -364,6 +375,11 @@
 
     .niedrigesBild {
         display: flex; 
+        width: 100%; 
+    }
+
+    .niedrigesBild:hover { 
+        width: 100%; 
     }
 
 
