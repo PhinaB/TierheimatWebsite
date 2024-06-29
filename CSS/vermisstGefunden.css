@@ -1,9 +1,17 @@
-.KursivText {
+.kursivText {
     font-style: italic; 
 }
 
-.BoldText {
+.vermisstGefundenText > h3{
+    padding-bottom: 15px; 
+}
+
+.boldText {
     font-weight: bold; 
+}
+
+.marginTopFirstElement > div p:first-of-type {
+    margin-top: 10px; 
 }
 
 p.untertext.absatzfrei {
@@ -27,7 +35,7 @@ p.untertext.absatzfrei {
     box-sizing: border-box;
 }
 
-.VermisstGefundenText {
+.vermisstGefundenText {
     padding-right: 10px;
     padding-left: 10px; 
 }
@@ -50,10 +58,10 @@ p.untertext.absatzfrei {
     .box-containerVermisstGefundenMelden div {
         width:100%;
     }
-    .VerschwindendesBild  {
+    .verschwindendesBild  {
         display: none; 
     }
-    .Zentriert {
+    .zentriert {
         text-align: center; 
     }
 }

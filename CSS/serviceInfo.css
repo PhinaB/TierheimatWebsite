@@ -1,24 +1,22 @@
-.SpendenkontoAngaben {
+.spendenkontoAngaben {
     font-size: 0.8em; 
 }
 
-.EingerückterText {
+.eingerückterText {
     text-indent: 2px;
     width: 100px; 
 }
 
-.TextTrennung {
+.textTrennung {
     column-count: 2;
     text-align: justify;
     column-gap: 30px;   
-   
 } 
+
 h3 {
     text-align: center; 
     padding-bottom:20px; 
-    }
-
-
+}
 
 .box-containerserviceInfo {
     display: flex; 
@@ -27,12 +25,10 @@ h3 {
     align-items: center; 
 }
 
-
 .box-containerserviceInfo > div {
     width: 50%; 
     box-sizing: border-box;
     padding-bottom: 15px; 
-    
 }
 
 .box-containerserviceInfo div + div {
@@ -46,13 +42,14 @@ h3 {
     padding-left: 0;
 }
 
-.ZentrierterButton {
+.zentrierterButton {
     text-align: center;
 }
 
 .quadratischesBild {
     display: block; 
-   }
+}
+
 .hohesBild {
     display: none; 
 }
@@ -65,29 +62,21 @@ h3 {
     width: 65%;
 }
 
-
 @media only screen and (max-width: 1600px)
 {    
     .box-containerserviceInfo {
         justify-content:center;
         flex-wrap:wrap;
     }
-
-  
     .quadratischesBild {
         display: block; 
        }
-    
     .hohesBild {
         display: none; 
     }
-
-   
-
     h3 {
         text-align: left;
-    }
-    
+    } 
 }
 
 @media only screen and (max-width: 1025px)
@@ -95,102 +84,62 @@ h3 {
     .grid, .gridIndex {
         grid-template-columns: 3% 94% 3%;
     }
-    
     .box-containerserviceInfo {
         justify-content:center;
         flex-wrap:wrap;
     }
-
     .box-containerserviceInfo > div:first-of-type, .box-containerserviceInfo > div:last-of-type {
         width:calc(50% - 25px); 
     }
-
-    .TextTrennung {
+    .textTrennung {
         column-count: 1;
         text-align: justify;  
        
     }
-  
     .quadratischesBild {
         display: none; 
-       }
+    }
     .hohesBild {
         display: block; 
     }
-
     h3 {
         text-align: left;
     }
-
     .box-containerserviceInfo > div:first-of-type {
         width: 35%;
     }
-    
     .box-containerserviceInfo > div:last-of-type {
         width: 65%;
     }
-    
 }
-
-/*@media only screen and (max-width: 960px) {
-    .grid, .gridIndex {
-        grid-template-columns: 3% 94% 3%;
-    }
-    .box-containerserviceInfo div {
-        width: 100%;
-        
-    }
-
-    .ZentrierterButton {
-        text-align: center; 
-    }
-
-    p {
-        column-count: 1;
-        text-align: justify;  
-       
-    }
-}*/
 
 @media only screen and (max-width: 715px) {
     .grid, .gridIndex {
         grid-template-columns: 3% 94% 3%;
     }
-    
-
     .box-containerserviceInfo > div:first-of-type {
         width: 100%;
     }
-
     .box-containerserviceInfo > div:last-of-type {
         width: 100%;
     }
-
-    .ZentrierterButton {
+    .zentrierterButton {
         text-align: center; 
     }
-
-    .TextTrennung {
+    .textTrennung {
         column-count: 2;
         column-gap: 40px; 
-        text-align: justify;  
-       
+        text-align: justify;   
     }
-
     .hohesBild {
         display: none; 
     }
-
     .quadratischesBild {
         display: block; 
     }
-
     h3 {
         text-align: center;
     }
-
-   
-   
 }
     
 @media only screen and (max-width: 600px) {
@@ -198,28 +147,20 @@ h3 {
         grid-template-columns: 3% 94% 3%;
     }
     .box-containerserviceInfo > div:first-of-type, .box-containerserviceInfo > div:last-of-type {
-        width: 100%;
-        
+        width: 100%;    
     }
-
-
     .TextTrennung {
         column-count: 1;
-        text-align: justify;  
-       
+        text-align: justify;    
     }
-  
    .hohesBild {
-    display: none; 
-   }
-
+        display: none; 
+    }
    .quadratischesBild {
-    display: block; 
-   }
-
+        display: block; 
+    }
    h3 {
-    text-align: center;
-}
-    
+        text-align: center;
+    }   
 }
 

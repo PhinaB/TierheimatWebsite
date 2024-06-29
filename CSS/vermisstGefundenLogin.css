@@ -1,41 +1,50 @@
-.SpaltenText {
+.spaltenText {
     column-count: 1;
     text-align: justify;
 }
 
-.BoldText {
-    font-weight: bold;  
- }
+.h3 {
+    font-weight: normal;
+    color: var(--color-headlines);
+}
 
- .flex-containerVermisstefundenmelden div {
-    box-sizing: border-box;
-    padding: 5px; 
- }
+p.spaltenText {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px; 
+}
+
+input, select, textarea {
+    margin: 5px 0;
+}
+
+.flex-item1 > div, .flex-item2 > div  {
+    margin-top: 10px; 
+}
 
  .flex-containerVermisstefundenmelden {
     display: flex; 
     flex-direction: column;
     flex-wrap: nowrap; 
-    justify-content: center; 
-    
- }
+    justify-content: center;  
+}
 
- .FußelementFormular {
+ .fußelementFormular {
     width:100%; 
     text-align: center; 
-    margin-top: 5px; 
-    margin-bottom: 5px;
+    margin-top: 15px; 
+    margin-bottom: 0px;
  }
 
  select {
     width: 100%;
     height: 33px;  
-    font-size: 16px; 
+    font-size: 1em; 
 }
 
 /*select Breite 485.2px=100% Breite der anderen Felder 497.2
 12Pixel unterschied also 2,47% Unterschied */
-.FeldBreite {
+.feldBreite {
     width: 97%;  
     height: 33px; 
 }
@@ -43,6 +52,11 @@
 textarea {
     width: 97%; 
     height: 150px; 
+    font-size: 1em; 
+}
+
+input {
+    font-size: 1em; 
 }
 
 input[type="radio"] {
@@ -50,15 +64,11 @@ input[type="radio"] {
     margin-bottom: 5px;  
 }
 
-input[type="radio"]:last-of-type {
-    margin-left: 5%;  
-}
-
 input[type="radio"]:checked {
     accent-color: var(--primary-color);     
 }
 
-@media only screen and (max-width:2000px) {    
+@media only screen and (max-width:3000px) {    
     .flex-containerVermisstefundenmelden {
         display: flex; 
         flex-direction: row;
@@ -77,22 +87,29 @@ input[type="radio"]:checked {
         margin-left: 1%; 
         margin-right: 1%; 
     }
-    .SpaltenText { 
+    .spaltenText { 
         column-count: 2; 
-        column-gap: 40px; 
+        column-gap: 30px; 
     }
     select {
         width: 100%;
         height: 33px;  
-        font-size: 16px; 
+        font-size: 1em;    
     }
-    .FeldBreite {
+    .feldBreite {
         width: 97%;  
         height: 33px; 
     }    
     textarea {
         width: 97%; 
         height: 150px; 
+    }
+}
+
+@media only screen and (max-width:1900px) {
+    .spaltenText { 
+        column-count: 2; 
+        column-gap: 25px; 
     }
 }
 
@@ -110,16 +127,16 @@ input[type="radio"]:checked {
     .flex-item2 {
         width: 100%; 
     }
-    .SpaltenText { 
+    .spaltenText { 
         column-count: 2; 
-        column-gap: 40px; 
+        column-gap: 35px; 
     }
     select {
         width: 100%;
         height: 33px;  
-        font-size: 16px; 
+        
     }    
-    .FeldBreite {
+    .feldBreite {
         width: 98%;  
         height: 33px; 
     }    
@@ -143,7 +160,19 @@ input[type="radio"]:checked {
     .flex-item2 {
         width: 100%; 
     }    
-    .SpaltenText { 
+    .spaltenText { 
         column-count: 1; 
+    }
+    select {
+        width: 100%;
+        height: 33px;      
+    }    
+    .feldBreite {
+        width: 97%;  
+        height: 33px; 
+    }    
+    textarea {
+        width: 97%; 
+        height: 150px; 
     }
 }

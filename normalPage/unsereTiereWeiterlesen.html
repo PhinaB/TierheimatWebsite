@@ -70,27 +70,26 @@
                 <a disabled="disabled" draggable="false">Unsere Tiere</a>
             </div>
 
-
             <div class="box-absolute">
-                <div class="Kopfelement">
+                <div class="kopfelement">
                     <h3 class="inline">Lila, 11 Jahre</h3>
-                    <a href="../normalPage/unsereTiere.html">
+                    <a href="../normalPage/unsereTiere.html" title="Button Abbrechen" draggable="false">
                         <i class="fa-sharp fa-solid fa-circle-xmark Abbruch"></i>
                     </a>
                     <br />
                 </div>
-                <div class="Unterelement BildWeiter">
-                    <img src="../img/lila.jpg" class="hohesBild" alt="Bild eines Hundes" draggable="false"/>
+                <div class="unterelement bildWeiter">
+                    <img src="../img/lila.jpg" class="hohesBild" alt="Bild eines Hundes" title="Bild eines Hundes" draggable="false"/>
                     
-                    <img src="../img/lilaNiedrig2.jpg" class="niedrigesBild" alt="Bild eines Hundes" draggable="false" />
+                    <img src="../img/lilaNiedrig2.jpg" class="niedrigesBild" alt="Bild eines Hundes" title="Bild eines Hundes" draggable="false" />
                 </div>
-                <div class="Unterelement Scrollbar">
-                    <p><span class="BoldText">Name:</span> Lila</p>
-                    <p><span class="BoldText">Alter:</span> 11 Jahre alt</p>
-                    <p><span class="BoldText">In der Tierheimat seit:</span> 26.06.2023</p>
-                    <p><span class="BoldText">Charaktereigenschaften:</span> ruhig, freundlich</p>
+                <div class="unterelement scrollbar">
+                    <p><span class="boldText">Name:</span> Lila</p>
+                    <p><span class="boldText">Alter:</span> 11 Jahre alt</p>
+                    <p><span class="boldText">In der Tierheimat seit:</span> 26.06.2023</p>
+                    <p><span class="boldText">Charaktereigenschaften:</span> ruhig, freundlich</p>
                     <br />
-                    <p class="TextTrennung">
+                    <p class="textTrennung">
                         Hallo, ich bin Lila, ein 11-jähriger Mischling.
                         Ich bin seit dem 26.06.2023 in der Tierheimat. Ich bin ein familienfreundliche Hündin, 
                         die sehr lernfreudig und gehorsam ist. Trainingseinheiten und neue Tricks machen mir viel Spaß.
@@ -119,104 +118,126 @@
                 <hr class="underHeadline" />
                 <form class="FormUnsereTiere" action="" method="post">
                     <label for="TierartAuswählen"> Tierart: </label>
-                    <select name="TierartAuswählen">
-                        <option value="TierartWählen">Tierart auswählen</option>
-                        <option value="Hunde">Hunde</option>
-                        <option value="Katzen">Katzen</option>
-                        <option value="Kleintiere">Kleintiere</option>
-                        <option value="Exoten">Exoten</option>
-                    </select>
-                    <button class="button" type="submit"><i class="fa fa-search"></i>   Suchen</button>
+                        <select name="TierartAuswählen">
+                            <option value="TierartWählen">Tierart auswählen</option>
+                            <option value="Hunde">Hunde</option>
+                            <option value="Katzen">Katzen</option>
+                            <option value="Kleintiere">Kleintiere</option>
+                            <option value="Exoten">Exoten</option>
+                        </select>
+                        <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i>   Suchen</button>
                 </form>
 
                 <div class="box-containerUnsereTiere tile">
                     <div>
-                        <img src="../img/Lila.jpg" alt="Bild eines Hundes" title="Bild Hund Lila" draggable="false" />
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel1 bildwechselAllgemein" href="" alt="Bild eines Hundes" title="Bild eines Hundes" draggable="false">&nbsp;</a>
+                        </div>
                         <h3>Lila</h3>
                         <p>4 Jahre alt, Hündin...</p>
-                        <a href="../normalPage/unsereTiereWeiterlesen.html" class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="../normalPage/unsereTiereWeiterlesen.html" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/Max.jpg" alt="Bild eines Hundes" title="Bild Hund Max" draggable="false" />
-                        <h3>Max</h3>
-                        <p>3 Jahre alt, Rüde...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel2 bildwechselAllgemein" href="" alt="Bild einer Tigerpython" title="Bild einer Tigerpython" draggable="false">&nbsp;</a>
+                        </div>                        
+                        <h3>Tiger</h3>
+                        <p>3 Jahre alt, Python...</p>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/test2.jpg" alt="Bild einer Ratte" title="Bild Ratte Greta" draggable="false" />
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel3 bildwechselAllgemein" href="" alt="Bild einer Ratte" title="Bild einer Ratte" draggable="false">&nbsp;</a>
+                        </div>
                         <h3>Greta</h3>
                         <p>1 Jahr alt, weiblich...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/LoraJendayasittich.jpg" alt="Bild eines Sittichs" title="Bild Sittich Lora" draggable="false" />
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel4 bildwechselAllgemein" href="" alt="Bild eines Sittichs" title="Bild eines Sittichs" draggable="false">&nbsp;</a>
+                        </div>
                         <h3>Lora</h3>
                         <p>5 Jahre alt, Sittich...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="" class="button"  title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
                 </div>
                 <div class="box-containerUnsereTiere tile">
                     <div>
-                        <img src="../img/simba.jpg" alt="Bild einer Katze" title="Bild Katze Simba" draggable="false" />
-                        <h3>Simba</h3>
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel5 bildwechselAllgemein" href="" alt="Bild eines Katers" title="Bild eines Katers" draggable="false">&nbsp;</a>
+                        </div>                        <h3>Simba</h3>
                         <p>3 Jahre alt, Kater...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="" class="button"  title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/Bella.jpeg" alt="Bild eines Hundes" title="Bild Hund Bella" draggable="false" />
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel6 bildwechselAllgemein" href="" alt="Bild eines Hundes" title="Bild eines Hundes" draggable="false">&nbsp;</a>
+                        </div>                         
                         <h3>Bella</h3>
                         <p>5 Jahre alt, Hündin...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/Rocky.jpg" alt="Bild eines Hundes" title="Bild Hund Rpcky" draggable="false" />
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel7 bildwechselAllgemein" href="" alt="Bild eines Hundes" title="Bild eines Hundes" draggable="false">&nbsp;</a>
+                        </div>                         
                         <h3>Rocky</h3>
                         <p>2 Jahre alt, Rüde...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/Fluffy.jpg" alt="Bild eines Kaninchens" title="Bild Hase Fluffy" draggable="false" />
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel8 bildwechselAllgemein" href="" alt="Bild eines Kaninchens" title="Bild eines Kaninchens" draggable="false">&nbsp;</a>
+                        </div>                         
                         <h3>Fluffy</h3>
-                        <p>1 Jahr alt, Hase...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <p>1 Jahr alt, Kaninchen...</p>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
                 </div>
                 <div class="box-containerUnsereTiere tile">
                     <div>
-                        <img src="../img/simba.jpg" alt="Bild einer Katze" title="Bild Katze Simba" draggable="false" />
-                        <h3>Simba</h3>
-                        <p>3 Jahre alt, Kater...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel9 bildwechselAllgemein" href="" alt="Bild von Wellensittichen" title="Bild von Wellensittichen" draggable="false">&nbsp;</a>
+                        </div>
+                        <h3>Wellensittiche</h3>
+                        <p>1 Jahre alt,Wellens...</p>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/Bella.jpeg" alt="Bild eines Hundes" title="Bild Hund Bella" draggable="false" />
-                        <h3>Bella</h3>
-                        <p>5 Jahre alt, Hündin...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel10 bildwechselAllgemein" href="" alt="Bild einer Kornnatter" title="Bild einer Kornnatter" draggable="false">&nbsp;</a>
+                        </div>                        
+                        <h3>Natti</h3>
+                        <p>2 Jahre alt, Kornnatter...</p>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/Rocky.jpg" alt="Bild eines Hundes" title="Bild Hund Rocky" draggable="false" />
-                        <h3>Rocky</h3>
-                        <p>2 Jahre alt, Rüde...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel11 bildwechselAllgemein" href="" alt="Bild einer Prachtrosella" title="Bild einer Prachtrosella" draggable="false">&nbsp;</a>
+                        </div>                           
+                        <h3>Rosa</h3>
+                        <p>2 Jahre alt, Prachtros...</p>
+                        <a href="" class="button"title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper" ></i>  Weiterlesen</a>
                     </div>
 
                     <div>
-                        <img src="../img/Fluffy.jpg" alt="Bild eines Kaninchens" title="Bild Kaninchen Fluffy" draggable="false" />
-                        <h3>Fluffy</h3>
-                        <p>1 Jahr alt, Hase...</p>
-                        <a href="..." class="button"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <div class="außenboxBildwechsel">
+                            <a class="bildwechsel12 bildwechselAllgemein" href="" alt="Bild eines Kaninchens" title="Bild eines Kaninchens" draggable="false">&nbsp;</a>
+                        </div>                        <h3>Hoppel</h3>
+                        <p>1 Jahr alt, Kaninchen...</p>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper" ></i>  Weiterlesen</a>
                     </div>
                 </div>
-                <a href="" class="button"><i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen</a>
+                <a href="" class="button" title="Button weitere Tiere anzeigen" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen</a>
             </div>
         </main>
         <footer>

@@ -1,43 +1,45 @@
-.SpaltenText {
-    column-count: 1;
-
+.h3 {
+    font-weight: normal;
+    color: var(--color-headlines)
 }
 
-.BoldText {
-   font-weight: bold;  
+.box-containerHelfen > p {
+    text-align: justify; 
+    padding-left: 10px;
+    padding-right: 10px; 
+    padding-bottom: 10px; 
 }
 
 form > div {
     box-sizing: border-box; 
     margin-top: 5px; 
     margin-bottom: 15px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+
+input[type="checkbox"]:first-of-type {
+    margin-top: 20px; 
 }
 
 input[type="checkbox"] {
     margin-top: 10px; 
-    margin-bottom: 5px; 
-    
+    margin-bottom: 5px;    
 }
 
 input[type="checkbox"]:checked {
-    accent-color: var(--primary-color); 
-    
+    accent-color: var(--primary-color);  
 }
 
-
-select {
-    border: 1px solid #bbbbbb;
-    box-shadow: inset 0 0 5px #dddddd;
-    background:  white;
-    border-radius: 4px;
-    line-height: 230%;
-    padding: 0px 5px;
-    font-size: 16px; 
+select, input {
+    font-size: 1em; 
 }
+
 table {
     border-spacing: 0px 5px;
     width: 100%; 
-   
+    margin-top: 8px; 
+    margin-bottom: 5px;  
 }
 
 th {
@@ -50,10 +52,14 @@ th {
     height: 31px; 
 }
 
+.rechteSpalte input {
+    height: 31px; 
+}
 
 .linkeSpalte select {
     width: 142px;
     height: 33px;  
+    font-size: 1em; 
 }
 
 .linkeSpalte {
@@ -64,148 +70,71 @@ th {
      width: auto; 
 }
 
-.FußelementFormular {
+.fußelementFormular {
     text-align: center; 
 }
-.HelfenUnterpunkt {
+.helfenUnterpunkt {
     display: inline-block; 
     box-sizing: border-box; 
     padding-left: 10px; 
 }
 
-
- 
-
-
-/*wenn Bilschirmgröße max 2000px oder weniger, dann:*/
-@media only screen and (max-width: 2000px) {
-    .flex-containerFormularHelfen {
-        display: flex; 
-        flex-wrap:nowrap; 
-        flex-direction: row; 
-        justify-content: center; 
-        align-items: stretch; 
-    }
-    .SpaltenText {
-        column-count: 2; 
-        text-align: justify; 
-        column-gap: 40px; 
-    }
-
-   .Unterstützungsart {
-    width: calc(31%-6px);
-    padding-left:30px; 
-    padding-right:30px; 
-    text-align: left;
-   }
-
-   .Tabelle1 {
-    width: calc(38%-6px);
-    padding-left: 30px; 
-    padding-right:30px; 
-   
-   }
-
-   .Tabelle2 {
-    width: calc(31%-6px);
-    padding-left: 30px; 
-    padding-right:30px; 
-   }
-
- 
+.flex-containerFormularHelfen {
+    display: flex; 
+    flex-wrap:wrap; 
+    flex-direction: row; 
+    justify-content: space-between;  
 }
 
-/*wenn Bilschirmgröße 1069px oder weniger, dann:*/
-@media only screen and (max-width: 1060px) {
-    .flex-containerFormularHelfen {
-        display: flex;  
-        flex-wrap: wrap;
-        flex-direction: row; 
-        justify-content: space-evenly; 
-        align-items: stretch; 
-    }
-
-    
-    .SpaltenText {
-        column-count: 2; 
-        text-align: justify; 
-        column-gap: 40px; 
-        
-    }
-
-    .Unterstützungsart {
-        width: 29%;
-        padding-left: 35.5%; 
-        padding-right:35.5%;
-        
-        padding-bottom: 20px; 
-        
-       }
-
-       
-   .Tabelle1, .Tabelle2  {
-        width: calc(50%-5px);
-        padding-left: 10px; 
-        padding-right:10px; 
-    }
-
+.fußelementFormular {
+    text-align: center;
+    width:100%; 
 }
-
+ 
 /*wenn Bilschirmgröße 715px oder wenger, dann:*/
-@media only screen and (max-width: 715px) {
+@media only screen and (max-width: 960px) {
     .flex-containerFormularHelfen {
         display: flex;  
-        flex-wrap: wrap;
-        flex-direction: row; 
-        justify-content: center; 
+        flex-wrap: nowrap;
+        flex-direction: column; 
+        justify-content: left; 
         align-items: stretch; 
+        gap: 15px; 
     }
-
-    
-    .SpaltenText {
-        column-count: 1; 
-        text-align: justify; 
-        
-        
-    }
-
-    .Unterstützungsart {
-        width: 50%;
+    .unterstützungsart {
+        width: 70%;
         text-align: left; 
-        padding-bottom: 20px; 
-        padding-left: 25%; 
-        padding-right:25%;
-        
-       }
-
-    .Tabelle1, .Tabelle2 {
-    border-spacing: 0px 5px;
-    width: 90%;
-    padding-bottom: 10px;
-    
+        padding-bottom: 0px; 
+        padding-left: 10px; 
+        padding-right:10px;
+        margin-bottom: 0px; 
+        margin-top: 0px; 
     }
-
+    .tabelle1, .tabelle2 {
+        width: 100%; 
+        border-spacing: 0px 5px;
+        width: 90%;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        margin-top: 0px;  
+        padding-left: 10px; 
+        padding-right: 10px; 
+    }
     .linkeSpalte {
         width: 85%;
     }
-
     .rechteSpalte{
         width: 15%; 
     }
-    .linkeSpalte > input, .linkeSpalte > select{
-        width: 90%; 
+    .linkeSpalte > input {
+        width: 94%; 
     }
-
     .linkeSpalte > select{
-        width: 95%; 
+        width: 98%; 
     }
-
-
     .rechteSpalte > input {
         width: 70%; 
-    }
-
-   
+    }  
 }
 
 

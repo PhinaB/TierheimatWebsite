@@ -1,4 +1,4 @@
-.FormUnsereTiere {
+.formUnsereTiere {
     margin-top: 5px;
     margin-bottom: 20px;
 }
@@ -19,16 +19,15 @@ a.bildwechselAllgemein {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(../img/Lila2.jpg);
-    background-size: cover;
-    
+    background-size: cover;   
 }
+
  a.bildwechsel1 {
-    background-image: url(../img/Lila2.jpg);
+    background-image: url(../img/lila2.jpg);
  }
  
  a.bildwechsel1:hover { 
-    background-image:url(../img/Lila.jpg);
+    background-image:url(../img/lila.jpg);
  }
 
  a.bildwechsel2 {
@@ -118,11 +117,9 @@ a.bildwechselAllgemein {
     background-image:url(../img/hoppel2.jpg);
  }
 
-
 p {
     font-size: 0.9em; 
 }
-
 
 .box-containerUnsereTiere {
     display: flex; 
@@ -130,15 +127,13 @@ p {
     align-items: stretch;
     gap: 30px 20px;
     z-index: 0; 
-  
 }
 
 .box-containerUnsereTiere > div {
     width: 30%;
     height: auto; 
     box-sizing: border-box;
-    padding-bottom: 10px;
-    
+    padding-bottom: 10px;   
 }
 
 .box-containerUnsereTiere > div {
@@ -155,11 +150,8 @@ p {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom: 1px solid #eee;
-    width: 100%;
-     
+    width: 100%;   
 }
-
-
 
 select {
     font-size: 12px;
@@ -177,7 +169,6 @@ select {
 }
 
 @media only screen and (max-width: 650px) {
-    
     .box-containerUnsereTiere > div {
         width: 100%;
     }
