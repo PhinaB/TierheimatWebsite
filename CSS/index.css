@@ -1,0 +1,36 @@
+.flexWir {
+    display: flex;
+    gap: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: justify
+}
+
+.flexWir > * {
+    width: 50%;
+}
+
+.aussenboxBildwechsel {
+    padding-bottom: calc(100% / (3 / 1));
+}
+
+a.bildwechselWir::before {
+    background-image: url(../img/wir.jpg);
+}
+
+a.bildwechselWir::after {
+    background-image: url(../img/wirSpringend.jpg);
+}
+
+@media only screen and (max-width: 650px) {
+    .aussenboxBildwechsel {
+        padding-bottom: calc(100% / (3 / 2));
+    }
+    .flexWir {
+        flex-direction: column;
+        gap: 10px 0;
+    }
+    .flexWir > * {
+        width: 100%;
+    }
+}

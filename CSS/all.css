@@ -215,6 +215,40 @@ textarea {
     margin: 10px 0 25px 0;
 }
 
+/* Bildwechsel */
+.aussenboxBildwechsel {
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+
+a.bildwechsel, a.bildwechsel::before, a.bildwechsel::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease-out;
+    transition-delay: 0.15s;
+}
+
+a.bildwechsel:hover::before, a.bildwechsel::after {
+    opacity: 0;
+}
+
+a.bildwechsel:hover::after, a.bildwechsel::before {
+    opacity: 1;
+}
+
+.schattenBild, .aussenboxBildwechsel {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
 @media only screen and (max-width: 1600px) {
     .grid, .gridIndex {
         padding-top: 67px;
