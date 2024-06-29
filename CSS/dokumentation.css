@@ -83,7 +83,7 @@ tfoot {
 }
 
 .imgEffekt {
-    width: 200px; /* Ursprüngliche Breite */
+    width: 200px; /* Urspruengliche Breite */
     transition: width 0.7s ease, height 0.7s ease;
     overflow: hidden;
 }
