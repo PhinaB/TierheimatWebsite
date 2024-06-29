@@ -3,9 +3,11 @@
     position: fixed;
 
     display: flex; 
-    flex-wrap: nowrap; 
+    flex-wrap: wrap; 
     flex-direction: row;
+    align-items: center; 
 
+   
     box-sizing: border-box;
     left: 5%;
     right: 5%;
@@ -47,6 +49,11 @@
 .Unterelement {
     width: 100%;
 }
+
+.unterelementScrollbar {
+    width: 100%; 
+    height: 40px; 
+}
 /* div um das Bild mit der Klasse BildWeiter */
 .BildWeiter {
     display: flex;
@@ -55,15 +62,16 @@
     margin-top: 10px;
 }
 
+.niedrigesBild {
+    display: none; 
+}
+
 .hohesBild {
     transition: width 0.7s ease, height 0.7s ease;
     overflow: hidden;
+    display: flex; 
 }
 
-.hohesBild:hover {
-    width: 100%;
-    height: 100%;
-}
 
 .inline {
     display: inline; 
@@ -76,8 +84,23 @@
 .box-absolute {
     /*Abstand zwischen den übereinanderliegenden div-Elementen*/
     gap: 10px 10px;
-    top: 140px; 
+    top: 110px; 
 }
+
+.Kopfelement {
+    width: 100%; 
+    padding-bottom: 1%; 
+    }   
+.Unterelement {
+    width: calc(50% - 10px);  
+    }  
+
+.TextTrennung {
+    column-count: 2;
+    text-align: justify;
+    column-gap: 30px;   
+       
+    }
 
 
 
@@ -87,17 +110,17 @@
 
 
 /*wenn Bilschirmgröße 2000px oder weniger, dann:*/
-@media only screen and (max-width: 2000px) {
+@media only screen and (max-width: 3000px) {
     
     
     .box-absolute {
         position: absolute;
-        display: flex;
+        
         justify-content:space-between;
         align-items: center; 
         z-index: 1;
         flex-wrap:wrap;
-        top: 80px; 
+        top: 105px; 
         padding-top: 2%; 
         padding-bottom: 4%;
         padding-left: 3%; 
@@ -127,6 +150,15 @@
         display: flex; 
     }
     
+}
+
+@media only screen and (max-width: 1750px) {
+    .box-absolute {
+        top: 80px; 
+    }
+    .box-absolute {
+    align-items: center; 
+    }
 }
 
 /*wenn Bilschirmgröße 1277px oder weniger, dann:*/
