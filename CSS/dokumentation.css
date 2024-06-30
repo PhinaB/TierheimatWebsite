@@ -48,6 +48,10 @@ header a {
     
 }
 
+.overflow {
+    overflow:hidden
+}
+
 .figma {
     display: flex;
     justify-content: center;
