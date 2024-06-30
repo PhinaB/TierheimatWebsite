@@ -16,6 +16,8 @@ header a {
 .Einleitung {
     text-align: center;
 }
+
+
 .container {
     max-width: 800px;
     min-height: 950px;
@@ -44,6 +46,17 @@ header a {
     max-width: 100%; /* Optional: Beschränkt die Bildgröße auf die Containerbreite */
     height: auto; /* Optional: Beibehaltung des Seitenverhältnisses */
     
+}
+
+.figma {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.figma-logo {
+    max-width: 100%;
+    height: auto;
 }
 
 
