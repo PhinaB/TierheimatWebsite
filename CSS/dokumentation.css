@@ -13,6 +13,9 @@ header a {
     margin: 10px;
 }
 
+.Einleitung {
+    text-align: center;
+}
 .container {
     max-width: 800px;
     min-height: 950px;
@@ -23,6 +26,26 @@ header a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
+
+.container1 {
+    max-width: 800px;
+    min-height: 950px;
+    margin: 20px auto;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    /*font-family: sans-serif; will er nicht haben? */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.container img {
+    max-width: 100%; /* Optional: Beschränkt die Bildgröße auf die Containerbreite */
+    height: auto; /* Optional: Beibehaltung des Seitenverhältnisses */
+    
+}
+
 
 ul {
     list-style-type: none;
@@ -115,6 +138,10 @@ dl {
 
 h3 {
     text-align:center;
+}
+
+.list-item {
+    margin-bottom: 20px;
 }
 
 p {
