@@ -149,7 +149,7 @@ h3 {
     .box-containerserviceInfo > div:first-of-type, .box-containerserviceInfo > div:last-of-type {
         width: 100%;    
     }
-    .TextTrennung {
+    .textTrennung {
         column-count: 1;
         text-align: justify;    
     }
