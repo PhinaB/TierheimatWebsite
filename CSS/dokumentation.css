@@ -35,7 +35,6 @@ header a {
     margin: 20px auto;
     padding: 40px 60px;
     box-sizing: border-box;
-    /*font-family: sans-serif; will er nicht haben? */
     border: 1px solid var(--border-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -43,24 +42,29 @@ header a {
 }
 
 .container img {
-    max-width: 100%; /* Optional: Beschränkt die Bildgröße auf die Containerbreite */
-    height: auto; /* Optional: Beibehaltung des Seitenverhältnisses */
+    max-width: 100%; 
+    height: auto; 
     
+}
+
+.list-item {
+    list-style-position: inside; /* Setzt die Aufzählungszeichen innerhalb des Listeninhalts */
+    margin-bottom: 20px;
 }
 
 .overflow {
     overflow:hidden
 }
 
-.figma {
+.alternative {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.figma-logo {
+.alternative-image {
     max-width: 100%;
-    height: auto;
+    height: auto; /* Beibehaltung des Seitenverhältnisses */
 }
 
 .Dokumentation {
@@ -134,7 +138,7 @@ tfoot {
 }
 
 .imgEffekt {
-    width: 200px; /* Urspruengliche Breite */
+    width: 200px; 
     transition: width 0.7s ease, height 0.7s ease;
     overflow: hidden;
 }
@@ -168,9 +172,6 @@ h3 {
     text-align:center;
 }
 
-.list-item {
-    margin-bottom: 20px;
-}
 
 p {
     text-align:justify;
