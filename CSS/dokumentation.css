@@ -59,6 +59,17 @@ header a {
     height: auto;
 }
 
+.Dokumentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Dokumentation-logo {
+    max-width: 100%;
+    height: auto;
+}
+
 
 ul {
     list-style-type: none;
