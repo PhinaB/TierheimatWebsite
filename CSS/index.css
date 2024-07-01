@@ -22,6 +22,10 @@ a.bildwechselWir::after {
     background-image: url(../img/wirSpringend.jpg);
 }
 
+.marginTopH2 {
+    margin-top: 50px;
+}
+
 @media only screen and (max-width: 650px) {
     .aussenboxBildwechsel {
         padding-bottom: calc(100% / (3 / 2));

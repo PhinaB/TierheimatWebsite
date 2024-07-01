@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../CSS/menu.css" />
-    <link rel="stylesheet" href="../CSS/all.css" />
-    <link rel="stylesheet" href="../CSS/footer.css" />
-    <link rel="stylesheet" href="../CSS/login.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/formulare.css" />
 
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
 
@@ -28,7 +29,7 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="../index.html" draggable="false">
+                <a href="../index.html" class="logo" draggable="false">
                     <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
@@ -73,24 +74,26 @@
                     <h2>Login</h2>
                     <hr class="underHeadline" />
                     <form method="post">
-                        <h3>E-Mail:</h3>
+                        <label class="h3" for="email">E-Mail: <span class="redPflichtfeld">*</span></label>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
-                        <h3>Passwort:</h3>
+                        <label class="h3" for="password">Passwort: <span class="redPflichtfeld">*</span></label>
                         <input type="password" name="password" required placeholder="Passwort" />
-                        <a href="../loginPage/index.html" class="button marginButton" draggable="false">Anmelden</a>
+                        <a href="../loginPage/indexLogin.html" class="button marginButton" draggable="false">Anmelden</a>
+                        <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
                     </form>
                 </div>
                 <div class="tileBorder tile">
                     <h2>Registrierung</h2>
                     <hr class="underHeadline" />
                     <form method="post">
-                        <h3>E-Mail:</h3>
+                        <label class="h3" for="email">E-Mail: <span class="redPflichtfeld">*</span></label>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
-                        <h3>Passwort:</h3>
+                        <label class="h3" for="password">Passwort: <span class="redPflichtfeld">*</span></label>
                         <input type="password" name="password" required placeholder="Passwort" />
-                        <h3>Nutzername:</h3>
+                        <label class="h3" for="username">Nutzername: <span class="redPflichtfeld">*</span></label>
                         <input type="text" name="username" required placeholder="maxMustermann" max="10" min="3" />
                         <a class="button marginButton">Registrieren</a>
+                        <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
                     </form>
                 </div>
             </div>
@@ -102,7 +105,7 @@
                     Adresse: Musterstraße 2<br />
                     12345 Musterhausen<br />
                     E-Mail: <a href="mailto:muster@tierheimat.de">muster@tierheimat.de</a><br />
-                    Telefon:  0123 4567892
+                    Telefon: <a href="tel:0123 4567892">0123 4567892</a>
                 </p>
             </div>
             <div class="secondFooterChild">

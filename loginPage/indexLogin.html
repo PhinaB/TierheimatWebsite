@@ -4,13 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/menu.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/bildwechselBilder.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/loggedInPage.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/bildwechselBilder.css" />
 
-    <link rel="stylesheet" href="fontawesome-6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
 
     <title>Tierheimat</title>
     <style>
@@ -30,8 +31,12 @@
         <nav>
             <span class="linkLogo">
                 <a disabled="disabled">
-                    <img class="logoPicture" src="img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
+                    <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
+            </span>
+
+            <span class="user">
+                <i class="fa-solid fa-user"></i> Nutzername
             </span>
 
             <div id="menuRight">
@@ -39,34 +44,34 @@
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
                     Start
                 </a>
-                <a href="normalPage/unsereTiere.html" draggable="false">
+                <a href="unsereTiere.html" draggable="false">
                     <i class="fa-solid fa-paw menuIcon onlySmallMenu"></i>
                     Unsere <br class="onlySmallMenu" />Tiere
                 </a>
-                <a href="normalPage/aktuelles.html" draggable="false">
+                <a href="aktuelles.html" draggable="false">
                     <i class="fa-solid fa-calendar menuIcon onlySmallMenu"></i>
                     Aktuelles
                 </a>
-                <a href="normalPage/vermisstGefunden.html" draggable="false">
+                <a href="vermisstGefunden.html" draggable="false">
                     <i class="fa-solid fa-magnifying-glass-location menuIcon onlySmallMenu"></i>
                     Vermisst/<br class="onlySmallMenu" />Gefunden
                 </a>
-                <a href="normalPage/serviceInfos.html" draggable="false">
+                <a href="serviceInfos.html" draggable="false">
                     <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
                     Service/<br class="onlySmallMenu" />Infos
                 </a>
-                <a href="normalPage/login.html" draggable="false">
-                    <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
-                    Login
+                <a href="../index.html" draggable="false">
+                    <i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i>
+                    Logout
                 </a>
             </div>
         </nav>
     </header>
     <div class="gridIndex">
         <div id="startbilder">
-            <img src="img/startbild-1.jpg" class="startbild" draggable="false" alt="Bild einer Ratte" />
-            <img src="img/startbild-5.jpg" class="startbild" draggable="false" alt="Bild eines Taggeckos" />
-            <img src="img/startbildHund.jpg" class="startbild" draggable="false" alt="Bild eines Hundes und einer Katze" />
+            <img src="../img/startbild-1.jpg" class="startbild" draggable="false" alt="Bild einer Ratte" />
+            <img src="../img/startbild-5.jpg" class="startbild" draggable="false" alt="Bild eines Taggeckos" />
+            <img src="../img/startbildHund.jpg" class="startbild" draggable="false" alt="Bild eines Hundes und einer Katze" />
         </div>
         <main>
             <div class="tile tileBorder">
@@ -78,32 +83,32 @@
 
                 <div class="box-container box-container-button">
                     <div>
-                        <img src="img/Ausbau Tierheim.jpg" alt="Lageplan des Tierheims Tierheimat" title="Lageplan des Tierheims Tierheimat" draggable="false" />
+                        <img src="../img/Ausbau Tierheim.jpg" alt="Lageplan des Tierheims Tierheimat" title="Lageplan des Tierheims Tierheimat" draggable="false" />
                         <h3>Erweiterung des Tierheims</h3>
                         <p>
                             Dank Ihrer großzügigen Spenden und Unterstützung konnten wir neue Unterkünfte und moderne Einrichtungen für unsere Tiere schaffen.
                         </p><p>
                             Diese Erweiterung ermöglicht es uns ...
                         </p>
-                        <a href="normalPage/aktuelles.html#erweiterungTierheim" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="aktuelles.html#erweiterungTierheim" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
-                        <img src="img/test.jpg" alt="Werbebild für das Tierheimfest" title="Werbebild für das Tierheimfest" draggable="false" />
+                        <img src="../img/test.jpg" alt="Werbebild für das Tierheimfest" title="Werbebild für das Tierheimfest" draggable="false" />
                         <h3>15 Jahre Tierheimat</h3>
                         <p>
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück. Seit unserer Gründung  ...
                         </p>
-                        <a href="normalPage/aktuelles.html#15JahreTierheimat" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="aktuelles.html#15JahreTierheimat" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
-                        <img src="img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
+                        <img src="../img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
                         <h3>Erfolgreiche Tiervermittlung</h3>
                         <p>
                             In den letzten Monaten konnten wir zahlreiche Tiere erfolgreich in liebevolle Zuhause vermitteln.
                         </p><p>
                             Wir sind stolz auf die Fortschritte, die ...
                         </p>
-                        <a href="normalPage/aktuelles.html#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="aktuelles.html#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                 </div>
             </div>
@@ -156,7 +161,7 @@
                         <p>2 Jahre alt, Rüde</p>
                     </div>
                 </div>
-                <a href="normalPage/unsereTiere.html" class="button marginTopButton" draggable="false"><i class="fa-solid fa-newspaper"></i> Weitere Tiere ansehen</a>
+                <a href="unsereTiere.html" class="button marginTopButton" draggable="false"><i class="fa-solid fa-newspaper"></i> Weitere Tiere ansehen</a>
             </div>
         </main>
         <footer>
@@ -179,16 +184,16 @@
             <div>
                 <h4>UNSER SPENDENKONTO</h4>
                 <p>
-                    Tierheimat GmbH<br />
+                    Tierheimat e.V.<br />
                     Tierheimbank Erfurt<br />
                     IBAN: DE12 3456 7890 1234 1234 55<br />
                     BIC: ABCDEFGH
                 </p>
             </div>
         </footer>
-        <div class="underFooter"><a href="normalPage/impressum.html">Impressum</a> | &copy; 2024 Tierheimat GmbH</div>
+        <div class="underFooter"><a href="impressum.html">Impressum</a> | &copy; 2024 Tierheimat e.V.</div>
     </div>
 
-    <script src="fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

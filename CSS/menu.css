@@ -50,7 +50,7 @@ nav a[disabled], nav a:hover {
     color: var(--primary-color);
 }
 
-nav a[disabled]::after {
+nav a[disabled]::after, nav a.logo::after {
     transform: none;
     transition: none;
     width: 0;

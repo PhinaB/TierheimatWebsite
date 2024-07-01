@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../CSS/menu.css" />
-    <link rel="stylesheet" href="../CSS/all.css" />
-    <link rel="stylesheet" href="../CSS/footer.css" />
-    <link rel="stylesheet" href="../CSS/loggedInPage.css" />
-    <link rel="stylesheet" href="../CSS/serviceInfosHelfenlogin.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/loggedInPage.css" />
+    <link rel="stylesheet" href="../css/serviceInfosHelfenlogin.css" />
+    <link rel="stylesheet" href="../css/formulare.css" />
 
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
 
@@ -29,7 +30,7 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="index.html" draggable="false">
+                <a href="indexLogin.html" class="logo" draggable="false">
                     <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
@@ -39,7 +40,7 @@
             </span>
 
             <div id="menuRight">
-                <a href="index.html" draggable="false">
+                <a href="indexLogin.html" draggable="false">
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
                     Start
                 </a>
@@ -69,7 +70,7 @@
     <div class="grid">
         <main>
             <div class="tile tileBorder">
-                <a href="index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                <a href="indexLogin.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
                 <a disabled="disabled" draggable="false">Service / Infos</a>
             </div>
@@ -79,10 +80,11 @@
                     <h2>Helfen</h2>
                     <hr class="underHeadline" />
                     <div class="box-containerHelfen">
-                        <p>Sie wollen uns Ihre Untersützung anbieten? Füllen Sie zunächst das folgende Formular aus. 
-                            Sobald wir Ihre Informationen verarbeitet haben werden wir uns bei Ihnen melden. 
-                        </p>  
-                        
+                        <p>
+                            Sie wollen uns Ihre Untersützung anbieten? Füllen Sie zunächst das folgende Formular aus.
+                            Sobald wir Ihre Informationen verarbeitet haben werden wir uns bei Ihnen melden.
+                        </p>
+
                     </div>
                 </div>
 
@@ -103,62 +105,61 @@
                         </div>
 
 
-                        <div class="tabelle1">
-                            <label for="Datum Zeit" class="h3">Ich kann an folgenden Terminen:</label>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th class="linkeSpalte">Datum</th>
-                                        <th class="rechteSpalte">Zeit</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="linkeSpalte"><input type="date" name="Datum1" /></td>
-                                        <td class="rechteSpalte"><input type="time" name="Zeit1" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                          
-                            <a href="" class="button center" title="Button weiteren Termin hinzufügen" draggable="false"><i class="fa-solid fa-plus"></i> Weiteren Termin hinzufügen</a>
-                        </div>
+                    <div class="tabelle1">
+                        <label for="Datum Zeit" class="h3">Ich kann an folgenden Terminen:</label>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th class="linkeSpalte">Datum</th>
+                                    <th class="rechteSpalte">Zeit</th>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte"><input type="date" name="Datum1" /></td>
+                                    <td class="rechteSpalte"><input type="time" name="Zeit1" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    
-                        <div class="tabelle2">
-                            <label for="datum Zeit" class="h3">Ich habe wöchentlich Zeit:</label>
-                            <br />
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th class="linkeSpalte">Wochentag</th>
-                                        <th class="rechteSpalte">Zeit</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="linkeSpalte">
-                                            <select name="wochentag1">
-                                                <option>Bitte wählen</option>
-                                                <option>Montag</option>
-                                                <option>Diestag</option>
-                                                <option>Mittwoch</option>
-                                                <option>Donnerstag</option>
-                                                <option>Freitag</option>
-                                                <option>Samstag</option>
-                                                <option>Sonntag</option>
-                                            </select>
-                                        </td>
-                                        <td class="rechteSpalte">
-                                            <input type="time" name="zeit1" />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-        
-                            <a href="" class="button" title="Button weiteren Wochentag hinzufügen" draggable="false"><i class="fa-solid fa-plus"></i> Weiteren Wochendtag hinzufügen</a>
-                        </div>
-                        <div class="fußelementFormular">
-                            <button class="button" type="submit" value="absenden" title="Button absenden" draggable="false">Absenden</button>
-                            <button class="button" type="reset" value="zurücksetzen" title="Button zurücksetzen" draggable="false" >Zurücksetzen</button>
-                        </div>
+                        <a href="" class="button center" title="Button weiteren Termin hinzufügen" draggable="false"><i class="fa-solid fa-plus"></i> Weiteren Termin hinzufügen</a>
+                    </div>
+
+
+                    <div class="tabelle2">
+                        <label for="datum Zeit" class="h3">Ich habe wöchentlich Zeit:</label>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th class="linkeSpalte">Wochentag</th>
+                                    <th class="rechteSpalte">Zeit</th>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte">
+                                        <select name="wochentag1">
+                                            <option>Bitte wählen</option>
+                                            <option>Montag</option>
+                                            <option>Diestag</option>
+                                            <option>Mittwoch</option>
+                                            <option>Donnerstag</option>
+                                            <option>Freitag</option>
+                                            <option>Samstag</option>
+                                            <option>Sonntag</option>
+                                        </select>
+                                    </td>
+                                    <td class="rechteSpalte">
+                                        <input type="time" name="zeit1" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <a href="" class="button" title="Button weiteren Wochentag hinzufügen" draggable="false"><i class="fa-solid fa-plus"></i> Weiteren Wochentag hinzufügen</a>
+                    </div>
+                    <div class="fusselementFormular">
+                        <button class="button" type="submit" value="absenden" title="Button absenden" draggable="false">Absenden</button>
+                        <button class="button" type="reset" value="zurücksetzen" title="Button zurücksetzen" draggable="false">Zurücksetzen</button>
+                    </div>
                 </form>
-                
+                <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
             </div>
         </main>
         <footer>
@@ -168,7 +169,7 @@
                     Adresse: Musterstraße 2<br />
                     12345 Musterhausen<br />
                     E-Mail: <a href="mailto:muster@tierheimat.de">muster@tierheimat.de</a><br />
-                    Telefon:  0123 4567892
+                    Telefon: <a href="tel:0123 4567892">0123 4567892</a>
                 </p>
             </div>
             <div class="secondFooterChild">

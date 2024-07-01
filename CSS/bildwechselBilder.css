@@ -1,0 +1,95 @@
+a.bildwechselLila::before {
+    background-image: url(../img/lila2.jpg);
+}
+
+a.bildwechselLila::after {
+    background-image: url(../img/lila.jpg);
+}
+
+a.bildwechselTigerpython::before {
+    background-image: url(../img/tigerpython2.jpg);
+}
+
+a.bildwechselTigerpython::after {
+    background-image: url(../img/tigerpython.jpg);
+}
+
+a.bildwechselGreta::before {
+    background-image: url(../img/greta.jpg);
+}
+
+a.bildwechselGreta::after {
+    background-image: url(../img/greta2.jpg);
+}
+
+a.bildwechselLora::before {
+    background-image: url(../img/loraJendayasittich.jpg);
+}
+
+a.bildwechselLora::after {
+    background-image: url(../img/loraJendayasittich2.jpg);
+}
+
+a.bildwechselSimba::before {
+    background-image: url(../img/simba.jpg);
+}
+
+a.bildwechselSimba::after {
+    background-image: url(../img/simba2.jpg);
+}
+
+a.bildwechselBella::before {
+    background-image: url(../img/bella.jpeg);
+}
+
+a.bildwechselBella::after {
+    background-image: url(../img/bella2.jpeg);
+}
+
+a.bildwechselRocky::before {
+    background-image: url(../img/rocky.jpg);
+}
+
+a.bildwechselRocky::after {
+    background-image: url(../img/rocky2.jpg);
+}
+
+a.bildwechselFluffy::before {
+    background-image: url(../img/fluffy.jpg);
+}
+
+a.bildwechselFluffy::after {
+    background-image: url(../img/fluffy2.jpg);
+}
+
+a.bildwechselWellensittiche::before {
+    background-image: url(../img/wellensittiche.jpg);
+}
+
+a.bildwechselWellensittiche::after {
+    background-image: url(../img/wellensittiche2.jpg);
+}
+
+a.bildwechselKornnatter::before {
+    background-image: url(../img/kornnatter.jpg);
+}
+
+a.bildwechselKornnatter::after {
+    background-image: url(../img/kornnatter2.jpg);
+}
+
+a.bildwechselRosa::before {
+    background-image: url(../img/prachtrosella.jpg);
+}
+
+a.bildwechselRosa::after {
+    background-image: url(../img/prachtrosella2.jpg);
+}
+
+a.bildwechselHoppel::before {
+    background-image: url(../img/hoppel.jpg);
+}
+
+a.bildwechselHoppel::after {
+    background-image: url(../img/hoppel2.jpg);
+}

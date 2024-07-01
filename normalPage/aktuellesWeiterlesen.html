@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/menu.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/Aktuelles.css"/>
-
+    <link rel="stylesheet" href="../CSS/menu.css" />
+    <link rel="stylesheet" href="../CSS/all.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/Aktuelles.css"/>
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/aktuellesWeiterlesen.css">
     <title>Tierheimat</title>
     <style>
         .onlySmallMenu {
@@ -28,7 +28,7 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="../index.html" class="logo" draggable="false">
+                <a href="../index.html" draggable="false">
                     <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
@@ -62,18 +62,60 @@
     </header>
     <div class="grid">
         <main>
+           
             <div class="tile tileBorder">
                 <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
-                <a disabled="disabled" draggable="false">Aktuelles</a>
+                <a disabled="disabled" draggable="false">Unsere Tiere</a>
             </div>
+
+            <div class="box-absolute">
+                <div class="kopfelement">
+                    <b>15 Jahre Tierheimat!</b>
+                    <a href="../normalPage/aktuelles.html" title="Button Abbrechen" draggable="false">
+                        <i class="fa-solid fa-circle-xmark"></i></a>
+                    <br />
+                </div>
+                <div class="unterelement bildWeiter">
+                    <img src="../img/tierheim-Fest.jpg" class="hohesBild" alt="Bild Tierheim-Fest" title="Bild Tierheim-Fest" draggable="false"/>
+                    
+                    <img src="../img/tierheim-Fest.jpg" class="niedrigesBild" alt="Bild Tierheim-Fest" title="Bild Tierheim-Fest" draggable="false" />
+                </div>
+                <div class="unterelement scrollbar">
+                    <p><b></b></p>
+                    
+                    <br />
+                    <p class="textTrennung">
+                        Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück. 
+                            Seit unserer Gründung haben wir unzähligen Tieren ein vorübergehendes Zuhause gegeben und sie erfolgreich in liebevolle Familien vermittelt. 
+                            Dank der großartigen Unterstützung unserer Spender und freiwilligen Helfer konnten wir stetig wachsen und unsere Einrichtungen modernisieren. 
+                            Ein besonderes Highlight unseres Jubiläumsjahres ist die Erweiterung unseres Geländes, die es uns ermöglicht, noch mehr Tiere aufzunehmen. 
+                            Wir laden alle Unterstützer und Freunde herzlich ein, dieses besondere Ereignis mit uns zu feiern und auf viele weitere erfolgreiche Jahre anzustoßen.
+                        </p>
+                    </p>
+                  
+                    <div class="unterelementScrollbar" >
+
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+
+
+
+
+
+
             <div>
                 <br>
                 <h2>Neues aus dem Tierheim</h2>
                 <hr class="underHeadline" />
-                <div class="box-containerNeuigkeiten tileBorder" id="erweiterungTierheim">
+                <div class="box-containerNeuigkeiten tileBorder">
                     <div class="item">
-                        <img src="../img/Ausbau Tierheim.jpg" alt="Ausbau des Tierheims" />
+                        <img src="../img/ausbau Tierheim.jpg" alt="Ausbau des Tierheims" />
                         <div class="description">
                             <p style="text-align: center;"><b>ERWEITERUNG DES TIERHEIMES</b></p>
                             <br>
@@ -94,11 +136,11 @@
                 <br>
             </div>
             <br>
-            <h2 id="15JahreTierheimat">Weitere Artikel</h2>
+            <h2>Weitere Artikel</h2>
                 <hr class="underHeadline" />
             <div class="box-containerNeuigkeiten1 tileBorder">
                 <div class="item">
-                    <img src="../img/Tierheim-Fest.jpg" alt="15. Jahre Tierheimat" />
+                    <img src="../img/tierheim-Fest.jpg" alt="15. Jahre Tierheimat" />
                     <div class="description">
                         <p style="text-align: center;"><br><b>15. Jahre Tierheimat</b></p>
                         <br>
@@ -109,14 +151,15 @@
                             Dank der großartigen Unterstützung unserer Spender und freiwilligen Helfer konnten wir stetig wachsen und unsere Einrichtungen modernisieren. 
                             Ein besonderes Highlight unseres Jubiläumsjahres ist die Erweiterung unseres Geländes, die es uns ermöglicht, noch mehr Tiere aufzunehmen. 
                             Wir laden alle Unterstützer und Freunde herzlich ein, dieses besondere Ereignis mit uns zu feiern und auf viele weitere erfolgreiche Jahre anzustoßen.
-                        </p>-->                            
-                        <a href="../normalPage/aktuellesWeiterlesen.html" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Zum Artikel</a>
+                        </p>-->
 
                         
+
+                        <button class="button">Zum Artikel</button>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../img/Pokal.jpg" alt="Pokal" />
+                    <img src="../img/pokal.jpg" alt="Pokal" />
                     <div class="description">
                         <p style="text-align: center;"><br><b>Sieger des Thüringer Tierheimwettbewerb</b></p>
                         <br>
@@ -131,7 +174,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../img/Tierarzt Student.jpg" alt="Veterinärstudent" />
+                    <img src="../img/tierarzt Student.jpg" alt="Veterinärstudent" />
                     <div class="description">
                         <p style="text-align: center;"><br><b>Wir begrüßen unsere neuen Veterinärstudenten!</b></p>
                         <br>
@@ -145,7 +188,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../img/Friedhof.jpg" alt="Ruhestätte" />
+                    <img src="../img/friedhof.jpg" alt="Ruhestätte" />
                     <div class="description">
                         <p style="text-align: center;"><br><b>Erneuerung der Ruhestätte</b></p>
                         <br>
@@ -159,8 +202,8 @@
                         <button class="button">Zum Artikel</button>
                     </div>
                 </div>
-                <div class="item" id="tiervermittlung">
-                    <img src="../img/glücklicheKatze.jpg" alt="Erfolgreiche Tiervermittlung" />
+                <div class="item">
+                    <img src="../img/glückliche Katze.jpg" alt="Erfolgreiche Tiervermittlung" />
                     <div class="description">
                         <p style="text-align: center;"><br><b>Erfolgreiche Tiervermittlung</b></p>
                         <br>
@@ -207,8 +250,8 @@
             <p>
                 Adresse: Musterstraße 2<br />
                 12345 Musterhausen<br />
-                E-Mail: <a href="mailto:muster@tierheimat.de">muster@tierheimat.de</a><br />
-                Telefon: <a href="tel:0123 4567892">0123 4567892</a>
+                E-Mail: muster@tierheimat.de<br />
+                Telefon:  0123 4567892
             </p>
         </div>
         <div class="secondFooterChild">
