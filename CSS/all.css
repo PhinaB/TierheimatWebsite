@@ -263,6 +263,11 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     opacity: 1;
 }
 
+.aussenboxBildwechselKlein {
+    padding-bottom: calc(100% / (3 / 2));
+    width: 100%;
+}
+
 .schattenBild, .aussenboxBildwechsel {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }

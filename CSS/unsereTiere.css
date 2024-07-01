@@ -3,25 +3,6 @@
     margin-bottom: 20px;
 }
 
-.außenboxBildwechsel {
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: calc(100%/(3/2));
-}
-
-/* Bildwechsel */
-a.bildwechselAllgemein {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;   
-}
-
 p {
     font-size: 0.9em; 
 }

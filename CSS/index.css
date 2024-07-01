@@ -14,11 +14,6 @@
     padding-bottom: calc(100% / (3 / 1));
 }
 
-.aussenboxBildwechselKlein {
-    padding-bottom: calc(100% / (3 / 2));
-    width:100%;
-}
-
 a.bildwechselWir::before {
     background-image: url(../img/wir.jpg);
 }

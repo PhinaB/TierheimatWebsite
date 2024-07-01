@@ -1,95 +1,95 @@
-a.bildwechselLila {
+a.bildwechselLila::before {
     background-image: url(../img/lila2.jpg);
 }
 
-a.bildwechselLila:hover {
+a.bildwechselLila::after {
     background-image: url(../img/lila.jpg);
 }
 
-a.bildwechselTigerpython {
+a.bildwechselTigerpython::before {
     background-image: url(../img/tigerpython2.jpg);
 }
 
-a.bildwechselTigerpython:hover {
+a.bildwechselTigerpython::after {
     background-image: url(../img/tigerpython.jpg);
 }
 
-a.bildwechselGreta {
+a.bildwechselGreta::before {
     background-image: url(../img/greta.jpg);
 }
 
-a.bildwechselGreta:hover {
+a.bildwechselGreta::after {
     background-image: url(../img/greta2.jpg);
 }
 
-a.bildwechselLora {
+a.bildwechselLora::before {
     background-image: url(../img/loraJendayasittich.jpg);
 }
 
-a.bildwechselLora:hover {
+a.bildwechselLora::after {
     background-image: url(../img/loraJendayasittich2.jpg);
 }
 
-a.bildwechselSimba {
+a.bildwechselSimba::before {
     background-image: url(../img/simba.jpg);
 }
 
-a.bildwechselSimba:hover {
+a.bildwechselSimba::after {
     background-image: url(../img/simba2.jpg);
 }
 
-a.bildwechselBella {
+a.bildwechselBella::before {
     background-image: url(../img/bella.jpeg);
 }
 
-a.bildwechselBella:hover {
+a.bildwechselBella::after {
     background-image: url(../img/bella2.jpeg);
 }
 
-a.bildwechselRocky {
+a.bildwechselRocky::before {
     background-image: url(../img/rocky.jpg);
 }
 
-a.bildwechselRocky:hover {
+a.bildwechselRocky::after {
     background-image: url(../img/rocky2.jpg);
 }
 
-a.bildwechselFluffy {
+a.bildwechselFluffy::before {
     background-image: url(../img/fluffy.jpg);
 }
 
-a.bildwechselFluffy:hover {
+a.bildwechselFluffy::after {
     background-image: url(../img/fluffy2.jpg);
 }
 
-a.bildwechselWellensittiche {
+a.bildwechselWellensittiche::before {
     background-image: url(../img/wellensittiche.jpg);
 }
 
-a.bildwechselWellensittiche:hover {
+a.bildwechselWellensittiche::after {
     background-image: url(../img/wellensittiche2.jpg);
 }
 
-a.bildwechselKornnatter {
+a.bildwechselKornnatter::before {
     background-image: url(../img/kornnatter.jpg);
 }
 
-a.bildwechselKornnatter:hover {
+a.bildwechselKornnatter::after {
     background-image: url(../img/kornnatter2.jpg);
 }
 
-a.bildwechselRosa {
+a.bildwechselRosa::before {
     background-image: url(../img/prachtrosella.jpg);
 }
 
-a.bildwechselRosa:hover {
+a.bildwechselRosa::after {
     background-image: url(../img/prachtrosella2.jpg);
 }
 
-a.bildwechselHoppel {
+a.bildwechselHoppel::before {
     background-image: url(../img/hoppel.jpg);
 }
 
-a.bildwechselHoppel:hover {
+a.bildwechselHoppel::after {
     background-image: url(../img/hoppel2.jpg);
 }
