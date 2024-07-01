@@ -26,7 +26,8 @@ header a {
 
 .container img {
     max-width: 100%; 
-    height: auto;     
+    height: auto; 
+    border-radius:4px;    
 }
 
 .container .inlineLogo {
@@ -34,7 +35,6 @@ header a {
     position: relative;
     top: 2px;
 }
-
 .deckblatt {
     text-align: center;
     display: flex;
