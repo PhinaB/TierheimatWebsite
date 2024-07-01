@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/formulare.css" />
 
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
 
@@ -73,9 +74,9 @@
                     <h2>Login</h2>
                     <hr class="underHeadline" />
                     <form method="post">
-                        <h3>E-Mail: <span class="redPflichtfeld">*</span></h3>
+                        <label class="h3" for="email">E-Mail: <span class="redPflichtfeld">*</span></label>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
-                        <h3>Passwort: <span class="redPflichtfeld">*</span></h3>
+                        <label class="h3" for="password">Passwort: <span class="redPflichtfeld">*</span></label>
                         <input type="password" name="password" required placeholder="Passwort" />
                         <a href="../loginPage/indexLogin.html" class="button marginButton" draggable="false">Anmelden</a>
                         <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
@@ -85,11 +86,11 @@
                     <h2>Registrierung</h2>
                     <hr class="underHeadline" />
                     <form method="post">
-                        <h3>E-Mail: <span class="redPflichtfeld">*</span></h3>
+                        <label class="h3" for="email">E-Mail: <span class="redPflichtfeld">*</span></label>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
-                        <h3>Passwort: <span class="redPflichtfeld">*</span></h3>
+                        <label class="h3" for="password">Passwort: <span class="redPflichtfeld">*</span></label>
                         <input type="password" name="password" required placeholder="Passwort" />
-                        <h3>Nutzername: <span class="redPflichtfeld">*</span></h3>
+                        <label class="h3" for="username">Nutzername: <span class="redPflichtfeld">*</span></label>
                         <input type="text" name="username" required placeholder="maxMustermann" max="10" min="3" />
                         <a class="button marginButton">Registrieren</a>
                         <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>

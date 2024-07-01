@@ -8,10 +8,6 @@
     column-gap: 30px;
 }
 
-.flex-item1 > div, .flex-item2 > div  {
-    margin-top: 10px; 
-}
-
  select {
     width: 100%;
     height: 33px;
