@@ -160,6 +160,10 @@ h2 {
     cursor: pointer;
 }
 
+.marginTopButton {
+    margin-top: 20px;
+}
+
 .box-container {
     display: flex; 
     justify-content: space-between;

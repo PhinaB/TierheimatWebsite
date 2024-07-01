@@ -22,10 +22,6 @@ a.bildwechselWir::after {
     background-image: url(../img/wirSpringend.jpg);
 }
 
-.marginTopButton {
-    margin-top: 20px;
-}
-
 .marginTopH2 {
     margin-top: 50px;
 }
