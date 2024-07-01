@@ -12,10 +12,13 @@
 
 form > div {
     box-sizing: border-box; 
-    margin-top: 5px; 
-    margin-bottom: 15px; 
+    padding-top: 20px; 
+    padding-bottom: 15px; 
     padding-left: 10px; 
     padding-right: 10px; 
+}
+.fußelementFormular{
+    padding-top: 25px; 
 }
 
 input[type="checkbox"]:first-of-type {

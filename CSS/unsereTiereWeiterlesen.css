@@ -31,13 +31,13 @@
     padding-bottom: 1%; 
 }
 
-.kopfelement a i{
+.kopfelement a {
     float: right; 
     font-size: 1.5em; 
     color: black; 
 }
 
-.kopfelement a i:hover{
+.kopfelement a:hover{
     float: right;
     color: var(--primary-color);
 }
