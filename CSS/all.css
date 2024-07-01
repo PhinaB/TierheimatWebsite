@@ -232,7 +232,11 @@ textarea {
     position: relative;
 }
 
-.aussenboxBildwechsel, .aussenboxBildwechselKlein {
+.aussenboxBildwechsel {
+    border-radius:4px;
+}
+
+.aussenboxBildwechselKlein {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
