@@ -1,39 +1,9 @@
-/*.box-containerNeuigkeiten1 {
-    display: flex; 
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 30px 20px;
-  
-}
 
-.box-containerNeuigkeiten1 div {
-    width: 30%;
-    box-sizing: border-box;
-    padding-bottom: 20px;
-    
-}
-
-.box-containerNeuigkeiten1 div {
-    border: 1px solid #A0A0A0;
-    box-shadow: 0 0 10px 0 rgba(255, 254, 254, 0.2);
-    border-radius: 4px;
-}
-
-.box-containerNeuigkeiten1 div img {
-    padding: 10px 15px;
-}
-
-.box-containerNeuigkeiten1 div img {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom: 1px solid #eee;
-    width: 100%;
-}
-*/
-.buttonZumArtiekl {
+.buttonZumArtikel {
     background: #83B25B;
     color: #fff;
     border: 1px solid #83B25B;
+    justify-content: center;
     border-radius: 4px;
     font-size: 0.8em; 
 }
@@ -56,4 +26,108 @@ p {
 .box-container .description {
     width: 100%;
     box-sizing: border-box;
+}
+
+.box-containerNeuigkeiten {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    /*padding: 0;     /* nachträglich noch eingefügt, diese und kommende Zeile als Kommentar entfernen um den Rahmen der Box einzubleneden */
+    /*border: none; */
+}
+
+.box-containerNeuigkeiten .item {
+    display: flex;
+    width: 100%;
+}
+
+.box-containerNeuigkeiten .item img {
+    width: 50%;
+    /*object-fit: cover; /* Passt das Bild an den Container an */
+}
+
+.box-containerNeuigkeiten .description {
+    width: 50%;
+    padding: 10px; /* Fügt Abstand innerhalb der Beschreibung hinzu */
+    box-sizing: border-box;
+}
+
+.box-containerNeuigkeiten1 {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /*drei gleich große Spalten */
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1200px; /* auf maximale Breite gesetzt */
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.box-containerNeuigkeiten1 .item {
+    border: 1px solid #A0A0A0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    margin: 0;
+}
+
+.box-containerNeuigkeiten1 .item img {
+    width: 100%;
+    
+    object-fit: cover;
+}
+
+.box-containerNeuigkeiten1 .description {
+    padding: 15px;
+    flex: 1; /* "erlaubt flex-Elemente zu wachsen" */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.box-containerNeuigkeiten1 .description p:first-of-type {
+    display: block; /* Zeigt den ersten Absatz automatisch an */
+}
+
+.box-containerNeuigkeiten1 .item:hover {
+    transform: translateY(-10px); /* effeckt zum anheben des Elements */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    /*background-color: #007bff;
+    color: white;*/
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.button a {
+    /*color: white;*/
+    text-decoration: none;
+    justify-content: center;
+}
+
+.buttonZumArtikel {
+    margin-top: 10px;
+    padding: 8px 16px;
+    /*background-color: #007bff;
+    color: white;*/
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: center;
 }
