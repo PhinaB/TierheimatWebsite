@@ -167,13 +167,23 @@ h2 {
     gap: 30px 50px;
 }
 
-.box-container div {
+.box-container > div {
     width: 30%;
     box-sizing: border-box;
     padding-bottom: 20px;
 }
 
-.tileBorder, .box-container div {
+.box-container-button > div {
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.box-container > div a.button {
+    position: absolute;
+    bottom: 20px;
+}
+
+.tileBorder, .box-container > div {
     border: 1px solid var(--border-color);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -183,11 +193,11 @@ h2 {
     padding: 10px 15px;
 }
 
-.box-container div img ~ * {
+.box-container div img ~ *, .box-container div div ~ * {
     margin: 10px 15px;
 }
 
-.box-container div img {
+.box-container div img, .box-container div img .aussenboxBildwechselKlein {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom: 1px solid #eee;
@@ -216,11 +226,15 @@ textarea {
 }
 
 /* Bildwechsel */
-.aussenboxBildwechsel {
+.aussenboxBildwechsel, .aussenboxBildwechselKlein {
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
-    border-radius: 4px;
+}
+
+.aussenboxBildwechsel, .aussenboxBildwechselKlein {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 a.bildwechsel, a.bildwechsel::before, a.bildwechsel::after {
@@ -272,7 +286,7 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
         justify-content:center;
         flex-wrap:wrap;
     }
-    .box-container div {
+    .box-container > div {
         width:calc(50% - 25px);
     }
 }
@@ -284,7 +298,7 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
 }
 
 @media only screen and (max-width: 650px) {    
-    .box-container div {
+    .box-container > div {
         width: 100%;
     }
 }
@@ -293,7 +307,7 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     .grid, .gridIndex {
         grid-template-columns: 3% 94% 3%;
     }
-    .box-container div {
+    .box-container > div {
         width: 100%;
     }
 }

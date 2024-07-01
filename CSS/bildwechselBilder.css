@@ -1,0 +1,95 @@
+a.bildwechselLila {
+    background-image: url(../img/lila2.jpg);
+}
+
+a.bildwechselLila:hover {
+    background-image: url(../img/lila.jpg);
+}
+
+a.bildwechselTigerpython {
+    background-image: url(../img/tigerpython2.jpg);
+}
+
+a.bildwechselTigerpython:hover {
+    background-image: url(../img/tigerpython.jpg);
+}
+
+a.bildwechselGreta {
+    background-image: url(../img/greta.jpg);
+}
+
+a.bildwechselGreta:hover {
+    background-image: url(../img/greta2.jpg);
+}
+
+a.bildwechselLora {
+    background-image: url(../img/loraJendayasittich.jpg);
+}
+
+a.bildwechselLora:hover {
+    background-image: url(../img/loraJendayasittich2.jpg);
+}
+
+a.bildwechselSimba {
+    background-image: url(../img/simba.jpg);
+}
+
+a.bildwechselSimba:hover {
+    background-image: url(../img/simba2.jpg);
+}
+
+a.bildwechselBella {
+    background-image: url(../img/bella.jpeg);
+}
+
+a.bildwechselBella:hover {
+    background-image: url(../img/bella2.jpeg);
+}
+
+a.bildwechselRocky {
+    background-image: url(../img/rocky.jpg);
+}
+
+a.bildwechselRocky:hover {
+    background-image: url(../img/rocky2.jpg);
+}
+
+a.bildwechselFluffy {
+    background-image: url(../img/fluffy.jpg);
+}
+
+a.bildwechselFluffy:hover {
+    background-image: url(../img/fluffy2.jpg);
+}
+
+a.bildwechselWellensittiche {
+    background-image: url(../img/wellensittiche.jpg);
+}
+
+a.bildwechselWellensittiche:hover {
+    background-image: url(../img/wellensittiche2.jpg);
+}
+
+a.bildwechselKornnatter {
+    background-image: url(../img/kornnatter.jpg);
+}
+
+a.bildwechselKornnatter:hover {
+    background-image: url(../img/kornnatter2.jpg);
+}
+
+a.bildwechselRosa {
+    background-image: url(../img/prachtrosella.jpg);
+}
+
+a.bildwechselRosa:hover {
+    background-image: url(../img/prachtrosella2.jpg);
+}
+
+a.bildwechselHoppel {
+    background-image: url(../img/hoppel.jpg);
+}
+
+a.bildwechselHoppel:hover {
+    background-image: url(../img/hoppel2.jpg);
+}
