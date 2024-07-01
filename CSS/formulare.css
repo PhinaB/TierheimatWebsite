@@ -1,4 +1,11 @@
+input[type="checkbox"], input[type="radio"], input[type="date"], input[type="time"] {
+    cursor:pointer;
+}
 
+.h3 {
+    font-weight: normal;
+    color: var(--color-headlines);
+}
 
 .fusselementFormular {
     width: 100%;
