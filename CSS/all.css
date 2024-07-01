@@ -272,6 +272,15 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+.redPflichtfeld {
+    color: #dc2929;
+    font-size:0.8em;
+}
+
+.borderTopPflichtfeld {
+    border-top: 1px solid #eee;
+}
+
 @media only screen and (max-width: 1600px) {
     .grid, .gridIndex {
         padding-top: 67px;

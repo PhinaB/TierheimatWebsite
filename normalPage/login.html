@@ -73,24 +73,26 @@
                     <h2>Login</h2>
                     <hr class="underHeadline" />
                     <form method="post">
-                        <h3>E-Mail:</h3>
+                        <h3>E-Mail: <span class="redPflichtfeld">*</span></h3>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
-                        <h3>Passwort:</h3>
+                        <h3>Passwort: <span class="redPflichtfeld">*</span></h3>
                         <input type="password" name="password" required placeholder="Passwort" />
                         <a href="../loginPage/index.html" class="button marginButton" draggable="false">Anmelden</a>
+                        <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
                     </form>
                 </div>
                 <div class="tileBorder tile">
                     <h2>Registrierung</h2>
                     <hr class="underHeadline" />
                     <form method="post">
-                        <h3>E-Mail:</h3>
+                        <h3>E-Mail: <span class="redPflichtfeld">*</span></h3>
                         <input type="email" name="email" required placeholder="email@beispiel.com" />
-                        <h3>Passwort:</h3>
+                        <h3>Passwort: <span class="redPflichtfeld">*</span></h3>
                         <input type="password" name="password" required placeholder="Passwort" />
-                        <h3>Nutzername:</h3>
+                        <h3>Nutzername: <span class="redPflichtfeld">*</span></h3>
                         <input type="text" name="username" required placeholder="maxMustermann" max="10" min="3" />
                         <a class="button marginButton">Registrieren</a>
+                        <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
                     </form>
                 </div>
             </div>

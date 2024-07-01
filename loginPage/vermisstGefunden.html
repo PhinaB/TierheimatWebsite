@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../CSS/footer.css" />
     <link rel="stylesheet" href="../CSS/loggedInPage.css" />
     <link rel="stylesheet" href="../CSS/vermisstGefundenLogin.css" />
+    <link rel="stylesheet" href="../CSS/formulare.css" />
 
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
 
@@ -80,19 +81,19 @@
                     <hr class="underHeadline" />
                     <p class="spaltenText">
                         Sie haben ein Tier gefunden oder wollen Ihr Tier als vermisst melden?
-                        Füllen Sie zunächst das folgende Formular aus. 
+                        Füllen Sie zunächst das folgende Formular aus.
                         Wir werden Ihre Meldung sichtbar auf unserer Website ausschreiben.
                         Sobald wir jegliche Informationen erhalten haben, werden wir uns bei Ihnen melden
-                        und unser bestmögliches tun, um Ihnen bei der Suche nach dem Besitzer bzw. dem Tier 
-                        behilflich zu sein.   
+                        und unser bestmögliches tun, um Ihnen bei der Suche nach dem Besitzer bzw. dem Tier
+                        behilflich zu sein.
                     </p>
                 </div>
 
-                <form action="" method="post" class="flex-containerVermisstefundenmelden tile">
+                <form action="" method="post" class="flex-containerVermisstefundenmelden">
                     <div class="flex-item1">
                         <div class="flex-itemAnliegen">
-                            <label for="anliegenVermisstGefunden" class="h3">Anliegen:</label>
-                            
+                            <label for="anliegenVermisstGefunden" class="h3">Anliegen: <span class="redPflichtfeld">*</span></label>
+
                             <select name="anliegenVermisstGefunden" class="eingabe" required>
                                 <option value="vermisstMelden">Vermisst melden</option>
                                 <option value="gefundenMelden">Gefunden melden</option>
@@ -100,65 +101,66 @@
                         </div>
 
                         <div class="flex-itemTierart">
-                            <label for="tierart" class="h3">Um welche Tierart handelt es sich?</label>
-                            
+                            <label for="tierart" class="h3">Um welche Tierart handelt es sich? <span class="redPflichtfeld">*</span></label>
+
                             <select name="tierart" id="tierart" class="eingabe" required>
                                 <option value="Katze">Katze</option>
                                 <option value="Hund">Hund</option>
                                 <option value="Vogel">Vogel</option>
                                 <option value="Sonstiges">Sonstiges</option>
                             </select>
-                            
+
                         </div>
 
                         <div class="flex-itemDatum">
-                            <label for="datum" class="h3">Datum des Verschwindens / Datum des Fundes:</label>
-                            
-                            <input type="date" name="datum"id="satum" class="eingabe feldBreite"/>
+                            <label for="datum" class="h3">Datum des Verschwindens / Datum des Fundes: <span class="redPflichtfeld">*</span></label>
+
+                            <input type="date" name="datum" id="datum" class="eingabe feldBreite" required />
                         </div>
 
                         <div class="flex-itemOrt">
-                            <label for="ort" class="h3">Ort des Verschwindens / Fundort:</label>
-                            
-                            <input type="text" name="ort" id="ort" class="eingabe feldBreite" placeholder="Ort" minlength="1" maxlength="20" required>
+                            <label for="ort" class="h3">Ort des Verschwindens / Fundort: <span class="redPflichtfeld">*</span></label>
+
+                            <input type="text" name="ort" id="ort" class="eingabe feldBreite" placeholder="Ort" minlength="1" maxlength="20" required />
                         </div>
                     </div>
 
                     <div class="flex-item2">
                         <div class="flex-itemTierbeschreibung">
                             <label for="tierbeschreibung" class="h3">Beschreibung des Tieres:</label>
-                            
-                            <textarea name="tierbeschreibung" id="tierbeschreibung" class="eingabe " rows="4" cols="20" minlength="1" maxlength="500" required> Beschreibung des Tieres...</textarea>
+
+                            <textarea name="tierbeschreibung" id="tierbeschreibung" class="eingabe" rows="4" cols="20" minlength="1" maxlength="500" placeholder="Beschreibung des Tieres..."></textarea>
                         </div>
 
                         <div class="flex-itemTierbild">
                             <label for="tierbild" class="h3 tierbild">Bild vom Tier:</label>
-                            
+
                             <br />
                             <label for="tierbild-upload" class="tierbild-upload button">
                                 <span><i class="fa-solid fa-upload"></i>  Datei laden</span>
                             </label>
-                            <input type="file" name="tierbild" id="tierbild-upload" class="eingabe feldBreite"/> 
+                            <input type="file" name="tierbild" id="tierbild-upload" class="eingabe feldBreite" />
                         </div>
 
                         <div class="flex-itemKontaktaufnahme">
-                            <label for="kontaktaufnahme" class="h3">Art der Kontaktaufnahme:</label>
+                            <label for="kontaktaufnahme" class="h3">Art der Kontaktaufnahme: <span class="redPflichtfeld">*</span></label>
                             <br />
                             <label for="kontaktaufnahme" class="eingabe">
-                                <input id="radio_email" type="radio" name="kontaktaufnahme" value="email" class="eingabe"/>
-                                <label for="radio_email" >E-Mail</label>
+                                <input id="radio_email" type="radio" name="kontaktaufnahme" value="email" class="eingabe" required/>
+                                <label for="radio_email">E-Mail</label>
                                 <br />
-                                <input id="radio_telefon"type="radio" name="kontaktaufnahme" value="telefon" class="eingabe"/>
+                                <input id="radio_telefon" type="radio" name="kontaktaufnahme" value="telefon" class="eingabe"  required/>
                                 <label for="radio_telefon">Telefon</label>
                             </label>
                         </div>
                     </div>
-                    
-                    <div class="fußelementFormular tile">
+
+                    <div class="fusselementFormular">
                         <button class="button" type="submit" value="absenden" title="Button absenden" draggable="false">Absenden</button>
-                        <button class="button" type="reset" value="zurücksetzen" title="Button zurücksetzen"draggable="false">Zurücksetzen</button>
+                        <button class="button" type="reset" value="zurücksetzen" title="Button zurücksetzen" draggable="false">Zurücksetzen</button>
                     </div>
                 </form>
+                <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
             </div>   
         </main>
         <footer>
