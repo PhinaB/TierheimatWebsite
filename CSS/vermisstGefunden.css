@@ -50,6 +50,44 @@
     padding: 0px; 
 }
 
+@media print {
+    @page {
+        size: A4;
+        margin: 15pt 20pt; 
+     }
+    /*damit links auch im Druck erkennbar sind */
+    a:after {
+        content:' - ' attr(href);
+      }
+    /*Seitenumbruch im Element wird vermieden */
+    div.box-containerUnsereTiere.tileBorder div, div.box-containerVermisstGefundenMelden.tileBorder div, footer {
+        page-break-inside:avoid;
+    }
+    div.tile {
+        page-break-before:always; 
+        margin-top: 40pt; 
+    } 
+    .tile ~ .duckenOhneSeitenumbruch {
+        page-break-before: avoid;
+    } 
+    header div,  .underFooter, [src="../fontawesome-6.5.2/js/all.js"] {
+        display:none; 
+    }
+    .druckenNichtDarstellen {
+        display: none; 
+    }
+    .logoPicture{
+        height:30pt;
+    }
+    header {
+        height: 30pt;
+    }
+    .grid, .gridIndex {
+        grid-template-columns: 2% 96% 2%;
+    }
+
+}
+
 @media only screen and (max-width: 900px) {
     .box-containerVermisstGefundenMelden {
         justify-content:center;
@@ -65,3 +103,5 @@
         text-align: center; 
     }
 }
+
+
