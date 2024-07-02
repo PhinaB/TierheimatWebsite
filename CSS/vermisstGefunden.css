@@ -49,8 +49,9 @@
     border-radius: 2px; 
     padding: 0px; 
 }
-
+/* für den Druck der Gefundenen-Meldungen und der Vermissten-Meldungen */
 @media print {
+    /* festlegen der größe der Durckseite und des Randes*/
     @page {
         size: A4;
         margin: 15pt 20pt; 
@@ -63,18 +64,18 @@
     div.box-containerUnsereTiere.tileBorder div, div.box-containerVermisstGefundenMelden.tileBorder div, footer {
         page-break-inside:avoid;
     }
+    /* Seitenumbruch vor jedem neuen Tile (hier vor der Vermissten-Anzeige und der Gefundenen-Anzeige */ 
     div.tile {
         page-break-before:always; 
         margin-top: 40pt; 
     } 
+    /* da die erste Teil auf der ersten Seite anfangen soll, muss der Seitenumbuch bei der ersten herausgenommen werden */
     .tile ~ .duckenOhneSeitenumbruch {
         page-break-before: avoid;
     } 
-    header div,  .underFooter, [src="../fontawesome-6.5.2/js/all.js"] {
+    /* der header (nav), außer das Logo, der Teil unter dem Footer und die erste Box soll nicht gedruck werden*/
+    header div,  .underFooter, [src="../fontawesome-6.5.2/js/all.js"], .druckenNichtDarstellen {
         display:none; 
-    }
-    .druckenNichtDarstellen {
-        display: none; 
     }
     .logoPicture{
         height:30pt;
