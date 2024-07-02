@@ -163,7 +163,17 @@
             </div>
 
             <br />
-            <div class="tile duckenOhneSeitenumbruch">
+            <div class="tile">
+                <form class="formTiereAuswaehlen" action="" method="post">
+                    <label for="tierstatusAuswählen"> Welche Tiere anzeigen: </label>
+                    <select name="tierstatusAuswählen">
+                        <option value="tierartWählen">Alle</option>
+                        <option value="vermissteTiere">Vermisste Tiere</option>
+                        <option value="gefundeneTiere">Gefundene Tiere</option>
+                    </select>
+                    <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i> Suchen</button>
+                </form>
+
                 <h2>Vermisste Tiere</h2>
                 <hr class="underHeadline" />
 
