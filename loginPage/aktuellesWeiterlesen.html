@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/loggedInPage.css" />
     <link rel="stylesheet" href="../css/aktuelles.css" />
+    <link rel="stylesheet" href="../CSS/unsereTiereWeiterlesen.css">
 
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
 
@@ -33,6 +35,10 @@
                 </a>
             </span>
 
+            <span class="user">
+                <i class="fa-solid fa-user"></i> Nutzername
+            </span>
+
             <div id="menuRight">
                 <a href="../index.html" draggable="false">
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
@@ -54,9 +60,9 @@
                     <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
                     Service/<br class="onlySmallMenu" />Infos
                 </a>
-                <a href="login.html" draggable="false">
-                    <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
-                    Login
+                <a href="indexLogin.html" draggable="false">
+                    <i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i>
+                    Logout
                 </a>
             </div>
         </nav>
@@ -69,11 +75,39 @@
                 <a disabled="disabled" draggable="false">Aktuelles</a>
             </div>
 
+            <div class="box-absolute">
+                <div class="kopfelement">
+                    <h3 class="inline">15 Jahre Tierheimat</h3>
+                    <a href="aktuelles.html" title="Button Abbrechen" draggable="false">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                    <br />
+                </div>
+                <div class="unterelement bildWeiter">
+                    <img src="../img/tierheimFest.jpg" class="hohesBild" alt="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" title="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" draggable="false" />
+
+                    <img src="../img/tierheimFest.jpg" class="niedrigesBild" alt="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" title="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" draggable="false" />
+                </div>
+                <div class="unterelement scrollbar">
+                    <p class="textTrennung">
+                        Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück.
+                        Seit unserer Gründung haben wir unzähligen Tieren ein vorübergehendes Zuhause gegeben und sie erfolgreich in liebevolle Familien vermittelt.
+                        Dank der großartigen Unterstützung unserer Spender und freiwilligen Helfer konnten wir stetig wachsen und unsere Einrichtungen modernisieren.
+                        Ein besonderes Highlight unseres Jubiläumsjahres ist die Erweiterung unseres Geländes, die es uns ermöglicht, noch mehr Tiere aufzunehmen.
+                        Wir laden alle Unterstützer und Freunde herzlich ein, dieses besondere Ereignis mit uns zu feiern und auf viele weitere erfolgreiche Jahre anzustoßen.
+                    </p>
+
+                    <div class="unterelementScrollbar">
+
+                    </div>
+                </div>
+            </div>
+
             <div class="tile">
                 <h2>Neues aus dem Tierheim</h2>
                 <hr class="underHeadline" />
                 <div class="flexWir tileBorder">
-                    <img src="../img/ausbauTierheim.jpg"  alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
+                    <img src="../img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
                     <div class="text">
                         <p>
                             Sehr geehrte Unterstützer und Freunde unseres Tierheims,
@@ -93,7 +127,7 @@
                         <div class="hiddenOnBigScreen">
                             <p>Dank Ihrer großzügigen Spenden und ... </p>
                             <br />
-                            <a href="aktuellesWeiterlesenAusbauTierheim.html" draggable="false" class="button">
+                            <a href="../normalPage/aktuellesWeiterlesenAusbauTierheim.html" draggable="false" class="button">
                                 <i class="fa-solid fa-newspaper"></i> Zum Artikel
                             </a>
                         </div>
@@ -112,7 +146,7 @@
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück.
                             Seit unserer Gründung ...
                         </p>
-                        <a href="aktuellesWeiterlesen.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
+                        <a href="../normalPage/aktuellesWeiterlesen.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
                         <img src="../img/pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
@@ -144,7 +178,7 @@
                         </p>
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
-                    <div id="tiervermittlung">
+                    <div>
                         <img src="../img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
                         <h3>Erfolgreiche Tiervermittlung</h3>
                         <p>

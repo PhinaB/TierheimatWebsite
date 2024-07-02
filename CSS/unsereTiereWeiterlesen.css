@@ -61,13 +61,15 @@
 }
 
 .niedrigesBild {
-    display: none; 
+    display: none;
+    border-radius: 4px;
 }
 
 .hohesBild {
     transition: width 0.7s ease, height 0.7s ease;
     overflow: hidden;
-    display: flex; 
+    display: flex;
+    border-radius: 4px;
 }
 
 .inline {

@@ -26,13 +26,6 @@
     grid-template-rows: auto auto auto auto;
 }
 
-.grid > img {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 1;
-}
-
 main {
     grid-column-start: 2;
     grid-column-end: 2;
@@ -46,58 +39,6 @@ main {
 .gridIndex > main {
     grid-row-start: 2;
     grid-row-end: 2;
-}
-
-#startbilder {
-    width: 100%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 1;
-    position: relative;
-}
-
-#startbilder::before {
-    content: "";
-    display: block;
-    padding-top: calc(100% / (1920 / 800));
-}
-
-@keyframes bilder {
-    0% {
-        opacity: 1;
-    }
-    34% {
-        opacity: 1;
-    }
-    35% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-#startbilder img:nth-of-type(1) {
-    animation: bilder 9s infinite;
-}
-
-#startbilder img:nth-of-type(2) {
-    animation: bilder 9s infinite;
-    animation-delay: -6s;
-}
-
-#startbilder img:nth-of-type(3) {
-    animation: bilder 9s infinite;
-    animation-delay: -3s;
-}
-
-.startbild {
-    position: absolute;
-    display: inline-block;
-    width:100%;
-    top:0;
 }
 
 a {
@@ -131,6 +72,10 @@ h1 {
 h2 {
     font-size: 1.4em;
     margin-bottom: 2px;
+}
+
+p {
+    font-size: 0.9em;
 }
 
 .underHeadline {
@@ -182,7 +127,7 @@ h2 {
     position: relative;
 }
 
-.box-container > div a.button {
+.box-container-button > div a.button {
     position: absolute;
     bottom: 20px;
 }
@@ -276,13 +221,32 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-.redPflichtfeld {
+.redPflichtfeld, .redColor {
     color: #dc2929;
+}
+
+.redPflichtfeld {
     font-size:0.8em;
+}
+
+.greenColor {
+    color: var(--primary-color);
 }
 
 .borderTopPflichtfeld {
     border-top: 1px solid #eee;
+}
+
+.flexWir {
+    display: flex;
+    gap: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: justify
+}
+
+.flexWir > * {
+    width: 50%;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -321,6 +285,13 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
 
 @media only screen and (max-width: 650px) {    
     .box-container > div {
+        width: 100%;
+    }
+    .flexWir {
+        flex-direction: column;
+        gap: 10px 0;
+    }
+    .flexWir > * {
         width: 100%;
     }
 }
