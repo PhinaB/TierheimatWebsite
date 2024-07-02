@@ -65,15 +65,15 @@
         page-break-inside:avoid;
     }
     /* Seitenumbruch vor jedem neuen Tile (hier vor der Vermissten-Anzeige und der Gefundenen-Anzeige */ 
-    div.tile {
+    .tile ~ .druckenMitSeitenumbruch {
         page-break-before:always; 
         margin-top: 40pt; 
     } 
-    /* da die erste Teil auf der ersten Seite anfangen soll, muss der Seitenumbuch bei der ersten herausgenommen werden */
-    .tile ~ .duckenOhneSeitenumbruch {
+    /* da der erste Teil auf der ersten Seite anfangen soll, muss der Seitenumbuch bei der ersten herausgenommen werden */
+    .tile ~ .druckenOhneSeitenumbruch {
         page-break-before: avoid;
     } 
-    /* der header (nav), außer das Logo, der Teil unter dem Footer und die erste Box soll nicht gedruck werden*/
+    /* der header (nav), außer das Logo, der Teil unter dem Footer und die erste Box*/
     header div,  .underFooter, [src="../fontawesome-6.5.2/js/all.js"], .druckenNichtDarstellen {
         display:none; 
     }
@@ -83,7 +83,7 @@
     header {
         height: 30pt;
     }
-    .grid, .gridIndex {
+    .grid {
         grid-template-columns: 2% 96% 2%;
     }
 
