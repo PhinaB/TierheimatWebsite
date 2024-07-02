@@ -61,6 +61,23 @@ input[type="radio"]:checked {
     margin-right: 1%; 
 }
 
+.headlineWithButtons a {
+    float: right;
+}
+
+.delete {
+    color: #dc2929;
+    margin-left:5px;
+}
+
+.delete:hover {
+    color: #9c0808;
+}
+
+.edit:hover {
+    color: #768569;
+}
+
 @media only screen and (max-width:1900px) {
     .spaltenText { 
         column-gap: 25px; 
