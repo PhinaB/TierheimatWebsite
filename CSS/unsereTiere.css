@@ -42,7 +42,6 @@ select {
 
 @media only screen and (max-width: 1086px) {
     .box-containerUnsereTiere {
-        justify-content:center;
         flex-wrap:wrap;
     }
     .box-containerUnsereTiere > div {

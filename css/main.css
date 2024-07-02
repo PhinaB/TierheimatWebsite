@@ -269,7 +269,6 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
 
 @media only screen and (max-width: 1000px) {
     .box-container {
-        justify-content:center;
         flex-wrap:wrap;
     }
     .box-container > div {

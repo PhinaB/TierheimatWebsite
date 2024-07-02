@@ -2,6 +2,10 @@
     font-style: italic; 
 }
 
+.formTiereAuswaehlen {
+    margin-bottom: 10px;
+}
+
 .vermisstGefundenText > h3{
     padding-bottom: 15px; 
 }
