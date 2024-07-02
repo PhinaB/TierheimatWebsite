@@ -24,8 +24,15 @@
     border-radius: 4px;
 }
 
-.box-containerUnsereTiere div div ~ * {
+.box-containerUnsereTiere div img ~ *, .box-containerUnsereTiere div div ~ * {
     margin: 10px 15px;
+}
+
+.box-containerUnsereTiere div img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
 }
 
 select {
