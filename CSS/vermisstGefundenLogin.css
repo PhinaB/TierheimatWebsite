@@ -1,10 +1,9 @@
 .spaltenText {
-    column-count: 1;
-    text-align: justify;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
     column-count: 2;
+    text-align: justify;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 10px;
     column-gap: 30px;
 }
 
@@ -16,12 +15,12 @@
 /*select Breite 485.2px=100% Breite der anderen Felder 497.2
 12Pixel unterschied also 2,47% Unterschied */
 .feldBreite {
-    width: 97%;  
+    width: 98%;  
     height: 33px; 
 }
 
 textarea {
-    width: 97%; 
+    width: 98%; 
 }
 
 input, select, textarea {
@@ -63,8 +62,39 @@ input[type="radio"]:checked {
 
 @media only screen and (max-width:1900px) {
     .spaltenText { 
-        column-gap: 25px; 
+        column-gap: 40px; 
     }
+}
+
+@media only screen and (max-width:1591px) {
+    .spaltenText { 
+        column-gap: 30px; 
+    }
+    .flex-item1 {
+        width: calc(100%-35px);
+        box-sizing: border-box; 
+        padding-left: 10px; 
+        padding-right: 0px; 
+        margin-left:0%; 
+        margin-right:0%; 
+    }
+    .flex-item2 {
+        width: calc(100%-35px);
+        box-sizing: border-box; 
+        padding-left: 0px; 
+        padding-right: 10px; 
+        margin-left:0%; 
+        margin-right:0%; 
+    }
+    .feldBreite {
+        width: 97%;  
+        height: 33px; 
+    }
+    
+    textarea {
+        width: 97%; 
+    }
+
 }
 
 /*wenn Bilschirmgröße 900px oder wenger, dann:*/
@@ -77,8 +107,18 @@ input[type="radio"]:checked {
     .flex-item1, .flex-item2 {
         width: 100%; 
     }
+    .flex-item1, .flex-item2 {
+        width: calc(100%-45px);
+        box-sizing: border-box; 
+        padding-left: 5px; 
+        padding-right: 5px; 
+        margin-left:0%; 
+        margin-right:0%; 
+    }
     .spaltenText {
         column-gap: 35px; 
+        padding-left: 5px;
+        padding-right: 5px;
     }
     .feldBreite, textarea {
         width: 98%; 
@@ -89,10 +129,8 @@ input[type="radio"]:checked {
 @media only screen and (max-width: 715px) {
     .spaltenText {
         column-count: 1;
-        padding-left: 5px;
-        padding-right: 5px;
     }
     .feldBreite, textarea {
-        width: 97%;
+        width: 98%; 
     }
 }
