@@ -65,7 +65,7 @@
         page-break-inside:avoid;
     }
     /* Seitenumbruch vor jedem neuen Tile (hier vor der Vermissten-Anzeige und der Gefundenen-Anzeige */ 
-    div.tile {
+    .tile ~ .druckenMitSeitenumbruch {
         page-break-before:always; 
         margin-top: 40pt; 
     } 
