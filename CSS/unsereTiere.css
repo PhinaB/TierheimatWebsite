@@ -3,10 +3,6 @@
     margin-bottom: 20px;
 }
 
-p {
-    font-size: 0.9em; 
-}
-
 .box-containerUnsereTiere {
     display: flex; 
     justify-content: space-between;
@@ -28,15 +24,8 @@ p {
     border-radius: 4px;
 }
 
-.box-containerUnsereTiere div img ~ *, .box-containerUnsereTiere div div ~ * {
+.box-containerUnsereTiere div div ~ * {
     margin: 10px 15px;
-}
-
-.box-containerUnsereTiere div img {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom: 1px solid #eee;
-    width: 100%;   
 }
 
 select {
