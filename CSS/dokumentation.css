@@ -2,6 +2,10 @@ main {
     line-height: 1.6;
 }
 
+p {
+    font-size:1em;
+}
+
 header {
     background: var(--background-color);
     width: 100%;
