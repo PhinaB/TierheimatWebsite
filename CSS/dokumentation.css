@@ -209,8 +209,8 @@ p {
     .container {
         padding: 30px 40px;
     }
-    .container img {
-        width:100%;
+    .divAroundImgEffekt img {
+        width: 100%;
     }
     .divAroundImgEffekt {
         flex-direction:column;
