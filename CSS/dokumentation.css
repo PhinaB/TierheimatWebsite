@@ -1,3 +1,13 @@
+body {
+    hyphens: auto;
+}
+
+#quellen {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
 main {
     line-height: 1.6;
 }
@@ -30,7 +40,6 @@ header a {
 
 .container img {
     max-width: 100%; 
-    height: auto; 
     border-radius:4px;    
 }
 
@@ -186,8 +195,33 @@ p {
     display: block;
 }
 
+.pageToSmall {
+    display:none;
+}
+
 @media only screen and (max-width: 880px) {
     .container {
         margin:20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 30px 40px;
+    }
+    .container img {
+        width:100%;
+    }
+    .divAroundImgEffekt {
+        flex-direction:column;
+    }
+    .imgEffekt {
+        padding:10px 0;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .container {
+        padding: 20px 25px;
     }
 }
