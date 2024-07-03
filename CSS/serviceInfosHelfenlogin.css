@@ -1,8 +1,7 @@
-main p {
+.kopfelementFormular p {
     text-align: justify; 
     padding-left: 10px;
     padding-right: 10px; 
-    padding-bottom: 10px; 
 }
 
 form > div {

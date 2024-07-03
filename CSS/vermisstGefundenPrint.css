@@ -1,0 +1,112 @@
+/* für den Druck der Gefundenen-Meldungen und der Vermissten-Meldungen */
+@media print {
+    /* festlegen der größe der Durckseite und des Randes*/
+    @page {
+        size: A4;
+        margin: 15pt 20pt; 
+     }
+    /*damit links auch im Druck erkennbar sind */
+    a:after {
+        content:' - ' attr(href);
+      }
+    
+    /*Seitenumbruch im Element wird vermieden */
+    div.box-containerUnsereTiere.tileBorder div, div.box-containerVermisstGefundenMelden.tileBorder div, footer {
+        page-break-inside:avoid;
+    }
+    /* Seitenumbruch vor jedem neuen Tile (hier vor der Vermissten-Anzeige und der Gefundenen-Anzeige */ 
+    .tile ~ .druckenMitSeitenumbruch {
+        page-break-before:always; 
+        margin-top: 40pt; 
+    } 
+    /* da der erste Teil auf der ersten Seite anfangen soll, muss der Seitenumbuch bei der ersten herausgenommen werden */
+    .tile ~ .druckenOhneSeitenumbruch {
+        page-break-before: avoid;
+    } 
+    /* der header (nav), außer das Logo, der Teil unter dem Footer und die erste Box*/
+    header div,  .underFooter, [src="../fontawesome-6.5.2/js/all.js"], .druckenNichtDarstellen {
+        display:none; 
+    }
+    .logoPicture{
+        height:30pt;
+    }
+    header {
+        height: 30pt;
+    }
+    .grid {
+        grid-template-columns: 2% 96% 2%;
+    }
+
+    .vermisstGefundenText > h3{
+        padding-bottom: 15px; 
+    }
+    
+    .boldText {
+        font-weight: bold; 
+    }
+    
+    .marginTopFirstElement > div p:first-of-type {
+        margin-top: 10px; 
+    }
+    
+    .box-containerUnsereTiere p.absatzfrei {
+        box-sizing: border-box;
+        margin: 0px; 
+        margin-left: 15px; 
+        margin-right: 15px; 
+    }
+    
+    .box-containerVermisstGefundenMelden {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center; 
+        align-items: center; 
+        gap: 5px 5px; 
+        margin-bottom: 3%; 
+    }
+    
+    .box-containerVermisstGefundenMelden div {
+        width: 50%; 
+        box-sizing: border-box;
+    }
+    
+    .vermisstGefundenText {
+        padding-right: 10px;
+        padding-left: 10px; 
+    }
+    
+    .box-containerVermisstGefundenMelden div p {
+        text-align: justify;  
+    }
+    
+    .box-containerVermisstGefundenMelden div img {
+        width: 100%; 
+        border-radius: 4px; 
+        padding: 0px; 
+    }
+
+
+
+
+
+
+
+
+
+
+
+    @-moz-document url-prefix() {
+        .tile ~ .druckenMitSeitenumbruch {
+            page-break-before:always; 
+            break-before: always; 
+            margin-top: -180pt; 
+        } 
+    
+        .tile ~ .druckenOhneSeitenumbruch {
+        margin-top: 0pt; 
+        }
+        footer {
+        margin-top: 370pt; 
+        }
+    }
+}
