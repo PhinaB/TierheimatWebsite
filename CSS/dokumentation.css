@@ -195,10 +195,6 @@ p {
     display: block;
 }
 
-.pageToSmall {
-    display:none;
-}
-
 @media only screen and (max-width: 880px) {
     .container {
         margin:20px;
@@ -217,6 +213,9 @@ p {
     }
     .imgEffekt {
         padding:10px 0;
+    }
+    .pageToSmall {
+        display:none;
     }
 }
 
