@@ -90,7 +90,20 @@
     .grid {
         grid-template-columns: 2% 96% 2%;
     }
-
+    @-moz-document url-prefix() {
+        .tile ~ .druckenMitSeitenumbruch {
+            page-break-before:always; 
+            break-before: always; 
+            margin-top: -180pt; 
+        } 
+    
+        .tile ~ .druckenOhneSeitenumbruch {
+        margin-top: 0pt; 
+        }
+        footer {
+        margin-top: 370pt; 
+        }
+    }
 }
 
 @media only screen and (max-width: 900px) {
