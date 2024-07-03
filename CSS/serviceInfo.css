@@ -21,19 +21,15 @@ h3 {
 .box-containerserviceInfo {
     display: flex; 
     flex-direction: row; 
-    justify-content: center; 
+    justify-content: space-between; 
     align-items: center; 
+    text-align: justify; 
+    gap: 0 20px; 
 }
 
 .box-containerserviceInfo > div {
-    width: 50%; 
     box-sizing: border-box;
     padding-bottom: 15px; 
-}
-
-.box-containerserviceInfo div + div {
-    padding-left: 30px;
-    padding-right: 30px; 
 }
 
 .box-containerserviceInfo div img {
@@ -64,7 +60,7 @@ h3 {
 
 @media only screen and (max-width: 1600px) {    
     .box-containerserviceInfo {
-        flex-wrap:wrap;
+        flex-wrap:nowrap;
     }
     h3 {
         text-align: left;
@@ -76,7 +72,7 @@ h3 {
         grid-template-columns: 3% 94% 3%;
     }
     .textTrennung {
-        column-count: 1;       
+        column-count: 2;       
     }
     .quadratischesBild {
         display: none; 
@@ -87,6 +83,9 @@ h3 {
 }
 
 @media only screen and (max-width: 715px) {
+    .box-containerserviceInfo {
+        flex-wrap:wrap;
+    }
     .grid, .gridIndex {
         grid-template-columns: 3% 94% 3%;
     }
