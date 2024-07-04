@@ -43,11 +43,6 @@
     width: calc(50% - 10px);  
 }  
 
-.unterelementScrollbar {
-    width: 100%; 
-    height: 40px; 
-}
-
 /* div um das Bild mit der Klasse BildWeiter */
 .bildWeiter {
     display: flex;
@@ -147,6 +142,10 @@
         scrollbar-width: thin; 
         border-radius: 4px 4px 4px 4px;
     } 
+    .unterelementScrollbar {
+        width: 100%; 
+        height: 200px; 
+    }
 }
 
 
