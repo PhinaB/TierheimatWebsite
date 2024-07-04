@@ -48,12 +48,13 @@ a {
     transition: 0.5s;
 }
 
-a[disabled], a:hover {
+a.disabled, a:hover {
     color: #000;
 }
 
-a[disabled] {
+a.disabled {
     cursor: default;
+    pointer-events: none;
 }
 
 h1, h2, h3 {
