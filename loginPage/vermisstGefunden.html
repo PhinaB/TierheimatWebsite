@@ -4,14 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/menu.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/loggedInPage.css" />
-    <link rel="stylesheet" href="../css/vermisstGefundenLogin.css" />
-    <link rel="stylesheet" href="../css/vermisstGefunden.css" />
-    <link rel="stylesheet" href="../css/unsereTiere.css" />
-    <link rel="stylesheet" href="../css/formulare.css" />
+    <link rel="stylesheet" href="../css/menu.css" media="all"/>
+    <link rel="stylesheet" href="../css/main.css" media="all"/>
+    <link rel="stylesheet" href="../css/footer.css" media="all"/>
+    <link rel="stylesheet" href="../css/loggedInPage.css" media="all"/>
+    <link rel="stylesheet" href="../css/vermisstGefundenLogin.css" media="all"/>
+    <link rel="stylesheet" href="../css/vermisstGefunden.css" media="all"/>
+    <link rel="stylesheet" href="../css/unsereTiere.css" media="all"/>
+    <link rel="stylesheet" href="../css/formulare.css" media="all"/>
+    <link rel="stylesheet" href="../css/vermisstGefundenPrint.css" media="print" />
 
     <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css">
 
@@ -71,13 +72,13 @@
     </header>
     <div class="grid">
         <main>
-            <div class="tile tileBorder">
+            <div class="tile tileBorder druckenNichtDarstellen">
                 <a href="indexLogin.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
                 <a disabled="disabled" draggable="false">Vermisst / Gefunden</a>
             </div>
 
-            <div class="tileBorder tile">
+            <div class="tileBorder tile druckenNichtDarstellen">
                 <div class="kopfelementFormular">
                     <h2>Vermisst / Gefunden melden</h2>
                     <hr class="underHeadline" />
@@ -163,8 +164,8 @@
             </div>
 
             <br />
-            <div class="tile">
-                <form class="formTiereAuswaehlen" action="" method="post">
+            <div class="tile druckenOhneSeitenumbruch">
+                <form class="formTiereAuswaehlen druckenNichtDarstellen" action="" method="post">
                     <label for="tierstatusAuswählen"> Welche Tiere anzeigen: </label>
                     <select name="tierstatusAuswählen">
                         <option value="tierartWählen">Alle</option>
@@ -265,7 +266,7 @@
                 </div>
             </div>
             <br />
-            <div class="tile">
+            <div class="tile druckenMitSeitenumbruch">
                 <h2>Gefundene Tiere</h2>
                 <hr class="underHeadline" />
 
