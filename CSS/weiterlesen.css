@@ -137,15 +137,11 @@
         height: auto;
     } 
     .scrollbar {
-        overflow: scroll; 
+        overflow-y: scroll; 
         scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
         scrollbar-width: thin; 
         border-radius: 4px 4px 4px 4px;
     } 
-    .unterelementScrollbar {
-        width: 100%; 
-        height: 200px; 
-    }
 }
 
 
