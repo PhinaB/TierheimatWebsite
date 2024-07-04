@@ -84,9 +84,6 @@ input[type="radio"]:checked {
 }
 
 @media only screen and (max-width:1591px) {
-    .spaltenText { 
-        column-gap: 30px; 
-    }
     .flex-item1 {
         width: calc(100%-35px);
         box-sizing: border-box; 
@@ -103,15 +100,15 @@ input[type="radio"]:checked {
         margin-left:0%; 
         margin-right:0%; 
     }
-    .feldBreite {
-        width: 97%;  
-        height: 33px; 
+    .spaltenText { 
+        column-gap: 30px; 
     }
-    
+    .feldBreite {
+        width: 97%;   
+    }
     textarea {
         width: 97%; 
     }
-
 }
 
 /*wenn Bilschirmgröße 900px oder wenger, dann:*/
@@ -126,7 +123,6 @@ input[type="radio"]:checked {
     }
     .flex-item1, .flex-item2 {
         width: calc(100%-45px);
-        box-sizing: border-box; 
         padding-left: 5px; 
         padding-right: 5px; 
         margin-left:0%; 

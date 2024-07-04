@@ -86,17 +86,10 @@ h3 {
     .box-containerserviceInfo {
         flex-wrap:wrap;
     }
-    .grid, .gridIndex {
-        grid-template-columns: 3% 94% 3%;
-    }
     .box-containerserviceInfo > div:first-of-type, .box-containerserviceInfo > div:last-of-type {
         width: 100%;
     }
-    .zentrierterButton {
-        text-align: center; 
-    }
     .textTrennung {
-        column-count: 2;
         column-gap: 40px;  
     }
     .hohesBild {
