@@ -30,7 +30,7 @@ nav a::after {
     transition: transform 0.3s ease-out;
 }
 
-nav a:hover::after {
+nav a:hover::after, .dropdown:hover > a::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -46,7 +46,7 @@ nav a:hover::after {
     position: relative;
 }
 
-nav a.disabled::after, nav a.logo::after {
+nav a.disabled::after, nav a.logo::after, nav .deactivate::after {
     transform: none;
     transition: none;
     width: 0;
@@ -65,6 +65,51 @@ nav a.disabled, nav a:hover {
     padding: 5px 0;
 }
 
+/* Untermenü: */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-color);
+    z-index: 101;
+    padding: 10px 30px 5px 30px;
+    border: 2px solid var(--primary-color);
+    border-top: none;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.bigWidthSubmenu {
+    width: 250px;
+}
+
+.smallWidthSubmenu {
+    width: 200px;
+}
+
+.submenu a {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    top: -5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.dropdown:hover > a {
+    color: var(--primary-color);
+}
+
 @media only screen and (max-width: 1600px) {
     nav a {
         font-size: 20px;
@@ -76,6 +121,16 @@ nav a.disabled, nav a:hover {
     }
     header {
         height:66px;
+    }
+    .submenu {
+        top: 16px;
+        padding: 5px 25px 0 25px;
+    }
+    .bigWidthSubmenu {
+        width: 200px;
+    }
+    .smallWidthSubmenu {
+        width: 150px;
     }
 }
 
@@ -94,6 +149,16 @@ nav a.disabled, nav a:hover {
     }
     header {
         height: 50px;
+    }
+    .submenu {
+        top: 0;
+        padding: 5px 25px 0 25px;
+    }
+    .bigWidthSubmenu {
+        width: 150px;
+    }
+    .smallWidthSubmenu {
+        width: 100px;
     }
 }
 
@@ -117,7 +182,7 @@ nav a.disabled, nav a:hover {
         margin: 0;
         flex-direction: column;
     }
-    #menuRight a.disabled, #menuRight a:hover {
+    #menuRight a.disabled, #menuRight a:hover, .dropdown:focus-within > a, .dropdown:hover > a {
         background: var(--primary-color);
         color: var(--background-menu-smallDisplay);
     }
@@ -146,6 +211,22 @@ nav a.disabled, nav a:hover {
     }
     .logoPicture {
         margin-top: 0;
+    }
+    .submenu {
+        background: var(--background-menu-smallDisplay);
+        top: 128px;
+        width: 100vw;
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid var(--primary-color);
+        left: 0;
+        transform: none;
+        padding: 10px 0 0 0;
+        position: fixed;
+    }
+    #menuRight .submenu a {
+        text-align: left;
+        padding: 20px 10px;
     }
 }
 

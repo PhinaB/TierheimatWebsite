@@ -52,7 +52,7 @@ a.disabled, a:hover {
     color: #000;
 }
 
-a.disabled {
+a.disabled, nav .deactivate {
     cursor: default;
     pointer-events: none;
 }

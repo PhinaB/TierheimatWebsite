@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/loggedInPage.css" />
     <link rel="stylesheet" href="../css/unsereTiere.css" />
     <link rel="stylesheet" href="../css/bildwechselBilder.css" />
 
@@ -29,13 +30,17 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="../index.html" class="logo" draggable="false">
+                <a href="indexLogin.html" class="logo" draggable="false">
                     <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
 
+            <span class="user">
+                <i class="fa-solid fa-user"></i> Nutzername
+            </span>
+
             <div id="menuRight">
-                <a href="../index.html" draggable="false">
+                <a href="indexLogin.html" draggable="false">
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
                     Start
                 </a>
@@ -45,11 +50,11 @@
                         Unsere <br class="onlySmallMenu" />Tiere
                     </a>
                     <div class="submenu smallWidthSubmenu">
-                        <a class="disabled">Alle Tiere</a>
+                        <a href="unsereTiere.html">Alle Tiere</a>
                         <a href="unsereHunde.html">Hunde</a>
                         <a href="unsereKatzen.html">Katzen</a>
                         <a href="unsereKleintiere.html">Kleintiere</a>
-                        <a href="unsereExoten.html">Exoten</a>
+                        <a class="disabled">Exoten</a>
                     </div>
                 </div>
                 <a href="aktuelles.html" draggable="false">
@@ -71,9 +76,9 @@
                     <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
                     Service/<br class="onlySmallMenu" />Infos
                 </a>
-                <a href="login.html" draggable="false">
-                    <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
-                    Login
+                <a href="../index.html" draggable="false">
+                    <i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i>
+                    Logout
                 </a>
             </div>
         </nav>
@@ -81,7 +86,7 @@
     <div class="grid">
         <main>
             <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                <a href="indexLogin.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
                 <a class="disabled" draggable="false">Unsere Tiere</a>
             </div>
@@ -91,14 +96,14 @@
                 <hr class="underHeadline" />
                 <form class="formUnsereTiere" action="" method="post">
                     <label for="tierartAuswählen"> Tierart: </label>
-                        <select name="tierartAuswählen">
-                            <option value="tierartWählen">Tierart auswählen</option>
-                            <option value="hunde">Hunde</option>
-                            <option value="katzen">Katzen</option>
-                            <option value="kleintiere">Kleintiere</option>
-                            <option value="exoten">Exoten</option>
-                        </select>
-                        <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i>   Suchen</button>
+                    <select name="tierartAuswählen">
+                        <option value="tierartWählen">Tierart auswählen</option>
+                        <option value="hunde">Hunde</option>
+                        <option value="katzen">Katzen</option>
+                        <option value="kleintiere">Kleintiere</option>
+                        <option value="exoten">Exoten</option>
+                    </select>
+                    <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i>   Suchen</button>
                 </form>
 
                 <div class="box-containerUnsereTiere tile">
@@ -114,7 +119,7 @@
                     <div>
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselTigerpython bildwechsel" alt="Bild einer Tigerpython" title="Bild einer Tigerpython" draggable="false">&nbsp;</a>
-                        </div>                        
+                        </div>
                         <h3>Tiger</h3>
                         <p>3 Jahre alt, Python...</p>
                         <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
@@ -135,23 +140,23 @@
                         </div>
                         <h3>Lora</h3>
                         <p>5 Jahre alt, Sittich...</p>
-                        <a href="" class="button"  title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
                 </div>
                 <div class="box-containerUnsereTiere tile">
                     <div>
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselSimba bildwechsel" alt="Bild eines Katers" title="Bild eines Katers" draggable="false">&nbsp;</a>
-                        </div>                        
+                        </div>
                         <h3>Simba</h3>
                         <p>3 Jahre alt, Kater...</p>
-                        <a href="" class="button"  title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselBella bildwechsel" alt="Bild eines Hundes" title="Bild eines Hundes" draggable="false">&nbsp;</a>
-                        </div>                         
+                        </div>
                         <h3>Bella</h3>
                         <p>5 Jahre alt, Hündin...</p>
                         <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
@@ -160,7 +165,7 @@
                     <div id="rocky">
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselRocky bildwechsel" alt="Bild eines Hundes" title="Bild eines Hundes" draggable="false">&nbsp;</a>
-                        </div>                         
+                        </div>
                         <h3>Rocky</h3>
                         <p>2 Jahre alt, Rüde...</p>
                         <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
@@ -169,7 +174,7 @@
                     <div>
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselFluffy bildwechsel" alt="Bild eines Kaninchens" title="Bild eines Kaninchens" draggable="false">&nbsp;</a>
-                        </div>                         
+                        </div>
                         <h3>Fluffy</h3>
                         <p>1 Jahr alt, Kaninchen...</p>
                         <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
@@ -188,7 +193,7 @@
                     <div>
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselKornnatter bildwechsel" alt="Bild einer Kornnatter" title="Bild einer Kornnatter" draggable="false">&nbsp;</a>
-                        </div>                        
+                        </div>
                         <h3>Natti</h3>
                         <p>2 Jahre alt, Kornnatter...</p>
                         <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
@@ -197,19 +202,19 @@
                     <div>
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselRosa bildwechsel" alt="Bild einer Prachtrosella" title="Bild einer Prachtrosella" draggable="false">&nbsp;</a>
-                        </div>                           
+                        </div>
                         <h3>Rosa</h3>
                         <p>2 Jahre alt, Prachtros...</p>
-                        <a href="" class="button"title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper" ></i>  Weiterlesen</a>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
                         <div class="aussenboxBildwechselKlein">
                             <a class="bildwechselHoppel bildwechsel" alt="Bild eines Kaninchens" title="Bild eines Kaninchens" draggable="false">&nbsp;</a>
-                        </div>                        
+                        </div>
                         <h3>Hoppel</h3>
                         <p>1 Jahr alt, Kaninchen...</p>
-                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper" ></i>  Weiterlesen</a>
+                        <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
                 </div>
                 <a href="" class="button" title="Button weitere Tiere anzeigen" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen</a>
