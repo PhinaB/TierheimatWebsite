@@ -91,9 +91,9 @@
                     <hr class="underHeadline" />
                     <form method="post">
                         <label class="h3" for="email">E-Mail: <span class="redPflichtfeld">*</span></label>
-                        <input type="email" name="email" required placeholder="email@beispiel.com" />
+                        <input type="email" name="email" id="email" required placeholder="email@beispiel.com" />
                         <label class="h3" for="password">Passwort: <span class="redPflichtfeld">*</span></label>
-                        <input type="password" name="password" required placeholder="Passwort" />
+                        <input type="password" name="password" id="password" required placeholder="Passwort" />
                         <a href="../loginPage/indexLogin.html" class="button marginButton" draggable="false">Anmelden</a>
                         <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
                     </form>
@@ -102,12 +102,12 @@
                     <h2>Registrierung</h2>
                     <hr class="underHeadline" />
                     <form method="post">
-                        <label class="h3" for="email">E-Mail: <span class="redPflichtfeld">*</span></label>
-                        <input type="email" name="email" required placeholder="email@beispiel.com" />
-                        <label class="h3" for="password">Passwort: <span class="redPflichtfeld">*</span></label>
-                        <input type="password" name="password" required placeholder="Passwort" />
+                        <label class="h3" for="emailReg">E-Mail: <span class="redPflichtfeld">*</span></label>
+                        <input type="email" name="email" id="emailReg" required placeholder="email@beispiel.com" />
+                        <label class="h3" for="passwordReg">Passwort: <span class="redPflichtfeld">*</span></label>
+                        <input type="password" name="password" id="passwordReg" required placeholder="Passwort" />
                         <label class="h3" for="username">Nutzername: <span class="redPflichtfeld">*</span></label>
-                        <input type="text" name="username" required placeholder="maxMustermann" max="10" min="3" />
+                        <input type="text" name="username" id="username" required placeholder="maxMustermann" maxlength="10" minlength="3" />
                         <button class="button marginButton" type="submit" value="absenden" title="Button absenden" draggable="false">Registrieren</button>
                         <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
                     </form>
