@@ -1,0 +1,235 @@
+body {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+#quellen {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+main {
+    line-height: 1.6;
+}
+
+p {
+    font-size:1em;
+}
+
+header {
+    background: var(--background-color);
+    width: 100%;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+header a {
+    margin: 10px;
+}
+
+.container {
+    max-width: 800px;
+    min-height: 950px;
+    margin: 20px auto;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.container img {
+    max-width: 100%; 
+    border-radius:4px;    
+}
+
+.container .inlineLogo {
+    height: 1.2em;
+    position: relative;
+    top: 2px;
+}
+.deckblatt {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.underHeadline {
+    margin-bottom:20px;
+}
+
+.list-item {
+    list-style-position: inside; /* Setzt die Aufzählungszeichen innerhalb des Listeninhalts */
+    margin-bottom: 20px;
+}
+
+.overflow {
+    overflow:hidden
+}
+
+.alternative {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alternative-image {
+    max-width: 100%;
+    height: auto; /* Beibehaltung des Seitenverhältnisses */
+}
+
+.Dokumentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Dokumentation-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+    font-weight:normal;
+}
+
+th, td {
+    padding: 10px;
+}
+
+tr th:first-child, tr td:first-child {
+    text-align:left;
+}
+
+tfoot {
+    background: #eee;
+}
+
+.time {
+    text-align: right;
+}
+
+.headlineTable {
+    background: #D0E1C2;
+}
+
+.centered {
+    text-align: center;
+}
+
+.text-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.text-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imgEffekt {
+    width: 200px; 
+    transition: width 0.7s ease, height 0.7s ease;
+    overflow: hidden;
+}
+
+.imgEffekt:hover {
+    width: 100%;
+    height: 100%;
+}
+
+.divAroundImgEffekt {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px 0 25px 0;
+}
+
+dd {
+    margin-left: 30px;
+}
+
+dt {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+dl {
+    margin: 20px 0;
+}
+
+h3 {
+    text-align:center;
+}
+
+
+p {
+    text-align:justify;
+}
+
+.backButton {
+    text-align: right;
+    padding-top: 20px;
+    display: block;
+}
+.caption {
+    font-size: 12px; /* Kleine Schriftgröße */
+    color: #666; /* Unauffällige graue Farbe */
+    text-align: left;
+    margin-top: 5px;
+}
+
+
+@media only screen and (max-width: 880px) {
+    .container {
+        margin:20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 30px 40px;
+    }
+    .divAroundImgEffekt img {
+        width: 100%;
+    }
+    .divAroundImgEffekt {
+        flex-direction:column;
+    }
+    .imgEffekt {
+        padding:10px 0;
+    }
+    .pageToSmall {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .container {
+        padding: 20px 25px;
+    }
+}

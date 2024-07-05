@@ -1,0 +1,121 @@
+.kopfelementFormular p {
+    text-align: justify; 
+    padding-left: 10px;
+    padding-right: 10px; 
+}
+
+form > div {
+    box-sizing: border-box; 
+    padding-top: 20px; 
+    padding-bottom: 15px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+.fußelementFormular{
+    padding-top: 25px; 
+}
+
+input[type="checkbox"]:first-of-type {
+    margin-top: 20px; 
+}
+
+input[type="checkbox"] {
+    margin-top: 10px; 
+    margin-bottom: 5px;    
+}
+
+input[type="checkbox"]:checked {
+    accent-color: var(--primary-color);  
+}
+
+table {
+    border-spacing: 0px 5px;
+    width: 100%; 
+    margin-top: 8px; 
+    margin-bottom: 5px;  
+}
+
+th {
+    text-align:left; 
+    font-weight:normal; 
+}
+
+.linkeSpalte input {
+    width: 130px; 
+    height: 31px; 
+}
+
+.rechteSpalte input {
+    height: 31px; 
+}
+
+.linkeSpalte select {
+    width: 142px;
+    height: 33px;  
+    font-size: 1em; 
+}
+
+.linkeSpalte {
+    width: 165px; 
+}
+
+.rechteSpalte{
+     width: auto; 
+}
+
+.helfenUnterpunkt {
+    display: inline-block; 
+    box-sizing: border-box; 
+    padding-left: 10px; 
+}
+
+.flex-containerFormularHelfen {
+    display: flex; 
+    flex-wrap:wrap; 
+    flex-direction: row; 
+    justify-content: space-between;  
+}
+ 
+@media only screen and (max-width: 900px) {
+    .flex-containerFormularHelfen {
+        flex-wrap: nowrap;
+        flex-direction: column; 
+        justify-content: left; 
+        align-items: stretch; 
+        gap: 15px; 
+    }
+    .unterstützungsart {
+        width: 70%;
+        text-align: left; 
+        padding-bottom: 0px; 
+        padding-left: 10px; 
+        padding-right:10px;
+        margin-bottom: 0px; 
+        margin-top: 0px; 
+    }
+    .tabelle1, .tabelle2 {
+        width: 100%; 
+        border-spacing: 0px 5px;
+        width: 90%;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        margin-top: 0px;  
+        padding-left: 10px; 
+        padding-right: 10px; 
+    }
+    .linkeSpalte {
+        width: 85%;
+    }
+    .rechteSpalte{
+        width: 15%; 
+    }
+    .linkeSpalte > input {
+        width: 94%; 
+    }
+    .linkeSpalte > select{
+        width: 98%; 
+    }
+    .rechteSpalte > input {
+        width: 70%; 
+    }  
+}

@@ -1,0 +1,51 @@
+.box-container {
+    flex-wrap:wrap;
+}
+
+.hiddenOnSmallScreen {
+    display:block;
+}
+
+.hiddenOnBigScreen {
+    display: none;
+}
+
+ /* Effekt zum anheben der divs: */
+.box-container > div {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    transition-delay: 0.1s;
+}
+
+.box-container > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 1450px) {
+    .box-container {
+        gap: 30px 20px;
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    .hiddenOnSmallScreen {
+        display: none;
+    }
+    .hiddenOnBigScreen {
+        display: block;
+    }
+    .text {
+        padding-top:10px;
+        padding-bottom:20px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .box-container > div {
+        transition: none;
+    }
+    .box-container > div:hover {
+        transform: none;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+}

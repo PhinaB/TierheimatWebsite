@@ -1,0 +1,54 @@
+/* für den Druck der Gefundenen-Meldungen und der Vermissten-Meldungen */
+@media print {
+    /* festlegen der größe der Durckseite und des Randes*/
+    @page {
+        size: A4;
+        margin: 15pt 20pt; 
+     }
+    /*damit links auch im Druck erkennbar sind */
+    a:after {
+        content:' - ' attr(href);
+      }
+    
+    /*Seitenumbruch im Element wird vermieden */
+    div.box-containerUnsereTiere.tileBorder div, div.box-containerVermisstGefundenMelden.tileBorder div, footer {
+        page-break-inside:avoid;
+    }
+    /* Seitenumbruch vor jedem neuen Tile (hier vor der Vermissten-Anzeige und der Gefundenen-Anzeige */ 
+    .tile ~ .druckenMitSeitenumbruch {
+        page-break-before:always; 
+        margin-top: 40pt; 
+    } 
+    /* da der erste Teil auf der ersten Seite anfangen soll, muss der Seitenumbuch bei der ersten herausgenommen werden */
+    .tile ~ .druckenOhneSeitenumbruch {
+        page-break-before: avoid;
+    } 
+    /* der header (nav), außer das Logo, der Teil unter dem Footer und die erste Box*/
+    header div,  .underFooter, [src="../fontawesome-6.5.2/js/all.js"], .druckenNichtDarstellen {
+        display:none; 
+    }
+    .logoPicture{
+        height:30pt;
+    }
+    header {
+        height: 30pt;
+    }
+    .grid {
+        grid-template-columns: 2% 96% 2%;
+    }
+    
+    @-moz-document url-prefix() {
+        .tile ~ .druckenMitSeitenumbruch {
+            page-break-before:always; 
+            break-before: always; 
+            margin-top: -180pt; 
+        } 
+    
+        .tile ~ .druckenOhneSeitenumbruch {
+        margin-top: 0pt; 
+        }
+        footer {
+        margin-top: 370pt; 
+        }
+    }
+}

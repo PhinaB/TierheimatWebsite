@@ -1,0 +1,306 @@
+:root {
+    --primary-color: #83B25B;
+    --background-color: #FCFFF9;
+    --border-color: #A0A0A0;
+    --background-menu-smallDisplay: #E8F5DD;
+    --color-headlines: #222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: comic sans ms, Arial, sans-serif;
+}
+
+.grid, .gridIndex {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    padding-top: 85px;
+}
+
+.grid {
+    grid-template-rows: auto auto auto;
+}
+
+.gridIndex {
+    grid-template-rows: auto auto auto auto;
+}
+
+main {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.grid > main {
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.gridIndex > main {
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+a {
+    font-size: 1em;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a.disabled, a:hover {
+    color: #000;
+}
+
+a.disabled, nav .deactivate {
+    cursor: default;
+    pointer-events: none;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    color: var(--color-headlines);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom:2px;
+}
+
+h2 {
+    font-size: 1.4em;
+    margin-bottom: 2px;
+}
+
+p {
+    font-size: 0.9em;
+}
+
+.underHeadline {
+    margin: 0 auto;
+    height: 2px;
+    background: var(--primary-color);
+    color: var(--primary-color);
+    width:60px;
+    border:0;
+    margin-bottom:10px;
+}
+
+.button { /* nur für buttons außerhalb des .box-container gedacht! */
+    padding: 5px 8px;
+    background: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
+    transition:0.5s;
+}
+
+.button:hover {
+    background: var(--background-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.marginTopButton {
+    margin-top: 20px;
+}
+
+.box-container {
+    display: flex; 
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px 50px;
+}
+
+.box-container > div {
+    width: 30%;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+.box-container-button > div {
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.box-container-button > div a.button {
+    position: absolute;
+    bottom: 20px;
+}
+
+.tileBorder, .box-container > div {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.tileBorder {
+    padding: 10px 15px;
+}
+
+.box-container div img ~ *, .box-container div div ~ * {
+    margin: 10px 15px;
+}
+
+.box-container div img, .box-container div img .aussenboxBildwechselKlein {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+input, textarea, select {
+    border: 1px solid #bbbbbb;
+    box-shadow: inset 0 0 5px #dddddd;
+    background: white;
+    border-radius:4px;
+    line-height:230%;
+    padding:0 5px;
+}
+
+select {
+    cursor:pointer;
+}
+
+textarea {
+    resize:none;
+}
+
+.tile {
+    margin: 10px 0 25px 0;
+}
+
+/* Bildwechsel */
+.aussenboxBildwechsel, .aussenboxBildwechselKlein {
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.aussenboxBildwechsel {
+    border-radius:4px;
+}
+
+.aussenboxBildwechselKlein {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+a.bildwechsel, a.bildwechsel::before, a.bildwechsel::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease-out;
+    transition-delay: 0.15s;
+}
+
+a.bildwechsel:hover::before, a.bildwechsel::after {
+    opacity: 0;
+}
+
+a.bildwechsel:hover::after, a.bildwechsel::before {
+    opacity: 1;
+}
+
+.aussenboxBildwechselKlein {
+    padding-bottom: calc(100% / (3 / 2));
+    width: 100%;
+}
+
+.schattenBild, .aussenboxBildwechsel {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.redPflichtfeld, .redColor {
+    color: #dc2929;
+}
+
+.redPflichtfeld {
+    font-size:0.8em;
+}
+
+.greenColor {
+    color: var(--primary-color);
+}
+
+.borderTopPflichtfeld {
+    border-top: 1px solid #eee;
+}
+
+.flexWir {
+    display: flex;
+    gap: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: justify
+}
+
+.flexWir > * {
+    width: 50%;
+}
+
+@media only screen and (max-width: 1600px) {
+    .grid, .gridIndex {
+        padding-top: 67px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .grid, .gridIndex {
+        padding-top: 51px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .grid, .gridIndex {
+        grid-template-columns: 10% 80% 10%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .box-container {
+        flex-wrap:wrap;
+    }
+    .box-container > div {
+        width:calc(50% - 25px);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .grid, .gridIndex {
+        padding-top: 127px;
+    }
+}
+
+@media only screen and (max-width: 650px) {    
+    .box-container > div {
+        width: 100%;
+    }
+    .flexWir {
+        flex-direction: column;
+        gap: 10px 0;
+    }
+    .flexWir > * {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .grid, .gridIndex {
+        grid-template-columns: 3% 94% 3%;
+    }
+    .box-container > div {
+        width: 100%;
+    }
+}
