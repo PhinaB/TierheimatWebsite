@@ -1,5 +1,7 @@
 body {
     hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
 
 #quellen {
