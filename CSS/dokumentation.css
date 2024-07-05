@@ -194,6 +194,13 @@ p {
     padding-top: 20px;
     display: block;
 }
+.caption {
+    font-size: 12px; /* Kleine Schriftgröße */
+    color: #666; /* Unauffällige graue Farbe */
+    text-align: left;
+    margin-top: 5px;
+}
+
 
 @media only screen and (max-width: 880px) {
     .container {
