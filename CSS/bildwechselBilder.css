@@ -93,3 +93,11 @@ a.bildwechselHoppel::before {
 a.bildwechselHoppel::after {
     background-image: url(../img/hoppel2.jpg);
 }
+
+a.bildwechselLilly::before {
+    background-image: url(../img/lilly.jpg);
+}
+
+a.bildwechselLilly::after {
+    background-image: url(../img/lilly2.jpg);
+}
