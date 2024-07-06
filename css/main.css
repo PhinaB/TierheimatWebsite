@@ -279,7 +279,7 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
 
 @media only screen and (max-width: 900px) {
     .grid, .gridIndex {
-        padding-top: 127px;
+        padding-top: 133px;
     }
 }
 
