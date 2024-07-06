@@ -124,6 +124,7 @@
                             <label for="tierart" class="h3">Um welche Tierart handelt es sich? <span class="redPflichtfeld">*</span></label>
 
                             <select name="tierart" id="tierart" class="eingabe" required>
+                                <option value="" disabled selected hidden>Bitte wählen...</option>
                                 <option value="Katze">Katze</option>
                                 <option value="Hund">Hund</option>
                                 <option value="Vogel">Vogel</option>
@@ -153,7 +154,7 @@
                         </div>
 
                         <div class="flex-itemTierbild">
-                            <label for="tierbild" class="h3 tierbild">Bild vom Tier:</label>
+                            <label for="tierbild-upload" class="h3 tierbild">Bild vom Tier:</label>
                             <label for="tierbild-upload" class="tierbild-upload button">
                                 <span><i class="fa-solid fa-upload"></i>  Datei laden</span>
                             </label>

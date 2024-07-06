@@ -108,12 +108,13 @@
                     </p>
                 </div>
 
-                <form action="" method="post" class="flex-containerVermisstefundenmelden">
+                <form action="#" method="post" class="flex-containerVermisstefundenmelden">
                     <div class="flex-item1">
                         <div class="flex-itemAnliegen">
                             <label for="anliegenVermisstGefunden" class="h3">Anliegen: <span class="redPflichtfeld">*</span></label>
 
-                            <select name="anliegenVermisstGefunden" class="eingabe" required>
+                            <select name="anliegenVermisstGefunden" class="eingabe" id="anliegenVermisstGefunden" required>
+                                <option value="" disabled selected hidden>Bitte wählen...</option>
                                 <option value="vermisstMelden">Vermisst melden</option>
                                 <option value="gefundenMelden">Gefunden melden</option>
                             </select>
@@ -123,6 +124,7 @@
                             <label for="tierart" class="h3">Um welche Tierart handelt es sich? <span class="redPflichtfeld">*</span></label>
 
                             <select name="tierart" id="tierart" class="eingabe" required>
+                                <option value="" disabled selected hidden>Bitte wählen...</option>
                                 <option value="Katze">Katze</option>
                                 <option value="Hund">Hund</option>
                                 <option value="Vogel">Vogel</option>
@@ -152,7 +154,7 @@
                         </div>
 
                         <div class="flex-itemTierbild">
-                            <label for="tierbild" class="h3 tierbild">Bild vom Tier:</label>
+                            <div class="h3 tierbild">Bild vom Tier:</div>
                             <label for="tierbild-upload" class="tierbild-upload button">
                                 <span><i class="fa-solid fa-upload"></i>  Datei laden</span>
                             </label>
@@ -160,14 +162,14 @@
                         </div>
 
                         <div class="flex-itemKontaktaufnahme">
-                            <label for="kontaktaufnahme" class="h3">Art der Kontaktaufnahme: <span class="redPflichtfeld">*</span></label>
-                            <label for="kontaktaufnahme" class="eingabe">
+                            <div class="h3">Art der Kontaktaufnahme: <span class="redPflichtfeld">*</span></div>
+                            <div class="eingabe">
                                 <input id="radio_email" type="radio" name="kontaktaufnahme" value="email" class="eingabe" required />
                                 <label for="radio_email">E-Mail</label>
                                 <br />
                                 <input id="radio_telefon" type="radio" name="kontaktaufnahme" value="telefon" class="eingabe" required />
                                 <label for="radio_telefon">Telefon</label>
-                            </label>
+                            </div>
                         </div>
                     </div>
 
@@ -185,7 +187,7 @@
 
                 <div class="box-containerVermisstGefundenMelden tileBorder">
                     <div>
-                        <img src="../img/gefundeneKatze.jpg" alt="Bild einer Katze" titel="Bild Katze" draggable="false" />
+                        <img src="../img/gefundeneKatze.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false" />
                     </div>
 
                     <div class="vermisstGefundenText">
