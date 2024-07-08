@@ -58,17 +58,9 @@ header a {
     justify-content: center;
 }
 
-.underHeadline {
-    margin-bottom:20px;
-}
-
 .list-item {
     list-style-position: inside; /* Setzt die Aufzählungszeichen innerhalb des Listeninhalts */
     margin-bottom: 20px;
-}
-
-.overflow {
-    overflow:hidden
 }
 
 .alternative {
@@ -77,22 +69,10 @@ header a {
     align-items: center;
 }
 
-.alternative-image {
-    max-width: 100%;
-    height: auto; /* Beibehaltung des Seitenverhältnisses */
-}
-
 .Dokumentation {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-
-.Dokumentation-logo {
-    max-width: 100%;
-    height: auto;
-}
-
 
 ul {
     list-style-type: none;
@@ -132,24 +112,6 @@ tfoot {
 
 .headlineTable {
     background: #D0E1C2;
-}
-
-.centered {
-    text-align: center;
-}
-
-.text-container {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-}
-
-.text-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .imgEffekt {
@@ -197,12 +159,12 @@ p {
     padding-top: 20px;
     display: block;
 }
+
 .caption {
     font-size: 12px; /* Kleine Schriftgröße */
     color: #666; /* Unauffällige graue Farbe */
     margin-bottom: 15px;
 }
-
 
 @media only screen and (max-width: 880px) {
     .container {
