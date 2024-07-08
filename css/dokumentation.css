@@ -50,6 +50,7 @@ header a {
     position: relative;
     top: 2px;
 }
+
 .deckblatt {
     text-align: center;
     display: flex;
@@ -105,7 +106,7 @@ ul {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 20px 0 0 0;
 }
 
 table, th, td {
@@ -166,7 +167,7 @@ tfoot {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 15px 0 25px 0;
+    margin: 15px 0 5px 0;
 }
 
 dd {
@@ -199,8 +200,7 @@ p {
 .caption {
     font-size: 12px; /* Kleine Schriftgröße */
     color: #666; /* Unauffällige graue Farbe */
-    text-align: left;
-    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 
