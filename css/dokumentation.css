@@ -145,8 +145,12 @@ dl {
     margin: 20px 0;
 }
 
+.emptyDD {
+    height:0;
+}
+
 h3 {
-    text-align:center;
+    text-align: center;
 }
 
 
