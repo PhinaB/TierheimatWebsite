@@ -132,6 +132,9 @@ nav a.disabled, nav a:hover {
     .dropdown {
         padding-bottom: 10px;
     }
+    .colorGreen {
+        background: var(--primary-color);
+    }
 }
 
 @media only screen and (max-width: 1300px) {
