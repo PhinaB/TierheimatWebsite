@@ -1,3 +1,7 @@
+.zuBearbeiten {
+    color: red;
+}
+
 body {
     hyphens: auto;
     -webkit-hyphens: auto;
