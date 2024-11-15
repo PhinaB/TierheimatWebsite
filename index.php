@@ -26,58 +26,11 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <span class="linkLogo">
-                <a class="disabled">
-                    <img class="logoPicture" src="img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
-                </a>
-            </span>
+<?php
+include 'includes/menu.php';
+renderMenu('index');
+?>
 
-            <div id="menuRight">
-                <a class="disabled" draggable="false">
-                    <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
-                    Start
-                </a>
-                <div class="dropdown">
-                    <a class="deactivate" draggable="false">
-                        <i class="fa-solid fa-paw menuIcon onlySmallMenu"></i>
-                        Unsere <br class="onlySmallMenu" />Tiere
-                    </a>
-                    <div class="submenu smallWidthSubmenu">
-                        <a href="normalPage/unsereTiere.html">Alle Tiere</a>
-                        <a href="normalPage/unsereHunde.html">Hunde</a>
-                        <a href="normalPage/unsereKatzen.html">Katzen</a>
-                        <a href="normalPage/unsereKleintiere.html">Kleintiere</a>
-                        <a href="normalPage/unsereExoten.html">Exoten</a>
-                    </div>
-                </div>
-                <a href="normalPage/aktuelles.html" draggable="false">
-                    <i class="fa-solid fa-calendar menuIcon onlySmallMenu"></i>
-                    Aktuelles
-                </a>
-                <div class="dropdown">
-                    <a class="deactivate" draggable="false">
-                        <i class="fa-solid fa-magnifying-glass-location menuIcon onlySmallMenu"></i>
-                        Vermisst/<br class="onlySmallMenu" />Gefunden
-                    </a>
-                    <div class="submenu bigWidthSubmenu">
-                        <a href="normalPage/vermisstGefunden.html">Alle Tiere</a>
-                        <a href="normalPage/vermisst.html">Vermisste Tiere</a>
-                        <a href="normalPage/gefunden.html">Gefundene Tiere</a>
-                    </div>
-                </div>
-                <a href="normalPage/serviceInfos.html" draggable="false">
-                    <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
-                    Service/<br class="onlySmallMenu" />Infos
-                </a>
-                <a href="normalPage/login.html" draggable="false">
-                    <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
-                    Login
-                </a>
-            </div>
-        </nav>
-    </header>
     <div class="gridIndex">
         <div id="startbilder">
             <img src="img/startbild-1.jpg" class="startbild" draggable="false" alt="Bild einer Ratte" title="Startbild der Seite Tierheimat" />
@@ -101,7 +54,7 @@
                         </p><p>
                             Diese Erweiterung ermöglicht es uns ...
                         </p>
-                        <a href="normalPage/aktuellesWeiterlesenAusbauTierheim.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="page/aktuellesWeiterlesenAusbauTierheim.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
                         <img src="img/tierheimFest.jpg" alt="Werbebild für das Tierheimfest" title="Werbebild für das Tierheimfest" draggable="false" />
@@ -109,7 +62,7 @@
                         <p>
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück. Seit unserer Gründung  ...
                         </p>
-                        <a href="normalPage/aktuellesWeiterlesen.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="page/aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
                         <img src="img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
@@ -119,7 +72,7 @@
                         </p><p>
                             Wir sind stolz auf die Fortschritte, die ...
                         </p>
-                        <a href="normalPage/aktuelles.html#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="page/aktuelles.php#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                 </div>
             </div>
@@ -178,7 +131,7 @@
                         </div>
                         <h3>Lila</h3>
                         <p>4 Jahre alt, Hündin ...</p>
-                        <a href="normalPage/unsereTiereWeiterlesen.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="page/unsereTiereWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
                         <div class="aussenboxBildwechselKlein">
@@ -186,7 +139,7 @@
                         </div>
                         <h3>Lora</h3>
                         <p>5 Jahre alt, Sittich ...</p>
-                        <a href="normalPage/unsereTiere.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="page/unsereTiere.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
                         <div class="aussenboxBildwechselKlein">
@@ -194,10 +147,10 @@
                         </div>
                         <h3>Rocky</h3>
                         <p>2 Jahre alt, Rüde ...</p>
-                        <a href="normalPage/unsereTiere.html#rocky" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="page/unsereTiere.php#rocky" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                 </div>
-                <a href="normalPage/unsereTiere.html" class="button marginTopButton" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere ansehen</a>
+                <a href="page/unsereTiere.php" class="button marginTopButton" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere ansehen</a>
             </div>
         </main>
         <footer>
@@ -227,7 +180,7 @@
                 </p>
             </div>
         </footer>
-        <div class="underFooter"><a href="normalPage/impressum.html" draggable="false">Impressum</a> | &copy; 2024 Tierheimat GmbH</div>
+        <div class="underFooter"><a href="page/impressum.php" draggable="false">Impressum</a> | &copy; 2024 Tierheimat GmbH</div>
     </div>
 
     <script src="fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>

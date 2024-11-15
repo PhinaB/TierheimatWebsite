@@ -25,58 +25,10 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <span class="linkLogo">
-                <a href="../index.html" class="logo" draggable="false">
-                    <img class="logoPicture" src="../img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
-                </a>
-            </span>
-
-            <div id="menuRight">
-                <a href="../index.html" draggable="false">
-                    <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
-                    Start
-                </a>
-                <div class="dropdown">
-                    <a class="deactivate" draggable="false">
-                        <i class="fa-solid fa-paw menuIcon onlySmallMenu"></i>
-                        Unsere <br class="onlySmallMenu" />Tiere
-                    </a>
-                    <div class="submenu smallWidthSubmenu">
-                        <a href="unsereTiere.html">Alle Tiere</a>
-                        <a href="unsereHunde.html">Hunde</a>
-                        <a href="unsereKatzen.html">Katzen</a>
-                        <a href="unsereKleintiere.html">Kleintiere</a>
-                        <a href="unsereExoten.html">Exoten</a>
-                    </div>
-                </div>
-                <a href="aktuelles.html" draggable="false">
-                    <i class="fa-solid fa-calendar menuIcon onlySmallMenu"></i>
-                    Aktuelles
-                </a>
-                <div class="dropdown">
-                    <a class="deactivate" draggable="false">
-                        <i class="fa-solid fa-magnifying-glass-location menuIcon onlySmallMenu"></i>
-                        Vermisst/<br class="onlySmallMenu" />Gefunden
-                    </a>
-                    <div class="submenu bigWidthSubmenu">
-                        <a href="vermisstGefunden.html">Alle Tiere</a>
-                        <a href="vermisst.html">Vermisste Tiere</a>
-                        <a href="gefunden.html">Gefundene Tiere</a>
-                    </div>
-                </div>
-                <a class="disabled" draggable="false">
-                    <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
-                    Service/<br class="onlySmallMenu" />Infos
-                </a>
-                <a href="login.html" draggable="false">
-                    <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
-                    Login
-                </a>
-            </div>
-        </nav>
-    </header>
+<?php
+include '../includes/menu.php';
+renderMenu('serviceInfos');
+?>
     <div class="grid">
         <main>
             <div class="tile tileBorder">
@@ -101,7 +53,7 @@
                             helfen wollen und wann Sie zeitlich verfügbar sind.
                         </p>
                         <br />
-                        <a href="../normalPage/login.html" class="button" title="ButtonZum Login" draggable="false"><i class="fa-solid fa-right-to-bracket"></i>   Zum Login</a>
+                        <a href="/login.html" class="button" title="ButtonZum Login" draggable="false"><i class="fa-solid fa-right-to-bracket"></i>   Zum Login</a>
                     </div>
                 </div>
             </div>
