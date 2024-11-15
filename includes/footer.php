@@ -1,9 +1,6 @@
 <?php
 $page = "page/";
-$impressumPageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : $page;
-
-
-$baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../' : '';
+$pageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : $page;
 ?>
 <footer>
     <div>
@@ -35,7 +32,7 @@ $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../' : '';
 <div class="underFooter"><a
         <?php
         if (!str_contains($_SERVER['PHP_SELF'], 'impressum')) {
-            echo 'href="'.$impressumPageDir.'impressum.php"';
+            echo 'href="'.$pageDir.'impressum.php"';
         }
         else { // wenn man sich beim Impressum befindet
             echo 'class="disabled" title="Sie befinden sich bereits beim Impressum"';
