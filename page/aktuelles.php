@@ -27,16 +27,17 @@
 <body>
 
 <?php
+$currentPage = 'Aktuelles';
+
 include '../includes/menu.php';
-renderMenu('aktuelles');
+renderMenu($currentPage);
 ?>
     <div class="grid">
         <main>
-            <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
-                >
-                <a class="disabled" draggable="false">Aktuelles</a>
-            </div>
+            <?php
+            include '../includes/breadcrumbNavigation.php';
+            renderBreadcrumb($currentPage);
+            ?>
 
             <div class="tile">
                 <h2>Neues aus dem Tierheim</h2>

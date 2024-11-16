@@ -27,16 +27,17 @@
 </head>
 <body>
 <?php
+$currentPage = 'Unsere Hunde';
+
 include '../includes/menu.php';
-renderMenu('unsereHunde');
+renderMenu($currentPage);
 ?>
-    <div class="grid">
-        <main>
-            <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
-                >
-                <a class="disabled" draggable="false">Unsere Tiere</a>
-            </div>
+<div class="grid">
+    <main>
+        <?php
+        include '../includes/breadcrumbNavigation.php';
+        renderBreadcrumb($currentPage);
+        ?>
 
             <div class="tile">
                 <h2>Unsere Hunde</h2>

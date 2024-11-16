@@ -26,16 +26,17 @@
 </head>
 <body>
 <?php
+$currentPage = 'Impressum';
+
 include '../includes/menu.php';
-renderMenu('impressum');
+renderMenu($currentPage);
 ?>
-    <div class="grid">
-        <main>
-            <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
-                >
-                <a class="disabled" draggable="false">Impressum</a>
-            </div>
+<div class="grid">
+    <main>
+        <?php
+        include '../includes/breadcrumbNavigation.php';
+        renderBreadcrumb($currentPage);
+        ?>
             <h1>Impressum</h1>
             <hr class="underHeadline" />
             <div class="tile tileBorder">

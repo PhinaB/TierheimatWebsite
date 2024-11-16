@@ -27,8 +27,10 @@
 </head>
 <body>
 <?php
+$currentPage = 'index';
+
 include 'includes/menu.php';
-renderMenu('index');
+renderMenu($currentPage);
 ?>
 
     <div class="gridIndex">
@@ -38,9 +40,11 @@ renderMenu('index');
             <img src="img/startbildHund.jpg" class="startbild" draggable="false" alt="Bild eines Hundes und einer Katze" title="Startbild der Seite Tierheimat" />
         </div>
         <main>
-            <div class="tile tileBorder">
-                <a class="disabled" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
-            </div>
+            <?php
+            include 'includes/breadcrumbNavigation.php';
+            renderBreadcrumb($currentPage);
+            ?>
+
             <div class="tile">
                 <h2>Aktuelles</h2>
                 <hr class="underHeadline" />

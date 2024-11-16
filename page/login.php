@@ -27,16 +27,17 @@
 </head>
 <body>
 <?php
+$currentPage = 'Login';
+
 include '../includes/menu.php';
-renderMenu('login');
+renderMenu($currentPage);
 ?>
-    <div class="grid">
-        <main>
-            <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
-                >
-                <a class="disabled" draggable="false">Login</a>
-            </div>
+<div class="grid">
+    <main>
+        <?php
+        include '../includes/breadcrumbNavigation.php';
+        renderBreadcrumb($currentPage);
+        ?>
             <div class="loginAndRegristration">
                 <div class="tileBorder tile">
                     <h2>Login</h2>

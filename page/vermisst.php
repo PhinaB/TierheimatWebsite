@@ -28,16 +28,17 @@
 </head>
 <body>
 <?php
+$currentPage = 'Vermisste Tiere';
+
 include '../includes/menu.php';
-renderMenu('vermisst');
+renderMenu($currentPage);
 ?>
-    <div class="grid">
-        <main>
-            <div class="tile tileBorder druckenNichtDarstellen">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
-                >
-                <a class="disabled" draggable="false">Vermisst / Gefunden</a>
-            </div>
+<div class="grid">
+    <main>
+        <?php
+        include '../includes/breadcrumbNavigation.php';
+        renderBreadcrumb($currentPage);
+        ?>
 
             <div class="tile druckenNichtDarstellen">
                 <h2>Tiere vermisst / gefunden melden</h2>
