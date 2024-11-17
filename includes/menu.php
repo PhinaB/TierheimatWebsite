@@ -35,7 +35,7 @@ function renderMenu ($currentPage): void {
                     Aktuelles
                 </a>
                 <div class="dropdown">
-                    <a class="deactivate<?php if ($currentPage === 'Vermisst / Gefunden' || $currentPage === 'Vermisst' || $currentPage === 'Gefunden') { echo ' disabled'; } ?>" draggable="false">
+                    <a class="deactivate<?php if ($currentPage === 'Vermisste / Gefundene Tiere' || $currentPage === 'Vermisste Tiere' || $currentPage === 'Gefundene Tiere') { echo ' disabled'; } ?>" draggable="false">
                         <i class="fa-solid fa-magnifying-glass-location menuIcon onlySmallMenu"></i>
                         Vermisst/<br class="onlySmallMenu" />Gefunden
                     </a>
