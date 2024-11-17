@@ -54,7 +54,7 @@ renderMenu($currentPage);
                             helfen wollen und wann Sie zeitlich verfügbar sind.
                         </p>
                         <br />
-                        <a href="/login.html" class="button" title="ButtonZum Login" draggable="false"><i class="fa-solid fa-right-to-bracket"></i>   Zum Login</a>
+                        <a href="login.php" class="button" title="ButtonZum Login" draggable="false"><i class="fa-solid fa-right-to-bracket"></i>   Zum Login</a>
                     </div>
                 </div>
             </div>
