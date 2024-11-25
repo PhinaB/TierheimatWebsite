@@ -24,9 +24,9 @@ renderMenu($currentPage);
                 <h2>Dokumentation</h2>
                 <hr class="underHeadline" />
                 <p>Die Dokumentation wurde eigenhändig von den Projektgruppenmitgliedern erstellt:</p>
-                <a href="../dokumentation/dokumentationGWP.html" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation GWP</a>
+                <a href="../dokumentation/dokumentationGWP.php" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation GWP</a>
                 <br />
-                <a href="../dokumentation/dokumentationDWP1.html" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation DWP</a>
+                <a href="../dokumentation/dokumentationDWP1.php" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation DWP</a>
 
 
                 <h2>Bildnachweis</h2>

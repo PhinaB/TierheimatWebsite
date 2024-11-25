@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <a href="../index.html" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zur Startseite</a>
+        <a href="../page/impressum.php" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
     </header>
 
     <main>

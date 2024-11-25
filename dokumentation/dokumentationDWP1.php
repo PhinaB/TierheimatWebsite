@@ -13,13 +13,13 @@
 </head>
 <body>
     <header>
-        <a href="../index.html" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zur Startseite</a>
+        <a href="../page/impressum.php" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
     </header>
 
     <main>
         <div class="container deckblatt">
             <div>
-                <h2>Beleg dynamische Webprogrammierung</h2>
+                <h2>Beleg dynamische Webprogrammierung 1</h2>
                 <br />
                 <h1>Tierheimat</h1>
                 <br /><br /><br />
