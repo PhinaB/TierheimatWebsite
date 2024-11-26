@@ -3,7 +3,8 @@
 <head>
     <?php include '../includes/mainStylesheets.php'; ?>
 
-    <link rel="stylesheet" href="../public/css/aktuelles.css" />
+    <link rel="../../../css/aktuelles.css" />
+
 </head>
 <body>
 
@@ -24,7 +25,7 @@ renderMenu($currentPage);
                 <h2>Neues aus dem Tierheim</h2>
                 <hr class="underHeadline" />
                 <div class="flexWir tileBorder">
-                    <img src="../public/img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
+                    <img src="/public/img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
                     <div class="text">
                         <p>
                             Sehr geehrte Unterstützer und Freunde unseres Tierheims,
@@ -44,7 +45,7 @@ renderMenu($currentPage);
                         <div class="hiddenOnBigScreen">
                             <p>Dank Ihrer großzügigen Spenden und ... </p>
                             <br />
-                            <a href="aktuellesWeiterlesenAusbauTierheim.html" draggable="false" class="button">
+                            <a href="aktuellesWeiterlesenAusbauTierheim.php" draggable="false" class="button">
                                 <i class="fa-solid fa-newspaper"></i> Zum Artikel
                             </a>
                         </div>
@@ -57,16 +58,16 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-container box-container-button">
                     <div>
-                        <img src="../public/img/tierheimFest.jpg" alt="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" title="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" draggable="false" />
+                        <img src="../../../public/img/tierheimFest.jpg" alt="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" title="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" draggable="false" />
                         <h3>15 Jahre Tierheimat</h3>
                         <p>
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück.
                             Seit unserer Gründung ...
                         </p>
-                        <a href="aktuellesWeiterlesen.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
+                        <a href="aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../public/img/pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
+                        <img src="../../../public/img/Pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
                         <h3>Sieger des Thüringer Tierheimwettbewerb</h3>
                         <p>
                             Wir freuen uns außerordentlich, bekannt zu geben, dass unser Tierheim den Thüringer Tierheimwettbewerb gewonnen hat.
@@ -76,7 +77,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../public/img/tierarztStudent.jpg" alt="Bild eines Tierarztes, der einen Hund untersucht" title="Bild eines Tierarztes, der einen Hund untersucht" draggable="false" />
+                        <img src="../../../public/img/tierarztStudent.jpg" alt="Bild eines Tierarztes, der einen Hund untersucht" title="Bild eines Tierarztes, der einen Hund untersucht" draggable="false" />
                         <h3>Wir begrüßen unsere neuen Veterinärstudenten</h3>
                         <p>
                             Wir heißen einen neuen Veterinärstudenten in unserem Team herzlich willkommen.
@@ -86,7 +87,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../public/img/friedhof.jpg" alt="Bild eines Friedhofs" title="Bild eines Friedhofs" draggable="false" />
+                        <img src="../../../public/img/friedhof.jpg" alt="Bild eines Friedhofs" title="Bild eines Friedhofs" draggable="false" />
                         <h3>Erneuerung der Ruhestätte</h3>
                         <p>
                             Mit großem Respekt und Hingabe haben wir die Ruhestätte unseres Tierheims erneuert.
@@ -96,7 +97,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div id="tiervermittlung">
-                        <img src="../public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
+                        <img src="../../../public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
                         <h3>Erfolgreiche Tiervermittlung</h3>
                         <p>
                             In den letzten Monaten konnten wir zahlreiche Tiere erfolgreich in liebevolle Zuhause vermitteln.
@@ -106,7 +107,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../public/img/tierschutzLogo.jpg" alt="Bild von Pfoten und menschlichen Händen, die sich festhalten" title="Bild von Pfoten und menschlichen Händen, die sich festhalten" draggable="false" />
+                        <img src="../../../public/img/tierschutzLogo.jpg" alt="Bild von Pfoten und menschlichen Händen, die sich festhalten" title="Bild von Pfoten und menschlichen Händen, die sich festhalten" draggable="false" />
                         <h3>Erfolgreiche Spendenaktion</h3>
                         <p>
                             Unsere jüngste Spendenaktion war ein großer Erfolg! Dank der Großzügigkeit unserer Unterstützer konnten wir eine beträchtliche Summe sammeln, die direkt in ...

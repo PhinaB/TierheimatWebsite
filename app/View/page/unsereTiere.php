@@ -3,8 +3,8 @@
 <head>
     <?php include '../includes/mainStylesheets.php'; ?>
     
-    <link rel="stylesheet" href="../public/css/unsereTiere.css" />
-    <link rel="stylesheet" href="../public/css/bildwechselBilder.css" />
+    <link rel="stylesheet" href="../../../public/css/unsereTiere.css" />
+    <link rel="stylesheet" href="../../../public/css/bildwechselBilder.css" />
 </head>
 <body>
 <?php
@@ -152,6 +152,6 @@ renderMenu($currentPage);
         <?php include '../includes/footer.php'; ?>
     </div>
 
-    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

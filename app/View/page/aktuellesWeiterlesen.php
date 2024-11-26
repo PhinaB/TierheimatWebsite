@@ -29,13 +29,13 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="../index.html" class="logo" draggable="false">
+                <a href="../../../index.php" class="logo" draggable="false">
                     <img class="logoPicture" src="../../../public/img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
 
             <div id="menuRight">
-                <a href="../index.html" draggable="false">
+                <a href="../../../index.php" draggable="false">
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
                     Start
                 </a>
@@ -45,11 +45,11 @@
                         Unsere <br class="onlySmallMenu" />Tiere
                     </a>
                     <div class="submenu smallWidthSubmenu">
-                        <a href="unsereTiere.html">Alle Tiere</a>
-                        <a href="unsereHunde.html">Hunde</a>
-                        <a href="unsereKatzen.html">Katzen</a>
-                        <a href="unsereKleintiere.html">Kleintiere</a>
-                        <a href="unsereExoten.html">Exoten</a>
+                        <a href="unsereTiere.php">Alle Tiere</a>
+                        <a href="unsereHunde.php">Hunde</a>
+                        <a href="unsereKatzen.php">Katzen</a>
+                        <a href="unsereKleintiere.php">Kleintiere</a>
+                        <a href="unsereExoten.php">Exoten</a>
                     </div>
                 </div>
                 <a class="disabled" draggable="false">
@@ -62,9 +62,9 @@
                         Vermisst/<br class="onlySmallMenu" />Gefunden
                     </a>
                     <div class="submenu bigWidthSubmenu">
-                        <a href="vermisstGefunden.html">Alle Tiere</a>
-                        <a href="vermisst.html">Vermisste Tiere</a>
-                        <a href="gefunden.html">Gefundene Tiere</a>
+                        <a href="vermisstGefunden.php">Alle Tiere</a>
+                        <a href="vermisst.php">Vermisste Tiere</a>
+                        <a href="gefunden.php">Gefundene Tiere</a>
                     </div>
                 </div>
                 <a href="serviceInfos.html" draggable="false">
@@ -81,7 +81,7 @@
     <div class="grid">
         <main>
             <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                <a href="../../../index.php" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
                 <a class="disabled" draggable="false">Aktuelles</a>
             </div>
@@ -89,7 +89,7 @@
             <div class="box-absolute">
                 <div class="kopfelement">
                     <h3 class="inline">15 Jahre Tierheimat</h3>
-                    <a href="aktuelles.html" title="Button Abbrechen" draggable="false">
+                    <a href="aktuelles.php" title="Button Abbrechen" draggable="false">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </a>
                     <br />
@@ -157,10 +157,10 @@
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück.
                             Seit unserer Gründung ...
                         </p>
-                        <a href="aktuellesWeiterlesen.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
+                        <a href="aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../public/img/pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
+                        <img src="../../../public/img/Pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
                         <h3>Sieger des Thüringer Tierheimwettbewerb</h3>
                         <p>
                             Wir freuen uns außerordentlich, bekannt zu geben, dass unser Tierheim den Thüringer Tierheimwettbewerb gewonnen hat.
@@ -180,7 +180,7 @@
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../public/img/friedhof.jpg" alt="Bild eines Friedhofs" title="Bild eines Friedhofs" draggable="false" />
+                        <img src="../../../public/img/friedhof.jpg" alt="Bild eines Friedhofs" title="Bild eines Friedhofs" draggable="false" />
                         <h3>Erneuerung der Ruhestätte</h3>
                         <p>
                             Mit großem Respekt und Hingabe haben wir die Ruhestätte unseres Tierheims erneuert.

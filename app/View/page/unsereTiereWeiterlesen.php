@@ -30,13 +30,13 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="../index.html" class="logo" draggable="false">
+                <a href="../index.php" class="logo" draggable="false">
                     <img class="logoPicture" src="../../../public/img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
 
             <div id="menuRight">
-                <a href="../index.html" draggable="false">
+                <a href="../index.php" draggable="false">
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
                     Start
                 </a>
@@ -47,13 +47,13 @@
                     </a>
                     <div class="submenu smallWidthSubmenu">
                         <a class="disabled">Alle Tiere</a>
-                        <a href="unsereHunde.html">Hunde</a>
-                        <a href="unsereKatzen.html">Katzen</a>
-                        <a href="unsereKleintiere.html">Kleintiere</a>
-                        <a href="unsereExoten.html">Exoten</a>
+                        <a href="unsereHunde.php">Hunde</a>
+                        <a href="unsereKatzen.php">Katzen</a>
+                        <a href="unsereKleintiere.php">Kleintiere</a>
+                        <a href="unsereExoten.php">Exoten</a>
                     </div>
                 </div>
-                <a href="aktuelles.html" draggable="false">
+                <a href="aktuelles.php" draggable="false">
                     <i class="fa-solid fa-calendar menuIcon onlySmallMenu"></i>
                     Aktuelles
                 </a>
@@ -63,16 +63,16 @@
                         Vermisst/<br class="onlySmallMenu" />Gefunden
                     </a>
                     <div class="submenu bigWidthSubmenu">
-                        <a href="vermisstGefunden.html">Alle Tiere</a>
-                        <a href="vermisst.html">Vermisste Tiere</a>
-                        <a href="gefunden.html">Gefundene Tiere</a>
+                        <a href="vermisstGefunden.php">Alle Tiere</a>
+                        <a href="vermisst.php">Vermisste Tiere</a>
+                        <a href="gefunden.php">Gefundene Tiere</a>
                     </div>
                 </div>
-                <a href="serviceInfos.html" draggable="false">
+                <a href="serviceInfos.php" draggable="false">
                     <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
                     Service/<br class="onlySmallMenu" />Infos
                 </a>
-                <a href="login.html" draggable="false">
+                <a href="login.php" draggable="false">
                     <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
                     Login
                 </a>
@@ -82,7 +82,7 @@
     <div class="grid">
         <main>
             <div class="tile tileBorder">
-                <a href="../index.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                <a href="../index.php" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
                 <a class="disabled" draggable="false">Unsere Tiere</a>
             </div>
@@ -90,7 +90,7 @@
             <div class="box-absolute">
                 <div class="kopfelement">
                     <h3 class="inline">Lila, 11 Jahre</h3>
-                    <a href="/unsereTiere.html" title="Button Abbrechen" draggable="false">
+                    <a href="/unsereTiere.php" title="Button Abbrechen" draggable="false">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </a>
                     <br />
@@ -152,7 +152,7 @@
                         </div>
                         <h3>Lila</h3>
                         <p>4 Jahre alt, Hündin...</p>
-                        <a href="/unsereTiereWeiterlesen.html" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+                        <a href="/unsereTiereWeiterlesen.php" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
                     <div>
@@ -286,7 +286,7 @@
                 </p>
             </div>
         </footer>
-        <div class="underFooter"><a href="impressum.html" draggable="false">Impressum</a> | &copy; 2024 Tierheimat e.V.</div>
+        <div class="underFooter"><a href="impressum.php" draggable="false">Impressum</a> | &copy; 2024 Tierheimat e.V.</div>
     </div>
 
     <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>

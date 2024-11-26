@@ -49,6 +49,6 @@ renderMenu($currentPage);
     </div>
 
     <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
-    <script src="../model/js/validation.js"></script>
+    <script src="../../../public/js/validation.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <?php include '../includes/mainStylesheets.php'; ?>
 
-    <link rel="stylesheet" href="../public/css/serviceInfo.css">
+    <link rel="stylesheet" href="../../../public/css/serviceInfo.css">
 </head>
 <body>
 <?php
@@ -24,7 +24,7 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-containerserviceInfo zentrierterButton">
                     <div>
-                        <img src="../public/img/spaziereGehen.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
+                        <img src="../../../public/img/spaziereGehen.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
                     </div>
 
                     <div>
@@ -44,8 +44,8 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-containerserviceInfo">
                     <div>
-                        <img src="../public/img/helfenSpenden3.jpg" class="hohesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
-                        <img src="../public/img/helfenspeden2.jpg" class="quadratischesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
+                        <img src="../../../public/img/helfenSpenden3.jpg" class="hohesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
+                        <img src="../../../public/img/helfenspeden2.jpg" class="quadratischesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
                     </div>
 
                     <div>
@@ -72,7 +72,7 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-containerserviceInfo zentrierterButton">
                     <div>
-                        <img src="../public/img/vermittlungsablauf.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
+                        <img src="../../../public/img/vermittlungsablauf.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
                     </div>
 
                     <div>
@@ -102,7 +102,7 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-containerserviceInfo zentrierterButton">
                     <div>
-                        <img src="../public/img/tierpension.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
+                        <img src="../../../public/img/tierpension.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
                     </div>
 
                     <div>
@@ -133,7 +133,7 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-containerserviceInfo zentrierterButton">
                     <div>
-                        <img src="../public/img/tierAbgeben.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
+                        <img src="../../../public/img/tierAbgeben.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
                     </div>
 
                     <div>
@@ -160,7 +160,7 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-containerserviceInfo zentrierterButton">
                     <div>
-                        <img src="../public/img/kastrationspflicht.jpg" class="schattenBild" alt="Bild einer Katze beim Tierartzt" title="Bild einer Katze beim Tierartzt" draggable="false"/>
+                        <img src="../../../public/img/kastrationspflicht.jpg" class="schattenBild" alt="Bild einer Katze beim Tierartzt" title="Bild einer Katze beim Tierartzt" draggable="false"/>
                     </div>
 
                     <div>
@@ -184,6 +184,6 @@ renderMenu($currentPage);
         <?php include '../includes/footer.php'; ?>
     </div>
 
-    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <?php include 'includes/mainStylesheets.php'; ?>
+    <?php include 'app/view/includes/mainStylesheets.php'; ?>
     
     <link rel="stylesheet" href="public/css/index.css" />
     <link rel="stylesheet" href="public/css/bildwechselBilder.css" />
@@ -10,7 +10,7 @@
 <?php
 $currentPage = 'index';
 
-include 'includes/menu.php';
+include 'app/view/includes/menu.php';
 renderMenu($currentPage);
 ?>
 
@@ -22,7 +22,7 @@ renderMenu($currentPage);
         </div>
         <main>
             <?php
-            include 'includes/breadcrumbNavigation.php';
+            include 'app/view/includes/breadcrumbNavigation.php';
             renderBreadcrumb($currentPage);
             ?>
 
@@ -138,7 +138,7 @@ renderMenu($currentPage);
                 <a href="app/View/page/unsereTiere.php" class="button marginTopButton" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere ansehen</a>
             </div>
         </main>
-        <?php include 'includes/footer.php'; ?>
+        <?php include 'app/view/includes/footer.php'; ?>
     </div>
 
     <script src="fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>

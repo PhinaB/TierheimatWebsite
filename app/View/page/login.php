@@ -28,7 +28,7 @@ renderMenu($currentPage);
                         <input type="email" name="email" id="email" required placeholder="email@beispiel.com" />
                         <label class="h3" for="password">Passwort: <span class="redPflichtfeld">*</span></label>
                         <input type="password" name="password" id="password" required placeholder="Passwort" />
-                        <a href="../loginPage/indexLogin.html" class="button marginButton" draggable="false">Anmelden</a>
+                        <a href="../loginPage/indexLogin.php" class="button marginButton" draggable="false">Anmelden</a>
                         <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
                     </form>
                 </div>

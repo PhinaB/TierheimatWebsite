@@ -4,51 +4,57 @@ namespace app\model;
 
 class Tier
 {
-    public ?int $tierID = null;
-    public int $rasseID;
-    public int $zuletztGeaendertNutzerID;
-    public int $typID;
-    public ?string $geschlecht = null; //Daten die eventuell nicht bekannt sind
-    public string $beschreibung;
-    public ?int $geburtsjahr = null;
-    public ?string $name = null;
-    public bool $kastriert;
-    public ?string $gesundheitszustand = null;
-    public ?string $charakter = null;
-    public string $datum;
-    public bool $geloescht;
-    public string $zuletztGeaendert;
+    private ?int $tierID = null;
+    private int $rasseID;
+    private int $zuletztGeaendertNutzerID;
+    private int $typID;
+    private ?string $geschlecht = null; //Daten die eventuell nicht bekannt sind
+    private string $beschreibung;
+    private ?int $geburtsjahr = null;
+    private ?string $name = null;
+    private ?bool $kastriert = null;
+    private ?string $gesundheitszustand = null;
+    private ?string $charakter = null;
+    private string $datum;
+    private bool $geloescht;
+    private string $zuletztGeaendert;
 
-    public function __construct(
-        int     $rasseID,
-        int     $zuletztGeaendertNutzerID,
-        int     $typID,
-        string  $beschreibung,
-        bool    $kastriert,
-        string  $datum,
-        bool    $geloescht,
-        string  $zuletztGeaendert,
-        ?string $geschlecht = null,
-        ?int    $geburtsjahr = null,
-        ?string $name = null,
-        ?string $gesundheitszustand = null,
-        ?string $charakter = null
-    )
+    /**
+     * @param int|null $tierID
+     * @param int $rasseID
+     * @param int $zuletztGeaendertNutzerID
+     * @param int $typID
+     * @param string|null $geschlecht
+     * @param string $beschreibung
+     * @param int|null $geburtsjahr
+     * @param string|null $name
+     * @param bool|null $kastriert
+     * @param string|null $gesundheitszustand
+     * @param string|null $charakter
+     * @param string $datum
+     * @param bool $geloescht
+     * @param string $zuletztGeaendert
+     */
+    public function __construct(?int $tierID = null, int $rasseID, int $zuletztGeaendertNutzerID, int $typID, ?string $geschlecht,
+                                string $beschreibung, ?int $geburtsjahr, ?string $name, ?bool $kastriert, ?string $gesundheitszustand, ?string $charakter, string $datum, bool $geloescht, string $zuletztGeaendert)
     {
+        $this->tierID = $tierID;
         $this->rasseID = $rasseID;
         $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
         $this->typID = $typID;
+        $this->geschlecht = $geschlecht;
         $this->beschreibung = $beschreibung;
+        $this->geburtsjahr = $geburtsjahr;
+        $this->name = $name;
         $this->kastriert = $kastriert;
+        $this->gesundheitszustand = $gesundheitszustand;
+        $this->charakter = $charakter;
         $this->datum = $datum;
         $this->geloescht = $geloescht;
         $this->zuletztGeaendert = $zuletztGeaendert;
-        $this->geschlecht = $geschlecht;
-        $this->geburtsjahr = $geburtsjahr;
-        $this->name = $name;
-        $this->gesundheitszustand = $gesundheitszustand;
-        $this->charakter = $charakter;
     }
+
+
 }
 
 
