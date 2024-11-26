@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../public/css/menu.css" />
+    <link rel="stylesheet" href="../../../public/css/main.css" />
+    <link rel="stylesheet" href="../../../public/css/footer.css" />
+    <link rel="stylesheet" href="../../../public/css/loggedInPage.css" />
+    <link rel="stylesheet" href="../../../public/css/serviceInfosHelfenlogin.css" />
+    <link rel="stylesheet" href="../../../public/css/serviceInfo.css">
+    <link rel="stylesheet" href="../../../public/css/formulare.css" />
+
+    <link rel="stylesheet" href="../../../fontawesome-6.5.2/css/all.min.css">
+
+    <title>Tierheimat</title>
+    <style>
+        .onlySmallMenu {
+            display: none;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .onlySmallMenu {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="linkLogo">
+                <a href="indexLogin.html" class="logo" draggable="false">
+                    <img class="logoPicture" src="../../../public/img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
+                </a>
+            </span>
+
+            <span class="user">
+                <i class="fa-solid fa-user"></i> Nutzername
+            </span>
+
+            <div id="menuRight">
+                <a href="indexLogin.html" draggable="false">
+                    <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
+                    Start
+                </a>
+                <div class="dropdown">
+                    <a class="deactivate" draggable="false">
+                        <i class="fa-solid fa-paw menuIcon onlySmallMenu"></i>
+                        Unsere <br class="onlySmallMenu" />Tiere
+                    </a>
+                    <div class="submenu smallWidthSubmenu">
+                        <a href="unsereTiere.html">Alle Tiere</a>
+                        <a href="unsereHunde.html">Hunde</a>
+                        <a href="unsereKatzen.html">Katzen</a>
+                        <a href="unsereKleintiere.html">Kleintiere</a>
+                        <a href="unsereExoten.html">Exoten</a>
+                    </div>
+                </div>
+                <a href="aktuelles.html" draggable="false">
+                    <i class="fa-solid fa-calendar menuIcon onlySmallMenu"></i>
+                    Aktuelles
+                </a>
+                <div class="dropdown">
+                    <a class="deactivate" draggable="false">
+                        <i class="fa-solid fa-magnifying-glass-location menuIcon onlySmallMenu"></i>
+                        Vermisst/<br class="onlySmallMenu" />Gefunden
+                    </a>
+                    <div class="submenu bigWidthSubmenu">
+                        <a href="vermisstGefunden.html">Alle Tiere</a>
+                        <a href="vermisst.html">Vermisste Tiere</a>
+                        <a href="gefunden.html">Gefundene Tiere</a>
+                    </div>
+                </div>
+                <a class="disabled" draggable="false">
+                    <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
+                    Service/<br class="onlySmallMenu" />Infos
+                </a>
+                <a href="../index.html" draggable="false">
+                    <i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i>
+                    Logout
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="grid">
+        <main>
+            <div class="tile tileBorder">
+                <a href="indexLogin.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                >
+                <a class="disabled" draggable="false">Service / Infos</a>
+            </div>
+
+            <div class="tileBorder tile">
+                <div class="kopfelementFormular">
+                    <h2>Helfen</h2>
+                    <hr class="underHeadline" />
+                    <p>
+                        Sie wollen uns Ihre Untersützung anbieten? Füllen Sie zunächst das folgende Formular aus.
+                        Sobald wir Ihre Informationen verarbeitet haben, werden wir uns bei Ihnen melden.
+                    </p>
+                </div>
+
+                <form action="#" method="post" class="flex-containerFormularHelfen">
+                    <div class="unterstützungsart">
+                        <label class="h3">Art der Hilfe: <span class="redPflichtfeld">*</span></label>
+                        <input type="checkbox" id="spazierenGehen" name="unterstützungsart" value="spazierenGehen" />
+                        <label for="spazierenGehen" class="helfenUnterpunkt">Spazieren gehen</label>
+                        <br />
+                        <input type="checkbox" id="kleintiersitting" name="unterstützungsart" value="kleintiersitting" />
+                        <label for="kleintiersitting" class="helfenUnterpunkt">Kleintiersitting</label>
+                        <br />
+                        <input type="checkbox" id="tiereFüttern" name="unterstützungsart" value="uiereFüttern" />
+                        <label for="tiereFüttern" class="helfenUnterpunkt">Tiere füttern</label>
+                    </div>
+
+                    <div class="tabelle1">
+                        <label class="h3">Ich kann an folgenden Terminen:</label>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th class="linkeSpalte">Datum</th>
+                                    <th class="rechteSpalte">Zeit</th>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte"><input type="date" name="Datum1" /></td>
+                                    <td class="rechteSpalte"><input type="time" name="Zeit1" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <a href="" class="button center" title="Button weiteren Termin hinzufügen" draggable="false"><i class="fa-solid fa-plus"></i> Weiteren Termin hinzufügen</a>
+                    </div>
+
+                    <div class="tabelle2">
+                        <label class="h3">Ich habe wöchentlich Zeit:</label>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th class="linkeSpalte">Wochentag</th>
+                                    <th class="rechteSpalte">Zeit</th>
+                                </tr>
+                                <tr>
+                                    <td class="linkeSpalte">
+                                        <select name="wochentag1">
+                                            <option>Bitte wählen</option>
+                                            <option>Montag</option>
+                                            <option>Diestag</option>
+                                            <option>Mittwoch</option>
+                                            <option>Donnerstag</option>
+                                            <option>Freitag</option>
+                                            <option>Samstag</option>
+                                            <option>Sonntag</option>
+                                        </select>
+                                    </td>
+                                    <td class="rechteSpalte">
+                                        <input type="time" name="zeit1" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <a href="" class="button" title="Button weiteren Wochentag hinzufügen" draggable="false"><i class="fa-solid fa-plus"></i> Weiteren Wochentag hinzufügen</a>
+                    </div>
+                    <div class="fusselementFormular">
+                        <button class="button" type="submit" value="absenden" title="Button absenden" draggable="false"> <i class="fa-regular fa-paper-plane"></i>  Absenden</button>
+                        <button class="button" type="reset" value="zurücksetzen" title="Button zurücksetzen" draggable="false"> <i class="fa-solid fa-arrow-rotate-left"></i>  Zurücksetzen</button>
+                    </div>
+                </form>
+                <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
+            </div>
+
+            <div class="tile">
+                <h2>Spenden</h2>
+                <hr class="underHeadline" />
+                <div class="box-containerserviceInfo">
+                    <div>
+                        <img src="../../../public/img/helfenSpenden3.jpg" class="hohesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false" />
+                        <img src="../../../public/img/helfenspeden2.jpg" class="quadratischesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false" />
+                    </div>
+
+                    <div>
+                        <h3> Sie möchten uns unterstützen mit einer Spende?</h3>
+                        <div class="textTrennung">
+                            <p>
+                                Egal ob Sach- (Futter, Decken, Spielzeug für Hunde und Katzen, Kratzbäume, Kuschelhöhlen oder Körbchen)
+                                oder Geldspenden, wir freuen uns über jedliche Art von Spenden.
+                            </p>
+                            <p>
+                                Der Tierheimverein Tierheimat e.V. ist vom Finanzamt Musterstadt als gemeinnützig anerkannt.
+                                Die Spenden sind somit steuerlich absetzbar.
+                            </p>
+                            <p>Für Sachspenden kontaktieren Sie uns gerne per <a class="verweisText" href="mailto:spende@tierheimat.de" title="Link E-Mail" draggable="false">E-Mail</a>.</p>
+                            <p>Geldspenden können Sie auf folgendes Konto überweisen:</p>
+                            <br />
+                            <p class="spendenkontoAngaben">Tierheimat e.V.</p>
+                            <p class="spendenkontoAngaben">Tierheimbank Erfurt</p>
+                            <p class="spendenkontoAngaben">IBAN: DE12 3456 7890 1234 1234 55</p>
+                            <p class="spendenkontoAngaben">BIC: ABCDEFGH</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile">
+                <h2>Informationen zum Vermittlungsablauf</h2>
+                <hr class="underHeadline" />
+                <div class="box-containerserviceInfo zentrierterButton">
+                    <div>
+                        <img src="../../../public/img/vermittlungsablauf.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false" />
+                    </div>
+
+                    <div>
+                        <h3>Sie möchten eins unserer Tiere adoptieren?</h3>
+                        <p class="textTrennung">
+                            Wir freuen uns über Ihr Interesse an der Adoption eines Tieres aus unserem Tierheim.
+                            Der Vermittlungsprozess beginnt mit einer ersten Kontaktaufnahme Ihrerseits per
+                            <a class="verweisText" href="tel:+49123456789" title="Link Telefonnummer" draggable="false">Telefon</a> oder
+                            <a class="verweisText" href="mailto:spende@tierheimat.de" title="Link E-Mail" draggable="false">E-Mail</a>,
+                            um Fragen zu klären und einen Besuchstermin zu vereinbaren.
+                            Bei Ihrem Besuch können Sie das Tier persönlich kennenlernen und
+                            wir führen ein Beratungsgespräch durch,
+                            um sicherzustellen, dass das Tier gut zu Ihnen passt.
+                            Wenn Sie sich für die Adoption entscheiden, füllen Sie einen Vermittlungsantrag aus.
+                            In einigen Fällen führen wir eine Vorkontrolle durch, um sicherzustellen,
+                            dass das neue Zuhause geeignet ist. Nach erfolgreicher Prüfung der Unterlagen und
+                            der Vorkontrolle erfolgt die Adoption und wir erstellen einen Adoptionsvertrag. Auch nach der Vermittlung bleiben wir in Kontakt,
+                            um sicherzustellen, dass sich das Tier gut eingewöhnt.
+                            Vielen Dank für Ihr Interesse und Ihre Unterstützung. Gemeinsam können wir vielen Tieren ein liebevolles Zuhause bieten!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile">
+                <h2>Tierpension</h2>
+                <hr class="underHeadline" />
+                <div class="box-containerserviceInfo zentrierterButton">
+                    <div>
+                        <img src="../../../public/img/tierpension.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false" />
+                    </div>
+
+                    <div>
+                        <h3>Sie möchten Ihre Tiere während Ihrer Urlaubszeit in sicheren Händen wissen?</h3>
+                        <p class="textTrennung">
+                            Seit einiger Zeit bieten wir nun auch eine umfassende Betreuung in unserer Tierpension an.
+                            Wir kümmern uns liebevoll und professionell um Ihre Tiere,
+                            während Sie sorgenfrei Ihre Auszeit genießen können.
+                            Unsere Tierpension bietet eine komfortable Umgebung für Hunde, Katzen und Kleintiere.
+                            Jedes Tier erhält eine individuelle Betreuung. Wir bieten geräumige Unterkünfte,
+                            tägliche Spaziergänge und Spielzeiten, damit sich Ihr Haustier wohlfühlt.
+                            Kontaktieren Sie uns per
+                            <a class="verweisText" href="mailto:spende@tierheimat.de" title="Link E-Mail" draggable="false">E-Mail</a>
+                            oder
+                            <a class="verweisText" href="tel:+49123456789" title="Link Telefonnummer" draggable="false">Telefon</a>,
+                            um Fragen zu klären und um für Ihr Tier einen Platz zu reservieren.
+                            Beim Einchecken bringen Sie Ihr Haustier zu uns und wir führen ein kurzes Aufnahmegespräch.
+                            Anschließend werden sich unsere Mitarbeiter liebevoll um das Wohlergehen Ihres Tieres kümmern.
+                            Am vereinbarten Tag holen Sie Ihr Haustier wieder bei uns ab und erhalten einen kurzen Bericht über den Aufenthalt.
+                            Sie können sich darauf verlassen, dass Ihr Haustier bei uns bestens versorgt wird.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile">
+                <h2>Tiere an die Tierheimat abgeben</h2>
+                <hr class="underHeadline" />
+                <div class="box-containerserviceInfo zentrierterButton">
+                    <div>
+                        <img src="../../../public/img/tierAbgeben.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false" />
+                    </div>
+
+                    <div>
+                        <p class="textTrennung">
+                            Für Tiere ist es oft traurig und nicht verständlich warum ihre Besitzer sie abgeben. Deswegen sind wir interessiert daran,
+                            dass Tiere bei ihren Besitzern bleiben und wir beraten Sie gerne, wenn Sie Sorgen oder Bedenken
+                            haben Ihren Tieren nicht gerecht werden zu können. Sollte das Wohlergehen Ihres Tieres gefährdet sein oder sollte es keinen
+                            anderen Weg geben, kontakieren Sie uns bitte umgehend per
+                            <a class="verweisText" href="mailto:spende@tierheimat.de" title="Link E-Mail" draggable="false">E-Mail</a>
+                            oder
+                            <a class="verweisText" href="tel:+49123456789" title="Link Telefonnummer" draggable="false">Telefon</a>.
+                            Anschließend werden wir die Kapazitäten unserer Tierheimat prüfen. Sollte kein Platz für das Tier
+                            in der Tierheimat frei sein, werden wir Sie an ein anderes Tierheim verweisen. Sollte ein Platz für Ihr Tier vorhanden sein
+                            werden wir ein Aufnahmegespräch führen und das Tier anchließend bei uns aufnehmen,
+                            für sein/ihr Wohlergehen sorgen und versuchen ihn/sie an eine neue liebende Familie zu vermitteln.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile">
+                <h2>Katzenkastrationspflicht</h2>
+                <hr class="underHeadline" />
+                <div class="box-containerserviceInfo zentrierterButton">
+                    <div>
+                        <img src="../../../public/img/kastrationspflicht.jpg" class="schattenBild" alt="Bild einer Katze beim Tierartzt" title="Bild einer Katze beim Tierartzt" draggable="false"/>
+                    </div>
+
+                    <div>
+                        <h3>Seit 2017 gilt in Erfurt eine Katzenkastrationspflicht</h3>
+                        <p class="textTrennung">
+                            Seit 2017 gilt in Erfurt die neue Katzenschutzverordnung. 
+                            Diese besagt, dass alle freilaufenden Katzen und Kater kastriert, 
+                            gechippt und registriert sein müssen. Die Verordnung richtet sich an alle Katzenhalter, 
+                            die eine oder mehrere Freigängerkatzen besitzen. Sie gilt auch für Personen, die freilebende Katzen füttern.
+                            Freilebende Katzen sind oft entlaufene, ausgesetzte oder zurückgelassene Hauskatzen oder deren Nachkommen. 
+                            Ohne menschliche Hilfe können sie häufig nicht überleben und erleben oft erhebliche Schmerzen oder Leiden. 
+                            Zudem leiden sie häufig unter chronischen oder ansteckenden Krankheiten wie Katzenschnupfen, Parasitenbefall, 
+                            Hautpilzen, schwer heilenden Verletzungen und Unterernährung.
+                            Aufgrund des großen Leids dieser Katzen wurde in Erfurt die Katzenschutzverordnung erlassen, 
+                            um präventiv dieses Leid zu verhindern.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+        <footer>
+            <div>
+                <h4>KONTAKT</h4>
+                <p>
+                    Adresse: Musterstraße 2<br />
+                    12345 Musterhausen<br />
+                    E-Mail: <a href="mailto:muster@tierheimat.de" draggable="false">muster@tierheimat.de</a><br />
+                    Telefon: <a href="tel:01234567892" draggable="false">0123 4567892</a>
+                </p>
+            </div>
+            <div class="secondFooterChild">
+                <h4>ÖFFNUNGSZEITEN</h4>
+                <p>
+                    Mo - Fr: 10 - 18 Uhr<br />
+                    Sa: 8 - 18 Uhr
+                </p>
+            </div>
+            <div>
+                <h4>UNSER SPENDENKONTO</h4>
+                <p>
+                    Tierheimat e.V.<br />
+                    Tierheimbank Erfurt<br />
+                    IBAN: DE12 3456 7890 1234 1234 55<br />
+                    BIC: ABCDEFGH
+                </p>
+            </div>
+        </footer>
+        <div class="underFooter"><a href="impressum.html" draggable="false">Impressum</a> | &copy; 2024 Tierheimat e.V.</div>
+    </div>
+
+    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+</body>
+</html>

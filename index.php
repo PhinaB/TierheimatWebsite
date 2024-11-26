@@ -3,8 +3,8 @@
 <head>
     <?php include 'includes/mainStylesheets.php'; ?>
     
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/bildwechselBilder.css" />
+    <link rel="stylesheet" href="public/css/index.css" />
+    <link rel="stylesheet" href="public/css/bildwechselBilder.css" />
 </head>
 <body>
 <?php
@@ -16,9 +16,9 @@ renderMenu($currentPage);
 
     <div class="gridIndex">
         <div id="startbilder">
-            <img src="img/startbild-1.jpg" class="startbild" draggable="false" alt="Bild einer Ratte" title="Startbild der Seite Tierheimat" />
-            <img src="img/startbild-5.jpg" class="startbild" draggable="false" alt="Bild eines Taggeckos" title="Startbild der Seite Tierheimat" />
-            <img src="img/startbildHund.jpg" class="startbild" draggable="false" alt="Bild eines Hundes und einer Katze" title="Startbild der Seite Tierheimat" />
+            <img src="public/img/startbild-1.jpg" class="startbild" draggable="false" alt="Bild einer Ratte" title="Startbild der Seite Tierheimat" />
+            <img src="public/img/startbild-5.jpg" class="startbild" draggable="false" alt="Bild eines Taggeckos" title="Startbild der Seite Tierheimat" />
+            <img src="public/img/startbildHund.jpg" class="startbild" draggable="false" alt="Bild eines Hundes und einer Katze" title="Startbild der Seite Tierheimat" />
         </div>
         <main>
             <?php
@@ -32,32 +32,32 @@ renderMenu($currentPage);
 
                 <div class="box-container box-container-button">
                     <div>
-                        <img src="img/ausbauTierheim.jpg" alt="Lageplan des Tierheims Tierheimat" title="Lageplan des Tierheims Tierheimat" draggable="false" />
+                        <img src="public/img/ausbauTierheim.jpg" alt="Lageplan des Tierheims Tierheimat" title="Lageplan des Tierheims Tierheimat" draggable="false" />
                         <h3>Erweiterung des Tierheims</h3>
                         <p>
                             Dank Ihrer großzügigen Spenden und Unterstützung konnten wir neue Unterkünfte und moderne Einrichtungen für unsere Tiere schaffen.
                         </p><p>
                             Diese Erweiterung ermöglicht es uns ...
                         </p>
-                        <a href="page/aktuellesWeiterlesenAusbauTierheim.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="app/View/page/aktuellesWeiterlesenAusbauTierheim.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
-                        <img src="img/tierheimFest.jpg" alt="Werbebild für das Tierheimfest" title="Werbebild für das Tierheimfest" draggable="false" />
+                        <img src="public/img/tierheimFest.jpg" alt="Werbebild für das Tierheimfest" title="Werbebild für das Tierheimfest" draggable="false" />
                         <h3>15 Jahre Tierheimat</h3>
                         <p>
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück. Seit unserer Gründung  ...
                         </p>
-                        <a href="page/aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="app/View/page/aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
-                        <img src="img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
+                        <img src="public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
                         <h3>Erfolgreiche Tiervermittlung</h3>
                         <p>
                             In den letzten Monaten konnten wir zahlreiche Tiere erfolgreich in liebevolle Zuhause vermitteln.
                         </p><p>
                             Wir sind stolz auf die Fortschritte, die ...
                         </p>
-                        <a href="page/aktuelles.php#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="app/View/page/aktuelles.php#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@ renderMenu($currentPage);
                 <h2 class="marginTopH2">Unsere Anlage</h2>
                 <hr class="underHeadline" />
                 <div class="flexWir">
-                    <img src="img/anlage.jpg" alt="Bild der Anlage des Tierheimes" title="Bild der Anlage des Tierheimes" draggable="false" />
+                    <img src="public/img/anlage.jpg" alt="Bild der Anlage des Tierheimes" title="Bild der Anlage des Tierheimes" draggable="false" />
 
                     <div>
                         <p>
@@ -116,7 +116,7 @@ renderMenu($currentPage);
                         </div>
                         <h3>Lila</h3>
                         <p>4 Jahre alt, Hündin ...</p>
-                        <a href="page/unsereTiereWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="app/View/page/unsereTiereWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
                         <div class="aussenboxBildwechselKlein">
@@ -124,7 +124,7 @@ renderMenu($currentPage);
                         </div>
                         <h3>Lora</h3>
                         <p>5 Jahre alt, Sittich ...</p>
-                        <a href="page/unsereTiere.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="app/View/page/unsereTiere.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                     <div>
                         <div class="aussenboxBildwechselKlein">
@@ -132,10 +132,10 @@ renderMenu($currentPage);
                         </div>
                         <h3>Rocky</h3>
                         <p>2 Jahre alt, Rüde ...</p>
-                        <a href="page/unsereTiere.php#rocky" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+                        <a href="app/View/page/unsereTiere.php#rocky" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
                     </div>
                 </div>
-                <a href="page/unsereTiere.php" class="button marginTopButton" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere ansehen</a>
+                <a href="app/View/page/unsereTiere.php" class="button marginTopButton" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere ansehen</a>
             </div>
         </main>
         <?php include 'includes/footer.php'; ?>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../public/css/menu.css" />
+    <link rel="stylesheet" href="../../../public/css/main.css" />
+    <link rel="stylesheet" href="../../../public/css/footer.css" />
+    <link rel="stylesheet" href="../../../public/css/loggedInPage.css" />
+    <link rel="stylesheet" href="../../../public/css/impressum.css" />
+
+    <link rel="stylesheet" href="../../../fontawesome-6.5.2/css/all.min.css">
+
+    <title>Tierheimat</title>
+    <style>
+        .onlySmallMenu {
+            display: none;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .onlySmallMenu {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="linkLogo">
+                <a href="indexLogin.html" class="logo" draggable="false">
+                    <img class="logoPicture" src="../../../public/img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
+                </a>
+            </span>
+
+            <span class="user">
+                <i class="fa-solid fa-user"></i> Nutzername
+            </span>
+
+            <div id="menuRight">
+                <a href="indexLogin.html" draggable="false">
+                    <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
+                    Start
+                </a>
+                <div class="dropdown">
+                    <a class="deactivate" draggable="false">
+                        <i class="fa-solid fa-paw menuIcon onlySmallMenu"></i>
+                        Unsere <br class="onlySmallMenu" />Tiere
+                    </a>
+                    <div class="submenu smallWidthSubmenu">
+                        <a href="unsereTiere.html">Alle Tiere</a>
+                        <a href="unsereHunde.html">Hunde</a>
+                        <a href="unsereKatzen.html">Katzen</a>
+                        <a href="unsereKleintiere.html">Kleintiere</a>
+                        <a href="unsereExoten.html">Exoten</a>
+                    </div>
+                </div>
+                <a href="aktuelles.html" draggable="false">
+                    <i class="fa-solid fa-calendar menuIcon onlySmallMenu"></i>
+                    Aktuelles
+                </a>
+                <div class="dropdown">
+                    <a class="deactivate" draggable="false">
+                        <i class="fa-solid fa-magnifying-glass-location menuIcon onlySmallMenu"></i>
+                        Vermisst/<br class="onlySmallMenu" />Gefunden
+                    </a>
+                    <div class="submenu bigWidthSubmenu">
+                        <a href="vermisstGefunden.html">Alle Tiere</a>
+                        <a href="vermisst.html">Vermisste Tiere</a>
+                        <a href="gefunden.html">Gefundene Tiere</a>
+                    </div>
+                </div>
+                <a href="serviceInfos.html" draggable="false">
+                    <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
+                    Service/<br class="onlySmallMenu" />Infos
+                </a>
+                <a href="../index.html" draggable="false">
+                    <i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i>
+                    Logout
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="grid">
+        <main>
+            <div class="tile tileBorder">
+                <a href="indexLogin.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                >
+                <a class="disabled" draggable="false">Impressum</a>
+            </div>
+            <h1>Impressum</h1>
+            <hr class="underHeadline" />
+            <div class="tile tileBorder">
+                <h2>Dokumentation</h2>
+                <hr class="underHeadline" />
+                <p>Die Dokumentation wurde eigenhändig von den Projektgruppenmitgliedern erstellt:</p>
+                <a href="../dokumentation/dokumentation.html" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation</a>
+
+                <h2>Bildnachweis</h2>
+                <hr class="underHeadline" />
+                <p>Einige Bilder wurden selbst fotografiert. Die Quellen aller anderen Bilder sind in der Dokumentation zu finden.</p>
+            </div>
+            <div class="tile tileBorder">
+                <h2>Webdesign und Redaktionssystem</h2>
+                <hr class="underHeadline" />
+                <dl>
+                    <dt>Projektgruppe PfotenDesign</dt>
+                    <dd>Stephanie Wachs</dd>
+                    <dd>Josephina Burger</dd>
+                    <dd>Lucas-Manfred Herpe</dd>
+                    <dt>Adresse</dt>
+                    <dd>Fachhochschule Erfurt</dd>
+                    <dd>Altonaer Straße 25</dd>
+                    <dd>99085 Erfurt</dd>
+                    <dt>Geschäftsadresse</dt>
+                    <dd>Tierheimat GmbH</dd>
+                    <dd>Musterstraße 2</dd>
+                    <dd>12345 Musterhausen</dd>
+                    <dt>E-Mail</dt>
+                    <dd><a href="mailto:stephanie.wachs@fh-erfurt.de" draggable="false">stephanie.wachs@fh-erfurt.de</a></dd>
+                    <dd><a href="mailto:josephina.burger@fh-erfurt.de" draggable="false">josephina.burger@fh-erfurt.de</a></dd>
+                    <dd><a href="mailto:lucas.herpe@fh-erfurt.de" draggable="false">lucas.herpe@fh-erfurt.de</a></dd>
+                </dl>
+
+                <h2>Haftungsausschuss</h2>
+                <hr class="underHeadline" />
+                <p>
+                    Alle Angaben unseres Webprojekts wurden sorgfältig geprüft. Wir bemühen uns, dieses Informationsangebot aktuell und inhaltlich richtig sowie vollständig anzubieten. Dennoch ist das Auftreten von Fehlern nicht völlig auszuschließen. Eine Garantie für die Vollständigkeit, Richtigkeit und letzte Aktualität kann daher nicht übernommen werden. Die Projektgruppe PfotenDesign behält es sich vor, dieses Informationsangebot nach eigenem Ermessen jederzeit ohne Ankündigung verändern und/oder dessen Betrieb einzustellen. Sie ist nicht verpflichtet, Inhalte dieses Informationsangebotes zu aktualisieren.
+                </p>
+                <p>
+                    Der Zugang und die Benutzung dieses Informationsangebotes geschehen auf eigene Gefahr des Benutzers. Die Projektgruppe PfotenDesign ist nicht verantwortlich und übernimmt keinerlei Haftung für Schäden, unter anderem für direkte, indirekte, zufällige, vorab konkret zu bestimmende oder Folgeschäden, die angeblich durch den oder in Verbindung mit dem Zugang und/oder der Benutzung dieses Internetangebotes aufgetreten sind.
+                </p>
+                <p>
+                    Die Dokumentation enthält externe Links auf die Internetseiten Dritter. Auf den Inhalt dieser Seiten haben wir keinen Einfluss und übernehmen für die Inhalte auch keine Gewähr. Die Projektgruppe PfotenDesign übernimmt keine Verantwortung für die Inhalte und die Verfügbarkeit von Internetseiten Dritter, die über externe Links dieses Informationsangebotes erreicht werden. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Die Projektgruppe PfotenDesign distanziert sich ausdrücklich von allen Inhalten, die möglicherweise straf- oder haftungsrechtlich relevant sind oder gegen die guten Sitten verstoßen.
+                </p>
+
+                <h2>Datenschutz</h2>
+                <hr class="underHeadline" />
+                <p>In diesem Webprojekt werden keine Cookies verwendet und keine Nutzerdaten erfasst. Die Forderungen der europaweit geltenden Datenschutz-Grundverordnung (DSGVO) werden eingehalten. </p>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <h4>KONTAKT</h4>
+                <p>
+                    Adresse: Musterstraße 2<br />
+                    12345 Musterhausen<br />
+                    E-Mail: <a href="mailto:muster@tierheimat.de" draggable="false">muster@tierheimat.de</a><br />
+                    Telefon: <a href="tel:01234567892" draggable="false">0123 4567892</a>
+                </p>
+            </div>
+            <div class="secondFooterChild">
+                <h4>ÖFFNUNGSZEITEN</h4>
+                <p>
+                    Mo - Fr: 10 - 18 Uhr<br />
+                    Sa: 8 - 18 Uhr
+                </p>
+            </div>
+            <div>
+                <h4>UNSER SPENDENKONTO</h4>
+                <p>
+                    Tierheimat e.V.<br />
+                    Tierheimbank Erfurt<br />
+                    IBAN: DE12 3456 7890 1234 1234 55<br />
+                    BIC: ABCDEFGH
+                </p>
+            </div>
+        </footer>
+        <div class="underFooter">Impressum | &copy; 2024 Tierheimat e.V.</div>
+    </div>
+
+    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+</body>
+</html>
