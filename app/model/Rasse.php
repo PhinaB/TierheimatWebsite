@@ -7,9 +7,8 @@ class Rasse
     private int $tierartID;
     private string $rasse;
 
-    public function __construct(?int $rasseID = null, int $tierartID, string $rasse)
+    public function __construct(int $tierartID, string $rasse)
     {
-        $this->rasseID = $rasseID;
         $this->tierartID = $tierartID;
         $this->rasse = $rasse;
     }

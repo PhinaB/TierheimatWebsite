@@ -26,7 +26,8 @@ class VermisstGefundenTierModel {
         try {
 
                 $stmtTyp = $this->db->prepare ("INSERT INTO ArtDerHilfeTyp (Typ) VALUES (?)");
-                $stmtTyp->bind_param('s', $typTier->typ);
+                $typ = $typTier->getTyp();
+                $stmtTyp->bind_param('s', $typTier->$typ);
 
             if (!$stmtTyp->execute()) {
                 throw new \Exception('Fehler beim Speichern des Tieres: ' . $stmtTyp->error);
@@ -45,7 +46,7 @@ class VermisstGefundenTierModel {
                     $tier->rasseID,
                     $tier->zuletztGeaendertNutzerID,
                     $typID,
-                    $tier->geschlecht,
+                    $tier->setGeschlecht,
                     $tier->beschreibung,
                     $tier->geburtsjahr,
                     $tier->name,

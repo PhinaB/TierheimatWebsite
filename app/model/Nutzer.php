@@ -8,13 +8,12 @@
      private string $email;
      private string $passwort;
 
-     public function __construct(int $nutzerrollenID, string $name, string $email, string $passwort, ?int $nutzerID = null)
+     public function __construct(int $nutzerrollenID, string $name, string $email, string $passwort)
      {
          $this->nutzerrollenID = $nutzerrollenID;
          $this->name = $name;
          $this->email = $email;
          $this->passwort = $passwort;
-         $this->nutzerID = $nutzerID;
      }
 
      public function getNutzerID(): ?int

@@ -6,13 +6,12 @@ class Tierart
     private ?int $tierartID = null;
     private string $tierart;
 
-    public function __construct(?int $tierartID = null, string $tierart)
+    public function __construct(string $tierart)
     {
-        $this->tierartID = $tierartID;
         $this->tierart = $tierart;
     }
 
-    public function getTierartID(): int
+    public function getTierartID(): ?int
     {
         return $this->tierartID;
     }

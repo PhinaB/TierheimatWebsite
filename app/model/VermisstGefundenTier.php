@@ -7,16 +7,50 @@ require_once '../core/Connection.php';
 class VermisstGefundenTier
 {
     //Object Mapping
-    public ?int $vermisstGefundenID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
-    public int $tierID;
-    public string $ort;
-    public string $kontaktaufnahme;
+    private ?int $vermisstGefundenID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
+    private int $tierID;
+    private string $ort;
+    private string $kontaktaufnahme;
 
-    public function __construct(?int $vermisstGefundenID = null, int $tierID, string $ort, string $kontaktaufnahme)
+    public function __construct(int $tierID, string $ort, string $kontaktaufnahme)
     {
-        $this->vermisstGefundenID = $vermisstGefundenID;
         $this->tierID = $tierID;
         $this->ort = $ort;
+        $this->kontaktaufnahme = $kontaktaufnahme;
+    }
+
+    public function getVermisstGefundenID(): ?int
+    {
+        return $this->vermisstGefundenID;
+    }
+
+    public function getTierID(): int
+    {
+        return $this->tierID;
+    }
+
+    public function setTierID(int $tierID): void
+    {
+        $this->tierID = $tierID;
+    }
+
+    public function getOrt(): string
+    {
+        return $this->ort;
+    }
+
+    public function setOrt(string $ort): void
+    {
+        $this->ort = $ort;
+    }
+
+    public function getKontaktaufnahme(): string
+    {
+        return $this->kontaktaufnahme;
+    }
+
+    public function setKontaktaufnahme(string $kontaktaufnahme): void
+    {
         $this->kontaktaufnahme = $kontaktaufnahme;
     }
 }

@@ -10,9 +10,9 @@ class Bilder
     private bool $hauptbild;
     private string $alternativtext;
 
-    public function __construct(?int $bilderID = null, int $tierID, string $bildadresse, bool $hauptbild, string $alternativtext)
+    //BildID wird mit Auto-Increment gesetzt, wird im Konstruktor somit nicht gesetzt und bekommt keinen Setter
+    public function __construct(int $tierID, string $bildadresse, bool $hauptbild, string $alternativtext)
     {
-        $this->bilderID = $bilderID;
         $this->tierID = $tierID;
         $this->bildadresse = $bildadresse;
         $this->hauptbild = $hauptbild;
@@ -63,5 +63,4 @@ class Bilder
     {
         $this->alternativtext = $alternativtext;
     }
-
 }
