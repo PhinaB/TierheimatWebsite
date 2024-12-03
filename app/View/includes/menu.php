@@ -1,14 +1,14 @@
 <?php
 function renderMenu ($currentPage): void {
     $page = "page/";
-    $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../../../public/' : 'public/';
+    $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../../../' : '';
     $pageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : 'app/View/'.$page;
     ?>
     <header>
         <nav>
             <span class="linkLogo">
                 <a <?php if ($currentPage != 'index') { echo 'href="'.$baseDir.'index.php"'; } ?> class="<?php if ($currentPage === 'index') { echo 'disabled'; } else { echo 'logo'; } ?>" draggable="false">
-                    <img class="logoPicture" src="<?php echo $baseDir; ?>img/logo.jpg" alt="Logo" title="Logo <?php if ($currentPage != 'index') { echo ' - mit Linksklick geht\'s zur Startseite'; } ?>" draggable="false" />
+                    <img class="logoPicture" src="<?php echo $baseDir; ?>public/img/logo.jpg" alt="Logo" title="Logo <?php if ($currentPage != 'index') { echo ' - mit Linksklick geht\'s zur Startseite'; } ?>" draggable="false" />
                 </a>
             </span>
 
