@@ -1,8 +1,8 @@
 <?php
 function renderMenu ($currentPage): void {
     $page = "page/";
-    $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../' : '';
-    $pageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : $page;
+    $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../../../public/' : 'public/';
+    $pageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : 'app/View/'.$page;
     ?>
     <header>
         <nav>

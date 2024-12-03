@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <?php include '../includes/mainStylesheets.php'; ?>
+    <?php
+    $currentPage = 'Login';
+
+    include '../includes/mainStylesheets.php';
+    renderHead($currentPage);
+    ?>
 
     <link rel="stylesheet" href="../../../public/css/login.css" />
     <link rel="stylesheet" href="../../../public/css/formulare.css" />
 </head>
 <body>
 <?php
-$currentPage = 'Login';
-
 include '../includes/menu.php';
 renderMenu($currentPage);
 ?>

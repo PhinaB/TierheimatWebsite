@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <?php include '../includes/mainStylesheets.php'; ?>
+    <?php
+    $currentPage = 'Unsere Kleintiere';
+
+    include '../includes/mainStylesheets.php';
+    renderHead($currentPage);
+    ?>
 
     <link rel="stylesheet" href="../../../public/css/unsereTiere.css" />
     <link rel="stylesheet" href="../../../public/css/bildwechselBilder.css" />
 </head>
 <body>
 <?php
-$currentPage = 'Unsere Kleintiere';
-
 include '../includes/menu.php';
 renderMenu($currentPage);
 ?>

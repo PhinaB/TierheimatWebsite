@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <?php include '../includes/mainStylesheets.php'; ?>
+    <?php
+    $currentPage = 'Service / Infos';
+
+    include '../includes/mainStylesheets.php';
+    renderHead($currentPage);
+    ?>
 
     <link rel="stylesheet" href="../../../public/css/serviceInfo.css">
 </head>
 <body>
 <?php
-$currentPage = 'Service / Infos';
-
 include '../includes/menu.php';
 renderMenu($currentPage);
 ?>

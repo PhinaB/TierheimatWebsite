@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <?php include '../includes/mainStylesheets.php'; ?>
+    <?php
+    $currentPage = 'Aktuelles';
 
-    <link rel="../../../public/css/aktuelles.css" />
+    include '../includes/mainStylesheets.php';
+    renderHead($currentPage);
+    ?>
+
+    <link rel="stylesheet" href="../../../public/css/aktuelles.css" />
 
 </head>
 <body>
 
 <?php
-$currentPage = 'Aktuelles';
-
 include '../includes/menu.php';
 renderMenu($currentPage);
 ?>
@@ -25,7 +28,7 @@ renderMenu($currentPage);
                 <h2>Neues aus dem Tierheim</h2>
                 <hr class="underHeadline" />
                 <div class="flexWir tileBorder">
-                    <img src="/public/img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
+                    <img src="../../../public/img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
                     <div class="text">
                         <p>
                             Sehr geehrte Unterstützer und Freunde unseres Tierheims,
@@ -120,6 +123,6 @@ renderMenu($currentPage);
         <?php include '../includes/footer.php'; ?>
     </div>
 
-    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

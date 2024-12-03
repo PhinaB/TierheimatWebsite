@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <?php include 'app/view/includes/mainStylesheets.php'; ?>
+    <?php
+    $currentPage = 'index';
+
+    include 'app/view/includes/mainStylesheets.php';
+    renderHead($currentPage);
+    ?>
     
     <link rel="stylesheet" href="public/css/index.css" />
     <link rel="stylesheet" href="public/css/bildwechselBilder.css" />
 </head>
 <body>
 <?php
-$currentPage = 'index';
 
 include 'app/view/includes/menu.php';
 renderMenu($currentPage);

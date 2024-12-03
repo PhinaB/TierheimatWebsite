@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <?php include '../includes/mainStylesheets.php'; ?>
+    <?php
+    $currentPage = 'Vermisste Tiere';
+
+    include '../includes/mainStylesheets.php';
+    renderHead($currentPage);
+    ?>
 
     <link rel="stylesheet" href="../../../public/css/vermisstGefundenLogin.css" media="all"/>
     <link rel="stylesheet" href="../../../public/css/vermisstGefunden.css" media="all" />
@@ -11,8 +16,6 @@
 </head>
 <body>
 <?php
-$currentPage = 'Vermisste Tiere';
-
 include '../includes/menu.php';
 renderMenu($currentPage);
 ?>
