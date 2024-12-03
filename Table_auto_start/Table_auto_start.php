@@ -2,7 +2,7 @@
 $servername = "127.0.0.1";
 $username = "root";
 $password = ""; // Standardpasswort ist bei root wohl leer, musste auch nichts anlegen
-$dbname = "tirheimat_db";
+$dbname = "tierheimat";
 
 $conn = new mysqli($servername, $username, $password, $dbname);//wenn Verbindung erfolgreich sollte ein mysqli Objekt zurückgegeben werden das in der Variablen $conn gespeichert wird
 
@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 echo "Verbindung erfolgreich\n";
 //"die" Funktion beendet direkt da php skript, heißt danach wird nichts mehr ausgeführt und nur die Fehlermeldung ausgegeben
-$sql_befehle = [
+$sql_befehle = [ // TODO: erst CREATE TABLE, dann INSERT
     "CREATE TABLE IF NOT EXISTS Tierart (TierartID INT AUTO_INCREMENT PRIMARY KEY, Tierart VARCHAR(50) NOT NULL)",
     "INSERT INTO Tierart (Tierart) VALUES ('Hund')",
     "INSERT INTO Tierart (Tierart) VALUES ('Katze')",

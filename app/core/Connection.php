@@ -31,6 +31,13 @@ class Connection {
     public function getConnection() {
         return $this->connection;
     }
+
+    /*
+     * TODO: Destruktor
+     * $conn->close(); //con close wird aus best practice Gründen gemacht, ist eigentlich nicht notwendig, da php anscheinend das skript selber beendet
+     * echo "Verbindung geschlossen.\n";
+     *
+     *  */
 }
 
 /*
