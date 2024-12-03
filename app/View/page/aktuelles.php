@@ -3,7 +3,7 @@
 <head>
     <?php include '../includes/mainStylesheets.php'; ?>
 
-    <link rel="../../../css/aktuelles.css" />
+    <link rel="../../../public/css/aktuelles.css" />
 
 </head>
 <body>
