@@ -5,7 +5,6 @@
     $currentPage = 'Vermisste Tiere';
 
     include '../includes/mainStylesheets.php';
-    renderHead($currentPage);
     ?>
 
     <link rel="stylesheet" href="../../../public/css/vermisstGefundenLogin.css" media="all"/>
