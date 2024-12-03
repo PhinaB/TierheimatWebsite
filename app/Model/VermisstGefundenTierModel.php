@@ -4,9 +4,9 @@
 namespace app\model;
 
 require_once './app/core/connection.php';
-require_once './app/model/VermisstGefundenTier.php';
-require_once './app/model/Tier.php';
-require_once './app/model/TypTier.php';
+require_once './app/Model/VermisstGefundenTier.php';
+require_once './app/Model/Tier.php';
+require_once './app/Model/TypTier.php';
 
 use app\core\Connection;
 use app\model\Tier;
