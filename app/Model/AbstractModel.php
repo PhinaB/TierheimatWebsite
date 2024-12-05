@@ -73,7 +73,7 @@ class AbstractModel
         //TO DO: implement
     }
 
-    protected static function delete(string $where = '', array $whereParameter = []): bool
+    /*protected static function delete(string $where = '', array $whereParameter = []): bool
     {
         $db = Connection::getInstance()->getConnection();
         $className = self::getClassname();
@@ -102,7 +102,7 @@ class AbstractModel
         } catch (Throwable $exception) {
             die ("Fehler beim Löschen der Daten der Tabelle {$className} :" . $exception->getMessage());
         }
-    }
+    }*/
 
     public static function typeParameter (array $whereParameter = []): string
     {
