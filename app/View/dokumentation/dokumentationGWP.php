@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../../public/css/main.css" />
-    <link rel="stylesheet" href="../../../public/css/dokumentation.css" />
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link rel="stylesheet" href="../public/css/dokumentation.css" />
 
-    <link rel="stylesheet" href="../../../fontawesome-6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css" />
 
     <title>Projektdokumentation Tierheimat</title>
 </head>
 <body>
     <header>
-        <a href="../page/impressum.php" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
+        <a href="impressum" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
     </header>
 
     <main>
@@ -23,7 +23,7 @@
                 <br />
                 <h1>Tierheimat</h1>
                 <br /><br /><br />
-                <img src="../../../public/imgDokumentation/logoFHE.jpg" alt="Logo FHE" title="Logo FHE" draggable="false">
+                <img src="../public/imgDokumentation/logoFHE.jpg" alt="Logo FHE" title="Logo FHE" draggable="false">
                 <br /><br /><br />
                 <h2>Fachbereich <br />Gebäudetechnik und Informatik<br />Angewandte Informatik</h2>
                 <br /><br />
@@ -79,7 +79,7 @@
                 <hr class="underHeadline" />
                 <p>
                     Diese Seite beinhaltet die Projektdokumentation des Projektes
-                    <img src="../../../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">.
+                    <img src="../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">.
                 </p><br />
                 <p>
                     Zuerst erfolgt die Erläuterung und Planung des Projektumfeldes und des gewählten Projektrahmens.
@@ -134,7 +134,7 @@
                         Während dieser Zeit wird ein besonderes Augenmerk auf eine intuitive Benutzerführung und eine ansprechende Darstellung der Inhalte gelegt.
                     </p>
                     <br />
-                    <img src="../../../public/imgDokumentation/tierschutzLogo.png" title="Tierschutz" alt="Tierschutz Logo, ein Herz für Tiere" draggable="false">
+                    <img src="../public/imgDokumentation/tierschutzLogo.png" title="Tierschutz" alt="Tierschutz Logo, ein Herz für Tiere" draggable="false">
                     <div class="caption">Abbildung 1</div>
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -180,20 +180,20 @@
                         Unter diesem Abschnitt finden sich Screenshots der untersuchten Websites. Weitere Screenshots der sind in <a href="#screenshotsAndereSeiten" draggable="false">Anlage 1</a> zu finden.
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/tierheimErfurt-1.PNG" class="imgEffekt" title="Erfurt Tierheim" alt="Erfurt Tierheim aktuelles Seite" draggable="false">
-                        <img src="../../../public/imgDokumentation/tierheimErfurt-2.PNG" class="imgEffekt" title="Erfurt Tierheim" alt="Erfurt Tierheim Interessantes Seite" draggable="false">
+                        <img src="../public/imgDokumentation/tierheimErfurt-1.PNG" class="imgEffekt" title="Erfurt Tierheim" alt="Erfurt Tierheim aktuelles Seite" draggable="false">
+                        <img src="../public/imgDokumentation/tierheimErfurt-2.PNG" class="imgEffekt" title="Erfurt Tierheim" alt="Erfurt Tierheim Interessantes Seite" draggable="false">
                     </div><div class="caption">Abbildung 2 und 3</div>
                     <br class="pageToSmall" />
 
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/tierheimLeipzig.PNG" class="imgEffekt" title="Tierheim Leipzig" alt="Tierheim Leipzig Startseite" draggable="false">
-                        <img src="../../../public/imgDokumentation/tierheimLeipzig-1.PNG" class="imgEffekt" title="Tierheim Leipzig" alt="Tierheim Leipzig Detaillansicht eines Tieres" draggable="false">
+                        <img src="../public/imgDokumentation/tierheimLeipzig.PNG" class="imgEffekt" title="Tierheim Leipzig" alt="Tierheim Leipzig Startseite" draggable="false">
+                        <img src="../public/imgDokumentation/tierheimLeipzig-1.PNG" class="imgEffekt" title="Tierheim Leipzig" alt="Tierheim Leipzig Detaillansicht eines Tieres" draggable="false">
                     </div><div class="caption">Abbildung 4 und 5</div>
                     <br class="pageToSmall" />
 
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/tierheimJena.PNG" class="imgEffekt" title="Tierheim Jena" alt="Tierheim Jena Startseite" draggable="false">
-                        <img src="../../../public/imgDokumentation/tierheimJena-1.PNG" class="imgEffekt" title="Tierheim Jena" alt="Tierheim Jena unsere Tiere" draggable="false">
+                        <img src="../public/imgDokumentation/tierheimJena.PNG" class="imgEffekt" title="Tierheim Jena" alt="Tierheim Jena Startseite" draggable="false">
+                        <img src="../public/imgDokumentation/tierheimJena-1.PNG" class="imgEffekt" title="Tierheim Jena" alt="Tierheim Jena unsere Tiere" draggable="false">
                     </div><div class="caption">Abbildung 6 und 7</div>
 
 
@@ -217,7 +217,7 @@
                         Die Ergebnisse der Zielgruppenanalyse flossen direkt in die Entwicklung der Benutzeroberfläche, die Gestaltung der Inhalte und die Implementierung der Funktionalitäten ein, um eine benutzerfreundliche und zielgruppengerechte Webseite zu schaffen. Das Ergebnis unserer Analyse ist in folgender Abbildung zusammenfassend zu finden:
                     </p><br />
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/zielgruppenanalyse.jpg" title="Zielgruppenanalyse" alt="Tabelle der Zielgruppenanalyse" draggable="false">
+                        <img src="../public/imgDokumentation/zielgruppenanalyse.jpg" title="Zielgruppenanalyse" alt="Tabelle der Zielgruppenanalyse" draggable="false">
                     </div>
                     <div class="caption">Abbildung 8</div>
 
@@ -238,9 +238,9 @@
                         Hierzu ist die Herangehensweise aufgezeigt:
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/projektanforderung-1.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
-                        <img src="../../../public/imgDokumentation/projektanforderung-2.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
-                        <img src="../../../public/imgDokumentation/projektanforderung-3.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
+                        <img src="../public/imgDokumentation/projektanforderung-1.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
+                        <img src="../public/imgDokumentation/projektanforderung-2.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
+                        <img src="../public/imgDokumentation/projektanforderung-3.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
                     </div><div class="caption">Abbildung 9, 10 und 11</div>
 
                     <br /><p>
@@ -312,7 +312,7 @@
                         Wichtige Meilensteine sind unter anderem die Fertigstellung des Mockups und der Abschluss des Nutzertests.
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/arbeitsplanDokumentation.PNG" title="Arbeitsplanung Phase 1-4" alt="Arbeitsplanung Phase 1-4" draggable="false">
+                        <img src="../public/imgDokumentation/arbeitsplanDokumentation.PNG" title="Arbeitsplanung Phase 1-4" alt="Arbeitsplanung Phase 1-4" draggable="false">
                     </div>
                     <div class="caption">Abbildung 12</div>
 
@@ -339,7 +339,7 @@
                         Die Entwicklungsumgebung besteht aus Visual Studio Code bzw. Visual Studio als Haupt-IDE. Nachfolgend ein Ausschnitt unserer Aufgaben in Jira (Stand: Beginn der Entwicklung):
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/jiraAufteilung.PNG" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
+                        <img src="../public/imgDokumentation/jiraAufteilung.PNG" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
                     </div><div class="caption">Abbildung 13</div>
                     <br />
                     <p>
@@ -421,7 +421,7 @@
                     </ol>
                     <p>In der folgenden Abbildung ist die Struktur grafisch dargestellt.</p>
 
-                    <img src="../../../public/imgDokumentation/webseitenstruktur.jpg" title="Webseitenstruktur" alt="Webseitenstruktur" draggable="false">
+                    <img src="../public/imgDokumentation/webseitenstruktur.jpg" title="Webseitenstruktur" alt="Webseitenstruktur" draggable="false">
                     <div class="caption">Abbildung 14</div>
 
                     <div class="backButton">
@@ -434,7 +434,7 @@
                     <hr class="underHeadline" />
 
                     <div class="alternative">
-                        <img src="../../../public/img/logo.jpg" title="Tierheimat Logo" alt="Tierheimat Logo" draggable="false">
+                        <img src="../public/img/logo.jpg" title="Tierheimat Logo" alt="Tierheimat Logo" draggable="false">
                     </div>
                     <div class="caption">Abbildung 15</div>
 
@@ -498,13 +498,13 @@
                     </p>
 
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/figmaModel-2.2.PNG" class="imgEffekt" title="Figma 2.2" alt="Figma Model 2.2" draggable="false">
-                        <img src="../../../public/imgDokumentation/figmaModel-2.4.PNG" class="imgEffekt" title="Figma 2.4" alt="Figma Model 2.4" draggable="false">
+                        <img src="../public/imgDokumentation/figmaModel-2.2.PNG" class="imgEffekt" title="Figma 2.2" alt="Figma Model 2.2" draggable="false">
+                        <img src="../public/imgDokumentation/figmaModel-2.4.PNG" class="imgEffekt" title="Figma 2.4" alt="Figma Model 2.4" draggable="false">
                     </div>
                     <br class="pageToSmall" />
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/figmaModel-3.5.PNG" class="imgEffekt" title="Figma 3.5" alt="Figma Model 3.5" draggable="false">
-                        <img src="../../../public/imgDokumentation/figmaModel-3.7.PNG" class="imgEffekt" title="Figma 3.7" alt="Figma Model 3.7" draggable="false">
+                        <img src="../public/imgDokumentation/figmaModel-3.5.PNG" class="imgEffekt" title="Figma 3.5" alt="Figma Model 3.5" draggable="false">
+                        <img src="../public/imgDokumentation/figmaModel-3.7.PNG" class="imgEffekt" title="Figma 3.7" alt="Figma Model 3.7" draggable="false">
                     </div>
                     <div class="caption">Abbildung 16, 17, 18 und 19</div>
                     <br />
@@ -514,12 +514,12 @@
                         Nachfolgend die Design-Ideen zum Logo:
                     </p>
                     <br />
-                    <img src="../../../public/imgDokumentation/logoMitte.jpg" title="Bild der ersten Entüwrfe, Logo mittig" alt="Logo mittig" draggable="false">
-                    <img src="../../../public/imgDokumentation/logoLinks.jpg" title="Bild der ersten Entüwrfe, Logo links" alt="Logo links" draggable="false">
-                    <img src="../../../public/imgDokumentation/logoOben.jpg" title="Bild der ersten Entüwrfe, Logo oben" alt="Logo oben" draggable="false">
-                    <img src="../../../public/imgDokumentation/logoObenLinksFarbig.jpg" title="Bild der ersten Entüwrfe, Logo oben links farbig" alt="Logo oben linksbündig" draggable="false">
-                    <img src="../../../public/imgDokumentation/logoObenMitte.jpg" title="Bild der ersten Entüwrfe, Logo oben mittig" alt="Logo oben mittig und farbig" draggable="false">
-                    <img src="../../../public/imgDokumentation/logoObenMitteFarbig.jpg" title="Bild der ersten Entüwrfe, Logo oben mittig mit Farbe" alt="Logo oben mittig mit Farbe" draggable="false">
+                    <img src="../public/imgDokumentation/logoMitte.jpg" title="Bild der ersten Entüwrfe, Logo mittig" alt="Logo mittig" draggable="false">
+                    <img src="../public/imgDokumentation/logoLinks.jpg" title="Bild der ersten Entüwrfe, Logo links" alt="Logo links" draggable="false">
+                    <img src="../public/imgDokumentation/logoOben.jpg" title="Bild der ersten Entüwrfe, Logo oben" alt="Logo oben" draggable="false">
+                    <img src="../public/imgDokumentation/logoObenLinksFarbig.jpg" title="Bild der ersten Entüwrfe, Logo oben links farbig" alt="Logo oben linksbündig" draggable="false">
+                    <img src="../public/imgDokumentation/logoObenMitte.jpg" title="Bild der ersten Entüwrfe, Logo oben mittig" alt="Logo oben mittig und farbig" draggable="false">
+                    <img src="../public/imgDokumentation/logoObenMitteFarbig.jpg" title="Bild der ersten Entüwrfe, Logo oben mittig mit Farbe" alt="Logo oben mittig mit Farbe" draggable="false">
                     <div class="caption">Abbildung 20</div>
                     <br />
                     <p>
@@ -529,7 +529,7 @@
                         Aus diesem Grund haben wir uns gemeinschaftlich auf das nachfolgende Design des Headers geeinigt, da es für alle Seiten und Funktionen der Website das bestmögliche Ergebnis erzielt:
                     </p>
                     <br />
-                    <img src="../../../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
+                    <img src="../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
                     <div class="caption">Abbildung 21</div>
 
                     <div class="backButton">
@@ -592,9 +592,9 @@
                         Auf den Seiten "Unsere Tiere" und "Vermisst/Gefunden" befinden sich kleine Auswahlmenüs, die es ermöglichen sollen, die komplette Seite zu filtern. Bei der Seite "Unsere Tiere" soll weiterhin die Möglichkeit bestehen weitere Tiere anzuzeigen, damit die Seite beim ersten öffnen nicht zu viel erscheint.
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/formUnsereTiere.jpg" class="imgEffekt" title="Screenshot der Filterung für die Seite 'Unsere Tiere'" alt="Screenshot der Filterung für die Seite 'Unsere Tiere'" draggable="false">
-                        <img src="../../../public/imgDokumentation/formKleinVermisstGefunden.jpg" class="imgEffekt" title="Screenshot der Filterung für die Seite 'Vermisst / Gefunden'" alt="Screenshot der Filterung für die Seite 'Vermisst / Gefunden'" draggable="false">
-                        <img src="../../../public/imgDokumentation/unsereTiereWeitereTiere.jpg" class="imgEffekt" title="Screenshot Button für die Seite 'Unsere Tiere', um weitere Tiere anzuzeigen" alt="Screenshot Button für die Seite 'Unsere Tiere', um weitere Tiere anzuzeigen" draggable="false">
+                        <img src="../public/imgDokumentation/formUnsereTiere.jpg" class="imgEffekt" title="Screenshot der Filterung für die Seite 'Unsere Tiere'" alt="Screenshot der Filterung für die Seite 'Unsere Tiere'" draggable="false">
+                        <img src="../public/imgDokumentation/formKleinVermisstGefunden.jpg" class="imgEffekt" title="Screenshot der Filterung für die Seite 'Vermisst / Gefunden'" alt="Screenshot der Filterung für die Seite 'Vermisst / Gefunden'" draggable="false">
+                        <img src="../public/imgDokumentation/unsereTiereWeitereTiere.jpg" class="imgEffekt" title="Screenshot Button für die Seite 'Unsere Tiere', um weitere Tiere anzuzeigen" alt="Screenshot Button für die Seite 'Unsere Tiere', um weitere Tiere anzuzeigen" draggable="false">
                     </div>
                     <div class="caption">Abbildung 22, 23 und 24</div>
 
@@ -602,7 +602,7 @@
                         Eine weitere nicht-funktionale Abhängigkeit sind die Formulare zum Login und zur Registration. Dadurch, dass diese nicht funktional sind, wird beim Klick auf "Anmelden" direkt auf die Seite im eingeloggten Bereich weitergeleitet. Der Nutzername des angemeldeten Nutzers soll anschließend oben erscheinen. Wir haben uns bewusst dagegen entschieden einen Logout durch einen Klick über den Nutzernamen auszuführen.
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/formLoginRegistration.jpg" class="imgEffekt" title="Screenshot Formulare Login und Registration" alt="Screenshot Formulare Login und Registration" draggable="false">
+                        <img src="../public/imgDokumentation/formLoginRegistration.jpg" class="imgEffekt" title="Screenshot Formulare Login und Registration" alt="Screenshot Formulare Login und Registration" draggable="false">
                     </div>
                     <div class="caption">Abbildung 25</div>
 
@@ -610,8 +610,8 @@
                         Die Formulare auf den Seiten "Vermisst / Gefunden" und "Service / Infos" sind lediglich erreichbar, wenn der Nutzer sich erfolgreich angemeldet hat, um somit gegen Spam besser vorzugehen. Hier kann der Nutzer sein Tier vermisst melden oder ein gefundenes Tier anzeigen. Im Formular "Helfen" kann der Nutzer seine Hilfe für das Tierheim anbieten. Beispielsweise kann er sich hier für eine Gassirunde mit den Tierheimhunden anmelden.
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/formVermisstGefunden.jpg" class="imgEffekt" title="Screenshot Formular vermisste und gefundene Tiere melden" alt="Screenshot Formular vermisste und gefundene Tiere melden" draggable="false">
-                        <img src="../../../public/imgDokumentation/formHelfen.jpg" class="imgEffekt" title="Screenshot Formular Helfen" alt="Screenshot Formular Helfen" draggable="false">
+                        <img src="../public/imgDokumentation/formVermisstGefunden.jpg" class="imgEffekt" title="Screenshot Formular vermisste und gefundene Tiere melden" alt="Screenshot Formular vermisste und gefundene Tiere melden" draggable="false">
+                        <img src="../public/imgDokumentation/formHelfen.jpg" class="imgEffekt" title="Screenshot Formular Helfen" alt="Screenshot Formular Helfen" draggable="false">
                     </div>
                     <div class="caption">Abbildung 26 und 27</div>
 
@@ -619,7 +619,7 @@
                         Hat ein Nutzer ein Tier als vermisst gemeldet oder ein gefundenes Tier angegeben, kann er diese Anzeige jederzeit bearbeiten und löschen. Dafür wurden beispielhaft Icons an mehreren Vermisst-Anzeigen angebracht. Jeder Nutzer soll nur seine eigenen Anzeigen bearbeiten und löschen dürfen.
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/beispielLoeschenBearbeiten.jpg" class="imgEffekt" title="Screenshot Löschen und Bearbeiten Buttons" alt="Screenshot Löschen und Bearbeiten Buttons" draggable="false">
+                        <img src="../public/imgDokumentation/beispielLoeschenBearbeiten.jpg" class="imgEffekt" title="Screenshot Löschen und Bearbeiten Buttons" alt="Screenshot Löschen und Bearbeiten Buttons" draggable="false">
                     </div>
                     <div class="caption">Abbildung 28</div>
                     <br />
@@ -631,7 +631,7 @@
                     <p>
                         Weiterhin wollten wir einen sauberen, strukturierten Quellcode und einheitlichen Codestyle erreichen. Dies gelang uns durch effektive Klassen, die auch auf jeder Seite genutzt werden können. Ein Beispiel ist in folgendem Quellcodeausschnitt zu finden:
                     </p>
-                    <img src="../../../public/imgDokumentation/richtigerCodestyle.PNG" title="richtiger Codestyle" alt="Bild von einem verbesserten Codestyle" draggable="false">
+                    <img src="../public/imgDokumentation/richtigerCodestyle.PNG" title="richtiger Codestyle" alt="Bild von einem verbesserten Codestyle" draggable="false">
                     <div class="caption">Abbildung 29</div>
 
                     <p>
@@ -693,7 +693,7 @@
                     Aus diesen Abschnitten können alle wichtigen erhobenen Daten klar und nachvollziehbar betrachtet werden.
                 </p>
                 <div class="Dokumentation">
-                    <img src="../../../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
+                    <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
                 </div><div class="caption">Abbildung 30</div>
 
                 <div class="backButton">
@@ -813,12 +813,12 @@
                     </ol>
 
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/ordnerStruktur.PNG" title="ordnerStruktur" alt="Bild der Ordnerstruktur" draggable="false">
+                        <img src="../public/imgDokumentation/ordnerStruktur.PNG" title="ordnerStruktur" alt="Bild der Ordnerstruktur" draggable="false">
                     </div>
                     <div class="caption">Abbildung 31</div>
 
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/ordnerstrukturierung.PNG" title="ordnerstrukturierung" alt="gute Ordnerführung" draggable="false">
+                        <img src="../public/imgDokumentation/ordnerstrukturierung.PNG" title="ordnerstrukturierung" alt="gute Ordnerführung" draggable="false">
                     </div>
                     <div class="caption">Abbildung 32</div>
 
@@ -873,27 +873,27 @@
 
             <h3>Tierheim Erfurt:</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/tierheimErfurt-3.PNG" title="Erfurt Tierheim" alt="Erfurt Tierheim detaillierte Ansicht des Tieres" draggable="false">
+                <img src="../public/imgDokumentation/tierheimErfurt-3.PNG" title="Erfurt Tierheim" alt="Erfurt Tierheim detaillierte Ansicht des Tieres" draggable="false">
             </div><div class="caption">Abbildung 33</div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/tierheimErfurt-4.PNG" title="Erfurt Tierheim" alt="Erfurt Tierheim Foto Galerie" draggable="false">
+                <img src="../public/imgDokumentation/tierheimErfurt-4.PNG" title="Erfurt Tierheim" alt="Erfurt Tierheim Foto Galerie" draggable="false">
             </div><div class="caption">Abbildung 34</div>
             <br />
 
             <h3>Tierheim Leipzig:</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/tierheimLeipzig-2.PNG" title="Tierheim Leipzig" alt="Leipzig Tierheim Tier entlaufen und gefunden" draggable="false">
+                <img src="../public/imgDokumentation/tierheimLeipzig-2.PNG" title="Tierheim Leipzig" alt="Leipzig Tierheim Tier entlaufen und gefunden" draggable="false">
             </div><div class="caption">Abbildung 35</div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/tierheimLeipzig-3.PNG" title="Tierheim Leipzig" alt="Leipzig Tierheim vermittlungsbedingungen" draggable="false">
+                <img src="../public/imgDokumentation/tierheimLeipzig-3.PNG" title="Tierheim Leipzig" alt="Leipzig Tierheim vermittlungsbedingungen" draggable="false">
             </div><div class="caption">Abbildung 36</div>
 
             <h3>Tierheim Jena:</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/tierheimJena-2.PNG" title="Tierheim Jena" alt="Tierheim Jena Kontaktformular" draggable="false">
+                <img src="../public/imgDokumentation/tierheimJena-2.PNG" title="Tierheim Jena" alt="Tierheim Jena Kontaktformular" draggable="false">
             </div><div class="caption">Abbildung 37</div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/tierheimJena-3.PNG" title="Tierheim Jena" alt="Tierheim Jena Aktuelle Nachrichten" draggable="false">
+                <img src="../public/imgDokumentation/tierheimJena-3.PNG" title="Tierheim Jena" alt="Tierheim Jena Aktuelle Nachrichten" draggable="false">
             </div><div class="caption">Abbildung 38</div>
 
             <h2 id="detaillierteZeitplanung">Anlage 2: Detaillierte Zeitplanung</h2>
@@ -962,7 +962,7 @@
 
             <h3>Figma Entwurf Model 1:</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-1.PNG" title="Figma Model 1" alt="Figma Model 1" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-1.PNG" title="Figma Model 1" alt="Figma Model 1" draggable="false">
             </div>
 
             <br />
@@ -970,19 +970,19 @@
 
             <h3>Figma Entwurf Model 2:</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-2.1.PNG" title="Figma Model 2" alt="Figma Model 2.1" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-2.1.PNG" title="Figma Model 2" alt="Figma Model 2.1" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-2.2.PNG" title="Figma Model 2" alt="Figma Model 2.2" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-2.2.PNG" title="Figma Model 2" alt="Figma Model 2.2" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-2.3.PNG" title="Figma Model 2" alt="Figma Model 2.3" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-2.3.PNG" title="Figma Model 2" alt="Figma Model 2.3" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-2.4.PNG" title="Figma Model 2" alt="Figma Model 2.4" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-2.4.PNG" title="Figma Model 2" alt="Figma Model 2.4" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-2.5.PNG" title="Figma Model 2" alt="Figma Model 2.5" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-2.5.PNG" title="Figma Model 2" alt="Figma Model 2.5" draggable="false">
             </div>
 
             <br />
@@ -990,52 +990,52 @@
 
             <h3>Figma Entwurf Model 3:</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.1.PNG" title="Figma Model 3" alt="Figma Model 3.1" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.1.PNG" title="Figma Model 3" alt="Figma Model 3.1" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.2.PNG" title="Figma Model 3" alt="Figma Model 3.2" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.2.PNG" title="Figma Model 3" alt="Figma Model 3.2" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.3.PNG" title="Figma Model 3" alt="Figma Model 3.3" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.3.PNG" title="Figma Model 3" alt="Figma Model 3.3" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.4.PNG" title="Figma Model 3" alt="Figma Model 3.4" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.4.PNG" title="Figma Model 3" alt="Figma Model 3.4" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.5.PNG" title="Figma Model 3" alt="Figma Model 3.5" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.5.PNG" title="Figma Model 3" alt="Figma Model 3.5" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.6.PNG" title="Figma Model 3" alt="Figma Model 3.6" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.6.PNG" title="Figma Model 3" alt="Figma Model 3.6" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.7.PNG" title="Figma Model 3" alt="Figma Model 3.7" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.7.PNG" title="Figma Model 3" alt="Figma Model 3.7" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.8.PNG" title="Figma Model 3" alt="Figma Model 3.8" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.8.PNG" title="Figma Model 3" alt="Figma Model 3.8" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.9.PNG" title="Figma Model 3" alt="Figma Model 3.9" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.9.PNG" title="Figma Model 3" alt="Figma Model 3.9" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.10.PNG" title="Figma Model 3" alt="Figma Model 3.10" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.10.PNG" title="Figma Model 3" alt="Figma Model 3.10" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.11.PNG" title="Figma Model 3" alt="Figma Model 3.11" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.11.PNG" title="Figma Model 3" alt="Figma Model 3.11" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.12.PNG" title="Figma Model 3" alt="Figma Model 3.12" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.12.PNG" title="Figma Model 3" alt="Figma Model 3.12" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.13.PNG" title="Figma Model 3" alt="Figma Model 3.13" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.13.PNG" title="Figma Model 3" alt="Figma Model 3.13" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.14.PNG" title="Figma Model 3" alt="Figma Model 3.14" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.14.PNG" title="Figma Model 3" alt="Figma Model 3.14" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.15.PNG" title="Figma Model 3" alt="Figma Model 3.15" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.15.PNG" title="Figma Model 3" alt="Figma Model 3.15" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-3.16.PNG" title="Figma Model 3" alt="Figma Model 3.16" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-3.16.PNG" title="Figma Model 3" alt="Figma Model 3.16" draggable="false">
             </div>
 
             <br />
@@ -1043,13 +1043,13 @@
 
             <h3>Figma Entwurf Model 4:</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-4.1.PNG" title="Figma Model 4" alt="Figma Model 4.1" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-4.1.PNG" title="Figma Model 4" alt="Figma Model 4.1" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-4.2.PNG" title="Figma Model 4" alt="Figma Model 4.2" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-4.2.PNG" title="Figma Model 4" alt="Figma Model 4.2" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-4.3.PNG" title="Figma Model 4" alt="Figma Model 4.3" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-4.3.PNG" title="Figma Model 4" alt="Figma Model 4.3" draggable="false">
             </div>
 
             <br />
@@ -1057,19 +1057,19 @@
 
             <h3>Figma Entwurf Model 5 (Mobiles Endgerät):</h3>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-5.1.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.1" draggable="false">
-                <img src="../../../public/imgDokumentation/figmaModel-5.6.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.6" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-5.1.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.1" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-5.6.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.6" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-5.3.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.3" draggable="false">
-                <img src="../../../public/imgDokumentation/figmaModel-5.4.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.4" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-5.3.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.3" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-5.4.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.4" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-5.5.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.5" draggable="false">
-                <img src="../../../public/imgDokumentation/figmaModel-5.2.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.2" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-5.5.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.5" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-5.2.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.2" draggable="false">
             </div>
             <div class="divAroundImgEffekt">
-                <img src="../../../public/imgDokumentation/figmaModel-5.8.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.8" draggable="false">
+                <img src="../public/imgDokumentation/figmaModel-5.8.PNG" class="imgEffekt" title="Figma Model 5" alt="Figma Model 5.8" draggable="false">
             </div>
 
             <div class="backButton">
@@ -1494,6 +1494,6 @@
         </div>
     </main>
 
-    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
         </div>
 
         <div>
-            <img class="verschwindendesBild schattenBild" src="../../../public/img/vermisstGefunden.jpg" alt="Hund auf einer Strasse" title="Hund auf einer Strasse" draggable="false"/>
+            <img class="verschwindendesBild schattenBild" src="../public/img/vermisstGefunden.jpg" alt="Hund auf einer Strasse" title="Hund auf einer Strasse" draggable="false"/>
         </div>
     </div>
 </div>

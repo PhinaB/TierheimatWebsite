@@ -4,7 +4,7 @@
 
     <div class="box-containerVermisstGefundenMelden tileBorder">
         <div>
-            <img src="../../../public/img/gefundeneKatze.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false"/>
+            <img src="../public/img/gefundeneKatze.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false"/>
         </div>
 
         <div class="vermisstGefundenText">
@@ -28,7 +28,7 @@
 
     <div class="box-containerUnsereTiere marginTopFirstElement">
         <div>
-            <img src="../../../public/img/max.jpg" alt="Bild eines Hundes" title="Bild Hund" draggable="false" />
+            <img src="../public/img/max.jpg" alt="Bild eines Hundes" title="Bild Hund" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum:</span> 23.05.2024</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Erfurt</p>
             <p class="absatzfrei"><span class="boldText">Kontakt: </span>0123 4567892</p>
@@ -38,7 +38,7 @@
         </div>
 
         <div>
-            <img src="../../../public/img/flo.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false" />
+            <img src="../public/img/flo.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum: </span>27.09.2023</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Weimar</p>
             <p class="absatzfrei"><span class="boldText">Kontakt:</span> 0123 4567892</p>
@@ -48,7 +48,7 @@
         </div>
 
         <div>
-            <img src="../../../public/img/nick.jpeg" alt="Bild eines Hundes" title="Bild Hund" draggable="false" />
+            <img src="../public/img/nick.jpeg" alt="Bild eines Hundes" title="Bild Hund" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum:</span> 25.02.2024</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Arnstadt</p>
             <p class="absatzfrei"><span class="boldText">Kontakt:</span> 0123 4567892</p>
@@ -58,7 +58,7 @@
         </div>
 
         <div>
-            <img src="../../../public/img/stan.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false" />
+            <img src="../public/img/stan.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum: </span>24.06.2024</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Hohenfelden</p>
             <p class="absatzfrei"><span class="boldText">Kontakt:</span> 0123 4567892</p>

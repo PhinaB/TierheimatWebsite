@@ -4,21 +4,21 @@
     <?php
     $currentPage = 'Unsere Katzen';
 
-    include '../includes/mainStylesheets.php';
+    include __DIR__ . '/../includes/mainStylesheets.php';
     ?>
 
-    <link rel="stylesheet" href="../../../public/css/unsereTiere.css" />
-    <link rel="stylesheet" href="../../../public/css/bildwechselBilder.css" />
+    <link rel="stylesheet" href="../public/css/unsereTiere.css" />
+    <link rel="stylesheet" href="../public/css/bildwechselBilder.css" />
 </head>
 <body>
 <?php
-include '../includes/menu.php';
+include __DIR__ . '/../includes/menu.php';
 renderMenu($currentPage);
 ?>
 <div class="grid">
     <main>
         <?php
-        include '../includes/breadcrumbNavigation.php';
+        include __DIR__ . '/../includes/breadcrumbNavigation.php';
         renderBreadcrumb($currentPage);
         ?>
 
@@ -140,9 +140,9 @@ renderMenu($currentPage);
                 <a href="" class="button" title="Button weitere Tiere anzeigen" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen</a>
             </div>
         </main>
-        <?php include '../includes/footer.php'; ?>
+        <?php include __DIR__ . '/../includes/footer.php'; ?>
     </div>
 
-    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

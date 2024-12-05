@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../../public/css/main.css" />
-    <link rel="stylesheet" href="../../../public/css/dokumentation.css" />
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link rel="stylesheet" href="../public/css/dokumentation.css" />
 
-    <link rel="stylesheet" href="../../../fontawesome-6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css" />
 
     <title>Projektdokumentation dynamische Webprogrammierung Tierheimat</title>
 </head>
 <body>
     <header>
-        <a href="../page/impressum.php" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
+        <a href="impressum" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
     </header>
 
     <main>
@@ -23,7 +23,7 @@
                 <br />
                 <h1>Tierheimat</h1>
                 <br /><br /><br />
-                <img src="../../../public/imgDokumentation/logoFHE.jpg" alt="Logo FHE" title="Logo FHE" draggable="false">
+                <img src="../public/imgDokumentation/logoFHE.jpg" alt="Logo FHE" title="Logo FHE" draggable="false">
                 <br /><br /><br />
                 <h2>Fachbereich <br />Gebäudetechnik und Informatik<br />Angewandte Informatik</h2>
                 <br /><br />
@@ -80,7 +80,7 @@
                 <hr class="underHeadline" />
                 <p>
                     Diese Seite dokumentiert den zweiten Teil des Projektes
-                    <img src="../../../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">.
+                    <img src="../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">.
                 </p><br />
                 <p>
                     Das Projekt ist in zwei Phasen gegliedert, die über zwei Semester laufen. 
@@ -152,7 +152,7 @@
                     </p>
                     </p><br />
                     <div class="divAroundImgEffekt">
-                        <img src="../../../public/imgDokumentation/zielgruppenanalyse.jpg" title="Zielgruppenanalyse" alt="Tabelle der Zielgruppenanalyse" draggable="false">
+                        <img src="../public/imgDokumentation/zielgruppenanalyse.jpg" title="Zielgruppenanalyse" alt="Tabelle der Zielgruppenanalyse" draggable="false">
                     </div>
                     <div class="caption">Abbildung ...</div>
                     <br />
@@ -162,7 +162,7 @@
                         Zu den wichtigen Funktionen zählten interaktive Formulare, die das Melden vermisster und gefundener Tiere sowie das Anbieten von Unterstützung erleichtern.
                     </p><br />
 
-                    <img src="../../../public/imgDokumentation/webseitenstruktur.jpg" title="Webseitenstruktur" alt="Webseitenstruktur" draggable="false">
+                    <img src="../public/imgDokumentation/webseitenstruktur.jpg" title="Webseitenstruktur" alt="Webseitenstruktur" draggable="false">
                     <div class="caption">Abbildung ...</div>
                     <br />
 
@@ -171,7 +171,7 @@
                         Die grüne Farbgestaltung und die gewählte Schriftart tragen zur Identität der „Tierheimat“ bei und spiegeln die Werte dieser wider.
                     </p><br />
 
-                    <img src="../../../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
+                    <img src="../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
                     <div class="caption">Abbildung ...</div>
 
                     <br />
@@ -433,7 +433,7 @@
                     Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells.
                 </p><br />
 
-                <img src="../../../public/imgDokumentationDWP/ERM.jpg" title="ER-Modell" alt="ER-Modell" draggable="false">
+                <img src="../public/imgDokumentationDWP/ERM.jpg" title="ER-Modell" alt="ER-Modell" draggable="false">
                 <div class="caption">Abbildung ...: Entity-Relationship-Modell</div>
 
                 <div class="backButton">
@@ -555,7 +555,7 @@
                     Aus diesen Abschnitten können alle wichtigen erhobenen Daten klar und nachvollziehbar betrachtet werden.
                 </p>
                 <div class="Dokumentation">
-                    <img src="../../../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
+                    <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
                 </div><div class="caption">Abbildung 30</div>
 
                 <div class="backButton">
@@ -1020,6 +1020,6 @@
         </div>
     </main>
 
-    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>
