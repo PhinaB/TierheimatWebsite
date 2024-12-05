@@ -23,9 +23,9 @@ renderMenu($currentPage);
             renderBreadcrumb($currentPage);
             ?>
 
-            <div class="tileBorder tile">
+            <div class="tileBorder tile" role="form" aria-labelledby="formTitle">
                 <div class="kopfelementFormular">
-                    <h2>Helfen</h2>
+                    <h2 id="formTitle">Helfen</h2>
                     <hr class="underHeadline" />
                     <p>
                         Sie wollen uns Ihre Untersützung anbieten? Füllen Sie zunächst das folgende Formular aus.
@@ -33,19 +33,19 @@ renderMenu($currentPage);
                     </p>
                 </div>
 
-                <div action="#" method="post" id="formular" class="flex-containerFormularHelfen">
+                <div id="formular" class="flex-containerFormularHelfen">
                     <div class="unterstützungsart">
                         <label class="h3">Art der Hilfe: <span class="redPflichtfeld">*</span></label>
-                        <input type="radio" id="spazierenGehen" name="unterstützungsart" value="spazierenGehen" disabled="disabled" />
+                        <input type="radio" id="spazierenGehen" name="unterstützungsart" value="spazierenGehen" disabled="disabled" aria-describedby="unterstuetzungError" onclick="validateUnterstuetzung()" />
                         <label for="spazierenGehen" class="helfenUnterpunkt">Spazieren gehen</label>
                         <br />
-                        <input type="radio" id="kleintiersitting" name="unterstützungsart" value="kleintiersitting" disabled="disabled" />
+                        <input type="radio" id="kleintiersitting" name="unterstützungsart" value="kleintiersitting" disabled="disabled" aria-describedby="unterstuetzungError" onclick="validateUnterstuetzung()" />
                         <label for="kleintiersitting" class="helfenUnterpunkt">Kleintiersitting</label>
                         <br />
-                        <input type="radio" id="tiereFüttern" name="unterstützungsart" value="uiereFüttern" disabled="disabled" />
+                        <input type="radio" id="tiereFüttern" name="unterstützungsart" value="uiereFüttern" disabled="disabled" aria-describedby="unterstuetzungError" onclick="validateUnterstuetzung()" />
                         <label for="tiereFüttern" class="helfenUnterpunkt">Tiere füttern</label>
                         <br />
-                        <p class="fehlermeldung fehlerUnterstuetzung"></p>
+                        <p id="unterstuetzungError" class="fehlermeldung fehlerUnterstuetzung"></p>
                     </div>
 
                     <div class="tabelle1">
@@ -61,12 +61,16 @@ renderMenu($currentPage);
                                 <th class="rechteSpalte">Zeit</th>
                             </tr>
                             <tr>
-                                <td class="linkeSpalte"><input type="date" name="Datum" disabled="disabled" /></td>
-                                <td class="rechteSpalte"><input type="time" name="Zeit" disabled="disabled" /></td>
+                                <td class="linkeSpalte"><label>
+                                        <input type="date" name="Datum" disabled="disabled" oninput="validateDateOrTime(this)" aria-describedby="dayError" />
+                                    </label></td>
+                                <td class="rechteSpalte"><label>
+                                        <input type="time" name="Zeit" disabled="disabled" oninput="validateDateOrTime(this)" aria-describedby="dayError" />
+                                    </label></td>
                             </tr>
                         </template>
 
-                        <p class="fehlermeldung fehlerTag"></p>
+                        <p id="dayError" class="fehlermeldung fehlerTag"></p>
 
                         <button id="newDay" type="button" class="disabledButton center" title="Button weiteren Termin hinzufügen" disabled="disabled"><i class="fa-solid fa-plus"></i> Weiteren Termin hinzufügen</button>
                     </div>
@@ -85,24 +89,28 @@ renderMenu($currentPage);
                             </tr>
                             <tr>
                                 <td class="linkeSpalte">
-                                    <select name="wochentag" disabled="disabled">
-                                        <option value="0">Bitte wählen</option>
-                                        <option value="montag">Montag</option>
-                                        <option value="dienstag">Diestag</option>
-                                        <option value="mittwoch">Mittwoch</option>
-                                        <option value="donnerstag">Donnerstag</option>
-                                        <option value="freitag">Freitag</option>
-                                        <option value="samstag">Samstag</option>
-                                        <option value="sonntag">Sonntag</option>
-                                    </select>
+                                    <label>
+                                        <select name="wochentag" disabled="disabled" aria-describedby="weekdayError" onchange="validateWeekday(this)">
+                                            <option value="0">Bitte wählen</option>
+                                            <option value="montag">Montag</option>
+                                            <option value="dienstag">Dienstag</option>
+                                            <option value="mittwoch">Mittwoch</option>
+                                            <option value="donnerstag">Donnerstag</option>
+                                            <option value="freitag">Freitag</option>
+                                            <option value="samstag">Samstag</option>
+                                            <option value="sonntag">Sonntag</option>
+                                        </select>
+                                    </label>
                                 </td>
                                 <td class="rechteSpalte">
-                                    <input type="time" name="zeit" disabled="disabled" />
+                                    <label>
+                                        <input type="time" name="zeit" disabled="disabled" aria-describedby="weekdayError" oninput="validateWeekdayTime(this)" />
+                                    </label>
                                 </td>
                             </tr>
                         </template>
 
-                        <p class="fehlermeldung fehlerWochentag"></p>
+                        <p id="weekdayError" class="fehlermeldung fehlerWochentag"></p>
 
                         <button id="newWeekDay" class="disabledButton" title="Button weiteren Wochentag hinzufügen" type="button" disabled="disabled"><i class="fa-solid fa-plus"></i> Weiteren Wochentag hinzufügen</button>
                     </div>

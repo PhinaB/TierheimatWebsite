@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('button[type=reset]').addEventListener('click', function() {
         reset();
     });
-
-    // TODO: Fehler bei radio buttons / inputfeldern und selects wird angezeigt -> Fehlerbox entfernen, wenn etwas eingegeben wird
 });
 
 function reset() {
@@ -66,6 +64,46 @@ function reloadingPage () {
     }
     for (let i = 0; i < fehlermeldungen.length; i++) {
         fehlermeldungen[i].classList.add('hidden');
+    }
+}
+
+function validateUnterstuetzung () {
+    let radioInputs = document.querySelector('.unterstützungsart').querySelectorAll('input[type=radio]');
+    for (let i = 0; i < radioInputs.length; i++) {
+        radioInputs[i].removeAttribute('aria-invalid');
+    }
+    let fehlerfeld = document.querySelector('#unterstuetzungError');
+    fehlerfeld.innerHTML = "";
+}
+
+function validateDateOrTime (elem) {
+    if (elem.value) {
+        valTime(elem, 'fehlerTag');
+    }
+}
+
+function validateWeekday (elem) {
+    if (elem.value !== "0") {
+        valTime(elem, 'fehlerWochentag');
+    }
+}
+
+function validateWeekdayTime (elem) {
+    if (elem.value) {
+        valTime(elem, 'fehlerWochentag');
+    }
+}
+
+function valTime (elem, fehlerklasse) {
+    elem.removeAttribute('aria-invalid');
+    elem.classList.remove('falseInputOrTextarea');
+    let fehlerfeld = document.querySelector('.'+fehlerklasse);
+    fehlerfeld.innerHTML = "";
+
+    let fehlerKomplett = document.querySelector('.fehlerKomplett');
+    if (!fehlerKomplett.classList.contains('hidden')) {
+        fehlerKomplett.innerHTML = "";
+        fehlerKomplett.classList.add('hidden');
     }
 }
 
@@ -128,6 +166,17 @@ function removeTableTr (field) {
     }
 }
 
+function setErrorField(field, errorField, innerHTML) {
+    field.classList.add('falseInputOrTextarea');
+    errorField.classList.remove('hidden');
+    errorField.innerHTML = innerHTML;
+
+    field.setAttribute('aria-invalid', 'true');
+
+    let offset = window.scrollY + field.getBoundingClientRect().top;
+    window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
+}
+
 function absenden () {
     let formular = document.querySelector('#formular');
 
@@ -143,11 +192,12 @@ function absenden () {
     }
     if (counter === inputsUnerstuetzung.length) {
         let fehlerFeldUnterstuetzung = formular.querySelector('.fehlerUnterstuetzung');
-        fehlerFeldUnterstuetzung.classList.remove('hidden');
-        fehlerFeldUnterstuetzung.innerHTML = "Gib eine Hilfe an";
 
-        let offset = window.scrollY + inputsUnerstuetzung[0].getBoundingClientRect().top;
-        window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
+        for (let i = 0; i < inputsUnerstuetzung.length; i++) {
+            setErrorField(inputsUnerstuetzung[i], fehlerFeldUnterstuetzung, "Gib eine Hilfe an");
+            inputsUnerstuetzung[i].setAttribute('aria-invalid', 'true'); // Barrierefreiheit
+        }
+
         return;
     }
 
@@ -237,6 +287,16 @@ function absenden () {
     if (dateTimeEmpty && weekdayTimeEmpty) {
         fehlerFeldKomplett.classList.remove('hidden');
         fehlerFeldKomplett.innerHTML = "Fülle eine Kombination aus Datum & Uhrzeit oder Wochentag & Uhrzeit aus (das Formular darf nicht leer sein)";
+
+        for (let i = 0; i < newDateFields.length; i++) {
+            newDateFields[i].setAttribute('aria-invalid', 'true');
+            newTimeFields[i].setAttribute('aria-invalid', 'true');
+        }
+
+        for (let i = 0; i < newWeekdayFields.length; i++) {
+            newWeekdayFields[i].setAttribute('aria-invalid', 'true');
+            newTimeWeekdayFields[i].setAttribute('aria-invalid', 'true');
+        }
         return;
     }
 
@@ -248,22 +308,12 @@ function absenden () {
         // day Felder:
         for (let i = 0; i < newDateFields.length; i++) {
             if (newDateFields[i].value === '') {
-                newDateFields[i].classList.add('falseInputOrTextarea');
-                fehlerFeldDay.classList.remove('hidden');
-                fehlerFeldDay.innerHTML = "Fülle dieses Feld";
-
-                let offset = window.scrollY + newDateFields[i].getBoundingClientRect().top;
-                window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
+                setErrorField(newDateFields[i], fehlerFeldDay, "Fülle dieses Feld");
                 return;
             }
 
             if (newTimeFields[i].value === '') {
-                newTimeFields[i].classList.add('falseInputOrTextarea');
-                fehlerFeldDay.classList.remove('hidden');
-                fehlerFeldDay.innerHTML = "Fülle dieses Feld";
-
-                let offset = window.scrollY + newTimeFields[i].getBoundingClientRect().top;
-                window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
+                setErrorField(newTimeFields[i], fehlerFeldDay, "Fülle dieses Feld");
                 return;
             }
 
@@ -271,13 +321,8 @@ function absenden () {
             let timeValid = (newDateFields[i].value === currentDate && newTimeFields[i].value > currentTime) || (newDateFields[i].value > currentDate);
 
             if (!(dateValid && timeValid)) {
-                newDateFields[i].classList.add('falseInputOrTextarea');
+                setErrorField(newDateFields[i], fehlerFeldDay, "Datum muss in der Zukunft sein");
                 newTimeFields[i].classList.add('falseInputOrTextarea');
-                fehlerFeldDay.classList.remove('hidden');
-                fehlerFeldDay.innerHTML = "Datum muss in der Zukunft sein";
-
-                let offset = window.scrollY + newDateFields[i].getBoundingClientRect().top;
-                window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
                 return;
             }
         }
@@ -287,22 +332,12 @@ function absenden () {
         // weekday Felder:
         for (let i = 0; i < newWeekdayFields.length; i++) {
             if (newWeekdayFields[i].value === '0') {
-                newWeekdayFields[i].classList.add('falseInputOrTextarea');
-                fehlerFeldWeekday.classList.remove('hidden');
-                fehlerFeldWeekday.innerHTML = "Fülle dieses Feld";
-
-                let offset = window.scrollY + newWeekdayFields[i].getBoundingClientRect().top;
-                window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
+                setErrorField(newWeekdayFields[i], fehlerFeldWeekday, "Fülle dieses Feld");
                 return;
             }
 
             if (newTimeWeekdayFields[i].value === '') {
-                newTimeWeekdayFields[i].classList.add('falseInputOrTextarea');
-                fehlerFeldWeekday.classList.remove('hidden');
-                fehlerFeldWeekday.innerHTML = "Fülle dieses Feld";
-
-                let offset = window.scrollY + newTimeWeekdayFields[i].getBoundingClientRect().top;
-                window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
+                setErrorField(newTimeWeekdayFields[i], fehlerFeldWeekday, "Fülle dieses Feld");
                 return;
             }
         }
@@ -343,8 +378,6 @@ function absenden () {
     };
 
     let jsonData = JSON.stringify(data);
-
-    console.log(jsonData);
 
     const xhttp = new XMLHttpRequest();
 
