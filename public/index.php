@@ -8,23 +8,23 @@ require_once '../app/Controller/RouteController.php';
 $router = new Route();
 
 // alle Routen anlegen, die wir haben/brauchen:
-$router->add('/', 'RouteController', 'indexAction');
-$router->add('/unsereTiere', 'RouteController', 'loadUnsereTiereAction');
-$router->add('/unsereHunde', 'RouteController', 'loadUnsereHundeAction');
-$router->add('/unsereKatzen', 'RouteController', 'loadUnsereKatzenAction');
-$router->add('/unsereKleintiere', 'RouteController', 'loadUnsereKleintiereAction');
-$router->add('/unsereExoten', 'RouteController', 'loadUnsereExotenAction');
-$router->add('/aktuelles', 'RouteController', 'loadAktuellesAction');
-$router->add('/vermisstGefunden', 'RouteController', 'loadVermisstGefundenAction');
-$router->add('/vermisst', 'RouteController', 'loadVermisstAction');
-$router->add('/gefunden', 'RouteController', 'loadGefundenAction');
-$router->add('/serviceInfos', 'RouteController', 'loadServiceInfosAction');
-$router->add('/login', 'RouteController', 'loadLoginAction');
-$router->add('/impressum', 'RouteController', 'loadImpressumAction');
-$router->add('/dokuGWP', 'RouteController', 'loadDokuGWPAction');
-$router->add('/dokuDWP1', 'RouteController', 'loadDokuDWP1Action');
+$router->add('/', 'indexAction');
+$router->add('/unsereTiere',  'loadUnsereTiereAction');
+$router->add('/unsereHunde', 'loadUnsereHundeAction');
+$router->add('/unsereKatzen', 'loadUnsereKatzenAction');
+$router->add('/unsereKleintiere', 'loadUnsereKleintiereAction');
+$router->add('/unsereExoten', 'loadUnsereExotenAction');
+$router->add('/aktuelles', 'loadAktuellesAction');
+$router->add('/vermisstGefunden', 'loadVermisstGefundenAction');
+$router->add('/vermisst', 'loadVermisstAction');
+$router->add('/gefunden', 'loadGefundenAction');
+$router->add('/serviceInfos', 'loadServiceInfosAction');
+$router->add('/login', 'loadLoginAction');
+$router->add('/impressum', 'loadImpressumAction');
+$router->add('/dokuGWP', 'loadDokuGWPAction');
+$router->add('/dokuDWP1', 'loadDokuDWP1Action');
 
-
+// TODO: RouteController entfernen und in der Klasse Route immer so benennen
 
 // aus URL filtern, welche Seite aufgerufen werden muss:
 $baseUrl = str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']);

@@ -6,13 +6,13 @@ class Route
 {
     protected $routes = [];
 
-    public function add($route, $controller, $method) {
-        $this->routes[$route] = ['controller' => $controller, 'method' => $method];
+    public function add($route, $method) {
+        $this->routes[$route] = ['method' => $method];
     }
 
     public function match($url) {
         if (array_key_exists($url, $this->routes)) {
-            $controllerName = 'app\\Controller\\' . $this->routes[$url]['controller'];
+            $controllerName = 'app\\Controller\\RouteController';
             $methodName = $this->routes[$url]['method'];
             $controller = new $controllerName();
             $controller->$methodName();
