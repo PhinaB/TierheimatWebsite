@@ -1,6 +1,6 @@
 input[type="checkbox"], input[type="radio"], input[type="date"], input[type="time"] {
     cursor:pointer;
-}
+} /* TODO: label bei checkbox/radio auch */
 
 .h3 {
     font-weight: normal;
@@ -34,6 +34,18 @@ input[type="checkbox"], input[type="radio"], input[type="date"], input[type="tim
 
 .hidden {
     display: none;
+}
+
+.disabledButton {
+    background-color: #cecece;
+    border-color: #cecece;
+    color: #646464;
+    cursor: not-allowed;
+}
+
+.erfolgsnachricht {
+    font-size: 1.1em;
+    padding-bottom: 15px;
 }
 
 @media only screen and (max-width: 900px) {
