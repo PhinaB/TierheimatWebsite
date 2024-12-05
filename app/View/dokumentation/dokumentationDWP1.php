@@ -1020,6 +1020,6 @@
         </div>
     </main>
 
-    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <?php include __DIR__ . '/../includes/generalJS.php'; ?>
 </body>
 </html>

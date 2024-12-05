@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<?php echo $baseDir; ?>public/css/main.css" media="all"/>
 <link rel="stylesheet" href="<?php echo $baseDir; ?>public/css/footer.css" media="all"/>
 
-<link rel="stylesheet" href="<?php echo $baseDir; ?>fontawesome-6.5.2/css/all.min.css" >
+<link rel="stylesheet" href="<?php echo $baseDir; ?>public/lib/fontawesome-6.5.2/css/all.min.css" >
 
 
 <title>Tierheimat</title>

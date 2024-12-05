@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../../public/css/loggedInPage.css" />
     <link rel="stylesheet" href="../../../public/css/impressum.css" />
 
-    <link rel="stylesheet" href="../../../fontawesome-6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../../../public/lib/fontawesome-6.5.2/css/all.min.css">
 
     <title>Tierheimat</title>
     <style>
@@ -170,6 +170,6 @@
         <div class="underFooter">Impressum | &copy; 2024 Tierheimat e.V.</div>
     </div>
 
-    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../../../public/lib/fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

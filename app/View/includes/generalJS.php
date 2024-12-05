@@ -1,0 +1,1 @@
+<script src="../public/lib/fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>

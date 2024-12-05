@@ -154,6 +154,6 @@ renderMenu($currentPage);
         <?php include __DIR__ . '/../includes/footer.php'; ?>
     </div>
 
-    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <?php include __DIR__ . '/../includes/generalJS.php'; ?>
 </body>
 </html>
