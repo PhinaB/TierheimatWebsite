@@ -1,6 +1,8 @@
 <?php
  require_once '../core/Connection.php';
 
+namespace app\model;
+
  class Nutzer {
      private ?int $nutzerID = null;
      private int $nutzerrollenID;
