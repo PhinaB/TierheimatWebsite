@@ -7,19 +7,117 @@
     include '../includes/mainStylesheets.php';
     ?>
 
+    <link rel="stylesheet" href="../../../public/css/serviceInfosHelfenlogin.css" />
     <link rel="stylesheet" href="../../../public/css/serviceInfo.css">
+    <link rel="stylesheet" href="../../../public/css/formulare.css" />
 </head>
 <body>
 <?php
 include '../includes/menu.php';
 renderMenu($currentPage);
 ?>
-<div class="grid">
-    <main>
-        <?php
-        include '../includes/breadcrumbNavigation.php';
-        renderBreadcrumb($currentPage);
-        ?>
+    <div class="grid">
+        <main>
+            <?php
+            include '../includes/breadcrumbNavigation.php';
+            renderBreadcrumb($currentPage);
+            ?>
+
+            <div class="tileBorder tile">
+                <div class="kopfelementFormular">
+                    <h2>Helfen</h2>
+                    <hr class="underHeadline" />
+                    <p>
+                        Sie wollen uns Ihre Untersützung anbieten? Füllen Sie zunächst das folgende Formular aus.
+                        Sobald wir Ihre Informationen verarbeitet haben, werden wir uns bei Ihnen melden.
+                    </p>
+                </div>
+
+                <div action="#" method="post" id="formular" class="flex-containerFormularHelfen">
+                    <div class="unterstützungsart">
+                        <label class="h3">Art der Hilfe: <span class="redPflichtfeld">*</span></label>
+                        <input type="radio" id="spazierenGehen" name="unterstützungsart" value="spazierenGehen" disabled="disabled" />
+                        <label for="spazierenGehen" class="helfenUnterpunkt">Spazieren gehen</label>
+                        <br />
+                        <input type="radio" id="kleintiersitting" name="unterstützungsart" value="kleintiersitting" disabled="disabled" />
+                        <label for="kleintiersitting" class="helfenUnterpunkt">Kleintiersitting</label>
+                        <br />
+                        <input type="radio" id="tiereFüttern" name="unterstützungsart" value="uiereFüttern" disabled="disabled" />
+                        <label for="tiereFüttern" class="helfenUnterpunkt">Tiere füttern</label>
+                        <br />
+                        <p class="fehlermeldung fehlerUnterstuetzung"></p>
+                    </div>
+
+                    <div class="tabelle1">
+                        <label class="h3">Ich kann an folgenden Terminen:</label>
+                        <table>
+                            <tbody id="newDayCopyHere">
+                            </tbody>
+                        </table>
+
+                        <template class="hidden" id="hiddenDay">
+                            <tr>
+                                <th class="linkeSpalte">Datum</th>
+                                <th class="rechteSpalte">Zeit</th>
+                            </tr>
+                            <tr>
+                                <td class="linkeSpalte"><input type="date" name="Datum" disabled="disabled" /></td>
+                                <td class="rechteSpalte"><input type="time" name="Zeit" disabled="disabled" /></td>
+                            </tr>
+                        </template>
+
+                        <p class="fehlermeldung fehlerTag"></p>
+
+                        <button id="newDay" type="button" class="disabledButton center" title="Button weiteren Termin hinzufügen" disabled="disabled"><i class="fa-solid fa-plus"></i> Weiteren Termin hinzufügen</button>
+                    </div>
+
+                    <div class="tabelle2">
+                        <label class="h3">Ich habe wöchentlich Zeit:</label>
+                        <table>
+                            <tbody id="newWeekDayCopyHere">
+                            </tbody>
+                        </table>
+
+                        <template class="hidden" id="hiddenWeekday">
+                            <tr>
+                                <th class="linkeSpalte">Wochentag</th>
+                                <th class="rechteSpalte">Zeit</th>
+                            </tr>
+                            <tr>
+                                <td class="linkeSpalte">
+                                    <select name="wochentag" disabled="disabled">
+                                        <option value="0">Bitte wählen</option>
+                                        <option value="montag">Montag</option>
+                                        <option value="dienstag">Diestag</option>
+                                        <option value="mittwoch">Mittwoch</option>
+                                        <option value="donnerstag">Donnerstag</option>
+                                        <option value="freitag">Freitag</option>
+                                        <option value="samstag">Samstag</option>
+                                        <option value="sonntag">Sonntag</option>
+                                    </select>
+                                </td>
+                                <td class="rechteSpalte">
+                                    <input type="time" name="zeit" disabled="disabled" />
+                                </td>
+                            </tr>
+                        </template>
+
+                        <p class="fehlermeldung fehlerWochentag"></p>
+
+                        <button id="newWeekDay" class="disabledButton" title="Button weiteren Wochentag hinzufügen" type="button" disabled="disabled"><i class="fa-solid fa-plus"></i> Weiteren Wochentag hinzufügen</button>
+                    </div>
+                    <div class="fusselementFormular">
+                        <p class="fehlermeldung fehlerKomplett"></p>
+                        <button class="disabledButton" type="submit" value="absenden" title="Formular absenden" disabled="disabled"> <i class="fa-regular fa-paper-plane"></i>  Absenden</button>
+                        <button class="disabledButton" type="reset" value="zurücksetzen" title="zurücksetzen noch nicht möglich" disabled="disabled"> <i class="fa-solid fa-arrow-rotate-left"></i>  Zurücksetzen</button>
+                    </div>
+
+                    <div>
+                        <p class="erfolgsnachricht"></p>
+                    </div>
+                </div>
+                <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
+            </div>
 
             <div class="tile">
                 <h2>Helfen</h2>
@@ -187,5 +285,6 @@ renderMenu($currentPage);
     </div>
 
     <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../../../public/js/serviceHelfenFormular.js"></script>
 </body>
 </html>
