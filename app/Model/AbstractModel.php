@@ -68,7 +68,10 @@ class AbstractModel
 
     /*INSERT INTO users (username, email, password)
     VALUES ('MaxMuster', 'max@example.com', 'passwort123');*/
-    protected static function create(array $data, );
+    protected static function create(array $data)
+    {
+        //TO DO: implement
+    }
 
     protected static function delete(string $where = '', array $whereParameter = []): bool
     {
@@ -81,10 +84,19 @@ class AbstractModel
                 throw new Exception("WHERE-Klausel erforderlich, um DELETE auszuführen.");
             }
 
-            $sql = "DELETE FROM {$className} {$className[0]} WHERE {$where}";
+            $stmt = "DELETE FROM {$className} WHERE {$where}";
+            if (!$stmt) {
+                throw new \RuntimeException("Fehler beim Vorbereiten des Statements: " . $db->error);
+            }
 
-            $stmt = $db->prepare($sql);
-            $stmt->execute($whereParameter);
+            if (!empty($whereParameter)) {
+                $types = self::typeParameter($whereParameter);
+
+                $stmt->bind_param($types, ...$whereParameter);
+            };
+
+            // Statement ausführen
+            $stmt->execute();
 
             return true;
         } catch (Throwable $exception) {
