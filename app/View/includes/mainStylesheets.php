@@ -1,6 +1,6 @@
 <?php
     $page = "page/";
-    $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../../../' : '';
+    $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../../../' : '../';
 ?>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

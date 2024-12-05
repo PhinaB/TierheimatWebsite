@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace core;
 class Connection {
     private static $instance = null; //Singleton-Instanz
     private $connection; //Variable zum Abspeichern der Datenbankverbindung

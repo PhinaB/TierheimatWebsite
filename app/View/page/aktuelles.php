@@ -4,22 +4,22 @@
     <?php
     $currentPage = 'Aktuelles';
 
-    include '../includes/mainStylesheets.php';
+    include __DIR__ . '/../includes/mainStylesheets.php';
     ?>
 
-    <link rel="stylesheet" href="../../../public/css/aktuelles.css" />
+    <link rel="stylesheet" href="../public/css/aktuelles.css" />
 
 </head>
 <body>
 
 <?php
-include '../includes/menu.php';
+include __DIR__ . '/../includes/menu.php';
 renderMenu($currentPage);
 ?>
     <div class="grid">
         <main>
             <?php
-            include '../includes/breadcrumbNavigation.php';
+            include __DIR__ . '/../includes/breadcrumbNavigation.php';
             renderBreadcrumb($currentPage);
             ?>
 
@@ -27,7 +27,7 @@ renderMenu($currentPage);
                 <h2>Neues aus dem Tierheim</h2>
                 <hr class="underHeadline" />
                 <div class="flexWir tileBorder">
-                    <img src="../../../public/img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
+                    <img src="../public/img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
                     <div class="text">
                         <p>
                             Sehr geehrte Unterstützer und Freunde unseres Tierheims,
@@ -60,7 +60,7 @@ renderMenu($currentPage);
                 <hr class="underHeadline" />
                 <div class="box-container box-container-button">
                     <div>
-                        <img src="../../../public/img/tierheimFest.jpg" alt="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" title="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" draggable="false" />
+                        <img src="../public/img/tierheimFest.jpg" alt="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" title="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" draggable="false" />
                         <h3>15 Jahre Tierheimat</h3>
                         <p>
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück.
@@ -69,7 +69,7 @@ renderMenu($currentPage);
                         <a href="aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../../../public/img/Pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
+                        <img src="../public/img/Pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
                         <h3>Sieger des Thüringer Tierheimwettbewerb</h3>
                         <p>
                             Wir freuen uns außerordentlich, bekannt zu geben, dass unser Tierheim den Thüringer Tierheimwettbewerb gewonnen hat.
@@ -79,7 +79,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../../../public/img/tierarztStudent.jpg" alt="Bild eines Tierarztes, der einen Hund untersucht" title="Bild eines Tierarztes, der einen Hund untersucht" draggable="false" />
+                        <img src="../public/img/tierarztStudent.jpg" alt="Bild eines Tierarztes, der einen Hund untersucht" title="Bild eines Tierarztes, der einen Hund untersucht" draggable="false" />
                         <h3>Wir begrüßen unsere neuen Veterinärstudenten</h3>
                         <p>
                             Wir heißen einen neuen Veterinärstudenten in unserem Team herzlich willkommen.
@@ -89,7 +89,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../../../public/img/friedhof.jpg" alt="Bild eines Friedhofs" title="Bild eines Friedhofs" draggable="false" />
+                        <img src="../public/img/friedhof.jpg" alt="Bild eines Friedhofs" title="Bild eines Friedhofs" draggable="false" />
                         <h3>Erneuerung der Ruhestätte</h3>
                         <p>
                             Mit großem Respekt und Hingabe haben wir die Ruhestätte unseres Tierheims erneuert.
@@ -99,7 +99,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div id="tiervermittlung">
-                        <img src="../../../public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
+                        <img src="../public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
                         <h3>Erfolgreiche Tiervermittlung</h3>
                         <p>
                             In den letzten Monaten konnten wir zahlreiche Tiere erfolgreich in liebevolle Zuhause vermitteln.
@@ -109,7 +109,7 @@ renderMenu($currentPage);
                         <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
-                        <img src="../../../public/img/tierschutzLogo.jpg" alt="Bild von Pfoten und menschlichen Händen, die sich festhalten" title="Bild von Pfoten und menschlichen Händen, die sich festhalten" draggable="false" />
+                        <img src="../public/img/tierschutzLogo.jpg" alt="Bild von Pfoten und menschlichen Händen, die sich festhalten" title="Bild von Pfoten und menschlichen Händen, die sich festhalten" draggable="false" />
                         <h3>Erfolgreiche Spendenaktion</h3>
                         <p>
                             Unsere jüngste Spendenaktion war ein großer Erfolg! Dank der Großzügigkeit unserer Unterstützer konnten wir eine beträchtliche Summe sammeln, die direkt in ...
@@ -119,9 +119,9 @@ renderMenu($currentPage);
                 </div>
             </div>
         </main>
-        <?php include '../includes/footer.php'; ?>
+        <?php include __DIR__ . '/../includes/footer.php'; ?>
     </div>
 
-    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>

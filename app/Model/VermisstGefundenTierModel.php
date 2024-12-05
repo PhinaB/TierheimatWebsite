@@ -8,9 +8,7 @@ require_once './app/Model/VermisstGefundenTier.php';
 require_once './app/Model/Tier.php';
 require_once './app/Model/TypTier.php';
 
-use app\core\Connection;
-use app\model\Tier;
-use app\model\TypTier;
+use core\Connection;
 
 class VermisstGefundenTierModel {
     private $db;
