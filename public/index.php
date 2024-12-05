@@ -24,8 +24,6 @@ $router->add('/impressum', 'loadImpressumAction');
 $router->add('/dokuGWP', 'loadDokuGWPAction');
 $router->add('/dokuDWP1', 'loadDokuDWP1Action');
 
-// TODO: RouteController entfernen und in der Klasse Route immer so benennen
-
 // aus URL filtern, welche Seite aufgerufen werden muss:
 $baseUrl = str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']);
 $baseUrl = dirname($baseUrl);
