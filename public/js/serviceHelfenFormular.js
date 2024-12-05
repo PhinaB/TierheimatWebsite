@@ -390,10 +390,11 @@ function absenden () {
             if (xhttp.status >= 200 && xhttp.status < 300) {
                 let erfolgsnachricht = formular.querySelector('.erfolgsnachricht');
                 erfolgsnachricht.classList.add('greenColor');
+                reset();
                 erfolgsnachricht.innerHTML = "Die Daten wurden erfolgreich übertragen.";
 
                 setTimeout(function () {
-                    reset();
+                    erfolgsnachricht.innerHTML = "";
                 }, 5000);
             }
             else {
