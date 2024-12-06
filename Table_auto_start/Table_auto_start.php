@@ -1,49 +1,516 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = ""; // Standardpasswort ist bei root wohl leer, musste auch nichts anlegen
-$dbname = "tierheimat";
 
-$conn = new mysqli($servername, $username, $password, $dbname);//wenn Verbindung erfolgreich sollte ein mysqli Objekt zurückgegeben werden das in der Variablen $conn gespeichert wird
+require_once "../app/core/Connection.php";
+include_once "../app/core/Connection.php";
+use app\core\Connection;
 
-// Verbindung pruefen
-if ($conn->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-}
-echo "Verbindung erfolgreich\n";
-//"die" Funktion beendet direkt da php skript, heißt danach wird nichts mehr ausgeführt und nur die Fehlermeldung ausgegeben
-$sql_befehle = [ // TODO: erst CREATE TABLE, dann INSERT
-    "CREATE TABLE IF NOT EXISTS Tierart (TierartID INT AUTO_INCREMENT PRIMARY KEY, Tierart VARCHAR(50) NOT NULL)",
-    "INSERT INTO Tierart (Tierart) VALUES ('Hund')",
-    "INSERT INTO Tierart (Tierart) VALUES ('Katze')",
-    "INSERT INTO Tierart (Tierart) VALUES ('Vogel')",
-    "CREATE TABLE IF NOT EXISTS Rasse (RasseID INT AUTO_INCREMENT PRIMARY KEY, TierartID INT NOT NULL, Rasse VARCHAR(50) NOT NULL, FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID))",
-    "INSERT INTO Rasse (TierartID, Rasse) VALUES (1, 'Golden Retriever')",
-    "INSERT INTO Rasse (TierartID, Rasse) VALUES (2, 'Perser')",
-    "CREATE TABLE IF NOT EXISTS Nutzerrollen (NutzerrollenID INT AUTO_INCREMENT PRIMARY KEY, Rolle VARCHAR(50) NOT NULL)",
-    "INSERT INTO Nutzerrollen (Rolle) VALUES ('Administrator')",
-    "INSERT INTO Nutzerrollen (Rolle) VALUES ('Betreuer')",
-    // Weitere Befehle erst wenn das hier wirklich klappen sollte →trial
+//$conn = Connection::getInstance()->getConnection();
+$conn = new Connection();
+
+$sql_befehle = [
+
+    'CREATE TABLE IF NOT EXISTS Nutzerrollen (
+        NutzerrollenID INT AUTO_INCREMENT PRIMARY KEY,
+        Rolle VARCHAR(100) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Nutzer (
+        NutzerID INT AUTO_INCREMENT PRIMARY KEY,
+        NutzerrollenID INT NOT NULL,
+        Name VARCHAR(100) NOT NULL,
+        Email VARCHAR(100) NOT NULL UNIQUE,
+        Passwort VARCHAR(250) NOT NULL,
+        FOREIGN KEY (NutzerrollenID) REFERENCES Nutzerrollen(NutzerrollenID) ON DELETE CASCADE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Tierart (
+        TierartID INT AUTO_INCREMENT PRIMARY KEY,
+        Tierart VARCHAR(100) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Rasse (
+        RasseID INT AUTO_INCREMENT PRIMARY KEY,
+        TierartID INT NOT NULL,
+        Rasse VARCHAR(100) NOT NULL UNIQUE,
+        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Tiertyp (
+        TypID INT AUTO_INCREMENT PRIMARY KEY,
+        Typ VARCHAR(100) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Tiere (
+        TierID INT AUTO_INCREMENT PRIMARY KEY,
+        RasseID INT NOT NULL,
+        ZuletztGeaendertNutzerID INT NOT NULL,
+        TypID INT NOT NULL,
+        Geschlecht VARCHAR(50),
+        Beschreibung VARCHAR(500) NOT NULL,
+        Geburtsjahr INT,
+        Name VARCHAR(100),
+        Kastriert BOOLEAN,
+        Gesundheitszustand VARCHAR(255),
+        Charakter VARCHAR(255),
+        Datum DATE NOT NULL,
+        Geloescht BOOLEAN NOT NULL,
+        ZuletztGeaendert DATE NOT NULL,
+        FOREIGN KEY (RasseID) REFERENCES Rasse(RasseID) ON DELETE CASCADE,
+        FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
+        FOREIGN KEY (TypID) REFERENCES Tiertyp(TypID) ON DELETE CASCADE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
+        VermisstGefundenID INT AUTO_INCREMENT PRIMARY KEY,
+        TierID INT NOT NULL,
+        Ort VARCHAR(250) NOT NULL,
+        Kontaktaufnahme VARCHAR(50) NOT NULL,
+        FOREIGN KEY (TierID) REFERENCES Tiere(TierID) ON DELETE CASCADE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Bilder (
+        BilderID INT AUTO_INCREMENT PRIMARY KEY,
+        TierID INT NOT NULL,
+        Bildadresse VARCHAR(255) NOT NULL,
+        Hauptbild BOOLEAN NOT NULL,
+        Alternativtext VARCHAR(255) NOT NULL,
+        FOREIGN KEY (TierID) REFERENCES Tiere(TierID) ON DELETE CASCADE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS ArtikelArten (
+        ArtID INT AUTO_INCREMENT PRIMARY KEY,
+        Art VARCHAR(100) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Artikel (
+        ArtikelID INT AUTO_INCREMENT PRIMARY KEY,
+        NutzerID INT NOT NULL,
+        ArtID INT NOT NULL,
+        Ueberschrift VARCHAR(200) NOT NULL,
+        Zwischenueberschrift VARCHAR(200),
+        Text TEXT NOT NULL,
+        Datum DATE NOT NULL,
+        Bildadresse VARCHAR(255),
+        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE CASCADE,
+        FOREIGN KEY (ArtID) REFERENCES ArtikelArten(ArtID) ON DELETE CASCADE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS ArtDerHilfe (
+        ArtID INT AUTO_INCREMENT PRIMARY KEY,
+        ArtDerHilfe VARCHAR(255) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Helfen (
+        HelfenID INT AUTO_INCREMENT PRIMARY KEY,
+        NutzerID INT NOT NULL,
+        ArtDerHilfe INT NOT NULL,
+        Angenommen BOOLEAN NOT NULL,
+        Zeit TIME,
+        Datum DATE,
+        Wochentag VARCHAR(50),
+        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE CASCADE,
+        FOREIGN KEY (ArtDerHilfe) REFERENCES ArtDerHilfe(ArtID) ON DELETE CASCADE
+    )'
 ];
-//query → Anfrage | Befehl welcher an die DB gesendet wird, Rückgabe ist dabei wahr oder falsch  
+
 foreach ($sql_befehle as $befehl) {
     if ($conn->query($befehl) === TRUE) {
-        echo "Befehl erfolgreich ausgefuehrt: $befehl\n";
+        echo 'Befehl erfolgreich ausgeführt: {$befehl}\n';
     } else {
-        echo "Fehler bei Befehl: $befehl\n" . $conn->error . "\n";
+        echo 'Fehler bei Befehl: {$befehl}\n' . $conn->error . '\n';
     }
 }
-/* for each beispiel aus dem Netz in zusammenhang mit Arrays war zb:
-  $alter = [
-    "Hund" => 5,
-    "Katze" => 7,
-    "Vogel" => 2
+
+echo 'Alle Tabellen erfolgreich erstellt.\n';
+
+
+$insert_befehle = [
+
+    'INSERT INTO Tierart (Tierart) VALUES
+    ("Hund"),
+    ("Katze"),
+    ("Vogel"),
+    ("Reptil"),
+    ("Nagetier"),
+    ("Amphibie"),
+    ("Insekt");',
+
+'INSERT INTO Rasse (TierartID, Rasse) VALUES
+    (1, "Golden Retriever"),
+    (1, "Beagle"),
+    (1, "Deutscher Schäferhund"),
+    (1, "Bulldogge"),
+    (1, "Labrador"),
+    (1, "Cocker Spaniel"),
+    (2, "Perser"),
+    (2, "Siam"),
+    (2, "Maine Coon"),
+    (2, "Britisch Kurzhaar"),
+    (2, "Bengal"),
+    (2, "Ragdoll"),
+    (3, "Wellensittich"),
+    (3, "Papagei"),
+    (3, "Kanarienvogel"),
+    (3, "Ara"),
+    (4, "Python"),
+    (4, "Kornnatter"),
+    (4, "Gecko"),
+    (4, "Chamäleon"),
+    (5, "Maus"),
+    (5, "Hase"),
+    (5, "Kaninchen"),
+    (5, "Hamster"),
+    (5, "Meerschweinchen"),
+    (6, "Axolotl"),
+    (7, "Schmetterling"),
+    (7, "Ameise");',
+
+'INSERT INTO Nutzerrollen (Rolle) VALUES
+    ("Administrator"),
+    ("Betreuer"),
+    ("Tierarzt"),
+    ("Freiwilliger"),
+    ("Besucher");',
+
+'INSERT INTO Nutzer (NutzerrollenID, Name, Email, Passwort) VALUES
+    (1, "Max Mustermann", "admin@example.com", "securepassword1"),
+    (2, "Lisa Meier", "betreuer@example.com", "securepassword2"),
+    (3, "Dr. Maier", "tierarzt@example.com", "securepassword3"),
+    (4, "Jonas Schulz", "freiwilliger@example.com", "securepassword4"),
+    (5, "Anna Berger", "besucher@example.com", "securepassword5");',
+
+
+'INSERT INTO Tiere (RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht, Beschreibung, Geburtsjahr, Name,
+    Kastriert, Gesundheitszustand, Charakter, Datum, Geloescht, ZuletztGeaendert
+) VALUES
+    (1, 2, 3, "Weiblich", "Freundliche Hündin, liebt Kinder.", 4, "Lila", TRUE, "Gesund", "Verspielt", "2024-11-01", FALSE, "2024-11-20"),
+    (15, 2, 3, "Weiblich", "Ruhige Schlange, pflegeleicht.", 3, "Tiger", FALSE, "Gesund", "Ruhig", "2024-11-02", FALSE, "2024-11-20"),
+    (25, 2, 3, "Weiblich", "Kleine Maus, sehr aktiv.", 1, "Greta", FALSE, "Gesund", "Neugierig", "2024-11-03", FALSE, "2024-11-20"),
+    (9, 3, 3, "Weiblich", "Geselliger Sittich.", 5, "Lora", FALSE, "Gesund", "Fröhlich", "2024-11-04", FALSE, "2024-11-20"),
+    (5, 2, 3, "Männlich", "Kuschelt gerne, ideal für Familien.", 3, "Simba", TRUE, "Gesund", "Zutraulich", "2024-11-05", FALSE, "2024-11-20"),
+    (1, 2, 2, 3, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2, "Bella", TRUE, "Gesund", "Energisch", "2024-11-10", FALSE, "2024-11-20"),
+    (1, 3, 3, 3, "Männlich", "Treuer Begleiter, liebt Aufmerksamkeit.", 5, "Rex", TRUE, "Gesund", "Treu", "2024-11-11", FALSE, "2024-11-20"),
+    (2, 7, 2, 3, "Weiblich", "Sanfte Katze, eher zurückhaltend.", 3, "Mila", FALSE, "Gesund", "Sanft", "2024-11-12", FALSE, "2024-11-20");',
+
+'INSERT INTO VermisstGefundenTiere (TierID, Ort, Kontaktaufnahme) VALUES
+    (1, "Weimar", "Telefon"),
+    (2, "Jena", "Email"),
+    (3, "Erfurt", "Telefon"),
+    (4, "Apolda", "Telefon"),
+    (5, "Arnstadt", "Email"),
+    (6, "Weimar", "Telefon"),
+    (7, "Erfurt", "Telefon"),
+    (8, "Jena", "Email"),
+    (9, "Apolda", "Telefon"),
+    (10, "Gera", "Email");',
+
+
+'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
+    (1, "", TRUE, "Lila, eine freundliche Hündin"),
+    (4, "", TRUE, "Tiger, eine ruhige Python"),
+    (5, "", TRUE, "Greta, eine aktive Maus"),
+    (9, "", TRUE, "Lora, ein fröhlicher Sittich"),
+    (10, "", TRUE, "Melody, eine musikalische Kanarienvogel-Dame"),
+    (6, "", TRUE, "Bella, eine lebhafte Hündin"),
+    (7, "", TRUE, "Mila, eine sanfte Katze"),
+    (8, "", TRUE, "Charlie, ein lustiger Papagei"),
+    (9, "", TRUE, "Spike, eine ruhige Schlange"),
+    (10, "", TRUE, "Buddy, ein aktiver Hamster");',
+
+
+'INSERT INTO ArtikelArten (Art) VALUES
+    ("Pflegehinweise"),
+    ("Erfolgsstory"),
+    ("News"),
+    ("Veranstaltungen");',
+
+
+'INSERT INTO Artikel (NutzerID, ArtID, Ueberschrift, Zwischenueberschrift, Text, Datum, Bildadresse) VALUES
+    (1, 1, "Pflege von Hunden", "Wichtige Tipps", "Erfahren Sie alles zur artgerechten Pflege.", "2024-12-01", "/bilder/pflege_hunde.jpg"),
+    (2, 2, "Lunas neues Zuhause", "Erfolgsstory", "Luna fand ihr Glück.", "2024-12-05", "/bilder/luna_erfolg.jpg"),
+    (3, 3, "Neue Tiere in Erfurt", "Willkommen!", "5 neue Tiere warten auf ein Zuhause.", "2024-12-10", "/bilder/erfurt_neu.jpg");',
+
+
+'INSERT INTO ArtDerHilfe (ArtDerHilfe) VALUES
+    ("Pflege von Tieren"),
+    ("Spenden sammeln"),
+    ("Reinigung der Gehege"),
+    ("Transport von Tieren"),
+    ("Aufbau von Unterkünften");',
+
+
+'INSERT INTO Helfen (NutzerID, ArtDerHilfe, Angenommen, Zeit, Datum, Wochentag) VALUES
+    (4, 1, TRUE, "10:00:00", "2024-12-01", "Montag"),
+    (4, 2, TRUE, "14:00:00", "2024-12-02", "Dienstag"),
+    (3, 3, FALSE, "09:00:00", "2024-12-03", "Mittwoch"),
+    (5, 4, TRUE, "11:00:00", "2024-12-04", "Donnerstag"),
+    (2, 5, TRUE, "16:00:00", "2024-12-05", "Freitag")'
+
 ];
 
-foreach ($alter as $tier => $jahre) {
-    echo "$tier ist $jahre Jahre alt\n";
+foreach ($insert_befehle as $befehl) {
+    if ($conn->query($befehl) === TRUE) {
+        echo 'Eintrag erfolgreich hinzugefügt: $befehl\n';
+    } else {
+        echo 'Fehler beim Hinzufügen: $befehl\n' . $conn->error . '\n';
+    }
 }
-*/  
-$conn->close(); //con close wird aus best practice Gründen gemacht, ist eigentlich nicht notwendig, da php anscheinend das skript selber beendet
-echo "Verbindung geschlossen.\n";
+echo 'Alle SQL-Befehle erfolgreich ausgeführt.\n';
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * $sql_befehle = [
+
+    'CREATE TABLE IF NOT EXISTS Nutzerrollen (
+        NutzerrollenID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        Rolle VARCHAR(100) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Nutzer (
+        NutzerID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        NutzerrollenID INTEGER NOT NULL,
+        Name VARCHAR(100) NOT NULL,
+        Email VARCHAR(100) NOT NULL UNIQUE,
+        Passwort VARCHAR(250) NOT NULL,
+        FOREIGN KEY (NutzerrollenID) REFERENCES Nutzerrollen(NutzerrollenID)
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Tierart (
+        TierartID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        Tierart VARCHAR(100) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Rasse (
+        RasseID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        TierartID INTEGER NOT NULL,
+        Rasse VARCHAR(100) NOT NULL,
+        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID)
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Tiertyp (
+        TypID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        Typ VARCHAR(100) NOT NULL UNIQUE
+    )',
+
+    'CREATE TABLE IF NOT EXISTS Tiere (
+        TierID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        RasseID INTEGER NOT NULL,
+        ZuletztGeaendertNutzerID INTEGER NOT NULL,
+        TypID INTEGER NOT NULL,
+        Geschlecht VARCHAR(50),
+        Beschreibung VARCHAR(500) NOT NULL,
+        Geburtsjahr INTEGER,
+        Name VARCHAR(100),
+        Kastriert BOOLEAN,
+        Gesundheitszustand VARCHAR(255),
+        Charakter VARCHAR(255),
+        Datum DATE NOT NULL,
+        Geloescht BOOLEAN NOT NULL,
+        ZuletztGeaendert DATE NOT NULL,
+        FOREIGN KEY (RasseID) REFERENCES Rasse(RasseID),
+        FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID),
+        FOREIGN KEY (TypID) REFERENCES Tiertyp(TypID)
+    )',
+
+    'CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
+        VermisstGefundenID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        TierID INTEGER NOT NULL,
+        Ort VARCHAR(250) NOT NULL,
+        Kontaktaufnahme VARCHAR(50) NOT NULL,
+        FOREIGN KEY (TierID) REFERENCES Tiere(TierID))
+        ';
+
+    'CREATE TABLE IF NOT EXISTS Bilder (
+        BilderID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        TierID INTEGER NOT NULL,
+        Bildadresse VARCHAR(255) NOT NULL,
+        Hauptbild BOOLEAN NOT NULL,
+        Alternativtext VARCHAR(255) NOT NULL,
+        FOREIGN KEY (TierID) REFERENCES Tiere(TierID)
+    )';
+
+    'CREATE TABLE IF NOT EXISTS ArtikelArten (
+        ArtID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        Art VARCHAR(100) NOT NULL UNIQUE
+    )';
+
+    'CREATE TABLE IF NOT EXISTS Artikel (
+        ArtikelID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        NutzerID INTEGER NOT NULL,
+        ArtID INTEGER NOT NULL,
+        Ueberschrift VARCHAR(200) NOT NULL,
+        Zwischenueberschrift VARCHAR(200),
+        Text TEXT NOT NULL,
+        Datum DATE NOT NULL,
+        Bildadresse VARCHAR(255),
+        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID),
+        FOREIGN KEY (ArtID) REFERENCES ArtikelArten(ArtID)
+    )';
+
+    'CREATE TABLE IF NOT EXISTS ArtDerHilfe (
+        ArtID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        ArtDerHilfe VARCHAR(255) NOT NULL UNIQUE
+    )';
+
+    'CREATE TABLE IF NOT EXISTS Helfen (
+        HelfenID INTEGER PRIMARY KEY AUTO_INCREMENT,
+        NutzerID INTEGER NOT NULL,
+        ArtDerHilfe INTEGER NOT NULL,
+        Angenommen BOOLEAN NOT NULL,
+        Zeit TIME,
+        Datum DATE,
+        Wochentag VARCHAR(50),
+        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID),
+        FOREIGN KEY (ArtDerHilfe) REFERENCES ArtDerHilfe(ArtID)';
+    ];
+
+
+$insert_befehle = [
+
+    'INSERT INTO Tierart (Tierart) VALUES 
+        ("Hund"),
+        ("Katze"),
+        ("Vogel"),
+        ("Reptil"),
+        ("Nagetier"),
+        ("Amphibie"),
+        ("Insekt")';
+
+    'INSERT INTO Rasse (TierartID, Rasse) VALUES 
+        (1, "Golden Retriever"),
+        (1, "Beagle"),
+        (1, "Deutscher Schäferhund"),
+        (1, "Bulldogge"),
+        (1, "Labrador"),
+        (1, "Cocker Spaniel"),
+        (2, "Perser"),
+        (2, "Siam"),
+        (2, "Maine Coon"),
+        (2, "Britisch Kurzhaar"),
+        (2, "Bengal"),
+        (2, "Ragdoll"),
+        (3, "Wellensittich"),
+        (3, "Papagei"),
+        (3, "Kanarienvogel"),
+        (3, "Ara"),
+        (4, "Python"),
+        (4, "Kornnatter"),
+        (4, "Gecko"),
+        (4, "Chamäleon"),
+        (5, "Maus"),
+        (5, "Hase"),
+        (5, "Kaninchen"),
+        (5, "Hamster"),
+        (5, "Meerschweinchen"),
+        (6, "Axolotl"),
+        (7, "Schmetterling"),
+        (7, "Ameise")';
+
+    'INSERT INTO Nutzerrollen (Rolle) VALUES 
+        ("Administrator"),
+        ("Betreuer"),
+        ("Tierarzt"),
+        ("Freiwilliger"),
+        ("Besucher")';
+
+    'INSERT INTO Nutzer (NutzerrollenID, Name, Email, Passwort) VALUES 
+        (1, "Max Mustermann", "admin'example.com", "securepassword1"),
+        (2, "Lisa Meier", "betreuer'example.com", "securepassword2"),
+        (3, "Dr. Maier", "tierarzt'example.com", "securepassword3"),
+        (4, "Jonas Schulz", "freiwilliger'example.com", "securepassword4"),
+        (5, "Anna Berger", "besucher'example.com", "securepassword5")';
+
+    'INSERT INTO Tiere (
+        RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht, Beschreibung, Geburtsjahr, Name, 
+        Kastriert, Gesundheitszustand, Charakter, Datum, Geloescht, ZuletztGeaendert
+    ) VALUES 
+        (1, 2, 3, "Weiblich", "Freundliche Hündin, liebt Kinder.", 4, "Lila", TRUE, "Gesund", "Verspielt", "2024-11-01", FALSE, "2024-11-20"),
+        (15, 2, 3, "Weiblich", "Ruhige Schlange, pflegeleicht.", 3, "Tiger", FALSE, "Gesund", "Ruhig", "2024-11-02", FALSE, "2024-11-20"),
+        (25, 2, 3, "Weiblich", "Kleine Maus, sehr aktiv.", 1, "Greta", FALSE, "Gesund", "Neugierig", "2024-11-03", FALSE, "2024-11-20"),
+        (9, 3, 3, "Weiblich", "Geselliger Sittich.", 5, "Lora", FALSE, "Gesund", "Fröhlich", "2024-11-04", FALSE, "2024-11-20"),
+        (5, 2, 3, "Männlich", "Kuschelt gerne, ideal für Familien.", 3, "Simba", TRUE, "Gesund", "Zutraulich", "2024-11-05", FALSE, "2024-11-20")';
+
+    INSERT INTO VermisstGefundenTiere (TierID, Ort, Kontaktaufnahme) VALUES
+        (1, "Weimar", "Telefon"),
+        (2, "Jena", "Email"),
+        (3, "Erfurt", "Telefon"),
+        (4, "Apolda", "Telefon"),
+        (5, "Arnstadt", "Email")
+        (6, "Weimar", "Telefon"),
+        (7, "Erfurt", "Telefon"),
+        (8, "Jena", "Email"),
+        (9, "Apolda", "Telefon"),
+        (10, "Gera", "Email");
+
+    INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
+        (1, "", TRUE, "Lila, eine freundliche Hündin"),
+        (4, "", TRUE, "Tiger, eine ruhige Python"),
+        (5, "", TRUE, "Greta, eine aktive Maus"),
+        (9, "", TRUE, "Lora, ein fröhlicher Sittich"),
+        (10, "", TRUE, "Melody, eine musikalische Kanarienvogel-Dame"),
+        (6, "", TRUE, "Bella, eine lebhafte Hündin"),
+        (7, "", TRUE, "Mila, eine sanfte Katze"),
+        (8, "", TRUE, "Charlie, ein lustiger Papagei"),
+        (9, "", TRUE, "Spike, eine ruhige Schlange"),
+        (10, "", TRUE, "Buddy, ein aktiver Hamster")';
+
+    'INSERT INTO ArtikelArten (Art) VALUES
+        ("Pflegehinweise"),
+        ("Erfolgsstory"),
+        ("News"),
+        ("Veranstaltungen")';
+
+    'INSERT INTO Artikel (NutzerID, ArtID, Ueberschrift, Zwischenueberschrift, Text, Datum, Bildadresse) VALUES
+        (1, 1, "Pflege von Hunden", "Wichtige Tipps", "Erfahren Sie alles zur artgerechten Pflege.", "2024-12-01", "/bilder/pflege_hunde.jpg"),
+        (2, 2, "Lunas neues Zuhause", "Erfolgsstory", "Luna fand ihr Glück.", "2024-12-05", "/bilder/luna_erfolg.jpg"),
+        (3, 3, "Neue Tiere in Erfurt", "Willkommen!", "5 neue Tiere warten auf ein Zuhause.", "2024-12-10", "/bilder/erfurt_neu.jpg")';
+
+    'INSERT INTO ArtDerHilfe (ArtDerHilfe) VALUES
+        ("Pflege von Tieren"),
+        ("Spenden sammeln"),
+        ("Reinigung der Gehege"),
+        ("Transport von Tieren"),
+        ("Aufbau von Unterkünften")';
+
+    'INSERT INTO Helfen (NutzerID, ArtDerHilfe, Angenommen, Zeit, Datum, Wochentag) VALUES
+        (4, 1, TRUE, "10:00:00", "2024-12-01", "Montag"),
+        (4, 2, TRUE, "14:00:00", "2024-12-02", "Dienstag"),
+        (3, 3, FALSE, "09:00:00", "2024-12-03", "Mittwoch"),
+        (5, 4, TRUE, "11:00:00", "2024-12-04", "Donnerstag"),
+        (2, 5, TRUE, "16:00:00", "2024-12-05", "Freitag")';
+
+        'INSERT INTO Tiere (
+            TierartID, RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht,
+            Beschreibung, Alter, Name, Kastriert, Gesundheitszustand, Charakter,
+            Datum, Geloescht, ZuletztGeaendert
+        ) VALUES
+        (1, 2, 2, 3, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2, "Bella", TRUE, "Gesund", "Energisch", "2024-11-10", FALSE, "2024-11-20"),
+        (1, 3, 3, 3, "Männlich", "Treuer Begleiter, liebt Aufmerksamkeit.", 5, "Rex", TRUE, "Gesund", "Treu", "2024-11-11", FALSE, "2024-11-20"),
+        (2, 7, 2, 3, "Weiblich", "Sanfte Katze, eher zurückhaltend.", 4, "Mila", FALSE, "Gesund", "Ruhig", "2024-11-12", FALSE, "2024-11-20"),
+        (2, 9, 3, 3, "Männlich", "Neugieriger Abenteurer.", 3, "Felix", FALSE, "Gesund", "Neugierig", "2024-11-13", FALSE, "2024-11-20"),
+        (3, 12, 2, 3, "Weiblich", "Singfreudige Kanarienvogel-Dame.", 2, "Melody", FALSE, "Gesund", "Fröhlich", "2024-11-14", FALSE, "2024-11-20")'
+        ];
+
+foreach ($insert_befehle as $befehl) {
+    if ($conn->query($befehl) === TRUE) {
+        echo Eintrag erfolgreich hinzugefügt: $befehl\n;
+    } else {
+        echo Fehler beim Hinzufügen: $befehl\n . $conn->error . \n;
+    }
+}
+
+echo Alle SQL-Befehle erfolgreich ausgeführt.\n;
+?> */
