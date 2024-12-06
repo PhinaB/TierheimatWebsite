@@ -1,11 +1,10 @@
 <?php
+require_once __DIR__."/../core/Connection.php";
 
-require_once "../app/core/Connection.php";
-include_once "../app/core/Connection.php";
-use app\core\Connection;
+use core\Connection;
 
-//$conn = Connection::getInstance()->getConnection();
-$conn = new Connection();
+$conn = Connection::getInstance();
+//$conn = new Connection();
 
 $sql_befehle = [
 
@@ -114,10 +113,10 @@ $sql_befehle = [
 ];
 
 foreach ($sql_befehle as $befehl) {
-    if ($conn->query($befehl) === TRUE) {
+    if ($conn->query($befehl) === TRUE) { // TODO: query existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
         echo 'Befehl erfolgreich ausgeführt: {$befehl}\n';
     } else {
-        echo 'Fehler bei Befehl: {$befehl}\n' . $conn->error . '\n';
+        echo 'Fehler bei Befehl: {$befehl}\n' . $conn->error . '\n'; // TODO: error existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
     }
 }
 
@@ -167,17 +166,15 @@ $insert_befehle = [
 
 'INSERT INTO Nutzerrollen (Rolle) VALUES
     ("Administrator"),
-    ("Betreuer"),
-    ("Tierarzt"),
-    ("Freiwilliger"),
-    ("Besucher");',
+    ("Nutzer"),
+    ("Gast");',
 
 'INSERT INTO Nutzer (NutzerrollenID, Name, Email, Passwort) VALUES
     (1, "Max Mustermann", "admin@example.com", "securepassword1"),
-    (2, "Lisa Meier", "betreuer@example.com", "securepassword2"),
-    (3, "Dr. Maier", "tierarzt@example.com", "securepassword3"),
-    (4, "Jonas Schulz", "freiwilliger@example.com", "securepassword4"),
-    (5, "Anna Berger", "besucher@example.com", "securepassword5");',
+    (1, "Lisa Meier", "betreuer@example.com", "securepassword2"),
+    (2, "Dr. Maier", "tierarzt@example.com", "securepassword3"),
+    (2, "Jonas Schulz", "freiwilliger@example.com", "securepassword4"),
+    (2, "Anna Berger", "besucher@example.com", "securepassword5");', // TODO: pw sichern
 
 
 'INSERT INTO Tiere (RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht, Beschreibung, Geburtsjahr, Name,
@@ -216,7 +213,7 @@ $insert_befehle = [
     (8, "", TRUE, "Charlie, ein lustiger Papagei"),
     (9, "", TRUE, "Spike, eine ruhige Schlange"),
     (10, "", TRUE, "Buddy, ein aktiver Hamster");',
-
+// TODO: alle anderen Bilder noch hinzufügen
 
 'INSERT INTO ArtikelArten (Art) VALUES
     ("Pflegehinweise"),
