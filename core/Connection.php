@@ -1,21 +1,29 @@
 <?php
 
 namespace core;
-class Connection {
-    private static $instance = null; //Singleton-Instanz
-    private $connection; //Variable zum Abspeichern der Datenbankverbindung
-    private $host = "localhost";
-    private $user = "root";
-    private $pass = "";
-    private $db = "tierheimat";
 
+use Exception;
+use mysqli;
+use mysqli_stmt;
+
+class Connection {
+    private static ?Connection $instance = null; //Singleton-Instanz
+    private mysqli $connection; //Variable zum Abspeichern der Datenbankverbindung
+    private string $host = "localhost";
+    private string $user = "root";
+    private string $pass = "";
+    private string $db = "tierheimat";
+
+    /**
+     * @throws Exception
+     */
     protected function __construct() {
         $this->connection = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
 
-        if (!$this->connection) {
-            die("Verbindung fehlgeschlagen: " . mysqli_connect_error());
+        if ($this->connection->connect_error) {
+            throw new Exception('Verbindung fehlgeschlagen: ' . mysqli_connect_error());
         }
-        echo "Verbindung erfolgreich!";
+        //echo "Verbindung erfolgreich!";
     }
 
     //Singleton-Methode, um die Instanz der Klasse zu erhalten
@@ -28,17 +36,29 @@ class Connection {
     }
 
     //Methode, um die Verbindung zu erhalten
-    public function getConnection() {
+    public function getConnection(): mysqli
+    {
         return $this->connection;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function prepare($query): mysqli_stmt
+    {
+        $stmt = $this->connection->prepare($query);
+        if ($stmt === false) {
+            throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $this->connection->error);
+        }
+        return $stmt;
     }
 
     /* wird aus best practice Gründen gemacht, ist eigentlich nicht notwendig*/
     public function __destruct() {
         if ($this->connection) {
-            mysqli_close($this->connection);
-            echo "Verbindung geschlossen./n";
+            $this->connection->close();
+            //echo "Verbindung geschlossen./n";
         }
-
     }
 }
 

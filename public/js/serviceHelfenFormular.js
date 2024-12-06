@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// TODO: Art der Hilfe aus DB holen
+
 function reset() {
     let tableBody = document.getElementById('newWeekDayCopyHere');
     for (let i = tableBody.children.length - 1; i >= 0; i--) {
@@ -378,6 +380,10 @@ function absenden () {
     };
 
     let jsonData = JSON.stringify(data);
+    let erfolgsnachricht = formular.querySelector('.erfolgsnachricht');
+    erfolgsnachricht.classList.remove('redColor');
+    erfolgsnachricht.classList.remove('greenColor');
+    erfolgsnachricht.innerHTML = "";
 
     const xhttp = new XMLHttpRequest();
 
@@ -388,7 +394,6 @@ function absenden () {
             }
 
             if (xhttp.status >= 200 && xhttp.status < 300) {
-                let erfolgsnachricht = formular.querySelector('.erfolgsnachricht');
                 erfolgsnachricht.classList.add('greenColor');
                 reset();
                 erfolgsnachricht.innerHTML = "Die Daten wurden erfolgreich übertragen.";
@@ -410,13 +415,12 @@ function absenden () {
                     formularSelects[i].removeAttribute('disabled');
                 }
 
-                let erfolgsnachricht = formular.querySelector('.erfolgsnachricht');
                 erfolgsnachricht.classList.add('redColor');
                 erfolgsnachricht.innerHTML = "Etwas ist beim Speichern schiefgelaufen! Versuche es nochmal.";
             }
         }
     }
-    xhttp.open('POST', '../../Controller/ServiceHelfenController.php'); // TODO
+    xhttp.open('POST', '../app/Service/serviceHandler.php?method=addServiceInfo');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send(jsonData);
 }
