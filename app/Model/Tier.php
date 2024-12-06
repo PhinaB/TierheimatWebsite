@@ -2,22 +2,22 @@
 
 namespace app\model;
 
-class Tier
+class Tier extends AbstractModel
 {
-    private ?int $tierID = null;
-    private int $rasseID;
-    private int $zuletztGeaendertNutzerID;
-    private int $typID;
-    private ?string $geschlecht = null; //Daten die eventuell nicht bekannt sind
-    private string $beschreibung;
-    private ?int $geburtsjahr = null;
-    private ?string $name = null;
-    private ?bool $kastriert = null;
-    private ?string $gesundheitszustand = null;
-    private ?string $charakter = null;
-    private string $datum;
-    private bool $geloescht;
-    private string $zuletztGeaendert;
+    protected ?int $tierID = null;
+    protected int $zuletztGeaendertNutzerID;
+    protected int $rasseID;
+    protected int $typID;
+    protected ?string $geschlecht = null; //Daten die eventuell nicht bekannt sind
+    protected string $beschreibung;
+    protected ?int $geburtsjahr = null;
+    protected ?string $name = null;
+    protected ?bool $kastriert = null;
+    protected ?string $gesundheitszustand = null;
+    protected ?string $charakter = null;
+    protected string $datum;
+    protected bool $geloescht;
+    protected string $zuletztGeaendert;
 
 
     public function __construct(int $rasseID, int $zuletztGeaendertNutzerID, int $typID, ?string $geschlecht,
@@ -37,6 +37,7 @@ class Tier
         $this->geloescht = $geloescht;
         $this->zuletztGeaendert = $zuletztGeaendert;
     }
+
 
     public function getTierID(): ?int
     {
@@ -113,7 +114,7 @@ class Tier
         $this->name = $name;
     }
 
-    public function getKastriert(): ?bool
+    public function isKastriert(): ?bool
     {
         return $this->kastriert;
     }
@@ -173,6 +174,23 @@ class Tier
         $this->zuletztGeaendert = $zuletztGeaendert;
     }
 
+    // Methode, die alle Werte in einem Array zurückgibt
+    public function getValuesForInsert(): array {
+        return [
+            $this->getRasseID(),
+            $this->getZuletztGeaendertNutzerID(),
+            $this->getGeschlecht(),
+            $this->getBeschreibung(),
+            $this->getGeburtsjahr(),
+            $this->getName(),
+            $this->isKastriert(),
+            $this->getGesundheitszustand(),
+            $this->getCharakter(),
+            $this->getDatum(),
+            $this->isGeloescht(),
+            $this->getZuletztGeaendert()
+        ];
+    }
 }
 
 

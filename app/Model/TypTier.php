@@ -2,7 +2,8 @@
 
 namespace app\model;
 
-class TypTier {
+class TypTier extends AbstractModel
+{
     private ?int $typID = null;
     private string $typ;
 

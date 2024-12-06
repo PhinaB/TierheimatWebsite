@@ -13,7 +13,6 @@ class AbstractModel
     protected static function read(string $where = '', array $whereParameter = [], string $selector = '*', int $limit= -1): array
     {
         $db= Connection::getInstance()->getConnection();
-
         $className= self::getClassname();
 
         try{
@@ -73,7 +72,7 @@ class AbstractModel
         //TO DO: implement
     }
 
-    /*protected static function delete(string $where = '', array $whereParameter = []): bool
+    protected static function delete(string $where = '', array $whereParameter = []): bool
     {
         $db = Connection::getInstance()->getConnection();
         $className = self::getClassname();
@@ -81,28 +80,37 @@ class AbstractModel
         try {
             // Prüfen, ob eine WHERE-Bedingung übergeben wurde
             if (empty($where)) {
-                throw new Exception("WHERE-Klausel erforderlich, um DELETE auszuführen.");
+                throw new \InvalidArgumentException("WHERE-Klausel erforderlich, um DELETE auszuführen.");
             }
 
-            $stmt = "DELETE FROM {$className} WHERE {$where}";
+            $sql = "DELETE FROM {$className} WHERE {$where}";
+            $stmt = $db->prepare($sql);
             if (!$stmt) {
                 throw new \RuntimeException("Fehler beim Vorbereiten des Statements: " . $db->error);
             }
 
             if (!empty($whereParameter)) {
+
                 $types = self::typeParameter($whereParameter);
-
                 $stmt->bind_param($types, ...$whereParameter);
-            };
-
-            // Statement ausführen
+            }
+            // SQL-Statement ausführen
             $stmt->execute();
+            if (!$stmt->execute()){
+                throw new \RuntimeException("Fehler beim Löschen der Daten: " . $stmt->error);
+            }
+
+            if ($stmt->affected_rows === 0){
+                error_log ("Keine Datensätze wurde gelöscht aus {$className}");
+                return false;
+            }
 
             return true;
+
         } catch (Throwable $exception) {
             die ("Fehler beim Löschen der Daten der Tabelle {$className} :" . $exception->getMessage());
         }
-    }*/
+    }
 
     public static function typeParameter (array $whereParameter = []): string
     {

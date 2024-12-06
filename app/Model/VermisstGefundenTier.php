@@ -7,10 +7,10 @@ require_once '../core/Connection.php';
 class VermisstGefundenTier
 {
     //Object Mapping
-    private ?int $vermisstGefundenID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
-    private int $tierID;
-    private string $ort;
-    private string $kontaktaufnahme;
+    protected ?int $vermisstGefundenID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
+    protected int $tierID;
+    protected string $ort;
+    protected string $kontaktaufnahme;
 
     public function __construct(int $tierID, string $ort, string $kontaktaufnahme)
     {
