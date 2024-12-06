@@ -323,8 +323,9 @@ function absenden () {
             let timeValid = (newDateFields[i].value === currentDate && newTimeFields[i].value > currentTime) || (newDateFields[i].value > currentDate);
 
             if (!(dateValid && timeValid)) {
-                setErrorField(newDateFields[i], fehlerFeldDay, "Datum muss in der Zukunft sein");
+                setErrorField(newDateFields[i], fehlerFeldDay, "Datum und Zeit muss in der Zukunft liegen");
                 newTimeFields[i].classList.add('falseInputOrTextarea');
+                // TODO: wenn hier beide Felde rot werden, müssen auch beide wieder schwarz werden, sobald in eine der beiden Felder etwas geändert wird
                 return;
             }
         }
