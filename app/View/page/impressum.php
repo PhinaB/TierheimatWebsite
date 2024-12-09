@@ -4,20 +4,20 @@
     <?php
     $currentPage = 'Impressum';
 
-    include '../includes/mainStylesheets.php';
+    include __DIR__ . '/../includes/mainStylesheets.php';
     ?>
 
-    <link rel="stylesheet" href="../../../public/css/impressum.css" />
+    <link rel="stylesheet" href="../public/css/impressum.css" />
 </head>
 <body>
 <?php
-include '../includes/menu.php';
+include __DIR__ . '/../includes/menu.php';
 renderMenu($currentPage);
 ?>
 <div class="grid">
     <main>
         <?php
-        include '../includes/breadcrumbNavigation.php';
+        include __DIR__ . '/../includes/breadcrumbNavigation.php';
         renderBreadcrumb($currentPage);
         ?>
             <h1>Impressum</h1>
@@ -26,9 +26,9 @@ renderMenu($currentPage);
                 <h2>Dokumentation</h2>
                 <hr class="underHeadline" />
                 <p>Die Dokumentation wurde eigenhändig von den Projektgruppenmitgliedern erstellt:</p>
-                <a href="../dokumentation/dokumentationGWP.php" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation GWP</a>
+                <a href="dokuGWP" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation GWP</a>
                 <br />
-                <a href="../dokumentation/dokumentationDWP1.php" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation DWP</a>
+                <a href="dokuDWP1" class="button" draggable="false"><i class="fa-solid fa-book"></i> Zur Dokumentation DWP</a>
 
 
                 <h2>Bildnachweis</h2>
@@ -74,9 +74,9 @@ renderMenu($currentPage);
                 <p>In diesem Webprojekt werden keine Cookies verwendet und keine Nutzerdaten erfasst. Die Forderungen der europaweit geltenden Datenschutz-Grundverordnung (DSGVO) werden eingehalten. </p>
             </div>
         </main>
-        <?php include '../includes/footer.php'; ?>
+        <?php include __DIR__ . '/../includes/footer.php'; ?>
     </div>
 
-    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <?php include __DIR__ . '/../includes/generalJS.php'; ?>
 </body>
 </html>

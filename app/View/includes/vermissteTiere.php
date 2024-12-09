@@ -4,7 +4,7 @@
 
     <div class="box-containerVermisstGefundenMelden tileBorder">
         <div>
-            <img src="../../../public/img/pablo.jpg" alt="Bild eines Hundes" title="Bild Hund Pablo" draggable="false" />
+            <img src="../public/img/pablo.jpg" alt="Bild eines Hundes" title="Bild Hund Pablo" draggable="false" />
         </div>
         <div class="vermisstGefundenText">
             <h3>Pablo</h3>
@@ -28,7 +28,7 @@
 
     <div class="box-containerUnsereTiere">
         <div>
-            <img src="../../../public/img/luke.jpg" alt="Bild eines Degu" title="Bild Degu Luke" draggable="false" />
+            <img src="../public/img/luke.jpg" alt="Bild eines Degu" title="Bild Degu Luke" draggable="false" />
             <h3>Luke</h3>
 
             <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
@@ -40,7 +40,7 @@
         </div>
 
         <div>
-            <img src="../../../public/img/lotta.jpg" alt="Bild einer Katze" title="Bild Katze Lotta" draggable="false" />
+            <img src="../public/img/lotta.jpg" alt="Bild einer Katze" title="Bild Katze Lotta" draggable="false" />
             <h3>Lotta</h3>
             <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
             <p class="absatzfrei"><span class="boldText">am:</span> 02.06.2023</p>
@@ -51,7 +51,7 @@
         </div>
 
         <div>
-            <img src="../../../public/img/raspun.jpg" alt="Bild einer Schildkröte" title="Bild Schildkröte Raspun" draggable="false" />
+            <img src="../public/img/raspun.jpg" alt="Bild einer Schildkröte" title="Bild Schildkröte Raspun" draggable="false" />
             <h3>Raspun</h3>
             <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
             <p class="absatzfrei"><span class="boldText">am:</span> 05.02.2024</p>
@@ -62,7 +62,7 @@
         </div>
 
         <div>
-            <img src="../../../public/img/drako.jpg" alt="Bild einer Katze" title="Bild Katze Drakp" draggable="false" />
+            <img src="../public/img/drako.jpg" alt="Bild einer Katze" title="Bild Katze Drakp" draggable="false" />
             <h3>Drako</h3>
             <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
             <p class="absatzfrei"> <span class="boldText">am:</span> 09.03.2024</p>

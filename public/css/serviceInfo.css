@@ -58,6 +58,10 @@ h3 {
     width: 65%;
 }
 
+.flex-containerFormularHelfen .fehlermeldung {
+    padding-bottom: 10px;
+}
+
 @media only screen and (max-width: 1600px) {    
     .box-containerserviceInfo {
         flex-wrap:nowrap;

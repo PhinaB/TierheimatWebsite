@@ -89,15 +89,18 @@ p {
     margin-bottom:10px;
 }
 
-.button { /* nur für buttons außerhalb des .box-container gedacht! */
+.button, .disabledButton { /* nur für buttons außerhalb des .box-container gedacht! */
     padding: 5px 8px;
-    background: var(--primary-color);
-    color: #fff;
-    border: 1px solid var(--primary-color);
     border-radius: 4px;
     font-size: 12px;
     display: inline-block;
     transition:0.5s;
+}
+
+.button {
+    background: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
 }
 
 .button:hover {

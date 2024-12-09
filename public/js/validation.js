@@ -1,11 +1,12 @@
-document.querySelector('input[name=ort]').addEventListener('keyup', function(event) {
-    validateTextField(3, 20, event, document.querySelector('.fehlerOrt'));
-});
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('input[name=ort]').addEventListener('keyup', function(event) {
+        validateTextField(3, 20, event, document.querySelector('.fehlerOrt'));
+    });
 
-document.querySelector('textarea[name=tierbeschreibung]').addEventListener('keyup', function(event) {
-    validateTextField(1, 500, event, document.querySelector('.fehlerBeschreibung'));
+    document.querySelector('textarea[name=tierbeschreibung]').addEventListener('keyup', function(event) {
+        validateTextField(1, 500, event, document.querySelector('.fehlerBeschreibung'));
+    });
 });
-
 
 function validateTextField (min, max, event, errorField) {
     let textField = event.target;

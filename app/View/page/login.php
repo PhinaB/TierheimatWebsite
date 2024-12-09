@@ -4,21 +4,21 @@
     <?php
     $currentPage = 'Login';
 
-    include '../includes/mainStylesheets.php';
+    include __DIR__ . '/../includes/mainStylesheets.php';
     ?>
 
-    <link rel="stylesheet" href="../../../public/css/login.css" />
-    <link rel="stylesheet" href="../../../public/css/formulare.css" />
+    <link rel="stylesheet" href="../public/css/login.css" />
+    <link rel="stylesheet" href="../public/css/formulare.css" />
 </head>
 <body>
 <?php
-include '../includes/menu.php';
+include __DIR__ . '/../includes/menu.php';
 renderMenu($currentPage);
 ?>
 <div class="grid">
     <main>
         <?php
-        include '../includes/breadcrumbNavigation.php';
+        include __DIR__ . '/../includes/breadcrumbNavigation.php';
         renderBreadcrumb($currentPage);
         ?>
             <div class="loginAndRegristration">
@@ -50,10 +50,9 @@ renderMenu($currentPage);
                 </div>
             </div>
         </main>
-        <?php include '../includes/footer.php'; ?>
+        <?php include __DIR__ . '/../includes/footer.php'; ?>
     </div>
 
-    <script src="../../../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
-    <script src="../../../public/js/validation.js"></script>
+    <?php include __DIR__ . '/../includes/generalJS.php'; ?>
 </body>
 </html>

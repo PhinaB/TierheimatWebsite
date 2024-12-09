@@ -1,7 +1,3 @@
-<?php
-$page = "page/";
-$pageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : $page;
-?>
 <footer>
     <div>
         <h4>KONTAKT</h4>
@@ -32,7 +28,7 @@ $pageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : $page;
 <div class="underFooter"><a
         <?php
         if (!str_contains($_SERVER['PHP_SELF'], 'impressum')) {
-            echo 'href="'.$pageDir.'impressum.php"';
+            echo 'href="impressum"';
         }
         else { // wenn man sich beim Impressum befindet
             echo 'class="disabled" title="Sie befinden sich bereits beim Impressum"';
