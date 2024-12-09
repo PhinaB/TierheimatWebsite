@@ -53,6 +53,10 @@ class VermisstGefundenTier
     {
         $this->kontaktaufnahme = $kontaktaufnahme;
     }
+
+    public function getValuesForInsert(int $tierID): array {
+        return [$tierID, $this->ort, $this->kontaktaufnahme];
+    }
 }
 
 /* prepared Statements für Sicherheit:

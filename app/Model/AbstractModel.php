@@ -36,7 +36,7 @@ class AbstractModel
 
             // Typen der Parameter dynamisch bestimmen
             if (!empty($whereParameter)) {
-                $types = self::typeParameter($whereParameter);
+                $types = self::determineType($whereParameter);
 
                 // Parameter binden
                 $stmt->bind_param($types, ...$whereParameter);
@@ -91,7 +91,7 @@ class AbstractModel
 
             if (!empty($whereParameter)) {
 
-                $types = self::typeParameter($whereParameter);
+                $types = self::determineType($whereParameter);
                 $stmt->bind_param($types, ...$whereParameter);
             }
             // SQL-Statement ausführen
@@ -112,7 +112,7 @@ class AbstractModel
         }
     }
 
-    public static function typeParameter (array $whereParameter = []): string
+    public static function determineType (array $whereParameter = []): string
     {
         $types = ''; // String für Typen: 's', 'i', 'd', 'b'
         foreach ($whereParameter as $param) {

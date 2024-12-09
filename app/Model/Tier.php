@@ -8,6 +8,8 @@ class Tier extends AbstractModel
     protected int $zuletztGeaendertNutzerID;
     protected int $rasseID;
     protected int $typID;
+
+    protected int $tierartID;
     protected ?string $geschlecht = null; //Daten die eventuell nicht bekannt sind
     protected string $beschreibung;
     protected ?int $geburtsjahr = null;
@@ -20,12 +22,13 @@ class Tier extends AbstractModel
     protected string $zuletztGeaendert;
 
 
-    public function __construct(int $rasseID, int $zuletztGeaendertNutzerID, int $typID, ?string $geschlecht,
+    public function __construct(int $rasseID, int $zuletztGeaendertNutzerID, int $typID, int $tierartID, ?string $geschlecht,
                                 string $beschreibung, ?int $geburtsjahr, ?string $name, ?bool $kastriert, ?string $gesundheitszustand, ?string $charakter, string $datum, bool $geloescht, string $zuletztGeaendert)
     {
         $this->rasseID = $rasseID;
         $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
         $this->typID = $typID;
+        $this->tierartID = $tierartID;
         $this->geschlecht = $geschlecht;
         $this->beschreibung = $beschreibung;
         $this->geburtsjahr = $geburtsjahr;
@@ -72,6 +75,16 @@ class Tier extends AbstractModel
     public function setTypID(int $typID): void
     {
         $this->typID = $typID;
+    }
+
+    public function getTierartID(): int
+    {
+        return $this->tierartID;
+    }
+
+    public function setTierartID(int $tierartID): void
+    {
+        $this->tierartID = $tierartID;
     }
 
     public function getGeschlecht(): ?string
@@ -175,10 +188,12 @@ class Tier extends AbstractModel
     }
 
     // Methode, die alle Werte in einem Array zurückgibt
-    public function getValuesForInsert(): array {
+    public function getValuesForInsert(int $typID, int $tierartID, int $zuletztGeaenderterNutzerID): array {
         return [
             $this->getRasseID(),
-            $this->getZuletztGeaendertNutzerID(),
+            $zuletztGeaenderterNutzerID,
+            $typID,
+            $tierartID,
             $this->getGeschlecht(),
             $this->getBeschreibung(),
             $this->getGeburtsjahr(),

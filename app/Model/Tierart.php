@@ -1,6 +1,6 @@
 <?php
 
-namespace app\model;
+namespace app\Model;
 class Tierart
 {
     private ?int $tierartID = null;
@@ -24,5 +24,9 @@ class Tierart
     public function setTierart(string $tierart): void
     {
         $this->tierart = $tierart;
+    }
+
+    public function getValuesForInsert(): array {
+        return [$this->getTierart()];
     }
 }

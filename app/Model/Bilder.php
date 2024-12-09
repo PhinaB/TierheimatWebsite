@@ -63,4 +63,8 @@ class Bilder
     {
         $this->alternativtext = $alternativtext;
     }
+
+    public function getValuesForInsert(int $tierID, bool $hauptbild, string $alternativtext): array {
+        return [$tierID, $this->getTierID(), $this->getBildadresse(), $hauptbild, $this->getAlternativtext()];
+    }
 }
