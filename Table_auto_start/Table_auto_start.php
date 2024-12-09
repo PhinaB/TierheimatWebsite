@@ -112,13 +112,24 @@ $sql_befehle = [
     )'
 ];
 
-foreach ($sql_befehle as $befehl) {
+/*foreach ($sql_befehle as $befehl) {
     if ($conn->query($befehl) === TRUE) { // TODO: query existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
         echo 'Befehl erfolgreich ausgeführt: {$befehl}\n';
     } else {
         echo 'Fehler bei Befehl: {$befehl}\n' . $conn->error . '\n'; // TODO: error existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
     }
 }
+*/
+
+foreach ($sql_befehle as $befehl) {
+    $stmt = $conn->prepare($befehl);
+    if ($stmt && $stmt->execute()) {
+        echo "Befehl erfolgreich ausgeführt: {$befehl}\n";
+    } else {
+        echo "Fehler bei Befehl: {$befehl}\n" . $conn->error() . "\n";
+    }
+}
+
 
 echo 'Alle Tabellen erfolgreich erstellt.\n';
 
@@ -257,7 +268,11 @@ echo 'Alle SQL-Befehle erfolgreich ausgeführt.\n';
 
 
 
-
+/*Legende mit Beschreibung
+ON DELETE CASCADE, stellt eine Referenz zwischen den Tabellen her, sprich die Informationen stehen in Abhängigkeit zueinander.
+Wird aus einer Tabelle etwas mit dem neuen Feature delete entfernt werden die zugehörigen Informationen aus den in Verbindung stehenden Tabelle ebenfalls gelöscht.
+ON DELETE SET NULL, definiert was passiert wenn ein Übergeordneter Datensatz → Fremdschlüssel gelöscht wird
+Die Untergeordneten Daten werden auf NUll gesetzt, dies ist zB bei UserID etc. hinterlegt um eine Referenz zu haben und dass die Daten der bisherigen gespeicherten Personen nicht verloren gehen
 
 
 
