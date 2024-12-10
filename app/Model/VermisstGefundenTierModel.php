@@ -29,11 +29,11 @@ class VermisstGefundenTierModel extends AbstractModel {
             /* -------------------typTier- im Formular: Anliegen (vermisst/gefunden)------------------*/
                 $stmtTyp = $this->db->prepare ("INSERT INTO ArtDerHilfeTyp (Typ) VALUES (?)");
                 $typ = $typTier->getTyp();
-                $stmtTyp->bind_param('s', $typ);
+                $stmtTyp->bind_param('s', $typ); // TODO: statt INSERT abfragen, ob die Art bereits existiert
 
             if (!$stmtTyp->execute()) {
                 throw new \Exception('Fehler beim Speichern des Tieres: ' . $stmtTyp->error);
-            }
+            } // TODO: PHPDocs; InvalidArgumentException & ohne "\"
 
             // Hole die generierte TypID
             $typID = $this->db->insert_id;

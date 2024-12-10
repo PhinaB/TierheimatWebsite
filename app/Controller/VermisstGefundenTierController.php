@@ -50,15 +50,17 @@ class VermisstGefundenTierController
 
 
                 //Klasse Tier mit Datum
-                $tier = new Tier();
+                $tier = new Tier(); // TODO
                 $tier->setDatum($datum);
                 $tier->setBeschreibung($tierbeschreibung);
 
+
+
                 //Klasse VermisstGefundenTier mit Ort und Kontaktaufnahme
-                $vermisstGefundenTier = new VermisstGefundenTier();
-                $vermisstGefundenTier->setOrt($ort);
+                $vermisstGefundenTier = new VermisstGefundenTier($tier->getTierID(), $ort, $kontaktaufnahme);
+               // $vermisstGefundenTier->setOrt($ort);
                 //Möglichkeiten Email oder Telefon
-                $vermisstGefundenTier->setKontaktaufnahme($kontaktaufnahme);
+                //$vermisstGefundenTier->setKontaktaufnahme($kontaktaufnahme);
 
                 //TO DO: Klasse Bilder mit Bildadresse, Hauptbild, Alternativtext bestehend aus Tierarten
                 try {
