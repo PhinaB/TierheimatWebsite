@@ -112,13 +112,24 @@ $sql_befehle = [
     )'
 ];
 
-foreach ($sql_befehle as $befehl) {
+/*foreach ($sql_befehle as $befehl) {
     if ($conn->query($befehl) === TRUE) { // TODO: query existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
         echo 'Befehl erfolgreich ausgeführt: {$befehl}\n';
     } else {
         echo 'Fehler bei Befehl: {$befehl}\n' . $conn->error . '\n'; // TODO: error existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
     }
 }
+*/
+
+foreach ($sql_befehle as $befehl) {
+    $stmt = $conn->prepare($befehl);
+    if ($stmt && $stmt->execute()) {
+        echo "Befehl erfolgreich ausgeführt: {$befehl}\n";
+    } else {
+        echo "Fehler bei Befehl: {$befehl}\n" . $conn->error() . "\n";
+    }
+}
+
 
 echo 'Alle Tabellen erfolgreich erstellt.\n';
 
@@ -174,7 +185,8 @@ $insert_befehle = [
     (1, "Lisa Meier", "betreuer@example.com", "securepassword2"),
     (2, "Dr. Maier", "tierarzt@example.com", "securepassword3"),
     (2, "Jonas Schulz", "freiwilliger@example.com", "securepassword4"),
-    (2, "Anna Berger", "besucher@example.com", "securepassword5");', // TODO: pw sichern
+    (2, "Anna Berger", "besucher@example.com", "securepassword5");', // TODO: pw sichern, sollen die mit hashing erstellt werden?
+    //hasing ist eine nicht umkehrbare Zeichenkette, diese ermöglicht einen sicheren Schutz vor Datenleaks
 
 
 'INSERT INTO Tiere (RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht, Beschreibung, Geburtsjahr, Name,
@@ -203,17 +215,16 @@ $insert_befehle = [
 
 
 'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
-    (1, "", TRUE, "Lila, eine freundliche Hündin"),
-    (4, "", TRUE, "Tiger, eine ruhige Python"),
-    (5, "", TRUE, "Greta, eine aktive Maus"),
-    (9, "", TRUE, "Lora, ein fröhlicher Sittich"),
-    (10, "", TRUE, "Melody, eine musikalische Kanarienvogel-Dame"),
-    (6, "", TRUE, "Bella, eine lebhafte Hündin"),
-    (7, "", TRUE, "Mila, eine sanfte Katze"),
-    (8, "", TRUE, "Charlie, ein lustiger Papagei"),
-    (9, "", TRUE, "Spike, eine ruhige Schlange"),
-    (10, "", TRUE, "Buddy, ein aktiver Hamster");',
-// TODO: alle anderen Bilder noch hinzufügen
+    (1, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/lila.jpg", TRUE, "Lila, eine freundliche Hündin"),
+    (4, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/tigerpython.jpg", TRUE, "Tiger, eine ruhige Python"),
+    (5, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/greta2.jpg", TRUE, "Greta, eine aktive Maus"),
+    (9, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/prachtrosella.jpg", TRUE, "Lora, ein fröhlicher Sittich"),
+    (10, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/wellensittiche2.jpg", TRUE, "Melody, eine musikalische Kanarienvogel-Dame"),
+    (6, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/bella.jpg", TRUE, "Bella, eine lebhafte Hündin"),
+    (7, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/flo.jpg", TRUE, "Mila, eine sanfte Katze"),
+    (8, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/prachtrosella2.jpg", TRUE, "Charlie, ein lustiger Papagei"),
+    (9, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/tigerpython2.jpg", TRUE, "Spike, eine ruhige Schlange"),
+    (10, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/fluffy.jpg", TRUE, "Buddy, ein aktiver Hamster");',
 
 'INSERT INTO ArtikelArten (Art) VALUES
     ("Pflegehinweise"),
@@ -223,9 +234,9 @@ $insert_befehle = [
 
 
 'INSERT INTO Artikel (NutzerID, ArtID, Ueberschrift, Zwischenueberschrift, Text, Datum, Bildadresse) VALUES
-    (1, 1, "Pflege von Hunden", "Wichtige Tipps", "Erfahren Sie alles zur artgerechten Pflege.", "2024-12-01", "/bilder/pflege_hunde.jpg"),
-    (2, 2, "Lunas neues Zuhause", "Erfolgsstory", "Luna fand ihr Glück.", "2024-12-05", "/bilder/luna_erfolg.jpg"),
-    (3, 3, "Neue Tiere in Erfurt", "Willkommen!", "5 neue Tiere warten auf ein Zuhause.", "2024-12-10", "/bilder/erfurt_neu.jpg");',
+    (1, 1, "Pflege von Hunden", "Wichtige Tipps", "Erfahren Sie alles zur artgerechten Pflege.", "2024-12-01", $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/bella.jpg"),
+    (2, 2, "Lunas neues Zuhause", "Erfolgsstory", "Luna fand ihr Glück.", "2024-12-05", $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/anlage.jpg"),
+    (3, 3, "Neue Tiere in Erfurt", "Willkommen!", "5 neue Tiere warten auf ein Zuhause.", "2024-12-10", $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/tierheimFest");',
 
 
 'INSERT INTO ArtDerHilfe (ArtDerHilfe) VALUES
@@ -257,8 +268,14 @@ echo 'Alle SQL-Befehle erfolgreich ausgeführt.\n';
 
 
 
+/*Legende mit Beschreibung
+ON DELETE CASCADE, stellt eine Referenz zwischen den Tabellen her, sprich die Informationen stehen in Abhängigkeit zueinander.
+Wird aus einer Tabelle etwas mit dem neuen Feature delete entfernt werden die zugehörigen Informationen aus den in Verbindung stehenden Tabelle ebenfalls gelöscht.
+ON DELETE SET NULL, definiert was passiert wenn ein Übergeordneter Datensatz → Fremdschlüssel gelöscht wird
+Die Untergeordneten Daten werden auf NUll gesetzt, dies ist zB bei UserID etc. hinterlegt um eine Referenz zu haben und dass die Daten der bisherigen gespeicherten Personen nicht verloren gehen
 
-
+$stmt, "Prepared Statement" wird verwendet um SQL Anweisungen vorzubreiten und sicher auszuführen, diese dienen ebenfalls als Platzhalter, diese werden aber während bzw. nach der Ausführung ersetzt
+übergibt Parameter, wird verwendet um SQL Injection vorzubeugen
 
 
 
