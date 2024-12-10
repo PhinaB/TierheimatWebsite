@@ -8,15 +8,15 @@ class VermisstGefundenTier
 {
     //Object Mapping
     protected ?int $vermisstGefundenID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
-    protected int $tierID;
+    protected ?int $tierID;
     protected string $ort;
     protected string $kontaktaufnahme;
 
-    public function __construct(int $tierID, string $ort, string $kontaktaufnahme)
+    public function __construct(string $ort, string $kontaktaufnahme, ?int $tierID = null)
     {
-        $this->tierID = $tierID;
         $this->ort = $ort;
         $this->kontaktaufnahme = $kontaktaufnahme;
+        $this->tierID = $tierID;
     }
 
     public function getVermisstGefundenID(): ?int

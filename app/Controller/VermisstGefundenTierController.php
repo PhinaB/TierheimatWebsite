@@ -41,12 +41,10 @@ class VermisstGefundenTierController
                 }
 
                 //Klasse Typ mit anliegenVermisstGefunden (vermisst/gefunden)
-                $typTier= new TypTier();
-                $typTier->setTyp($anliegenVermisstGefunden);
+                $typTier= new TypTier($anliegenVermisstGefunden);
 
                 //Klasse Tierart mit Tierart
-                $tierart = new Tierart ();
-                $tierart->setTierart($tierarten);
+                $tierart = new Tierart ($tierarten);
 
 
                 //Klasse Tier mit Datum
@@ -57,7 +55,9 @@ class VermisstGefundenTierController
 
 
                 //Klasse VermisstGefundenTier mit Ort und Kontaktaufnahme
-                $vermisstGefundenTier = new VermisstGefundenTier($tier->getTierID(), $ort, $kontaktaufnahme);
+                /*TierID ist hier noch leer. Erst mit dem Aufruf von VermisstGefundenTierModel werden die Daten
+                in die Datenbank eingetragen und die ID generiert*/
+                $vermisstGefundenTier = new VermisstGefundenTier($ort, $kontaktaufnahme);
                // $vermisstGefundenTier->setOrt($ort);
                 //Möglichkeiten Email oder Telefon
                 //$vermisstGefundenTier->setKontaktaufnahme($kontaktaufnahme);
