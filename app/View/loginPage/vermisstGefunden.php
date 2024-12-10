@@ -108,7 +108,7 @@
                     </p>
                 </div>
 
-                <form action="#" method="post" class="flex-containerVermisstefundenmelden">
+                <form action="../../Controller/VermisstGefundenTierController.php" method="POST" enctype="multipart/form-data" class="flex-containerVermisstefundenmelden">
                     <div class="flex-item1">
                         <div class="flex-itemAnliegen">
                             <label for="anliegenVermisstGefunden" class="h3">Anliegen: <span class="redPflichtfeld">*</span></label>

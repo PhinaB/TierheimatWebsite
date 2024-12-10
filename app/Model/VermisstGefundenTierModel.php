@@ -3,12 +3,12 @@
 //hier kommen die CRUD-Statements rein
 namespace app\Model;
 
-require_once './app/core/connection.php';
+require_once './core/Connection.php';
 require_once './app/Model/VermisstGefundenTier.php';
 require_once './app/Model/Tier.php';
 require_once './app/Model/TypTier.php';
 
-use app\core\Connection;
+use core\Connection;
 use app\Model\Tier;
 use app\Model\TypTier;
 use app\Model\Tierart;
@@ -29,7 +29,7 @@ class VermisstGefundenTierModel extends AbstractModel {
             /* -------------------typTier- im Formular: Anliegen (vermisst/gefunden)------------------*/
                 $stmtTyp = $this->db->prepare ("INSERT INTO ArtDerHilfeTyp (Typ) VALUES (?)");
                 $typ = $typTier->getTyp();
-                $stmtTyp->bind_param('s', $typTier->$typ);
+                $stmtTyp->bind_param('s', $typ);
 
             if (!$stmtTyp->execute()) {
                 throw new \Exception('Fehler beim Speichern des Tieres: ' . $stmtTyp->error);
