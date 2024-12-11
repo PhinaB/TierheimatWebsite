@@ -6,7 +6,6 @@ class Tier extends AbstractModel
 {
     protected ?int $tierID = null;
     protected int $zuletztGeaendertNutzerID;
-    protected int $rasseID;
     protected int $typID;
 
     protected int $tierartID;
@@ -22,10 +21,9 @@ class Tier extends AbstractModel
     protected string $zuletztGeaendert;
 
 
-    public function __construct(int $rasseID, int $zuletztGeaendertNutzerID, int $typID, int $tierartID, ?string $geschlecht,
+    public function __construct(int $zuletztGeaendertNutzerID, int $typID, int $tierartID, ?string $geschlecht,
                                 string $beschreibung, ?int $geburtsjahr, ?string $name, ?bool $kastriert, ?string $gesundheitszustand, ?string $charakter, string $datum, bool $geloescht, string $zuletztGeaendert)
     {
-        $this->rasseID = $rasseID;
         $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
         $this->typID = $typID;
         $this->tierartID = $tierartID;
@@ -45,16 +43,6 @@ class Tier extends AbstractModel
     public function getTierID(): ?int
     {
         return $this->tierID;
-    }
-
-    public function getRasseID(): int
-    {
-        return $this->rasseID;
-    }
-
-    public function setRasseID(int $rasseID): void
-    {
-        $this->rasseID = $rasseID;
     }
 
     public function getZuletztGeaendertNutzerID(): int

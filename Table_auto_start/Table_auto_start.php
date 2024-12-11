@@ -3,7 +3,7 @@ require_once __DIR__."/../core/Connection.php";
 
 use core\Connection;
 
-$conn = Connection::getInstance();
+$conn = Connection::getInstance()->getConnection();
 //$conn = new Connection();
 
 $sql_befehle = [

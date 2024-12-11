@@ -1,5 +1,4 @@
 <?php
- require_once '../core/Connection.php';
 
 namespace app\model;
 
