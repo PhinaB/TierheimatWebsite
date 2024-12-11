@@ -41,7 +41,7 @@ $sql_befehle = [
 
     'CREATE TABLE IF NOT EXISTS Tiere (
     TierID INT AUTO_INCREMENT PRIMARY KEY,
-    RasseID INT NOT NULL,
+    TierartID INT NOT NULL,
     ZuletztGeaendertNutzerID INT NULL,
     TypID INT NOT NULL,
     Geschlecht VARCHAR(50),
@@ -54,7 +54,7 @@ $sql_befehle = [
     Datum DATE NOT NULL,
     Geloescht BOOLEAN NOT NULL,
     ZuletztGeaendert DATE NOT NULL,
-    FOREIGN KEY (RasseID) REFERENCES Rasse(RasseID) ON DELETE CASCADE,
+    FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE,
     FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
     FOREIGN KEY (TypID) REFERENCES Tiertyp(TypID) ON DELETE CASCADE
     )',
@@ -330,7 +330,7 @@ Typ VARCHAR(100) NOT NULL UNIQUE
 
 CREATE TABLE IF NOT EXISTS Tiere (
 TierID INT AUTO_INCREMENT PRIMARY KEY,
-RasseID INT NOT NULL,
+TierartID INT NOT NULL,
 ZuletztGeaendertNutzerID INT NULL,
 TypID INT NOT NULL,
 Geschlecht VARCHAR(50),
@@ -343,8 +343,8 @@ Charakter VARCHAR(255),
 Datum DATE NOT NULL,
 Geloescht BOOLEAN NOT NULL,
 ZuletztGeaendert DATE NOT NULL,
-FOREIGN KEY (RasseID) REFERENCES Rasse(RasseID) ON DELETE CASCADE,
-FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
+FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE,
+FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON SET NULL,
 FOREIGN KEY (TypID) REFERENCES Tiertyp(TypID) ON DELETE CASCADE
 );
 
