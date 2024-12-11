@@ -23,10 +23,13 @@ class VermisstGefundenTierController
 
     public function addVermisstGefundenTier(): void {
 
+        /*$input = file_get_contents('php://input');     //liest Rohdaten aus dem Body eines HTTP-Request
+        $data = json_decode($input, true);  */        //Wandelt erhaltene JSON-Daten in PHP-Array um
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (isset($_POST ['absenden'])) {
-                // Daten aus dem Formular validieren
+
                 $anliegenVermisstGefunden = $_POST['anliegenVermisstGefunden'] ?? null;
                 $tierarten = $_POST['tierart'] ?? null;
                 $datum = $_POST['datum'] ?? null;
@@ -47,10 +50,15 @@ class VermisstGefundenTierController
                 $tierart = new Tierart ($tierarten);
 
 
-                //Klasse Tier mit Datum
+                //Klasse Tier mit Datum und Beschreibung
                 $tier = new Tier(); // TODO
                 $tier->setDatum($datum);
                 $tier->setBeschreibung($tierbeschreibung);
+
+                /*$tier = Model->AddTier();
+                Model->AddVermisstGefundenTier($tier->getID(), ...)
+                */
+
 
 
 
