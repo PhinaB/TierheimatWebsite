@@ -19,7 +19,7 @@ $sql_befehle = [
         Name VARCHAR(100) NOT NULL,
         Email VARCHAR(100) NOT NULL UNIQUE,
         Passwort VARCHAR(250) NOT NULL,
-        FOREIGN KEY (NutzerrollenID) REFERENCES Nutzerrollen(NutzerrollenID) ON DELETE CASCADE
+        FOREIGN KEY (NutzerrollenID) REFERENCES Nutzerrollen(NutzerrollenID) ON DELETE RESTRICT
     )',
 
     'CREATE TABLE IF NOT EXISTS Tierart (
@@ -31,7 +31,7 @@ $sql_befehle = [
         RasseID INT AUTO_INCREMENT PRIMARY KEY,
         TierartID INT NOT NULL,
         Rasse VARCHAR(100) NOT NULL UNIQUE,
-        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE
+        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
     )',
 
     'CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
@@ -46,22 +46,21 @@ $sql_befehle = [
         Bildadresse VARCHAR(255) NOT NULL,
         Geloescht BOOLEAN NOT NULL,
         ZuletztGeaendert DATE NOT NULL,
-        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE,
+        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT,
         FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL
     )',
 
     'CREATE TABLE IF NOT EXISTS Tiere (
-    TierID INT AUTO_INCREMENT PRIMARY KEY,
-    TierartID INT NOT NULL,
-    Geschlecht VARCHAR(50),
-    Beschreibung VARCHAR(500) NOT NULL,
-    Geburtsjahr INT,
-    Name VARCHAR(100),
-    Charakter VARCHAR(255),
-    Datum DATE NOT NULL,
-    FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE
+        TierID INT AUTO_INCREMENT PRIMARY KEY,
+        TierartID INT NOT NULL,
+        Geschlecht VARCHAR(50),
+        Beschreibung VARCHAR(500) NOT NULL,
+        Geburtsjahr INT,
+        Name VARCHAR(100),
+        Charakter VARCHAR(255),
+        Datum DATE NOT NULL,
+        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
     )',
-
 
     'CREATE TABLE IF NOT EXISTS Bilder (
         BilderID INT AUTO_INCREMENT PRIMARY KEY,
@@ -83,11 +82,11 @@ $sql_befehle = [
         ArtID INT NOT NULL,
         Ueberschrift VARCHAR(200) NOT NULL,
         Zwischenueberschrift VARCHAR(200),
-        Text TEXT NOT NULL,
+        Text VARCHAR(500) NOT NULL,
         Datum DATE NOT NULL,
         Bildadresse VARCHAR(255),
-        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE CASCADE,
-        FOREIGN KEY (ArtID) REFERENCES ArtikelArten(ArtID) ON DELETE CASCADE
+        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
+        FOREIGN KEY (ArtID) REFERENCES ArtikelArten(ArtID) ON DELETE RESTRICT
     )',
 
     'CREATE TABLE IF NOT EXISTS ArtDerHilfe (
@@ -103,8 +102,8 @@ $sql_befehle = [
         Zeit TIME,
         Datum DATE,
         Wochentag VARCHAR(50),
-        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE CASCADE,
-        FOREIGN KEY (ArtDerHilfe) REFERENCES ArtDerHilfe(ArtID) ON DELETE CASCADE
+        FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
+        FOREIGN KEY (ArtDerHilfe) REFERENCES ArtDerHilfe(ArtID) ON DELETE RESTRICT
     )'
 ];
 
