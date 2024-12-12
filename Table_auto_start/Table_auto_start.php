@@ -34,38 +34,34 @@ $sql_befehle = [
         FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE
     )',
 
-    'CREATE TABLE IF NOT EXISTS Tiertyp (
-        TypID INT AUTO_INCREMENT PRIMARY KEY,
-        Typ VARCHAR(100) NOT NULL UNIQUE
+    'CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
+        VermisstGefundenTiereID INT AUTO_INCREMENT PRIMARY KEY,
+        ZuletztGeaendertNutzerID INT NULL,
+        TierartID INT NOT NULL,
+        Typ VARCHAR(100) NOT NULL UNIQUE, 
+        Datum DATE NOT NULL,
+        Ort VARCHAR(250) NOT NULL,
+        Beschreibung VARCHAR(500) NOT NULL,
+        Kontaktaufnahme VARCHAR(50) NOT NULL,
+        Bildadresse VARCHAR(255) NOT NULL,
+        Geloescht BOOLEAN NOT NULL,
+        ZuletztGeaendert DATE NOT NULL,
+        FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE,
+        FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL
     )',
 
     'CREATE TABLE IF NOT EXISTS Tiere (
     TierID INT AUTO_INCREMENT PRIMARY KEY,
     TierartID INT NOT NULL,
-    ZuletztGeaendertNutzerID INT NULL,
-    TypID INT NOT NULL,
     Geschlecht VARCHAR(50),
     Beschreibung VARCHAR(500) NOT NULL,
     Geburtsjahr INT,
     Name VARCHAR(100),
-    Kastriert BOOLEAN,
-    Gesundheitszustand VARCHAR(255),
     Charakter VARCHAR(255),
     Datum DATE NOT NULL,
-    Geloescht BOOLEAN NOT NULL,
-    ZuletztGeaendert DATE NOT NULL,
-    FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE,
-    FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
-    FOREIGN KEY (TypID) REFERENCES Tiertyp(TypID) ON DELETE CASCADE
+    FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE
     )',
 
-    'CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
-        VermisstGefundenID INT AUTO_INCREMENT PRIMARY KEY,
-        TierID INT NOT NULL,
-        Ort VARCHAR(250) NOT NULL,
-        Kontaktaufnahme VARCHAR(50) NOT NULL,
-        FOREIGN KEY (TierID) REFERENCES Tiere(TierID) ON DELETE CASCADE
-    )',
 
     'CREATE TABLE IF NOT EXISTS Bilder (
         BilderID INT AUTO_INCREMENT PRIMARY KEY,
@@ -300,7 +296,8 @@ $stmt, "Prepared Statement" wird verwendet um SQL Anweisungen vorzubreiten und s
 /*
 CREATE TABLE IF NOT EXISTS Nutzerrollen (
 NutzerrollenID INT AUTO_INCREMENT PRIMARY KEY,
-Rolle VARCHAR(100) NOT NULL UNIQUE);
+Rolle VARCHAR(100) NOT NULL UNIQUE
+);
 
 CREATE TABLE IF NOT EXISTS Nutzer (
 NutzerID INT AUTO_INCREMENT PRIMARY KEY,
@@ -323,39 +320,34 @@ Rasse VARCHAR(100) NOT NULL UNIQUE,
 FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS Tiertyp (
-TypID INT AUTO_INCREMENT PRIMARY KEY,
-Typ VARCHAR(100) NOT NULL UNIQUE
+CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
+VermisstGefundenTiereID INT AUTO_INCREMENT PRIMARY KEY,
+ZuletztGeaendertNutzerID INT NULL,
+TierartID INT NOT NULL,
+Typ VARCHAR(100) NOT NULL UNIQUE,
+Datum DATE NOT NULL,
+Ort VARCHAR(250) NOT NULL,
+Beschreibung VARCHAR(500) NOT NULL,
+Kontaktaufnahme VARCHAR(50) NOT NULL,
+Bildadresse VARCHAR(255) NOT NULL,
+Geloescht BOOLEAN NOT NULL,
+ZuletztGeaendert DATE NOT NULL,
+FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE,
+FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS Tiere (
 TierID INT AUTO_INCREMENT PRIMARY KEY,
 TierartID INT NOT NULL,
-ZuletztGeaendertNutzerID INT NULL,
-TypID INT NOT NULL,
 Geschlecht VARCHAR(50),
 Beschreibung VARCHAR(500) NOT NULL,
 Geburtsjahr INT,
 Name VARCHAR(100),
-Kastriert BOOLEAN,
-Gesundheitszustand VARCHAR(255),
 Charakter VARCHAR(255),
 Datum DATE NOT NULL,
-Geloescht BOOLEAN NOT NULL,
-ZuletztGeaendert DATE NOT NULL,
-FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE,
-FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON SET NULL,
-FOREIGN KEY (TypID) REFERENCES Tiertyp(TypID) ON DELETE CASCADE
+FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE CASCADE
 );
 
-
-CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
-VermisstGefundenID INT AUTO_INCREMENT PRIMARY KEY,
-TierID INT NOT NULL,
-Ort VARCHAR(250) NOT NULL,
-Kontaktaufnahme VARCHAR(50) NOT NULL,
-FOREIGN KEY (TierID) REFERENCES Tiere(TierID) ON DELETE CASCADE
-);
 
 CREATE TABLE IF NOT EXISTS Bilder (
 BilderID INT AUTO_INCREMENT PRIMARY KEY,
@@ -399,5 +391,5 @@ Datum DATE,
 Wochentag VARCHAR(50),
 FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE CASCADE,
 FOREIGN KEY (ArtDerHilfe) REFERENCES ArtDerHilfe(ArtID) ON DELETE CASCADE
-);
+)
 */
