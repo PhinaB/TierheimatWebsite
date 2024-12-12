@@ -20,16 +20,17 @@ class VermisstGefundenTierModel extends AbstractModel {
         $this->db = Connection::getInstance()->getConnection();
     }
 
-    public function insertVermisstGefundenTiere (Tier $tier, VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart, TypTier $typTier, ?Bilder $bilder = null){
+    public function insertVermisstGefundenTiere (Tier $tier, VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart, TypTier $typTier, ?Bilder $bilder = null)
+    {
 
         // Start einer Transaktion, um Konsistenz zu gewährleisten
         $this->db->begin_transaction();
 
         try {
             /* -------------------typTier- im Formular: Anliegen (vermisst/gefunden)------------------*/
-                $stmtTyp = $this->db->prepare ("INSERT INTO ArtDerHilfeTyp (Typ) VALUES (?)");
-                $typ = $typTier->getTyp();
-                $stmtTyp->bind_param('s', $typ); // TODO: statt INSERT abfragen, ob die Art bereits existiert
+            $stmtTyp = $this->db->prepare("INSERT INTO ArtDerHilfeTyp (Typ) VALUES (?)");
+            $typ = $typTier->getTyp();
+            $stmtTyp->bind_param('s', $typ); // TODO: statt INSERT abfragen, ob die Art bereits existiert
 
             if (!$stmtTyp->execute()) {
                 throw new \Exception('Fehler beim Speichern des Tieres: ' . $stmtTyp->error);
@@ -39,8 +40,12 @@ class VermisstGefundenTierModel extends AbstractModel {
             $typID = $this->db->insert_id;
 
             /* -------------------TierartID- im Formular: Tierart (Katze, Hund, Vogel, Sonstiges)------------------*/
+            $tierart->getTierart()
+            // TO DO: wenn Tierart bereits existiert sollte einfach ID verwenden
+            $tierart::read("Tierart", , '*');
 
-            $stmtTierart = $this->db->prepare ("INSERT INTO tierart (Tierart) VALUES (?)");
+
+            $stmtTierart = $this->db->prepare("INSERT INTO tierart (Tierart) VALUES (?)");
             $valuesTierart = $tierart->getTierart();
 
             //determine Types läuft durch den Array $valuesTierart und bestimmt den Typ
@@ -82,7 +87,7 @@ class VermisstGefundenTierModel extends AbstractModel {
 
             /* -------------------VermisstGefundenTiere- Formular: Ort, Kontaktaufnahme------------------*/
 
-            $stmtVermisstGefundenTier= $this->db->prepare("INSERT INTO vermisstGefundenTiere (TierID, Ort, Knontaktaufnahme) VALUE (?, ?, ?)");
+            $stmtVermisstGefundenTier = $this->db->prepare("INSERT INTO vermisstGefundenTiere (TierID, Ort, Knontaktaufnahme) VALUE (?, ?, ?)");
 
             $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForInsert($tierID);
 
@@ -111,13 +116,12 @@ class VermisstGefundenTierModel extends AbstractModel {
 
                 $typesBilder = self::determineType($valuesBild);
                 $stmtBild->bind_param($typesBilder, ...$valuesBild);
-                if(!$stmtBild->execute()){
+                if (!$stmtBild->execute()) {
                     throw new \Exception('Fehler beim Speichern der Vermisst-/Gefunden-Meldung: ' . $stmtVermisstGefundenTier->error);
                 }
             }
             $this->db->commit();
-        }
-        catch(mysqli_sql_exception $exception){
+        } catch (mysqli_sql_exception $exception) {
             $this->db->rollback();
             throw $exception;
         }

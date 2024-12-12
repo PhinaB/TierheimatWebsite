@@ -1,7 +1,7 @@
 <?php
 
 namespace app\Model;
-class Tierart
+class Tierart extends AbstractModel
 {
     private ?int $tierartID = null;
     private string $tierart;

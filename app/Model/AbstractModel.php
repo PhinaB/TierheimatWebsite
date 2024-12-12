@@ -2,13 +2,15 @@
 
 namespace app\model;
 
-require_once './app/core/Connection.php';
+require_once '../../app/core/Connection.php';
 
-use app\core\Connection;
+use core\Connection;
+use PDO;
 use Throwable; /* genutzt um Ausnahmen und Fehler zu behandeln*/
 
 class AbstractModel
 {
+
 
     protected static function read(string $where = '', array $whereParameter = [], string $selector = '*', int $limit= -1): array
     {
@@ -67,7 +69,7 @@ class AbstractModel
 
     /*INSERT INTO users (username, email, password)
     VALUES ('MaxMuster', 'max@example.com', 'passwort123');*/
-    protected static function create(array $data)
+    protected function insert(array $data)
     {
         //TO DO: implement
     }

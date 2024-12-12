@@ -7,6 +7,7 @@ use app\Model\Tier;
 use app\Model\VermisstGefundenTier;
 use app\Model\TypTier;
 use app\Model\Tierart;
+use InvalidArgumentException;
 
 class VermisstGefundenTierController
 {
@@ -23,10 +24,53 @@ class VermisstGefundenTierController
 
     public function addVermisstGefundenTier(): void {
 
-        /*$input = file_get_contents('php://input');     //liest Rohdaten aus dem Body eines HTTP-Request
-        $data = json_decode($input, true);  */        //Wandelt erhaltene JSON-Daten in PHP-Array um
+        $input = file_get_contents('php://input');     //liest Rohdaten aus dem Body eines HTTP-Request
+        $data = json_decode($input, true);         //Wandelt erhaltene JSON-Daten in PHP-Array um
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+            /*  if (isset($data['unterstuetzungsart']) && $data['unterstuetzungsart'] !== "") {
+            $unterstuetzungsart = 1;
+        }
+        else {
+            throw new InvalidArgumentException('Invalid field "Unterstützungsart".');
+        }*/
+            //Klasse TypTier mit anliegenVermisstGefunden (vermisst/gefunden)
+            if (isset($data['anliegenVermisstGefunden']) && $data['anliegenVermisstGefunden'] !== "")
+            {
+                //TO DO: gibt es den Tiertyp bereits? Sollte im Model stattfinden
+                $typTier= new TypTier($data['anliegenVermisstGefunden']);
+            }
+            else {
+                throw new InvalidArgumentException('Invalid field "AnliegenVermisstGefunden".');
+            }
+
+            //Klasse Tierart mit Tierart
+            if (isset($data['tierart']) && $data['tierart'] !== ""){
+                //TO DO gibt es Tierart bereits?
+
+            }
+            else {
+                throw new InvalidArgumentException('Invalid field "Tierart".');
+            }
+
+            //Klasse Tier mit Datum und Beschreibung
+            if (isset($data['datum']) && $data['datum'] !== "" && $data['beschreibung'] !== ""){
+
+            }
+            else {
+                throw new InvalidArgumentException('Invalid field "Datum" and "Beschreibung".');
+            }
+
+            if (isset($data['tierbild']) && $data['tierbild'] !== ""){
+
+            }
+
+
+
+            // ich muss doch trotzdem noch sicherstellen, dass alles gesetzt wurde.
+            // Sonst erstellt er mir ein Objekt nicht und ich weiß nichts davon.
 
             if (isset($_POST ['absenden'])) {
 
@@ -46,13 +90,14 @@ class VermisstGefundenTierController
                 //Klasse Typ mit anliegenVermisstGefunden (vermisst/gefunden)
                 $typTier= new TypTier($anliegenVermisstGefunden);
 
-                //Klasse Tierart mit Tierart
+
                 $tierart = new Tierart ($tierarten);
+                $
 
 
                 //Klasse Tier mit Datum und Beschreibung
                 $tier = new Tier(); // TODO
-                $tier->setDatum($datum);
+                $tier->setDatum($data['datum']);
                 $tier->setBeschreibung($tierbeschreibung);
 
                 /*$tier = Model->AddTier();
