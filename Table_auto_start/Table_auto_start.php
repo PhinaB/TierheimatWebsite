@@ -113,7 +113,7 @@ $sql_befehle = [
     } else {
         echo 'Fehler bei Befehl: {$befehl}\n' . $conn->error . '\n'; TODO: error existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
     }
-}
+} noch offen für die Dokumentation, Snip incl. ins.
 */
 // bei Service Händler diesen Try Catch mit raussuchen, verstehen und einbinden
 foreach ($sql_befehle as $befehl) {
@@ -185,7 +185,7 @@ $insert_befehle = [
     (2, "Dr. Maier", "tierarzt@example.com", "securepassword3"),
     (2, "Jonas Schulz", "freiwilliger@example.com", "securepassword4"),
     (2, "Anna Berger", "besucher@example.com", "securepassword5");', // TODO: pw sichern, sollen die mit hashing erstellt werden?
-    //hashing ist eine nicht umkehrbare Zeichenkette, diese ermöglicht einen sicheren Schutz vor Datenleaks
+    //hashing ist eine nicht umkehrbare Zeichenkette, diese ermöglicht einen sicheren Schutz vor Datenleaks, kann nur auf die gleiche Weise zurückverfolgt werden wie diese generiert wurde
 
 
 'INSERT INTO Tiere (RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht, Beschreibung, Geburtsjahr, Name,
@@ -214,16 +214,16 @@ $insert_befehle = [
 
 
 'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
-    (1, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/lila.jpg", TRUE, "Lila, eine freundliche Hündin"),
-    (4, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/tigerpython.jpg", TRUE, "Tiger, eine ruhige Python"),
-    (5, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/greta2.jpg", TRUE, "Greta, eine aktive Maus"),
-    (9, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/prachtrosella.jpg", TRUE, "Lora, ein fröhlicher Sittich"),
-    (10, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/wellensittiche2.jpg", TRUE, "Melody, eine musikalische Kanarienvogel-Dame"),
+    (1, "", TRUE, "Lila, eine freundliche Hündin"),
+    (4, "", TRUE, "Tiger, eine ruhige Python"),
+    (5, "", TRUE, "Greta, eine aktive Maus"),
+    (9, "", TRUE, "Lora, ein fröhlicher Sittich"),
+    (10, "", TRUE, "Melody, eine musikalische Kanarienvogel-Dame"),
     (6, "bella.jpg", TRUE, "Bella, eine lebhafte Hündin"), //nur Bildname wird mit Java dann erweitert bzw. ausgeführt, Hauptsächlich Hunde und Katzen einbauen mit paar anderen Tierchen
-    (7, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/flo.jpg", TRUE, "Mila, eine sanfte Katze"),
-    (8, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/prachtrosella2.jpg", TRUE, "Charlie, ein lustiger Papagei"),
-    (9, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/tigerpython2.jpg", TRUE, "Spike, eine ruhige Schlange"),
-    (10, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/fluffy.jpg", TRUE, "Buddy, ein aktiver Hamster");',
+    (7, "", TRUE, "Mila, eine sanfte Katze"),
+    (8, "", TRUE, "Charlie, ein lustiger Papagei"),
+    (9, "", TRUE, "Spike, eine ruhige Schlange"),
+    (10, "", TRUE, "Buddy, ein aktiver Hamster");',
 
 'INSERT INTO ArtikelArten (Art) VALUES
     ("Pflegehinweise"),
