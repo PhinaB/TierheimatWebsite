@@ -36,7 +36,7 @@ $sql_befehle = [
 
     'CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
         VermisstGefundenTiereID INT AUTO_INCREMENT PRIMARY KEY,
-        ZuletztGeaendertNutzerID INT NULL,
+        ZuletztGeaendertNutzerID INT,
         TierartID INT NOT NULL,
         Typ VARCHAR(100) NOT NULL UNIQUE, 
         Datum DATE NOT NULL,
@@ -78,7 +78,7 @@ $sql_befehle = [
 
     'CREATE TABLE IF NOT EXISTS Artikel (
         ArtikelID INT AUTO_INCREMENT PRIMARY KEY,
-        NutzerID INT NOT NULL,
+        NutzerID INT,
         ArtID INT NOT NULL,
         Ueberschrift VARCHAR(200) NOT NULL,
         Zwischenueberschrift VARCHAR(200),
@@ -96,7 +96,7 @@ $sql_befehle = [
 
     'CREATE TABLE IF NOT EXISTS Helfen (
         HelfenID INT AUTO_INCREMENT PRIMARY KEY,
-        NutzerID INT NOT NULL,
+        NutzerID INT,
         ArtDerHilfe INT NOT NULL,
         Angenommen BOOLEAN NOT NULL,
         Zeit TIME,
@@ -321,7 +321,7 @@ FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
 
 CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
 VermisstGefundenTiereID INT AUTO_INCREMENT PRIMARY KEY,
-ZuletztGeaendertNutzerID INT NULL,
+ZuletztGeaendertNutzerID INT,
 TierartID INT NOT NULL,
 Typ VARCHAR(100) NOT NULL UNIQUE,
 Datum DATE NOT NULL,
@@ -363,7 +363,7 @@ Art VARCHAR(100) NOT NULL UNIQUE
 
 CREATE TABLE IF NOT EXISTS Artikel (
 ArtikelID INT AUTO_INCREMENT PRIMARY KEY,
-NutzerID INT NOT NULL,
+NutzerID INT,
 ArtID INT NOT NULL,
 Ueberschrift VARCHAR(200) NOT NULL,
 Zwischenueberschrift VARCHAR(200),
@@ -381,7 +381,7 @@ ArtDerHilfe VARCHAR(255) NOT NULL UNIQUE
 
 CREATE TABLE IF NOT EXISTS Helfen (
 HelfenID INT AUTO_INCREMENT PRIMARY KEY,
-NutzerID INT NOT NULL,
+NutzerID INT,
 ArtDerHilfe INT NOT NULL,
 Angenommen BOOLEAN NOT NULL,
 Zeit TIME,
