@@ -198,7 +198,12 @@ $insert_befehle = [
     (3, "Männlich", "Kuschelt gerne, ideal für Familien.", 2001, "Simba", "Zutraulich", "2024-11-05"),
     (1, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2013, "Bella", "Energisch", "2024-11-10"),
     (1, "Männlich", "Treuer Begleiter, liebt Aufmerksamkeit.", 2012, "Rex", "Treu", "2024-11-11"),
-    (2, "Weiblich", "Sanfte Katze, eher zurückhaltend.", 2011, "Mila", "Sanft", "2024-11-12");',
+    (2, "Weiblich", "Sanfte Katze, eher zurückhaltend.", 2011, "Mila", "Sanft", "2024-11-12"),
+    (3, "Männlich", "Fluffy ist sehr liebevoll zu Kindern.", 2011, "Fluffy", "Liebevoll", "2024-10-12"),
+    (3, "Weiblich", "Hoppel ist gut mit Fluffy befreundet.", 2011, "Hoppel", "Liebevoll", "2024-10-12"),
+    (4, "Weiblich", "Diese Kornnatter liebt es zu fressen.", 2011, "Korni", "Fressgierig", "2024-10-12"),
+    (3, "Weiblich", "Lora spricht gerne alles nach.", 2011, "Lora", "Verspielt", "2024-10-12"),
+    (3, "Weiblich", "Rosella ist sehr bunt.", 2011, "Rosella", "prächtig", "2024-10-12");',
 
     // TODO: korrekte Inserts
 'INSERT INTO VermisstGefundenTiere (TierID, Ort, Kontaktaufnahme) VALUES
@@ -213,7 +218,6 @@ $insert_befehle = [
     (9, "Apolda", "Telefon"),
     (10, "Gera", "Email");',
 
-    // TODO:
     //nur Bildname wird mit Java dann erweitert bzw. ausgeführt, Hauptsächlich Hunde und Katzen einbauen mit paar anderen Tierchen
 'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
     (6, "bella.jpeg", TRUE, "Bella"),
@@ -231,7 +235,17 @@ $insert_befehle = [
     (8, "lilly.jpg", TRUE, "Hund Mila"),
     (8, "lilly2.jpg", FALSE, ""),
     (1, "lila.jpg", TRUE, "Lila"),
-    (1, "lila2.jpg", FALSE, "");',
+    (1, "lila2.jpg", FALSE, ""),
+    (9, "fluffy.jpg", TRUE, "Hase Fluffy"),
+    (9, "fluffy2.jpg", FALSE, ""),
+    (10, "hoppel.jpg", TRUE, "Hase Hoppel"),
+    (10, "hoppel2.jpg", FALSE, ""),
+    (11, "kornnatter.jpg", TRUE, "Kornnatter Korni"),
+    (11, "kornnatter2.jpg", FALSE, ""),
+    (12, "loraJendayasittich.jpg", TRUE, "Jendayasittich Lora"),
+    (12, "loraJendayasittich2.jpg", FALSE, ""),
+    (13, "prachtrosella.jpg", TRUE, "Rosella"),
+    (13, "prachtrosella2.jpg", FALSE, "");',
 
 'INSERT INTO ArtikelArten (Art) VALUES
     ("ServiceInfo"),
