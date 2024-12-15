@@ -31,5 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['method'] === 'loadTiere') {
         exit;
     } catch (InvalidArgumentException | Exception $e) {
         http_response_code(400);
+
+        echo json_encode([
+            'error' => true,
+            'message' => $e->getMessage()
+        ]);
+        exit;
     }
 }

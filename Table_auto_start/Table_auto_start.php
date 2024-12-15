@@ -194,7 +194,7 @@ $insert_befehle = [
     (1, "Weiblich", "Freundliche Hündin, liebt Kinder.", 2001, "Lila", "Verspielt", "2024-11-01"),
     (4, "Weiblich", "Ruhige Schlange, pflegeleicht.", 2011, "Tiger", "Ruhig", "2024-11-02"),
     (3, "Weiblich", "Kleine Maus, sehr aktiv.", 2008, "Greta", "Neugierig", "2024-11-03"),
-    (3, "Weiblich", "Geselliger Sittich.", 2011, "Lora", "Fröhlich", "2024-11-04"),
+    (3, "Weiblich", "Gesellige Sittiche in großer Gruppe.", 2011, "Wellis", "Fröhlich", "2024-11-04"),
     (3, "Männlich", "Kuschelt gerne, ideal für Familien.", 2001, "Simba", "Zutraulich", "2024-11-05"),
     (1, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2013, "Bella", "Energisch", "2024-11-10"),
     (1, "Männlich", "Treuer Begleiter, liebt Aufmerksamkeit.", 2012, "Rex", "Treu", "2024-11-11"),

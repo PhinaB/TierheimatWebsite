@@ -16,8 +16,15 @@ class UnsereTiereController
      */
     public static function loadAllTiere(): array
     {
-        $service = new UnsereTiereModel();
-        return $service->findAllTiere();
+        try {
+            $service = new UnsereTiereModel();
+            return $service->findAllTiere();
+        } catch (Exception $e) {
+            return [
+                'error' => true,
+                'message' => 'Es ist ein Fehler aufgetreten: ' . $e->getMessage(),
+            ];
+        }
     }
 
 }

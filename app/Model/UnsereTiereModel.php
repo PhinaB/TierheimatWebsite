@@ -7,39 +7,48 @@ use Exception;
 
 class UnsereTiereModel
 {
+    private $db;
 
+    /**
+     * @throws Exception
+     */
     public function __construct()
     {
+        try {
+            $this->db = Connection::getInstance();
+        } catch (Exception $e) {
+            throw new Exception("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
+        }
     }
 
     /**
      * @throws Exception
      */
-    public function findAllTiere()
+    public function findAllTiere(): array
     {
-        $db = Connection::getInstance();
+        $sql = "SELECT * FROM Tiere AS t JOIN tierart AS ta ON t.TierartID = ta.TierartID;";
 
-        $sql = "SELECT * FROM Tiere AS t
-            JOIN tierart AS ta ON t.TierartID = ta.TierartID;
-        ";
-
-        $result = $db->query($sql);
-
-
+        try {
+            $result = $this->db->query($sql);
+            if (!$result) {
+                throw new Exception("Fehler bei der Abfrage.");
+            }
+        } catch (Exception $e) {
+            throw new Exception("Fehler beim Abrufen der Tierdaten: " . $e->getMessage());
+        }
 
         $alleTiere = [];
         foreach ($result as $row) {
-            $bilderSql = "SELECT * FROM  bilder AS b
-                WHERE b.TierID = ".$row['TierID'];
+            $bilderSql = "SELECT * FROM  bilder AS b WHERE b.TierID = ".$row['TierID'];
 
-            /* TODO
-            $stmt = $db->prepare($bilderSql);
-
-            if ($stmt->error !== "") {
-                throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmt->error);
-            }*/
-
-            $resultBilder = $db->query($bilderSql);
+            try {
+                $resultBilder = $this->db->query($bilderSql);
+                if (!$resultBilder) {
+                    throw new Exception("Fehler bei der Abfrage der Bilder.");
+                }
+            } catch (Exception $e) {
+                throw new Exception("Fehler beim Abrufen der Bilddaten: " . $e->getMessage());
+            }
 
             $alleBilder = [];
             foreach ($resultBilder as $rowBilder) {
@@ -63,11 +72,8 @@ class UnsereTiereModel
             ];
         }
 
-        $response = [
+        return [
             'tiere' => $alleTiere,
         ];
-
-        return $response;
-
     }
 }
