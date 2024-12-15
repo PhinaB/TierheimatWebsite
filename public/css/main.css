@@ -4,6 +4,8 @@
     --border-color: #A0A0A0;
     --background-menu-smallDisplay: #E8F5DD;
     --color-headlines: #222;
+    --before-image: ;
+    --after-image: ;
 }
 
 * {
@@ -252,6 +254,24 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
 
 .flexWir > * {
     width: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+#loading, .fehlerLoading {
+    text-align:center;
+}
+
+.spinnerGifHeight {
+    height:100px;
+}
+
+.fehlermeldung {
+    color: red;
+    padding-top: 5px;
+    font-size: 0.9em;
 }
 
 @media only screen and (max-width: 1600px) {

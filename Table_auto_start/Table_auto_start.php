@@ -216,12 +216,22 @@ $insert_befehle = [
     // TODO:
     //nur Bildname wird mit Java dann erweitert bzw. ausgeführt, Hauptsächlich Hunde und Katzen einbauen mit paar anderen Tierchen
 'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
-    (6, "bella.jpeg", TRUE, "Bella sitzend"),
-    (6, "bella2.jpeg", FALSE, "Bella liegend"),
-    (5, "greta.jpg", TRUE, "Greta, eine aktive Ratte"),
-    (5, "greta2.jpg", FALSE, "Greta, eine aktive Ratte"),
-    (1, "lila.jpg", TRUE, "Lila sitzend"),
-    (1, "lila2.jpg", FALSE, "Lila stehend");',
+    (6, "bella.jpeg", TRUE, "Bella"),
+    (6, "bella2.jpeg", FALSE, ""),
+    (3, "greta.jpg", TRUE, "Greta, eine aktive Ratte"),
+    (3, "greta2.jpg", FALSE, ""),
+    (2, "tigerpython.jpg", TRUE, "eine tolle Tigerpython"),
+    (2, "tigerpython2.jpg", FALSE, ""),
+    (4, "wellensittiche.jpg", TRUE, "eine Gruppe Wellensittiche"),
+    (4, "wellensittiche2.jpg", FALSE, ""),
+    (5, "simba.jpg", TRUE, "Katze"),
+    (5, "simba2.jpg", FALSE, ""),
+    (7, "rocky.jpg", TRUE, "Hund Rex"),
+    (7, "rocky2.jpg", FALSE, ""),
+    (8, "lilly.jpg", TRUE, "Hund Mila"),
+    (8, "lilly2.jpg", FALSE, ""),
+    (1, "lila.jpg", TRUE, "Lila"),
+    (1, "lila2.jpg", FALSE, "");',
 
 'INSERT INTO ArtikelArten (Art) VALUES
     ("ServiceInfo"),
