@@ -7,7 +7,7 @@ use Exception;
 
 class UnsereTiereModel
 {
-    private $db;
+    private ?Connection $db;
 
     /**
      * @throws Exception
