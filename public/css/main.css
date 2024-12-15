@@ -274,6 +274,13 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     font-size: 0.9em;
 }
 
+.notFoundTile {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 1600px) {
     .grid, .gridIndex {
         padding-top: 67px;
