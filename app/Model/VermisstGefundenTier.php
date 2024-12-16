@@ -7,31 +7,85 @@ require_once '../core/Connection.php';
 class VermisstGefundenTier
 {
     //Object Mapping
-    protected ?int $vermisstGefundenID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
-    protected int $tierID;
-    protected string $ort;
-    protected string $kontaktaufnahme;
+    private ?int $vermisstGefundenTierID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
+    private int $zuletztGeaendertNutzerID;
+    private int $tierartID;
+    private string $typ; //vermisst oder gefunden
+    private string $datum;
+    private string $ort;
+    private string $beschreibung;
+    private string $kontaktaufnahme;
+    private string $bildadresse;
+    private bool $geloescht;
+    private string $zuletztGeaendert;
 
-    public function __construct(string $ort, string $kontaktaufnahme, int $tierID)
+    /**
+     * @param int $zuletztGeaendertNutzerID
+     * @param int $tierartID
+     * @param string $typ
+     * @param string $ort
+     * @param string $beschreibung
+     * @param string $kontaktaufnahme
+     * @param string $bildadresse
+     * @param bool $geloescht
+     * @param string $zuletztGeaendert
+     */
+    public function __construct(int $zuletztGeaendertNutzerID, int $tierartID, string $typ, string $ort, string $beschreibung, string $kontaktaufnahme, string $bildadresse, bool $geloescht, string $zuletztGeaendert)
     {
+        $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
+        $this->tierartID = $tierartID;
+        $this->typ = $typ;
         $this->ort = $ort;
+        $this->beschreibung = $beschreibung;
         $this->kontaktaufnahme = $kontaktaufnahme;
-        $this->tierID = $tierID;
+        $this->bildadresse = $bildadresse;
+        $this->geloescht = $geloescht;
+        $this->zuletztGeaendert = $zuletztGeaendert;
     }
 
-    public function getVermisstGefundenID(): ?int
+    public function getVermisstGefundenTierID(): ?int
     {
-        return $this->vermisstGefundenID;
+        return $this->vermisstGefundenTierID;
     }
 
-    public function getTierID(): int
+    public function getZuletztGeaendertNutzerID(): int
     {
-        return $this->tierID;
+        return $this->zuletztGeaendertNutzerID;
     }
 
-    public function setTierID(int $tierID): void
+    public function setZuletztGeaendertNutzerID(int $zuletztGeaendertNutzerID): void
     {
-        $this->tierID = $tierID;
+        $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
+    }
+
+    public function getTierartID(): int
+    {
+        return $this->tierartID;
+    }
+
+    public function setTierartID(int $tierartID): void
+    {
+        $this->tierartID = $tierartID;
+    }
+
+    public function getTyp(): string
+    {
+        return $this->typ;
+    }
+
+    public function setTyp(string $typ): void
+    {
+        $this->typ = $typ;
+    }
+
+    public function getDatum(): string
+    {
+        return $this->datum;
+    }
+
+    public function setDatum(string $datum): void
+    {
+        $this->datum = $datum;
     }
 
     public function getOrt(): string
@@ -44,6 +98,16 @@ class VermisstGefundenTier
         $this->ort = $ort;
     }
 
+    public function getBeschreibung(): string
+    {
+        return $this->beschreibung;
+    }
+
+    public function setBeschreibung(string $beschreibung): void
+    {
+        $this->beschreibung = $beschreibung;
+    }
+
     public function getKontaktaufnahme(): string
     {
         return $this->kontaktaufnahme;
@@ -54,8 +118,54 @@ class VermisstGefundenTier
         $this->kontaktaufnahme = $kontaktaufnahme;
     }
 
-    public function getValuesForInsert(int $tierID): array {
-        return [$tierID, $this->ort, $this->kontaktaufnahme];
+    public function getBildadresse(): string
+    {
+        return $this->bildadresse;
+    }
+
+    public function setBildadresse(string $bildadresse): void
+    {
+        $this->bildadresse = $bildadresse;
+    }
+
+    public function isGeloescht(): bool
+    {
+        return $this->geloescht;
+    }
+
+    public function setGeloescht(bool $geloescht): void
+    {
+        $this->geloescht = $geloescht;
+    }
+
+    public function getZuletztGeaendert(): string
+    {
+        return $this->zuletztGeaendert;
+    }
+
+    public function setZuletztGeaendert(string $zuletztGeaendert): void
+    {
+        $this->zuletztGeaendert = $zuletztGeaendert;
+    }
+
+
+
+    //TierartID wird übergeben nachdem es generiert wurde
+    // Datum wird aus dem aktuellen Datum generiert im Controller
+    //zuletztGeändertNutzer wird aus der ID des aktuellen Nutzers erstellt
+    public function getValuesForInsert(int $zuletztGeaendertNutzerID, int $tierartID): array {
+        return [
+            $zuletztGeaendertNutzerID,
+            $tierartID,
+            $this->getTyp(),
+            $this->getDatum(),
+            $this->getOrt(),
+            $this->getBeschreibung(),
+            $this->getKontaktaufnahme(),
+            $this->getBildadresse(),
+            $this->isGeloescht(),
+            $this->getZuletztGeaendert(),
+        ];
     }
 }
 

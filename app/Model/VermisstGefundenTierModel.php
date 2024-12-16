@@ -6,12 +6,11 @@ namespace app\Model;
 require_once './core/Connection.php';
 require_once './app/Model/VermisstGefundenTier.php';
 require_once './app/Model/Tier.php';
-require_once './app/Model/TypTier.php';
 
 use core\Connection;
-use app\Model\Tier;
-use app\Model\TypTier;
+use app\Model\VermisstGefundenTier;
 use app\Model\Tierart;
+use Exception;
 
 class VermisstGefundenTierModel extends AbstractModel {
     private $db;
@@ -20,7 +19,71 @@ class VermisstGefundenTierModel extends AbstractModel {
         $this->db = Connection::getInstance()->getConnection();
     }
 
-    public function insertVermisstGefundenTiere (Tier $tier, VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart, TypTier $typTier, ?Bilder $bilder = null)
+   public function insertVermisstGefundenTiere (VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart){
+       // Start einer Transaktion, um Konsistenz zu gewährleisten
+       $this->db->begin_transaction();
+
+       try {
+
+           //---------------------------------------------Tierart-----------------------------------------------
+           $queryTierart = "INSERT INTO Tierart (Tierart) VALUES (?)";
+           $stmtTierart = $this->db->prepare($queryTierart);
+
+           if ($stmtTierart->error !== "") {
+               throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierart->error);
+           }
+
+           $valueTierart = $tierart->getTierart();
+
+
+
+           $stmtTierart->bind_param('s', $valueTierart1);
+
+           if (!$stmtTierart->execute()) {
+               throw new \Exception('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtTierart->error);
+           }
+           //Hole die generierte TierartID
+           $tierartID = $this->db->insert_id;
+
+           //-------------------------------------------------Nutzer-----------------------------------------------
+
+           $nutzerID = 1; //to do: aktuellen Nutzer abfragen
+
+           //--------------------------------------------VermisstGefundenTier---------------------------------------
+
+           $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeandertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeandert)";
+
+           $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
+
+           if ($stmtTierart->error !== "") {
+               throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierart->error);
+           }
+
+           $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForInsert($nutzerID, $tierartID);
+
+           $typesVermisstGefundenTier = self::determineType($valuesVermisstGefundenTier);
+
+           $stmtVermisstGefundenTier->bind_param($typesVermisstGefundenTier, $valuesVermisstGefundenTier);
+
+
+
+
+
+
+
+
+
+       } catch (mysqli_sql_exception $exception) {
+            $this->db->rollback();
+            throw $exception;
+       }
+   }
+
+
+
+
+
+    public function insertVermisstGefundenTiereAlt (Tier $tier, VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart, TypTier $typTier, ?Bilder $bilder = null)
     {
 
         // Start einer Transaktion, um Konsistenz zu gewährleisten
@@ -38,18 +101,18 @@ class VermisstGefundenTierModel extends AbstractModel {
 
             // Hole die generierte TypID
             $typID = $this->db->insert_id;
+            $types = ""
 
             /* -------------------TierartID- im Formular: Tierart (Katze, Hund, Vogel, Sonstiges)------------------*/
-            $tierart->getTierart()
-            // TO DO: wenn Tierart bereits existiert sollte einfach ID verwenden
-            $tierart::read("Tierart", , '*');
+            //$tierart->getTierart();
+
 
 
             $stmtTierart = $this->db->prepare("INSERT INTO tierart (Tierart) VALUES (?)");
             $valuesTierart = $tierart->getTierart();
 
             //determine Types läuft durch den Array $valuesTierart und bestimmt den Typ
-            $types = self::determineType((array)$valuesTierart);
+            $types = self::determineType($valuesTierart);
 
             $stmtTierart->bind_param($types, $valuesTierart);
 
