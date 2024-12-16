@@ -126,7 +126,7 @@ class AbstractModel
                 $types .= 's'; // String
             }
             elseif (is_null($param)) {
-                throw new \InvalidArgumentException("Null-Werte sind nicht erlaubt.");
+                $tyes .='s'; //NULL wird als string behandelt
             }
             else {
                 throw new \InvalidArgumentException("Ungültiger Parameter-Typ: " . gettype($param));

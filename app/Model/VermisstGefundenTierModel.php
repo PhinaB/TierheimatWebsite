@@ -6,12 +6,12 @@ namespace app\Model;
 require_once './core/Connection.php';
 require_once './app/Model/VermisstGefundenTier.php';
 require_once './app/Model/Tier.php';
-require_once './app/Model/TypTier.php';
 
 use core\Connection;
-use app\Model\Tier;
-use app\Model\TypTier;
+use app\Model\VermisstGefundenTier;
 use app\Model\Tierart;
+use Exception;
+use InvalidArgumentException;
 
 class VermisstGefundenTierModel extends AbstractModel {
     private $db;
@@ -20,111 +20,58 @@ class VermisstGefundenTierModel extends AbstractModel {
         $this->db = Connection::getInstance()->getConnection();
     }
 
-    public function insertVermisstGefundenTiere (Tier $tier, VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart, TypTier $typTier, ?Bilder $bilder = null)
-    {
+   public function insertVermisstGefundenTiere (VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart){
+       // Start einer Transaktion, um Konsistenz zu gewährleisten
+       $this->db->begin_transaction();
 
-        // Start einer Transaktion, um Konsistenz zu gewährleisten
-        $this->db->begin_transaction();
+       try {
 
-        try {
-            /* -------------------typTier- im Formular: Anliegen (vermisst/gefunden)------------------*/
-            $stmtTyp = $this->db->prepare("INSERT INTO ArtDerHilfeTyp (Typ) VALUES (?)");
-            $typ = $typTier->getTyp();
-            $stmtTyp->bind_param('s', $typ); // TODO: statt INSERT abfragen, ob die Art bereits existiert
+           //---------------------------------------------Tierart-----------------------------------------------
+           $queryTierart = "INSERT INTO Tierart (Tierart) VALUES (?)"; // TODO: statt INSERT abfragen, ob die Art bereits existiert
+           $stmtTierart = $this->db->prepare($queryTierart);
 
-            if (!$stmtTyp->execute()) {
-                throw new \Exception('Fehler beim Speichern des Tieres: ' . $stmtTyp->error);
-            } // TODO: PHPDocs; InvalidArgumentException & ohne "\"
+           if ($stmtTierart->error !== "") {
+               throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierart->error);
+           }
 
-            // Hole die generierte TypID
-            $typID = $this->db->insert_id;
+           $valueTierart = $tierart->getTierart();
+           
+           $stmtTierart->bind_param('s', $valueTierart1);
 
-            /* -------------------TierartID- im Formular: Tierart (Katze, Hund, Vogel, Sonstiges)------------------*/
-            $tierart->getTierart()
-            // TO DO: wenn Tierart bereits existiert sollte einfach ID verwenden
-            $tierart::read("Tierart", , '*');
+           if (!$stmtTierart->execute()) {
+               throw new \Exception('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtTierart->error);
+           }
+           //Hole die generierte TierartID
+           $tierartID = $this->db->insert_id;
 
+           //-------------------------------------------------Nutzer-----------------------------------------------
 
-            $stmtTierart = $this->db->prepare("INSERT INTO tierart (Tierart) VALUES (?)");
-            $valuesTierart = $tierart->getTierart();
+           $nutzerID = 1; //to do: aktuellen Nutzer abfragen
 
-            //determine Types läuft durch den Array $valuesTierart und bestimmt den Typ
-            $types = self::determineType((array)$valuesTierart);
+           //--------------------------------------------VermisstGefundenTier---------------------------------------
 
-            $stmtTierart->bind_param($types, $valuesTierart);
+           $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeandertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeandert)";
 
-            if (!$stmtTierart->execute()) {
-                throw new \Exception('Fehler beim Speichern des Tieres: ' . $stmtTyp->error);
-            }
-            //Hole die generierte TierartID
-            $tierartID = $this->db->insert_id;
+           $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
 
-            /* -------------------ZuletztGeänderterNutzerID-Nutzer der ausführt-----------------*/
+           if ($stmtTierart->error !== "") {
+               throw new InvalidArgumentException('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierart->error);
+           }
 
-            //TO DO !!!!!!
+           $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForInsert($nutzerID, $tierartID);
 
-            $zuletztGeandertNutzerID = $this->db->insert_id;
+           $typesVermisstGefundenTier = self::determineType($valuesVermisstGefundenTier);
 
-            /* -------------------Tier- im Formular: Datum (verschwunden/gefunden), Beschreibung-----------------*/
+           $stmtVermisstGefundenTier->bind_param($typesVermisstGefundenTier, $valuesVermisstGefundenTier);
 
-            $stmtTier = $this->db->prepare("INSERT INTO tiere (RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht, Beschreibung, Geburtsjahr, 
-            Name, Kastriert, Gesundheitszustand, Charakter, Datum, Geloescht, ZuletztGeaendert) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+           if (!$stmtTierart->execute()) {
+               throw new InvalidArgumentException('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtTierart->error);
+               // TODO: PHPDocs; InvalidArgumentException & ohne "\"
+           }
 
-
-            $valuesTiere = $tier->getValuesForInsert($typID, $tierartID, $zuletztGeandertNutzerID);
-
-            $types = self::determineType($valuesTiere);
-
-            $stmtTier->bind_param($types, ...$valuesTiere);
-
-            if (!$stmtTier->execute()) {
-                throw new \Exception('Fehler beim Speichern des Tieres: ' . $stmtTier->error);
-            }
-
-            // Hole die generierte TierID
-            $tierID = $this->db->insert_id;
-
-            /* -------------------VermisstGefundenTiere- Formular: Ort, Kontaktaufnahme------------------*/
-
-            $stmtVermisstGefundenTier = $this->db->prepare("INSERT INTO vermisstGefundenTiere (TierID, Ort, Knontaktaufnahme) VALUE (?, ?, ?)");
-
-            $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForInsert($tierID);
-
-            $types = self::determineType((array)$valuesVermisstGefundenTier);
-
-            $stmtVermisstGefundenTier->bind_param($types, ...$valuesVermisstGefundenTier);
-
-            if (!$stmtVermisstGefundenTier->execute()) {
-                throw new \Exception('Fehler beim Speichern der Vermisst-/Gefunden-Meldung: ' . $stmtVermisstGefundenTier->error);
-            }
-
-            /* -------------------Bilder- Formular: Bild vom Tier-----------------*/
-            //TO DO: $hauptbild muss 1 sein, damit es als Hauptbild gesehen wird, da bei vemissten und gefundenen Tieren nur ein Bild hochgeladen werden kann
-
-            if ($bilder !== null) {
-
-
-                $stmtBild = $this->db->prepare("INSERT INTO bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUE (?, ?, ?, ?)");
-
-                //Es lässt sich nur ein Bild bei vermissten/gefundenen Tieren einfügen - somit ist es automatisch Hauptbild
-                $hauptbild = 1;
-                //der Alternativtext wird aus der Tierart entwickelt
-                $alternativtext = $tierart->getTierart();
-
-                $valuesBild = $bilder->getValuesForInsert($tierID, $hauptbild, $alternativtext);
-
-                $typesBilder = self::determineType($valuesBild);
-                $stmtBild->bind_param($typesBilder, ...$valuesBild);
-                if (!$stmtBild->execute()) {
-                    throw new \Exception('Fehler beim Speichern der Vermisst-/Gefunden-Meldung: ' . $stmtVermisstGefundenTier->error);
-                }
-            }
-            $this->db->commit();
-        } catch (mysqli_sql_exception $exception) {
+       } catch (mysqli_sql_exception $exception) {
             $this->db->rollback();
             throw $exception;
-        }
-    }
-
+       }
+   }
 }
