@@ -11,13 +11,14 @@ class Route
     }
 
     public function match($url) {
+        $controllerName = 'app\\Controller\\RouteController';
+        $controller = new $controllerName();
+
         if (array_key_exists($url, $this->routes)) {
-            $controllerName = 'app\\Controller\\RouteController';
             $methodName = $this->routes[$url]['method'];
-            $controller = new $controllerName();
             $controller->$methodName();
         } else {
-            echo "404 - Seite nicht gefunden";
+            $controller->pageNotFoundAction();
         }
     }
 }

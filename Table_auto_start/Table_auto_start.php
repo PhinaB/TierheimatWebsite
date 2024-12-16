@@ -6,12 +6,17 @@ use core\Connection;
 $conn = Connection::getInstance()->getConnection();
 //$conn = new Connection();
 
-$sql_befehle = [
 
+
+$sql_befehle = [
+    'CREATE DATABASE IF NOT EXISTS tierheimat;',
+]; // TODO: erstmal diesen Befehl ausführen
+
+$sql_befehle = [
     'CREATE TABLE IF NOT EXISTS Nutzerrollen (
         NutzerrollenID INT AUTO_INCREMENT PRIMARY KEY,
         Rolle VARCHAR(100) NOT NULL UNIQUE
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS Nutzer (
         NutzerID INT AUTO_INCREMENT PRIMARY KEY,
@@ -20,19 +25,19 @@ $sql_befehle = [
         Email VARCHAR(100) NOT NULL UNIQUE,
         Passwort VARCHAR(250) NOT NULL,
         FOREIGN KEY (NutzerrollenID) REFERENCES Nutzerrollen(NutzerrollenID) ON DELETE RESTRICT
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS Tierart (
         TierartID INT AUTO_INCREMENT PRIMARY KEY,
         Tierart VARCHAR(100) NOT NULL UNIQUE
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS Rasse (
         RasseID INT AUTO_INCREMENT PRIMARY KEY,
         TierartID INT NOT NULL,
         Rasse VARCHAR(100) NOT NULL UNIQUE,
         FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
         VermisstGefundenTiereID INT AUTO_INCREMENT PRIMARY KEY,
@@ -48,7 +53,7 @@ $sql_befehle = [
         ZuletztGeaendert DATE NOT NULL,
         FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT,
         FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS Tiere (
         TierID INT AUTO_INCREMENT PRIMARY KEY,
@@ -60,7 +65,7 @@ $sql_befehle = [
         Charakter VARCHAR(255),
         Datum DATE NOT NULL,
         FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS Bilder (
         BilderID INT AUTO_INCREMENT PRIMARY KEY,
@@ -68,13 +73,13 @@ $sql_befehle = [
         Bildadresse VARCHAR(255) NOT NULL,
         Hauptbild BOOLEAN NOT NULL,
         Alternativtext VARCHAR(255) NOT NULL,
-        FOREIGN KEY (TierID) REFERENCES Tiere(TierID) ON DELETE CASCADE
-    )',
+        FOREIGN KEY (TierID) REFERENCES Tiere(TierID) ON DELETE RESTRICT
+    );',
 
     'CREATE TABLE IF NOT EXISTS ArtikelArten (
         ArtID INT AUTO_INCREMENT PRIMARY KEY,
         Art VARCHAR(100) NOT NULL UNIQUE
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS Artikel (
         ArtikelID INT AUTO_INCREMENT PRIMARY KEY,
@@ -87,12 +92,12 @@ $sql_befehle = [
         Bildadresse VARCHAR(255),
         FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
         FOREIGN KEY (ArtID) REFERENCES ArtikelArten(ArtID) ON DELETE RESTRICT
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS ArtDerHilfe (
         ArtID INT AUTO_INCREMENT PRIMARY KEY,
         ArtDerHilfe VARCHAR(255) NOT NULL UNIQUE
-    )',
+    );',
 
     'CREATE TABLE IF NOT EXISTS Helfen (
         HelfenID INT AUTO_INCREMENT PRIMARY KEY,
@@ -104,7 +109,7 @@ $sql_befehle = [
         Wochentag VARCHAR(50),
         FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
         FOREIGN KEY (ArtDerHilfe) REFERENCES ArtDerHilfe(ArtID) ON DELETE RESTRICT
-    )'
+    );'
 ];
 
 /*foreach ($sql_befehle as $befehl) {
@@ -113,7 +118,7 @@ $sql_befehle = [
     } else {
         echo 'Fehler bei Befehl: {$befehl}\n' . $conn->error . '\n'; TODO: error existiert nicht -> mit stmt arbeiten (s. ServiceInfoModel.php) -> auch unten im foreach
     }
-}
+} noch offen für die Dokumentation, Snip incl. ins.
 */
 // bei Service Händler diesen Try Catch mit raussuchen, verstehen und einbinden
 foreach ($sql_befehle as $befehl) {
@@ -138,11 +143,8 @@ $insert_befehle = [
     'INSERT INTO Tierart (Tierart) VALUES
     ("Hund"),
     ("Katze"),
-    ("Vogel"),
-    ("Reptil"),
-    ("Nagetier"),
-    ("Amphibie"),
-    ("Insekt");',
+    ("Kleintiere"),
+    ("Exoten");',
 
 'INSERT INTO Rasse (TierartID, Rasse) VALUES
     (1, "Golden Retriever"),
@@ -165,14 +167,14 @@ $insert_befehle = [
     (4, "Kornnatter"),
     (4, "Gecko"),
     (4, "Chamäleon"),
-    (5, "Maus"),
-    (5, "Hase"),
-    (5, "Kaninchen"),
-    (5, "Hamster"),
-    (5, "Meerschweinchen"),
-    (6, "Axolotl"),
-    (7, "Schmetterling"),
-    (7, "Ameise");',
+    (3, "Maus"),
+    (3, "Hase"),
+    (3, "Kaninchen"),
+    (3, "Hamster"),
+    (3, "Meerschweinchen"),
+    (4, "Axolotl"),
+    (4, "Schmetterling"),
+    (4, "Ameise");',
 
 'INSERT INTO Nutzerrollen (Rolle) VALUES
     ("Administrator"),
@@ -185,21 +187,25 @@ $insert_befehle = [
     (2, "Dr. Maier", "tierarzt@example.com", "securepassword3"),
     (2, "Jonas Schulz", "freiwilliger@example.com", "securepassword4"),
     (2, "Anna Berger", "besucher@example.com", "securepassword5");', // TODO: pw sichern, sollen die mit hashing erstellt werden?
-    //hashing ist eine nicht umkehrbare Zeichenkette, diese ermöglicht einen sicheren Schutz vor Datenleaks
+    //hashing ist eine nicht umkehrbare Zeichenkette, diese ermöglicht einen sicheren Schutz vor Datenleaks, kann nur auf die gleiche Weise zurückverfolgt werden wie diese generiert wurde
 
 
-'INSERT INTO Tiere (RasseID, ZuletztGeaendertNutzerID, TypID, Geschlecht, Beschreibung, Geburtsjahr, Name,
-    Kastriert, Gesundheitszustand, Charakter, Datum, Geloescht, ZuletztGeaendert
-) VALUES
-    (1, 2, 3, "Weiblich", "Freundliche Hündin, liebt Kinder.", 4, "Lila", TRUE, "Gesund", "Verspielt", "2024-11-01", FALSE, "2024-11-20"),
-    (15, 2, 3, "Weiblich", "Ruhige Schlange, pflegeleicht.", 3, "Tiger", FALSE, "Gesund", "Ruhig", "2024-11-02", FALSE, "2024-11-20"),
-    (25, 2, 3, "Weiblich", "Kleine Maus, sehr aktiv.", 1, "Greta", FALSE, "Gesund", "Neugierig", "2024-11-03", FALSE, "2024-11-20"),
-    (9, 3, 3, "Weiblich", "Geselliger Sittich.", 5, "Lora", FALSE, "Gesund", "Fröhlich", "2024-11-04", FALSE, "2024-11-20"),
-    (5, 2, 3, "Männlich", "Kuschelt gerne, ideal für Familien.", 3, "Simba", TRUE, "Gesund", "Zutraulich", "2024-11-05", FALSE, "2024-11-20"),
-    (1, 2, 2, 3, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2, "Bella", TRUE, "Gesund", "Energisch", "2024-11-10", FALSE, "2024-11-20"),
-    (1, 3, 3, 3, "Männlich", "Treuer Begleiter, liebt Aufmerksamkeit.", 5, "Rex", TRUE, "Gesund", "Treu", "2024-11-11", FALSE, "2024-11-20"),
-    (2, 7, 2, 3, "Weiblich", "Sanfte Katze, eher zurückhaltend.", 3, "Mila", FALSE, "Gesund", "Sanft", "2024-11-12", FALSE, "2024-11-20");',
+'INSERT INTO Tiere (TierartID, Geschlecht, Beschreibung, Geburtsjahr, Name, Charakter, Datum) VALUES
+    (1, "Weiblich", "Freundliche Hündin, liebt Kinder.", 2001, "Lila", "Verspielt", "2024-11-01"),
+    (4, "Weiblich", "Ruhige Schlange, pflegeleicht.", 2011, "Tiger", "Ruhig", "2024-11-02"),
+    (3, "Weiblich", "Kleine Maus, sehr aktiv.", 2008, "Greta", "Neugierig", "2024-11-03"),
+    (3, "Weiblich", "Gesellige Sittiche in großer Gruppe.", 2011, "Wellis", "Fröhlich", "2024-11-04"),
+    (3, "Männlich", "Kuschelt gerne, ideal für Familien.", 2001, "Simba", "Zutraulich", "2024-11-05"),
+    (1, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2013, "Bella", "Energisch", "2024-11-10"),
+    (1, "Männlich", "Treuer Begleiter, liebt Aufmerksamkeit.", 2012, "Rex", "Treu", "2024-11-11"),
+    (2, "Weiblich", "Sanfte Katze, eher zurückhaltend.", 2011, "Mila", "Sanft", "2024-11-12"),
+    (3, "Männlich", "Fluffy ist sehr liebevoll zu Kindern.", 2011, "Fluffy", "Liebevoll", "2024-10-12"),
+    (3, "Weiblich", "Hoppel ist gut mit Fluffy befreundet.", 2011, "Hoppel", "Liebevoll", "2024-10-12"),
+    (4, "Weiblich", "Diese Kornnatter liebt es zu fressen.", 2011, "Korni", "Fressgierig", "2024-10-12"),
+    (3, "Weiblich", "Lora spricht gerne alles nach.", 2011, "Lora", "Verspielt", "2024-10-12"),
+    (3, "Weiblich", "Rosella ist sehr bunt.", 2011, "Rosella", "prächtig", "2024-10-12");',
 
+    // TODO: korrekte Inserts
 'INSERT INTO VermisstGefundenTiere (TierID, Ort, Kontaktaufnahme) VALUES
     (1, "Weimar", "Telefon"),
     (2, "Jena", "Email"),
@@ -212,24 +218,38 @@ $insert_befehle = [
     (9, "Apolda", "Telefon"),
     (10, "Gera", "Email");',
 
-
+    //nur Bildname wird mit Java dann erweitert bzw. ausgeführt, Hauptsächlich Hunde und Katzen einbauen mit paar anderen Tierchen
 'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
-    (1, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/lila.jpg", TRUE, "Lila, eine freundliche Hündin"),
-    (4, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/tigerpython.jpg", TRUE, "Tiger, eine ruhige Python"),
-    (5, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/greta2.jpg", TRUE, "Greta, eine aktive Maus"),
-    (9, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/prachtrosella.jpg", TRUE, "Lora, ein fröhlicher Sittich"),
-    (10, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/wellensittiche2.jpg", TRUE, "Melody, eine musikalische Kanarienvogel-Dame"),
-    (6, "bella.jpg", TRUE, "Bella, eine lebhafte Hündin"), //nur Bildname wird mit Java dann erweitert bzw. ausgeführt, Hauptsächlich Hunde und Katzen einbauen mit paar anderen Tierchen
-    (7, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/flo.jpg", TRUE, "Mila, eine sanfte Katze"),
-    (8, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/prachtrosella2.jpg", TRUE, "Charlie, ein lustiger Papagei"),
-    (9, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/tigerpython2.jpg", TRUE, "Spike, eine ruhige Schlange"),
-    (10, $bildPfad = "/Projekt/ws2425_dwp_wachs_herpe_burger/public/img/fluffy.jpg", TRUE, "Buddy, ein aktiver Hamster");',
+    (6, "bella.jpeg", TRUE, "Bella"),
+    (6, "bella2.jpeg", FALSE, ""),
+    (3, "greta.jpg", TRUE, "Greta, eine aktive Ratte"),
+    (3, "greta2.jpg", FALSE, ""),
+    (2, "tigerpython.jpg", TRUE, "eine tolle Tigerpython"),
+    (2, "tigerpython2.jpg", FALSE, ""),
+    (4, "wellensittiche.jpg", TRUE, "eine Gruppe Wellensittiche"),
+    (4, "wellensittiche2.jpg", FALSE, ""),
+    (5, "simba.jpg", TRUE, "Katze"),
+    (5, "simba2.jpg", FALSE, ""),
+    (7, "rocky.jpg", TRUE, "Hund Rex"),
+    (7, "rocky2.jpg", FALSE, ""),
+    (8, "lilly.jpg", TRUE, "Hund Mila"),
+    (8, "lilly2.jpg", FALSE, ""),
+    (1, "lila.jpg", TRUE, "Lila"),
+    (1, "lila2.jpg", FALSE, ""),
+    (9, "fluffy.jpg", TRUE, "Hase Fluffy"),
+    (9, "fluffy2.jpg", FALSE, ""),
+    (10, "hoppel.jpg", TRUE, "Hase Hoppel"),
+    (10, "hoppel2.jpg", FALSE, ""),
+    (11, "kornnatter.jpg", TRUE, "Kornnatter Korni"),
+    (11, "kornnatter2.jpg", FALSE, ""),
+    (12, "loraJendayasittich.jpg", TRUE, "Jendayasittich Lora"),
+    (12, "loraJendayasittich2.jpg", FALSE, ""),
+    (13, "prachtrosella.jpg", TRUE, "Rosella"),
+    (13, "prachtrosella2.jpg", FALSE, "");',
 
 'INSERT INTO ArtikelArten (Art) VALUES
-    ("Pflegehinweise"),
-    ("Erfolgsstory"),
-    ("News"),
-    ("Veranstaltungen");',
+    ("ServiceInfo"),
+    ("Aktuelles");',
 
 /* hier ebenfalls die Bildpfade abändern
 'INSERT INTO Artikel (NutzerID, ArtID, Ueberschrift, Zwischenueberschrift, Text, Datum, Bildadresse) VALUES
@@ -243,16 +263,7 @@ $insert_befehle = [
     ("Spenden sammeln"),
     ("Reinigung der Gehege"),
     ("Transport von Tieren"),
-    ("Aufbau von Unterkünften");',
-
-
-'INSERT INTO Helfen (NutzerID, ArtDerHilfe, Angenommen, Zeit, Datum, Wochentag) VALUES
-    (4, 1, TRUE, "10:00:00", "2024-12-01", "Montag"),
-    (4, 2, TRUE, "14:00:00", "2024-12-02", "Dienstag"),
-    (3, 3, FALSE, "09:00:00", "2024-12-03", "Mittwoch"),
-    (5, 4, TRUE, "11:00:00", "2024-12-04", "Donnerstag"),
-    (2, 5, TRUE, "16:00:00", "2024-12-05", "Freitag")'
-
+    ("Aufbau von Unterkünften");'
 ];
 
 foreach ($insert_befehle as $befehl) {

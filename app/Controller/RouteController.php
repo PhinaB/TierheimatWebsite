@@ -4,64 +4,84 @@ namespace app\Controller;
 
 class RouteController
 {
-    public function indexAction() {
+    public function indexAction(): void
+    {
         //$data = ['title' => 'Willkommen auf der Startseite'];
         include_once '../app/View/home.php';
     }
 
-    public function loadUnsereTiereAction() {
+    public function loadUnsereTiereAction(): void
+    {
         include_once '../app/View/page/unsereTiere.php';
     }
 
-    public function loadUnsereHundeAction() {
+    public function loadUnsereHundeAction(): void
+    {
         include_once '../app/View/page/unsereHunde.php';
     }
 
-    public function loadUnsereKatzenAction() {
+    public function loadUnsereKatzenAction(): void
+    {
         include_once '../app/View/page/unsereKatzen.php';
     }
 
-    public function loadUnsereKleintiereAction() {
+    public function loadUnsereKleintiereAction(): void
+    {
         include_once '../app/View/page/unsereKleintiere.php';
     }
 
-    public function loadUnsereExotenAction() {
+    public function loadUnsereExotenAction(): void
+    {
         include_once '../app/View/page/unsereExoten.php';
     }
 
-    public function loadAktuellesAction() {
+    public function loadAktuellesAction(): void
+    {
         include_once '../app/View/page/aktuelles.php';
     }
 
-    public function loadVermisstGefundenAction() {
+    public function loadVermisstGefundenAction(): void
+    {
         include_once '../app/View/page/vermisstGefunden.php';
     }
 
-    public function loadVermisstAction() {
+    public function loadVermisstAction(): void
+    {
         include_once '../app/View/page/vermisst.php';
     }
 
-    public function loadGefundenAction() {
+    public function loadGefundenAction(): void
+    {
         include_once '../app/View/page/gefunden.php';
     }
 
-    public function loadServiceInfosAction() {
+    public function loadServiceInfosAction(): void
+    {
         include_once '../app/View/page/serviceInfos.php';
     }
 
-    public function loadLoginAction() {
+    public function loadLoginAction(): void
+    {
         include_once '../app/View/page/login.php';
     }
 
-    public function loadImpressumAction() {
+    public function loadImpressumAction(): void
+    {
         include_once '../app/View/page/impressum.php';
     }
 
-    public function loadDokuGWPAction() {
+    public function loadDokuGWPAction(): void
+    {
         include_once '../app/View/dokumentation/dokumentationGWP.php';
     }
 
-    public function loadDokuDWP1Action() {
+    public function loadDokuDWP1Action(): void
+    {
         include_once '../app/View/dokumentation/dokumentationDWP1.php';
+    }
+
+    public function pageNotFoundAction(): void
+    {
+        include_once '../app/View/page/404Template.php';
     }
 }

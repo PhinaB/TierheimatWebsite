@@ -4,6 +4,7 @@ namespace core;
 
 use Exception;
 use mysqli;
+use mysqli_result;
 use mysqli_stmt;
 
 class Connection {
@@ -59,6 +60,30 @@ class Connection {
             $this->connection->close();
             //echo "Verbindung geschlossen./n";
         }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function query(string $sql)
+    {
+        $result = $this->connection->query($sql);
+
+        if (!$result) {
+            throw new Exception("Fehler bei der SQL-Abfrage: " . $this->connection->error);
+        }
+
+        // Ergebnisse verarbeiten, falls es eine SELECT-Abfrage ist
+        if ($result instanceof mysqli_result) {
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data; // Gibt alle Zeilen als Array zurück
+        }
+
+        // Für INSERT/UPDATE/DELETE-Abfragen
+        return $this->connection->affected_rows;
     }
 }
 
