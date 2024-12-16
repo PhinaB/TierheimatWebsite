@@ -9,8 +9,8 @@ function renderBreadcrumb ($currentPage): void {
         <a <?php if ($currentPage != 'index') { echo 'href="../public/"'; } else { echo 'class="disabled"'; } ?>draggable="false">
             <i class="fa-solid fa-house"></i> Startseite</a>
         <?php
-        if ($currentPage === 'Unsere Hunde' || $currentPage === 'Unsere Katzen' || $currentPage === 'Unsere Kleintiere' || $currentPage === 'Unsere Exoten') {
-            echo ' > <a href="unsereTiere" draggable="false">Unsere Tiere</a>';
+        if ($currentPage === 'Hunde' || $currentPage === 'Katzen' || $currentPage === 'Kleintiere' || $currentPage === 'Exoten') {
+            echo ' > <a href="unsereTiere" draggable="false">Alle Tiere</a>';
         }
 
         if ($currentPage === 'Vermisste Tiere' || $currentPage === 'Gefundene Tiere') {

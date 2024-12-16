@@ -16,16 +16,16 @@ function renderMenu ($currentPage): void {
                     Start
                 </a>
                 <div class="dropdown">
-                    <a class="deactivate<?php if ($currentPage === 'Unsere Tiere' || $currentPage === 'Unsere Hunde' || $currentPage === 'Unsere Katzen' || $currentPage === 'Unsere Kleintiere' || $currentPage === 'Unsere Exoten') { echo ' disabled'; } ?>" draggable="false">
+                    <a class="deactivate<?php if ($currentPage === 'Alle Tiere' || $currentPage === 'Hunde' || $currentPage === 'Katzen' || $currentPage === 'Kleintiere' || $currentPage === 'Exoten') { echo ' disabled'; } ?>" draggable="false">
                         <i class="fa-solid fa-paw menuIcon onlySmallMenu"></i>
                         Unsere <br class="onlySmallMenu" />Tiere
                     </a>
                     <div class="submenu smallWidthSubmenu">
-                        <a <?php if ($currentPage === 'Unsere Tiere') { echo 'class="disabled"'; } else { echo 'href="unsereTiere"'; } ?> draggable="false">Alle Tiere</a>
-                        <a <?php if ($currentPage === 'Unsere Hunde') { echo 'class="disabled"'; } else { echo 'href="unsereHunde"'; } ?> draggable="false">Hunde</a>
-                        <a <?php if ($currentPage === 'Unsere Katzen') { echo 'class="disabled"'; } else { echo 'href="unsereKatzen"'; } ?> draggable="false">Katzen</a>
-                        <a <?php if ($currentPage === 'Unsere Kleintiere') { echo 'class="disabled"'; } else { echo 'href="unsereKleintiere"'; } ?> draggable="false">Kleintiere</a>
-                        <a <?php if ($currentPage === 'Unsere Exoten') { echo 'class="disabled"'; } else { echo 'href="unsereExoten"'; } ?> draggable="false">Exoten</a>
+                        <a <?php if ($currentPage === 'Alle Tiere') { echo 'class="disabled"'; } else { echo 'href="unsereTiere"'; } ?> draggable="false">Alle Tiere</a>
+                        <a <?php if ($currentPage === 'Hunde') { echo 'class="disabled"'; } else { echo 'href="unsereHunde"'; } ?> draggable="false">Hunde</a>
+                        <a <?php if ($currentPage === 'Katzen') { echo 'class="disabled"'; } else { echo 'href="unsereKatzen"'; } ?> draggable="false">Katzen</a>
+                        <a <?php if ($currentPage === 'Kleintiere') { echo 'class="disabled"'; } else { echo 'href="unsereKleintiere"'; } ?> draggable="false">Kleintiere</a>
+                        <a <?php if ($currentPage === 'Exoten') { echo 'class="disabled"'; } else { echo 'href="unsereExoten"'; } ?> draggable="false">Exoten</a>
                     </div>
                 </div>
                 <a <?php if ($currentPage === 'Aktuelles') { echo 'class="disabled"'; } else { echo 'href="aktuelles"'; } ?> draggable="false">

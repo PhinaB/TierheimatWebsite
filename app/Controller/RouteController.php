@@ -10,29 +10,18 @@ class RouteController
         include_once '../app/View/home.php';
     }
 
-    public function loadUnsereTiereAction(): void
+    public function loadUnsereTiereAction($category): void
     {
+        $allowedCategories = ['Hunde', 'Katzen', 'Kleintiere', 'Exoten', 'Alle Tiere'];
+
+        if (!in_array($category, $allowedCategories)) {
+            $this->pageNotFoundAction();
+            return;
+        }
+
+        $currentPage = $category;
+
         include_once '../app/View/page/unsereTiere.php';
-    }
-
-    public function loadUnsereHundeAction(): void
-    {
-        include_once '../app/View/page/unsereHunde.php';
-    }
-
-    public function loadUnsereKatzenAction(): void
-    {
-        include_once '../app/View/page/unsereKatzen.php';
-    }
-
-    public function loadUnsereKleintiereAction(): void
-    {
-        include_once '../app/View/page/unsereKleintiere.php';
-    }
-
-    public function loadUnsereExotenAction(): void
-    {
-        include_once '../app/View/page/unsereExoten.php';
     }
 
     public function loadAktuellesAction(): void

@@ -6,8 +6,8 @@ class Route
 {
     protected $routes = [];
 
-    public function add($route, $method) {
-        $this->routes[$route] = ['method' => $method];
+    public function add($route, $method, $attribut) {
+        $this->routes[$route] = ['method' => $method, 'attribut' => $attribut];
     }
 
     public function match($url) {
@@ -16,7 +16,13 @@ class Route
 
         if (array_key_exists($url, $this->routes)) {
             $methodName = $this->routes[$url]['method'];
-            $controller->$methodName();
+            $attribut = $this->routes[$url]['attribut'];
+            if ($attribut !== "") {
+                $controller->$methodName($attribut);
+            }
+            else {
+                $controller->$methodName();
+            }
         } else {
             $controller->pageNotFoundAction();
         }

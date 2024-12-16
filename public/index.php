@@ -8,21 +8,21 @@ require_once '../app/Controller/RouteController.php';
 $router = new Route();
 
 // alle Routen anlegen, die wir haben/brauchen:
-$router->add('/', 'indexAction');
-$router->add('/unsereTiere',  'loadUnsereTiereAction');
-$router->add('/unsereHunde', 'loadUnsereHundeAction');
-$router->add('/unsereKatzen', 'loadUnsereKatzenAction');
-$router->add('/unsereKleintiere', 'loadUnsereKleintiereAction');
-$router->add('/unsereExoten', 'loadUnsereExotenAction');
-$router->add('/aktuelles', 'loadAktuellesAction');
-$router->add('/vermisstGefunden', 'loadVermisstGefundenAction');
-$router->add('/vermisst', 'loadVermisstAction');
-$router->add('/gefunden', 'loadGefundenAction');
-$router->add('/serviceInfos', 'loadServiceInfosAction');
-$router->add('/login', 'loadLoginAction');
-$router->add('/impressum', 'loadImpressumAction');
-$router->add('/dokuGWP', 'loadDokuGWPAction');
-$router->add('/dokuDWP1', 'loadDokuDWP1Action');
+$router->add('/', 'indexAction', "");
+$router->add('/unsereTiere',  'loadUnsereTiereAction', "Alle Tiere");
+$router->add('/unsereHunde', 'loadUnsereTiereAction', "Hunde");
+$router->add('/unsereKatzen', 'loadUnsereTiereAction', "Katzen");
+$router->add('/unsereKleintiere', 'loadUnsereTiereAction', "Kleintiere");
+$router->add('/unsereExoten', 'loadUnsereTiereAction', "Exoten");
+$router->add('/aktuelles', 'loadAktuellesAction', "");
+$router->add('/vermisstGefunden', 'loadVermisstGefundenAction', "");
+$router->add('/vermisst', 'loadVermisstAction', "");
+$router->add('/gefunden', 'loadGefundenAction', "");
+$router->add('/serviceInfos', 'loadServiceInfosAction', "");
+$router->add('/login', 'loadLoginAction', "");
+$router->add('/impressum', 'loadImpressumAction', "");
+$router->add('/dokuGWP', 'loadDokuGWPAction', "");
+$router->add('/dokuDWP1', 'loadDokuDWP1Action', "");
 
 // aus URL filtern, welche Seite aufgerufen werden muss:
 $baseUrl = str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']);
