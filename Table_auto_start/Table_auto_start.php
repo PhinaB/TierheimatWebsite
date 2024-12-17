@@ -8,7 +8,7 @@ $conn = Connection::getInstance()->getConnection();
 
 $sql_befehle = [
     'CREATE DATABASE IF NOT EXISTS tierheimat;',
-]; // TODO: erstmal diesen Befehl ausführen
+]; // TODO: erstmal diesen Befehl ausführen, speichert den SQL Befehl als String in einen Array
 
 $sql_befehle = [
     'CREATE TABLE IF NOT EXISTS Nutzerrollen (
@@ -122,7 +122,7 @@ $sql_befehle = [
 foreach ($sql_befehle as $befehl) {
     try {
         $stmt = $conn->prepare($befehl);
-    } catch (Exception $e) {
+    } catch (Exception $e) { // catch verhindert den Absturz des Skripts → fehler werden ignoriert
 
     } //prepare erstellt php statement, verhindert SQL-Injection
     if ($stmt && $stmt->execute()) { //wenn die Vorbereitung des Statements erfolgreich war und der execute des SQL Zeug abgeschlossen wird es positiv ausgegeben
@@ -277,3 +277,14 @@ Die Untergeordneten Daten werden auf NUll gesetzt, dies ist zB bei UserID etc. h
 
 $stmt, "Prepared Statement" wird verwendet um SQL Anweisungen vorzubreiten und sicher auszuführen, diese dienen ebenfalls als Platzhalter, diese werden aber während bzw. nach der Ausführung ersetzt
 übergibt Parameter, wird verwendet um SQL Injection vorzubeugen
+
+require once bindet "connection.php" einmalig ein und nicht mehrmals
+
+_DIR_ dient asl "magische konstante" in php, diese gibt den absoluten pfad des verzeichnisses zurück, d.h. es ist egal wo sich die bezogene Datei befindet, sie kann auch verschoben werden und wird ausgeführt
+
+use_core/connection Namespaces dienen dazu, Klassen und Funktionen logisch zu organisieren und Namenskollisionen zu vermeiden. Wenn mehrere Klassen denselben Namen (z. B. Connection) haben, hilft der Namespace dabei, die richtige Klasse zu verwenden.
+
+Das Singleton-Pattern stellt sicher, dass es nur eine einzige Instanz der Klasse Connection im gesamten Skript gibt.
+Wenn getInstance() aufgerufen wird:
+Erstellt die Methode eine neue Instanz der Connection-Klasse, falls sie noch nicht existiert.
+
