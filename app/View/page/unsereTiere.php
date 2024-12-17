@@ -21,6 +21,7 @@ renderMenu($currentPage);
         ?>
 
             <div class="tile">
+                <input type="hidden" id="currentTierart" value="<?php echo $currentPage; ?>">
                 <h2>Unsere
                     <?php if ($currentPage === "Alle Tiere") { echo 'Tiere'; }
                     else { echo $currentPage; } ?>
@@ -70,7 +71,7 @@ renderMenu($currentPage);
                         <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
                     </div>
 
-                    <a href="" class="button" title="Button weitere Tiere anzeigen" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen</a>
+                    <a href="" class="button hidden" id="weitereTiereAnzeigen" title="Button weitere Tiere anzeigen" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen</a>
                 </div>
             </div>
         </main>

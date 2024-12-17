@@ -4,6 +4,7 @@ namespace app\Controller;
 
 use app\model\UnsereTiereModel;
 use Exception;
+use InvalidArgumentException;
 
 class UnsereTiereController
 {
@@ -19,10 +20,16 @@ class UnsereTiereController
         http_response_code(201);
 
         try {
-            $unsereTiereModel = new UnsereTiereModel();
-            $alleTiere = $unsereTiereModel->findAllTiere();
+            if (isset($_POST['currentTierart']) && $_POST['currentTierart'] !== "") {
+                $currentTierart = $_POST['currentTierart'];
+            }
+            else {
+                throw new InvalidArgumentException('Invalid field "currentTierart".');
+            }
 
-            // TODO: lade alle Tierarten, Rassen & Geschlecht für Filter
+            $unsereTiereModel = new UnsereTiereModel();
+            $alleTiere = $unsereTiereModel->findAllTiere($currentTierart);
+
             $alleTierarten = $unsereTiereModel->findAllTierartenAndRassen();
             $alleGeschlechter = $unsereTiereModel->findAllGeschlechter();
 

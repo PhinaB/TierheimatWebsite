@@ -139,8 +139,8 @@ echo 'Alle Tabellen erfolgreich erstellt.\n';
 $insert_befehle = [
 
     'INSERT INTO Tierart (Tierart) VALUES
-    ("Hund"),
-    ("Katze"),
+    ("Hunde"),
+    ("Katzen"),
     ("Kleintiere"),
     ("Exoten");',
 
@@ -189,17 +189,18 @@ $insert_befehle = [
 'INSERT INTO Tiere (TierartID, Geschlecht, Beschreibung, Geburtsjahr, Name, Charakter, Datum) VALUES
     (1, "Weiblich", "Freundliche Hündin, liebt Kinder.", 2001, "Lila", "Verspielt", "2024-11-01"),
     (4, "Weiblich", "Ruhige Schlange, pflegeleicht.", 2011, "Tiger", "Ruhig", "2024-11-02"),
-    (3, "Weiblich", "Kleine Maus, sehr aktiv.", 2008, "Greta", "Neugierig", "2024-11-03"),
+    (4, "Weiblich", "Kleine Maus, sehr aktiv.", 2008, "Greta", "Neugierig", "2024-11-03"),
     (3, "Weiblich", "Gesellige Sittiche in großer Gruppe.", 2011, "Wellis", "Fröhlich", "2024-11-04"),
-    (3, "Männlich", "Kuschelt gerne, ideal für Familien.", 2001, "Simba", "Zutraulich", "2024-11-05"),
+    (2, "Männlich", "Kuschelt gerne, ideal für Familien.", 2001, "Simba", "Zutraulich", "2024-11-05"),
     (1, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2013, "Bella", "Energisch", "2024-11-10"),
     (1, "Männlich", "Treuer Begleiter, liebt Aufmerksamkeit.", 2012, "Rex", "Treu", "2024-11-11"),
-    (2, "Weiblich", "Sanfte Katze, eher zurückhaltend.", 2011, "Mila", "Sanft", "2024-11-12"),
+    (1, "Weiblich", "Sanfter Hund, eher zurückhaltend.", 2011, "Mila", "Sanft", "2024-11-12"),
     (3, "Männlich", "Fluffy ist sehr liebevoll zu Kindern.", 2011, "Fluffy", "Liebevoll", "2024-10-12"),
     (3, "Weiblich", "Hoppel ist gut mit Fluffy befreundet.", 2011, "Hoppel", "Liebevoll", "2024-10-12"),
     (4, "Weiblich", "Diese Kornnatter liebt es zu fressen.", 2011, "Korni", "Fressgierig", "2024-10-12"),
     (3, "Weiblich", "Lora spricht gerne alles nach.", 2011, "Lora", "Verspielt", "2024-10-12"),
-    (3, "Weiblich", "Rosella ist sehr bunt.", 2011, "Rosella", "prächtig", "2024-10-12");',
+    (3, "Weiblich", "Rosella ist sehr bunt.", 2011, "Rosella", "prächtig", "2024-10-12"),
+    (4, "Weiblich", "Unser liebevoll getauftes Mosnter ist rasend schnell unterwegs.", 2011, "Monster", "Fressgierig", "2024-02-12");',
 
     // TODO: korrekte Inserts -> noch alle anderen erstellen
 'INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES
@@ -233,7 +234,9 @@ $insert_befehle = [
     (12, "loraJendayasittich.jpg", TRUE, "Jendayasittich Lora"),
     (12, "loraJendayasittich2.jpg", FALSE, ""),
     (13, "prachtrosella.jpg", TRUE, "Rosella"),
-    (13, "prachtrosella2.jpg", FALSE, "");',
+    (13, "prachtrosella2.jpg", FALSE, ""),
+    (14, "kornnatter2.jpg", TRUE, "Kornnatter Monster"),
+    (14, "kornnatter.jpg", FALSE, "");',
 
 'INSERT INTO ArtikelArten (Art) VALUES
     ("ServiceInfo"),

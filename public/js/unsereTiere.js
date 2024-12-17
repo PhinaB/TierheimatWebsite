@@ -5,8 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
 let tierartenMitRassen = {};
 
 function loadTiere () {
+    document.querySelector('#weitereTiereAnzeigen').classList.add('hidden');
     let fehlerGesamt = document.querySelector('.fehlerLoading');
     fehlerGesamt.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
+
+    let currentTierart = document.querySelector('#currentTierart').value;
 
     // Ajax:
     const xhttp = new XMLHttpRequest();
@@ -16,16 +19,24 @@ function loadTiere () {
             if (xhttp.status >= 200 && xhttp.status < 300) {
                 let response = JSON.parse(this.response);
 
-                setTiereToPage(response.tiere);
+                if (response.tiere.length === 0) {
+                    fehlerGesamt.innerHTML = "Wir haben leider gerade kein Tier dieser Tierart!";
+                }
+                else {
+                    setTiereToPage(response.tiere);
 
-                // TODO: prüfen, welche Tierart im Menü ausgewählt wurde -> nur wenn alle Tiere angezeigt werden sollen, sind auch die selects verfügbar
+                    if (currentTierart === "Alle Tiere") {
+                        let selectTierart = document.querySelector('select[id=tierartAuswählen]');
+                        let selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
+                        addFilteroptionToSelect(selectTierart, response.tierarten);
+                        addFilteroptionToSelect(selectGeschlecht, response.geschlecht);
 
-                let selectTierart = document.querySelector('select[id=tierartAuswählen]');
-                let selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
-                addFilteroptionToSelect(selectTierart, response.tierarten);
-                addFilteroptionToSelect(selectGeschlecht, response.geschlecht);
-
-                tierartenMitRassen = response.tierarten;
+                        tierartenMitRassen = response.tierarten;
+                        if (response.tiere.length > 8) { // TODO: Zahl ändern & dann alle anderen Tiere erstmal noch nicht anzeigen
+                            document.querySelector('#weitereTiereAnzeigen').classList.remove('hidden');
+                        }
+                    }
+                }
 
                 document.querySelector('#page').classList.remove('hidden');
             }
@@ -39,7 +50,7 @@ function loadTiere () {
     }
     xhttp.open('POST', '../public/load/alle/unsere/tiere');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send();
+    xhttp.send('currentTierart='+currentTierart);
 }
 
 function setTiereToPage (tiere) {

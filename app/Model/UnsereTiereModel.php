@@ -24,11 +24,26 @@ class UnsereTiereModel
     /**
      * @throws Exception
      */
-    public function findAllTiere(): array
+    public function findAllTiere($tierart): array
     {
-        $sql = "SELECT * FROM Tiere AS t JOIN tierart AS ta ON t.TierartID = ta.TierartID;";
+        $sql = "SELECT * FROM Tiere AS t JOIN tierart AS ta ON t.TierartID = ta.TierartID";
 
-        $result = $this->db->executeQuery($sql);
+        $order = " ORDER BY t.Name";
+
+        if ($tierart !== "Alle Tiere") {
+            // TODO richtige Tierart ID suchen und nach allen Tieren suchen, die diese Tierart haben
+            $sql .= " WHERE ta.Tierart = ?".$order.";";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("s", $tierart);
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+        } else {
+            $sql .= "$order;";
+
+            $result = $this->db->executeQuery($sql);
+        }
 
         $alleTiere = [];
         foreach ($result as $row) {
