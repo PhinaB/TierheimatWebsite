@@ -119,8 +119,11 @@ function changeRasseSelect() {
                 addFilteroptionToSelect(rasseSelect, tierartenMitRassen[i].rassen);
             }
         }
+
+        rasseSelect.style.cursor = "pointer";
     }
     else {
         rasseSelect.setAttribute('disabled', 'disabled');
+        rasseSelect.style.cursor = "default";
     }
 }

@@ -44,7 +44,7 @@ renderMenu($currentPage);
                                         </select>
                                     </div><div>
                                         <label for="rasseAuswählen"> Rasse: </label>
-                                        <select name="rasseAuswählen" id="rasseAuswählen" disabled>
+                                        <select name="rasseAuswählen" id="rasseAuswählen" disabled style="cursor: default;">
                                             <option value="rasseWählen">Bitte auswählen</option>
                                         </select>
                                     </div><div>
