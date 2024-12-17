@@ -13,6 +13,15 @@
     </div>
 
     <form action="../public/tier/melden" method="post" class="flex-containerVermisstGefundenmelden">
+        <!--
+           TODO: Hinweis für Phina:
+             form Element so umschreiben: <form id="meinFormular" method="post">
+             in js:
+               document.getElementById('meinFormular').addEventListener('submit', function(event) {
+                 event.preventDefault(); // Verhindert den normalen Seitenwechsel
+                 // hier ajax
+               }
+        -->
         <div class="flex-item1">
             <div class="flex-itemAnliegen">
                 <label for="anliegenVermisstGefunden" class="h3">Anliegen: <span class="redPflichtfeld">*</span></label>
