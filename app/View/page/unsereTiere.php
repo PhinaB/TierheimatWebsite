@@ -2,8 +2,6 @@
 <html lang="de">
 <head>
     <?php
-    $currentPage = 'Unsere Tiere';
-
     include __DIR__ . '/../includes/mainStylesheets.php';
     ?>
     
@@ -23,7 +21,10 @@ renderMenu($currentPage);
         ?>
 
             <div class="tile">
-                <h2>Unsere Tiere</h2>
+                <h2>Unsere
+                    <?php if ($currentPage === "Alle Tiere") { echo 'Tiere'; }
+                    else { echo $currentPage; } ?>
+                </h2>
                 <hr class="underHeadline" />
 
                 <div id="loading">
@@ -34,17 +35,19 @@ renderMenu($currentPage);
                 <p class="fehlermeldung fehlerLoading"></p>
 
                 <div id="page" class="hidden">
-                    <form class="formUnsereTiere" action="#" method="post">
-                        <label for="tierartAuswählen"> Tierart: </label>
-                            <select name="tierartAuswählen" id="tierartAuswählen">
-                                <option value="tierartWählen">Tierart auswählen</option>
-                                <option value="hunde">Hunde</option>
-                                <option value="katzen">Katzen</option>
-                                <option value="kleintiere">Kleintiere</option>
-                                <option value="exoten">Exoten</option>
-                            </select>
-                            <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i>   Suchen</button>
-                    </form>
+                    <?php if ($currentPage === "Alle Tiere") { ?>
+                        <form class="formUnsereTiere" action="#" method="post">
+                            <label for="tierartAuswählen"> Tierart: </label>
+                                <select name="tierartAuswählen" id="tierartAuswählen">
+                                    <option value="tierartWählen">Tierart auswählen</option>
+                                    <option value="hunde">Hunde</option>
+                                    <option value="katzen">Katzen</option>
+                                    <option value="kleintiere">Kleintiere</option>
+                                    <option value="exoten">Exoten</option>
+                                </select>
+                                <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i>   Suchen</button>
+                        </form>
+                    <?php } ?>
 
                     <div id="copyAlleTiereHere"></div>
 

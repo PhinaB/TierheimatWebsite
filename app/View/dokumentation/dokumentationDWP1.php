@@ -16,6 +16,18 @@
         <a href="impressum" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
     </header>
 
+    <!--
+    TODO WICHTIG!!!!
+
+    -ERM und relationales Modell für die DB!
+    -Rollenmodell für die Nutzer
+    -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung
+    -Beschreibung der Funktionalitäten für jede Seite (beschriftete Screenshots)
+     -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ...
+    -Auflistung Tätigkeiten jeder Person und benötigter Aufwand
+
+    -->
+
     <main>
         <div class="container deckblatt">
             <div>
