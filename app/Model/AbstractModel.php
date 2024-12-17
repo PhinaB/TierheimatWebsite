@@ -2,9 +2,11 @@
 
 namespace app\model;
 
-require_once '../../app/core/Connection.php';
+//require_once '../../app/core/Connection.php';
 
 use core\Connection;
+use DateTime;
+use InvalidArgumentException;
 use PDO;
 use Throwable; /* genutzt um Ausnahmen und Fehler zu behandeln*/
 
@@ -124,15 +126,18 @@ class AbstractModel
                 $types .= 'd'; // Double
             } elseif (is_string($param)) {
                 $types .= 's'; // String
-            }
-            elseif (is_null($param)) {
-                $tyes .='s'; //NULL wird als string behandelt
-            }
-            else {
-                throw new \InvalidArgumentException("Ungültiger Parameter-Typ: " . gettype($param));
+            } elseif (is_null($param)) {
+                $types .='s'; //NULL wird als string behandelt
+            } elseif (is_bool($param)) {
+                $types .= 'i'; // Boolean als Integer behandeln
+            } elseif ($param instanceof DateTime) {
+                $types .= 's'; // DateTime wird als String behandelt
+            } else {
+                throw new InvalidArgumentException("Ungültiger Parameter-Typ: " . gettype($param));
             }
         }
-            return $types;
+
+        return $types;
     }
     private static function getClassname (): string
     {

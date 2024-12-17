@@ -3,19 +3,17 @@
 //hier kommen die CRUD-Statements rein
 namespace app\Model;
 
-require_once './core/Connection.php';
-require_once './app/Model/VermisstGefundenTier.php';
-require_once './app/Model/Tier.php';
+//require_once './app/Model/VermisstGefundenTier.php';
+//require_once './app/Model/Tier.php';
 
 use core\Connection;
-use app\Model\VermisstGefundenTier;
-use app\Model\Tierart;
 use Exception;
 use InvalidArgumentException;
-use mysqli_sql_exception;
+use mysqli;
 
-class VermisstGefundenTierModel extends AbstractModel {
-    private $db;
+class VermisstGefundenTierModel extends AbstractModel
+{
+    private mysqli $db;
 
     public function __construct() {
         $this->db = Connection::getInstance()->getConnection();
@@ -81,7 +79,7 @@ class VermisstGefundenTierModel extends AbstractModel {
            //--------------------------------------------VermisstGefundenTier---------------------------------------
 
            //TODO: Bildadresse
-           $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeandertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeandert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+           $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
            $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
 
@@ -108,6 +106,9 @@ class VermisstGefundenTierModel extends AbstractModel {
        }
    }
 
+    /**
+     * @throws Exception
+     */
     public function findAllVermisstOrGefundenTiere(string $vermisstOrGefunden): array
     {
         $sql = "SELECT * FROM VermisstGefundenTiere AS v JOIN tierart AS t ON v.TierartID = t.TierartID WHERE v.typ = ?";

@@ -12,7 +12,7 @@
         </p>
     </div>
 
-    <form action="../../Controller/VermisstGefundenTierController.php" method="post" class="flex-containerVermisstGefundenmelden">
+    <form action="../public/tier/melden" method="post" class="flex-containerVermisstGefundenmelden">
         <div class="flex-item1">
             <div class="flex-itemAnliegen">
                 <label for="anliegenVermisstGefunden" class="h3">Anliegen: <span class="redPflichtfeld">*</span></label>

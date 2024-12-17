@@ -2,8 +2,8 @@
 
 namespace app\model;
 
-require_once '../../core/Connection.php';
 //Klasse dient als Datentransportobjekt
+
 class VermisstGefundenTier
 {
     //Object Mapping
@@ -30,8 +30,17 @@ class VermisstGefundenTier
      * @param bool $geloescht
      * @param string $zuletztGeaendert
      */
-    public function __construct(int $zuletztGeaendertNutzerID, string $typ, string $ort, string $beschreibung, string $kontaktaufnahme, string $bildadresse, bool $geloescht, string $zuletztGeaendert)
-    {
+    public function __construct(
+        int $zuletztGeaendertNutzerID,
+        string $typ,
+        string $datum,
+        string $ort,
+        string $beschreibung,
+        string $kontaktaufnahme,
+        string $bildadresse,
+        bool $geloescht,
+        string $zuletztGeaendert
+    ) {
         $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
         $this->typ = $typ;
         $this->ort = $ort;
@@ -40,6 +49,7 @@ class VermisstGefundenTier
         $this->bildadresse = $bildadresse;
         $this->geloescht = $geloescht;
         $this->zuletztGeaendert = $zuletztGeaendert;
+        $this->datum = $datum;
     }
 
     public function getVermisstGefundenTierID(): ?int
