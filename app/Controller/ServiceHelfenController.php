@@ -5,12 +5,8 @@ use app\Model\ServiceInfoModel;
 use Exception;
 use InvalidArgumentException;
 
-class ServiceHelfenController // extends AbstractController
+class ServiceHelfenController
 {
-    public function __construct()
-    {
-    }
-
     /**
      * @throws Exception
      */

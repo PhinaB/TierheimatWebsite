@@ -8,10 +8,6 @@ use InvalidArgumentException;
 
 class UnsereTiereController
 {
-    public function __construct()
-    {
-    }
-
     /**
      * @throws Exception
      */
