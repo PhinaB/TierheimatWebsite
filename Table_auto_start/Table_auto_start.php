@@ -4,8 +4,6 @@ require_once __DIR__."/../core/Connection.php";
 use core\Connection;
 
 $conn = Connection::getInstance()->getConnection();
-//$conn = new Connection();
-
 
 
 $sql_befehle = [
@@ -187,8 +185,6 @@ $insert_befehle = [
     (2, "Dr. Maier", "tierarzt@example.com", "securepassword3"),
     (2, "Jonas Schulz", "freiwilliger@example.com", "securepassword4"),
     (2, "Anna Berger", "besucher@example.com", "securepassword5");', // TODO: pw sichern, sollen die mit hashing erstellt werden?
-    //hashing ist eine nicht umkehrbare Zeichenkette, diese ermöglicht einen sicheren Schutz vor Datenleaks, kann nur auf die gleiche Weise zurückverfolgt werden wie diese generiert wurde
-
 
 'INSERT INTO Tiere (TierartID, Geschlecht, Beschreibung, Geburtsjahr, Name, Charakter, Datum) VALUES
     (1, "Weiblich", "Freundliche Hündin, liebt Kinder.", 2001, "Lila", "Verspielt", "2024-11-01"),
@@ -205,20 +201,12 @@ $insert_befehle = [
     (3, "Weiblich", "Lora spricht gerne alles nach.", 2011, "Lora", "Verspielt", "2024-10-12"),
     (3, "Weiblich", "Rosella ist sehr bunt.", 2011, "Rosella", "prächtig", "2024-10-12");',
 
-    // TODO: korrekte Inserts
-'INSERT INTO VermisstGefundenTiere (TierID, Ort, Kontaktaufnahme) VALUES
-    (1, "Weimar", "Telefon"),
-    (2, "Jena", "Email"),
-    (3, "Erfurt", "Telefon"),
-    (4, "Apolda", "Telefon"),
-    (5, "Arnstadt", "Email"),
-    (6, "Weimar", "Telefon"),
-    (7, "Erfurt", "Telefon"),
-    (8, "Jena", "Email"),
-    (9, "Apolda", "Telefon"),
-    (10, "Gera", "Email");',
+    // TODO: korrekte Inserts -> noch alle anderen erstellen
+'INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES
+    (1, 1, "vermisst", "2024-01-02 00:00:000", "Weimar", "Wir waren am Samstag Abend mit Pablo in Weimar am Park an der Ilm spazieren und haben ihn nur kurz aus den Augen gelassen. Wir vermissen ihn sehr. Jeder Hinweis könnte uns bei der Suche helfen.", "telefon", "pablo.jpg", 0, "2024-01-02 00:00:000"),
+    (2, 3, "vermisst", "2024-03-02 00:00:000", "Vieselbach", "Luke ist...", "telefon", "luke.jpg", 0, "2024-01-02 00:00:000"),
+    (2, 2, "vermisst", "2024-01-03 00:00:000", "Vieselbach", "Lotta ist...", "email", "lotta.jpg", 0, "2024-01-04 00:00:000");',
 
-    //nur Bildname wird mit Java dann erweitert bzw. ausgeführt, Hauptsächlich Hunde und Katzen einbauen mit paar anderen Tierchen
 'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
     (6, "bella.jpeg", TRUE, "Bella"),
     (6, "bella2.jpeg", FALSE, ""),
@@ -259,11 +247,11 @@ $insert_befehle = [
 */
 
 'INSERT INTO ArtDerHilfe (ArtDerHilfe) VALUES
-    ("Pflege von Tieren"),
-    ("Spenden sammeln"),
+    ("Tiere füttern"),
+    ("Spazieren gehen"),
     ("Reinigung der Gehege"),
     ("Transport von Tieren"),
-    ("Aufbau von Unterkünften");'
+    ("Kleintiersitting");'
 ];
 
 foreach ($insert_befehle as $befehl) {
@@ -286,119 +274,3 @@ Die Untergeordneten Daten werden auf NUll gesetzt, dies ist zB bei UserID etc. h
 
 $stmt, "Prepared Statement" wird verwendet um SQL Anweisungen vorzubreiten und sicher auszuführen, diese dienen ebenfalls als Platzhalter, diese werden aber während bzw. nach der Ausführung ersetzt
 übergibt Parameter, wird verwendet um SQL Injection vorzubeugen
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-CREATE TABLE IF NOT EXISTS Nutzerrollen (
-NutzerrollenID INT AUTO_INCREMENT PRIMARY KEY,
-Rolle VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE IF NOT EXISTS Nutzer (
-NutzerID INT AUTO_INCREMENT PRIMARY KEY,
-NutzerrollenID INT NOT NULL,
-Name VARCHAR(100) NOT NULL,
-Email VARCHAR(100) NOT NULL UNIQUE,
-Passwort VARCHAR(250) NOT NULL,
-FOREIGN KEY (NutzerrollenID) REFERENCES Nutzerrollen(NutzerrollenID) ON DELETE RESTRICT
-);
-
-CREATE TABLE IF NOT EXISTS Tierart (
-TierartID INT AUTO_INCREMENT PRIMARY KEY,
-Tierart VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE IF NOT EXISTS Rasse (
-RasseID INT AUTO_INCREMENT PRIMARY KEY,
-TierartID INT NOT NULL,
-Rasse VARCHAR(100) NOT NULL UNIQUE,
-FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
-);
-
-CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
-VermisstGefundenTiereID INT AUTO_INCREMENT PRIMARY KEY,
-ZuletztGeaendertNutzerID INT,
-TierartID INT NOT NULL,
-Typ VARCHAR(100) NOT NULL UNIQUE,
-Datum DATE NOT NULL,
-Ort VARCHAR(250) NOT NULL,
-Beschreibung VARCHAR(500) NOT NULL,
-Kontaktaufnahme VARCHAR(50) NOT NULL,
-Bildadresse VARCHAR(255) NOT NULL,
-Geloescht BOOLEAN NOT NULL,
-ZuletztGeaendert DATE NOT NULL,
-FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT,
-FOREIGN KEY (ZuletztGeaendertNutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL
-);
-
-CREATE TABLE IF NOT EXISTS Tiere (
-TierID INT AUTO_INCREMENT PRIMARY KEY,
-TierartID INT NOT NULL,
-Geschlecht VARCHAR(50),
-Beschreibung VARCHAR(500) NOT NULL,
-Geburtsjahr INT,
-Name VARCHAR(100),
-Charakter VARCHAR(255),
-Datum DATE NOT NULL,
-FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
-);
-
-CREATE TABLE IF NOT EXISTS Bilder (
-BilderID INT AUTO_INCREMENT PRIMARY KEY,
-TierID INT NOT NULL,
-Bildadresse VARCHAR(255) NOT NULL,
-Hauptbild BOOLEAN NOT NULL,
-Alternativtext VARCHAR(255) NOT NULL,
-FOREIGN KEY (TierID) REFERENCES Tiere(TierID) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS ArtikelArten (
-ArtID INT AUTO_INCREMENT PRIMARY KEY,
-Art VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE IF NOT EXISTS Artikel (
-ArtikelID INT AUTO_INCREMENT PRIMARY KEY,
-NutzerID INT,
-ArtID INT NOT NULL,
-Ueberschrift VARCHAR(200) NOT NULL,
-Zwischenueberschrift VARCHAR(200),
-Text VARCHAR(500) NOT NULL,
-Datum DATE NOT NULL,
-Bildadresse VARCHAR(255),
-FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
-FOREIGN KEY (ArtID) REFERENCES ArtikelArten(ArtID) ON DELETE RESTRICT
-);
-
-CREATE TABLE IF NOT EXISTS ArtDerHilfe (
-ArtID INT AUTO_INCREMENT PRIMARY KEY,
-ArtDerHilfe VARCHAR(255) NOT NULL UNIQUE
-);
-
-CREATE TABLE IF NOT EXISTS Helfen (
-HelfenID INT AUTO_INCREMENT PRIMARY KEY,
-NutzerID INT,
-ArtDerHilfe INT NOT NULL,
-Angenommen BOOLEAN NOT NULL,
-Zeit TIME,
-Datum DATE,
-Wochentag VARCHAR(50),
-FOREIGN KEY (NutzerID) REFERENCES Nutzer(NutzerID) ON DELETE SET NULL,
-FOREIGN KEY (ArtDerHilfe) REFERENCES ArtDerHilfe(ArtID) ON DELETE RESTRICT
-);
-*/
