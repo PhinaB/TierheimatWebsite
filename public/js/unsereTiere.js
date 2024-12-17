@@ -68,7 +68,7 @@ function loadTiere () {
             spinner.classList.add('hidden');
         }
     }
-    xhttp.open('POST', '../app/Service/serviceHandler.php?method=loadTiere');
+    xhttp.open('POST', '../public/load/alle/unsere/tiere');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send();
 }

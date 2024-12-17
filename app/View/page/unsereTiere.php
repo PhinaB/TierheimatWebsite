@@ -45,6 +45,18 @@ renderMenu($currentPage);
                                     <option value="kleintiere">Kleintiere</option>
                                     <option value="exoten">Exoten</option>
                                 </select>
+
+                            <label for="tierartAuswählen"> Rasse: </label>
+                                <select name="tierartAuswählen" id="tierartAuswählen">
+                                    <option value="rasseWählen">Tierart auswählen</option>
+                                </select>
+
+                            <label for="tierartAuswählen"> Geschlecht: </label>
+                                <select name="tierartAuswählen" id="tierartAuswählen">
+                                    <option value="tierartWählen">Tierart auswählen</option>
+                                    <option value="Männlich">Männlich</option>
+                                    <option value="Weiblich">Weiblich</option>
+                                </select>
                                 <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i>   Suchen</button>
                         </form>
                     <?php } ?>

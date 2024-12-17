@@ -421,7 +421,7 @@ function absenden () {
             }
         }
     }
-    xhttp.open('POST', '../app/Service/serviceHandler.php?method=addServiceInfo');
+    xhttp.open('POST', '../public/add/helfen');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send(jsonData);
 }

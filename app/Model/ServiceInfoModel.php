@@ -4,28 +4,28 @@ namespace app\Model;
 
 use core\Connection;
 use Exception;
+use mysqli;
 
 class ServiceInfoModel
 {
+    private mysqli $db;
 
-    public function __construct()
-    {
+    public function __construct() {
+        $this->db = Connection::getInstance()->getConnection();
     }
 
     /**
      * @throws Exception
      */
-    public function saveServiceInfo($unterstuetzungsart, $dates, $times, $weekdays, $weekdayTimes)
+    public function saveServiceInfo($unterstuetzungsart, $dates, $times, $weekdays, $weekdayTimes): void
     {
-        $db = Connection::getInstance();
-
         try {
             if ($dates[0] !== '' && $times[0] !== '') {
                 for ($i = 0; $i < count($dates); $i++) {
                     $query = "INSERT INTO helfen (NutzerID, ArtDerHilfe, Angenommen, Zeit, Datum, Wochentag) 
                         VALUES (?, ?, ?, ?, ?, ?)";
 
-                    $stmt = $db->prepare($query);
+                    $stmt = $this->db->prepare($query);
 
                     if ($stmt->error !== "") {
                         throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmt->error);
@@ -56,7 +56,7 @@ class ServiceInfoModel
                     $query = "INSERT INTO helfen (NutzerID, ArtDerHilfe, Angenommen, Zeit, Datum, Wochentag) 
                         VALUES (?, ?, ?, ?, ?, ?)";
 
-                    $stmt = $db->prepare($query);
+                    $stmt = $this->db->prepare($query);
 
                     if ($stmt->error !== "") {
                         throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmt->error);
