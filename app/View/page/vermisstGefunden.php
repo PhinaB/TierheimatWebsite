@@ -33,8 +33,8 @@ renderMenu($currentPage);
                     <label for="tierstatusAuswählen"> Welche Tiere anzeigen: </label>
                     <select name="tierstatusAuswählen" id="tierstatusAuswählen">
                         <option value="tierartWählen">Alle</option>
-                        <option value="vermissteTiere">Vermisste Tiere</option>
-                        <option value="gefundeneTiere">Gefundene Tiere</option>
+                        <option value="vermisst">Vermisste Tiere</option>
+                        <option value="gefunden">Gefundene Tiere</option>
                     </select>
                     <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i> Suchen</button>
                 </form>

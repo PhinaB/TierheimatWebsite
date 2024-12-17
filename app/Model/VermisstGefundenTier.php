@@ -2,14 +2,14 @@
 
 namespace app\model;
 
-require_once '../core/Connection.php';
+require_once '../../core/Connection.php';
 //Klasse dient als Datentransportobjekt
 class VermisstGefundenTier
 {
     //Object Mapping
     private ?int $vermisstGefundenTierID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
     private int $zuletztGeaendertNutzerID;
-    private int $tierartID;
+    private ?int $tierartID = null; //Fremdschlüssel wird im Model nach dem Aufruf des Konstruktors erstellt und dann eingefügt
     private string $typ; //vermisst oder gefunden
     private string $datum;
     private string $ort;
@@ -30,10 +30,9 @@ class VermisstGefundenTier
      * @param bool $geloescht
      * @param string $zuletztGeaendert
      */
-    public function __construct(int $zuletztGeaendertNutzerID, int $tierartID, string $typ, string $ort, string $beschreibung, string $kontaktaufnahme, string $bildadresse, bool $geloescht, string $zuletztGeaendert)
+    public function __construct(int $zuletztGeaendertNutzerID, string $typ, string $ort, string $beschreibung, string $kontaktaufnahme, string $bildadresse, bool $geloescht, string $zuletztGeaendert)
     {
         $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
-        $this->tierartID = $tierartID;
         $this->typ = $typ;
         $this->ort = $ort;
         $this->beschreibung = $beschreibung;

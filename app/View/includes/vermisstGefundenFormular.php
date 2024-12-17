@@ -12,15 +12,15 @@
         </p>
     </div>
 
-    <form action="#" method="post" class="flex-containerVermisstGefundenmelden">
+    <form action="../../Controller/VermisstGefundenTierController.php" method="post" class="flex-containerVermisstGefundenmelden">
         <div class="flex-item1">
             <div class="flex-itemAnliegen">
                 <label for="anliegenVermisstGefunden" class="h3">Anliegen: <span class="redPflichtfeld">*</span></label>
 
                 <select name="anliegenVermisstGefunden" class="eingabe" id="anliegenVermisstGefunden" required>
                     <option value="" disabled selected hidden>Bitte wählen...</option>
-                    <option value="vermisstMelden">Vermisst melden</option>
-                    <option value="gefundenMelden">Gefunden melden</option>
+                    <option value="vermisst">Vermisst melden</option>
+                    <option value="gefunden">Gefunden melden</option>
                 </select>
             </div>
 
