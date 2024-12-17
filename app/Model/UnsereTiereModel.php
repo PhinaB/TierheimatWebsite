@@ -28,27 +28,13 @@ class UnsereTiereModel
     {
         $sql = "SELECT * FROM Tiere AS t JOIN tierart AS ta ON t.TierartID = ta.TierartID;";
 
-        try {
-            $result = $this->db->query($sql);
-            if (!$result) {
-                throw new Exception("Fehler bei der Abfrage.");
-            }
-        } catch (Exception $e) {
-            throw new Exception("Fehler beim Abrufen der Tierdaten: " . $e->getMessage());
-        }
+        $result = $this->db->executeQuery($sql);
 
         $alleTiere = [];
         foreach ($result as $row) {
             $bilderSql = "SELECT * FROM  bilder AS b WHERE b.TierID = ".$row['TierID'];
 
-            try {
-                $resultBilder = $this->db->query($bilderSql);
-                if (!$resultBilder) {
-                    throw new Exception("Fehler bei der Abfrage der Bilder.");
-                }
-            } catch (Exception $e) {
-                throw new Exception("Fehler beim Abrufen der Bilddaten: " . $e->getMessage());
-            }
+            $resultBilder = $this->db->executeQuery($bilderSql);
 
             $alleBilder = [];
             foreach ($resultBilder as $rowBilder) {
@@ -72,8 +58,49 @@ class UnsereTiereModel
             ];
         }
 
-        return [
-            'tiere' => $alleTiere,
-        ];
+        return $alleTiere;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function findAllTierartenAndRassen(): array
+    {
+        $sql = "SELECT Tierart, Rasse FROM tierart AS t JOIN rasse AS r ON r.TierartID = t.TierartID;";
+
+        $result = $this->db->executeQuery($sql);
+
+        $alleTierarten = [];
+        foreach ($result as $row) {
+            if (!isset($alleTierarten[$row['Tierart']])) {
+                $alleTierarten[$row['Tierart']] = [
+                    'name' => $row['Tierart'],
+                    'rassen' => [],
+                ];
+            }
+
+            $alleTierarten[$row['Tierart']]['rassen'][] = ['name' => $row['Rasse']];
+        }
+
+        return array_values($alleTierarten);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function findAllGeschlechter(): array
+    {
+        $sql = "SELECT DISTINCT Geschlecht FROM tiere;";
+
+        $result = $this->db->executeQuery($sql);
+
+        $alleGeschlechter = [];
+        foreach ($result as $row) {
+            $alleGeschlechter[] = [
+                'name' => $row['Geschlecht'],
+            ];
+        }
+
+        return $alleGeschlechter;
     }
 }

@@ -36,29 +36,27 @@ renderMenu($currentPage);
 
                 <div id="page" class="hidden">
                     <?php if ($currentPage === "Alle Tiere") { ?>
-                        <form class="formUnsereTiere" action="#" method="post">
-                            <label for="tierartAuswählen"> Tierart: </label>
-                                <select name="tierartAuswählen" id="tierartAuswählen">
-                                    <option value="tierartWählen">Tierart auswählen</option>
-                                    <option value="hunde">Hunde</option>
-                                    <option value="katzen">Katzen</option>
-                                    <option value="kleintiere">Kleintiere</option>
-                                    <option value="exoten">Exoten</option>
-                                </select>
-
-                            <label for="tierartAuswählen"> Rasse: </label>
-                                <select name="tierartAuswählen" id="tierartAuswählen">
-                                    <option value="rasseWählen">Tierart auswählen</option>
-                                </select>
-
-                            <label for="tierartAuswählen"> Geschlecht: </label>
-                                <select name="tierartAuswählen" id="tierartAuswählen">
-                                    <option value="tierartWählen">Tierart auswählen</option>
-                                    <option value="Männlich">Männlich</option>
-                                    <option value="Weiblich">Weiblich</option>
-                                </select>
-                                <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i>   Suchen</button>
-                        </form>
+                            <div class="tile">
+                                <form class="formUnsereTiere" action="#" method="post">
+                                    <div>
+                                        <label for="tierartAuswählen"> Tierart: </label>
+                                        <select name="tierartAuswählen" id="tierartAuswählen" onchange="changeRasseSelect()">
+                                        </select>
+                                    </div><div>
+                                        <label for="rasseAuswählen"> Rasse: </label>
+                                        <select name="rasseAuswählen" id="rasseAuswählen" disabled>
+                                            <option value="rasseWählen">Bitte auswählen</option>
+                                        </select>
+                                    </div><div>
+                                        <label for="geschlechtAuswählen"> Geschlecht: </label>
+                                        <select name="geschlechtAuswählen" id="geschlechtAuswählen">
+                                        </select>
+                                    </div><div>
+                                        <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i> Suchen</button>
+                                    </div>
+                                </form>
+                                <p class="fehlermeldung fehlerFiler"></p>
+                            </div>
                     <?php } ?>
 
                     <div id="copyAlleTiereHere"></div>

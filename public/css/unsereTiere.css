@@ -1,6 +1,12 @@
 .formUnsereTiere {
     margin-top: 5px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.formUnsereTiere select {
+    width: 150px;
 }
 
 .box-containerUnsereTiere {

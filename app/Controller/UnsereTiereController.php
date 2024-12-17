@@ -19,8 +19,18 @@ class UnsereTiereController
         http_response_code(201);
 
         try {
-            $service = new UnsereTiereModel();
-            $response = $service->findAllTiere();
+            $unsereTiereModel = new UnsereTiereModel();
+            $alleTiere = $unsereTiereModel->findAllTiere();
+
+            // TODO: lade alle Tierarten, Rassen & Geschlecht für Filter
+            $alleTierarten = $unsereTiereModel->findAllTierartenAndRassen();
+            $alleGeschlechter = $unsereTiereModel->findAllGeschlechter();
+
+            $response = [
+                'tiere' => $alleTiere,
+                'tierarten' => $alleTierarten,
+                'geschlecht' => $alleGeschlechter,
+            ];
 
             echo json_encode($response);
             exit;

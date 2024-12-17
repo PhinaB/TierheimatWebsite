@@ -85,6 +85,22 @@ class Connection {
         // Für INSERT/UPDATE/DELETE-Abfragen
         return $this->connection->affected_rows;
     }
+
+    /**
+     * @throws Exception
+     */
+    public function executeQuery($sql)
+    {
+        try {
+            $result = $this->query($sql);
+            if (!$result) {
+                throw new Exception("Fehler bei der Abfrage");
+            }
+            return $result;
+        } catch (Exception $e) {
+            throw new Exception("Fehler beim Ausführen der Abfrage: " . $e->getMessage());
+        }
+    }
 }
 
 /*
