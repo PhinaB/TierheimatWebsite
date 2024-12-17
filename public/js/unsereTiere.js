@@ -18,11 +18,11 @@ function loadTiere () {
 
                 setTiereToPage(response.tiere);
 
+                // TODO: prüfen, welche Tierart im Menü ausgewählt wurde -> nur wenn alle Tiere angezeigt werden sollen, sind auch die selects verfügbar
+
                 let selectTierart = document.querySelector('select[id=tierartAuswählen]');
-                let selectRasse = document.querySelector('select[id=rasseAuswählen]');
                 let selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
                 addFilteroptionToSelect(selectTierart, response.tierarten);
-                //addFilteroptionToSelect(selectRasse, response.rasse); // TODO: Rassen erst befüllen, wenn Tierart befüllt
                 addFilteroptionToSelect(selectGeschlecht, response.geschlecht);
 
                 tierartenMitRassen = response.tierarten;
