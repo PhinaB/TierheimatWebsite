@@ -36,15 +36,8 @@ renderMenu($currentPage);
                 <div id="formular" class="flex-containerFormularHelfen">
                     <div class="unterstützungsart">
                         <label class="h3">Art der Hilfe: <span class="redPflichtfeld">*</span></label>
-                        <input type="radio" id="spazierenGehen" name="unterstützungsart" value="spazierenGehen" disabled="disabled" aria-describedby="unterstuetzungError" onclick="validateUnterstuetzung()" />
-                        <label for="spazierenGehen" class="helfenUnterpunkt">Spazieren gehen</label>
-                        <br />
-                        <input type="radio" id="kleintiersitting" name="unterstützungsart" value="kleintiersitting" disabled="disabled" aria-describedby="unterstuetzungError" onclick="validateUnterstuetzung()" />
-                        <label for="kleintiersitting" class="helfenUnterpunkt">Kleintiersitting</label>
-                        <br />
-                        <input type="radio" id="tiereFüttern" name="unterstützungsart" value="uiereFüttern" disabled="disabled" aria-describedby="unterstuetzungError" onclick="validateUnterstuetzung()" />
-                        <label for="tiereFüttern" class="helfenUnterpunkt">Tiere füttern</label>
-                        <br />
+                        <div id="artDerHilfeInputs">
+                        </div>
                         <p id="unterstuetzungError" class="fehlermeldung fehlerUnterstuetzung"></p>
                     </div>
 

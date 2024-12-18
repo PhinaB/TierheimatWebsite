@@ -10,6 +10,13 @@ use Exception;
 
 class VermisstGefundenTierController
 {
+    private VermisstGefundenTierModel $vermisstGefundenTierModel;
+
+    public function __construct()
+    {
+        $this->vermisstGefundenTierModel = new VermisstGefundenTierModel();
+    }
+
     /**
      * @throws Exception
      */
@@ -46,8 +53,7 @@ class VermisstGefundenTierController
 
 
             try {
-                $model = new VermisstGefundenTierModel();
-                $model->insertVermisstGefundenTiere($vermisstGefundenTier, $tierart);
+                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierart);
             }
             catch (Exception $exception) {
                 throw new Exception("Fehler beim Einfügen der Daten: " . $exception->getMessage());
@@ -58,12 +64,11 @@ class VermisstGefundenTierController
         }
     }
 
-    public static function loadAllVermisstTiere(): array
+    public function loadAllVermisstTiere(): array
     {
         try {
-            $model = new VermisstGefundenTierModel();
             $vermisstOrGefunden = "vermisst";
-            return $model->findAllVermisstOrGefundenTiere($vermisstOrGefunden);
+            return $this->vermisstGefundenTierModel->findAllVermisstOrGefundenTiere($vermisstOrGefunden);
         } catch (Exception $e) {
             return [
                 'error' => true, //TODO: zu bearbeiten
@@ -72,12 +77,11 @@ class VermisstGefundenTierController
         }
     }
 
-    public static function loadAllGefundenTiere(): array
+    public function loadAllGefundenTiere(): array
     {
         try {
-            $model = new VermisstGefundenTierModel();
             $vermisstOrGefunden = "gefunden";
-            return $model->findAllVermisstOrGefundenTiere($vermisstOrGefunden);
+            return $this->vermisstGefundenTierModel->findAllVermisstOrGefundenTiere($vermisstOrGefunden);
         } catch (Exception $e) {
             return [
                 'error' => true, //TODO: zu bearbeiten

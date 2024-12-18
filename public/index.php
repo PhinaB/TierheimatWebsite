@@ -38,6 +38,7 @@ $router->add('/dokuDWP1', 'RouteController', 'loadDokuDWP1Action', "");
 $router->add('/tier/melden', 'VermisstGefundenTierController', "addVermisstGefundenTier", '');
 $router->add('/load/alle/unsere/tiere', 'UnsereTiereController', "loadAllTiere", '');
 $router->add('/add/helfen', 'ServiceHelfenController', "addServiceInfo", '');
+$router->add('/load/alles/serviceInfo', 'ServiceHelfenController', "loadAllServiceInfo", '');
 
 
 // aus URL filtern, welche Seite aufgerufen werden muss:
