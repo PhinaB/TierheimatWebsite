@@ -65,7 +65,7 @@ $sql_befehle = [
         FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT
     );',
 
-    'CREATE TABLE IF NOT EXISTS Bilder (
+    'CREATE TABLE IF NOT EXISTS BilderTiere (
         BilderID INT AUTO_INCREMENT PRIMARY KEY,
         TierID INT NOT NULL,
         Bildadresse VARCHAR(255) NOT NULL,
@@ -189,7 +189,7 @@ $insert_befehle = [
 'INSERT INTO Tiere (TierartID, Geschlecht, Beschreibung, Geburtsjahr, Name, Charakter, Datum) VALUES
     (1, "Weiblich", "Freundliche Hündin, liebt Kinder.", 2001, "Lila", "Verspielt", "2024-11-01"),
     (4, "Weiblich", "Ruhige Schlange, pflegeleicht.", 2011, "Tiger", "Ruhig", "2024-11-02"),
-    (4, "Weiblich", "Kleine Maus, sehr aktiv.", 2008, "Greta", "Neugierig", "2024-11-03"),
+    (4, "Weiblich", "Kleine Ratte, sehr aktiv.", 2008, "Greta", "Neugierig", "2024-11-03"),
     (3, "Weiblich", "Gesellige Sittiche in großer Gruppe.", 2011, "Wellis", "Fröhlich", "2024-11-04"),
     (2, "Männlich", "Kuschelt gerne, ideal für Familien.", 2001, "Simba", "Zutraulich", "2024-11-05"),
     (1, "Weiblich", "Lebhafte Hündin, liebt Spaziergänge.", 2013, "Bella", "Energisch", "2024-11-10"),
@@ -200,7 +200,9 @@ $insert_befehle = [
     (4, "Weiblich", "Diese Kornnatter liebt es zu fressen.", 2011, "Korni", "Fressgierig", "2024-10-12"),
     (3, "Weiblich", "Lora spricht gerne alles nach.", 2011, "Lora", "Verspielt", "2024-10-12"),
     (3, "Weiblich", "Rosella ist sehr bunt.", 2011, "Rosella", "prächtig", "2024-10-12"),
-    (4, "Weiblich", "Unser liebevoll getauftes Mosnter ist rasend schnell unterwegs.", 2011, "Monster", "Fressgierig", "2024-02-12");',
+    (4, "Weiblich", "Unser liebevoll getauftes Mosnter ist rasend schnell unterwegs.", 2011, "Monster", "Fressgierig", "2024-02-12"),
+    (4, "Weiblich", "Neugierige und spaßige Ratte.", 2008, "Kira", "Neugierig", "2024-11-08"),
+    (1, "Weiblich", "Freundliche und spaßige Hündin, liebt Kinder.", 2001, "Lilly", "Verspielt", "2024-06-01");',
 
     // TODO: korrekte Inserts -> noch alle anderen erstellen
 'INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES
@@ -208,11 +210,13 @@ $insert_befehle = [
     (2, 3, "vermisst", "2024-03-02 00:00:000", "Vieselbach", "Luke ist...", "telefon", "luke.jpg", 0, "2024-01-02 00:00:000"),
     (2, 2, "vermisst", "2024-01-03 00:00:000", "Vieselbach", "Lotta ist...", "email", "lotta.jpg", 0, "2024-01-04 00:00:000");',
 
-'INSERT INTO Bilder (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
+'INSERT INTO BilderTiere (TierID, Bildadresse, Hauptbild, Alternativtext) VALUES
     (6, "bella.jpeg", TRUE, "Bella"),
     (6, "bella2.jpeg", FALSE, ""),
     (3, "greta.jpg", TRUE, "Greta, eine aktive Ratte"),
     (3, "greta2.jpg", FALSE, ""),
+    (15, "greta2.jpg", TRUE, "Kira, eine schmusige Ratte"),
+    (15, "greta.jpg", FALSE, ""),
     (2, "tigerpython.jpg", TRUE, "eine tolle Tigerpython"),
     (2, "tigerpython2.jpg", FALSE, ""),
     (4, "wellensittiche.jpg", TRUE, "eine Gruppe Wellensittiche"),
@@ -225,6 +229,8 @@ $insert_befehle = [
     (8, "lilly2.jpg", FALSE, ""),
     (1, "lila.jpg", TRUE, "Lila"),
     (1, "lila2.jpg", FALSE, ""),
+    (16, "lila2.jpg", TRUE, "Lilly"),
+    (16, "lila.jpg", FALSE, ""),
     (9, "fluffy.jpg", TRUE, "Hase Fluffy"),
     (9, "fluffy2.jpg", FALSE, ""),
     (10, "hoppel.jpg", TRUE, "Hase Hoppel"),

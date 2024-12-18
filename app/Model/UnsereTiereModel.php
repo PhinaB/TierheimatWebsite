@@ -47,7 +47,7 @@ class UnsereTiereModel
 
         $alleTiere = [];
         foreach ($result as $row) {
-            $bilderSql = "SELECT * FROM  bilder AS b WHERE b.TierID = ".$row['TierID'];
+            $bilderSql = "SELECT * FROM  bildertiere AS b WHERE b.TierID = ".$row['TierID'];
 
             $resultBilder = $this->db->executeQuery($bilderSql);
 
