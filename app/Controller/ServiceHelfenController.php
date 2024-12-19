@@ -1,7 +1,6 @@
 <?php
 namespace app\Controller;
 
-use app\model\AbstractModel;
 use app\Model\ServiceInfoModel;
 use Exception;
 use InvalidArgumentException;
@@ -26,9 +25,8 @@ class ServiceHelfenController
             $input = file_get_contents('php://input');
             $data = json_decode($input, true);
 
-            // TODO: aus ArtDerHilfe -> prüfen, ob existiert
             if (isset($data['unterstuetzungsart']) && $data['unterstuetzungsart'] !== "") {
-                $unterstuetzungsart = 1;
+                $unterstuetzungsart = $this->serviceInfoModel->findOneHilfeArtenByName($data['unterstuetzungsart'])['ArtID'];
             }
             else {
                 throw new InvalidArgumentException('Invalid field "Unterstützungsart".');
@@ -36,10 +34,7 @@ class ServiceHelfenController
 
             if ((isset($data['dates'][0]) && $data['dates'][0] !== "" && isset($data['times'][0]) && $data['times'][0] !== "") ||
                 (isset($data['weekdays'][0]) && $data['weekdays'][0] !== "" && isset($data['weekdayTimes'][0]) && $data['weekdayTimes'][0] !== "")) {
-                //$service = new ServiceInfoModel();
                 $this->serviceInfoModel->saveServiceInfo($unterstuetzungsart, $data['dates'], $data['times'], $data['weekdays'], $data['weekdayTimes']);
-
-                // TODO: testen, ob das so klappt
 
                 echo json_encode(true);
                 exit;

@@ -102,4 +102,23 @@ class ServiceInfoModel extends AbstractModel
 
         return $alleHilfearten;
     }
+
+    /**
+     * @throws Exception
+     */
+    public function findOneHilfeArtenByName($name): array
+    {
+        $sql = "SELECT * FROM artderhilfe WHERE ArtDerHilfe = ?;";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("s", $name);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result === false) {
+            throw new Exception('Keine Hilfe gefunden');
+        }
+
+        return $result->fetch_assoc();
+    }
 }

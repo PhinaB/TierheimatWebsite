@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadInhaltToPage () {
-    // TODO: Art der Hilfe aus DB holen
-    // TODO: Artikel (Artikelarten ServiceInfo) aus der DB holen
     // Ajax:
     const xhttp = new XMLHttpRequest();
 
@@ -47,7 +45,7 @@ function loadInhaltToPage () {
                     input.name = "unterstützungsart";
                     input.setAttribute('aria-describedby', 'unterstuetzungError');
                     input.setAttribute('onclick', 'validateUnterstuetzung()');
-                    input.value = output;
+                    input.value = response.alleHilfearten[i].artDerHilfe;
                     input.id = output;
                     copyHereArtDerHilfeInputs.appendChild(input);
 
@@ -60,8 +58,6 @@ function loadInhaltToPage () {
                     let br = document.createElement('br');
                     copyHereArtDerHilfeInputs.appendChild(br);
                 }
-
-                // TODO andere Sachen aus DB hier rein laden
             }
             else {
                // TODO fehlerGesamt.innerHTML = "Die Tiere konnten nicht geladen werden!";
