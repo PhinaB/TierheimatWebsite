@@ -2,7 +2,7 @@
 
 namespace app\Controller;
 
-class RouteController
+class StaticPageController
 {
     public function indexAction(): void
     {

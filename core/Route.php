@@ -2,7 +2,7 @@
 
 namespace core;
 
-use app\Controller\RouteController;
+use app\Controller\StaticPageController;
 
 class Route
 {
@@ -29,7 +29,7 @@ class Route
                 $controller->$methodName();
             }
         } else {
-            $rController = new RouteController();
+            $rController = new StaticPageController();
             $rController->pageNotFoundAction();
         }
     }
