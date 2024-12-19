@@ -17,7 +17,7 @@ class UnsereTiereModel extends AbstractModel
      */
     public function findAllTiere($tierart): array
     {
-        $sql = "SELECT * FROM Tiere AS t JOIN tierart AS ta ON t.TierartID = ta.TierartID";
+        $sql = "SELECT * FROM Tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON r.TierartID = ta.TierartID";
 
         $order = " ORDER BY t.Name";
 
