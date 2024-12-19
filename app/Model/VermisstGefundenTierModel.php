@@ -3,20 +3,14 @@
 //hier kommen die CRUD-Statements rein
 namespace app\Model;
 
-//require_once './app/Model/VermisstGefundenTier.php';
-//require_once './app/Model/Tier.php';
-
-use core\Connection;
 use Exception;
 use InvalidArgumentException;
-use mysqli;
 
 class VermisstGefundenTierModel extends AbstractModel
 {
-    private mysqli $db;
-
-    public function __construct() {
-        $this->db = Connection::getInstance()->getConnection();
+    public function __construct()
+    {
+        parent::__construct();
     }
 
     /**

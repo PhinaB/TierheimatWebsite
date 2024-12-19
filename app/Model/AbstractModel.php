@@ -2,17 +2,28 @@
 
 namespace app\model;
 
-//require_once '../../app/core/Connection.php';
-
 use core\Connection;
 use DateTime;
+use Exception;
 use InvalidArgumentException;
 use PDO;
 use Throwable; /* genutzt um Ausnahmen und Fehler zu behandeln*/
 
 class AbstractModel
 {
+    protected ?Connection $db;
 
+    /**
+     * @throws Exception
+     */
+    protected function __construct()
+    {
+        try {
+            $this->db = Connection::getInstance();
+        } catch (Exception $e) {
+            throw new Exception("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
+        }
+    }
 
     protected static function read(string $where = '', array $whereParameter = [], string $selector = '*', int $limit= -1): array
     {

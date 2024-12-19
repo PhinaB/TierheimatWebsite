@@ -6,12 +6,11 @@ use core\Connection;
 use Exception;
 use mysqli;
 
-class ServiceInfoModel
+class ServiceInfoModel extends AbstractModel
 {
-    private mysqli $db;
-
-    public function __construct() {
-        $this->db = Connection::getInstance()->getConnection();
+    public function __construct()
+    {
+        parent::__construct();
     }
 
     /**
@@ -83,5 +82,24 @@ class ServiceInfoModel
         } catch (Exception) {
             // TODO: Anweisungen, die jetzt auf die db geschrieben wurden wieder rückgängig machen
         }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function findAllHilfearten(): array
+    {
+        $sql = "SELECT * FROM artderhilfe;";
+
+        $result = $this->db->executeQuery($sql);
+
+        $alleHilfearten = [];
+        foreach ($result as $rowBilder) {
+            $alleHilfearten[] = [
+                'artDerHilfe' => $rowBilder['ArtDerHilfe'],
+            ];
+        }
+
+        return $alleHilfearten;
     }
 }

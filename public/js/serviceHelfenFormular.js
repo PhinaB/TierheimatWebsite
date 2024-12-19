@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     reloadingPage();
+    loadInhaltToPage();
 
     document.getElementById('newWeekDay').addEventListener('click', function() {
         addNewWeekday();
@@ -18,7 +19,59 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// TODO: Art der Hilfe aus DB holen
+function loadInhaltToPage () {
+    // TODO: Art der Hilfe aus DB holen
+    // TODO: Artikel (Artikelarten ServiceInfo) aus der DB holen
+    // Ajax:
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4) {
+            if (xhttp.status >= 200 && xhttp.status < 300) {
+                let response = JSON.parse(this.response);
+
+                console.log(response);
+                let copyHereArtDerHilfeInputs = document.querySelector('#artDerHilfeInputs');
+                for (let i = 0; i < response.alleHilfearten.length; i++) {
+                    let output = response.alleHilfearten[i].artDerHilfe
+                        .split(" ")
+                        .map((word, index) =>
+                            index === 0
+                                ? word.toLowerCase()
+                                : word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join("");
+
+                    let input = document.createElement('input');
+                    input.type = "radio";
+                    input.name = "unterstützungsart";
+                    input.setAttribute('aria-describedby', 'unterstuetzungError');
+                    input.setAttribute('onclick', 'validateUnterstuetzung()');
+                    input.value = output;
+                    input.id = output;
+                    copyHereArtDerHilfeInputs.appendChild(input);
+
+                    let label = document.createElement('label');
+                    label.innerHTML = response.alleHilfearten[i].artDerHilfe;
+                    label.classList.add('helfenUnterpunkt');
+                    label.setAttribute('for', output);
+                    copyHereArtDerHilfeInputs.appendChild(label);
+
+                    let br = document.createElement('br');
+                    copyHereArtDerHilfeInputs.appendChild(br);
+                }
+
+                // TODO andere Sachen aus DB hier rein laden
+            }
+            else {
+               // TODO fehlerGesamt.innerHTML = "Die Tiere konnten nicht geladen werden!";
+            }
+        }
+    }
+    xhttp.open('POST', '../public/load/alles/serviceInfo');
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send();
+}
 
 function reset() {
     let tableBody = document.getElementById('newWeekDayCopyHere');

@@ -5,20 +5,11 @@ namespace app\model;
 use core\Connection;
 use Exception;
 
-class UnsereTiereModel
+class UnsereTiereModel extends AbstractModel
 {
-    private ?Connection $db;
-
-    /**
-     * @throws Exception
-     */
     public function __construct()
     {
-        try {
-            $this->db = Connection::getInstance();
-        } catch (Exception $e) {
-            throw new Exception("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
-        }
+        parent::__construct();
     }
 
     /**
@@ -47,7 +38,7 @@ class UnsereTiereModel
 
         $alleTiere = [];
         foreach ($result as $row) {
-            $bilderSql = "SELECT * FROM  bilder AS b WHERE b.TierID = ".$row['TierID'];
+            $bilderSql = "SELECT * FROM  bildertiere AS b WHERE b.TierID = ".$row['TierID'];
 
             $resultBilder = $this->db->executeQuery($bilderSql);
 

@@ -8,10 +8,17 @@ use InvalidArgumentException;
 
 class UnsereTiereController
 {
+    private UnsereTiereModel $unsereTiereModel;
+
+    public function __construct()
+    {
+        $this->unsereTiereModel = new UnsereTiereModel();
+    }
+
     /**
      * @throws Exception
      */
-    public static function loadAllTiere(): array
+    public function loadAllTiere(): array
     {
         http_response_code(201);
 
@@ -23,11 +30,10 @@ class UnsereTiereController
                 throw new InvalidArgumentException('Invalid field "currentTierart".');
             }
 
-            $unsereTiereModel = new UnsereTiereModel();
-            $alleTiere = $unsereTiereModel->findAllTiere($currentTierart);
+            $alleTiere = $this->unsereTiereModel->findAllTiere($currentTierart);
 
-            $alleTierarten = $unsereTiereModel->findAllTierartenAndRassen();
-            $alleGeschlechter = $unsereTiereModel->findAllGeschlechter();
+            $alleTierarten = $this->unsereTiereModel->findAllTierartenAndRassen();
+            $alleGeschlechter = $this->unsereTiereModel->findAllGeschlechter();
 
             $response = [
                 'tiere' => $alleTiere,
