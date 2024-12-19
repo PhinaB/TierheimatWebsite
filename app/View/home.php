@@ -144,6 +144,6 @@ renderMenu($currentPage);
         <?php include 'includes/footer.php'; ?>
     </div>
 
-    <script src="../fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="../public/lib/fontawesome-6.5.2/js/all.js" crossorigin="anonymous"></script>
 </body>
 </html>
