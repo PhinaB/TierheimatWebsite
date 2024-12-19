@@ -105,10 +105,12 @@ class VermisstGefundenTierModel extends AbstractModel
      */
     public function findAllVermisstOrGefundenTiere(string $vermisstOrGefunden): array
     {
-        $sql = "SELECT * FROM VermisstGefundenTiere AS v JOIN tierart AS t ON v.TierartID = t.TierartID WHERE v.typ = ?";
+        $sql = "SELECT * FROM VermisstGefundenTiere AS v 
+        JOIN tierart AS t ON v.TierartID = t.TierartID 
+         WHERE v.typ = ? AND v.geloescht= 0";
         $stmtVermisstOrGefundenTier = $this->db->prepare($sql);
-        if ($stmtVermisstOrGefundenTier->error !== "") {
-            throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage" . $stmtVermisstOrGefundenTier->error);
+        if (!$stmtVermisstOrGefundenTier) {
+            throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->error);
         }
 
         $stmtVermisstOrGefundenTier->bind_param('s', $vermisstOrGefunden);
@@ -140,5 +142,13 @@ class VermisstGefundenTierModel extends AbstractModel
        return [
            'VermisstTiere' => $alleVermisstTiere,
        ];
+    }
+
+    public function deleteVermisstOrGefundenTier (VermisstGefundenTier $vermisstOrGefundenTier): void{
+        //TODO: hat aktueller Nutzer das Tier angelegt? --> dann darf löschen
+        //anhand der TierID setzten des Booleans auf geloescht= 1
+        //Tier wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt
+
+
     }
 }

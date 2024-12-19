@@ -178,15 +178,5 @@ class VermisstGefundenTier
     }
 }
 
-/* prepared Statements für Sicherheit:
 
-$query = $mysqli->prepare('
-    SELECT * FROM users
-    WHERE username = ?
-    AND email = ?
-    AND last_login > ?');
-
-$query->bind_param('sss', 'test' $mail, time()-3600);
-$query->execute;
-*/
 

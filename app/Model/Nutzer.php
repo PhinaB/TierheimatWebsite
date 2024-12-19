@@ -4,14 +4,13 @@ namespace app\model;
 
  class Nutzer {
      private ?int $nutzerID = null;
-     private int $nutzerrollenID;
+     private ?int $nutzerrollenID = null;
      private string $name;
      private string $email;
      private string $passwort;
 
-     public function __construct(int $nutzerrollenID, string $name, string $email, string $passwort)
+     public function __construct(string $name, string $email, string $passwort)
      {
-         $this->nutzerrollenID = $nutzerrollenID;
          $this->name = $name;
          $this->email = $email;
          $this->passwort = $passwort;
@@ -60,6 +59,15 @@ namespace app\model;
      public function setPasswort(string $passwort): void
      {
          $this->passwort = $passwort;
+     }
+
+     public function getValuesForInsert(int $nutzerrollenID): array{
+         return [
+             $nutzerrollenID,
+             $this->getName(),
+             $this->getEmail(),
+             $this->getPasswort()
+         ];
      }
 
  }
