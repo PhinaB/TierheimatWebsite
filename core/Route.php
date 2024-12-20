@@ -14,11 +14,10 @@ class Route
     }
 
     public function match($url) {
-        $controllerName = 'app\\Controller\\' . $this->routes[$url]['controller'];
-
-        $controller = new $controllerName();
-
         if (array_key_exists($url, $this->routes)) {
+            $controllerName = 'app\\Controller\\' . $this->routes[$url]['controller'];
+            $controller = new $controllerName();
+
             $methodName = $this->routes[$url]['method'];
             $attribut = $this->routes[$url]['attribut'];
 
