@@ -15,6 +15,8 @@ class Connection {
     private string $pass = "";
     private string $db = "tierheimat";
 
+    // TODO: kein Singleton -> steht im Repository von Herr Spehr!!!!
+
     /**
      * @throws Exception
      */
