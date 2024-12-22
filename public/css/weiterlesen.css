@@ -1,23 +1,19 @@
 /*Informationen die für die Weiterlesen-Boxen allgemein gelten */
 .box-absolute {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
     box-sizing: border-box;
     position: absolute;
-    justify-content: space-between;
-    left: 5%;
-    right: 5%;
+    left: 14%;
+    right: 14%;
     top: 105px;
-    width: 90%;
-    z-index: 1;
     background-color: var(--background-color);
     border-radius: 4px;
     border: 1px solid var(--primary-color);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    gap: 10px 10px;
     padding: 2% 4% 3% 3%;
+}
+
+.zIndex {
+    z-index: 1;
 }
 
 .boldText {
@@ -25,14 +21,15 @@
 }
   
 .kopfelement {
-    width: 100%; 
+    width: 100%;
     padding-bottom: 1%; 
 }
 
 .kopfelement a {
     float: right; 
     font-size: 1.5em; 
-    color: black; 
+    color: black;
+    cursor: pointer;
 }
 
 .kopfelement a:hover{
@@ -46,21 +43,10 @@
 /* div um das Bild mit der Klasse BildWeiter */
 .bildWeiter {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 10px;
-    border-radius: 2px; 
-}
-
-.niedrigesBild {
-    display: none;
-    border-radius: 4px;
 }
 
 .hohesBild {
-    transition: width 0.7s ease, height 0.7s ease;
     overflow: hidden;
-    display: flex;
     border-radius: 4px;
 }
 
@@ -74,13 +60,10 @@
     column-gap: 30px;   
 }
 
-.tile {
-    opacity:0.4;
-}
-
-.tile .button {
-    background:#eee;
-    color:#999;
+.flexWeiterlesen {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 @media only screen and (max-width: 1750px) {
@@ -89,53 +72,27 @@
     }
 }
 
-/*wenn Bilschirmgröße 1277px oder weniger, dann:*/
 @media only screen and (max-width: 1277px) {
     .box-absolute {
         top: 65px; 
     }
-    .niedrigesBild {
-        transition: width 0.7s ease, height 0.7s ease;
-        overflow: hidden;
-    }
-    .niedrigesBild:hover {
-        width: 60%;
-        height: auto;
-    }
 }
-
-
 
 @media only screen and (max-width: 1243px) {
     .box-absolute {
-        position: fixed;
-        flex-wrap: nowrap;
-        flex-direction: column; 
-        justify-content:space-between;
-        align-items: stretch; 
-        top: 65px; 
-        height: 600px; 
-        min-height: 200px;
-        padding-left: 2%; 
+        left: 9%;
+        right: 9%;
+    }
+    .hohesBild {
+        width: 50%;
     }
     .unterelement {
         width: 98%;
         display: block;
-        padding-left: 1%; 
-        padding-right: 1%;   
     }
-    .hohesBild {
-        display: none; 
+    .flexWeiterlesen {
+        flex-direction: column;
     }
-    .niedrigesBild {
-        display: flex;
-        margin: auto;
-        width: 40%;    
-    }  
-    .niedrigesBild:hover {
-        width: 80%;
-        height: auto;
-    } 
     .scrollbar {
         overflow-y: scroll; 
         scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
@@ -144,28 +101,17 @@
     } 
 }
 
-
-/*wenn Bilschirmgröße 900px oder weniger, dann:*/
 @media only screen and (max-width: 900px) {
     .box-absolute {
         top: 135px; 
     }
 }
 
-/*wenn Bilschirmgröße 882px oder weniger, dann:*/
  @media only screen and (max-width: 882px){
-    .box-absolute {
-        align-items: center; 
-        top: 135px; 
-        padding-top: 2% 5% 5% 5%;
-    }
     .unterelement {
         width: 100%;
         padding-left: 5px; 
         padding-right: 5px; 
-    }
-    .niedrigesBild {
-        width: 60%; 
     }
  }
 
@@ -178,8 +124,5 @@
     }
     .textTrennung {
         column-count: 1;     
-    }
-    .niedrigesBild, .niedrigesBild:hover { 
-        width: 100%; 
     }
 }

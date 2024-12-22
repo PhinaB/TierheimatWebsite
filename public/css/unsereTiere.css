@@ -15,24 +15,24 @@
     z-index: 0; 
 }
 
-.box-containerUnsereTiere > div {
+.box-containerUnsereTiere > div.completeAnimal {
     width: 30%;
     height: auto; 
     box-sizing: border-box;
     padding-bottom: 10px;   
 }
 
-.box-containerUnsereTiere > div {
+.box-containerUnsereTiere > div.completeAnimal {
     border: 1px solid var(--border-color);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
 
-.box-containerUnsereTiere div img ~ *, .box-containerUnsereTiere div div ~ * {
+.box-containerUnsereTiere div.completeAnimal img ~ *, .box-containerUnsereTiere div.completeAnimal div ~ * {
     margin: 10px 15px;
 }
 
-.box-containerUnsereTiere div img {
+.box-containerUnsereTiere div.completeAnimal img {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border-bottom: 1px solid #eee;
@@ -50,6 +50,9 @@ select {
     }
     .box-containerUnsereTiere > div {
         width:calc(50% - 25px);
+    }
+    .formUnsereTiere {
+        flex-direction: column;
     }
 }
 

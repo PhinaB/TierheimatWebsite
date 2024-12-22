@@ -52,9 +52,38 @@
             </div>
             <h3></h3>
             <p class="beschreibungBeginn"></p>
-            <a href="" class="button" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+            <a class="button weiterlesen" title="Button Weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
 
-        <a href="" class="button hidden" id="weitereTiereAnzeigen" title="Button weitere Tiere anzeigen" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen</a>
+        <div class="hidden completeWeiterlesen" id="hiddenVorlageWeiterlesen">
+            <div class="box-absolute zIndex">
+                <div class="kopfelement">
+                    <h3 class="inline"></h3>
+                    <a title="Button Abbrechen" draggable="false">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                    <br />
+                </div>
+                <div class="flexWeiterlesen">
+                    <div class="unterelement bildWeiter">
+                        <img src="" class="hohesBild" alt="" draggable="false" />
+                    </div>
+                    <div class="unterelement scrollbar">
+                        <p class="name"></p>
+                        <p class="alter"></p>
+                        <p class="beiUnsSeit"></p>
+                        <p class="charakter"></p>
+                        <br />
+                        <p class="textTrennung beschreibung"></p>
+
+                        <div class="unterelementScrollbar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="" class="button hidden" id="weitereTiereAnzeigen" title="Button weitere Tiere anzeigen" draggable="false">
+            <i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen
+        </a>
     </div>
 </div>

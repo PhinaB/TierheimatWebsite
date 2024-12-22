@@ -23,7 +23,7 @@ class StaticPageController
 
         $currentPage = $category;
 
-        $stylesheets = ['unsereTiere.css', 'bildwechselBilder.css'];
+        $stylesheets = ['unsereTiere.css', 'bildwechselBilder.css', 'weiterlesen.css'];
         $js = ['unsereTiere.js'];
 
         $this->renderPage($stylesheets, $currentPage, $js, 'unsereTiere');
