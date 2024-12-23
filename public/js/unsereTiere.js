@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadTiere();
+    document.querySelector('input[name=offset]').value = '0';
 
     document.querySelector('a[id=weitereTiereAnzeigen]').addEventListener('click', function() {
         let offset = document.querySelector('input[name=offset]');
@@ -12,11 +13,23 @@ let tierartenMitRassen = {};
 
 function loadTiere () {
     document.querySelector('#weitereTiereAnzeigen').classList.add('hidden');
+
+    let spinner = document.getElementById('loading');
+    spinner.classList.remove('hidden');
+
     let fehlerGesamt = document.querySelector('.fehlerLoading');
     fehlerGesamt.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
 
     let currentTierart = document.querySelector('#currentTierart').value;
     let offset = document.querySelector('input[name=offset]').value;
+    let tierartFromSelect = document.querySelector('select[name=tierartAuswählen]').value;
+    let rasse = document.querySelector('select[name=rasseAuswählen]').value; // TODO: selects dürfen dann nicht geleert sein
+    let geschlecht = document.querySelector('select[name=geschlechtAuswählen]').value;
+
+    let tierart = currentTierart;
+    if (currentTierart !== tierartFromSelect && tierartFromSelect !== "") {
+        tierart = tierartFromSelect;
+    }
 
     // Ajax:
     const xhttp = new XMLHttpRequest();
@@ -27,12 +40,12 @@ function loadTiere () {
                 let response = JSON.parse(this.response);
 
                 if (response.tiere.length === 0) {
-                    fehlerGesamt.innerHTML = "Wir haben leider gerade kein Tier dieser Tierart!";
+                    fehlerGesamt.innerHTML = "Wir haben leider gerade kein Tier mit diesen Einstellungen!";
                 }
                 else {
                     setTiereToPage(response.tiere);
 
-                    if (currentTierart === "Alle Tiere") {
+                    if (tierart === "Alle Tiere") {
                         let selectTierart = document.querySelector('select[id=tierartAuswählen]');
                         let selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
                         addFilteroptionToSelect(selectTierart, response.tierarten);
@@ -51,13 +64,33 @@ function loadTiere () {
                 fehlerGesamt.innerHTML = "Die Tiere konnten nicht geladen werden!";
             }
 
-            let spinner = document.getElementById('loading');
             spinner.classList.add('hidden');
         }
     }
     xhttp.open('POST', '../public/load/alle/unsere/tiere');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('currentTierart='+currentTierart+'&offset='+offset);
+    xhttp.send('currentTierart='+tierart+'&offset='+offset+'&rasse='+rasse+'&geschlecht='+geschlecht);
+}
+
+function search () {
+    let tierartInput = document.querySelector('select[name=tierartAuswählen]');
+    let rasseInput = document.querySelector('select[name=rasseAuswählen]');
+    let geschlechtInput = document.querySelector('select[name=geschlechtAuswählen]');
+
+    let fehlerfeld = document.querySelector('.fehlerFilter');
+    fehlerfeld.innerHTML = '';
+
+    if (tierartInput.value === '0' && rasseInput.value === '0' && geschlechtInput.value === '0') {
+        fehlerfeld.innerHTML = 'Wähle mindestens eine Sache (Tierart / Tierart und Rasse / Geschlecht) aus!';
+        return;
+    }
+
+    document.querySelector('#page').classList.add('hidden');
+    document.querySelector('input[name=offset]').value = "0";
+    let copyAlleTiereHere = document.querySelector('#copyAlleTiereHere');
+    copyAlleTiereHere.innerHTML = "";
+
+    loadTiere();
 }
 
 function setTiereToPage (tiere) {

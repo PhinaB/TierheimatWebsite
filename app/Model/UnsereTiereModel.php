@@ -15,24 +15,44 @@ class UnsereTiereModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function findAllTiere($tierart, $offset): array
+    public function findAllTiere($tierart, $offset, $rasse, $geschlecht): array
     {
         $sql = "SELECT * FROM Tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON r.TierartID = ta.TierartID";
 
-        $order = " ORDER BY t.Name LIMIT 8 OFFSET ?";
+        $conditions = [];
+        $params = [];
+        $types = "";
 
-        if ($tierart !== "Alle Tiere") {
-            // TODO richtige Tierart ID suchen und nach allen Tieren suchen, die diese Tierart haben
-            $sql .= " WHERE ta.Tierart = ?".$order.";";
-
-            $stmt = $this->db->prepare($sql);
-            $stmt->bind_param("si", $tierart, $offset);
-        } else {
-            $sql .= "$order;";
-
-            $stmt = $this->db->prepare($sql);
-            $stmt->bind_param("i", $offset);
+        if ($tierart !== "Alle Tiere" && $tierart !== "0") {
+            $conditions[] = "ta.Tierart = ?";
+            $params[] = $tierart;
+            $types .= "s";
         }
+
+        if ($rasse !== "0") {
+            $conditions[] = "r.Rasse = ?";
+            $params[] = $rasse;
+            $types .= "s";
+        }
+
+        if ($geschlecht !== "0" && $geschlecht !== "") {
+            $conditions[] = "t.Geschlecht = ?";
+            $params[] = $geschlecht;
+            $types .= "s";
+        }
+
+        if (!empty($conditions)) {
+            $sql .= " WHERE " . implode(" AND ", $conditions);
+        }
+
+        $sql .= " ORDER BY t.Name LIMIT 8 OFFSET ?";
+
+        $params[] = $offset;
+        $types .= "i";
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->bind_param($types, ...$params);
 
         $stmt->execute();
         $result = $stmt->get_result();
@@ -71,17 +91,39 @@ class UnsereTiereModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function countAllAnimalsInThisCategory($tierart): int
+    public function countAllAnimalsInThisCategory($tierart, $rasse, $geschlecht): int // TODO: auch nach rasse & geschlecht filtern
     {
-        $sql = "SELECT COUNT(*) AS Anzahl FROM tiere AS t";
+        $sql = "SELECT COUNT(*) AS Anzahl FROM tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID
+                    JOIN tierart AS ta ON ta.TierartID = r.TierartID ";
 
-        if ($tierart !== "Alle Tiere") {
-            $sql .= " JOIN rasse AS r ON t.RasseID = r.RasseID
-                    JOIN tierart AS ta ON ta.TierartID = r.TierartID 
-                    WHERE ta.Tierart = ?;";
+        $conditions = [];
+        $params = [];
+        $types = "";
+
+        if ($tierart !== "Alle Tiere" && $tierart !== "0") {
+            $conditions[] = "ta.Tierart = ?";
+            $params[] = $tierart;
+            $types .= "s";
+        }
+
+        if ($rasse !== "0") {
+            $conditions[] = "r.Rasse = ?";
+            $params[] = $rasse;
+            $types .= "s";
+        }
+
+        if ($geschlecht !== "0" && $geschlecht !== "") {
+            $conditions[] = "t.Geschlecht = ?";
+            $params[] = $geschlecht;
+            $types .= "s";
+        }
+
+        if (!empty($conditions)) {
+            $sql .= " WHERE " . implode(" AND ", $conditions);
 
             $stmt = $this->db->prepare($sql);
-            $stmt->bind_param("s", $tierart);
+
+            $stmt->bind_param($types, ...$params);
 
             $stmt->execute();
             $result = $stmt->get_result();

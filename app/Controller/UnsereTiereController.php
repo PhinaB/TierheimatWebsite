@@ -34,12 +34,26 @@ class UnsereTiereController
                 $offset = $_POST['offset'];
             }
             else {
-                throw new InvalidArgumentException('Invalid field "currentTierart".');
+                throw new InvalidArgumentException('Invalid field "offset".');
             }
 
-            $countedAnimals = $this->unsereTiereModel->countAllAnimalsInThisCategory($currentTierart);
+            if (isset($_POST['rasse']) && $_POST['rasse'] !== "") {
+                $rasse = $_POST['rasse'];
+            }
+            else {
+                throw new InvalidArgumentException('Invalid field "rasse".');
+            }
 
-            $alleTiere = $this->unsereTiereModel->findAllTiere($currentTierart, $offset);
+            if (isset($_POST['geschlecht'])) {
+                $geschlecht = $_POST['geschlecht'];
+            }
+            else {
+                throw new InvalidArgumentException('Invalid field "geschlecht".');
+            }
+
+            $countedAnimals = $this->unsereTiereModel->countAllAnimalsInThisCategory($currentTierart, $rasse, $geschlecht);
+
+            $alleTiere = $this->unsereTiereModel->findAllTiere($currentTierart, $offset, $rasse, $geschlecht);
 
             $alleTierarten = $this->unsereTiereModel->findAllTierartenAndRassen();
             $alleGeschlechter = $this->unsereTiereModel->findAllGeschlechter();
@@ -62,5 +76,4 @@ class UnsereTiereController
             ];
         }
     }
-
 }

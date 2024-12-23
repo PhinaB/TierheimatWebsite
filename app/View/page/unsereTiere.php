@@ -22,7 +22,7 @@
     <div id="page" class="hidden">
         <?php if ($currentPage === "Alle Tiere") { ?>
                 <div class="tile">
-                    <form class="formUnsereTiere" action="#" method="post">
+                    <div class="formUnsereTiere" role="form">
                         <div>
                             <label for="tierartAuswählen"> Tierart: </label>
                             <select name="tierartAuswählen" id="tierartAuswählen" onchange="changeRasseSelect()">
@@ -30,17 +30,19 @@
                         </div><div>
                             <label for="rasseAuswählen"> Rasse: </label>
                             <select name="rasseAuswählen" id="rasseAuswählen" disabled style="cursor: default;">
-                                <option value="rasseWählen">Bitte auswählen</option>
+                                <option value="0">Bitte auswählen</option>
                             </select>
                         </div><div>
                             <label for="geschlechtAuswählen"> Geschlecht: </label>
                             <select name="geschlechtAuswählen" id="geschlechtAuswählen">
                             </select>
                         </div><div>
-                            <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i> Suchen</button>
+                            <span class="button" title="Button Suchen" draggable="false" onclick="search()">
+                                <i class="fa fa-search"></i> Suchen
+                            </span>
                         </div>
-                    </form>
-                    <p class="fehlermeldung fehlerFiler"></p>
+                    </div>
+                    <p class="fehlermeldung fehlerFilter"></p>
                 </div>
         <?php } ?>
 
