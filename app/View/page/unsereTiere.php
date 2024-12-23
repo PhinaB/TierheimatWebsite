@@ -82,8 +82,9 @@
             </div>
         </div>
 
-        <a href="" class="button hidden" id="weitereTiereAnzeigen" title="Button weitere Tiere anzeigen" draggable="false">
+        <a class="button hidden" id="weitereTiereAnzeigen" title="Button weitere Tiere anzeigen" draggable="false">
             <i class="fa-solid fa-plus"></i> Weitere Tiere anzeigen
         </a>
+        <input type="hidden" value="0" name="offset">
     </div>
 </div>

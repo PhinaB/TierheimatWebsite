@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadTiere();
+
+    document.querySelector('a[id=weitereTiereAnzeigen]').addEventListener('click', function() {
+        let offset = document.querySelector('input[name=offset]');
+        offset.value = parseInt(offset.value) + 8;
+        loadTiere();
+    });
 });
 
 let tierartenMitRassen = {};
@@ -10,6 +16,7 @@ function loadTiere () {
     fehlerGesamt.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
 
     let currentTierart = document.querySelector('#currentTierart').value;
+    let offset = document.querySelector('input[name=offset]').value;
 
     // Ajax:
     const xhttp = new XMLHttpRequest();
@@ -30,11 +37,11 @@ function loadTiere () {
                         let selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
                         addFilteroptionToSelect(selectTierart, response.tierarten);
                         addFilteroptionToSelect(selectGeschlecht, response.geschlecht);
+                    }
 
-                        tierartenMitRassen = response.tierarten;
-                        if (response.tiere.length > 8) { // TODO: Zahl ändern & dann alle anderen Tiere erstmal noch nicht anzeigen
-                            document.querySelector('#weitereTiereAnzeigen').classList.remove('hidden');
-                        }
+                    tierartenMitRassen = response.tierarten;
+                    if (response.countedAnimals > (offset + 8)) {
+                        document.querySelector('#weitereTiereAnzeigen').classList.remove('hidden');
                     }
                 }
 
@@ -50,7 +57,7 @@ function loadTiere () {
     }
     xhttp.open('POST', '../public/load/alle/unsere/tiere');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('currentTierart='+currentTierart);
+    xhttp.send('currentTierart='+currentTierart+'&offset='+offset);
 }
 
 function setTiereToPage (tiere) {

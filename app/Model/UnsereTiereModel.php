@@ -15,26 +15,27 @@ class UnsereTiereModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function findAllTiere($tierart): array
+    public function findAllTiere($tierart, $offset): array
     {
         $sql = "SELECT * FROM Tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON r.TierartID = ta.TierartID";
 
-        $order = " ORDER BY t.Name";
+        $order = " ORDER BY t.Name LIMIT 8 OFFSET ?";
 
         if ($tierart !== "Alle Tiere") {
             // TODO richtige Tierart ID suchen und nach allen Tieren suchen, die diese Tierart haben
             $sql .= " WHERE ta.Tierart = ?".$order.";";
 
             $stmt = $this->db->prepare($sql);
-            $stmt->bind_param("s", $tierart);
-
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $stmt->bind_param("si", $tierart, $offset);
         } else {
             $sql .= "$order;";
 
-            $result = $this->db->executeQuery($sql);
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("i", $offset);
         }
+
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         $alleTiere = [];
         foreach ($result as $row) {
@@ -65,6 +66,33 @@ class UnsereTiereModel extends AbstractModel
         }
 
         return $alleTiere;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function countAllAnimalsInThisCategory($tierart): int
+    {
+        $sql = "SELECT COUNT(*) AS Anzahl FROM tiere AS t";
+
+        if ($tierart !== "Alle Tiere") {
+            $sql .= " JOIN rasse AS r ON t.RasseID = r.RasseID
+                    JOIN tierart AS ta ON ta.TierartID = r.TierartID 
+                    WHERE ta.Tierart = ?;";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("s", $tierart);
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            $row = $result->fetch_assoc();
+            return $row['Anzahl'];
+        } else {
+            $result = $this->db->executeQuery($sql);
+
+            return $result[0]['Anzahl'];
+        }
     }
 
     /**
