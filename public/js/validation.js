@@ -23,13 +23,13 @@ function validateTextField (min, max, event, errorField) {
     }
 }
 
-function setFehlerFeldInnerHTML (textElm, fehlerFeld, innerHTML) {
+function setFehlerFeldInnerHTML (textElm, errorField, innerHTML) {
     textElm.classList.add('falseInputOrTextarea');
-    fehlerFeld.classList.remove('hidden');
-    fehlerFeld.innerHTML = "<i class='fa-solid fa-circle-exclamation'></i> <b>Hinweis:</b> "+innerHTML;
+    errorField.classList.remove('hidden');
+    errorField.innerHTML = "<i class='fa-solid fa-circle-exclamation'></i> <b>Hinweis:</b> "+innerHTML;
 }
 
-function removeFehlerfeld (field, fehlerFeld) {
+function removeFehlerfeld (field, errorField) {
     field.classList.remove('falseInputOrTextarea');
-    fehlerFeld.classList.add('hidden');
+    errorField.classList.add('hidden');
 }

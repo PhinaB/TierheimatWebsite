@@ -1,34 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-    loadTiere();
+    loadAnimals();
     document.querySelector('input[name=offset]').value = '0';
 
     document.querySelector('a[id=weitereTiereAnzeigen]').addEventListener('click', function() {
         let offset = document.querySelector('input[name=offset]');
         offset.value = parseInt(offset.value) + 8;
-        loadTiere();
+        loadAnimals();
     });
 });
 
-let tierartenMitRassen = {};
+let animalSpeciesWithBreed = {};
 
-function loadTiere () {
+function loadAnimals () {
     document.querySelector('#weitereTiereAnzeigen').classList.add('hidden');
 
     let spinner = document.getElementById('loading');
     spinner.classList.remove('hidden');
 
-    let fehlerGesamt = document.querySelector('.fehlerLoading');
-    fehlerGesamt.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
+    let errorGeneral = document.querySelector('.fehlerLoading');
+    errorGeneral.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
 
-    let currentTierart = document.querySelector('#currentTierart').value;
+    let currentSpecies = document.querySelector('#currentTierart').value;
     let offset = document.querySelector('input[name=offset]').value;
-    let tierartFromSelect = document.querySelector('select[name=tierartAuswählen]').value;
-    let rasse = document.querySelector('select[name=rasseAuswählen]').value; // TODO: selects dürfen dann nicht geleert sein
-    let geschlecht = document.querySelector('select[name=geschlechtAuswählen]').value;
+    let speciesFromSelect = document.querySelector('select[name=tierartAuswählen]').value;
+    let breed = document.querySelector('select[name=rasseAuswählen]').value;
+    let gender = document.querySelector('select[name=geschlechtAuswählen]').value;
 
-    let tierart = currentTierart;
-    if (currentTierart !== tierartFromSelect && tierartFromSelect !== "") {
-        tierart = tierartFromSelect;
+    let species = currentSpecies;
+    if (currentSpecies !== speciesFromSelect && speciesFromSelect !== "") {
+        species = speciesFromSelect;
     }
 
     // Ajax:
@@ -40,19 +40,19 @@ function loadTiere () {
                 let response = JSON.parse(this.response);
 
                 if (response.tiere.length === 0) {
-                    fehlerGesamt.innerHTML = "Wir haben leider gerade kein Tier mit diesen Einstellungen!";
+                    errorGeneral.innerHTML = "Wir haben leider gerade kein Tier mit diesen Einstellungen!";
                 }
                 else {
-                    setTiereToPage(response.tiere);
+                    setAnimalsToPage(response.tiere);
 
-                    if (tierart === "Alle Tiere") {
+                    if (species === "Alle Tiere") {
                         let selectTierart = document.querySelector('select[id=tierartAuswählen]');
                         let selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
                         addFilteroptionToSelect(selectTierart, response.tierarten);
                         addFilteroptionToSelect(selectGeschlecht, response.geschlecht);
                     }
 
-                    tierartenMitRassen = response.tierarten;
+                    animalSpeciesWithBreed = response.tierarten;
                     if (response.countedAnimals > (offset + 8)) {
                         document.querySelector('#weitereTiereAnzeigen').classList.remove('hidden');
                     }
@@ -61,7 +61,7 @@ function loadTiere () {
                 document.querySelector('#page').classList.remove('hidden');
             }
             else {
-                fehlerGesamt.innerHTML = "Die Tiere konnten nicht geladen werden!";
+                errorGeneral.innerHTML = "Die Tiere konnten nicht geladen werden!";
             }
 
             spinner.classList.add('hidden');
@@ -69,52 +69,52 @@ function loadTiere () {
     }
     xhttp.open('POST', '../public/load/alle/unsere/tiere');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('currentTierart='+tierart+'&offset='+offset+'&rasse='+rasse+'&geschlecht='+geschlecht);
+    xhttp.send('currentTierart='+species+'&offset='+offset+'&rasse='+breed+'&geschlecht='+gender);
 }
 
 function search () {
-    let tierartInput = document.querySelector('select[name=tierartAuswählen]');
-    let rasseInput = document.querySelector('select[name=rasseAuswählen]');
-    let geschlechtInput = document.querySelector('select[name=geschlechtAuswählen]');
+    let speciesInput = document.querySelector('select[name=tierartAuswählen]');
+    let breedInput = document.querySelector('select[name=rasseAuswählen]');
+    let genderInput = document.querySelector('select[name=geschlechtAuswählen]');
 
-    let fehlerfeld = document.querySelector('.fehlerFilter');
-    fehlerfeld.innerHTML = '';
+    let errorField = document.querySelector('.fehlerFilter');
+    errorField.innerHTML = '';
 
-    if (tierartInput.value === '0' && rasseInput.value === '0' && geschlechtInput.value === '0') {
-        fehlerfeld.innerHTML = 'Wähle mindestens eine Sache (Tierart / Tierart und Rasse / Geschlecht) aus!';
+    if (speciesInput.value === '0' && breedInput.value === '0' && genderInput.value === '0') {
+        errorField.innerHTML = 'Wähle mindestens eine Sache (Tierart / Tierart und Rasse / Geschlecht) aus!';
         return;
     }
 
     document.querySelector('#page').classList.add('hidden');
     document.querySelector('input[name=offset]').value = "0";
-    let copyAlleTiereHere = document.querySelector('#copyAlleTiereHere');
-    copyAlleTiereHere.innerHTML = "";
+    let copyAllAnimalsHere = document.querySelector('#copyAlleTiereHere');
+    copyAllAnimalsHere.innerHTML = "";
 
-    loadTiere();
+    loadAnimals();
 }
 
-function setTiereToPage (tiere) {
+function setAnimalsToPage (animals) {
     let counter = 0;
-    let copyAlleTiereHere = document.querySelector('#copyAlleTiereHere');
-    let aussenDiv;
+    let copyAllAnimalsHere = document.querySelector('#copyAlleTiereHere');
+    let outsideDiv;
 
-    for (let i = 0; i < tiere.length; i++) {
+    for (let i = 0; i < animals.length; i++) {
         if (counter % 4 === 0) {
-            aussenDiv = document.createElement('div');
-            aussenDiv.classList.add('box-containerUnsereTiere');
-            aussenDiv.classList.add('tile');
-            copyAlleTiereHere.appendChild(aussenDiv);
+            outsideDiv = document.createElement('div');
+            outsideDiv.classList.add('box-containerUnsereTiere');
+            outsideDiv.classList.add('tile');
+            copyAllAnimalsHere.appendChild(outsideDiv);
         }
 
-        let hiddenTierDiv = document.querySelector('#hiddenVorlageTier');
+        let hiddenAnimalDiv = document.querySelector('#hiddenVorlageTier');
 
-        let clone = hiddenTierDiv.cloneNode(true);
-        aussenDiv.appendChild(clone);
+        let clone = hiddenAnimalDiv.cloneNode(true);
+        outsideDiv.appendChild(clone);
 
         clone.classList.remove('hidden');
         clone.classList.add('completeAnimal');
         clone.id = "";
-        clone.getElementsByTagName('h3')[0].innerHTML = tiere[i].Name;
+        clone.getElementsByTagName('h3')[0].innerHTML = animals[i].Name;
         let allAElements = clone.getElementsByTagName('a');
         for (let i = 0; i < allAElements.length; i++) {
             if (allAElements[i].classList.contains('weiterlesen')) {
@@ -122,44 +122,44 @@ function setTiereToPage (tiere) {
             }
         }
 
-        let beschreibungBeginn = clone.querySelector('.beschreibungBeginn');
-        let beschreibungWorte = tiere[i].Beschreibung.split(' ');
-        beschreibungBeginn.innerHTML = beschreibungWorte.slice(0, 2).join(' ') + ' ...';
+        let descriptionStart = clone.querySelector('.beschreibungBeginn');
+        let descriptionWords = animals[i].Beschreibung.split(' ');
+        descriptionStart.innerHTML = descriptionWords.slice(0, 2).join(' ') + ' ...';
 
-        let hiddenVorlageWeiterlesen = document.querySelector('#hiddenVorlageWeiterlesen');
+        let hiddenTemplateReadMore = document.querySelector('#hiddenVorlageWeiterlesen');
 
-        let cloneWeiterlesen = hiddenVorlageWeiterlesen.cloneNode(true);
-        aussenDiv.appendChild(cloneWeiterlesen);
+        let cloneReadMore = hiddenTemplateReadMore.cloneNode(true);
+        outsideDiv.appendChild(cloneReadMore);
 
-        const currentYear = new Date().getFullYear(); // Aktuelles Jahr
-        const alter = currentYear - tiere[i].Geburtsjahr;
+        let currentYear = new Date().getFullYear(); // Aktuelles Jahr
+        let age = currentYear - animals[i].Geburtsjahr;
 
-        cloneWeiterlesen.id = "";
-        cloneWeiterlesen.getElementsByTagName('h3')[0].innerHTML = tiere[i].Name;
-        cloneWeiterlesen.querySelector('.name').innerHTML = '<span class="boldText">Name:</span> ' + tiere[i].Name;
-        cloneWeiterlesen.querySelector('.alter').innerHTML = '<span class="boldText">Alter:</span> ' + alter + ' Jahr/e alt';
-        cloneWeiterlesen.querySelector('.beiUnsSeit').innerHTML = '<span class="boldText">In der Tierheimat seit:</span> ' + tiere[i].Datum;
-        cloneWeiterlesen.querySelector('.charakter').innerHTML = '<span class="boldText">Charaktereigenschaften:</span> ' + tiere[i].Charakter;
-        cloneWeiterlesen.querySelector('.beschreibung').innerHTML = tiere[i].Beschreibung;
-        cloneWeiterlesen.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenField(this)');
+        cloneReadMore.id = "";
+        cloneReadMore.getElementsByTagName('h3')[0].innerHTML = animals[i].Name;
+        cloneReadMore.querySelector('.name').innerHTML = '<span class="boldText">Name:</span> ' + animals[i].Name;
+        cloneReadMore.querySelector('.alter').innerHTML = '<span class="boldText">Alter:</span> ' + age + ' Jahr/e alt';
+        cloneReadMore.querySelector('.beiUnsSeit').innerHTML = '<span class="boldText">In der Tierheimat seit:</span> ' + animals[i].Datum;
+        cloneReadMore.querySelector('.charakter').innerHTML = '<span class="boldText">Charaktereigenschaften:</span> ' + animals[i].Charakter;
+        cloneReadMore.querySelector('.beschreibung').innerHTML = animals[i].Beschreibung;
+        cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenField(this)');
 
         // Bilder:
-        let bildwechselA = clone.querySelector('.bildwechsel');
+        let imageChangeBlock = clone.querySelector('.bildwechsel');
 
-        let tierbilder = tiere[i].Bilder;
+        let animalPictures = animals[i].Bilder;
 
-        tierbilder.forEach((bild) => {
-            if (bild.Hauptbild === "1") {
-                bildwechselA.style.setProperty('--before-image', "url('../img/"+bild.Bildadresse+"')");
-                bildwechselA.alt = bild.Alternativtext;
+        animalPictures.forEach((picture) => {
+            if (picture.Hauptbild === "1") {
+                imageChangeBlock.style.setProperty('--before-image', "url('../img/"+picture.Bildadresse+"')");
+                imageChangeBlock.alt = picture.Alternativtext;
 
                 // Bild für weiterlesen Feld:
-                let weiterlesenBild = cloneWeiterlesen.querySelector('.hohesBild');
-                weiterlesenBild.src = "../public/img/" + bild.Bildadresse;
-                weiterlesenBild.alt = bild.Alternativtext;
+                let weiterlesenBild = cloneReadMore.querySelector('.hohesBild');
+                weiterlesenBild.src = "../public/img/" + picture.Bildadresse;
+                weiterlesenBild.alt = picture.Alternativtext;
             }
-            else if (bild.Hauptbild === "0") {
-                bildwechselA.style.setProperty('--after-image', "url('../img/"+bild.Bildadresse+"')");
+            else if (picture.Hauptbild === "0") {
+                imageChangeBlock.style.setProperty('--after-image', "url('../img/"+picture.Bildadresse+"')");
             }
         });
 
@@ -173,14 +173,14 @@ function findExplicitParentElement (element, searchedClassName) {
 }
 
 function openWeiterlesenField (buttonElement) {
-    let allFelder = document.querySelectorAll('.completeWeiterlesen');
-    for (let i = 0; i < allFelder.length; i++) {
-        allFelder[i].classList.add('hidden');
+    let allFields = document.querySelectorAll('.completeWeiterlesen');
+    for (let i = 0; i < allFields.length; i++) {
+        allFields[i].classList.add('hidden');
     }
 
-    let allTiere = document.querySelectorAll('.completeAnimal');
-    for (let i = 0; i < allTiere.length; i++) {
-        allTiere[i].style.opacity = 0.4;
+    let allAnimals = document.querySelectorAll('.completeAnimal');
+    for (let i = 0; i < allAnimals.length; i++) {
+        allAnimals[i].style.opacity = 0.4;
     }
     document.querySelector('#weitereTiereAnzeigen').style.opacity = 0.4;
 
@@ -194,9 +194,9 @@ function closeWeiterlesenField (buttonElement) {
     let thisDiv = findExplicitParentElement(buttonElement, 'completeWeiterlesen');
     thisDiv.classList.add('hidden');
 
-    let allTiere = document.querySelectorAll('.completeAnimal');
-    for (let i = 0; i < allTiere.length; i++) {
-        allTiere[i].style.opacity = 1;
+    let allAnimals = document.querySelectorAll('.completeAnimal');
+    for (let i = 0; i < allAnimals.length; i++) {
+        allAnimals[i].style.opacity = 1;
     }
     document.querySelector('#weitereTiereAnzeigen').style.opacity = 1;
 }
@@ -216,28 +216,28 @@ function addFilteroptionToSelect (select, options) {
 }
 
 function changeRasseSelect() {
-    let tierart = document.querySelector('select[id=tierartAuswählen]').value;
-    let rasseSelect = document.querySelector('select[id=rasseAuswählen]');
+    let species = document.querySelector('select[id=tierartAuswählen]').value;
+    let breedSelect = document.querySelector('select[id=rasseAuswählen]');
 
-    let options = rasseSelect.querySelectorAll('option');
-    for (let i = rasseSelect.length - 1; i >= 0; i--) {
+    let options = breedSelect.querySelectorAll('option');
+    for (let i = breedSelect.length - 1; i >= 0; i--) {
         if (options[i].value !== '0') {
-            rasseSelect.removeChild(options[i]);
+            breedSelect.removeChild(options[i]);
         }
     }
 
-    if (tierart !== "0") {
-        rasseSelect.removeAttribute('disabled');
-        for (let i = 0; i < tierartenMitRassen.length; i++) {
-            if (tierartenMitRassen[i].name === tierart) {
-                addFilteroptionToSelect(rasseSelect, tierartenMitRassen[i].rassen);
+    if (species !== "0") {
+        breedSelect.removeAttribute('disabled');
+        for (let i = 0; i < animalSpeciesWithBreed.length; i++) {
+            if (animalSpeciesWithBreed[i].name === species) {
+                addFilteroptionToSelect(breedSelect, animalSpeciesWithBreed[i].rassen);
             }
         }
 
-        rasseSelect.style.cursor = "pointer";
+        breedSelect.style.cursor = "pointer";
     }
     else {
-        rasseSelect.setAttribute('disabled', 'disabled');
-        rasseSelect.style.cursor = "default";
+        breedSelect.setAttribute('disabled', 'disabled');
+        breedSelect.style.cursor = "default";
     }
 }
