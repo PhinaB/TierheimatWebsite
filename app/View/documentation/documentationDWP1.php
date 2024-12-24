@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../public/css/main.css" />
-    <link rel="stylesheet" href="../public/css/dokumentation.css" />
+    <link rel="stylesheet" href="../public/css/documentation.css" />
 
-    <link rel="stylesheet" href="../fontawesome-6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="../public/lib/fontawesome-6.5.2/css/all.min.css" />
 
     <title>Projektdokumentation dynamische Webprogrammierung Tierheimat</title>
 </head>
