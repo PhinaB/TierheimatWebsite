@@ -14,6 +14,7 @@ require_once __DIR__ . '/../app/Model/MissingFoundModel.php';
 
 include_once __DIR__ . '/../app/Controller/ServiceHelpController.php';
 include_once __DIR__ . '/../app/Controller/OurAnimalsController.php';
+include_once __DIR__ . '/../app/Controller/HomeController.php';
 include_once __DIR__ . '/../app/Model/ServiceInfoModel.php';
 include_once __DIR__ . '/../app/Model/OurAnimalsModel.php';
 
@@ -41,6 +42,7 @@ $router->add('/animal/report', 'missingFoundAnimalController', "addVermisstGefun
 $router->add('/load/all/our/animals', 'OurAnimalsController', "loadAllAnimals", '');
 $router->add('/add/help', 'ServiceHelpController', "addServiceInfo", '');
 $router->add('/load/all/serviceInfo', 'ServiceHelpController', "loadAllServiceInfo", '');
+$router->add('/load/all/for/home', 'HomeController', "loadAllForHome", '');
 
 // get URL - which page to open:
 $baseUrl = str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']);

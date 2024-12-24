@@ -157,7 +157,7 @@ class OurAnimalsModel extends AbstractModel
      */
     public function findThreeRandomAnimals(): array
     {
-        $sql = "SELECT * FROM Tiere ORDER BY RAND() LIMIT 3;";
+        $sql = "SELECT * FROM Tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON ta.TierartID = r.TierartID ORDER BY RAND() LIMIT 3;";
 
         $stmt = $this->db->prepare($sql);
 

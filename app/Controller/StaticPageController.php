@@ -7,6 +7,7 @@ class StaticPageController
     public function homeAction(): void
     {
         $stylesheets = ['home.css', 'imageChange.css'];
+        $js = ['loadHome.js'];
 
         $this->renderPage($stylesheets, 'index', $js, 'home');
     }
