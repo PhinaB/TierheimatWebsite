@@ -63,7 +63,7 @@ function loadContentToPage () {
             }
         }
     }
-    xhttp.open('POST', '../public/load/alles/serviceInfo');
+    xhttp.open('POST', '../public/load/all/serviceInfo');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send();
 }
@@ -468,7 +468,7 @@ function send () {
             }
         }
     }
-    xhttp.open('POST', '../public/add/helfen');
+    xhttp.open('POST', '../public/add/help');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send(jsonData);
 }

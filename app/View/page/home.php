@@ -29,7 +29,7 @@
             </p><p>
                 Wir sind stolz auf die Fortschritte, die ...
             </p>
-            <a href="aktuelles.php#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+            <a href="current.php#tiervermittlung" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
         </div>
     </div>
 </div>
@@ -96,7 +96,7 @@
             </div>
             <h3>Lora</h3>
             <p>5 Jahre alt, Sittich ...</p>
-            <a href="unsereTiere.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+            <a href="ourAnimals.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
         </div>
         <div>
             <div class="aussenboxBildwechselKlein">
@@ -104,8 +104,8 @@
             </div>
             <h3>Rocky</h3>
             <p>2 Jahre alt, Rüde ...</p>
-            <a href="unsereTiere.php#rocky" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
+            <a href="ourAnimals.php#rocky" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Weiterlesen</a>
         </div>
     </div>
-    <a href="unsereTiere.php" class="button marginTopButton" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere ansehen</a>
+    <a href="ourAnimals.php" class="button marginTopButton" draggable="false"><i class="fa-solid fa-plus"></i> Weitere Tiere ansehen</a>
 </div>

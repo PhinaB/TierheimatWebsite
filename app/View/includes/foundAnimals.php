@@ -27,7 +27,7 @@
     </div>
 
     <div class="box-containerUnsereTiere marginTopFirstElement">
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/max.jpg" alt="Bild eines Hundes" title="Bild Hund" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum:</span> 23.05.2024</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Erfurt</p>
@@ -37,7 +37,7 @@
             <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
 
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/flo.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum: </span>27.09.2023</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Weimar</p>
@@ -47,7 +47,7 @@
             <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
 
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/nick.jpeg" alt="Bild eines Hundes" title="Bild Hund" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum:</span> 25.02.2024</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Arnstadt</p>
@@ -57,7 +57,7 @@
             <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
 
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/stan.jpg" alt="Bild einer Katze" title="Bild Katze" draggable="false" />
             <p class="absatzfrei"><span class="boldText">Funddatum: </span>24.06.2024</p>
             <p class="absatzfrei"><span class="boldText">Fundort:</span> Hohenfelden</p>

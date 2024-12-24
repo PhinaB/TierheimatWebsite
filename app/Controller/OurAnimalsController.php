@@ -2,29 +2,29 @@
 
 namespace app\Controller;
 
-use app\model\UnsereTiereModel;
+use app\model\OurAnimalsModel;
 use Exception;
 use InvalidArgumentException;
 
-class UnsereTiereController
+class OurAnimalsController
 {
-    private UnsereTiereModel $unsereTiereModel;
+    private OurAnimalsModel $unsereTiereModel;
 
     public function __construct()
     {
-        $this->unsereTiereModel = new UnsereTiereModel();
+        $this->unsereTiereModel = new OurAnimalsModel();
     }
 
     /**
      * @throws Exception
      */
-    public function loadAllTiere(): array
+    public function loadAllAnimals(): array
     {
         http_response_code(201);
 
         try {
             if (isset($_POST['currentTierart']) && $_POST['currentTierart'] !== "") {
-                $currentTierart = $_POST['currentTierart'];
+                $currentSpecies = $_POST['currentTierart'];
             }
             else {
                 throw new InvalidArgumentException('Invalid field "currentTierart".');
@@ -38,30 +38,30 @@ class UnsereTiereController
             }
 
             if (isset($_POST['rasse']) && $_POST['rasse'] !== "") {
-                $rasse = $_POST['rasse'];
+                $breed = $_POST['rasse'];
             }
             else {
                 throw new InvalidArgumentException('Invalid field "rasse".');
             }
 
             if (isset($_POST['geschlecht'])) {
-                $geschlecht = $_POST['geschlecht'];
+                $gender = $_POST['geschlecht'];
             }
             else {
                 throw new InvalidArgumentException('Invalid field "geschlecht".');
             }
 
-            $countedAnimals = $this->unsereTiereModel->countAllAnimalsInThisCategory($currentTierart, $rasse, $geschlecht);
+            $countedAnimals = $this->unsereTiereModel->countAllAnimalsInThisCategory($currentSpecies, $breed, $gender);
 
-            $alleTiere = $this->unsereTiereModel->findAllTiere($currentTierart, $offset, $rasse, $geschlecht);
+            $allAnimals = $this->unsereTiereModel->findAllAnimals($currentSpecies, $offset, $breed, $gender);
 
-            $alleTierarten = $this->unsereTiereModel->findAllTierartenAndRassen();
-            $alleGeschlechter = $this->unsereTiereModel->findAllGeschlechter();
+            $allSpecies = $this->unsereTiereModel->findAllSpeciesAndBreeds();
+            $allGender = $this->unsereTiereModel->findAllGender();
 
             $response = [
-                'tiere' => $alleTiere,
-                'tierarten' => $alleTierarten,
-                'geschlecht' => $alleGeschlechter,
+                'tiere' => $allAnimals,
+                'tierarten' => $allSpecies,
+                'geschlecht' => $allGender,
                 'countedAnimals' => $countedAnimals,
             ];
 

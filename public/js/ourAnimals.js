@@ -22,13 +22,19 @@ function loadAnimals () {
 
     let currentSpecies = document.querySelector('#currentTierart').value;
     let offset = document.querySelector('input[name=offset]').value;
-    let speciesFromSelect = document.querySelector('select[name=tierartAuswählen]').value;
-    let breed = document.querySelector('select[name=rasseAuswählen]').value;
-    let gender = document.querySelector('select[name=geschlechtAuswählen]').value;
 
+    let breed = "0";
+    let gender = "0";
     let species = currentSpecies;
-    if (currentSpecies !== speciesFromSelect && speciesFromSelect !== "") {
-        species = speciesFromSelect;
+
+    if (currentSpecies === "Alle Tiere") {
+        let speciesFromSelect = document.querySelector('select[name=tierartAuswählen]').value;
+        breed = document.querySelector('select[name=rasseAuswählen]').value;
+        gender = document.querySelector('select[name=geschlechtAuswählen]').value;
+
+        if (currentSpecies !== speciesFromSelect && speciesFromSelect !== "") {
+            species = speciesFromSelect;
+        }
     }
 
     // Ajax:
@@ -40,7 +46,7 @@ function loadAnimals () {
                 let response = JSON.parse(this.response);
 
                 if (response.tiere.length === 0) {
-                    errorGeneral.innerHTML = "Wir haben leider gerade kein Tier mit diesen Einstellungen!";
+                    errorGeneral.innerHTML = "Wir haben leider gerade kein Animal mit diesen Einstellungen!";
                 }
                 else {
                     setAnimalsToPage(response.tiere);
@@ -67,7 +73,7 @@ function loadAnimals () {
             spinner.classList.add('hidden');
         }
     }
-    xhttp.open('POST', '../public/load/alle/unsere/tiere');
+    xhttp.open('POST', '../public/load/all/our/animals');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send('currentTierart='+species+'&offset='+offset+'&rasse='+breed+'&geschlecht='+gender);
 }
@@ -81,7 +87,7 @@ function search () {
     errorField.innerHTML = '';
 
     if (speciesInput.value === '0' && breedInput.value === '0' && genderInput.value === '0') {
-        errorField.innerHTML = 'Wähle mindestens eine Sache (Tierart / Tierart und Rasse / Geschlecht) aus!';
+        errorField.innerHTML = 'Wähle mindestens eine Sache (Species / Species und Breed / Geschlecht) aus!';
         return;
     }
 
@@ -143,7 +149,7 @@ function setAnimalsToPage (animals) {
         cloneReadMore.querySelector('.beschreibung').innerHTML = animals[i].Beschreibung;
         cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenField(this)');
 
-        // Bilder:
+        // Pictures:
         let imageChangeBlock = clone.querySelector('.bildwechsel');
 
         let animalPictures = animals[i].Bilder;

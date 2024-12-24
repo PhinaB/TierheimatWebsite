@@ -2,7 +2,7 @@
 
 namespace app\model;
 
-class Tier extends AbstractModel
+class Animal extends AbstractModel
 {
     private ?int $tierID = null;
 

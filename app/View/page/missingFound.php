@@ -1,6 +1,6 @@
 <?php
-include __DIR__ . '/../includes/vermisstGefundenFormular.php'; // TODO: entweder Formular, wenn angemeldet oder Hinweis zum Formular
-include __DIR__ . '/../includes/vermisstGefundenMelden.php';
+include __DIR__ . '/../includes/missingFoundForm.php'; // TODO: entweder Formular, wenn angemeldet oder Hinweis zum Formular
+include __DIR__ . '/../includes/missingFoundReport.php';
 ?>
 
     <div class="druckenOhneSeitenumbruch">
@@ -16,7 +16,7 @@ include __DIR__ . '/../includes/vermisstGefundenMelden.php';
     </div>
 
 <?php
-include __DIR__ . '/../includes/vermissteTiere.php';
+include __DIR__ . '/../includes/missingAnimals.php';
 echo '<br />';
-include __DIR__ . '/../includes/gefundeneTiere.php';
+include __DIR__ . '/../includes/foundAnimals.php';
 ?>

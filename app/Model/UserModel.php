@@ -7,7 +7,7 @@ use Exception;
 use InvalidArgumentException;
 use mysqli;
 
-class NutzerModel extends AbstractModel
+class UserModel extends AbstractModel
 {
     private mysqli $db;
 
@@ -18,9 +18,9 @@ class NutzerModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function insertNutzer(Nutzer $nutzer){
+    public function insertNutzer(User $nutzer){
 
-        //-----------------Nutzerrolle-------------------------------------
+        //-----------------UserRole-------------------------------------
         //wenn sie existiert wird ID ausgelesen, wenn sie nicht existiert Exception
 
         $sqlNutzerrolleExists = "SELECT * FROM Nuterrollen WHERE Rolle= ?";
@@ -29,7 +29,7 @@ class NutzerModel extends AbstractModel
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerrolleExists ->error);
         }
         //per default bei Anlegen User
-        $defaultNutzerrolle = "Nutzer";
+        $defaultNutzerrolle = "User";
         $stmtNutzerrolleExists->bind_param("s", $defaultNutzerrolle);
         if (!$stmtNutzerrolleExists->execute()) {
             throw new InvalidArgumentException('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtNutzerrolleExists->error);
@@ -37,18 +37,18 @@ class NutzerModel extends AbstractModel
 
         $resultNutzerrolle = $stmtNutzerrolleExists->get_result();
         if ($resultNutzerrolle->num_rows > 0) {
-            // Nutzerrolle existiert bereits -> NutzerrollenID abrufen
+            // UserRole existiert bereits -> NutzerrollenID abrufen
             $row = $resultNutzerrolle->fetch_assoc();
             $nutzerrollenID = $row['NutzerrollenID'];
             $stmtNutzerrolleExists->close();
         } else {
-            //Nutzerrolle existiert nicht: wird vom Admin verwaltet, wenn nicht gesetzt Fehlermeldung
-            throw new Exception('Die Nutzerrolle existiert nicht.');
+            //UserRole existiert nicht: wird vom Admin verwaltet, wenn nicht gesetzt Fehlermeldung
+            throw new Exception('Die UserRole existiert nicht.');
         }
 
 
-        //-----------------Nutzer-------------------------------------------
-        $sqlNutzerExists="SELECT * FROM Nutzer WHERE email= ?";
+        //-----------------User-------------------------------------------
+        $sqlNutzerExists="SELECT * FROM User WHERE email= ?";
         $stmtNutzerExists= $this->db->prepare($sqlNutzerExists);
         if ($stmtNutzerExists->error !== "") {
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerExists->error);
@@ -63,11 +63,11 @@ class NutzerModel extends AbstractModel
         $stmtNutzerExists->close();
 
         if ($result->num_rows > 0) {
-            //Nutzer existiert bereits: abbruch
-            throw new Exception('Der Nutzer existiert bereits!');
+            //User existiert bereits: abbruch
+            throw new Exception('Der User existiert bereits!');
         } else {
-            //Nutzer existiert nicht: anlegen
-            $sqlNewNutzer= "INSERT INTO Nutzer (NutzerrollenID, Name, Email, Passwort) VALUES (?, ?, ?, ?)";
+            //User existiert nicht: anlegen
+            $sqlNewNutzer= "INSERT INTO User (NutzerrollenID, Name, Email, Passwort) VALUES (?, ?, ?, ?)";
             $stmtNewNutzer= $this->db->prepare($sqlNewNutzer);
 
            $valuesNutzer = $nutzer->getValuesForInsert($nutzerrollenID);
@@ -85,7 +85,7 @@ class NutzerModel extends AbstractModel
 
     public function getNutzerByEmail(string $email): ?array
     {
-        $sqlNutzerEmail = "SELECT * FROM Nutzer WHERE Email = ?";
+        $sqlNutzerEmail = "SELECT * FROM User WHERE Email = ?";
         $stmtNutzerEmail = $this->db->prepare($sqlNutzerEmail);
         if ($stmtNutzerEmail ->error !== "") {
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerEmail ->error);

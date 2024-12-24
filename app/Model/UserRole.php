@@ -1,7 +1,7 @@
 <?php
 
 namespace app\model;
-class Nutzerrolle {
+class UserRole {
 
     private ?int $nutzerrolleID = null;
 

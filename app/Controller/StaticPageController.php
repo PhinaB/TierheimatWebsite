@@ -4,15 +4,14 @@ namespace app\Controller;
 
 class StaticPageController
 {
-    public function indexAction(): void
+    public function homeAction(): void
     {
-        $stylesheets = ['index.css', 'bildwechselBilder.css'];
-        $js = [];
+        $stylesheets = ['home.css', 'imageChange.css'];
 
         $this->renderPage($stylesheets, 'index', $js, 'home');
     }
 
-    public function loadUnsereTiereAction($category): void
+    public function loadOurAnimalsAction($category): void
     {
         $allowedCategories = ['Hunde', 'Katzen', 'Kleintiere', 'Exoten', 'Alle Tiere'];
 
@@ -23,55 +22,55 @@ class StaticPageController
 
         $currentPage = $category;
 
-        $stylesheets = ['unsereTiere.css', 'bildwechselBilder.css', 'weiterlesen.css'];
-        $js = ['unsereTiere.js'];
+        $stylesheets = ['ourAnimals.css', 'imageChange.css', 'readMore.css'];
+        $js = ['ourAnimals.js'];
 
-        $this->renderPage($stylesheets, $currentPage, $js, 'unsereTiere');
+        $this->renderPage($stylesheets, $currentPage, $js, 'ourAnimals');
     }
 
-    public function loadAktuellesAction(): void
+    public function loadCurrentAction(): void
     {
-        $stylesheets = ['aktuelles.css'];
+        $stylesheets = ['current.css'];
         $js = [];
 
-        $this->renderPage($stylesheets, 'Aktuelles', $js, 'aktuelles');
+        $this->renderPage($stylesheets, 'Aktuelles', $js, 'current');
     }
 
-    public function loadVermisstGefundenAction(): void
+    public function loadMissingFoundAction(): void
     {
-        $stylesheets = ['vermisstGefundenLogin.css', 'vermisstGefunden.css', 'unsereTiere.css', 'formulare.css', 'vermisstGefundenPrint.css'];
+        $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
         $js = ['validation.js'];
 
-        $this->renderPage($stylesheets, 'Vermisste / Gefundene Tiere', $js, 'vermisstGefunden');
+        $this->renderPage($stylesheets, 'Vermisste / Gefundene Tiere', $js, 'missingFound');
     }
 
-    public function loadVermisstAction(): void
+    public function loadMissingAction(): void
     {
-        $stylesheets = ['vermisstGefundenLogin.css', 'vermisstGefunden.css', 'unsereTiere.css', 'formulare.css', 'vermisstGefundenPrint.css'];
+        $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
         $js = ['validation.js'];
 
-        $this->renderPage($stylesheets, 'Vermisste Tiere', $js, 'vermisst');
+        $this->renderPage($stylesheets, 'Vermisste Tiere', $js, 'missing');
     }
 
-    public function loadGefundenAction(): void
+    public function loadFoundAction(): void
     {
-        $stylesheets = ['vermisstGefundenLogin.css', 'vermisstGefunden.css', 'unsereTiere.css', 'formulare.css', 'vermisstGefundenPrint.css'];
+        $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
         $js = ['validation.js'];
 
-        $this->renderPage($stylesheets, 'Gefundene Tiere', $js, 'gefunden');
+        $this->renderPage($stylesheets, 'Gefundene Tiere', $js, 'found');
     }
 
-    public function loadServiceInfosAction(): void
+    public function loadServiceInfoAction(): void
     {
-        $stylesheets = ['serviceInfosHelfenlogin.css', 'serviceInfo.css', 'formulare.css'];
-        $js = ['serviceHelfenFormular.js'];
+        $stylesheets = ['serviceInfoHelpLogin.css', 'serviceInfo.css', 'form.css'];
+        $js = ['serviceHelpForm.js'];
 
         $this->renderPage($stylesheets, 'Service / Infos', $js, 'serviceInfos');
     }
 
     public function loadLoginAction(): void
     {
-        $stylesheets = ['login.css', 'formulare.css'];
+        $stylesheets = ['login.css', 'form.css'];
         $js = [];
 
         $this->renderPage($stylesheets, 'Login', $js, 'login');
@@ -85,14 +84,14 @@ class StaticPageController
         $this->renderPage($stylesheets, 'Impressum', $js, 'impressum');
     }
 
-    public function loadDokuGWPAction(): void
+    public function loadDocumentationGWPAction(): void
     {
-        include_once '../app/View/dokumentation/dokumentationGWP.php';
+        include_once '../app/View/documentation/documentationGWP.php';
     }
 
-    public function loadDokuDWP1Action(): void
+    public function loadDocumentationDWP1Action(): void
     {
-        include_once '../app/View/dokumentation/dokumentationDWP1.php';
+        include_once '../app/View/documentation/documentationDWP1.php';
     }
 
     public function pageNotFoundAction(): void

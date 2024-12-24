@@ -4,47 +4,48 @@ use core\Route;
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../core/Route.php';
 require_once __DIR__ . '/../app/Controller/StaticPageController.php';
-require_once __DIR__ . '/../app/Controller/VermisstGefundenTierController.php';
+require_once __DIR__ . '/../app/Controller/missingFoundAnimalController.php';
 
 require_once __DIR__ . '/../core/Connection.php';
-require_once __DIR__ . '/../app/Model/Tierart.php';
-require_once __DIR__ . '/../app/Model/VermisstGefundenTier.php';
+require_once __DIR__ . '/../app/Model/Species.php';
+require_once __DIR__ . '/../app/Model/MissingFoundAnimal.php';
 require_once __DIR__ . '/../app/Model/AbstractModel.php';
-require_once __DIR__ . '/../app/Model/VermisstGefundenTierModel.php';
+require_once __DIR__ . '/../app/Model/MissingFoundModel.php';
 
-include_once __DIR__ . '/../app/Controller/ServiceHelfenController.php';
-include_once __DIR__ . '/../app/Controller/UnsereTiereController.php';
+include_once __DIR__ . '/../app/Controller/ServiceHelpController.php';
+include_once __DIR__ . '/../app/Controller/OurAnimalsController.php';
 include_once __DIR__ . '/../app/Model/ServiceInfoModel.php';
-include_once __DIR__ . '/../app/Model/UnsereTiereModel.php';
+include_once __DIR__ . '/../app/Model/OurAnimalsModel.php';
 
 $router = new Route();
 
-// alle Routen anlegen, die wir haben/brauchen:
-$router->add('/', 'StaticPageController', 'indexAction', "");
-$router->add('/unsereTiere',  'StaticPageController', 'loadUnsereTiereAction', "Alle Tiere");
-$router->add('/unsereHunde', 'StaticPageController', 'loadUnsereTiereAction', "Hunde");
-$router->add('/unsereKatzen', 'StaticPageController', 'loadUnsereTiereAction', "Katzen");
-$router->add('/unsereKleintiere', 'StaticPageController', 'loadUnsereTiereAction', "Kleintiere");
-$router->add('/unsereExoten', 'StaticPageController', 'loadUnsereTiereAction', "Exoten");
-$router->add('/aktuelles', 'StaticPageController', 'loadAktuellesAction', "");
-$router->add('/vermisstGefunden', 'StaticPageController', 'loadVermisstGefundenAction', "");
-$router->add('/vermisst', 'StaticPageController', 'loadVermisstAction', "");
-$router->add('/gefunden', 'StaticPageController', 'loadGefundenAction', "");
-$router->add('/serviceInfos', 'StaticPageController', 'loadServiceInfosAction', "");
+// all Routes for page:
+$router->add('/', 'StaticPageController', 'homeAction', "");
+$router->add('/unsereTiere',  'StaticPageController', 'loadOurAnimalsAction', "Alle Tiere");
+$router->add('/unsereHunde', 'StaticPageController', 'loadOurAnimalsAction', "Hunde");
+$router->add('/unsereKatzen', 'StaticPageController', 'loadOurAnimalsAction', "Katzen");
+$router->add('/unsereKleintiere', 'StaticPageController', 'loadOurAnimalsAction', "Kleintiere");
+$router->add('/unsereExoten', 'StaticPageController', 'loadOurAnimalsAction', "Exoten");
+$router->add('/aktuelles', 'StaticPageController', 'loadCurrentAction', "");
+$router->add('/vermisstGefunden', 'StaticPageController', 'loadMissingFoundAction', "");
+$router->add('/vermisst', 'StaticPageController', 'loadMissingAction', "");
+$router->add('/gefunden', 'StaticPageController', 'loadFoundAction', "");
+$router->add('/serviceInfos', 'StaticPageController', 'loadServiceInfoAction', "");
 $router->add('/login', 'StaticPageController', 'loadLoginAction', "");
 $router->add('/impressum', 'StaticPageController', 'loadImpressumAction', "");
-$router->add('/dokuGWP', 'StaticPageController', 'loadDokuGWPAction', "");
-$router->add('/dokuDWP1', 'StaticPageController', 'loadDokuDWP1Action', "");
-$router->add('/tier/melden', 'VermisstGefundenTierController', "addVermisstGefundenTier", '');
-$router->add('/load/alle/unsere/tiere', 'UnsereTiereController', "loadAllTiere", '');
-$router->add('/add/helfen', 'ServiceHelfenController', "addServiceInfo", '');
-$router->add('/load/alles/serviceInfo', 'ServiceHelfenController', "loadAllServiceInfo", '');
+$router->add('/dokuGWP', 'StaticPageController', 'loadDocumentationGWPAction', "");
+$router->add('/dokuDWP1', 'StaticPageController', 'loadDocumentationDWP1Action', "");
 
+// all Routes for js:
+$router->add('/animal/report', 'missingFoundAnimalController', "addVermisstGefundenTier", '');
+$router->add('/load/all/our/animals', 'OurAnimalsController', "loadAllAnimals", '');
+$router->add('/add/help', 'ServiceHelpController', "addServiceInfo", '');
+$router->add('/load/all/serviceInfo', 'ServiceHelpController', "loadAllServiceInfo", '');
 
-// aus URL filtern, welche Seite aufgerufen werden muss:
+// get URL - which page to open:
 $baseUrl = str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']);
 $baseUrl = dirname($baseUrl);
 $url = str_replace($baseUrl, '', $_SERVER['REQUEST_URI']);
 
-// Seite aufrufen:
+// open page:
 $router->match($url);

@@ -81,7 +81,7 @@ class Connection {
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
             }
-            return $data; // Gibt alle Zeilen als Array zurück
+            return $data;
         }
 
         // Für INSERT/UPDATE/DELETE-Abfragen
@@ -104,18 +104,3 @@ class Connection {
         }
     }
 }
-
-/*
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'tierheimat';
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-}
-echo "Verbindung erfolgreich!";
-*/

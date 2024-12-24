@@ -6,7 +6,7 @@ namespace app\Model;
 use Exception;
 use InvalidArgumentException;
 
-class VermisstGefundenTierModel extends AbstractModel
+class MissingFoundModel extends AbstractModel
 {
     public function __construct()
     {
@@ -16,15 +16,15 @@ class VermisstGefundenTierModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function insertVermisstGefundenTiere(VermisstGefundenTier $vermisstGefundenTier, Tierart $tierart): void
+    public function insertVermisstGefundenTiere(MissingFoundAnimal $vermisstGefundenTier, Species $tierart): void
     {
        // Start einer Transaktion, um Konsistenz zu gewährleisten
        $this->db->begin_transaction();
 
        try {
 
-           //---------------------------------------------Tierart-----------------------------------------------
-           $queryTierartSelect = "SELECT TierartID FROM Tierart WHERE Tierart = ?";
+           //---------------------------------------------Species-----------------------------------------------
+           $queryTierartSelect = "SELECT TierartID FROM Species WHERE Species = ?";
            $stmtTierartSelect = $this->db->prepare($queryTierartSelect);
            if ($stmtTierartSelect->error !== "") {
                throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierartSelect->error);
@@ -39,12 +39,12 @@ class VermisstGefundenTierModel extends AbstractModel
            // Ergebnis abrufen
            $result = $stmtTierartSelect->get_result();
            if ($result->num_rows > 0) {
-               // Tierart existiert bereits -> TierartID abrufen
+               // Species existiert bereits -> TierartID abrufen
                $row = $result->fetch_assoc();
                $tierartID = $row['TierartID'];
                $stmtTierartSelect->close();
            } else {
-               $queryTierart = "INSERT INTO Tierart (Tierart) VALUES (?)";
+               $queryTierart = "INSERT INTO Species (Species) VALUES (?)";
                $stmtTierart = $this->db->prepare($queryTierart);
 
                if ($stmtTierart->error !== "") {
@@ -61,16 +61,16 @@ class VermisstGefundenTierModel extends AbstractModel
                $stmtTierart->close();
            }
 
-           //-------------------------------------------------Nutzer-----------------------------------------------
+           //-------------------------------------------------User-----------------------------------------------
 
-           $nutzerID = 1; //TODO: aktuellen Nutzer abfragen
+           $nutzerID = 1; //TODO: aktuellen User abfragen
 
-           /*$nutzerID = $_SESSION['user_id'] ?? null; // Annahme: Nutzer-ID wird in der Session gespeichert
+           /*$nutzerID = $_SESSION['user_id'] ?? null; // Annahme: User-ID wird in der Session gespeichert
            if (!$nutzerID) {
-               throw new Exception('Keine gültige Nutzer-ID gefunden.');
+               throw new Exception('Keine gültige User-ID gefunden.');
            }*/
 
-           //--------------------------------------------VermisstGefundenTier---------------------------------------
+           //--------------------------------------------MissingFoundAnimal---------------------------------------
 
            //TODO: Bildadresse
            $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -129,7 +129,7 @@ class VermisstGefundenTierModel extends AbstractModel
         foreach($result as $row){
             $alleVermisstTiere[] = [
                 'ZuletztGeaendertNutzerID' => $row['ZuletztGeaendertNutzerID'],
-                'Tierart' => $row['Tierart'],
+                'Species' => $row['Species'],
                 'Typ' => $row['Typ'],
                 'Datum' => $row['Datum'],
                 'Beschreibung' => $row['Beschreibung'],
@@ -144,10 +144,10 @@ class VermisstGefundenTierModel extends AbstractModel
        ];
     }
 
-    public function deleteVermisstOrGefundenTier (VermisstGefundenTier $vermisstOrGefundenTier): void{
-        //TODO: hat aktueller Nutzer das Tier angelegt? --> dann darf löschen
+    public function deleteVermisstOrGefundenTier (MissingFoundAnimal $vermisstOrGefundenTier): void{
+        //TODO: hat aktueller User das Animal angelegt? --> dann darf löschen
         //anhand der TierID setzten des Booleans auf geloescht= 1
-        //Tier wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt
+        //Animal wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt
 
 
     }

@@ -1,7 +1,7 @@
 <?php
 
 namespace app\Model;
-class Tierart
+class Species
 {
     private ?int $tierartID = null;
     private string $tierart;

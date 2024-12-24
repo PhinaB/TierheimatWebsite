@@ -12,7 +12,7 @@
         </p>
     </div>
 
-    <form action="../public/tier/melden" method="post" class="flex-containerVermisstGefundenmelden">
+    <form action="../public/animal/report" method="post" class="flex-containerVermisstGefundenmelden">
         <!--
            TODO: Hinweis für Phina:
              form Element so umschreiben: <form id="meinFormular" method="post">

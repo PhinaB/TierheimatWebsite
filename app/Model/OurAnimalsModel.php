@@ -5,7 +5,7 @@ namespace app\model;
 use core\Connection;
 use Exception;
 
-class UnsereTiereModel extends AbstractModel
+class OurAnimalsModel extends AbstractModel
 {
     public function __construct()
     {
@@ -15,7 +15,7 @@ class UnsereTiereModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function findAllTiere($tierart, $offset, $rasse, $geschlecht): array
+    public function findAllAnimals($species, $offset, $breed, $gender): array
     {
         $sql = "SELECT * FROM Tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON r.TierartID = ta.TierartID";
 
@@ -23,21 +23,21 @@ class UnsereTiereModel extends AbstractModel
         $params = [];
         $types = "";
 
-        if ($tierart !== "Alle Tiere" && $tierart !== "0") {
+        if ($species !== "Alle Tiere" && $species !== "0") {
             $conditions[] = "ta.Tierart = ?";
-            $params[] = $tierart;
+            $params[] = $species;
             $types .= "s";
         }
 
-        if ($rasse !== "0") {
+        if ($breed !== "0") {
             $conditions[] = "r.Rasse = ?";
-            $params[] = $rasse;
+            $params[] = $breed;
             $types .= "s";
         }
 
-        if ($geschlecht !== "0" && $geschlecht !== "") {
+        if ($gender !== "0" && $gender !== "") {
             $conditions[] = "t.Geschlecht = ?";
-            $params[] = $geschlecht;
+            $params[] = $gender;
             $types .= "s";
         }
 
@@ -57,41 +57,13 @@ class UnsereTiereModel extends AbstractModel
         $stmt->execute();
         $result = $stmt->get_result();
 
-        $alleTiere = [];
-        foreach ($result as $row) {
-            $bilderSql = "SELECT * FROM  bildertiere AS b WHERE b.TierID = ".$row['TierID'];
-
-            $resultBilder = $this->db->executeQuery($bilderSql);
-
-            $alleBilder = [];
-            foreach ($resultBilder as $rowBilder) {
-                $alleBilder[] = [
-                    'Hauptbild' => $rowBilder['Hauptbild'],
-                    'Bildadresse' => $rowBilder['Bildadresse'],
-                    'Alternativtext' => $rowBilder['Alternativtext'],
-                ];
-            }
-
-            $alleTiere[] = [
-                'TierID' => $row['TierID'],
-                'Name' => $row['Name'],
-                'Beschreibung' => $row['Beschreibung'],
-                'Geschlecht' => $row['Geschlecht'],
-                'Geburtsjahr' => $row['Geburtsjahr'],
-                'Charakter' => $row['Charakter'],
-                'Datum' => $row['Datum'],
-                'Tierart' => $row['Tierart'],
-                'Bilder' => $alleBilder,
-            ];
-        }
-
-        return $alleTiere;
+        return $this->formatAnimals($result);
     }
 
     /**
      * @throws Exception
      */
-    public function countAllAnimalsInThisCategory($tierart, $rasse, $geschlecht): int // TODO: auch nach rasse & geschlecht filtern
+    public function countAllAnimalsInThisCategory($species, $breed, $gender): int
     {
         $sql = "SELECT COUNT(*) AS Anzahl FROM tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID
                     JOIN tierart AS ta ON ta.TierartID = r.TierartID ";
@@ -100,21 +72,21 @@ class UnsereTiereModel extends AbstractModel
         $params = [];
         $types = "";
 
-        if ($tierart !== "Alle Tiere" && $tierart !== "0") {
+        if ($species !== "Alle Tiere" && $species !== "0") {
             $conditions[] = "ta.Tierart = ?";
-            $params[] = $tierart;
+            $params[] = $species;
             $types .= "s";
         }
 
-        if ($rasse !== "0") {
+        if ($breed !== "0") {
             $conditions[] = "r.Rasse = ?";
-            $params[] = $rasse;
+            $params[] = $breed;
             $types .= "s";
         }
 
-        if ($geschlecht !== "0" && $geschlecht !== "") {
+        if ($gender !== "0" && $gender !== "") {
             $conditions[] = "t.Geschlecht = ?";
-            $params[] = $geschlecht;
+            $params[] = $gender;
             $types .= "s";
         }
 
@@ -140,7 +112,7 @@ class UnsereTiereModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function findAllTierartenAndRassen(): array
+    public function findAllSpeciesAndBreeds(): array
     {
         $sql = "SELECT Tierart, Rasse FROM tierart AS t JOIN rasse AS r ON r.TierartID = t.TierartID;";
 
@@ -164,7 +136,7 @@ class UnsereTiereModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function findAllGeschlechter(): array
+    public function findAllGender(): array
     {
         $sql = "SELECT DISTINCT Geschlecht FROM tiere;";
 
@@ -178,5 +150,56 @@ class UnsereTiereModel extends AbstractModel
         }
 
         return $alleGeschlechter;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function findThreeRandomAnimals(): array
+    {
+        $sql = "SELECT * FROM Tiere ORDER BY RAND() LIMIT 3;";
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        return $this->formatAnimals($result);
+    }
+
+    /**
+     * @throws Exception
+     */
+    private function formatAnimals($animalResult): array
+    {
+        $allAnimals = [];
+        foreach ($animalResult as $row) {
+            $pictureSql = "SELECT * FROM  bildertiere AS b WHERE b.TierID = ".$row['TierID'];
+
+            $resultPictures = $this->db->executeQuery($pictureSql);
+
+            $allPictures = [];
+            foreach ($resultPictures as $rowPicture) {
+                $allPictures[] = [
+                    'Hauptbild' => $rowPicture['Hauptbild'],
+                    'Bildadresse' => $rowPicture['Bildadresse'],
+                    'Alternativtext' => $rowPicture['Alternativtext'],
+                ];
+            }
+
+            $allAnimals[] = [
+                'TierID' => $row['TierID'],
+                'Name' => $row['Name'],
+                'Beschreibung' => $row['Beschreibung'],
+                'Geschlecht' => $row['Geschlecht'],
+                'Geburtsjahr' => $row['Geburtsjahr'],
+                'Charakter' => $row['Charakter'],
+                'Datum' => $row['Datum'],
+                'Tierart' => $row['Tierart'],
+                'Bilder' => $allPictures,
+            ];
+        }
+
+        return $allAnimals;
     }
 }

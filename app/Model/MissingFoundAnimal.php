@@ -4,7 +4,7 @@ namespace app\model;
 
 //Klasse dient als Datentransportobjekt
 
-class VermisstGefundenTier
+class MissingFoundAnimal
 {
     //Object Mapping
     private ?int $vermisstGefundenTierID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein

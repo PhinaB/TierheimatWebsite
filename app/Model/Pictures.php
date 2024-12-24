@@ -2,7 +2,7 @@
 
 namespace app\model;
 
-class Bilder
+class Pictures
 {
     private ?int $bilderID = null;
     private int $tierID;

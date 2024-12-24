@@ -2,7 +2,7 @@
 
 namespace app\model;
 
- class Nutzer {
+ class User {
      private ?int $nutzerID = null;
      private ?int $nutzerrollenID = null;
      private string $name;

@@ -1,7 +1,7 @@
 <?php
 
 namespace app\model;
-class Artikel {
+class Article {
     private ?int $artikelID = null;
     private int $nutzerID;
     private int $artID;

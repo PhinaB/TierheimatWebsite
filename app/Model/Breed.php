@@ -1,7 +1,7 @@
 <?php
 
 namespace app\model;
-class Rasse
+class Breed
 {
     private ?int $rasseID = null;
     private int $tierartID;

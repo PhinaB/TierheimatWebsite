@@ -27,7 +27,7 @@
     </div>
 
     <div class="box-containerUnsereTiere">
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/luke.jpg" alt="Bild eines Degu" title="Bild Degu Luke" draggable="false" />
             <h3>Luke</h3>
 
@@ -39,7 +39,7 @@
             <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
 
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/lotta.jpg" alt="Bild einer Katze" title="Bild Katze Lotta" draggable="false" />
             <h3>Lotta</h3>
             <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
@@ -50,7 +50,7 @@
             <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
 
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/raspun.jpg" alt="Bild einer Schildkröte" title="Bild Schildkröte Raspun" draggable="false" />
             <h3>Raspun</h3>
             <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
@@ -61,7 +61,7 @@
             <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
 
-        <div>
+        <div class="completeAnimal">
             <img src="../public/img/drako.jpg" alt="Bild einer Katze" title="Bild Katze Drakp" draggable="false" />
             <h3>Drako</h3>
             <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>

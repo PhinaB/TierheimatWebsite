@@ -2,19 +2,19 @@
 
 namespace app\Controller;
 
-use app\Model\VermisstGefundenTierModel;
-use app\Model\VermisstGefundenTier;
-use app\Model\Tierart;
+use app\Model\MissingFoundModel;
+use app\Model\MissingFoundAnimal;
+use app\Model\Species;
 use DateTime;
 use Exception;
 
-class VermisstGefundenTierController
+class missingFoundAnimalController
 {
-    private VermisstGefundenTierModel $vermisstGefundenTierModel;
+    private MissingFoundModel $vermisstGefundenTierModel;
 
     public function __construct()
     {
-        $this->vermisstGefundenTierModel = new VermisstGefundenTierModel();
+        $this->vermisstGefundenTierModel = new MissingFoundModel();
     }
 
     /**
@@ -41,15 +41,15 @@ class VermisstGefundenTierController
            $datumFormatiert = new DateTime($datum);
            $datumFormatiert = $datumFormatiert->format('Y-m-d');
 
-            //Instanz der Klasse Tierart mit String (Hund, Katze, ...)
-            $tierart = new Tierart ($tierartName);
+            //Instanz der Klasse Species mit String (Hund, Katze, ...)
+            $tierart = new Species ($tierartName);
 
             $zuletztGeanderterNutzerID = 1; //TODO: NutzerID auslesen
             $geloescht = 0;
             $zuletztGeandertet = date('Y-m-d H:i:s'); //erstellt aktuelles Datum; Alternative über SQL: DATE DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
             // Konstruktor ohne Fremdschlüssel, da diese erst im Model generiert werden. Dort werden sie dann gesetzt
-            $vermisstGefundenTier = new VermisstGefundenTier($zuletztGeanderterNutzerID, $anliegenVermisstGefunden, $datumFormatiert, $ort, $tierbeschreibung, $kontaktaufnahme, $tierbild, $geloescht, $zuletztGeandertet);
+            $vermisstGefundenTier = new MissingFoundAnimal($zuletztGeanderterNutzerID, $anliegenVermisstGefunden, $datumFormatiert, $ort, $tierbeschreibung, $kontaktaufnahme, $tierbild, $geloescht, $zuletztGeandertet);
 
 
             try {

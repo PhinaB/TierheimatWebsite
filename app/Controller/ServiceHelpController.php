@@ -5,7 +5,7 @@ use app\Model\ServiceInfoModel;
 use Exception;
 use InvalidArgumentException;
 
-class ServiceHelfenController
+class ServiceHelpController
 {
     private ServiceInfoModel $serviceInfoModel;
 

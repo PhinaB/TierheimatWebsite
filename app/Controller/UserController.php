@@ -2,24 +2,24 @@
 
 namespace app\Controller;
 
-use app\model\NutzerModel;
+use app\model\UserModel;
 use Exception;
 
-require_once '../Model/NutzerModel.php';
+require_once '../Model/UserModel.php';
 
-use app\Model\Nutzer;
+use app\Model\User;
 
-class NutzerController
+class UserController
 {
 
-    private Nutzermodel $nutzerModel;
+    private UserModel $nutzerModel;
 
     /**
      * @param $nutzerModel
      */
     public function __construct()
     {
-        $this->nutzerModel = new NutzerModel();
+        $this->nutzerModel = new UserModel();
     }
 
     /**
@@ -60,7 +60,7 @@ class NutzerController
             //Passwort hashen
             $password = password_hash($password, PASSWORD_DEFAULT);
 
-            $nutzer = new Nutzer($name, $email, $password);
+            $nutzer = new User($name, $email, $password);
 
             try {
                 $this->nutzerModel->insertNutzer($nutzer);
@@ -91,7 +91,7 @@ class NutzerController
 
             try {
                 //Nutzerdaten aus der DB holen zum Überprüfen: prüfen, ob vorhanden und zum Setzen der NutzerID in der Session
-                $nutzermodel = new NutzerModel;
+                $nutzermodel = new UserModel;
 
                 $nutzer = $nutzermodel->getNutzerByEmail($email);
 

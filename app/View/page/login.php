@@ -2,7 +2,7 @@
     <div class="tileBorder tile">
         <h2>Login</h2>
         <hr class="underHeadline" />
-        <form method="post" action="../../Controller/NutzerController.php">
+        <form method="post" action="../../Controller/UserController.php">
             <!--erster Input legt fest: Registrieren oder Login -->
             <input type="hidden" name="type" value="login>"
             <label class="h3" for="email">E-Mail: <span class="redPflichtfeld">*</span></label>
@@ -16,7 +16,7 @@
     <div class="tileBorder tile">
         <h2>Registrierung</h2>
         <hr class="underHeadline" />
-        <form method="post" action="../../Controller/NutzerController.php">
+        <form method="post" action="../../Controller/UserController.php">
             <input type="hidden" name="type" value="register">
             <label class="h3" for="emailReg">E-Mail: <span class="redPflichtfeld">*</span></label>
             <input type="email" name="emailReg" id="emailReg" required placeholder="email@beispiel.com" />

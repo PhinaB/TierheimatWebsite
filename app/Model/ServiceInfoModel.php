@@ -30,7 +30,7 @@ class ServiceInfoModel extends AbstractModel
                         throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmt->error);
                     }
 
-                    $nutzerID = 1; // TODO: Nutzer hinzufügen
+                    $nutzerID = 1; // TODO: User hinzufügen
                     $angenommen = false;
                     $zeit = $times[$i];
                     $datum = $dates[$i];
@@ -61,7 +61,7 @@ class ServiceInfoModel extends AbstractModel
                         throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmt->error);
                     }
 
-                    $nutzerID = 1; // TODO: Nutzer hinzufügen
+                    $nutzerID = 1; // TODO: User hinzufügen
                     $angenommen = false;
                     $zeit = $weekdayTimes[$i];
                     $datum = null;
