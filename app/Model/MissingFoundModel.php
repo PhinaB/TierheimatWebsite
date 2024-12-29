@@ -16,7 +16,7 @@ class MissingFoundModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function insertVermisstGefundenTiere(MissingFoundAnimal $vermisstGefundenTier, Species $tierart): void
+    public function insertVermisstGefundenTiere(MissingFoundAnimal $vermisstGefundenTier, Species $tierart, string $tierbildAdresse): void
     {
        // Start einer Transaktion, um Konsistenz zu gewährleisten
        $this->db->begin_transaction();
@@ -72,7 +72,7 @@ class MissingFoundModel extends AbstractModel
 
            //--------------------------------------------MissingFoundAnimal---------------------------------------
 
-           //TODO: Bildadresse
+
            $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
            $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
@@ -150,5 +150,6 @@ class MissingFoundModel extends AbstractModel
         //Animal wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt
 
 
+        
     }
 }

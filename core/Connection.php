@@ -103,4 +103,5 @@ class Connection {
             throw new Exception("Fehler beim Ausführen der Abfrage: " . $e->getMessage());
         }
     }
+
 }

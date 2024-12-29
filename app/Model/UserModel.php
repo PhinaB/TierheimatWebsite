@@ -29,7 +29,7 @@ class UserModel extends AbstractModel
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerrolleExists ->error);
         }
         //per default bei Anlegen User
-        $defaultNutzerrolle = "User";
+        $defaultNutzerrolle = "Nutzer";
         $stmtNutzerrolleExists->bind_param("s", $defaultNutzerrolle);
         if (!$stmtNutzerrolleExists->execute()) {
             throw new InvalidArgumentException('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtNutzerrolleExists->error);
