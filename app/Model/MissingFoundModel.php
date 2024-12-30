@@ -150,6 +150,6 @@ class MissingFoundModel extends AbstractModel
         //Animal wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt
 
 
-        
+
     }
 }

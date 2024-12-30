@@ -72,7 +72,7 @@ class StaticPageController
     public function loadLoginAction(): void
     {
         $stylesheets = ['login.css', 'form.css'];
-        $js = [];
+        $js = ['loginRegisterForm.js'];
 
         $this->renderPage($stylesheets, 'Login', $js, 'login');
     }
