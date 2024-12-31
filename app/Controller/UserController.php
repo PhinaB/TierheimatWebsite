@@ -5,7 +5,6 @@ namespace app\Controller;
 use app\model\UserModel;
 use Exception;
 
-require_once '../Model/UserModel.php';
 
 use app\Model\User;
 
@@ -27,34 +26,48 @@ class UserController
      */
     public function register(): void
     {
-        $name = $email = "";
-        $nameErr = $emailErr = "";
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['type'] === 'register') {
+            $response = ['success'=> false, 'errors' => []];
+
+            $name = $email = $password= '';
+            $nameErr = $emailErr = $passwordErr = '';
+
             if (empty($_POST["usernameReg"])) {
                 $nameErr = "Name ist ein Pflichtfeld";
+                $response['errors']['usernameReg']= $nameErr;
             } else {
+                $name = $this->test_input($_POST["usernameReg"]);
+            }
+            /*else {
                 $name = $this->test_input($_POST["usernameReg"]);
                 // Nutzername kann nur aus Buchstaben, Zahlen oder Bindestrich bestehen
                 if (!preg_match("/^[a-zA-Z0-9-]*$/", $name)) {
-                        $nameErr = "Nur Buchstaben, Zahlen und Bindestrich erlaubt.";
+                    $nameErr = "Nur Buchstaben, Zahlen und Bindestrich erlaubt.";
+                    $response['errors']['usernameReg']= $nameErr;
                 }
-            }
+            }*/
 
             if (empty($_POST["emailReg"])) {
                 $emailErr = "Email ist ein Pflichtfeld";
+                $response['errors']['emailReg']= $emailErr;
             } else {
                 $email = $this->test_input($_POST["emailReg"]);
-                // check if e-mail address is well-formed
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     $emailErr = "Falsches Email Format.";
+                    $response['errors']['emailReg']= $emailErr;
                 }
             }
 
             if (empty($_POST["passwordReg"])) {
-                $emailErr = "Passwort ist ein Pflichtfeld";
+                $passwordErr = "Passwort ist ein Pflichtfeld";
+                $response['errors']['passwordReg']= $passwordErr;
             } else {
                 $password = $this->test_input($_POST["passwordReg"]);
+            }
+
+            if($nameErr || $emailErr || $passwordErr){
+                echo json_encode($response);
+                return;
             }
 
             //Passwort hashen
@@ -64,11 +77,14 @@ class UserController
 
             try {
                 $this->nutzerModel->insertNutzer($nutzer);
-                header ('Location: ');//TODO: Weiterleitung zur Loginseite
-                exit;
+                $response['success'] = true;
             }catch (Exception $e){
-                echo "Fehler bei der Registrierung: ".$e->getMessage();
+                $response['success'] = false;
+                $response['errors']['general'] = "Fehler bei Registrierung: " . $e->getMessage();
             }
+
+            echo json_encode($response);
+            return;
         }
     }
 
@@ -82,11 +98,22 @@ class UserController
     public function login(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['type']=== 'login') {
+            $response = ['success'=> false, 'errors' => []];
+
             $email = $_POST['email'] ?? null;
             $password = $_POST['password'] ?? null;
 
-            if (!$email || !$password) {
-                throw new Exception("Füllen Sie die Pflichtfelder aus!");
+            if (!$email) {
+                $response['errors']['email']= 'Email ist ein Pflichtfeld';
+            }
+
+            if(!$password){
+                $response['errors']['password']= 'Passwort ist ein Pflichtfeld';
+            }
+
+            if (!empty($response['errors'])) {
+                echo json_encode($response);
+                return;
             }
 
             try {
@@ -95,19 +122,28 @@ class UserController
 
                 $nutzer = $nutzermodel->getNutzerByEmail($email);
 
-                if (!$nutzer|| password_verify($password, $nutzer['PasswordHash'])) {
-                    throw new Exception("Email oder Passwort ist falsch.");
+                if (!$nutzer){
+                    $response['errors']['email']= 'Email nicht gefunden oder nicht korrekt';
+                    echo json_encode($response);
+                    return;
+                }
+                if (password_verify($password, $nutzer['PasswordHash'])) {
+                    $response['errors']['general']= 'Email oder Passwort ist falsch.';
+                    echo json_encode($response);
+                    return;
                 }
 
                 session_start();
                 $_SESSION['nutzer_id'] = $nutzer['NutzerID'];
                 $_SESSION['username'] = $nutzer['Name'];
 
-                header('Location: '); //TODO: Loginseite
-                exit;
+                $response['success'] = true;
             }catch (Exception $e){
-                echo "Fehler beim Login: ".$e->getMessage();
+                $response['errors']['general']= "Fehler beim Login:" . $e->getMessage();
             }
+
+            echo json_encode($response);
+            return;
         }
     }
 }

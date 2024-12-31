@@ -104,4 +104,32 @@ class Connection {
         }
     }
 
+    /**
+     * @throws Exception
+     */
+    public function begin_transaction(): void
+    {
+        if (!$this->connection->begin_transaction()) {
+            throw new Exception("Fehler beim Starten der Transaktion: " . $this->connection->error);
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function commit():void {
+        if (!$this->connection->commit()) {
+            throw new Exception("Fehler beim Commit der Transaktion: " . $this->connection->error);
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function rollback(): void
+    {
+        if (!$this->connection->rollback()) {
+            throw new Exception("Fehler beim Rollback der Transaktion: " . $this->connection->error);
+        }
+    }
 }

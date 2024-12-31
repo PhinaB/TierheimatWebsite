@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-
     //--------------------Login----------------------------------------------------
     document.querySelector('input[name=email]').addEventListener('keyup', function(event){
         validateEmailField(event, document.querySelector('#emailError'));
@@ -90,67 +89,202 @@ function setErrorFieldInnerHTML (textElm, errorField, innerHTML) {
 }
 
 function removeErrorField (field, errorField) {
-    field.classList.remove('falseInputOrTextarea');
-    errorField.classList.add('hidden');
+    if (field) {
+        field.classList.remove('falseInputOrTextarea');
+    } else {
+        console.error('Field element not found:', field);
+    }
+
+    if (errorField) {
+        errorField.classList.add('hidden');
+    } else {
+        console.error('Error field element not found:', errorField);
+    }
+}
+
+function validateEmailFieldOnSubmit (inputField, errorField){
+    let fieldValue = inputField.value.trim();
+
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(fieldValue)) {
+        setErrorFieldInnerHTML(inputField, errorField, "Gib eine gültige Email-Adresse ein!");
+        return false;
+    } else {
+        removeErrorField(inputField, errorField);
+        return true;
+    }
+}
+
+function validatePasswordFieldOnSubmit (min, max, inputField, errorField){
+    let fieldValue = inputField.value.trim();
+
+    if (fieldValue.length > max) {
+        this.setErrorFieldInnerHTML(inputField, errorField, "Gib maximal "+ max +" Zeichen ein!");
+        return false;
+    }
+    else if (fieldValue.length < min) {
+        this.setErrorFieldInnerHTML(inputField, errorField, "Gib mindestens "+ min +" Zeichen ein!");
+        return false;
+    }
+    else {
+        this.removeErrorField(inputField, errorField);
+        return true;
+    }
+}
+
+function validateUsernameFieldOnSubmit(min, max, inputField, errorField){
+    let fieldValue = inputField.value.trim();
+
+    if(fieldValue.length > max){
+        this.setErrorFieldInnerHTML(inputField, errorField, "Gib maximal "+ max +" Zeichen ein!");
+        return false;
+    }
+    if (fieldValue.length < min){
+        this.setErrorFieldInnerHTML(inputField, errorField, "Gib mindestens "+ min +" Zeichen ein!")
+    }
+    else {
+        this.removeErrorField(inputField, errorField);
+        return true;
+    }
 }
 
 //------Ajax---------------
 
 
 function handleLogin(){
+    const emailInput = document.querySelector('input[name=email]');
+    const passwordInput = document.querySelector('input[name=password]');
     let email = document.querySelector('input[name=email]').value.trim();
     let password = document.querySelector('input[name=password]').value.trim();
 
     //{target: ... simuliert Event
-    if (validateEmailField({target: {value: email}}, document.querySelector('#emailError')) &&
-    validatePasswordField(6, 30, {target: {value: password}}, document.querySelector('#passwordError'))){
+    if (validateEmailFieldOnSubmit(emailInput, document.querySelector('#emailError')) &&
+        validatePasswordFieldOnSubmit(6, 30, passwordInput, document.querySelector('#passwordError'))){
 
         let formData = new FormData();
         formData.append('email', email);
         formData.append('password', password);
         formData.append('type', 'login');
 
-        fetch('../../app/Controller/UserController', {method: 'POST', body: formData})
+        fetch('/ws2425_dwp_wachs_herpe_burger/public/user/login', {method: 'POST', body: formData})
 
-        .then(response => response.json())
-        .then (data =>{
+            .then(response => {
+                if (!response.ok) {
+                    // Fehlerbehandlung, falls der Statuscode nicht 2xx ist
+                    console.error('Fehler beim Abrufen der Antwort:', response.status);
+                    return Promise.reject('Fehler beim Abrufen der Antwort');
+                }
+                return response.json();  // Hier wird die JSON-Antwort geparst, wenn der Statuscode ok ist
+            })
+        .then (data => {
+            console.log(data);
             if(data.success){
-                window.location.href='http://127.0.0.1/ws2425_dwp_wachs_herpe_burger/public/'
+                window.location.href='/ws2425_dwp_wachs_herpe_burger/public/'
             }
             else {
                 if (data.errors.email) {
                     setErrorFieldInnerHTML(document.querySelector('input[name=email]'), document.querySelector('#emailError'), data.errors.email);
                 }
+                if (data.errors.password) {
+                    setErrorFieldInnerHTML(document.querySelector('input[name=password]'), document.querySelector('#passwordError'), data.errors.password);
+                }
+                if(data.errors.general) {
+                    document.getElementById('loginError').textContent ='Login fehlgeschlagen.';
+                }
             }
         })
-        //TODO: beenden, auch im Controller notwendige Änderungen vornehmen
 
+            .catch (error => {console.error('Fehler beim Login:', error);})
     }
 }
 
+
+
 function handleRegistration(){
-    let email = document.querySelector('input[name=emailReg]').value.trim();
-    let password = document.querySelector('input[name=passwordReg]').value.trim();
-    let username = document.querySelector('input[name=usernameReg]').value.trim();
+    const emailRegInput = document.querySelector('input[name=emailReg]');
+    const passwordRegInput = document.querySelector('input[name=passwordReg]');
+    const usernameRegInput = document.querySelector('input[name=usernameReg]');
+    let emailReg = document.querySelector('input[name=emailReg]').value.trim();
+    let passwordReg = document.querySelector('input[name=passwordReg]').value.trim();
+    let usernameReg = document.querySelector('input[name=usernameReg]').value.trim();
 
-    if (validateEmailField({target: {value: email}}, document.querySelector('#emailRegError')) &&
-        validatePasswordField(6, 30, {target: {value: password}}, document.querySelector('#passwordRegError'))&&
-        validateUsernameField(3, 10, {target: {value: email}}, document.querySelector('#usernameRegError')))
-        {
-            let formData = new FormData();
-            formData.append('email', email);
-            formData.append('password', password);
-            formData.append('username', username);
-            formData.append('type', 'register');
+    if (validateEmailFieldOnSubmit(emailRegInput, document.querySelector('#emailRegError')) &&
+        validatePasswordFieldOnSubmit(6, 30, passwordRegInput, document.querySelector('#passwordRegError'))&&
+        validateUsernameFieldOnSubmit(3, 10, usernameRegInput, document.querySelector('#usernameRegError')))
+    {
+        let formData = new FormData();
+        formData.append('emailReg', emailReg);
+        formData.append('passwordReg', passwordReg);
+        formData.append('usernameReg', usernameReg);
+        formData.append('type', 'register');
 
-            fetch('../../app/Controller/UserController', {method: 'POST', body: formData})
-                .then(response => response.json());
-            // TODO: beenden, auch im Controller notwendige änderungen vornhemen
-        }
+        fetch('/ws2425_dwp_wachs_herpe_burger/public/user/register', { method: 'POST', body: formData })
+            .then(response => {
+                // Debugging: Prüfe, was vom Server zurückkommt
+                console.log('Server Response Status:', response.status);  // Gibt den Statuscode der Antwort aus
+                return response.text();  // Wir holen uns den Antworttext anstelle von JSON
+            })
+            .then(data => {
+                console.log('Raw Response Data:', data);  // Zeigt die rohe Antwort, bevor sie geparsed wird
 
+                try {
+                    const jsonData = JSON.parse(data);  // Versuche, die Antwort als JSON zu parsen
+                    console.log('Parsed JSON:', jsonData);
+                    if (jsonData.success) {
+                        document.getElementById('successfulRegistration').textContent = 'Registrierung war erfolgreich!';
+                    } else {
+                        // Fehlerbehandlung für einzelne Formulareingabefelder
+                        if (jsonData.errors.emailReg) {
+                            setErrorFieldInnerHTML(document.querySelector('input[name=emailReg]'), document.querySelector('#emailRegError'), jsonData.errors.emailReg);
+                        }
+                        if (jsonData.errors.passwordReg) {
+                            setErrorFieldInnerHTML(document.querySelector('input[name=passwordReg]'), document.querySelector('#passwordRegError'), jsonData.errors.passwordReg);
+                        }
+                        if (jsonData.errors.usernameReg) {
+                            setErrorFieldInnerHTML(document.querySelector('input[name=usernameReg]'), document.querySelector('#usernameRegError'), jsonData.errors.usernameReg);
+                        }
+                        if (jsonData.errors.general) {
+                            document.getElementById('errorRegistration').textContent = 'Nutzer existiert bereits.'
+                        }
+                    }
+                } catch (e) {
+                    console.error('Fehler beim Parsen der JSON-Antwort:', e);  // Falls das Parsing der JSON-Antwort fehlschlägt
+                }
+            })
+            .catch(error => {
+                console.error('Fehler:', error);  // Fehlerbehandlung bei Fetch-Fehlern
+            });
 
+        /*fetch('/ws2425_dwp_wachs_herpe_burger/public/user/register', {method: 'POST', body: formData})
+            .then(response => {
+                if (!response.ok) {
+                    // Fehlerbehandlung, falls der Statuscode nicht 2xx ist
+                    console.error('Fehler beim Abrufen der Antwort:', response.status);
+                    return Promise.reject('Fehler beim Abrufen der Antwort');
+                }
+                return response.json();  // Hier wird die JSON-Antwort geparst, wenn der Statuscode ok ist
+            })
+            .then(data => {
+                console.log(data);
+                if(data.success){
+                    document.getElementById('successfulRegistration').textContent ='Registrierung war erfolgreich!';
+                } else{
+                    if (data.errors.emailReg) {
+                        setErrorFieldInnerHTML(document.querySelector('input[name=emailReg]'), document.querySelector('#emailRegError'), data.errors.emailReg);
+                    }
+                    if (data.errors.passwordReg) {
+                        setErrorFieldInnerHTML(document.querySelector('input[name=passwordReg]'), document.querySelector('#passwordRegError'), data.errors.passwordReg);
+                    }
+                    if (data.errors.usernameReg){
+                        setErrorFieldInnerHTML(document.querySelector('input[name=usernameReg]'), document.querySelector('#usernameRegError'), data.errors.usernameReg);
+                    }
+                }
+            })
 
+         */
     }
+}
 
 
 

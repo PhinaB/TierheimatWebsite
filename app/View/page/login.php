@@ -14,7 +14,7 @@
             <p id= "passwordError" class="fehlermeldung fehlerTag"></p>
 
             <p id= "loginError" class="fehlermeldung fehlerTag"></p>
-            <a href="../loginPage/indexLogin.php" class="button marginButton" draggable="false">Anmelden</a>
+            <button class="button marginButton" type="submit" value="absenden" title="Button absenden" draggable="false">Anmelden</button>
             <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
 
         </form>
@@ -36,7 +36,8 @@
             <input type="text" name="usernameReg" id="username" required placeholder="maxMustermann" maxlength="10" minlength="3" />
             <p id= "usernameRegError" class="fehlermeldung fehlerTag"></p>
 
-            <p id= "registrationError" class="fehlermeldung fehlerTag"></p>
+            <p id= "errorRegistration" class="fehlermeldung fehlerTag"></p>
+            <p id= "successfulRegistration" class="greenColor"></p>
             <button class="button marginButton" type="submit" value="absenden" title="Button absenden" draggable="false">Registrieren</button>
             <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
         </form>

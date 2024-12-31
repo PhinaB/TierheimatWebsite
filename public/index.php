@@ -11,10 +11,13 @@ require_once __DIR__ . '/../app/Model/Species.php';
 require_once __DIR__ . '/../app/Model/MissingFoundAnimal.php';
 require_once __DIR__ . '/../app/Model/AbstractModel.php';
 require_once __DIR__ . '/../app/Model/MissingFoundModel.php';
+require_once __DIR__ . '/../app/Model/UserModel.php';
+require_once __DIR__ . '/../app/Model/User.php';
 
 include_once __DIR__ . '/../app/Controller/ServiceHelpController.php';
 include_once __DIR__ . '/../app/Controller/OurAnimalsController.php';
 include_once __DIR__ . '/../app/Controller/HomeController.php';
+include_once __DIR__ . '/../app/Controller/UserController.php';
 include_once __DIR__ . '/../app/Model/ServiceInfoModel.php';
 include_once __DIR__ . '/../app/Model/OurAnimalsModel.php';
 
@@ -43,6 +46,8 @@ $router->add('/load/all/our/animals', 'OurAnimalsController', "loadAllAnimals", 
 $router->add('/add/help', 'ServiceHelpController', "addServiceInfo", '');
 $router->add('/load/all/serviceInfo', 'ServiceHelpController', "loadAllServiceInfo", '');
 $router->add('/load/all/for/home', 'HomeController', "loadAllForHome", '');
+$router->add('/user/login', 'UserController', 'login', '');
+$router->add('/user/register', 'UserController', 'register', '');
 
 // get URL - which page to open:
 $baseUrl = str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']);
