@@ -191,7 +191,7 @@ function handleLogin(){
         .then (data => {
             console.log(data);
             if(data.success){
-                window.location.href='/ws2425_dwp_wachs_herpe_burger/public/'
+                window.location.href='../public/'
             }
             else {
                 if (data.errors.email) {
