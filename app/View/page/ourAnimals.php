@@ -48,7 +48,8 @@
 
         <div id="copyAlleTiereHere"></div>
 
-        <div id="hiddenVorlageTier" class="hidden">
+        <div id="hiddenVorlageTier" class="hidden relativePosition">
+            <i class="fa-solid fa-heart" title="Klicke, um dem Tier einen Like zu geben!" onclick="setCookie(this, true);"></i>
             <div class="aussenboxBildwechselKlein">
                 <a class="bildwechsel" title="" draggable="false">&nbsp;</a>
             </div>

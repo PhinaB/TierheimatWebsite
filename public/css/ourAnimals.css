@@ -44,6 +44,25 @@ select {
     padding:5px;
 }
 
+.relativePosition {
+    position: relative;
+}
+
+.heartForLike {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    z-index: 10;
+    font-size: 24px;
+    color: #eee;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.heartForLike.liked {
+    color: #dc2929;
+}
+
 @media only screen and (max-width: 1086px) {
     .box-containerUnsereTiere {
         flex-wrap:wrap;

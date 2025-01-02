@@ -50,6 +50,7 @@ function loadAnimals () {
                 }
                 else {
                     setAnimalsToPage(response.tiere);
+                    setEventForCookiesLike();
 
                     if (species === "Alle Tiere") {
                         let selectTierart = document.querySelector('select[id=tierartAuswählen]');
@@ -120,6 +121,7 @@ function setAnimalsToPage (animals) {
         clone.classList.remove('hidden');
         clone.classList.add('completeAnimal');
         clone.id = "";
+        clone.setAttribute('data-animal-id', animals[i].TierID);
         clone.getElementsByTagName('h3')[0].innerHTML = animals[i].Name;
         let allAElements = clone.getElementsByTagName('a');
         for (let i = 0; i < allAElements.length; i++) {
@@ -127,6 +129,8 @@ function setAnimalsToPage (animals) {
                 allAElements[i].setAttribute('onclick', 'openWeiterlesenField(this)');
             }
         }
+
+        clone.querySelector('.fa-heart').classList.add('heartForLike');
 
         let descriptionStart = clone.querySelector('.beschreibungBeginn');
         let descriptionWords = animals[i].Beschreibung.split(' ');
@@ -246,4 +250,42 @@ function changeRasseSelect() {
         breedSelect.setAttribute('disabled', 'disabled');
         breedSelect.style.cursor = "default";
     }
+}
+
+function setEventForCookiesLike () {
+    document.querySelectorAll('.heartForLike').forEach(heart => {
+        let completeAnimal = findExplicitParentElement(heart, 'completeAnimal');
+        let animalId = completeAnimal.getAttribute('data-animal-id');
+
+        if (getCookie('liked_animal_'+animalId) === 'true') {
+            heart.classList.add('liked');
+        }
+    });
+}
+
+function setCookie(element, bool) {
+    let completeAnimal = findExplicitParentElement(element, 'completeAnimal');
+    let animalId = completeAnimal.getAttribute('data-animal-id');
+
+    if (element.classList.contains('liked')) {
+        element.classList.remove('liked');
+
+        document.cookie = 'liked_animal_' + animalId + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    }
+    else {
+        element.classList.add('liked');
+
+        let date = new Date();
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+        document.cookie = 'liked_animal_' + animalId + '=' + bool + ';expires=' + date.toUTCString() + ';';
+    }
+}
+
+function getCookie(name) {
+    let cookies = document.cookie.split('; ');
+    for (const cookie of cookies) {
+        const [key, value] = cookie.split('=');
+        if (key === name) return value;
+    }
+    return null;
 }
