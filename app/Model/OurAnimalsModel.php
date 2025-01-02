@@ -64,7 +64,7 @@ class OurAnimalsModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function countAllAnimalsInThisCategory($species, $breed, $gender): int
+    public function countAllAnimalsInThisCategory($species, $breed, $gender): string
     {
         $sql = "SELECT COUNT(*) AS Anzahl FROM tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID
                     JOIN tierart AS ta ON ta.TierartID = r.TierartID ";
@@ -102,7 +102,7 @@ class OurAnimalsModel extends AbstractModel
             $result = $stmt->get_result();
 
             $row = $result->fetch_assoc();
-            return $row['Anzahl'];
+            return (string)$row['Anzahl'];
         } else {
             $result = $this->db->executeQuery($sql);
 
