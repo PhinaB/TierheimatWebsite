@@ -135,7 +135,7 @@ INSERT INTO Nutzerrollen (Rolle, kannLesen, kannSchreiben, kannEigenesBearbeiten
 
 INSERT INTO Nutzer (NutzerrollenID, Name, Email, Passwort) VALUES
     (1, 'Lisa', 'betreuer@example.com', '$2y$10$U4DPGbciuerXruoMIu86.uKKhVs33FzKySH8Azi8CZjzW2v1BBGV6'),
-    (2, 'Maier', 'tierarzt@example.com', '$2y$10$Y.mzZG5LrCPHiik130UexuNIRoWuY96cdm5SlzCWO1xzkRBjhl53W'); 
+    (2, 'Maier', 'tierarzt@example.com', '$2y$10$Y.mzZG5LrCPHiik130UexuNIRoWuY96cdm5SlzCWO1xzkRBjhl53W');
 -- TODO: müssen wir Nutzer beim registrieren bestätigen (z.B. durch Bestätigungslink per Mail??)
 -- Nutzer1: securepassword2
 -- Nutzer2: securepassword3
