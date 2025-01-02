@@ -57,7 +57,6 @@ class missingFoundAnimalController
             // Konstruktor ohne Fremdschlüssel, da diese erst im Model generiert werden. Dort werden sie dann gesetzt
             $vermisstGefundenTier = new MissingFoundAnimal($zuletztGeanderterNutzerID, $anliegenVermisstGefunden, $datumFormatiert, $ort, $tierbeschreibung, $kontaktaufnahme, $tierbildAdresse, $geloescht, $zuletztGeandertet);
 
-
             try {
                 $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierart, $tierbildAdresse);
                 $response['success']=true;
@@ -102,31 +101,42 @@ class missingFoundAnimalController
      */
     private function speichereBild(array $tierbild, string $tierartName): string
     {
-        $erlaubteFormate = ['image\jpeg', 'image\png', 'image\jpg'];
-        if (!in_array($tierbild['type'], $erlaubteFormate)) {
-            throw new Exception("Ungültiges Bildformat. Erlaubt sind nur JPG, JPEG und PNG.");
-        }
-
-        //Zielordner
+        // Zielordner für die Bilder
         $zielOrdner = __DIR__ . '/../../public/uploads/';
-        //erstellen des Ordners, wenn er nicht vorhanden ist
         if (!is_dir($zielOrdner)) {
             mkdir($zielOrdner, 0755, true);
         }
 
-        //Sicherstellen, dass einzigartiger Dateiname
-        $zufallszahl = uniqid('', true);
+        // Dateiname und -pfad
+        $dateiName = uniqid('', true) . '_' . $tierartName;
+        $targetFile = $zielOrdner . $dateiName;
+        $imageFileType = strtolower(pathinfo($tierbild['name'], PATHINFO_EXTENSION));
 
-        //Dateiendung der hochgeladenen Datei
-        $extension = pathinfo($tierbild['name'], PATHINFO_EXTENSION);
+        // Erlaubte Formate
+        $erlaubteFormate = ['jpg', 'jpeg', 'png'];
 
-        $dateiName = $zufallszahl . '_' . $tierartName . '.' . $extension;
+        // Validierung des Bildes
+        $check = getimagesize($tierbild['tmp_name']);
+        if ($check === false) {
+            throw new Exception('Die Datei ist kein gültiges Bild.');
+        }
 
-        $zielPfad = $zielOrdner . $dateiName;
+        if (!in_array($imageFileType, $erlaubteFormate)) {
+            throw new Exception('Ungültiges Bildformat. Erlaubt sind nur JPG, JPEG und PNG.');
+        }
 
-        // Datei verschieben
+        if (file_exists($targetFile . '.' . $imageFileType)) {
+            throw new Exception('Die Datei existiert bereits.');
+        }
+
+        if ($tierbild['size'] > 500000) { // Max. 500 KB
+            throw new Exception('Die Datei ist zu groß. Maximal erlaubt: 500 KB.');
+        }
+
+        // Datei speichern
+        $zielPfad = $targetFile . '.' . $imageFileType;
         if (!move_uploaded_file($tierbild['tmp_name'], $zielPfad)) {
-            throw new Exception("Fehler beim Hochladen des Bildes.");
+            throw new Exception('Fehler beim Speichern der Datei.');
         }
 
         return $zielPfad;

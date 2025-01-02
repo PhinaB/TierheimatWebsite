@@ -91,6 +91,9 @@ class UserModel extends AbstractModel
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function getNutzerByEmail(string $email): ?array
     {
         $sqlNutzerEmail = "SELECT * FROM Nutzer WHERE Email = ?";

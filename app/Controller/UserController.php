@@ -127,8 +127,8 @@ class UserController
                     echo json_encode($response);
                     return;
                 }
-                if (password_verify($password, $nutzer['PasswordHash'])) {
-                    $response['errors']['general']= 'Email oder Passwort ist falsch.';
+                if (!password_verify($password, $nutzer['Passwort'])) {
+                    $response['errors']['general']= 'Passwort ist falsch.';
                     echo json_encode($response);
                     return;
                 }

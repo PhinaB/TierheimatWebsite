@@ -23,6 +23,15 @@ class MissingFoundModel extends AbstractModel
 
        try {
 
+           //--------------------------------------------NutzerID-----------------------------------------------
+           session_start();
+           $nutzerID = $_SESSION['nutzer_id']??null;
+           if(!$nutzerID){
+               $nutzerID= 1;
+               /*TODO: später diesen Teil verwenden
+               throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');*/
+           }
+
            //---------------------------------------------Species-----------------------------------------------
            $queryTierartSelect = "SELECT TierartID FROM Tierart WHERE Tierart = ?";
            $stmtTierartSelect = $this->db->prepare($queryTierartSelect);
@@ -62,17 +71,7 @@ class MissingFoundModel extends AbstractModel
                $stmtTierart->close();
            }
 
-           //-------------------------------------------------User-----------------------------------------------
-
-           $nutzerID = 1; //TODO: aktuellen User abfragen
-
-           /*$nutzerID = $_SESSION['user_id'] ?? null; // Annahme: User-ID wird in der Session gespeichert
-           if (!$nutzerID) {
-               throw new Exception('Keine gültige User-ID gefunden.');
-           }*/
-
            //--------------------------------------------MissingFoundAnimal---------------------------------------
-
 
            $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
