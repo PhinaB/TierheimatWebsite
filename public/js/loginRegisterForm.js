@@ -149,10 +149,22 @@ function validateUsernameFieldOnSubmit(min, max, inputField, errorField){
     }
 }
 
+function disableFormFields(){
+    const formElements = document.querySelectorAll('#loginForm input, #loginForm button, #registerForm input, #registerForm button');
+    formElements.forEach(function(element) {element.disabled = true});
+}
+
+function enableFormFields(){
+    const formElements = document.querySelectorAll('#loginForm input, #loginForm button, #registerForm input, #registerForm button');
+    formElements.forEach(function(element) {element.disabled = false;});
+}
+
 //------Ajax---------------
 
 
 function handleLogin(){
+    disableFormFields();
+
     const emailInput = document.querySelector('input[name=email]');
     const passwordInput = document.querySelector('input[name=password]');
     let email = document.querySelector('input[name=email]').value.trim();
@@ -167,7 +179,7 @@ function handleLogin(){
         formData.append('password', password);
         formData.append('type', 'login');
 
-        fetch('/ws2425_dwp_wachs_herpe_burger/public/user/login', {method: 'POST', body: formData})
+        fetch('../public/user/login', {method: 'POST', body: formData})
 
             .then(response => {
                 if (!response.ok) {
@@ -195,12 +207,19 @@ function handleLogin(){
         })
 
             .catch (error => {console.error('Fehler beim Login:', error);})
+            .finally (()=>{
+                enableFormFields();
+            })
+    }
+    else {
+        document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
     }
 }
 
 
 
 function handleRegistration(){
+    disableFormFields();
     const emailRegInput = document.querySelector('input[name=emailReg]');
     const passwordRegInput = document.querySelector('input[name=passwordReg]');
     const usernameRegInput = document.querySelector('input[name=usernameReg]');
@@ -218,7 +237,7 @@ function handleRegistration(){
         formData.append('usernameReg', usernameReg);
         formData.append('type', 'register');
 
-        fetch('/ws2425_dwp_wachs_herpe_burger/public/user/register', { method: 'POST', body: formData })
+        fetch('../public/user/register', { method: 'POST', body: formData })
             .then(response => {
                 // Debugging: Prüfe, was vom Server zurückkommt
                 console.log('Server Response Status:', response.status);  // Gibt den Statuscode der Antwort aus
@@ -260,8 +279,13 @@ function handleRegistration(){
                 }
             })
             .catch(error => {
-                console.error('Fehler:', error);  // Fehlerbehandlung bei Fetch-Fehlern
-            });
+                console.error('Fehler:', error);})  // Fehlerbehandlung bei Fetch-Fehlern});
+            .finally (()=>{
+                enableFormFields();
+            })
+    }
+    else {
+        document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
     }
 }
 

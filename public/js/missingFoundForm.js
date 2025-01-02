@@ -189,6 +189,7 @@ function removeErrorFieldNoOutline (errorField) {
 }
 
 function sendMissingFoundForm(){
+    disableFormFields();
 
     let anliegen = document.getElementById('anliegenVermisstGefunden').value;
     let tierart = document.getElementById('tierart').value;
@@ -218,7 +219,7 @@ function sendMissingFoundForm(){
         }
 
         formData.append('kontaktaufnahme', kontakt);
-        fetch('/ws2425_dwp_wachs_herpe_burger/public/animal/report', {method: 'POST', body: formData})
+        fetch('../public/animal/report', {method: 'POST', body: formData})
 
             .then(response => {
                 if (!response.ok) {
@@ -250,10 +251,23 @@ function sendMissingFoundForm(){
                 console.error('Fehler beim Login:', error);
                 document.getElementById('errorSubmit').textContent = 'Ein Fehler ist aufgetreten.';
             })
+            .finally (()=>{
+                enableFormFields();
+            })
             }
         else {
         document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
     }
+}
+
+function disableFormFields(){
+    const formElements = document.querySelectorAll('#missingFoundForm select #missingFoundForm input #missingFoundForm select, #missingFoundForm textarea, #missingFoundForm button');
+    formElements.forEach(function(element) {element.disabled = true});
+}
+
+function enableFormFields(){
+    const formElements = document.querySelectorAll('#missingFoundForm select #missingFoundForm input #missingFoundForm select, #missingFoundForm textarea, #missingFoundForm button');
+    formElements.forEach(function(element) {element.disabled = false;});
 }
 
 function resetMissingFoundForm(){
