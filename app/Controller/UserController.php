@@ -84,7 +84,7 @@ class UserController
             }
 
             echo json_encode($response);
-            return;
+            exit();
         }
     }
 

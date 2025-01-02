@@ -16,7 +16,7 @@ class MissingFoundModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function insertVermisstGefundenTiere(MissingFoundAnimal $vermisstGefundenTier, Species $tierart, string $tierbildAdresse): void
+    public function insertVermisstGefundenTiere(MissingFoundAnimal $vermisstGefundenTier, Species $tierart, ?string $tierbildAdresse): void
     {
        // Start einer Transaktion, um Konsistenz zu gewährleisten
        $this->db->begin_transaction();
@@ -24,7 +24,7 @@ class MissingFoundModel extends AbstractModel
        try {
 
            //---------------------------------------------Species-----------------------------------------------
-           $queryTierartSelect = "SELECT TierartID FROM Species WHERE Species = ?";
+           $queryTierartSelect = "SELECT TierartID FROM Tierart WHERE Tierart = ?";
            $stmtTierartSelect = $this->db->prepare($queryTierartSelect);
            if ($stmtTierartSelect->error !== "") {
                throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierartSelect->error);
@@ -44,7 +44,7 @@ class MissingFoundModel extends AbstractModel
                $tierartID = $row['TierartID'];
                $stmtTierartSelect->close();
            } else {
-               $queryTierart = "INSERT INTO Species (Species) VALUES (?)";
+               $queryTierart = "INSERT INTO Tierart (Tierart) VALUES (?)";
                $stmtTierart = $this->db->prepare($queryTierart);
 
                if ($stmtTierart->error !== "") {
@@ -55,9 +55,10 @@ class MissingFoundModel extends AbstractModel
 
                if (!$stmtTierart->execute()) {
                    throw new InvalidArgumentException('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtTierart->error);
+               } else {
+                   //Holt die generierte TierartID
+                   $tierartID = $this->db->getInsertId();
                }
-               //Hole die generierte TierartID
-               $tierartID = $this->db->insert_id;
                $stmtTierart->close();
            }
 

@@ -1,10 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('input[name=ort]').addEventListener('keyup', function(event) {
-        validateTextField(3, 20, event, document.querySelector('.fehlerOrt'));
+        validateTextField(3, 20, event, document.getElementById('ortError'));
     });
 
     document.querySelector('textarea[name=tierbeschreibung]').addEventListener('keyup', function(event) {
-        validateTextField(1, 500, event, document.querySelector('.fehlerBeschreibung'));
+        validateTextField(1, 500, event, document.getElementById('beschreibungError'));
+    });
+
+    document.querySelector('.tierbild-upload').addEventListener('click', function() {
+        document.querySelector('#tierbild-upload').click();
+    });
+
+    document.querySelector('#tierbild-upload').addEventListener('change', function(event){
+        if (validateFileUpload('tierbild-upload', 'fileError')){
+            document.getElementById('fileSuccess').textContent = 'Upload war erfolgreich!'
+        }
+    });
+
+    document.getElementById('missingFoundForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Verhindert den normalen Seitenwechsel
+        sendMissingFoundForm(); //Absenden des Formulars mit Ajax
+    });
+
+    document.getElementById('missingFoundForm').addEventListener('reset', function(event) {
+        resetMissingFoundForm();
     });
 });
 
@@ -13,23 +32,230 @@ function validateTextField (min, max, event, errorField) {
     let field = textField.value.trim();
 
     if (field.length > max) {
-        this.setFehlerFeldInnerHTML(textField, errorField, "Gib maximal "+ max +" Zeichen ein!");
+        setErrorFieldInnerHTML(textField, errorField, "Gib maximal "+ max +" Zeichen ein!");
+        return false;
     }
     else if (field.length < min) {
-        this.setFehlerFeldInnerHTML(textField, errorField, "Gib mindestens "+ min +" Zeichen ein!");
+        setErrorFieldInnerHTML(textField, errorField, "Gib mindestens "+ min +" Zeichen ein!");
+        return false;
     }
     else {
-        this.removeFehlerfeld(textField, errorField);
+        removeErrorField(textField, errorField);
+        return true;
     }
 }
 
-function setFehlerFeldInnerHTML (textElm, errorField, innerHTML) {
-    textElm.classList.add('falseInputOrTextarea');
+function validateTextFieldOnSubmit (min, max, fieldId, errorId) {
+    const textInput = document.getElementById(fieldId);
+    const errorInput = document.getElementById(errorId);
+
+    let fieldValue = textInput.value.trim();
+
+    if (fieldValue.length > max) {
+        setErrorFieldInnerHTML(textInput, errorInput, "Gib maximal "+ max +" Zeichen ein!");
+        return false;
+    }
+    else if (fieldValue.length < min) {
+        setErrorFieldInnerHTML(textInput, errorInput, "Gib mindestens "+ min +" Zeichen ein!");
+        return false;
+    }
+    else {
+        removeErrorField(textInput, errorInput);
+        return true;
+    }
+}
+
+function validateSelectField(selectId, errorId, errorMessage){
+    const selectInput = document.getElementById(selectId);
+    const errorInput = document.getElementById(errorId);
+    if(selectInput.value === ''){
+        setErrorFieldInnerHTML(selectInput,errorInput, errorMessage);
+        return false;
+    }
+    else {
+        removeErrorField(selectInput, errorInput);
+        return true;
+    }
+}
+
+function validateRadioButtons(){
+    const selectedButton = document.querySelector('input[name="kontaktaufnahme"]:checked');
+    const errorElement = document.getElementById('kontaktaufnahmeError');
+
+    if (!selectedButton) {
+        setErrorFieldInnerHTMLNoOutline (errorElement, 'Wählen Sie eine Art der Kontaktaufnahme aus.')
+        return false;
+    }
+    else{
+        removeErrorFieldNoOutline(errorElement);
+        return true;
+    }
+}
+
+function validateDateField(dateId, errorId){
+    const dateInput= document.getElementById(dateId);
+    const errorInput = document.getElementById(errorId);
+    const dateValue = dateInput.value;
+    const currentDate = new Date();
+
+
+    currentDate.setHours(0,0,0,0); //um nur Datum zu vergleichen
+
+    if (!dateValue){
+        setErrorFieldInnerHTML(dateInput, errorInput, 'Wählen Sie ein Datum aus');
+        return false;
+    }
+    else{
+        const selectedDate = new Date(dateValue);
+
+         if (selectedDate > currentDate){
+            setErrorFieldInnerHTML(dateInput, errorInput, 'Datum darf nicht in der Zukunft liegen');
+            return false;
+        }
+         else {
+             removeErrorField(dateInput, errorInput);
+         }
+    }
+     return true;
+}
+
+function validateFileUpload(fileId, errorId){
+    const fileInput = document.getElementById(fileId);
+    const errorInput = document.getElementById(errorId);
+    const file = fileInput.files[0];
+
+    if(!file){
+        return true;
+    }
+
+    if (file){
+        const fileName = file.name; //wählt aus dem File-Objekt den Namen
+        const fileExtension = fileName.split('.').pop().toLowerCase(); //extrahiert Dateiendung
+
+        if (!['jpg', 'jpeg', 'png'].includes(fileExtension)){
+            setErrorFieldInnerHTMLNoOutline (errorInput, 'Nur .jpg, .jpeg und .png Dateien sind erlaubt.');
+            return false;
+        }
+
+        const allowedMimeTypes = ['image/jpeg', 'image/png'];
+        if (!allowedMimeTypes.includes(file.type)) {
+            setErrorFieldInnerHTMLNoOutline(errorInput, 'Nur .jpg, .jpeg und .png Dateien sind erlaubt.');
+            return false;
+        }
+
+        if (fileInput.files.length > 1){
+            setErrorFieldInnerHTMLNoOutline (errorInput, 'Es darf nur eine Datei hochgeladen werden.')
+            return false;
+        }
+    }
+    removeErrorFieldNoOutline(errorInput);
+    return true;
+}
+
+function setErrorFieldInnerHTML (element, errorField, innerHTML) {
+    element.classList.add('falseInputOrTextarea');
     errorField.classList.remove('hidden');
     errorField.innerHTML = "<i class='fa-solid fa-circle-exclamation'></i> <b>Hinweis:</b> "+innerHTML;
 }
 
-function removeFehlerfeld (field, errorField) {
-    field.classList.remove('falseInputOrTextarea');
-    errorField.classList.add('hidden');
+//für Radio-Button und Datei-Upload
+function setErrorFieldInnerHTMLNoOutline (errorField, innerHTML) {
+    errorField.classList.remove('hidden');
+    errorField.innerHTML = "<i class='fa-solid fa-circle-exclamation'></i> <b>Hinweis:</b> "+innerHTML;
+}
+
+
+function removeErrorField (field, errorField) {
+    if (field) {
+        field.classList.remove('falseInputOrTextarea');
+    } else {
+        console.error('Field element not found:', field);
+    }
+
+    if (errorField) {
+        errorField.classList.add('hidden');
+    } else {
+        console.error('Error field element not found:', errorField);
+    }
+}
+
+//für Radio-Button und Datei-Upload
+function removeErrorFieldNoOutline (errorField) {
+    if (errorField) {
+        errorField.classList.add('hidden');
+    } else {
+        console.error('Error field element not found:', errorField);
+    }
+}
+
+function sendMissingFoundForm(){
+
+    let anliegen = document.getElementById('anliegenVermisstGefunden').value;
+    let tierart = document.getElementById('tierart').value;
+    let datum = document.getElementById('datum').value;
+    let ort = document.getElementById('ort').value;
+    let beschreibung = document.getElementById('tierbeschreibung').value;
+    let tierbild = document.getElementById('tierbild-upload').files[0] || null;
+    let kontakt = document.querySelector('input[name="kontaktaufnahme"]:checked').value;
+
+    if (validateSelectField('anliegenVermisstGefunden', 'anliegenError', 'Wählen Sie ein Anliegen aus.') &&
+        validateSelectField('tierart','tierartError', 'Wählen Sie eine Tierart aus.') &&
+        validateDateField('datum', 'datumError')&&
+        validateTextFieldOnSubmit(3, 20, 'ort', 'ortError') &&
+        validateTextFieldOnSubmit(3, 500, 'tierbeschreibung', 'beschreibungError') &&
+        (tierbild ? validateFileUpload('tierbild-upload', 'fileError') : true) && // Validierung nur bei vorhandenem Bild
+        validateRadioButtons()){
+
+        let formData = new FormData();
+        formData.append('anliegenVermisstGefunden', anliegen);
+        formData.append('tierart', tierart);
+        formData.append('datum', datum);
+        formData.append('ort', ort);
+        formData.append('tierbeschreibung', beschreibung);
+
+        if (tierbild){
+            formData.append('tierbild', tierbild);
+        }
+
+        formData.append('kontaktaufnahme', kontakt);
+        fetch('/ws2425_dwp_wachs_herpe_burger/public/animal/report', {method: 'POST', body: formData})
+
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Fehler beim Abrufen der Antwort:', response.status);
+                    return Promise.reject('Fehler beim Abrufen der Antwort');
+                }
+                return response.json();
+            })
+            .then (data => {
+                console.log(data);
+                if (data.success) {
+                    document.getElementById('successfulSubmit').textContent = 'Daten wurden verarbeitet.'
+                } else {
+                if(data.errors && data.errors.length > 0){
+                    document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
+                }
+                }
+            })
+
+            .catch (error => {
+                console.error('Fehler beim Login:', error);
+                document.getElementById('errorSubmit').textContent = 'Ein Fehler ist aufgetreten.';
+            })
+            }
+        else {
+        document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
+    }
+}
+
+function resetMissingFoundForm(){
+    document.querySelectorAll('.fehlermeldung').forEach(element =>element.textContent = '');
+
+    const fileInput = document.getElementById('tierbild-upload');
+
+    if (fileInput){
+        fileInput.value= '';
+    }
+
+    console.log('Formular zurückgesetzt.')
 }

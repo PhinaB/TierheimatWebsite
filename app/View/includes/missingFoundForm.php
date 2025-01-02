@@ -12,16 +12,7 @@
         </p>
     </div>
 
-    <form action="../public/animal/report" method="post" class="flex-containerVermisstGefundenmelden" enctype="multipart/form-data">
-        <!--
-           TODO: Hinweis für Phina:
-             form Element so umschreiben: <form id="meinFormular" method="post">
-             in js:
-               document.getElementById('meinFormular').addEventListener('submit', function(event) {
-                 event.preventDefault(); // Verhindert den normalen Seitenwechsel
-                 // hier ajax
-               }
-        -->
+    <form id="missingFoundForm" method="post" class="flex-containerVermisstGefundenmelden" enctype="multipart/form-data">
         <div class="flex-item1">
             <div class="flex-itemAnliegen">
                 <label for="anliegenVermisstGefunden" class="h3">Anliegen: <span class="redPflichtfeld">*</span></label>
@@ -31,6 +22,7 @@
                     <option value="vermisst">Vermisst melden</option>
                     <option value="gefunden">Gefunden melden</option>
                 </select>
+                <p id="anliegenError" class="fehlermeldung"></p>
             </div>
 
             <div class="flex-itemTierart">
@@ -38,25 +30,26 @@
 
                 <select name="tierart" id="tierart" class="eingabe" required>
                     <option value="" disabled selected hidden>Bitte wählen...</option>
-                    <option value="Katze">Katze</option>
-                    <option value="Hund">Hund</option>
-                    <option value="Vogel">Vogel</option>
+                    <option value="Katzen">Katze</option>
+                    <option value="Hunde">Hund</option>
+                    <option value="Kleintiere">Kleintier</option>
                     <option value="Sonstiges">Sonstiges</option>
                 </select>
+                <p id="tierartError" class="fehlermeldung"></p>
 
             </div>
 
             <div class="flex-itemDatum">
                 <label for="datum" class="h3">Datum des Verschwindens / Datum des Fundes: <span class="redPflichtfeld">*</span></label>
-
                 <input type="date" name="datum" id="datum" class="eingabe feldBreite" required />
+                <p id="datumError" class="fehlermeldung"></p>
             </div>
 
             <div class="flex-itemOrt">
                 <label for="ort" class="h3">Ort des Verschwindens / Fundort: <span class="redPflichtfeld">*</span></label>
 
                 <input type="text" name="ort" id="ort" class="eingabe feldBreite" placeholder="Ort" minlength="1" maxlength="20" required />
-                <p class="fehlerOrt fehlermeldung"></p>
+                <p id="ortError" class="fehlermeldung"></p>
             </div>
         </div>
 
@@ -65,30 +58,35 @@
                 <label for="tierbeschreibung" class="h3">Beschreibung des Tieres: <span class="redPflichtfeld">*</span></label>
 
                 <textarea name="tierbeschreibung" id="tierbeschreibung" class="eingabe" rows="4" cols="20" minlength="1" maxlength="500" placeholder="Beschreibung des Tieres..." required></textarea>
-                <p class="fehlerBeschreibung fehlermeldung"></p>
+                <p id="beschreibungError" class="fehlermeldung"></p>
             </div>
 
             <div class="flex-itemTierbild">
                 <label for="tierbild-upload" class="h3 tierbild">Bild vom Tier (nur .jpg .jpeg .png):</label>
-                <label for="tierbild-upload" class="tierbild-upload button">
-                    <span><i class="fa-solid fa-upload"></i>  Datei laden</span>
-                </label>
+                <button class="tierbild-upload button" type="button">
+                    <span><i class="fa-solid fa-upload"></i> Datei laden</span>
+                </button>
                 <input type="file" accept="image/*" name="tierbild" id="tierbild-upload" class="eingabe feldBreite" />
+                <p id="fileError" class="fehlermeldung"></p>
+                <p id="fileSuccess" class="erfolgsnachricht"></p>
             </div>
 
             <div class="flex-itemKontaktaufnahme">
                 <div class="h3">Art der Kontaktaufnahme: <span class="redPflichtfeld">*</span></div>
-                <div class="eingabe">
+                <div id="kontaktaufnahme" class="eingabe">
                     <input id="radio_email" type="radio" name="kontaktaufnahme" value="email" class="eingabe" required />
                     <label for="radio_email">E-Mail</label>
                     <br />
                     <input id="radio_telefon" type="radio" name="kontaktaufnahme" value="telefon" class="eingabe" required />
                     <label for="radio_telefon">Telefon</label>
                 </div>
+                <p id="kontaktaufnahmeError" class="fehlermeldung"></p>
             </div>
         </div>
 
         <div class="fusselementFormular">
+            <p id="successfulSubmit" class="greenColor"></p>
+            <p id="errorSubmit" class = "fehlermeldung"></p>
             <button class="button" type="submit" value="absenden" title="Button absenden" draggable="false"><i class="fa-regular fa-paper-plane"></i>  Absenden</button>
             <button class="button" type="reset" value="zurücksetzen" title="Button zurücksetzen" draggable="false"> <i class="fa-solid fa-arrow-rotate-left"></i>  Zurücksetzen</button>
         </div>

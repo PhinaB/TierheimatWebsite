@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS VermisstGefundenTiere (
     Ort VARCHAR(250) NOT NULL,
     Beschreibung VARCHAR(500) NOT NULL,
     Kontaktaufnahme VARCHAR(50) NOT NULL,
-    Bildadresse VARCHAR(255) NOT NULL,
+    Bildadresse VARCHAR(255) NULL,
     Geloescht BOOLEAN NOT NULL,
     ZuletztGeaendert DATETIME NOT NULL,
     FOREIGN KEY (TierartID) REFERENCES Tierart(TierartID) ON DELETE RESTRICT,

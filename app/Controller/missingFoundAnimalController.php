@@ -24,6 +24,7 @@ class missingFoundAnimalController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $response = ['success'=> false, 'errors' => []];
 
             $anliegenVermisstGefunden = $_POST['anliegenVermisstGefunden'] ?? null;
             $tierartName = $_POST['tierart'] ?? null;
@@ -34,7 +35,7 @@ class missingFoundAnimalController
 
             //Pflichtfelder
             if (!$anliegenVermisstGefunden || !$tierartName || !$datum || !$ort || !$tierbeschreibung || !$kontaktaufnahme) {
-                throw new Exception("Füllen Sie die Pflichtfelder aus!");
+                $response['errors']['general']="Alle Pflichtfelder müssen ausgefüllt werden!";
             }
 
             //Bildvalidierung und -speicherung
@@ -58,13 +59,14 @@ class missingFoundAnimalController
 
 
             try {
-                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierart);
+                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierart, $tierbildAdresse);
+                $response['success']=true;
             }
             catch (Exception $exception) {
-                throw new Exception("Fehler beim Einfügen der Daten: " . $exception->getMessage());
+               $response['errors']['general']="Fehler beim Einfügen der Daten" . $exception->getMessage();
             }
 
-            header("Location: " . $_SERVER['HTTP_REFERER']);
+            echo json_encode($response);
             exit();
         }
     }

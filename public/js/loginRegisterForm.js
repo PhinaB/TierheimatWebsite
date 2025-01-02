@@ -171,11 +171,10 @@ function handleLogin(){
 
             .then(response => {
                 if (!response.ok) {
-                    // Fehlerbehandlung, falls der Statuscode nicht 2xx ist
                     console.error('Fehler beim Abrufen der Antwort:', response.status);
                     return Promise.reject('Fehler beim Abrufen der Antwort');
                 }
-                return response.json();  // Hier wird die JSON-Antwort geparst, wenn der Statuscode ok ist
+                return response.json();
             })
         .then (data => {
             console.log(data);

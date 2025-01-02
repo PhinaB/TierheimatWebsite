@@ -15,7 +15,7 @@ class MissingFoundAnimal
     private string $ort;
     private string $beschreibung;
     private string $kontaktaufnahme;
-    private string $bildadresse;
+    private ?string $bildadresse = null;
     private bool $geloescht;
     private string $zuletztGeaendert;
 
@@ -37,7 +37,7 @@ class MissingFoundAnimal
         string $ort,
         string $beschreibung,
         string $kontaktaufnahme,
-        string $bildadresse,
+        ?string $bildadresse,
         bool $geloescht,
         string $zuletztGeaendert
     ) {
@@ -127,7 +127,7 @@ class MissingFoundAnimal
         $this->kontaktaufnahme = $kontaktaufnahme;
     }
 
-    public function getBildadresse(): string
+    public function getBildadresse(): ?string
     {
         return $this->bildadresse;
     }

@@ -44,8 +44,9 @@ input[type="checkbox"], input[type="radio"], input[type="date"], input[type="tim
 }
 
 .erfolgsnachricht {
-    font-size: 1.1em;
-    padding-bottom: 15px;
+    color: var(--primary-color);
+    padding-top: 5px;
+    font-size: 0.9em;
 }
 
 @media only screen and (max-width: 900px) {

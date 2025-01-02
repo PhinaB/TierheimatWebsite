@@ -132,4 +132,8 @@ class Connection {
             throw new Exception("Fehler beim Rollback der Transaktion: " . $this->connection->error);
         }
     }
+
+    public function getInsertId(): int {
+        return $this->connection->insert_id;
+    }
 }
