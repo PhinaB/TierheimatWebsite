@@ -231,7 +231,15 @@ function handleRegistration(){
                     const jsonData = JSON.parse(data);  // Versuche, die Antwort als JSON zu parsen
                     console.log('Parsed JSON:', jsonData);
                     if (jsonData.success) {
-                        document.getElementById('successfulRegistration').textContent = 'Registrierung war erfolgreich!';
+                        resetRegistration();
+
+                        const successMessage = document.getElementById('successfulRegistration');
+                        successMessage.textContent = 'Registrierung war erfolgreich';
+                        successMessage.classList.remove('hidden');
+
+                        setTimeout(()=>{
+                                successMessage.classList.add('hidden');},
+                            5000);
                     } else {
                         // Fehlerbehandlung für einzelne Formulareingabefelder
                         if (jsonData.errors.emailReg) {
@@ -254,35 +262,26 @@ function handleRegistration(){
             .catch(error => {
                 console.error('Fehler:', error);  // Fehlerbehandlung bei Fetch-Fehlern
             });
-
-        /*fetch('/ws2425_dwp_wachs_herpe_burger/public/user/register', {method: 'POST', body: formData})
-            .then(response => {
-                if (!response.ok) {
-                    // Fehlerbehandlung, falls der Statuscode nicht 2xx ist
-                    console.error('Fehler beim Abrufen der Antwort:', response.status);
-                    return Promise.reject('Fehler beim Abrufen der Antwort');
-                }
-                return response.json();  // Hier wird die JSON-Antwort geparst, wenn der Statuscode ok ist
-            })
-            .then(data => {
-                console.log(data);
-                if(data.success){
-                    document.getElementById('successfulRegistration').textContent ='Registrierung war erfolgreich!';
-                } else{
-                    if (data.errors.emailReg) {
-                        setErrorFieldInnerHTML(document.querySelector('input[name=emailReg]'), document.querySelector('#emailRegError'), data.errors.emailReg);
-                    }
-                    if (data.errors.passwordReg) {
-                        setErrorFieldInnerHTML(document.querySelector('input[name=passwordReg]'), document.querySelector('#passwordRegError'), data.errors.passwordReg);
-                    }
-                    if (data.errors.usernameReg){
-                        setErrorFieldInnerHTML(document.querySelector('input[name=usernameReg]'), document.querySelector('#usernameRegError'), data.errors.usernameReg);
-                    }
-                }
-            })
-
-         */
     }
+}
+
+function resetLogin() {
+    document.querySelectorAll('.fehlermeldung').forEach(element =>element.textContent = '');
+
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+
+    console.log('Formular zurückgesetzt.')
+}
+
+function resetRegistration() {
+    document.querySelectorAll('.fehlermeldungReg').forEach(element =>element.textContent = '');
+
+    document.getElementById('emailReg').value = '';
+    document.getElementById('passwordReg').value = '';
+    document.getElementById('username').value = '';
+
+    console.log('Formular zurückgesetzt.')
 }
 
 

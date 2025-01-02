@@ -230,10 +230,18 @@ function sendMissingFoundForm(){
             .then (data => {
                 console.log(data);
                 if (data.success) {
-                    document.getElementById('successfulSubmit').textContent = 'Daten wurden verarbeitet.'
+                    resetMissingFoundForm();
+
+                    const successMessage = document.getElementById('successfulSubmit');
+                    successMessage.textContent = 'Daten wurden erfolgreich verarbeitet';
+                    successMessage.classList.remove('hidden');
+
+                    setTimeout(()=>{
+                        successMessage.classList.add('hidden');},
+                        5000);
                 } else {
                 if(data.errors && data.errors.length > 0){
-                    document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
+                    document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.';
                 }
                 }
             })
@@ -251,11 +259,21 @@ function sendMissingFoundForm(){
 function resetMissingFoundForm(){
     document.querySelectorAll('.fehlermeldung').forEach(element =>element.textContent = '');
 
+    document.getElementById('anliegenVermisstGefunden').value = '';
+    document.getElementById('tierart').value = '';
+    document.getElementById('datum').value = '';
+    document.getElementById('ort').value = '';
+    document.getElementById('tierbeschreibung').value = '';
+
     const fileInput = document.getElementById('tierbild-upload');
 
     if (fileInput){
         fileInput.value= '';
     }
+
+    const kontaktRadios = document.querySelectorAll('input[name="kontaktaufnahme"]')
+    kontaktRadios.forEach(radio => radio.checked=false);
+
 
     console.log('Formular zurückgesetzt.')
 }

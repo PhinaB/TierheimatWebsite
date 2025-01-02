@@ -40,7 +40,7 @@ class StaticPageController
     public function loadMissingFoundAction(): void
     {
         $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
-        $js = ['validation.js'];
+        $js = ['missingFoundForm.js'];
 
         $this->renderPage($stylesheets, 'Vermisste / Gefundene Tiere', $js, 'missingFound');
     }
@@ -48,7 +48,7 @@ class StaticPageController
     public function loadMissingAction(): void
     {
         $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
-        $js = ['validation.js'];
+        $js = ['missingFoundForm.js'];
 
         $this->renderPage($stylesheets, 'Vermisste Tiere', $js, 'missing');
     }
@@ -56,7 +56,7 @@ class StaticPageController
     public function loadFoundAction(): void
     {
         $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
-        $js = ['validation.js'];
+        $js = ['missingFoundForm.js'];
 
         $this->renderPage($stylesheets, 'Gefundene Tiere', $js, 'found');
     }

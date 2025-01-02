@@ -26,17 +26,17 @@
             <input type="hidden" name="type" value="register">
             <label class="h3" for="emailReg">E-Mail: <span class="redPflichtfeld">*</span></label>
             <input type="email" name="emailReg" id="emailReg" required placeholder="email@beispiel.com" />
-            <p id= "emailRegError" class="fehlermeldung fehlerTag"></p>
+            <p id= "emailRegError" class="fehlermeldungReg fehlerTag"></p>
 
             <label class="h3" for="passwordReg">Passwort: <span class="redPflichtfeld">*</span></label>
             <input type="password" name="passwordReg" id="passwordReg" required placeholder="Passwort" minlength="6" maxlength="30"/>
-            <p id= "passwordRegError" class="fehlermeldung fehlerTag"></p>
+            <p id= "passwordRegError" class="fehlermeldungReg fehlerTag"></p>
 
             <label class="h3" for="usernameReg">Nutzername: <span class="redPflichtfeld">*</span></label>
             <input type="text" name="usernameReg" id="username" required placeholder="maxMustermann" maxlength="10" minlength="3" />
-            <p id= "usernameRegError" class="fehlermeldung fehlerTag"></p>
+            <p id= "usernameRegError" class="fehlermeldungReg fehlerTag"></p>
 
-            <p id= "errorRegistration" class="fehlermeldung fehlerTag"></p>
+            <p id= "errorRegistration" class="fehlermeldungReg fehlerTag"></p>
             <p id= "successfulRegistration" class="greenColor"></p>
             <button class="button marginButton" type="submit" value="absenden" title="Button absenden" draggable="false">Registrieren</button>
             <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
