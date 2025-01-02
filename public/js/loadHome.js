@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadAllForHome () {
-    let spinner = document.getElementById('loading');
+    const spinner = document.getElementById('loading');
     spinner.classList.remove('hidden');
 
-    let page = document.getElementById('page');
+    const page = document.getElementById('page');
 
-    let errorGeneral = document.querySelector('.errorGeneral');
+    const errorGeneral = document.querySelector('.errorGeneral');
     errorGeneral.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
 
     // Ajax:
@@ -17,7 +17,7 @@ function loadAllForHome () {
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState === 4) {
             if (xhttp.status >= 200 && xhttp.status < 300) {
-                let response = JSON.parse(this.response);
+                const response = JSON.parse(this.response);
 
                 setAnimalsToPage(response.tiere);
 
@@ -36,7 +36,7 @@ function loadAllForHome () {
 }
 
 function setAnimalsToPage(animals) {
-    let copyAllAnimalsHere = document.querySelector('#copyAllAnimalsHere');
+    const copyAllAnimalsHere = document.querySelector('#copyAllAnimalsHere');
     let hiddenAnimal = document.querySelector('#hiddenAnimal');
 
     for (let i = 0; i < animals.length; i++) {

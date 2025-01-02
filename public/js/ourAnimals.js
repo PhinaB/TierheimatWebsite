@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('input[name=offset]').value = '0';
 
     document.querySelector('a[id=weitereTiereAnzeigen]').addEventListener('click', function() {
-        let offset = document.querySelector('input[name=offset]');
+        const offset = document.querySelector('input[name=offset]');
         offset.value = parseInt(offset.value) + 8;
         loadAnimals();
     });
@@ -14,14 +14,14 @@ let animalSpeciesWithBreed = {};
 function loadAnimals () {
     document.querySelector('#weitereTiereAnzeigen').classList.add('hidden');
 
-    let spinner = document.getElementById('loading');
+    const spinner = document.getElementById('loading');
     spinner.classList.remove('hidden');
 
-    let errorGeneral = document.querySelector('.fehlerLoading');
+    const errorGeneral = document.querySelector('.fehlerLoading');
     errorGeneral.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
 
-    let currentSpecies = document.querySelector('#currentTierart').value;
-    let offset = document.querySelector('input[name=offset]').value;
+    const currentSpecies = document.querySelector('#currentTierart').value;
+    const offset = document.querySelector('input[name=offset]').value;
 
     let breed = "0";
     let gender = "0";
@@ -43,7 +43,7 @@ function loadAnimals () {
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState === 4) {
             if (xhttp.status >= 200 && xhttp.status < 300) {
-                let response = JSON.parse(this.response);
+                const response = JSON.parse(this.response);
 
                 if (response.tiere.length === 0) {
                     errorGeneral.innerHTML = "Wir haben leider gerade kein Animal mit diesen Einstellungen!";
@@ -53,8 +53,8 @@ function loadAnimals () {
                     setEventForCookiesLike();
 
                     if (species === "Alle Tiere") {
-                        let selectTierart = document.querySelector('select[id=tierartAuswählen]');
-                        let selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
+                        const selectTierart = document.querySelector('select[id=tierartAuswählen]');
+                        const selectGeschlecht = document.querySelector('select[id=geschlechtAuswählen]');
                         addFilteroptionToSelect(selectTierart, response.tierarten);
                         addFilteroptionToSelect(selectGeschlecht, response.geschlecht);
                     }
@@ -80,11 +80,11 @@ function loadAnimals () {
 }
 
 function search () {
-    let speciesInput = document.querySelector('select[name=tierartAuswählen]');
-    let breedInput = document.querySelector('select[name=rasseAuswählen]');
-    let genderInput = document.querySelector('select[name=geschlechtAuswählen]');
+    const speciesInput = document.querySelector('select[name=tierartAuswählen]');
+    const breedInput = document.querySelector('select[name=rasseAuswählen]');
+    const genderInput = document.querySelector('select[name=geschlechtAuswählen]');
 
-    let errorField = document.querySelector('.fehlerFilter');
+    const errorField = document.querySelector('.fehlerFilter');
     errorField.innerHTML = '';
 
     if (speciesInput.value === '0' && breedInput.value === '0' && genderInput.value === '0') {
@@ -94,7 +94,7 @@ function search () {
 
     document.querySelector('#page').classList.add('hidden');
     document.querySelector('input[name=offset]').value = "0";
-    let copyAllAnimalsHere = document.querySelector('#copyAlleTiereHere');
+    const copyAllAnimalsHere = document.querySelector('#copyAlleTiereHere');
     copyAllAnimalsHere.innerHTML = "";
 
     loadAnimals();
@@ -102,7 +102,7 @@ function search () {
 
 function setAnimalsToPage (animals) {
     let counter = 0;
-    let copyAllAnimalsHere = document.querySelector('#copyAlleTiereHere');
+    const copyAllAnimalsHere = document.querySelector('#copyAlleTiereHere');
     let outsideDiv;
 
     for (let i = 0; i < animals.length; i++) {
@@ -113,7 +113,7 @@ function setAnimalsToPage (animals) {
             copyAllAnimalsHere.appendChild(outsideDiv);
         }
 
-        let hiddenAnimalDiv = document.querySelector('#hiddenVorlageTier');
+        const hiddenAnimalDiv = document.querySelector('#hiddenVorlageTier');
 
         let clone = hiddenAnimalDiv.cloneNode(true);
         outsideDiv.appendChild(clone);
@@ -141,7 +141,7 @@ function setAnimalsToPage (animals) {
         let cloneReadMore = hiddenTemplateReadMore.cloneNode(true);
         outsideDiv.appendChild(cloneReadMore);
 
-        let currentYear = new Date().getFullYear(); // Aktuelles Jahr
+        const currentYear = new Date().getFullYear(); // Aktuelles Jahr
         let age = currentYear - animals[i].Geburtsjahr;
 
         cloneReadMore.id = "";
@@ -156,7 +156,7 @@ function setAnimalsToPage (animals) {
         // Pictures:
         let imageChangeBlock = clone.querySelector('.bildwechsel');
 
-        let animalPictures = animals[i].Bilder;
+        const animalPictures = animals[i].Bilder;
 
         animalPictures.forEach((picture) => {
             if (picture.Hauptbild === "1") {
@@ -254,8 +254,8 @@ function changeRasseSelect() {
 
 function setEventForCookiesLike () {
     document.querySelectorAll('.heartForLike').forEach(heart => {
-        let completeAnimal = findExplicitParentElement(heart, 'completeAnimal');
-        let animalId = completeAnimal.getAttribute('data-animal-id');
+        const completeAnimal = findExplicitParentElement(heart, 'completeAnimal');
+        const animalId = completeAnimal.getAttribute('data-animal-id');
 
         if (getCookie('liked_animal_'+animalId) === 'true') {
             heart.classList.add('liked');
@@ -264,8 +264,8 @@ function setEventForCookiesLike () {
 }
 
 function setCookie(element, bool) {
-    let completeAnimal = findExplicitParentElement(element, 'completeAnimal');
-    let animalId = completeAnimal.getAttribute('data-animal-id');
+    const completeAnimal = findExplicitParentElement(element, 'completeAnimal');
+    const animalId = completeAnimal.getAttribute('data-animal-id');
 
     if (element.classList.contains('liked')) {
         element.classList.remove('liked');

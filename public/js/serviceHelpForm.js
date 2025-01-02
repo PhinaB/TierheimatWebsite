@@ -26,7 +26,7 @@ function loadContentToPage () {
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState === 4) {
             if (xhttp.status >= 200 && xhttp.status < 300) {
-                let response = JSON.parse(this.response);
+                const response = JSON.parse(this.response);
 
                 let copyHereTypeOfHelpInputs = document.querySelector('#artDerHilfeInputs');
                 for (let i = 0; i < response.alleHilfearten.length; i++) {
@@ -59,7 +59,7 @@ function loadContentToPage () {
                 }
             }
             else {
-               // TODO fehlerGesamt.innerHTML = "Die Tiere konnten nicht geladen werden!";
+               // TODO fehlerGesamt.innerHTML = "";
             }
         }
     }
@@ -88,11 +88,11 @@ function reloadingPage () {
     addNewWeekday();
     addNewDay();
 
-    let formular = document.querySelector('#formular');
-    let formularButtons = formular.querySelectorAll('button');
-    let formularInputs = formular.querySelectorAll('input');
-    let formularSelects = formular.querySelectorAll('select');
-    let errorFields = formular.querySelectorAll('.fehlermeldung');
+    const formular = document.querySelector('#formular');
+    const formularButtons = formular.querySelectorAll('button');
+    const formularInputs = formular.querySelectorAll('input');
+    const formularSelects = formular.querySelectorAll('select');
+    const errorFields = formular.querySelectorAll('.fehlermeldung');
 
     for (let i = 0; i < formularButtons.length; i++) {
         formularButtons[i].removeAttribute('disabled');
@@ -150,7 +150,7 @@ function valTime (elem, errorClass) {
 
     document.querySelector('.'+errorClass).innerHTML = "";
 
-    let errorComplete = document.querySelector('.fehlerKomplett');
+    const errorComplete = document.querySelector('.fehlerKomplett');
     if (!errorComplete.classList.contains('hidden')) {
         errorComplete.innerHTML = "";
         errorComplete.classList.add('hidden');
@@ -159,7 +159,7 @@ function valTime (elem, errorClass) {
 
 function addNewWeekday () {
     let tableBody = document.getElementById('newWeekDayCopyHere');
-    let template = document.getElementById('hiddenWeekday');
+    const template = document.getElementById('hiddenWeekday');
 
     if (tableBody.children.length >= 14) {
         return;
@@ -202,7 +202,7 @@ function removeDisableInputs (element) {
 }
 
 function removeTableTr (field) {
-    let row = field.closest('tr');
+    const row = field.closest('tr');
 
     if (row) {
         let parentTbody = row.parentElement;
@@ -228,7 +228,7 @@ function setErrorField(field, errorField, innerHTML) {
 }
 
 function send () {
-    let form = document.querySelector('#formular');
+    const form = document.querySelector('#formular');
 
     let inputsSupportType = form.querySelectorAll('input[name=unterstützungsart]');
     let supportType;
@@ -241,7 +241,7 @@ function send () {
         counter++;
     }
     if (counter === inputsSupportType.length) {
-        let errorFieldSupport = form.querySelector('.fehlerUnterstuetzung');
+        const errorFieldSupport = form.querySelector('.fehlerUnterstuetzung');
 
         for (let i = 0; i < inputsSupportType.length; i++) {
             setErrorField(inputsSupportType[i], errorFieldSupport, "Gib eine Hilfe an");
@@ -253,11 +253,11 @@ function send () {
 
     let dateFields = document.querySelectorAll('#newDayCopyHere input[type="date"]');
     let timeFields = document.querySelectorAll('#newDayCopyHere input[type="time"]');
-    let errorFieldDay = form.querySelector('.fehlerTag');
+    const errorFieldDay = form.querySelector('.fehlerTag');
 
     let weekdayFields = document.querySelectorAll('#newWeekDayCopyHere select[name="wochentag"]');
     let timeWeekdayFields = document.querySelectorAll('#newWeekDayCopyHere input[type="time"]');
-    let errorFieldWeekdays = form.querySelector('.fehlerWochentag');
+    const errorFieldWeekdays = form.querySelector('.fehlerWochentag');
 
     let hasFilledRow = false;
     for (let i = dateFields.length - 1; i >= 0 ; i--) {
@@ -320,18 +320,18 @@ function send () {
     let newWeekdayFields = document.querySelectorAll('#newWeekDayCopyHere select[name="wochentag"]');
     let newTimeWeekdayFields = document.querySelectorAll('#newWeekDayCopyHere input[type="time"]');
 
-    let errorComplete = form.querySelector('.fehlerKomplett');
+    const errorComplete = form.querySelector('.fehlerKomplett');
 
-    let dateTimeEmpty = Array.from(newDateFields).every(field => field.value === '') &&
+    const dateTimeEmpty = Array.from(newDateFields).every(field => field.value === '') &&
                                 Array.from(newTimeFields).every(field => field.value === '');
 
-    let weekdayTimeEmpty = Array.from(newWeekdayFields).every(field => field.value === '0') &&
+    const weekdayTimeEmpty = Array.from(newWeekdayFields).every(field => field.value === '0') &&
                                    Array.from(newTimeWeekdayFields).every(field => field.value === '');
 
-    let dateTimeALittleBitFilled = Array.from(newDateFields).every(field => field.value !== '') ||
+    const dateTimeALittleBitFilled = Array.from(newDateFields).every(field => field.value !== '') ||
                                 Array.from(newTimeFields).every(field => field.value !== '');
 
-    let weekdayTimeALittleBitFilled = Array.from(newWeekdayFields).every(field => field.value !== '0') ||
+    const weekdayTimeALittleBitFilled = Array.from(newWeekdayFields).every(field => field.value !== '0') ||
                                    Array.from(newTimeWeekdayFields).every(field => field.value !== '');
 
     if (dateTimeEmpty && weekdayTimeEmpty) {
@@ -351,9 +351,9 @@ function send () {
     }
 
     if (weekdayTimeEmpty || dateTimeALittleBitFilled) {
-        let now = new Date();
-        let currentDate = now.toISOString().split('T')[0]; // Datum im Format 'YYYY-MM-DD'
-        let currentTime = now.toTimeString().split(' ')[0]; // Zeit im Format 'HH:MM:SS'
+        const now = new Date();
+        const currentDate = now.toISOString().split('T')[0]; // Datum im Format 'YYYY-MM-DD'
+        const currentTime = now.toTimeString().split(' ')[0]; // Zeit im Format 'HH:MM:SS'
 
         // day Felder:
         for (let i = 0; i < newDateFields.length; i++) {
@@ -367,8 +367,8 @@ function send () {
                 return;
             }
 
-            let dateValid = new Date(newDateFields[i].value) > now;
-            let timeValid = (newDateFields[i].value === currentDate && newTimeFields[i].value > currentTime) || (newDateFields[i].value > currentDate);
+            const dateValid = new Date(newDateFields[i].value) > now;
+            const timeValid = (newDateFields[i].value === currentDate && newTimeFields[i].value > currentTime) || (newDateFields[i].value > currentDate);
 
             if (!(dateValid && timeValid)) {
                 setErrorField(newDateFields[i], errorFieldDay, "Datum und Zeit muss in der Zukunft liegen");
@@ -393,9 +393,9 @@ function send () {
         }
     }
 
-    let formButtons = form.querySelectorAll('button');
-    let formInputs = form.querySelectorAll('input');
-    let formSelects = form.querySelectorAll('select');
+    const formButtons = form.querySelectorAll('button');
+    const formInputs = form.querySelectorAll('input');
+    const formSelects = form.querySelectorAll('select');
 
     let submitButton = null;
 
@@ -427,7 +427,7 @@ function send () {
         weekdayTimes: Array.from(newTimeWeekdayFields).map(field => field.value)
     };
 
-    let jsonData = JSON.stringify(data);
+    const jsonData = JSON.stringify(data);
     let successMessage = form.querySelector('.erfolgsnachricht');
     successMessage.classList.remove('redColor');
     successMessage.classList.remove('greenColor');
