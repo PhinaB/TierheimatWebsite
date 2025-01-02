@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 //hier kommen die CRUD-Statements rein
 namespace app\Model;
 
