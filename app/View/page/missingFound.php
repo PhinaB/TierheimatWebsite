@@ -1,20 +1,34 @@
 <?php
-include __DIR__ . '/../includes/missingFoundForm.php'; // TODO: entweder Formular, wenn angemeldet oder Hinweis zum Formular
-include __DIR__ . '/../includes/missingFoundReport.php';
+/**
+ * @var string $currentPage
+ */
 ?>
+<div id="formContainer">
+    <!-- Je nach Login-Status wird hier entweder das Formular oder der Verweis zum Login angezeigt (siehe dynamicMissingFoundAnimals)-->
+</div>
+<div id="reportContainer" class="tile druckenNichtDarstellen"></div>
+<p id="errorContainer" class="fehlermeldung"></p>
 
-    <div class="druckenOhneSeitenumbruch">
-        <form class="formTiereAuswaehlen druckenNichtDarstellen" action="#" method="post">
-            <label for="tierstatusAuswählen"> Welche Tiere anzeigen: </label>
-            <select name="tierstatusAuswählen" id="tierstatusAuswählen">
-                <option value="alle">Alle</option>
-                <option value="vermisst">Vermisste Tiere</option>
-                <option value="gefunden">Gefundene Tiere</option>
-            </select>
-            <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i> Suchen</button>
-        </form>
-    </div>
 
+
+<input type="hidden" id="currentMissingOrFound" value="<?php echo $currentPage; ?>">
+<div id="page" >
+    <?php if ($currentPage === "Vermisste / Gefundene Tiere") { ?>
+        <div class="druckenOhneSeitenumbruch">
+            <form class="formTiereAuswaehlen druckenNichtDarstellen" action="#" method="post">
+                <label for="tierstatusAuswählen"> Welche Tiere anzeigen: </label>
+                <select name="tierstatusAuswählen" id="tierstatusAuswählen">
+                    <option value="alle">Alle</option>
+                    <option value="vermisst">Vermisste Tiere</option>
+                    <option value="gefunden">Gefundene Tiere</option>
+                </select>
+                <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i> Suchen</button>
+            </form>
+        </div>
+    <?php } ?>
+</div>
+
+<?php if ($currentPage === "Vermisste Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
 <div id="missingAnimals" class="tile druckenOhneSeitenumbruch">
     <h2>Vermisste Tiere</h2>
     <hr class="underHeadline" />
@@ -90,7 +104,9 @@ include __DIR__ . '/../includes/missingFoundReport.php';
         </div>
     </div>
 </div>
+<?php } ?>
 
+<?php if ($currentPage === "Gefundene Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
 <div id="foundAnimals" class="tile druckenMitSeitenumbruch">
     <h2>Gefundene Tiere</h2>
     <hr class="underHeadline" />
@@ -161,3 +177,4 @@ include __DIR__ . '/../includes/missingFoundReport.php';
         </div>
     </div>
 </div>
+<?php } ?>

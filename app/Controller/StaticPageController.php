@@ -52,7 +52,7 @@ class StaticPageController
 
 
         $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
-        $js = ['missingFoundForm.js'];
+        $js = ['dynamicMissingFoundAnimals.js','missingFoundForm.js'];
 
         $this->renderPage($stylesheets, $currentPage, $js, 'missingFound');
     }

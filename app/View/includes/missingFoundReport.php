@@ -1,4 +1,3 @@
-<div class="tile druckenNichtDarstellen">
     <h2>Tiere vermisst / gefunden melden</h2>
     <hr class="underHeadline" />
     <div class="box-containerVermisstGefundenMelden">
@@ -17,4 +16,3 @@
             <img class="verschwindendesBild schattenBild" src="../public/img/vermisstGefunden.jpg" alt="Hund auf einer Strasse" title="Hund auf einer Strasse" draggable="false"/>
         </div>
     </div>
-</div>

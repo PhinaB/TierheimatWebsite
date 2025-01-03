@@ -4,6 +4,7 @@ use core\Route;
 require_once __DIR__ . '/../core/Route.php';
 require_once __DIR__ . '/../app/Controller/StaticPageController.php';
 require_once __DIR__ . '/../app/Controller/missingFoundAnimalController.php';
+require_once __DIR__ . '/../app/Controller/AuthorizeLoginController.php';
 
 require_once __DIR__ . '/../core/Connection.php';
 require_once __DIR__ . '/../app/Model/Species.php';
@@ -41,6 +42,7 @@ $router->add('/dokuDWP1', 'StaticPageController', 'loadDocumentationDWP1Action',
 
 // all Routes for js:
 $router->add('/animal/report', 'missingFoundAnimalController', "addVermisstGefundenTier", '');
+$router->add('/checkLogin', 'AuthorizeLoginController', 'checkLogin', '');
 $router->add('/load/all/our/animals', 'OurAnimalsController', "loadAllAnimals", '');
 $router->add('/add/help', 'ServiceHelpController', "addServiceInfo", '');
 $router->add('/load/all/serviceInfo', 'ServiceHelpController', "loadAllServiceInfo", '');

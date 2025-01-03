@@ -1,31 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('input[name=ort]').addEventListener('keyup', function(event) {
+function initializeFormEventListeners() {
+    const form = document.getElementById('missingFoundForm');
+    if (!form) {
+        console.log('Nutzer ist nicht angemeldet.')
+        return;
+    }
+    document.querySelector('input[name=ort]').addEventListener('keyup', function (event) {
         validateTextField(3, 20, event, document.getElementById('ortError'));
     });
 
-    document.querySelector('textarea[name=tierbeschreibung]').addEventListener('keyup', function(event) {
+    document.querySelector('textarea[name=tierbeschreibung]').addEventListener('keyup', function (event) {
         validateTextField(1, 500, event, document.getElementById('beschreibungError'));
     });
 
-    document.querySelector('.tierbild-upload').addEventListener('click', function() {
+    document.querySelector('.tierbild-upload').addEventListener('click', function () {
         document.querySelector('#tierbild-upload').click();
     });
 
-    document.querySelector('#tierbild-upload').addEventListener('change', function(event){
-        if (validateFileUpload('tierbild-upload', 'fileError')){
+    document.querySelector('#tierbild-upload').addEventListener('change', function (event) {
+        if (validateFileUpload('tierbild-upload', 'fileError')) {
             document.getElementById('fileSuccess').textContent = 'Upload war erfolgreich!'
         }
     });
 
-    document.getElementById('missingFoundForm').addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault(); // Verhindert den normalen Seitenwechsel
         sendMissingFoundForm(); //Absenden des Formulars mit Ajax
     });
 
-    document.getElementById('missingFoundForm').addEventListener('reset', function(event) {
+    form.addEventListener('reset', function (event) {
         resetMissingFoundForm();
     });
-});
+}
+
 
 function validateTextField (min, max, event, errorField) {
     let textField = event.target;
