@@ -170,7 +170,6 @@ function handleLogin(){
     let email = document.querySelector('input[name=email]').value.trim();
     let password = document.querySelector('input[name=password]').value.trim();
 
-    //{target: ... simuliert Event
     if (validateEmailFieldOnSubmit(emailInput, document.querySelector('#emailError')) &&
         validatePasswordFieldOnSubmit(6, 30, passwordInput, document.querySelector('#passwordError'))){
 
@@ -212,7 +211,8 @@ function handleLogin(){
             })
     }
     else {
-        document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
+        document.getElementById('loginError').textContent = 'Füllen Sie alle Pflichtfelder aus.'
+        enableFormFields();
     }
 }
 
@@ -285,7 +285,8 @@ function handleRegistration(){
             })
     }
     else {
-        document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
+        document.getElementById('errorRegistration').textContent = 'Füllen Sie alle Pflichtfelder aus.';
+        enableFormFields();
     }
 }
 

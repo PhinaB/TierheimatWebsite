@@ -205,13 +205,20 @@ function sendMissingFoundForm(){
     let tierbild = document.getElementById('tierbild-upload').files[0] || null;
     let kontakt = document.querySelector('input[name="kontaktaufnahme"]:checked').value;
 
-    if (validateSelectField('anliegenVermisstGefunden', 'anliegenError', 'Wählen Sie ein Anliegen aus.') &&
+    let isValid =
+        validateSelectField('anliegenVermisstGefunden', 'anliegenError', 'Wählen Sie ein Anliegen aus.') &&
         validateSelectField('tierart','tierartError', 'Wählen Sie eine Tierart aus.') &&
         validateDateField('datum', 'datumError')&&
         validateTextFieldOnSubmit(3, 20, 'ort', 'ortError') &&
         validateTextFieldOnSubmit(3, 500, 'tierbeschreibung', 'beschreibungError') &&
         (tierbild ? validateFileUpload('tierbild-upload', 'fileError') : true) && // Validierung nur bei vorhandenem Bild
-        validateRadioButtons()){
+        validateRadioButtons();
+
+    if(!isValid){
+        document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder korrekt aus.';
+        enableFormFields();
+        return;
+    }
 
         let formData = new FormData();
         formData.append('anliegenVermisstGefunden', anliegen);
@@ -260,10 +267,7 @@ function sendMissingFoundForm(){
             .finally (()=>{
                 enableFormFields();
             })
-            }
-        else {
-        document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.'
-    }
+
 }
 
 function disableFormFields(){

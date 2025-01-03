@@ -83,6 +83,7 @@ class MissingFoundModel extends AbstractModel
                throw new InvalidArgumentException('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtVermisstGefundenTier->error);
            }
 
+
            $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForInsert($nutzerID, $tierartID);
 
            $typesVermisstGefundenTier = self::determineType($valuesVermisstGefundenTier);
@@ -109,7 +110,7 @@ class MissingFoundModel extends AbstractModel
     {
         $sql = "SELECT * FROM VermisstGefundenTiere AS v 
         JOIN tierart AS t ON v.TierartID = t.TierartID 
-         WHERE v.typ = ? AND v.geloescht= 0";
+         WHERE v.typ = ? AND v.geloescht= false";
         $stmtVermisstOrGefundenTier = $this->db->prepare($sql);
         if (!$stmtVermisstOrGefundenTier) {
             throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->error);

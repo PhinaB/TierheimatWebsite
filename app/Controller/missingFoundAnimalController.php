@@ -53,7 +53,7 @@ class missingFoundAnimalController
             $tierart = new Species ($tierartName);
 
             $zuletztGeanderterNutzerID = 1; //TODO: NutzerID auslesen
-            $geloescht = 0;
+            $geloescht = false;
             $zuletztGeandertet = date('Y-m-d H:i:s'); //erstellt aktuelles Datum; Alternative über SQL: DATE DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
             // Konstruktor ohne Fremdschlüssel, da diese erst im Model generiert werden. Dort werden sie dann gesetzt

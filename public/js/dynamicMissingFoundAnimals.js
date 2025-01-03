@@ -8,6 +8,7 @@ function checkLoginStatus(){
         .then(data => {
             if (data.loggedIn){
                 document.getElementById('formContainer').innerHTML = data.form;
+                initializeFormEventListeners();
             }
             else{
                 document.getElementById('reportContainer').innerHTML= data.report;
