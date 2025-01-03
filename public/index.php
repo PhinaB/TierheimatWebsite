@@ -30,9 +30,9 @@ $router->add('/unsereKatzen', 'StaticPageController', 'loadOurAnimalsAction', "K
 $router->add('/unsereKleintiere', 'StaticPageController', 'loadOurAnimalsAction', "Kleintiere");
 $router->add('/unsereExoten', 'StaticPageController', 'loadOurAnimalsAction', "Exoten");
 $router->add('/aktuelles', 'StaticPageController', 'loadCurrentPageAction', "");
-$router->add('/vermisstGefunden', 'StaticPageController', 'loadMissingFoundAction', "");
-$router->add('/vermisst', 'StaticPageController', 'loadMissingAction', "");
-$router->add('/gefunden', 'StaticPageController', 'loadFoundAction', "");
+$router->add('/vermisstGefunden', 'StaticPageController', 'loadMissingFoundAction', "Vermisste / Gefundene Tiere");
+$router->add('/vermisst', 'StaticPageController', 'loadMissingFoundAction', "Vermisste Tiere");
+$router->add('/gefunden', 'StaticPageController', 'loadMissingFoundAction', "Gefundene Tiere");
 $router->add('/serviceInfos', 'StaticPageController', 'loadServiceInfoAction', "");
 $router->add('/login', 'StaticPageController', 'loadLoginAction', "");
 $router->add('/impressum', 'StaticPageController', 'loadImpressumAction', "");

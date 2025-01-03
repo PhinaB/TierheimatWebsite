@@ -39,12 +39,22 @@ class StaticPageController
         $this->renderPage($stylesheets, 'Current', $js, 'current');
     }
 
-    public function loadMissingFoundAction(): void
+    public function loadMissingFoundAction($categoryMissingFound): void
     {
+        $allowedCategories = ['Gefundene Tiere', 'Vermisste Tiere', 'Vermisste / Gefundene Tiere'];
+
+        if (!in_array($categoryMissingFound, $allowedCategories)) {
+            $this->pageNotFoundAction();
+            return;
+        }
+
+        $currentPage = $categoryMissingFound;
+
+
         $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
         $js = ['missingFoundForm.js'];
 
-        $this->renderPage($stylesheets, 'Vermisste / Gefundene Tiere', $js, 'missingFound');
+        $this->renderPage($stylesheets, $currentPage, $js, 'missingFound');
     }
 
     public function loadMissingAction(): void
