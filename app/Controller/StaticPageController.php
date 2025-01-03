@@ -31,12 +31,12 @@ class StaticPageController
         $this->renderPage($stylesheets, $currentPage, $js, 'ourAnimals');
     }
 
-    public function loadCurrentAction(): void
+    public function loadCurrentPageAction(): void
     {
         $stylesheets = ['current.css'];
-        $js = [];
+        $js = ['aktuelles.js'];
 
-        $this->renderPage($stylesheets, 'Aktuelles', $js, 'current');
+        $this->renderPage($stylesheets, 'Current', $js, 'current');
     }
 
     public function loadMissingFoundAction(): void

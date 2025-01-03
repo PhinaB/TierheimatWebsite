@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     const categorySelect = document.getElementById('categorySelect');
-    const newsContainer = document.getElementById('news-container');
-    const loading = document.getElementById('loading');
-    const content = document.getElementById('aktuelles-content');
+    const newsContainer = document.getElementById('current-content'); // Geändert zu 'current-content'
+    const loading = document.getElementById('spinner'); // Geändert zu 'spinner'
+    const content = document.getElementById('current-content'); // Geändert zu 'current-content'
 
-    // Lade die Kategorien dynamisch
-    fetch('../../../app/Controller/getAktuellesData.php?type=categories')
+    // Lade die Kategorien dynamisch, hoffe das klappt
+    fetch('/current/getData?type=categories') // URL aktualisiert
         .then(response => response.json())
         .then(categories => {
             categories.forEach(category => {
@@ -17,14 +17,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Lade die Inhalte der ersten Kategorie
             updateContent();
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden der Kategorien:', error);
         });
 
     // Aktualisiere Inhalte basierend auf der ausgewählten Kategorie
     window.updateContent = function () {
-        loading.style.display = 'block';
+        loading.style.display = 'block'; // Spinner anzeigen
         content.classList.add('hidden');
 
-        fetch(`../../../app/Controller/getAktuellesData.php?type=news&category=${categorySelect.value}`)
+        fetch(`/current/getData?type=news&category=${categorySelect.value}`) // URL aktualisiert
             .then(response => response.json())
             .then(news => {
                 newsContainer.innerHTML = '';
@@ -35,8 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     newsContainer.appendChild(div);
                 });
 
-                loading.style.display = 'none';
+                loading.style.display = 'none'; // Spinner ausblenden
                 content.classList.remove('hidden');
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Inhalte:', error);
+                loading.style.display = 'none';
             });
     };
 });
