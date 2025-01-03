@@ -48,6 +48,7 @@ $router->add('/add/help', 'ServiceHelpController', "addServiceInfo", '');
 $router->add('/load/all/serviceInfo', 'ServiceHelpController', "loadAllServiceInfo", '');
 $router->add('/load/all/for/home', 'HomeController', "loadAllForHome", '');
 $router->add('/user/login', 'UserController', 'login', '');
+$router->add('/logout', 'UserController', 'logout', '');
 $router->add('/user/register', 'UserController', 'register', '');
 
 // get URL - which page to open:

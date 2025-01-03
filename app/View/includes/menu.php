@@ -49,10 +49,21 @@ function renderMenu ($currentPage): void {
                         <i class="fa-solid fa-circle-info menuIcon onlySmallMenu"></i>
                         Service/<br class="onlySmallMenu" />Infos
                     </a>
-                    <a <?php if ($currentPage === 'Login') { echo 'class="disabled"'; } else { echo 'href="login"'; } ?> draggable="false">
-                        <i class="fa-solid fa-user menuIcon onlySmallMenu"></i>
-                        Login
-                    </a>
+
+                    <?php
+                    session_start();
+
+                    if(isset($_SESSION['user_logged_in'])&& $_SESSION['user_logged_in'] === true) {
+                        echo '<a href="#" class ="disabled" style="color:black"><i class="fa-solid fa-user menuIcon onlySmallMenu"></i>' . htmlspecialchars($_SESSION['username']) . ' </a>';
+                        echo '<a href="logout"><i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i> Logout</a>';
+                    }
+                    else {
+                        if($currentPage === 'Login') {
+                            echo '<a class="disabled" draggable="false"><i class="fa-solid fa-user menuIcon onlySmallMenu"></i>Login</a>';
+                        }
+                        else { echo '<a href="login"draggable="false"><i class="fa-solid fa-user menuIcon onlySmallMenu"></i>Login</a>'; }
+                    }
+                    ?>
                 </div>
             </nav>
         </header>
