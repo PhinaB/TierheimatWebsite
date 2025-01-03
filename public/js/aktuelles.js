@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const content = document.getElementById('current-content'); // Geändert zu 'current-content'
 
     // Lade die Kategorien dynamisch, hoffe das klappt
-    fetch('/current/getData?type=categories') // URL aktualisiert
+    fetch('/current/getData?type=categories')
         .then(response => response.json())
         .then(categories => {
             categories.forEach(category => {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Fehler beim Laden der Kategorien:', error);
         });
 
-    // Aktualisiere Inhalte basierend auf der ausgewählten Kategorie
+    // Aktualisiere Inhalte
     window.updateContent = function () {
         loading.style.display = 'block'; // Spinner anzeigen
         content.classList.add('hidden');

@@ -1,3 +1,7 @@
+<div id="spinner" style="display:none;">
+    <div class="loading-spinner"></div>
+</div>
+
 <div class="tile">
     <h2>Neues aus dem Tierheim</h2>
     <hr class="underHeadline" />
