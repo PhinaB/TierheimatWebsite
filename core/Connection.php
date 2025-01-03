@@ -138,4 +138,9 @@ class Connection {
     public function getInsertId(): int {
         return $this->connection->insert_id;
     }
+
+    public function getError(): string
+    {
+        return $this->connection->error;
+    }
 }

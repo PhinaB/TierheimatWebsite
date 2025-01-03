@@ -14,21 +14,22 @@ class UserRole {
     private bool $kannAllesLoeschen;
 
     /**
+     * @param int|null $nutzerrolleID
      * @param string $rolle
      * @param bool $kannLesen
      * @param bool $kannSchreiben
-     * @param bool $kannEigenesBearbeitenUndLöschen
+     * @param bool $kannEigenesBearbeitenUndLoeschen
      * @param bool $kannAllesLoeschen
      */
-    public function __construct(string $rolle, bool $kannLesen, bool $kannSchreiben, bool $kannEigenesBearbeitenUndLöschen, bool $kannAllesLoeschen)
+    public function __construct(?int $nutzerrolleID, string $rolle, bool $kannLesen, bool $kannSchreiben, bool $kannEigenesBearbeitenUndLoeschen, bool $kannAllesLoeschen)
     {
+        $this->nutzerrolleID = $nutzerrolleID;
         $this->rolle = $rolle;
         $this->kannLesen = $kannLesen;
         $this->kannSchreiben = $kannSchreiben;
-        $this->kannEigenesBearbeitenUndLöschen = $kannEigenesBearbeitenUndLöschen;
+        $this->kannEigenesBearbeitenUndLoeschen = $kannEigenesBearbeitenUndLoeschen;
         $this->kannAllesLoeschen = $kannAllesLoeschen;
     }
-
 
     public function getNutzerrolleID(): ?int
     {

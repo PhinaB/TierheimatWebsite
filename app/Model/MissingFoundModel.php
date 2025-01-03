@@ -113,7 +113,7 @@ class MissingFoundModel extends AbstractModel
          WHERE v.typ = ? AND v.geloescht= false";
         $stmtVermisstOrGefundenTier = $this->db->prepare($sql);
         if (!$stmtVermisstOrGefundenTier) {
-            throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->error);
+            throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->getError());
         }
 
         $stmtVermisstOrGefundenTier->bind_param('s', $vermisstOrGefunden);
@@ -147,12 +147,76 @@ class MissingFoundModel extends AbstractModel
        ];
     }
 
-    public function deleteVermisstOrGefundenTier (MissingFoundAnimal $vermisstOrGefundenTier): void{
-        //TODO: hat aktueller User das Animal angelegt? --> dann darf löschen
-        //anhand der TierID setzten des Booleans auf geloescht= 1
-        //Animal wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt
+    public function getMissingFoundAnimalById(int $missingFoundAnimalId) {
+        $sql = "SELECT * FROM VermisstGefundenTiere WHERE VermisstGefundenTiereID = ?";
+        $stmtMissingFoundAnimal = $this->db->prepare($sql);
+        if (!$stmtMissingFoundAnimal ) {
+            throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->getError());
+        }
+        $stmtMissingFoundAnimal ->bind_param('i', $missingFoundAnimalId);
+        if (!$stmtMissingFoundAnimal ->execute()) {
+            throw new Exception('Fehler bei der Ausführung des SQL-Statements: ' . $stmtMissingFoundAnimal ->error);
+        }
+        $animal = $stmtMissingFoundAnimal ->get_result()->fetch_assoc();
+        $stmtMissingFoundAnimal->close();
 
+        if (!$animal) {
+            throw new Exception("Kein Tier mit der angegebenen ID gefunden.");
+        }
 
+        return new MissingFoundAnimal(
+            $animal['VermisstGefundenTierID'],
+            $animal['TierartID'],
+            $animal['Typ'],
+            $animal['Datum'],
+            $animal['Beschreibung'],
+            $animal['Kontaktaufnahme'],
+            $animal['Bildadresse'],
+            $animal['Geloescht'],
+            $animal['ZuletztGeaendert']
+        );
+    }
 
+    public function creatorIsCurrentUser(int $createdById){
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+        if (!isset($_SESSION['nutzer_id'])){
+            throw new InvalidArgumentException('Nutzer ist nicht eingeloggt oder Nutzer-ID ist nicht gesetzt.');
+        }
+
+        $currentUserId = (int)$_SESSION['nutzer_id'];
+        return $createdById === $currentUserId;
+    }
+    /**
+     * @throws Exception
+     */
+    public function deleteMissingFoundAnimal (int $missingFoundAnimalId): void{
+        //Animal wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt indem geloescht= 1 gesetzt wird
+        //TODO: vermisstGefundenID hidden im HTML Code und von dort holen
+
+        $missingFoundAnimal = $this->getMissingFoundAnimalById($missingFoundAnimalId);
+
+        $missingFoundAnimalCreatorId= $missingFoundAnimal->getZuletztGeaendertNutzerID();
+
+        if ($this->creatorIsCurrentUser($missingFoundAnimalCreatorId)) {
+            $sql = "UPDATE VermisstGefundenTier SET Geloescht=? WHERE VermisstGefundenTiereID = ?";
+            $stmt = $this->db->prepare($sql);
+            if (!$stmt) {
+                throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->getError());
+            }
+            $animalDeleted= 1;
+            $stmt->bind_param('ii', $animalDeleted, $missingFoundAnimalId);
+            if (!$stmt->execute()) {
+                throw new Exception('Fehler bei der Ausführung des SQL-Statements: ' . $stmt ->error);
+            }
+        }
+        else {
+            throw new Exception("Der aktuelle Nutzer hat keine Berechtigung, dieses Tier zu löschen.");
+        }
+    }
+
+    public function editMissingFoundAnimal (MissingFoundAnimal $vermisstOrGefundenTier): void{
+        //TODO: implementieren
     }
 }

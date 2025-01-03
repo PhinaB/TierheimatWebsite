@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\model;
 
-class Animal extends AbstractModel
+class Animal 
 {
     private ?int $tierID = null;
 
