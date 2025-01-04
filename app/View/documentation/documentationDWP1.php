@@ -19,12 +19,12 @@
     <!--
     TODO WICHTIG!!!!
 
-    -ERM und relationales Modell für die DB!
+    -ERM und relationales Modell für die DB!  → integriert
     -Rollenmodell für die Nutzer
     -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung
     -Beschreibung der Funktionalitäten für jede Seite (beschriftete Screenshots)
-     -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ...
-    -Auflistung Tätigkeiten jeder Person und benötigter Aufwand
+     -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ... → abgeschlossen, ist z.B mit der favourite Funktion benannnt, dass diese als Cookies gespeichert werden und nicht in der DB
+    -Auflistung Tätigkeiten jeder Person und benötigter Aufwand → integriert bis auf die h per person
 
     -->
 
