@@ -462,11 +462,14 @@
                 </p><p>
                     Im darauffolgenden Schritt wurden die entsprechenden SQL Befehle erstellt.
                 </p><br /><p>
-                    Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells.
+                    Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells sowie das dazugehörige Relationale Schema.
                 </p><br />
 
                 <img src="../public/imgDokumentationDWP/E-R-Modell_cleaned.png" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
                 <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
+                <br/>
+                <img src="../public/imgDokumentationDWP/RelationalesSchema.png" title="Relationales Schema" alt="Relationales Schema" draggable="false">
+                <div class="caption">Abbildung 08: Relationales Schema</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
