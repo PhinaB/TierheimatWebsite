@@ -72,29 +72,42 @@ class missingFoundAnimalController
         }
     }
 
-    public function loadAllVermisstTiere(): array
+    public function loadAllMissingAnimals()
     {
+        $type = $_GET['type'] ?? 'vermisst';
         try {
-            $vermisstOrGefunden = "vermisst";
-            return $this->vermisstGefundenTierModel->findAllVermisstOrGefundenTiere($vermisstOrGefunden);
+
+            $missingFoundAnimalModel = new MissingFoundModel();
+            $missingAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
+
+            if(empty($missingAnimals)){
+                echo json_encode(['message' => 'Keine Tiere gefunden.']);
+                return;
+            }
+
+            echo json_encode(['animals' => $missingAnimals]);
         } catch (Exception $e) {
-            return [
-                'error' => true, //TODO: zu bearbeiten
-                'message' => 'Es ist ein Fehler aufgetreten: ' . $e->getMessage(),
-            ];
+            http_response_code(500);
+            echo json_encode(['errors'=> $e->getMessage()]);
         }
     }
 
-    public function loadAllGefundenTiere(): array
+    public function loadAllFoundAnimals()
     {
+        $type = $_GET['type'] ?? 'gefunden';
         try {
-            $vermisstOrGefunden = "gefunden";
-            return $this->vermisstGefundenTierModel->findAllVermisstOrGefundenTiere($vermisstOrGefunden);
+            $missingFoundAnimalModel = new MissingFoundModel();
+            $foundAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
+
+            if(empty($foundAnimals)){
+                echo json_encode(['message' => 'Keine Tiere gefunden.']);
+                return;
+            }
+
+            echo json_encode(['animals' => $foundAnimals]);
         } catch (Exception $e) {
-            return [
-                'error' => true, //TODO: zu bearbeiten
-                'message' => 'Es ist ein Fehler aufgetreten: ' . $e->getMessage(),
-            ];
+            http_response_code(500);
+            echo json_encode(['errors'=> $e->getMessage()]);
         }
     }
 
@@ -104,7 +117,7 @@ class missingFoundAnimalController
     private function speichereBild(array $tierbild, string $tierartName): string
     {
         // Zielordner für die Bilder
-        $zielOrdner = __DIR__ . '/../../public/uploads/';
+        $zielOrdner =  '../public/uploads/';
         if (!is_dir($zielOrdner)) {
             mkdir($zielOrdner, 0755, true);
         }

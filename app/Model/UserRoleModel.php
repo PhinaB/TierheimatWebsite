@@ -15,7 +15,7 @@ class UserRoleModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function getUserRole(int $currentUserId){
+    public function getUserRoles(int $currentUserId){
 
         $sql = "SELECT NutzerrollenID FROM Nutzer WHERE UserID = ?";
         $stmt = $this->db->prepare($sql);
@@ -34,7 +34,7 @@ class UserRoleModel extends AbstractModel
 
         $sqlUserRoles = "SELECT * FROM Nutzerrollen WHERE NutzerrollenID = ?";
         $stmtUserRoles = $this->db->prepare($sqlUserRoles);
-        if ($stmtUserRoles) {
+        if (!$stmtUserRoles) {
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage.');
         }
         $stmtUserRoles->bind_param('i', $userRoleId);

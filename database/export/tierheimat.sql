@@ -157,8 +157,8 @@ CREATE TABLE `nutzer` (
 --
 
 INSERT INTO `nutzer` (`NutzerID`, `NutzerrollenID`, `Name`, `Email`, `Passwort`) VALUES
-(1, 1, 'Lisa', 'betreuer@example.com', 'securepassword2'),
-(2, 2, 'Maier', 'tierarzt@example.com', 'securepassword3');
+(1, 1, 'Lisa', 'betreuer@example.com', '$2y$10$U4DPGbciuerXruoMIu86.uKKhVs33FzKySH8Azi8CZjzW2v1BBGV6'),
+(2, 2, 'Maier', 'tierarzt@example.com', '$2y$10$Y.mzZG5LrCPHiik130UexuNIRoWuY96cdm5SlzCWO1xzkRBjhl53W');
 
 -- --------------------------------------------------------
 
@@ -315,16 +315,16 @@ CREATE TABLE `vermisstgefundentiere` (
 --
 
 INSERT INTO `vermisstgefundentiere` (`VermisstGefundenTiereID`, `ZuletztGeaendertNutzerID`, `TierartID`, `Typ`, `Datum`, `Ort`, `Beschreibung`, `Kontaktaufnahme`, `Bildadresse`, `Geloescht`, `ZuletztGeaendert`) VALUES
-(1, 1, 1, 'vermisst', '2024-01-02 00:00:00', 'Weimar', 'Wir waren am Samstag Abend mit Pablo in Weimar am Park an der Ilm spazieren und haben ihn nur kurz aus den Augen gelassen. Wir vermissen ihn sehr. Jeder Hinweis könnte uns bei der Suche helfen.', 'telefon', 'pablo.jpg', 0, '2024-01-02 00:00:00'),
-(2, 2, 3, 'vermisst', '2024-03-02 00:00:00', 'Vieselbach', 'Unser Degu Luke wird seit dem 2. März in Vieselbach vermisst. Hinweise nehmen wir dankend telefonisch entgegen. Bitte helfen Sie uns, ihn wiederzufinden!', 'telefon', 'luke.jpg', 0, '2024-01-02 00:00:00'),
-(3, 2, 2, 'vermisst', '2024-01-03 00:00:00', 'Stotternheim', 'Lotta, unsere getigerte Katze mit einem weißen Fleck auf der Brust, wird seit dem 3. Januar in Stotternheim vermisst. Sie ist scheu, aber sehr lieb. Bitte melden Sie sich per E-Mail, falls Sie sie sehen.', 'email', 'lotta.jpg', 0, '2024-01-04 00:00:00'),
-(4, 2, 3, 'vermisst', '2024-06-07 00:00:00', 'Erfurt', 'Unsere Schildkröte Raspun ist am 7. Juni in Erfurt verschwunden. Jeder Hinweis hilft uns, sie wiederzufinden. Bitte melden Sie sich per E-Mail!', 'email', 'raspun.jpg', 0, '2024-12-06 00:00:00'),
-(5, 1, 2, 'vermisst', '2024-05-02 00:00:00', 'Arnstadt', 'Drako, unser schwarz-weißer Kater, wird seit dem 2. Mai in Arnstadt vermisst. Er trägt ein grünes Halsband mit unserer Telefonnummer. Bitte melden Sie sich per E-Mail, falls Sie ihn gesehen haben.', 'email', 'drako.jpg', 0, '2024-11-04 00:00:00'),
-(6, 2, 2, 'gefunden', '2024-05-23 00:00:00', 'Weimar', 'Ich habe die Katze am Mittwoch Abend in Erfurt an der Altonaer Straße gefunden. Sie wirkte verschreckt, abgemagert und hatte Flöhe. Ich habe sie mit nach Hause genommen und sie wieder aufgepäppelt. Jetzt geht es ihr wieder besser.', 'telefon', 'gefundeneKatze.jpg', 0, '2024-01-05 00:00:00'),
+(1, 1, 1, 'vermisst', '2024-01-02 00:00:00', 'Weimar', 'Wir waren am Samstag Abend mit Pablo in Weimar am Park an der Ilm spazieren und haben ihn nur kurz aus den Augen gelassen. Wir vermissen ihn sehr. Jeder Hinweis könnte uns bei der Suche helfen.', 'telefon', '../public/img/pablo.jpg', 0, '2024-01-02 00:00:00'),
+(2, 2, 3, 'vermisst', '2024-03-02 00:00:00', 'Vieselbach', 'Unser Degu Luke wird seit dem 2. März in Vieselbach vermisst. Hinweise nehmen wir dankend telefonisch entgegen. Bitte helfen Sie uns, ihn wiederzufinden!', 'telefon', '../public/img/luke.jpg', 0, '2024-01-02 00:00:00'),
+(3, 2, 2, 'vermisst', '2024-01-03 00:00:00', 'Stotternheim', 'Lotta, unsere getigerte Katze mit einem weißen Fleck auf der Brust, wird seit dem 3. Januar in Stotternheim vermisst. Sie ist scheu, aber sehr lieb. Bitte melden Sie sich per E-Mail, falls Sie sie sehen.', 'email', '../public/img/lotta.jpg', 0, '2024-01-04 00:00:00'),
+(4, 2, 3, 'vermisst', '2024-06-07 00:00:00', 'Erfurt', 'Unsere Schildkröte Raspun ist am 7. Juni in Erfurt verschwunden. Jeder Hinweis hilft uns, sie wiederzufinden. Bitte melden Sie sich per E-Mail!', 'email', '../public/img/raspun.jpg', 0, '2024-12-06 00:00:00'),
+(5, 1, 2, 'vermisst', '2024-05-02 00:00:00', 'Arnstadt', 'Drako, unser schwarz-weißer Kater, wird seit dem 2. Mai in Arnstadt vermisst. Er trägt ein grünes Halsband mit unserer Telefonnummer. Bitte melden Sie sich per E-Mail, falls Sie ihn gesehen haben.', 'email', '../public/img/drako.jpg', 0, '2024-11-04 00:00:00'),
+(6, 2, 2, 'gefunden', '2024-05-23 00:00:00', 'Weimar', 'Ich habe die Katze am Mittwoch Abend in Erfurt an der Altonaer Straße gefunden. Sie wirkte verschreckt, abgemagert und hatte Flöhe. Ich habe sie mit nach Hause genommen und sie wieder aufgepäppelt. Jetzt geht es ihr wieder besser.', 'telefon', '../public/img/gefundeneKatze.jpg', 0, '2024-01-05 00:00:00'),
 (7, 2, 1, 'gefunden', '2023-09-27 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 27. September in Erfurt zugelaufen. Falls Sie ihn vermissen, melden Sie sich bitte per E-Mail, damit er wieder nach Hause kann', 'email', 'max.jpg', 0, '2024-06-04 00:00:00'),
-(8, 1, 2, 'gefunden', '2024-02-25 00:00:00', 'Vieselbach', 'Ich habe diese Katze am 25. Februar in Vieselbach gefunden. Sie scheint ein Zuhause zu suchen. Bitte melden Sie sich telefonisch, falls Sie sie kennen.', 'telefon', 'flo.jpg', 0, '2024-02-04 00:00:00'),
-(9, 1, 1, 'gefunden', '2024-04-26 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 26. April in Erfurt begegnet. Er war allein unterwegs. Falls Sie ihn suchen, melden Sie sich bitte per E-Mail!', 'email', 'nick.jpg', 0, '2024-03-04 00:00:00'),
-(10, 2, 2, 'gefunden', '2024-06-19 00:00:00', 'Hohenfelden', 'Ich habe diesen Kater am 19. Juni in Hohenfelden gefunden. Er ist zutraulich und gut gepflegt. Bitte melden Sie sich telefonisch, falls er Ihnen gehört.', 'telefon', 'stan.jpg', 0, '2024-01-07 00:00:00');
+(8, 1, 2, 'gefunden', '2024-02-25 00:00:00', 'Vieselbach', 'Ich habe diese Katze am 25. Februar in Vieselbach gefunden. Sie scheint ein Zuhause zu suchen. Bitte melden Sie sich telefonisch, falls Sie sie kennen.', 'telefon', '../public/img/flo.jpg', 0, '2024-02-04 00:00:00'),
+(9, 1, 1, 'gefunden', '2024-04-26 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 26. April in Erfurt begegnet. Er war allein unterwegs. Falls Sie ihn suchen, melden Sie sich bitte per E-Mail!', 'email', '../public/img/nick.jpg', 0, '2024-03-04 00:00:00'),
+(10, 2, 2, 'gefunden', '2024-06-19 00:00:00', 'Hohenfelden', 'Ich habe diesen Kater am 19. Juni in Hohenfelden gefunden. Er ist zutraulich und gut gepflegt. Bitte melden Sie sich telefonisch, falls er Ihnen gehört.', 'telefon', '../public/img/stan.jpg', 0, '2024-01-07 00:00:00');
 
 --
 -- Indizes der exportierten Tabellen

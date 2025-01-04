@@ -29,11 +29,30 @@
 </div>
 
 <?php if ($currentPage === "Vermisste Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
-<div id="missingAnimals" class="tile druckenOhneSeitenumbruch">
     <h2>Vermisste Tiere</h2>
     <hr class="underHeadline" />
+<div id="missingAnimals" class="tile druckenOhneSeitenumbruch hidden">
+    <div id="hiddenFirstMissingAnimal" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+        <div class="animalImageContainer">
+            <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" id="animalImage" draggable="false" />
+        </div>
+        <div class="vermisstGefundenText">
+            <h3>Verschwunden</h3>
+            <p id="animalId" class="hidden"></p>
+            <p id="animalDate"></p>
+            <p id="animalPlace"></p>
+            <p class="boldText">Beschreibung:</p>
+            <p id="animalDescription"></p>
+            <br />
+            <p class="kursivText">
+                Bitte kontaktieren Sie das Tierheim per Email, wenn Sie Hinweise haben oder das Tier gefunden haben:
+            </p>
+            <br />
+            <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
+        </div>
 
-    <div class="box-containerVermisstGefundenMelden tileBorder">
+    </div>
+    <!--<div class="box-containerVermisstGefundenMelden tileBorder">
         <div>
             <img src="../public/img/pablo.jpg" alt="Bild eines Hundes" title="Bild Hund Pablo" draggable="false" />
         </div>
@@ -55,9 +74,23 @@
 
             <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
         </div>
+    </div>-->
+
+    <div id ="copyAllMissingAnimalsHere"></div>
+
+    <div id="hiddenTemplateMissingAnimals" class="hidden relativePosition ">
+        <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
+        <h3>Vermisst</h3>
+
+        <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
+        <p class="absatzfrei animalDate"></p>
+        <p class="absatzfrei animalPlace"></p>
+        <p class="absatzfrei animalDescriptionBeginning"></p>
+
+        <a href="" class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
     </div>
 
-    <div class="box-containerUnsereTiere">
+   <!-- <div class="box-containerUnsereTiere">
         <div class="completeAnimal">
             <img src="../public/img/luke.jpg" alt="Bild eines Degu" title="Bild Degu Luke" draggable="false" />
             <h3>Luke</h3>
@@ -102,7 +135,7 @@
 
             <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
         </div>
-    </div>
+    </div> -->
 </div>
 <?php } ?>
 

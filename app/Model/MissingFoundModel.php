@@ -106,11 +106,11 @@ class MissingFoundModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function findAllVermisstOrGefundenTiere(string $vermisstOrGefunden): array
+    public function getAllMissingOrFoundAnimals(string $vermisstOrGefunden): array
     {
         $sql = "SELECT * FROM VermisstGefundenTiere AS v 
-        JOIN tierart AS t ON v.TierartID = t.TierartID 
-         WHERE v.typ = ? AND v.geloescht= false";
+        JOIN Tierart AS t ON v.TierartID = t.TierartID 
+         WHERE v.typ = ? AND v.geloescht=0 ORDER BY v.Datum DESC";
         $stmtVermisstOrGefundenTier = $this->db->prepare($sql);
         if (!$stmtVermisstOrGefundenTier) {
             throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->getError());
@@ -118,33 +118,21 @@ class MissingFoundModel extends AbstractModel
 
         $stmtVermisstOrGefundenTier->bind_param('s', $vermisstOrGefunden);
 
-        try {
-            $stmtVermisstOrGefundenTier->execute();
-            $result = $stmtVermisstOrGefundenTier->get_result();
-            if (!$result) {
-                throw new Exception("Fehler bei der Abfrage.");
-            }
-        } catch (Exception $e) { // Hier ist `catch` korrekt positioniert
-            throw new Exception("Fehler beim Abrufen der Vermisst/Gefunden-Tierdaten: " . $e->getMessage());
+
+        if (!$stmtVermisstOrGefundenTier->execute()) {
+            throw new Exception(
+                "Fehler beim Ausführen der SQL-Abfrage: " . $stmtVermisstOrGefundenTier->error
+            );
         }
 
-        $alleVermisstTiere = [];
-        foreach($result as $row){
-            $alleVermisstTiere[] = [
-                'ZuletztGeaendertNutzerID' => $row['ZuletztGeaendertNutzerID'],
-                'Species' => $row['Species'],
-                'Typ' => $row['Typ'],
-                'Datum' => $row['Datum'],
-                'Beschreibung' => $row['Beschreibung'],
-                'Kontaktaufnahme' => $row['Kontaktaufnahme'],
-                'Bildadresse' => $row['Bildadresse'],
-                'Geloescht' => $row['Geloescht'],
-                'ZuletztGeaendert' => $row['ZuletztGeaendertNutzerID'],
-            ];
+        $result = $stmtVermisstOrGefundenTier->get_result();
+        if (!$result) {
+            throw new Exception("Fehler bei der Abfrage der Daten.");
         }
-       return [
-           'VermisstTiere' => $alleVermisstTiere,
-       ];
+
+        $alleVermisstTiere = $result->fetch_all(MYSQLI_ASSOC);
+        $stmtVermisstOrGefundenTier->close();
+       return $alleVermisstTiere;
     }
 
     public function getMissingFoundAnimalById(int $missingFoundAnimalId) {
@@ -180,7 +168,7 @@ class MissingFoundModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function creatorIsCurrentUserHasRights(int $createdById){
+    public function creatorIsCurrentUserHasEditDeleteOwnRights(int $createdById){
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
@@ -192,7 +180,8 @@ class MissingFoundModel extends AbstractModel
 
         //Rechte des Nutzers beim Attribut KannEigenesBearbeitenUndLoeschen überprüfen
         $userRoleModel = new UserRoleModel();
-        $userRoleArray = $userRoleModel->getUserRole($currentUserId);
+        $userRoleArray = $userRoleModel->getUserRoles($currentUserId);
+
         $canEditAndDeleteOwn = $userRoleArray->isKannEigenesBearbeitenUndLoeschen();
 
         if (!$canEditAndDeleteOwn && $createdById === $currentUserId) {
@@ -212,7 +201,7 @@ class MissingFoundModel extends AbstractModel
 
         $missingFoundAnimalCreatorId= $missingFoundAnimal->getZuletztGeaendertNutzerID();
 
-        if ($this->creatorIsCurrentUserHasRights($missingFoundAnimalCreatorId)) {
+        if ($this->creatorIsCurrentUserHasEditDeleteOwnRights($missingFoundAnimalCreatorId)) {
             $sql = "UPDATE VermisstGefundenTier SET Geloescht=? WHERE VermisstGefundenTiereID = ?";
             $stmt = $this->db->prepare($sql);
             if (!$stmt) {
@@ -229,7 +218,13 @@ class MissingFoundModel extends AbstractModel
         }
     }
 
-    public function editMissingFoundAnimal (MissingFoundAnimal $vermisstOrGefundenTier): void{
+    public function editMissingFoundAnimal (int $missingFoundAnimalId): void{
         //TODO: implementieren
+        if ($this->creatorIsCurrentUserHasEditDeleteOwnRights($missingFoundAnimalId)) {
+            //TODO: implementieren
+        }
+        else {
+            throw new Exception("Der aktuelle Nutzer hat keine Berechtigung, dieses Tier zu löschen.");
+        }
     }
 }
