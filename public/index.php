@@ -39,6 +39,9 @@ $router->add('/login', 'StaticPageController', 'loadLoginAction', "");
 $router->add('/impressum', 'StaticPageController', 'loadImpressumAction', "");
 $router->add('/dokuGWP', 'StaticPageController', 'loadDocumentationGWPAction', "");
 $router->add('/dokuDWP1', 'StaticPageController', 'loadDocumentationDWP1Action', "");
+$router->add('/aktuelles', 'CurrentController', 'loadCurrentAction', "");
+$router->add('/aktuelles/detail/:id', 'CurrentController', 'loadDetailAction', "");
+
 
 // all Routes for js:
 $router->add('/animal/report', 'missingFoundAnimalController', "addVermisstGefundenTier", '');
