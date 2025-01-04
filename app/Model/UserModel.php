@@ -115,5 +115,17 @@ class UserModel extends AbstractModel
         // Daten werden als Array zurückgegeben: Array ([NutzerID] => 1 ...)
         return $resultNutzer->fetch_assoc();
     }
+
+    public function getCurrentUserIdWithSession(){
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['nutzer_id'])){
+            throw new InvalidArgumentException('Nutzer ist nicht eingeloggt oder Nutzer-ID ist nicht gesetzt.');
+        }
+
+        return $currentUserId = $_SESSION['nutzer_id'];
+    }
 }
 

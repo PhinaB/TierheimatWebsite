@@ -15,17 +15,8 @@ class UserRoleModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function getUserRole(){
+    public function getUserRole(int $currentUserId){
 
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-
-        if (!isset($_SESSION['nutzer_id'])){
-            throw new InvalidArgumentException('Nutzer ist nicht eingeloggt oder Nutzer-ID ist nicht gesetzt.');
-        }
-
-        $currentUserId = $_SESSION['nutzer_id'];
         $sql = "SELECT NutzerrollenID FROM Nutzer WHERE UserID = ?";
         $stmt = $this->db->prepare($sql);
         if (!$stmt) {

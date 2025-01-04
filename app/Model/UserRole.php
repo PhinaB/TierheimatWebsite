@@ -71,7 +71,7 @@ class UserRole {
         return $this->kannEigenesBearbeitenUndLoeschen;
     }
 
-    public function setKannEigenesBearbeitenUndLoeschen(bool $kannEigenesBearbeitenUndLöschen): void
+    public function setKannEigenesBearbeitenUndLoeschen(bool $kannEigenesBearbeitenUndLoeschen): void
     {
         $this->kannEigenesBearbeitenUndLoeschen = $kannEigenesBearbeitenUndLoeschen;
     }

@@ -177,7 +177,10 @@ class MissingFoundModel extends AbstractModel
         );
     }
 
-    public function creatorIsCurrentUser(int $createdById){
+    /**
+     * @throws Exception
+     */
+    public function creatorIsCurrentUserHasRights(int $createdById){
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
@@ -186,7 +189,17 @@ class MissingFoundModel extends AbstractModel
         }
 
         $currentUserId = (int)$_SESSION['nutzer_id'];
-        return $createdById === $currentUserId;
+
+        //Rechte des Nutzers beim Attribut KannEigenesBearbeitenUndLoeschen überprüfen
+        $userRoleModel = new UserRoleModel();
+        $userRoleArray = $userRoleModel->getUserRole($currentUserId);
+        $canEditAndDeleteOwn = $userRoleArray->isKannEigenesBearbeitenUndLoeschen();
+
+        if (!$canEditAndDeleteOwn && $createdById === $currentUserId) {
+            return true;
+        } else {
+            return false;
+        }
     }
     /**
      * @throws Exception
@@ -199,7 +212,7 @@ class MissingFoundModel extends AbstractModel
 
         $missingFoundAnimalCreatorId= $missingFoundAnimal->getZuletztGeaendertNutzerID();
 
-        if ($this->creatorIsCurrentUser($missingFoundAnimalCreatorId)) {
+        if ($this->creatorIsCurrentUserHasRights($missingFoundAnimalCreatorId)) {
             $sql = "UPDATE VermisstGefundenTier SET Geloescht=? WHERE VermisstGefundenTiereID = ?";
             $stmt = $this->db->prepare($sql);
             if (!$stmt) {
