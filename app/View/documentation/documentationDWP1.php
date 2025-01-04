@@ -59,7 +59,7 @@
                 <dt><a href="#einleitung" draggable="false">1 Einleitung</a></dt>
                 <dd><a href="#ziel" draggable="false">1.1 Projektziel und Anfroderungen</a></dd>
                 <dd><a href="#rückblick" draggable="false">1.2 Projektrückblick</a></dd>
-                <dd><a href="#erweiterungen" draggable="false">1.3 Gepante Erweiterungen</a></dd>
+                <dd><a href="#erweiterung" draggable="false">1.3 Geplante Erweiterungen</a></dd>
                 <dt><a href="#planung" draggable="false">2 Konzeption und Planung</a></dt>
                 <dd><a href="#technologien" draggable="false">2.1 Technologie- und Architekturwahl</a></dd>
                 <dd><a href="#zeitplanMeilensteine" draggable="false">2.2 Zeitplan und Meilensteine</a></dd>
@@ -69,7 +69,7 @@
                 <dd><a href="#datenbankAnbindung" draggable="false">3.2 Datenbank-Setup und Anbindung</a></dd>
                 <dd><a href="#php" draggable="false">3.3 PHP-Skripte und Logik</a></dd>
                 <dt><a href="#interaktiveFeatures" draggable="false">4 Interaktive Features</a></dt>
-                <dd><a href="#benutzerinteraaktion" draggable="false">4.1 Benutzerinteraktion</a></dd>
+                <dd><a href="#benutzerinteraktion" draggable="false">4.1 Benutzerinteraktion</a></dd>
                 <dd><a href="#formulare" draggable="false">4.2 Dynamische Formulare und Eingabevalidierung</a></dd>
                 <dt><a href="#tests" draggable="false">5 Tests und Optimierung </a></dt>
                 <dd><a href="#frontendTests" draggable="false">5.1 Frontend-Tests</a></dd>
@@ -79,7 +79,7 @@
                 <dd><a href="#sollIst" draggable="false">7.1 Soll- / Ist-Vergleich</a></dd>
                 <dd><a href="#lessonsLearned" draggable="false">7.2 Lessons Learned</a></dd>
                 <dd><a href="#ausblick" draggable="false">7.3 Ausblick</a></dd>
-                <dt><a href="#anlagen" draggable="false">8 Anlagen</a></dt>
+                <dt><a href="#anlagen" draggable="false">8 Anlagenverzeichnis</a></dt>
                 <dd class="emptyDD">&nbsp;</dd>
                 <dt><a href="#quellen" draggable="false">9 Quellen</a></dt>
                 <dd class="emptyDD">&nbsp;</dd>
@@ -96,7 +96,7 @@
                 </p><br />
                 <p>
                     Das Projekt ist in zwei Phasen gegliedert, die über zwei Semester laufen. 
-                    Hier wird der zweite Teil ausführlich beschrieben, während eine detaillierte Dokumentation des ersten Teils <a href="/dokumentationGWP.html" draggable="false">hier </a> verfügbar ist.
+                    Hier wird der zweite Teil ausführlich beschrieben, während eine detaillierte Dokumentation des ersten Teils <a href="dokuGWP" draggable="false">hier </a> verfügbar ist.
                 </p> <br /> <p>
                     Diese Dokumentation ist in mehrere Abschnitte gegliedert, die einen umfassenden Überblick über alle Phasen und Aspekte des Projekts bieten. 
                     Sie beginnt mit einer Einleitung, in der das Projektziel und die Anforderungen beschrieben werden. 
@@ -157,41 +157,41 @@
                         Der erste Teil des Projekts befasste sich mit dem Entwurf der Webseite mithilfe von HTML und CSS.  
                         Im Folgenden sind Links hinterlegt, die auf die detaillierte Dokumentation der Zwischenschritte des ersten Projektteils verweisen und diese nachvollziehbar beschreiben. 
                     </p><br /><p>
-                        Zu Beginn des ersten Projektteils wurde eine <a href="dokumentationGWP.html#istAnalyse">Ist-Analyse</a> durchgeführt, bei der bestehende Tierheim-Webseiten untersucht und positive sowie negative Aspekte identifiziert wurden. 
+                        Zu Beginn des ersten Projektteils wurde eine <a href="dokuGWP#istAnalyse">Ist-Analyse</a> durchgeführt, bei der bestehende Tierheim-Webseiten untersucht und positive sowie negative Aspekte identifiziert wurden.
                         Die Erkenntnisse daraus dienten als Orientierung für das eigene Projekt: Positive Eigenschaften, wie die klare Darstellung vermisster und gefundener Tiere auf der Webseite des Tierheims Jena, sollten übernommen werden, während negative Merkmale, wie das unstimmige Farbschema der Webseite des Tierheims Erfurt, bewusst vermieden wurden.
                     </p><br /><p>
-                        Anschließend wurde die <a href="dokumentationGWP.html#zielgruppe">Zielgruppe</a> der Webseite genauer definiert, um die Gestaltung und Funktionalität gezielt auf die Bedürfnisse der Nutzer abzustimmen.
+                        Anschließend wurde die <a href="dokuGWP#zielgruppe">Zielgruppe</a> der Webseite genauer definiert, um die Gestaltung und Funktionalität gezielt auf die Bedürfnisse der Nutzer abzustimmen.
                     </p>
                     </p><br />
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentation/zielgruppenanalyse.jpg" title="Zielgruppenanalyse" alt="Tabelle der Zielgruppenanalyse" draggable="false">
                     </div>
-                    <div class="caption">Abbildung ...</div>
+                    <div class="caption">Abbildung 02: Tabelle Zielgruppenanalyse</div>
                     <br />
 
                     <br /><p>
-                        Aus dieser Zielgruppenanalyse wurden <a href="dokumentationGWP.html#zielplattform">Struktur</a> und Funktionen der „Tierheimat“-Webseite abgeleitet. 
+                        Aus dieser Zielgruppenanalyse wurden <a href="dokuGWP#zielplattform">Struktur</a> und Funktionen der „Tierheimat“-Webseite abgeleitet.
                         Zu den wichtigen Funktionen zählten interaktive Formulare, die das Melden vermisster und gefundener Tiere sowie das Anbieten von Unterstützung erleichtern.
                     </p><br />
 
                     <img src="../public/imgDokumentation/webseitenstruktur.jpg" title="Webseitenstruktur" alt="Webseitenstruktur" draggable="false">
-                    <div class="caption">Abbildung ...</div>
+                    <div class="caption">Abbildung 03: Aufbau der Webseite</div>
                     <br />
 
                     <p>
-                        Daraufhin wurde das <a href="dokumentationGWP.html#entwurfLogo">Logo</a> der „Tierheimat“ entworfen und ein einheitliches Design für die <a href="dokumentationGWP.html#entwurfBenutzeroberfläche">Benutzeroberfläche</a> der Webseite entwickelt. 
+                        Daraufhin wurde das <a href="dokuGWP#entwurfLogo">Logo</a> der „Tierheimat“ entworfen und ein einheitliches Design für die <a href="dokuGWP#entwurfBenutzeroberfläche">Benutzeroberfläche</a> der Webseite entwickelt.
                         Die grüne Farbgestaltung und die gewählte Schriftart tragen zur Identität der „Tierheimat“ bei und spiegeln die Werte dieser wider.
                     </p><br />
 
                     <img src="../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
-                    <div class="caption">Abbildung ...</div>
+                    <div class="caption">Abbildung 04: Auszug "Unsere Tiere"</div>
 
                     <br />
                     <p>
-                        Auf Basis der entworfenen Designs wurden die Seiten schließlich in HTML und CSS umgesetzt. Dazu gehörte auch die Entwicklung eines responsive Designs, um eine optimale Darstellung auf verschiedenen Geräten sicherzustellen. 
-                        Das Teilprojekt wurde abgeschlossen durch <a href="dokumentationGWP.html#testen">Nutzertests und die Einholung externen Feedbacks</a> zur Webseite sowie eine Reflexion der <a href="dokumentationGWP.html#lessonsLearned">Lessons Learned</a>.
+                        Auf Basis der entworfenen Designs wurden die Seiten schließlich in HTML und CSS umgesetzt. Dazu gehörte auch die Entwicklung eines responsive Designs, um eine optimale Darstellung auf verschiedenen Geräten sicherzustellen.
+                        Das Teilprojekt wurde abgeschlossen durch <a href="dokuGWP#testen">Nutzertests und die Einholung externen Feedbacks</a> zur Webseite sowie eine Reflexion der <a href="dokuGWP#lessonsLearned">Lessons Learned</a>.
                     </p><br /><p>
-                        Die gesamte Projektarbeit wurde parallel in der <a href="dokumentationGWP.html">Projektdokumentation</a> festgehalten. Mit der finalen, strukturierten und nutzerfreundlichen Webseite, die ein ansprechendes und responsive Design sowie nützliche Funktionen bietet, wurde das Ziel des ersten Projektteils erfolgreich erreicht. 
+                        Die gesamte Projektarbeit wurde parallel in der <a href="dokuGWP">Projektdokumentation</a> festgehalten. Mit der finalen, strukturierten und nutzerfreundlichen Webseite, die ein ansprechendes und responsive Design sowie nützliche Funktionen bietet, wurde das Ziel des ersten Projektteils erfolgreich erreicht.
                         Diese Webseite bildet nun die Grundlage für die geplanten Erweiterungen im zweiten Teil des Projekts.
                     </p>
                     <div class="backButton">
@@ -200,34 +200,34 @@
                 </div>
 
                 <div class="section">
-                    <h3 id="ziel">1.3 Geplante Erweiterungen</h3>
+                    <h3 id="erweiterung">1.3 Geplante Erweiterungen</h3>
                     <hr class="underHeadline" />
                     <p>
                         Im zweiten Teil des Projekts liegt der Schwerpunkt auf der Entwicklung des Backends sowie der Integration interaktiver Funktionen, um die Webseite benutzerfreundlicher und funktionaler zu gestalten. 
                     </p><br /><p>
                         Zunächst ist eine strukturierte Anbindung der Webseite an eine Datenbank vorgesehen. Diese ermöglicht eine effiziente Datenverwaltung, reduziert redundanten Code und bildet die Grundlage für verschiedene Formular- und Filterfunktionen. 
-                        Dazu wird ein Entity-Relationship-Modell entworfen, das die spezifischen Anforderungen der Webseite abbildet – beispielsweise eine „Tiere“-Tabelle, die zwischen zur Adoption freigegebenen, vermissten und gefundenen Tieren unterscheidet. 
+                        Dazu wird ein Entity-Relationship-Modell entworfen, welches die spezifischen Anforderungen der Webseite abbildet beispielsweise eine „Tiere“ Tabelle, die zwischen zur Adoption freigegebenen, vermissten und gefundenen Tieren unterscheidet.
                         Aus diesem Modell werden mithilfe von SQL die entsprechenden Tabellen in MariaDB erstellt. 
                         Anschließend erfolgt die Einrichtung einer Datenbankverbindung über ein PHP-Skript, um den sicheren Austausch von Daten zwischen der Webseite und der Datenbank zu gewährleisten.
                     </p><br /><p>
-                        Anschließend sollen für die weitere Backend-Entwicklung die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden. 
-                        Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, neue Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder sie aus dem System zu entfernen. 
+                        Anschließend sollen für die weitere Backend Entwicklung die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
+                        Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, neue Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese aus dem System zu entfernen.
                         Die CRUD-Funktionen finden unter anderem in der Verarbeitung der Formulardaten Anwendung. 
                         Hierfür sind separate PHP-Dateien vorgesehen, die zudem Sicherheitsmaßnahmen, wie etwa gegen SQL-Injection, beinhalten. Nutzern, die vermisste oder gefundene Tiere melden, wird außerdem die Möglichkeit geboten, ihre Einträge zu bearbeiten oder zu löschen. Dies gewährleistet eine stets aktuelle Tierdatenbank und eine effiziente Datenverwaltung. 
                         Abschließend soll die Backend-Logik umfassenden Tests unterzogen werden, um eine fehlerfreie Datenverarbeitung sicherzustellen.
                     </p><br /><p>
-                        Neben der Backend-Entwicklung ist auch die Einbindung interaktiver Elemente mithilfe von JavaScript geplant, um das Nutzererlebnis zu verbessern. 
+                        Neben der Backend Entwicklung ist auch die Einbindung interaktiver Elemente mithilfe von JavaScript geplant, um das Nutzererlebnis zu verbessern.
                         Eine der vorgesehenen Funktionen ist ein Filter, mit dem Nutzer gezielt nach Tierarten oder Status (vermisst/gefunden) suchen können. Diese dynamische Filteroption erleichtert die Navigation und ermöglicht den Nutzern, die für sie relevanten Informationen schnell zu finden. 
-                        Da die zu erwartende Datenmenge gering bleibt – weniger als 200 Einträge, bestehend aus zur Adoption freigegebenen oder vermissten und gefundenen Tieren – planen wir eine clientseitige Filterung direkt im Browser mithilfe von JavaScript. 
+                        Da die zu erwartende Datenmenge gering bleibt weniger als 200 Einträge, bestehend aus zur Adoption freigegebenen oder vermissten und gefundenen Tieren – planen wir eine clientseitige Filterung direkt im Browser mithilfe von JavaScript.
                         Auf diese Weise werden alle relevanten Daten bereits beim Laden der Seite vollständig in den Browser geladen und können dort ohne zusätzliche Serveranfragen gefiltert werden. 
                         Dies sorgt für eine schnelle, unmittelbare Reaktionszeit der Filterfunktion und verbessert das Nutzungserlebnis durch eine flüssige, verzögerungsfreie Interaktion.
-                        Darüber hinaus soll ein „Gefällt mir“-Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern und später leichter darauf zugreifen können.
+                        Darüber hinaus soll ein „Gefällt mir“ Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern und später leichter darauf zugreifen können.
                     </p><br /><p class="zuBearbeiten">
-                        Anmerkung: Je nachdem ob es über den Server laufen soll (in mehreren Browsern und Geräten über längere Zeit sichtbar) oder nicht (nur in dem Browser), wird auch die Verwendung des Backends notwendig. Hierbei sendet ein JavaScript-Event eine Anfrage an das Backend (z.B. per AJAX), um favorisierte Tiere in der Datenbank zu speichern. 
-                        Wenn wir das so umsetzten müssen wir die Datenbank noch anpassen und noch eine Realtion Favorisiert erstellen die in n:m Beziehung zwischen Personen und Tieren steht. Eventuell so: Favoriten (FavoritenID, TierID, PersonID, Datum)
-                    </p><br /><p>
+                        <!--Anmerkung: Je nachdem ob es über den Server laufen soll (in mehreren Browsern und Geräten über längere Zeit sichtbar) oder nicht (nur in dem Browser), wird auch die Verwendung des Backends notwendig. Hierbei sendet ein JavaScript-Event eine Anfrage an das Backend (z.B. per AJAX), um favorisierte Tiere in der Datenbank zu speichern.
+                        Wenn wir das so umsetzten müssen wir die Datenbank noch anpassen und noch eine Relation Favorisiert erstellen die in n:m Beziehung zwischen Personen und Tieren steht. Eventuell so: Favoriten (FavoritenID, TierID, PersonID, Datum) -->
+                    </p><p>
                         Zusätzlich ist die Integration weiterer dynamischer Inhalte geplant, die sich auf Nutzereingaben basierend anpassen. 
-                        So sollen „Weiterlesen“-Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular durch Klicken zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen. 
+                        So sollen „Weiterlesen“ Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular durch Klicken zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
                         Auch die Funktion „weitere Tiere anzeigen“ soll es den Nutzern ermöglichen, zusätzliche Einträge anzuzeigen, ohne die gesamte Webseite zu aktualisieren. Darüber hinaus soll JavaScript genutzt werden, um Benutzereingaben bereits im Browser zu prüfen, bevor sie an den Server gesendet werden. 
                         Dies erlaubt die direkte Erkennung und Korrektur unvollständiger oder fehlerhafter Eingaben im Formular.
                     </p><br /><p>
@@ -263,27 +263,27 @@
                     <hr class="underHeadline" />
                     <p>
                         Für die Entwicklung der Webseite wurde eine Kombination aus verschiedenen Technologien und Tools gewählt, um eine funktionale und benutzerfreundliche Plattform zu erstellen. 
-                        Zu den eingesetzten Technologien zählen XAMPP, PHP, MariaDB, JavaScript und die integrierte Entwicklungsumgebung PHPStorm.
+                        Zu den eingesetzten Technologien zählen XAMPP, PHP, HTML, MariaDB, JavaScript und die integrierte Entwicklungsumgebung PHPStorm.
                     </p><br /><p>
-                        XAMPP dient als lokale Serverumgebung, die den Apache-Webserver, MariaDB als Datenbankmanagementsystem und die PHP-Programmiersprache integriert. 
-                        Diese Kombination erleichtert die Verwaltung und Zusammenarbeit der benötigten Komponenten. 
-                        XAMPP lässt sich schnell und unkompliziert installieren und konfigurieren, wodurch das Entwicklungsteam effizient am Projekt arbeiten kann. 
+                        XAMPP stellt eine umfassende lokale Serverumgebung bereit, die den Apache Webserver, das Datenbankmanagementsystem MariaDB und die Programmiersprache PHP vereint.
+                        Dank dieser integrierten Lösung wird die Verwaltung und Zusammenarbeit der erforderlichen Komponenten erheblich vereinfacht.
+                        Zudem ermöglicht die benutzerfreundliche Installation und Konfiguration von XAMPP dem Entwicklungsteam ein effizientes und reibungsloses Arbeiten am Projekt.
                         Der integrierte Apache-Webserver simuliert dabei die Funktionalität eines echten Servers auf dem lokalen Computer. 
                         So kann die Webseite lokal entwickelt und getestet werden, was schnelle Iterationen und Anpassungen während der Entwicklungsphase ermöglicht.
                     </p><br /><p>
                         PHP wird als Programmiersprache für das Backend verwendet, da sie sich ideal für die Formularverarbeitung und Datenbankinteraktionen eignet. 
-                        Durch PHP lassen sich Daten zuverlässig speichern, abrufen und verarbeiten – eine zentrale Voraussetzung für die Kernfunktionen der Webseite. 
+                        Durch PHP lassen sich Daten zuverlässig speichern, abrufen und verarbeiten eine zentrale Voraussetzung für die Kernfunktionen der Webseite.
                     </p><br /><p>
-                        MariaDB wird als relationales Datenbankmanagementsystem eingesetzt, um alle relevanten Daten, wie Nutzer- und Tierdaten, strukturiert zu speichern. 
+                        MariaDB wird als relationales Datenbankmanagementsystem eingesetzt, um alle relevanten Daten, wie Nutzer und Tierdaten, strukturiert zu speichern.
                         MariaDB bietet dabei hohe Leistungsfähigkeit und Zuverlässigkeit, was für die konsistente Datenverwaltung der Anwendung entscheidend ist.
                     </p><br /><p>
                         JavaScript wird für die Gestaltung der interaktiven Benutzeroberfläche genutzt. Durch JavaScript können dynamische Inhalte umgesetzt werden, die auf Nutzereingaben reagieren. 
-                        Funktionen wie Filteroptionen, „Weiterlesen“-Buttons und asynchrone Datenanfragen tragen wesentlich zu einem reibungslosen und intuitiven Nutzererlebnis bei.
+                        Funktionen wie Filteroptionen, „Weiterlesen“ Buttons und asynchrone Datenanfragen tragen wesentlich zu einem reibungslosen und intuitiven Nutzererlebnis bei.
                     </p><br /><p>
-                        Für die Programmierung und Verwaltung des Codes wurde die Entwicklungsumgebung PHPStorm gewählt. Mit Funktionen wie integrierter Syntaxprüfung und Debugging-Tools unterstützt PHPStorm eine effiziente und strukturierte Umsetzung der Webseite. 
+                        Für die Programmierung und Verwaltung des Codes wurde die Entwicklungsumgebung PHP Storm gewählt. Mit Funktionen wie integrierter Syntaxprüfung und Debugging Tools unterstützt PHP Storm eine effiziente und strukturierte Umsetzung der Webseite.
                         Diese Tools erleichtern das schnelle Erkennen und Beheben von Fehlern und sorgen für eine optimierte, fehlerfreie Entwicklung.
                     </p><br /><p>
-                        Die Architektur der Anwendung basiert auf dem klassischen Client-Server-Modell. In diesem Modell sendet der Client (Webbrowser) Anfragen an den Server (XAMPP mit PHP und MariaDB) und empfängt die entsprechenden Antworten. 
+                        Die Architektur der Anwendung basiert auf dem klassischen Client Server Modell. In diesem Modell sendet der Client (Webbrowser) Anfragen an den Server (XAMPP mit PHP und MariaDB) und empfängt die entsprechenden Antworten.
                         Die klare Trennung von Frontend und Backend sorgt für eine übersichtliche Struktur des Codes und vereinfacht die Wartung und Erweiterung der Anwendung.
                     </p><br /><p>
                         Zusammenfassend ermöglicht die gewählte Kombination von Technologien und die Architekturwahl eine moderne, interaktive und benutzerfreundliche Webseite, die den Anforderungen der Nutzer entspricht und eine effiziente Entwicklungsumgebung für das Team schafft.
@@ -300,7 +300,7 @@
                     <hr class="underHeadline" />
                     <p>
                         In der nachfolgenden Tabelle ist ein grober Zeitplan für den zweiten Teil des Projektes hinterlegt.
-                        Die detaillierte Zeitplanung ist in <a href="#detaillierteZeitplanung" draggable="false">Anlage 2</a> zu finden.
+                        Die detaillierte Zeitplanung ist in <a href="#detaillierteZeitplanung" draggable="false">Anlage 1</a> zu finden.
                     </p>
 
                     <table>
@@ -313,39 +313,37 @@
                         <tbody>
                             <tr>
                                 <td>Backend-Entwicklung</td>
-                                <td class="time"> h </td>
-                            </tr>
-                            <tr>
+                                <td class="time redColor"> h </td>
+                            </tr><tr>
                                 <td>Implementierung interaktive Features</td>
-                                <td class="time"> h </td>
-                            </tr>
-                            <tr>
+                                <td class="time greenColor"> h </td>
+                            </tr><tr>
                                 <td>Dokumentation</td>
-                                <td class="time"> h </td>
-                            </tr>
+                                <td class="time redColor"> h </td>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Gesamt</td>
-                                <td class="time"> h </td>
-                            </tr>
+                                <td class="time greenColor"> h </td>
                         </tfoot>
                     </table>
                     <div class="caption">Tabelle 1</div>
 
                     <p>
-                        Der Zeitplan für das Projekt ist in die Bereiche der Backend-Entwicklung, der Implementierung interaktive Features und der Ausarbeitung der Dokumentation unterteilt. .
-                    </p><br /><p>
-                        Die Backend-Entwicklung beginnt mit dem Kick-Off am 21.10.2024 und soll bis ... fertig gestellt werden. 
-                    </p><br /><p>
-                        Die Backend-Entwicklung wird durch abschließende Nutzertests beendet.
-                    </p><br /><p>
+                        Der Zeitplan für das Projekt ist in die Bereiche der Backend Entwicklung, der Implementierung interaktiver Features und der Ausarbeitung der Dokumentation unterteilt.
+                    </p><br />
+                        Die Backend Entwicklung beginnt mit dem Kick-Off am 21.10.2024 und soll bis zum 05.01.2025 Abgeschlossen und Implementiert werden.
+                        Die Entwicklung wird durch abschließende Nutzertests beendet.
+                    </p><p>
                         Durch wöchentliche Konsultationen werden die Fortschritte der jeweiligen Bearbeiter präsentiert, reflektiert und analysiert.
                     </p><br /><p>
-                        Die Dokumentation läuft dabei parallel zum Projekt ab. Eine abschließende Präsentation rundet das ganze Projekt ab.
+                        Die Dokumentation läuft dabei parallel zum Projekt. Eine abschließende Präsentation rundet das ganze Projekt ab.
                     </p><p>
-                        Wichtige Meilensteine sind unter anderem ... und der Abschluss des Nutzertests.
-                    </p>
+                        Wichtige Meilensteine sind unter anderem die Einbindung des Backends, der Abschluss des Nutzertests und die finale Projektabgabe am 19.01.2025, genauere Informationen können ebenfalls folgender Abbildung entnommen werden.
+                    </p><br/>
+
+                    <img src="../public/imgDokumentationDWP/Meilensteine.png" title="Meilensteine und Zeitachse" alt="Meilensteine und Zeitachse" draggable="false">
+                    <div class="caption">Abbildung 05: Zeitachse mit Meilensteinen</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -357,22 +355,18 @@
                     <hr class="underHeadline" />
                     <p>
                         Die Aufgabenaufteilungen sind nach gemeinschaftlicher, interner Abstimmung getroffen wurden.
-                    </p><br /><p class="zuBearbeiten">
-                        Text
+                    </p><br />
+                        Regelmäßige Team Meetings und Status-Updates stellen sicher, dass alle Teammitglieder stets auf dem neuesten Stand sind und effizient zusammenarbeiten.
                     </p><p>
-                        Eine detaillierte Darstellung der tatsächlichen Aufgabenteilung, bei der Implementierung der Webseite und der Dokumentation, lässt sich auch unter dem Punkt ... finden.
-                    </p><br /><p> 
-                        Regelmäßige Team-Meetings und Status-Updates stellen sicher, dass alle Teammitglieder stets auf dem neuesten Stand sind und effizient zusammenarbeiten.
-                    </p><p>
-                        Webgestütze Tools wie "Jira Software" und "Whatsapp" tragen dazu bei, eine klare Übersicht und eine direkte Kommunikation zu gewährleisten.
-                        Nachfolgend ein Ausschnitt unserer Aufgaben in Jira (Stand: Beginn der Entwicklung):
+                        Webgestütze Tools wie "Jira Software" und "Whats App" haben dazu beigetragen eine klare Übersicht und eine direkte Kommunikation zu gewährleisten.
+                        Nachfolgend, ein Ausschnitt unserer Aufgaben in Jira (Stand: 50% der Projekt Entwicklung):
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="#" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
-                    </div><div class="caption">Abbildung ...</div>
+                        <img src="../public/imgDokumentationDWP/Jira Auszug.png" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
+                    </div><div class="caption">Abbildung 06</div>
                     <br />
                     <p>
-                        Die genaue Aufgabenteilung lässt sich der folgenden Tabelle entnehmen. In der letzten Zeile der Tabelle sind die Aufgaben verzeichnet, die von allen Projektmitgliedern vorgenommen wurden. 
+                        Die genaue Aufgabenteilung lässt sich der folgenden Tabelle entnehmen. In der letzten Zeile der Tabelle sind die Aufgaben verzeichnet, die von allen Projektmitgliedern vorgenommen wurden.
                     </p><br />
                     <table>
                         <thead>
@@ -384,16 +378,42 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td> SQL-Befehle zur Erstellung der Tabellen </td>
-                                <td> </td>
-                                <td> </td>
+                                <td> •SQL-Befehle zur Erstellung der Tabellen <br />
+                                    •Entwicklung der Datenbankstruktur und der Grundstruktur "databaseInit" <br />
+                                    •Weiterentwicklung der Dokumentation <br />
+                                    •Implementierung der dynamischen Features auf der "aktuelles" Seite <br/>
+                                    •Erarbeitung der Projektpräsentation
+                                </td>
+                                <td> •Entwicklung des Routings, Formular "Helfen", dynamisches Laden der Seite "unsere Tiere" (Laden der Tiere aus DB" <br />
+                                    •Entwicklung des Menüs und Footers für alle Seiten <br />
+                                    •Implementierung dynamischer Inhalte wie Filter bei unserer Tiere uvw. <br />
+                                    •Erarbeitung der Controller Klassen <br/>
+                                    •Einbindung der "Gefällt mir Funktion" <br/>
+                                    •Dynamische Weiterlesen Funktion bei "unsere Tiere" <br/>
+                                    •Implementierung der "Fehlerbehandlung 404" Unterseite <br/>
+                                    •Validierung der Eingabefelder <br/>
+                                </td>
+                                <td> •Beginn der Dokumentation <br />
+                                    •Umsetung der MVC-Ordnerstruktur <br />
+                                    Für "LoginRegistrationForm" & "MissingFoundForm"<br/>
+                                    •Formular Validierung mit Java Script <br />
+                                    •Backend Verarbeitung der Daten und Implementierung der Daten aus DB <br/>
+                                    •Einbindung von Sessions, damit der Nutzer eingeloggt bleibt <br />
+                                    Für "MissingFoundAnimals" <br/>
+                                    •Implementierung des dynamischen Ladens sowie das Bearbeiten und Löschen
+                                </td>
                             </tr>
                             <tr>
-                                <td colspan="3">Entwurf des E-R-Modells <br />Korrekturlesen der Dokumentation</td>  
+                                <td colspan="3">•Entwurf des E-R-Modells <br />
+                                    •Korrekturlesen der Dokumentation <br />
+                                    •persönliche Meetings und Unterstützung bei Komplikationen <br/>
+                                    •Nutzung der Tools Jira, Whats-App zur Kommunikation und Organisation <br />
+                                    • Recherche und Erarbeitung von Informationen bei Komplikationen während der Programmierung
+                                </td>
                             </tr>
                         </tbody>
                     </table>
-                        
+                    <div class="caption">Tabelle 02</div>
 
                     
 
@@ -410,8 +430,8 @@
                 <hr class="underHeadline" />
                 <p>
                     In diesem Abschnitt wird die Implementierung des Backends umfassend erläutert. Zunächst wird der Entwurf der Datenbank und die dabei aufgetretenen Herausforderungen beschrieben. 
-                    Anschließend folgt eine Erläuterung des grundlegenden Datenbank-Setups und der Anbindung an die Webseite, die eine reibungslose Speicherung und den schnellen Abruf wichtiger Daten ermöglicht. 
-                    Abschließend wird auf die PHP-Skripte und die Logik eingegangen, die zur Steuerung der zentralen Funktionen der Webseite notwendig sind.
+                    Anschließend folgt eine Erläuterung des grundlegenden Datenbank Setups und der Anbindung an die Webseite, die eine reibungslose Speicherung und den schnellen Abruf wichtiger Daten ermöglicht.
+                    Abschließend wird auf die PHP Skripte und die Logik eingegangen, die zur Steuerung der zentralen Funktionen der Webseite notwendig sind.
                 </p>
                 
                 <div class="backButton">
@@ -439,67 +459,138 @@
                     Die Herausforderung in der Umsetzung besteht nun darin sicherzustellen, dass entweder ein Datum oder ein Wochentag im Tupel angegeben ist, jedoch niemals beides.
                 </p><br /><p>  
                     Das finale ER-Modell dient als Grundlage für die Implementierung der Datenbank und bildet alle notwendigen Datenbeziehungen ab, sodass eine konsistente und effiziente Datenstruktur für die Webseite gewährleistet ist.
-                </p><br /><p>
-                    Im darauffolgenden Schritt erstellte Manfred dann die SQL Befehle, zur Erstellung der einzelnen Tabellen.  
+                </p><p>
+                    Im darauffolgenden Schritt wurden die entsprechenden SQL Befehle erstellt.
                 </p><br /><p>
                     Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells.
                 </p><br />
 
-                <img src="../public/imgDokumentationDWP/ERM.jpg" title="ER-Modell" alt="ER-Modell" draggable="false">
-                <div class="caption">Abbildung ...: Entity-Relationship-Modell</div>
+                <img src="../public/imgDokumentationDWP/E-R-Modell_cleaned.png" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
+                <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
             </div>
 
-            <div class="section"> 
+            <div class="section">
                 <h3 id="datenbankAnbindung">3.2 Datenbank-Setup und Anbindung</h3>
                 <hr class="underHeadline" />
                 <p>
-                    
-                </p> <p>
-
+                    Für die Verwaltung der Datenbank wird eine relationale MySQL Datenbank verwendet. Die Struktur der Datenbank wurde in einem
+                    E-R-Diagramm modelliert, welches die Beziehungen zwischen Tabellen wie Tiere, Nutzer, Artikel und deren Eigenschaften beschreibt.
                 </p>
+                <p>
+                    Die Datenbank wird mithilfe der bereitgestellten SQL Skripte im Ordner "database" erstellt.<br/>
+                    Die Datei tierheimat.sql enthält die vollständige Struktur der Tabellen sowie Test und Beispielsdaten.<br/>
+                    Alternativ kann das Skript "databaseInit.php" verwendet werden, um die Datenbank programmgesteuert zu initialisieren.
+                </p>
+                <p>
+                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core".<br/>
+                    Diese Klasse implementiert ein Singleton-Pattern, um eine einzige, wiederverwendbare Verbindung zur Datenbank zu gewährleisten.<br/>
+                    Die Verbindungseinstellungen sind standardmäßig auf den lokalen MySQL Server (localhost) mit dem Benutzer "root" und einem leeren Passwort konfiguriert.<br/>
+                    Der Name der Datenbank lautet "tierheimat".
+                </p>
+                <p>
+                    Falls ein Verbindungsfehler auftritt, wird eine Exception geworfen, um den Fehler zu melden.
+                </p>
+                <!--<img src="../public/imgDokumentationDWP/HerstellungDerVerbindung.png" title="Datenbank Anbindung" alt="Code: Herstellung der Datenbankverbindung" draggable="false">
+                <div class="caption">Abbildung ...: Herstellung der Datenbankverbindung</div>-->
+                <br/>
+                <img src="../public/imgDokumentationDWP/ProtectedFunction.png" title="Datenbank Anbindung" alt="Code: Herstellung der Datenbankverbindung" draggable="false">
+                <div class="caption">Abbildung 08: Herstellung der Datenbankverbindung</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
             </div>
 
-            <div class="section"> 
+
+            <div class="section">
                 <h3 id="php">3.3 PHP-Skripte und Logik</h3>
                 <hr class="underHeadline" />
                 <p>
-                    
-                </p> <p>
-
+                    Die Backend-Logik der Anwendung wurde in PHP implementiert. Dabei wurden verschiedene Skripte erstellt, um die Verarbeitung von Benutzereingaben, Datenbankabfragen und die Anzeige von Informationen zu steuern.
                 </p>
+                <p>
+                    Die Struktur der PHP Skripte folgt dem MVC-Ansatz (Model-View-Controller). Dieser Ansatz sorgt für eine klare Trennung zwischen Datenverarbeitung, Anwendungslogik und Benutzeroberfläche.
+                </p>
+                <p>
+                    Die Modelle befinden sich im Verzeichnis "app/Model" und beinhalten Klassen zur Verwaltung von Datenbankoperationen.
+                </p>
+                <p>
+                    Die Controller im Verzeichnis "app/Controller" enthalten die Logik zur Verarbeitung von Benutzeranforderungen und zur Steuerung der Anwendungsabläufe.
+                </p>
+                <p>
+                    Die Views im Verzeichnis "app/View" sind für die Darstellung der Benutzeroberfläche verantwortlich und greifen auf Daten aus den Modellen zu.
+                </p>
+                <p>
+                    Die Verbindung zur Datenbank erfolgt über die Klasse "Connection" im Verzeichnis "core". Diese Klasse stellt die Verbindung zur MySQL Datenbank her und ermöglicht sichere und effiziente Datenabfragen.
+                </p><br/>
 
+                <img src="../public/imgDokumentationDWP/ModelViewController.png" title="Model View Controller" alt="Übersicht der MVC Struktur" draggable="false" <!--class="centered-image"-->>
+                <div class="caption">Abbildung 09: Übersicht der MVC Struktur</div>
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
             </div>
-            
-
         </div>
 
         <div class="container">
             <div class="section">
-                <h2 id="entwurf">4 Interaktive Features</h2>
+                <h2 id="interaktiveFeatures">4 Interaktive Features</h2>
                 <hr class="underHeadline" />
-                    
+                <p>
+                    Die Anwendung bietet eine Vielzahl interaktiver Features, die die Benutzerfreundlichkeit erhöhen und dynamische Funktionen bereitstellen. Diese wurden durch JavaScript und PHP umgesetzt.
+                </p>
+                <p>
+                    Dynamische Inhalte werden beispielsweise auf der Startseite und im Bereich "Aktuelles" geladen. Hierfür sorgen Skripte wie aktuelles.js und loadHome.js, die Inhalte nachladen und aktualisieren.
+                    <br /> Dies geschieht mittels AJAX, vorteile von AJAX sind unter anderem schnellere Ladezeiten, da nur die benötigten Dateien geladen werden und nicht die gesamte Seite, bessere Benutzererfahrung da Daten im Hintergrund geladen werden und der Nutzer noch weiterhin mit der Seite interagieren kann.
+                </p>
+                <p>
+                    Filter und Suchfunktionen ermöglichen es den Nutzern, Tiere basierend auf spezifischen Kriterien wie Art, Rasse oder Status (vermisst/gefunden) zu filtern.
+                </p>
+                <p>
+                    Zusätzlich können Nutzer Tiere als Favoriten markieren, indem sie auf ein Herz Symbol klicken. Diese Favoritenfunktion ermöglicht eine personalisierte Nutzung und könnte in der Datenbank gespeichert werden, um später darauf zugreifen zu können (aktuell nicht implementiert, die Daten werden in Cookies gespeichert).
+                </p>
+                <p>
+                    Formulare zur Registrierung, Anmeldung und zum Melden vermisster Tiere beinhalten Validierungen und dynamische Eingabefelder. Diese Funktionalitäten werden durch Skripte wie loginRegisterForm.js und missingFoundForm.js umgesetzt.
+                </p>
+                <p>
+                    Für eine moderne und intuitive Benutzeroberfläche wurden Icons und Symbole aus der FontAwesome Bibliothek integriert. Zusätzlich sorgen responsive Navigationselemente für eine optimale Darstellung auf verschiedenen Geräten.
+                </p>
+                <p>
+                    Alle Skripte befinden sich im Verzeichnis "public/js" und sind modular aufgebaut, um eine einfache Erweiterbarkeit und Wartung zu gewährleisten.
+                </p><br/>
+                <img src="../public/imgDokumentationDWP/Favoritenfunktion.png" title="" alt="Code: Favoritenfunktion" draggable="false">
+                <div class="caption">Abbildung 10: Umsetzung der Favoritenfunktion</div>
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
 
-           
+
 
                 <div class="section">
                     <h3 id="benutzerinteraktion">4.1 Benutzerinteraktion</h3>
                     <hr class="underHeadline" />
-
-
+                    <p>
+                        Die Anwendung bietet eine Vielzahl von Benutzerinteraktionen, die eine dynamische und personalisierte Nutzung ermöglichen.
+                    </p>
+                    <p>
+                        Nutzer können Tiere in einer Liste durch Filter und Suchfunktionen gezielt finden. Hierbei werden Kriterien wie Tierart, Rasse und Status (vermisst oder gefunden) verwendet, um die Ergebnisse anzupassen.
+                    </p>
+                    <p>
+                        Eine Favoritenfunktion ermöglicht es den Nutzern, Tiere durch Klicken auf ein Herz Symbol als Favoriten zu markieren.
+                    </p>
+                    <p>
+                        Formulare zur Registrierung, Anmeldung und Meldung vermisster Tiere bieten interaktive Validierungen. Nutzereingaben werden in Echtzeit geprüft, um Fehler zu vermeiden und die Benutzerfreundlichkeit zu verbessern.
+                    </p>
+                    <p>
+                        Inhalte auf der Startseite werden dynamisch geladen, sodass Nutzer stets aktuelle Informationen erhalten, ohne die Seite neu laden zu müssen.
+                    </p>
+                    <p>
+                        Die Benutzeroberfläche wurde für unterschiedliche Bildschirmgrößen optimiert und passt sich dynamisch an. Dies sorgt für eine reibungslose Bedienung.
+                    </p>
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
@@ -509,8 +600,23 @@
                 <div class="section">
                     <h3 id="formulare">4.2 Dynamische Formulare und Eingabevalidierung</h3>
                     <hr class="underHeadline" />
-
-
+                    <p>
+                        Die Anwendung bietet dynamische Formulare, die eine benutzerfreundliche Eingabe und Validierung in Echtzeit ermöglichen. Mithilfe von JavaScript werden Eingaben direkt beim Ausfüllen geprüft, um fehlerhafte oder unvollständige Daten zu vermeiden.
+                    </p>
+                    <p>
+                        Formulare für die Registrierung, Anmeldung und das Melden von vermissten Tieren bieten folgende Funktionen:
+                    </p>
+                    <ul>
+                        <li>Echtzeit Validierungen von E-Mail-Adressen und Passwörtern während der Eingabe.</li> <!-- public/js/loginRegisterForm.js -->
+                        <li>Fehlermeldungen bei ungültigen Eingaben oder fehlenden Pflichtfeldern.</li> <!-- public/js/loginRegisterForm.js -->
+                        <li>Validierung von Bild Uploads im Formular für vermisste Tiere, um Dateitypen zu überprüfen.</li> <!-- public/js/missingFoundForm.js -->
+                    </ul>
+                    <p>
+                        Die Formulare zur Anmeldung und Registrierung verwenden JavaScript und AJAX, um Daten zu senden und eine sofortige Rückmeldung zu erhalten. Dies verbessert die Benutzererfahrung und vermeidet unnötige Seitenreloads.
+                    </p>
+                    <p>
+                        Diese Funktionen stellen sicher, dass die Formulare sowohl benutzerfreundlich als auch effizient sind und tragen zur Verbesserung der Datenqualität bei.
+                    </p>
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
@@ -524,7 +630,30 @@
                 <h2 id="tests">5 Tests und Optimierungen</h2>
                 <hr class="underHeadline" />
                 <p>
+                    Die Anwendung wurde umfassend getestet, um Funktionalität, Benutzerfreundlichkeit und Leistung sicherzustellen. Dabei kamen manuelle Testverfahren zum Einsatz.
+                </p><br/>
+                <p>
+                    <b>Funktionale Tests:</b><br>
+                    Alle Hauptfunktionen wie Registrierung, Anmeldung, Filter und Suchfunktionen sowie das Melden vermisster Tiere und der Bild Upload wurden getestet, um sicherzustellen, dass sie den Anforderungen entsprechen und fehlerfrei arbeiten. <!-- enthalten in  loginRegisterForm.js, missingFoundForm.js, loadHome.js, Bild Upload noch in missingFoundForm.js von Phina enthalten -->
+                </p><br/>
+                <p>
+                    <b>Validierung Tests:</b><br>
+                    Formulare wurden auf korrekte Eingabevalidierung überprüft, insbesondere die Echtzeitprüfungen. Fehlerhafte Eingaben wurden erfolgreich erkannt und dem Benutzer gemeldet.
                 </p>
+                <p><br/>
+                    <b>Performance Tests:</b><br>
+                    Die Ladezeiten der dynamischen Inhalte wurden getestet, um sicherzustellen, dass die Daten schnell geladen und angezeigt werden. Hierbei wurde insbesondere die AJAX Funktionalität optimiert.
+                </p>
+                <p><br/>
+                    <b>Sicherheitsüberprüfungen:</b><br>
+                    Es wurden Tests zur SQL Injection Prävention und zur sicheren Speicherung von Passwörtern durchgeführt.  <!-- ist in Connection.php enthalten, wurde mit den prepare statement umgesetzt -->
+                </p>
+                <p><br/>
+                    <b>Optimierungen:</b><br>
+                    Basierend auf den Testergebnissen wurden Optimierungen an der Performance, den Validierungen und der Fehlerbehandlung vorgenommen, um klare Rückmeldungen zu bieten.
+                </p><br/>
+                <img src="../public/imgDokumentationDWP/Front-Backend.png" title="" alt="Front-Backend" draggable="false">
+                <div class="caption">Abbildung 11: Frontend vs Backend</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -534,7 +663,28 @@
                     <h3 id="frontendTests">5.1 Frontend-Tests</h3>
                     <hr class="underHeadline" />
                     <p>
-                    </p><br />
+                        Im Rahmen der Frontend-Tests wurden die Benutzeroberfläche und die interaktiven Features der Anwendung ausführlich getestet. Dabei wurde besonderes Augenmerk auf Funktionalität, Benutzerfreundlichkeit und Kompatibilität gelegt.
+                    </p>
+                    <p><br/>
+                        <b>Responsives Design:</b><br>
+                        Die Anwendung wurde auf unterschiedlichen Bildschirmauflösungen getestet. Das Layout passt sich flexibel an, um eine optimale Darstellung zu gewährleisten.
+                    </p>
+                    <p><br/>
+                        <b>Interaktive Elemente:</b><br>
+                        Dynamische Inhalte, Filterfunktionen und Formulare wurden getestet, um sicherzustellen, dass die AJAX und Validierungsfunktionen korrekt arbeiten. Dies umfasst das Laden von Inhalten ohne Seitenreload sowie die Echtzeitprüfung von Eingaben.
+                    </p>
+                    <p><br/>
+                        <b>Formularvalidierungen:</b><br>
+                        Die Formularvalidierungen für E-Mail Adressen, Passwörter und Bild Uploads wurden getestet. Fehlerhafte Eingaben wurden erkannt und den Nutzern entsprechende Hinweise angezeigt.
+                    </p><br/>
+                    <p>
+                        <b>Browser Kompatibilität:</b><br>
+                        Die Anwendung wurde in verschiedenen Browsern (Google Chrome, Mozilla Firefox, Microsoft Edge) getestet, um eine einheitliche Darstellung und Funktionalität sicherzustellen.
+                    </p><br/>
+                    <p>
+                        <b>Navigationstests:</b><br>
+                        Die Navigationselemente und Links wurden getestet, um eine intuitive Bedienung und korrekte Verlinkungen sicherzustellen.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -545,7 +695,20 @@
                     <h3 id="backendTests">5.2 Backend-Tests</h3>
                     <hr class="underHeadline" />
                     <p>
-                    </p><br />
+                        Im Rahmen der Backend Tests wurden die Datenbankanbindung und Sicherheitsaspekte überprüft. Dabei lag der Fokus auf den implementierten Funktionen und deren Stabilität.
+                    </p><br/>
+                    <p>
+                        <b>Datenbankoperationen:</b><br>
+                        Es wurden Tests zu CRUD-Operationen (create, read, update, delete) durchgeführt.
+                    </p><br/>
+                    <p>
+                        <b>Sicherheitsüberprüfungen:</b><br>
+                        SQL Injection Schutz wurde durch Prepared Statements in der Datei <code>Connection.php</code> getestet und als sicher befunden. <!-- haben wir passwort hashing? -->
+                    </p><br/>
+                    <p>
+                        <b>Optimierungen:</b><br>
+                        Aktuell wurden keine spezifischen Performance Optimierungen implementiert und konnten daher nicht getestet werden.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -568,7 +731,7 @@
                 </p>
                 <div class="Dokumentation">
                     <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
-                </div><div class="caption">Abbildung 30</div>
+                </div><div class="caption">Abbildung 12: Prozess Dokumentation</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -579,7 +742,7 @@
 
         <div class="container">
             <div class="section">
-                <h2 id="fazit">6 Fazit</h2>
+                <h2 id="fazit">7 Fazit</h2>
                 <hr class="underHeadline" />
                 <p>
                 </p>
@@ -589,7 +752,7 @@
                 </div>
 
                 <div class="section">
-                    <h3 id="sollIst">6.1 Soll- / Ist-Vergleich</h3>
+                    <h3 id="sollIst">7.1 Soll- / Ist-Vergleich</h3>
                     <hr class="underHeadline" />
 
                     <p>
@@ -630,7 +793,7 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <div class="caption">Tabelle 2</div>
+                    <div class="caption">Tabelle 3</div>
 
                     <p>
                         Insgesamt wurden für das Projekt ... Stunden aufgewendet, während ursprünglich ... Stunden geplant waren. 
@@ -642,14 +805,14 @@
                 </div>
 
                 <div class="section">
-                    <h3 id="lessonsLearned">6.2 Lessons Learned</h3>
+                    <h3 id="lessonsLearned">7.2 Lessons Learned</h3>
                     <hr class="underHeadline" />
-                    <ol class="zuBearbeiten">
+                    <ol
                         <li class="list-item">
                             <strong>Bedeutung einer klaren Projektplanung:</strong>
                             <p>Wir haben gelernt, dass eine sorgfältige und detaillierte Planung der Schlüssel zum Erfolg eines Projektes ist.</p>
                             <p>Die Erstellung eines klaren Projektplans, einschließlich Meilensteine und Zeitpläne, hat uns geholfen den Überblick zu behalten und sicherzustellen, dass alle Teammitglieder auf dem gleichen Stand sind.</p>
-                        </li>
+                        </li><br/>
                         <li class="list-item">
                             <strong>Kommunikation und Teamarbeit:</strong>
                             <p>Effektive Kommunikation innerhalb des Teams war ein entscheidender Faktor für den Projekterfolg.</p>
@@ -668,31 +831,130 @@
                         </li>
                         <li class="list-item">
                             <strong>Organisation:</strong>
-                            <p>
-                            </p>
+                            <p>Eine getaktete Arbeitsweise sowie Fristen haben das Arbeiten produktiver allerdings auch Fehleranfälliger gestaltet, diese Fristen haben uns dabei geholfen stets eine Orientierung über das Projekt und den aktuellen Standpunkt zu haben</p>
                         </li>
                     </ol>
 
 
                     <br />
                     <p>
-                        Insgesamt war das Projekt "Tierheimat" eine wertvolle Lernerfahrung, die uns geholfen hat, unsere Fähigkeiten und unser Wissen zu erweitern.
-                    </p>
+                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretische Wissen als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen. </p>
+                    <p>
+                        Dabei konnten wir nicht nur unser technisches Know-how im Bereich der Webentwicklung, Datenbankanbindung und interaktiven Features ausbauen, sondern auch wichtige Erkenntnisse im Hinblick auf Teamarbeit, Organisation und Projektmanagement gewinnen.</p>
+                    <P>
+                        Insbesondere die Zusammenarbeit im Team förderte unsere Kommunikationsfähigkeiten und verdeutlichte, wie essenziell klare Absprachen, regelmäßige Abstimmungen und die flexible Anpassung an neue Herausforderungen für den Projekterfolg sind.</P>
+                    <p>
+                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.</p>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
+                    <div class="caption">Abbildung 13: Visualisierung Lessons Learned</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
                 </div>
 
+
+
+
+
+
+
                 <div class="section">
-                    <h3 id="ausblick">6.3 Ausblick</h3>
+                    <h3 id="lessonsLearned">7.2 Lessons Learned</h3>
+                    <hr class="underHeadline" />
+                    <ol>
+                        <li class="list-item">
+                            <strong>Effektive Kommunikation:</strong>
+                            <br/><br/>
+                            <p>Erkenntnis: Regelmäßige Meetings und klare Kommunikationswege (z.B. über Tools wie Jira und WhatsApp) haben dazu beigetragen, Missverständnisse zu vermeiden und die Zusammenarbeit zu erleichtern.</p><br/>
+                            <p>Lernpunkt: Zukünftig sollten feste Meeting Strukturen und Protokolle eingeführt werden, um Diskussionen effizienter zu gestalten und Aufgaben klar zu dokumentieren.</p>
+                        </li><br/>
+                        <li class="list-item">
+                            <strong>Aufgabenverteilung:</strong>
+                            <br/><br/>
+                            <p>Erkenntnis: Eine klare Zuweisung von Verantwortlichkeiten hat geholfen, Engpässe zu vermeiden und den Fortschritt transparent zu halten.</p><br/>
+                            <p>Lernpunkt: Für kommende Projekte könnte eine noch detailliertere Aufgabenplanung mit Zwischenschritten sinnvoll sein, um Zeitpläne besser einzuhalten.</p>
+                        </li><br/>
+                        <li class="list-item">
+                            <strong>Nutzung von Tools:</strong>
+                            <br/><br/>
+                            <p>Erkenntnis: Der Einsatz von Jira zur Aufgabenverwaltung war hilfreich, um den Überblick über den Projektfortschritt zu behalten.</p><br/>
+                            <p>Lernpunkt: Zukünftig sollte eine Schulung zur optimalen Nutzung von Tools vor Projektstart eingeplant werden, um deren Funktionen besser auszuschöpfen.</p>
+                        </li><br/>
+                        <li class="list-item">
+                            <strong>Zeitmanagement:</strong>
+                            <br/><br/>
+                            <p>Erkenntnis: Eng getaktete Fristen haben teilweise zu Zeitdruck geführt, was die Qualität beeinflussen könnte.</p><br/>
+                            <p>Lernpunkt: Eine realistischere Zeitplanung mit Puffern für unerwartete Herausforderungen wäre für zukünftige Projekte empfehlenswert.</p>
+                        </li><br/>
+                        <li class="list-item">
+                            <strong>Dokumentation und Nachverfolgung:</strong>
+                            <br/><br/>
+                            <p>Erkenntnis: Eine kontinuierliche Aktualisierung der Projektdokumentation war hilfreich, um den Überblick zu behalten.</p><br/>
+                            <p>Lernpunkt: In zukünftigen Projekten könnte ein zentraler Dokumentenspeicher noch klarer organisiert werden, um Versionskonflikte zu vermeiden.</p>
+                        </li><br/>
+                        <li class="list-item">
+                            <strong>Flexibilität und Anpassungsfähigkeit:</strong>
+                            <br/><br/>
+                            <p>Erkenntnis: Unvorhergesehene Probleme konnten durch kurzfristige Anpassungen im Ablauf bewältigt werden.</p><br/>
+                            <p>Lernpunkt: Flexibilität sollte beibehalten, jedoch mit einem "Notfallplan" ergänzt werden, um kritische Probleme schneller zu lösen.</p>
+                        </li>
+                    </ol>
+
+                    <br />
+                    <p>
+                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretisches Wissen als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen.
+                    </p>
+                    <p>
+                        Dabei konnten wir nicht nur unser technisches Know-how im Bereich der Webentwicklung, Datenbankanbindung und interaktiven Features ausbauen, sondern auch wichtige Erkenntnisse im Hinblick auf Teamarbeit, Organisation und Projektmanagement gewinnen.
+                    </p>
+                    <p>
+                        Insbesondere die Zusammenarbeit im Team förderte unsere Kommunikationsfähigkeiten und verdeutlichte, wie essenziell klare Absprachen, regelmäßige Abstimmungen und die flexible Anpassung an neue Herausforderungen für den Projekterfolg sind.
+                    </p>
+                    <p>
+                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.
+                    </p>
+                    <br/>
+                </div>
+                <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
+                <div class="caption">Abbildung 13: Visualisierung Lessons Learned</div>
+
+                <div class="backButton">
+                    <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="section">
+                    <h3 id="ausblick">7.3 Ausblick</h3>
                     <hr class="underHeadline" />
                     <p>
                         Das Projekt "Tierheimat" hat eine solide Grundlage für die Zukunft geschaffen und bietet zahlreiche Möglichkeiten zur Weiterentwicklung. 
                         Während die aktuelle Website den Bedürfnissen der Nutzer und des Tierheims gerecht wird, gibt es immer Raum für Verbesserungen und Erweiterungen.
-                    </p><br /><p class="zuBearbeiten">
-                        Text </p>
-                    
+                    </p><br
+                    <p>
+                        In einem fortführenden Modul könnten weitere Funktionen implementiert werden, um die Benutzererfahrung und den Verwaltungsprozess zu optimieren. Dazu gehören:
+                    </p><br/>
+                    <ul>
+                        <li>•Ein erweitertes Benutzerrollen und Berechtigungssystem, um unterschiedliche Zugriffsebenen für Administratoren, Mitarbeiter und Nutzer zu schaffen.</li>
+                        <li>•Eine Nachrichten und Benachrichtigungsfunktion, die es Nutzern ermöglicht, direkt mit dem Tierheim zu kommunizieren.</li>
+                        <li>•Erweiterte Filter und Suchfunktionen, um die Navigation und Auffindbarkeit von Tieren weiter zu verbessern.</li>
+                        <li>•Ein Event und Terminverwaltungssystem, um Veranstaltungen und Adoptionstermine effizient zu organisieren.</li>
+                        <li>•Die Integration eines Zahlungssystems für Spenden und Adoptionsgebühren.</li>
+                        <li>•Ein verbessertes Berichtswesen zur Auswertung von Daten für das Tierheimmanagement, in Form von Statistiken u.v.m.</li>
+                    </ul>
+                    <p>
+                        Diese Erweiterungen würden das Projekt auf ein neues Level heben und die Effizienz sowie die Benutzerfreundlichkeit weiter steigern.
+                        Zudem könnte die Plattform langfristig durch die Einbindung neuer Technologien wie KI gestützte Bild und Mustererkennung zur Identifikation vermisster Tiere ausgebaut werden.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -706,8 +968,6 @@
             <hr class="underHeadline" />
             <ul>
                 <li><a href="#detaillierteZeitplanung" draggable="false">Anlage 1: Detaillierte Zeitplanung</a></li>
-                <li><a href="#" draggable="false">Anlage 2: ...</a></li>
-                <li><a href="#" draggable="false">Anlage 3: ...</a></li>
             </ul>
             <br />
     
@@ -772,11 +1032,11 @@
                     </tr>
                 </tfoot>
             </table>
-            <div class="caption">Tabelle 3</div>
+            <div class="caption">Tabelle 4</div>
         </div>
-           
-           
-          
+
+
+
 
         <div class="container" id="quellen">
             <h1>Quellen</h1>
@@ -788,7 +1048,7 @@
                 <li><a href="#quelleBackend" draggable="false">Quelle: 3 Backend-Entwicklung</a></li>
                 <li><a href="#quelleInteraktiveFeatures" draggable="false">Quelle: 4. Interaktive Features</a></li>
                 <li><a href="#quelleTests" draggable="false">Quelle: 5 Tests und Optimierung</a></li>
-                <li><a href="#quelleDOkumentation" draggable="false">Quelle: 6 Dokumentation</a></li>
+                <li><a href="#quelleDokumentation" draggable="false">Quelle: 6 Dokumentation</a></li>
                 <li><a href="#quelleFazit" draggable="false">Quelle: Fazit und Ausblick</a></li>
                 <li><a href="#quelleAnlagen" draggable="false">Quelle: Anlagen</a></li>
                 <li>&nbsp;</li>
@@ -812,62 +1072,114 @@
             </div>
 
             <div class="section">
-                <h2 id="quelleEinleitung">Quelle: 1. Einleitung</h2>
+                <h2 id="quelleEinleitung">Quelle: 1 Einleitung</h2>
                 <hr class="underHeadline" />
-
                 <p>
-                    Logo Tierheimat:
+                    Logo Tierheimat (Abbildung 01):
                 </p>
                 <p>
                     Erstellt durch Stephanie Wachs
                 </p>
-
-                <p>
-                    Tierschutz Foto (Abbildung 1):
-                </p>
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0" draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0</a>
-
-            </div>
-
-            <div class="section">
-                <h2 id="#">Quelle: ...</h2>
-                <hr class="underHeadline" />
-
+                <br/><br/>
                 <p>
-                    Überschrift (Abbildung ..., ..., ...):
-                </p>
+                    1.2 Projektrückblick
+                </p><br/>
                 <p>
-                    <a href="#" draggable="false">...</a>
+                    Tabelle Zielgruppenanalyse (Abbildung 02):
+                </p><p>Aufbau der Webseite (Abbildung 03):</p>
+                <p>Auszug "Unsere Tiere" (Abbildung 04):</p>
+                <p>Erstellt durch Josephina Burger
                 </p>
             </div>
-
-           
 
             <div class="section">
                 <h2 id="quellePlanung">Quelle: 2 Konzeption und Planung</h2>
                 <hr class="underHeadline" />
-
-                <p>Jira Übersicht (Abbildung 13):</p>
+                <p>
+                   2.2 Zeitplan und Meilensteine
+                </p><br/>
+                <p>
+                    Zeitachse mit Meilensteine (Abbildung 05):
+                </p>
+                <p>
+                    Erstellt durch Lucas-Manfred Herpe
+                </p><br/>
+                <p>
+                    2.3 Geplante Aufgabenteilung
+                </p><br/>
+                <p>Jira Übersicht (Abbildung 06):</p>
+                <P>Erstellt durch das Projektteam</P>
                 <a href="https://tierheimat.atlassian.net/jira/software/projects/SCRUM/boards/1" draggable="false">https://tierheimat.atlassian.net/jira/software/projects/SCRUM/boards/1</a>
             </div>
 
-        
+            <div class="section">
+                <h2 id="quelleBackend">Quelle: 3 Backend-Entwicklung</h2>
+                <hr class="underHeadline" />
+                <p>
+                    3.1 Datenbankentwurf
+                </p><br/>
+                <p>Entity-Relationshop-Modell (Abbildung 07):</p>
+                <p>
+                    Erstellt durch das Projektteam
+                </p>
+                <p><br/>
+                    3.2 Datenbank- Setup und Anbindung
+                </p><br/>
+                <p>
+                    Herstellung der Datenbankverbindung (Abbildung 08):
+                </p>
+                <p>Erstellt durch das Projektteam</p>
+                <p><br/>
+                    3.3 PHP- Skripte und Logik
+                </p><br/>
+                <p>
+                    Übersicht der MVC Struktur (Abbildung 09):
+                </p>
+                <p>
+                    Erstellt durch das Projektteam
+                </p>
+            </div>
 
-  
+            <div class="section">
+                <h2 id="quelleInteraktiveFeatures">Quelle: 4 Interaktive Features</h2>
+                <hr class="underHeadline" />
 
-           
+                <p>Umsetzung der Favoritenfunktion (Abbildung 10):</p>
+                <p>
+                    Entwickelt durch das Projektteam.
+                </p>
+            </div>
 
+            <div class="section">
+                <h2 id="quelleTests">Quelle: 5 Tests und Optimierung</h2>
+                <hr class="underHeadline" />
+
+                <p>Frontend vs Backend (Abbildung:11)</p>
+                <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic"
+                   draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic</a>
+
+            </div>
+
+            <div class="section">
+                <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
+                <hr class="underHeadline" />
+
+                <p>Prozess Dokumentation (Abbildung 12):</p>
+                <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
+                   draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
+            </div>
             <div class="section">
                 <h2 id="quelleFazit">Quelle: 7 Fazit und Ausblick</h2>
                 <hr class="underHeadline" />
 
-                <p>Tabelle tatsächlicher Zeitaufwand (Tabelle 2):</p>
+                <p>7.2 Lessons Learned</p>
+                <p>Lessons Learned (Abbildung 13):</p>
+                <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic"
+                   draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic</a>
                 <p>
-                    Erstellt durch Stephanie Wachs
                 </p>
             </div>
-
-       
 
             <div class="section">
                 <h2 id="quelleAnlagen"> Quelle: 8. Anlagen</h2>
@@ -877,9 +1189,8 @@
                     Anlage 2: Detaillierte Zeitplanung (Tabelle 3):
                 </p>
                 <p>
-                    Erstellt durch Stephanie Wachs
                 </p>
-               
+
             </div>
 
             <div class="section">
