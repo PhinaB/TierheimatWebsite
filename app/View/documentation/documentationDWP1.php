@@ -505,7 +505,7 @@
                 <div class="caption">Abbildung ...: Herstellung der Datenbankverbindung</div>-->
                 <br/>
                 <img src="../public/imgDokumentationDWP/ProtectedFunction.png" title="Datenbank Anbindung" alt="Code: Herstellung der Datenbankverbindung" draggable="false">
-                <div class="caption">Abbildung 08: Herstellung der Datenbankverbindung</div>
+                <div class="caption">Abbildung 09: Herstellung der Datenbankverbindung</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -535,7 +535,7 @@
                     Die Verbindung zur Datenbank erfolgt über die Klasse "Connection" im Verzeichnis "core". Diese Klasse stellt die Verbindung zur MySQL Datenbank her und ermöglicht sichere und effiziente Datenabfragen.
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/MVC.png" title="Model View Controller" alt="Übersicht der MVC Struktur" draggable="false"> <!--class="centered-image"-->
-                <div class="caption">Abbildung 09: Übersicht der MVC Struktur</div>
+                <div class="caption">Abbildung 10: Übersicht der MVC Struktur</div>
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
@@ -569,7 +569,7 @@
                     Alle Skripte befinden sich im Verzeichnis "public/js" und sind modular aufgebaut, um eine einfache Erweiterbarkeit und Wartung zu gewährleisten.
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/Favoritenfunktion.png" title="" alt="Code: Favoritenfunktion" draggable="false">
-                <div class="caption">Abbildung 10: Umsetzung der Favoritenfunktion</div>
+                <div class="caption">Abbildung 11: Umsetzung der Favoritenfunktion</div>
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
@@ -659,7 +659,7 @@
                     Basierend auf den Testergebnissen wurden Optimierungen an der Performance, den Validierungen und der Fehlerbehandlung vorgenommen, um klare Rückmeldungen zu bieten.
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/Front-Backend.png" title="" alt="Front-Backend" draggable="false">
-                <div class="caption">Abbildung 11: Frontend vs Backend</div>
+                <div class="caption">Abbildung 12: Frontend vs Backend</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -737,7 +737,7 @@
                 </p>
                 <div class="Dokumentation">
                     <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
-                </div><div class="caption">Abbildung 12: Prozess Dokumentation</div>
+                </div><div class="caption">Abbildung 13: Prozess Dokumentation</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -853,7 +853,7 @@
                         Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.</p>
                     <br/>
                     <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
-                    <div class="caption">Abbildung 13: Visualisierung Lessons Learned</div>
+                    <div class="caption">Abbildung 14: Visualisierung Lessons Learned</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -924,7 +924,7 @@
                     <br/>
                 </div>
                 <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
-                <div class="caption">Abbildung 13: Visualisierung Lessons Learned</div>
+                <div class="caption">Abbildung 14: Visualisierung Lessons Learned</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -1126,6 +1126,7 @@
                     3.1 Datenbankentwurf
                 </p><br/>
                 <p>Entity-Relationshop-Modell (Abbildung 07):</p>
+                <p>Relationales Schema (Abbildung 08):</p>
                 <p>
                     Erstellt durch das Projektteam
                 </p>
@@ -1133,14 +1134,14 @@
                     3.2 Datenbank- Setup und Anbindung
                 </p><br/>
                 <p>
-                    Herstellung der Datenbankverbindung (Abbildung 08):
+                    Herstellung der Datenbankverbindung (Abbildung 09):
                 </p>
                 <p>Erstellt durch das Projektteam</p>
                 <p><br/>
                     3.3 PHP- Skripte und Logik
                 </p><br/>
                 <p>
-                    Übersicht der MVC Struktur (Abbildung 09):
+                    Übersicht der MVC Struktur (Abbildung 10):
                 </p>
                 <p>
                     Erstellt durch das Projektteam
@@ -1151,7 +1152,7 @@
                 <h2 id="quelleInteraktiveFeatures">Quelle: 4 Interaktive Features</h2>
                 <hr class="underHeadline" />
 
-                <p>Umsetzung der Favoritenfunktion (Abbildung 10):</p>
+                <p>Umsetzung der Favoritenfunktion (Abbildung 11):</p>
                 <p>
                     Entwickelt durch das Projektteam.
                 </p>
@@ -1161,7 +1162,7 @@
                 <h2 id="quelleTests">Quelle: 5 Tests und Optimierung</h2>
                 <hr class="underHeadline" />
 
-                <p>Frontend vs Backend (Abbildung:11)</p>
+                <p>Frontend vs Backend (Abbildung:12)</p>
                 <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic"
                    draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic</a>
 
@@ -1171,7 +1172,7 @@
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 12):</p>
+                <p>Prozess Dokumentation (Abbildung 13):</p>
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
@@ -1180,7 +1181,7 @@
                 <hr class="underHeadline" />
 
                 <p>7.2 Lessons Learned</p>
-                <p>Lessons Learned (Abbildung 13):</p>
+                <p>Lessons Learned (Abbildung 14):</p>
                 <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic"
                    draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic</a>
                 <p>
