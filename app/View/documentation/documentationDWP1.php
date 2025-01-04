@@ -19,12 +19,16 @@
     <!--
     TODO WICHTIG!!!!
 
-    -ERM und relationales Modell für die DB!
+
+
     -Rollenmodell für die Nutzer
     -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung
     -Beschreibung der Funktionalitäten für jede Seite (beschriftete Screenshots)
-     -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ...
-    -Auflistung Tätigkeiten jeder Person und benötigter Aufwand
+
+
+     -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ... → abgeschlossen, ist z.B mit der favourite Funktion benannnt, dass diese als Cookies gespeichert werden und nicht in der DB
+    -Auflistung Tätigkeiten jeder Person und benötigter Aufwand → integriert bis auf die h per person
+    -ERM und relationales Modell für die DB!  → integriert
 
     -->
 
@@ -462,11 +466,14 @@
                 </p><p>
                     Im darauffolgenden Schritt wurden die entsprechenden SQL Befehle erstellt.
                 </p><br /><p>
-                    Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells.
+                    Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells sowie das dazugehörige Relationale Schema.
                 </p><br />
 
                 <img src="../public/imgDokumentationDWP/E-R-Modell_cleaned.png" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
                 <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
+                <br/>
+                <img src="../public/imgDokumentationDWP/RelationalesSchema.png" title="Relationales Schema" alt="Relationales Schema" draggable="false">
+                <div class="caption">Abbildung 08: Relationales Schema</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -527,8 +534,7 @@
                 <p>
                     Die Verbindung zur Datenbank erfolgt über die Klasse "Connection" im Verzeichnis "core". Diese Klasse stellt die Verbindung zur MySQL Datenbank her und ermöglicht sichere und effiziente Datenabfragen.
                 </p><br/>
-
-                <img src="../public/imgDokumentationDWP/ModelViewController.png" title="Model View Controller" alt="Übersicht der MVC Struktur" draggable="false" <!--class="centered-image"-->>
+                <img src="../public/imgDokumentationDWP/MVC.png" title="Model View Controller" alt="Übersicht der MVC Struktur" draggable="false"> <!--class="centered-image"-->
                 <div class="caption">Abbildung 09: Übersicht der MVC Struktur</div>
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
