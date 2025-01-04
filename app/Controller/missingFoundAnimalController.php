@@ -72,43 +72,46 @@ class missingFoundAnimalController
         }
     }
 
-    public function loadAllMissingAnimals()
-    {
-        $type = $_GET['type'] ?? 'vermisst';
+    public function loadAllMissingFoundAnimals(){
+        $type = $_POST['type'];
+
+        if ($type === 'Vermisste Tiere') {
+            $type = 'vermisst';
+        } elseif ($type === 'Gefundene Tiere') {
+            $type = 'gefunden';
+        }
+
         try {
 
             $missingFoundAnimalModel = new MissingFoundModel();
-            $missingAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
 
-            if(empty($missingAnimals)){
+            if ($type === 'Vermisste / Gefundene Tiere') {
+
+                $missingAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('vermisst');
+                $foundAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('gefunden');
+
+                if(empty($missingAnimals)&& empty($foundAnimals)){
+                    echo json_encode(['message' => 'Keine Tiere gefunden.']);
+                    return;
+                }
+
+                echo json_encode(['missingAnimals' => $missingAnimals, 'foundAnimals' => $foundAnimals]);
+                return;
+            }
+            $animals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
+
+            if(empty($animals)){
                 echo json_encode(['message' => 'Keine Tiere gefunden.']);
                 return;
             }
 
-            echo json_encode(['animals' => $missingAnimals]);
+            echo json_encode(['animals' => $animals]);
+
         } catch (Exception $e) {
             http_response_code(500);
             echo json_encode(['errors'=> $e->getMessage()]);
         }
-    }
 
-    public function loadAllFoundAnimals()
-    {
-        $type = $_GET['type'] ?? 'gefunden';
-        try {
-            $missingFoundAnimalModel = new MissingFoundModel();
-            $foundAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
-
-            if(empty($foundAnimals)){
-                echo json_encode(['message' => 'Keine Tiere gefunden.']);
-                return;
-            }
-
-            echo json_encode(['animals' => $foundAnimals]);
-        } catch (Exception $e) {
-            http_response_code(500);
-            echo json_encode(['errors'=> $e->getMessage()]);
-        }
     }
 
     /**

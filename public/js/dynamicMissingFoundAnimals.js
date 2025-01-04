@@ -1,13 +1,24 @@
 document.addEventListener("DOMContentLoaded", function(){
     checkLoginStatus();
-    loadMissingAnimalsToPage();
+    loadMissingFoundAnimalsToPage();
 
 })
 
-function loadMissingAnimalsToPage(){
-    const missingAnimalContainer = document.getElementById('missingAnimals')
+function loadMissingFoundAnimalsToPage(){
 
-    fetch ("../public/loadMissingAnimals")
+    const type = document.getElementById('currentMissingOrFound').value;
+
+    const missingAnimalContainer = document.getElementById('missingAnimals');
+
+    let formData= new FormData();
+    formData.append('type', type)
+
+    console.log(formData)    ; 
+
+    fetch ('../public/loadMissingFoundAnimals', {
+        method: 'POST',
+        body:formData,
+    })
         .then(response => response.json())
         .then(data => {
             if(data.message){
@@ -34,7 +45,7 @@ function setMissingAnimalsToPage(animals){
    //------------Breites Feld für missingFoundAnimal------------------------------
     document.getElementById('animalId').innerHTML = animals[0].VermisstGefundenTierID;
     document.getElementById('animalImage').src= animals[0].Bildadresse;
-    document.getElementById('animalDate').innerHTML='<span class="boldText animalDate">Verschwunden am: </span> ' + animals[0].Datum;
+    document.getElementById('animalDate').innerHTML='<span class="boldText animalDate">Verschwunden am: </span> ' + formatDate(animals[0].Datum);
     document.getElementById('animalPlace').innerHTML='<span class="boldText">Verschwunden in: </span>' + animals[0].Ort;
     document.getElementById('animalDescription').innerHTML=animals[0].Beschreibung;
 
@@ -67,7 +78,7 @@ function setMissingAnimalsToPage(animals){
         const imageUrl = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
         imageElement.src = imageUrl;
         
-        clone.querySelector('.animalDate').innerHTML= '<span class="boldText">am: </span>' + animals[i].Datum;
+        clone.querySelector('.animalDate').innerHTML= '<span class="boldText">am: </span>' + formatDate(animals[i].Datum);
         clone.querySelector('.animalPlace').innerHTML= '<span class="boldText">in: </span>' + animals[i].Ort;
 
         let descriptionStart = clone.querySelector('.animalDescriptionBeginning');
@@ -94,4 +105,9 @@ function checkLoginStatus(){
         .catch(error =>{
             document.getElementById('errorContainer').textContent = 'Ein Fehler ist aufgetreten';
         });
+}
+
+function formatDate(dateString){
+    const [year, month, day] = dateString.split(" ")[0].split("-")
+    return `${day}.${month}.${year}`;
 }

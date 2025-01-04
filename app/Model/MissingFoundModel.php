@@ -132,7 +132,7 @@ class MissingFoundModel extends AbstractModel
 
         $alleVermisstTiere = $result->fetch_all(MYSQLI_ASSOC);
         $stmtVermisstOrGefundenTier->close();
-       return $alleVermisstTiere;
+        return $alleVermisstTiere;
     }
 
     public function getMissingFoundAnimalById(int $missingFoundAnimalId) {
