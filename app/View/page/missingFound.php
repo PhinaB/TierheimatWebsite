@@ -29,20 +29,20 @@
 </div>
 
 <?php if ($currentPage === "Vermisste Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
-    <h2>Vermisste Tiere</h2>
-    <hr class="underHeadline" />
 <div id="missingAnimals" class="tile druckenOhneSeitenumbruch hidden">
+    <h2 class ="heading"></h2>
+    <hr class="underHeadline" />
     <div id="hiddenFirstMissingAnimal" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
         <div class="animalImageContainer">
-            <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" id="animalImage" draggable="false" />
+            <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
         </div>
         <div class="vermisstGefundenText">
-            <h3>Verschwunden</h3>
-            <p id="animalId" class="hidden"></p>
-            <p id="animalDate"></p>
-            <p id="animalPlace"></p>
+            <h3></h3>
+            <p class="firstAnimalId hidden"></p>
+            <p class="firstAnimalDate"></p>
+            <p class="firstAnimalPlace"></p>
             <p class="boldText">Beschreibung:</p>
-            <p id="animalDescription"></p>
+            <p class="firstAnimalDescription"></p>
             <br />
             <p class="kursivText">
                 Bitte kontaktieren Sie das Tierheim per Email, wenn Sie Hinweise haben oder das Tier gefunden haben:
@@ -56,9 +56,9 @@
 
     <div id="hiddenTemplateMissingAnimals" class="hidden relativePosition ">
         <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
-        <h3>Vermisst</h3>
+        <h3></h3>
 
-        <p class="absatzfrei"><span class="boldText">Verschwunden </span></p>
+        <p class="absatzfrei animalSubheading"></p>
         <p class="absatzfrei animalDate"></p>
         <p class="absatzfrei animalPlace"></p>
         <p class="absatzfrei animalDescriptionBeginning"></p>
@@ -70,7 +70,47 @@
 <?php } ?>
 
 <?php if ($currentPage === "Gefundene Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
-    <h2>Gefundene Tiere</h2>
+    <div id="foundAnimals" class="tile druckenOhneSeitenumbruch hidden">
+        <h2 class="heading"></h2>
+        <hr class="underHeadline" />
+        <div id="hiddenFirstFoundAnimal" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+            <div class="animalImageContainer">
+                <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
+            </div>
+            <div class="vermisstGefundenText">
+                <h3></h3>
+                <p class="firstAnimalId hidden"></p>
+                <p class="firstAnimalDate"></p>
+                <p class="firstAnimalPlace"></p>
+                <p class="boldText">Beschreibung:</p>
+                <p class="firstAnimalDescription"></p>
+                <br />
+                <p class="kursivText">
+                    Bitte kontaktieren Sie das Tierheim per Email, wenn Sie Hinweise haben oder das Tier gefunden haben:
+                </p>
+                <br />
+                <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
+            </div>
+
+        </div>
+        <div id ="copyAllFoundAnimalsHere"></div>
+
+        <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition ">
+            <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
+            <h3></h3>
+
+            <p class="absatzfrei animalSubheading"></p>
+            <p class="absatzfrei animalDate"></p>
+            <p class="absatzfrei animalPlace"></p>
+            <p class="absatzfrei animalDescriptionBeginning"></p>
+
+            <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+        </div>
+
+    </div>
+
+
+    <!--<h2>Gefundene Tiere</h2>
     <hr class="underHeadline" />
     <div id="foundAnimals" class="tile druckenMitSeitenumbruch">
 
@@ -140,5 +180,5 @@
                 <a href="" class="button" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
             </div>
         </div>
-    </div>
+    </div> -->
 <?php } ?>

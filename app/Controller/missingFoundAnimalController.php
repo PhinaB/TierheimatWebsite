@@ -97,15 +97,16 @@ class missingFoundAnimalController
 
                 echo json_encode(['missingAnimals' => $missingAnimals, 'foundAnimals' => $foundAnimals]);
                 return;
-            }
-            $animals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
+            } else {
+                $animals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
 
-            if(empty($animals)){
-                echo json_encode(['message' => 'Keine Tiere gefunden.']);
-                return;
-            }
+                if(empty($animals)){
+                    echo json_encode(['message' => 'Keine Tiere gefunden.']);
+                    return;
+                }
 
-            echo json_encode(['animals' => $animals]);
+                echo json_encode(['animals' => $animals]);
+            }
 
         } catch (Exception $e) {
             http_response_code(500);
