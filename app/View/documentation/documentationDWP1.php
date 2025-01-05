@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,10 +21,11 @@
 
 
 
-    -Rollenmodell für die Nutzer
+
     -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung
     -Beschreibung der Funktionalitäten für jede Seite (beschriftete Screenshots)
 
+    -Rollenmodell für die Nutzer -> Teilweise Implementiert, würde noch gerne mehr Code Beispiele einbringen, Feedback ausstehend um Aufwand und Sinnhaftigkeit abzuschätzen
 
      -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ... → abgeschlossen, ist z.B mit der favourite Funktion benannnt, dass diese als Cookies gespeichert werden und nicht in der DB
     -Auflistung Tätigkeiten jeder Person und benötigter Aufwand → integriert bis auf die h per person
@@ -68,6 +69,7 @@
                 <dd><a href="#technologien" draggable="false">2.1 Technologie- und Architekturwahl</a></dd>
                 <dd><a href="#zeitplanMeilensteine" draggable="false">2.2 Zeitplan und Meilensteine</a></dd>
                 <dd><a href="#aufgabenaufteilung" draggable="false">2.3 Geplante Aufgabenteilung</a></dd>
+                <dd><a href="#funktionalität" draggable="false">2.4 Übersicht der Funktionalitäten und Seitenstruktur</a> </dd>
                 <dt><a href="#backend" draggable="false">3 Backend-Entwicklung</a></dt>
                 <dd><a href="#datenbankentwurf" draggable="false">3.1 Datenbankentwurf</a></dd>
                 <dd><a href="#datenbankAnbindung" draggable="false">3.2 Datenbank-Setup und Anbindung</a></dd>
@@ -419,12 +421,167 @@
                     </table>
                     <div class="caption">Tabelle 02</div>
 
-                    
+
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
                 </div>
+
+                <div class="section">
+                    <h3 id="funktionalität">2.4 Übersicht der Funktionalitäten und Seitenstruktur</h3>
+                    <hr class="underHeadline" />
+                    <br/><p>
+                        Im folgenden Abschnitt wird die Funktionalität und Struktur der Webseite "Tierheimat" im Detail beschrieben.
+                        Die Plattform wurde entwickelt um, um Tierfreunden und potentiellen Adoptanten eine benutzerfreundliche und interkative Umgebung zu bieten.
+                        </p>
+                    <p>
+                        Das Herzstück der Webseite bildet ein klar strukturiertes Desing mit dynamischen Inhalten, das sowohl Informationsseiten als auch interkative Features umfasst.
+                        Besonderes Augenmerk wurde au die Navigation, die Benutzerfreundlichkeit und dynamische Inhalte gelegt.
+                    </p><br/>
+                    <p>
+                        Die verschiedenen Seiten des Projekts decken zentrale Anforderungen ab:
+                    </p><br/>
+                    <p>
+                        • Tierverwaltung: Präsentation von Tieren, inklusive Filter und Suchfunktionen
+                    </p><p>
+                        • Aktuelles und Neuigkeiten: Artikel zu Ereignissen und Entwicklungen im Tierheim oder Spendenmöglichkeiten
+                    </p><p>
+                        • Hilfe und Unterstützung: Formulare zur Registrierung für freiwillige Tätigkeiten oder Spendenmöglichkeiten
+                    </p><p>
+                        • Vermisste und gefundene Tiere: Verwaltung von Meldungen über verschwundene oder gefundene Tiere
+                    </p><p>
+                        • Benutzerverwaltung: Registrierung, Login und rollenbasierte Zugriffskontrolle für Administrator und Nutzer
+                    </p><br/>
+                    <p>
+                        Zielsetzung der Funktionalitäten:
+                    </p><br/><p>
+                        • Effizienz: Einfache Bedienung durch intuitive Formulare und Filteroptionen
+                    </p><p>
+                        • Transparenz: Übersichtliche Präsentation von Inhalten, z.B. Tierprofile oder Artikel
+                    </p><p>
+                        • Interaktivität: Dynamische Datenverarbeitung und Live Updates auf verschiedenen Seiten
+                    </p><p>
+                        • Zugriffsmanagement: Steuerung der Berechtigung je nach Nutzerrolle ( z.B. Administator oder Besucher)
+                    </p><br/>
+                    <p>
+                        Die Nachfolgenden Abschnitte geben eine detaillierten Überblick über die einzelnen Seiten der Webseite, deren Funktionen sowie wichtige Einblicke, die diese Funktionalitäten untersützen.
+                    </p><p>
+                        Jede Seite wird anhand von Screenshots und einer Funktionsbeschreibung vorgestellt.
+                    </p><br/><br/>
+                    <p>
+                        <b>1. Startseite</b>
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/Startseite.png" title="Startseite" alt="Startseite" draggable="false">
+                    <div class="caption">Abbildung : Startseite</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/TeamUndAnlage.png" title="Team und Anlage" alt="Team und Anlage" draggable="false">
+                    <div class="caption">Abbildung : Team und Anlage</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/StartAktuelles.png" title="Startseite Aktuelles" alt="Startseite Aktuelles" draggable="false">
+                    <div class="caption">Abbildung : Startseite Aktuelles</div>
+                    <br/><p>
+                        • Zeigt eine Übersicht der Tiere und das Team des Tierheims, gibt einen ersten Eindruck auf den User
+                    </p><p>
+                        • Informiert über die Anlage und aktuelle Neuigkeiten
+                    </p><p>
+                        • Enthält Buttons zum Anzeigen weiterer Tiere und Artikel
+                    </p><br/>
+                    <p>
+                        <b>2. Unsere Tiere</b>
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/UnsereTiereOverview.png" title="Unsere Tiere" alt="Unsere Tiere" draggable="false">
+                    <div class="caption">Abbildung : Unsere Tiere</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/UnsereTiereOverviewUnsereHunde.png" title="Unsere Hunde" alt="Unsere Hunde" draggable="false">
+                    <div class="caption">Abbildung : Unsere Hunde</div><p>
+                        • Filterbare Übersicht aller Tiere im Tierheim
+                    </p><p>
+                        • Dynamisches Nachladen von Tierdaten basierend auf Auswahlkriterien (Tierart, Rasse, Geschlecht)
+                    </p><br/>
+                    <p>
+                        <b>3. Aktuelles</b>
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/Aktuelles1.png" title="Aktuelles" alt="Aktuelles" draggable="false">
+                    <div class="caption">Abbildung : Aktuelles</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/Aktuelles2.png" title="Aktuelles" alt="Aktuelles" draggable="false">
+                    <div class="caption">Abbildung : Aktuelles</div>
+                    <br/><p>
+                        • Zeigt Neuigkeiten aus dem Tierheim
+                    </p><p>
+                        • Listet Artikel mit Bildern, Überschriften und Kurzbescheibung auf
+                    </p><p>
+                        • Enthält Buttons welche auf detaillierte Artikelunterseiten weiterleiten
+                    </p><br/>
+                    <p>
+                        <b>4. Vermisst/Gefunden</b>
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/.png" title="Vermisste Tiere" alt="Vermisste Tiere" draggable="false">
+                    <div class="caption">Abbildung : Vermisste Tiere</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/.png" title="" alt="" draggable="false">
+                    <div class="caption">Abbildung : </div>
+                    <br/><p>
+                        • Zeigt vermisste und gefundene Tiere mit Informationen zu Fundort und Datum
+                    </p><p>
+                        • Enthält Buttons zur Kontaktaufnahme per E-Mail und zum Login
+                    </p><p>
+                        • Implementierte Weiterlesen Buttons ermöglichen eine detaillierte Anzeige der Tiere
+                    </p><br/>
+                    <p>
+                        <b>5. Service/Infos</b>
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/ServiceInfos.png" title="Service Infos" alt="Service Infos" draggable="false">
+                    <div class="caption">Abbildung : Service Infos</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/ServiceInfos1.png" title="Service Infos" alt="Service Infos" draggable="false">
+                    <div class="caption">Abbildung : Service Infos</div>
+                    <br/><img src="../public/imgDokumentationDWP/ServiceInfos2.png" title="Service Infos" alt="Service Infos" draggable="false">
+                    <div class="caption">Abbildung : Service Infos</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/ServiceInfos3.png" title="Service Infos" alt="Service Infos" draggable="false">
+                    <div class="caption">Abbildung : Service Infos</div>
+                    <br/><p>
+                        • Formulare zur Angabe von Unterstützunsarten und Verfügbarkeit mit Adaptionsmöglichkeiten
+                    </p><p>
+                        • Informationen zu Spendenmöglichkeiten und Kontaktoptionen
+                    </p><p>
+                        • Übersicht zu allgemeinen Informationen wie Vermittlungsablauf, die Tierpension, Auflagen und Regularien
+                    </p><br/>
+                    <p>
+                        <b>6. Login</b>
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/LoginFormular.png" title="Login" alt="Login" draggable="false">
+                    <div class="caption">Abbildung : Login</div>
+                    <br/><p>
+                        • Bietet Login und Registrieungsformulare für Nutzer
+                    </p><p>
+                        • Enthält Validierungen und Fehleranzeigen
+                    </p><br/>
+                    <p>
+                        <b>7. Impressum</b>
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/Impressum.png" title="Impressum" alt="Impressum" draggable="false">
+                    <div class="caption">Abbildung : Impressum</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/Impressum1.png" title="Impressum" alt="Impressum" draggable="false">
+                    <div class="caption">Abbildung : Impressum</div>
+                    <br/><p>
+                        • Rechtliche Informationen über das Proekt, Team und Datenschutz
+                    </p><p>
+                        • Links zu den Dokumentationen und Bildnachweisen
+                    </p><br/>
+
+                    <div class="backButton">
+                        <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
+                    </div>
+
+
+
+
+                </div>
+
             </div>
         </div>
 
@@ -581,22 +738,66 @@
                     <hr class="underHeadline" />
                     <p>
                         Die Anwendung bietet eine Vielzahl von Benutzerinteraktionen, die eine dynamische und personalisierte Nutzung ermöglichen.
-                    </p>
-                    <p>
+                    </p>                    <p>
                         Nutzer können Tiere in einer Liste durch Filter und Suchfunktionen gezielt finden. Hierbei werden Kriterien wie Tierart, Rasse und Status (vermisst oder gefunden) verwendet, um die Ergebnisse anzupassen.
-                    </p>
-                    <p>
+                    </p>                    <p>
                         Eine Favoritenfunktion ermöglicht es den Nutzern, Tiere durch Klicken auf ein Herz Symbol als Favoriten zu markieren.
-                    </p>
-                    <p>
+                    </p>                    <p>
                         Formulare zur Registrierung, Anmeldung und Meldung vermisster Tiere bieten interaktive Validierungen. Nutzereingaben werden in Echtzeit geprüft, um Fehler zu vermeiden und die Benutzerfreundlichkeit zu verbessern.
-                    </p>
-                    <p>
+                    </p>                    <p>
                         Inhalte auf der Startseite werden dynamisch geladen, sodass Nutzer stets aktuelle Informationen erhalten, ohne die Seite neu laden zu müssen.
-                    </p>
-                    <p>
+                    </p>                    <p>
                         Die Benutzeroberfläche wurde für unterschiedliche Bildschirmgrößen optimiert und passt sich dynamisch an. Dies sorgt für eine reibungslose Bedienung.
-                    </p>
+                    </p>                    <p>
+                        Es wurde auf eine Logik und Unterteilung der Interaktiven Features geachtet, um diese klar zu trennen wurden ebenfalls Nutzerrollen eingefügt, auf diese möchten wir nun näher eingehen.
+                    </p><br/>
+                    <h3> Einführung </h3>
+                    <p><br/>
+                        Das Rollenmodell in der Anwendung Tierheimat dient dazu, unterschiedliche Berechtigungsstufen für Nutzer festzulegen. Dadurch wird sichergestellt, dass bestimmte Aktionen nur von autorisierten Personen durchgeführt werden können.
+                    </p>                    <p>
+                        Dies ist besonders wichtig, um sensible Daten zu schützen und die Integrität der Ihnalte zu gewährleisten.
+                    </p><p><br/>
+                        Die Nutzerverwaltung basiert auf drei Hauptrollen:
+                    </p><p>
+                        • Administrator - hat alle Rechte, einschließlich Bearbeiten und Löschen <br/>
+                        • Nutzer        - kann Inhalte erstellen, eigene Bearbeiten und Löschen <br/>
+                        • Gast          - kann Inhalte nur Lesen aber keine Änderungen vornehmen
+                    </p><br/>
+                    <p>
+                        Die Anmeldung erfolgt über folgende Oberfläche.
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/LoginFormular.png" title="" alt="Login Oberfläche" draggable="false">
+                    <div class="caption">Abbildung : Login Oberfläche</div>
+                    <p><br/>
+                        In der Nachfolgenden Abbildung kann ein Auszug der Webseite aus Sicht des Gastes nachempfunden werden.
+                    </p><p>
+                        Eine präzise und gut aufbereitete Darstellung der Informationen macht leicht erkenntlich, dass es verschiedene Nutzerrollen und Berechtigungsumpfänge gibt.
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/BeforeRegistration.png" title="" alt="Gast Nutzerrollen" draggable="false">
+                    <div class="caption">Abbildung : Gast Nutzerrollen</div>
+                    <br/>
+                    <h3> Umsetzung in der Datenbank</h3>
+                    <p><br/>
+                        Die Rollen und deren Berechtigung werden innerhalb der Tabelle "Nutzerrollen" definiert.
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
+                    <div class="caption">Abbildung : DB Create Nutzerrollen</div>
+                    <br/>
+                    <p>
+                        • Rolle:                            Der Name der Rolle (Administator, Nutzer, Gast)<br/>
+                        • kannLesen:                        Gibt an, ob der Nutzer Inhalte lesen darf <br/>
+                        • kannSchreiben:                    Gibt an, ob der Nutzer neue Inhalte erstellen darf <br/>
+                        • kannEigenesBearbeitenUndLoeschen: Bestimmt, ob der Nutzer seine eigenen Inhalte bearbeiten und löschen darf <br/>
+                        • kannAllesLoeschen:                Legt fest, ob der Nutzer Inhalte anderer löschen darf <br/>
+                    </p><br/><p>
+                        Ein beispielhafter Insert kann den folgenden Abbildung entnommen werden.
+                    </p><br/>
+                    <img src="../public/imgDokumentationDWP/InsertNutzerrollen.png" title="" alt="DB Insert Nutzerrollen" draggable="false">
+                    <div class="caption">Abbildung : DB Insert Nutzerrollen</div>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/Bsp.Nutzerrollen.png" title="" alt="Bsp. Nutzerrollen" draggable="false">
+                    <div class="caption">Abbildung : Bsp. Nutzerrollen</div>
+
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
