@@ -36,7 +36,7 @@ class StaticPageController
         $stylesheets = ['current.css'];
         $js = ['aktuelles.js'];
 
-        $this->renderPage($stylesheets, 'Current', $js, 'current');
+        $this->renderPage($stylesheets, 'Aktuelles', $js, 'current');
     }
 
     public function loadMissingFoundAction($categoryMissingFound): void
