@@ -398,6 +398,7 @@
                                     •Dynamische Weiterlesen Funktion bei "unsere Tiere" <br/>
                                     •Implementierung der "Fehlerbehandlung 404" Unterseite <br/>
                                     •Validierung der Eingabefelder <br/>
+                                    •Komplettierung und Funktionsanalyse der databaeInit Datei
                                 </td>
                                 <td> •Beginn der Dokumentation <br />
                                     •Umsetung der MVC-Ordnerstruktur <br />
@@ -410,11 +411,14 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="3">•Entwurf des E-R-Modells <br />
+                                <td colspan="3">
+                                    •Entwurf des E-R-Modells <br />
+                                    •Einhaltung des Clean Codes<br/>
                                     •Korrekturlesen der Dokumentation <br />
+                                    •Projekt auf redundante Daten prüfen<br/>
                                     •persönliche Meetings und Unterstützung bei Komplikationen <br/>
                                     •Nutzung der Tools Jira, Whats-App zur Kommunikation und Organisation <br />
-                                    • Recherche und Erarbeitung von Informationen bei Komplikationen während der Programmierung
+                                    •Recherche und Erarbeitung von Informationen bei Komplikationen während der Programmierung<br/>
                                 </td>
                             </tr>
                         </tbody>

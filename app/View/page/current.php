@@ -1,5 +1,12 @@
+<!--
 <div id="spinner" style="display:none;">
     <div class="loading-spinner"></div>
+</div>
+-->
+
+<div id="loading">
+    <p>Der Inhalt wird geladen...</p>
+    <img class="spinnerGifHeight" alt="loading..." src="../public/img/spinner.gif">
 </div>
 
 <div class="tile">
