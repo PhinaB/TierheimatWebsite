@@ -524,7 +524,7 @@
                 </p><br /><p>
                     Im nächsten Schritt wurden diese individuellen Entwürfe im Team zusammengetragen und besprochen, um eine ganzheitliche Sicht auf die Anforderungen zu erhalten. 
                     Gemeinsam wurde daraus ein umfassendes ER-Modell entwickelt, das die Kernfunktionen der Webseite, wie beispielsweise die Verwaltung von Tierinformationen, 
-                    Nutzerprofilen und interaktiven Formularen, wie die Formulare zum Melden vermisster oder gefundener Tiere oder das Formular zum Anbieten von Hilfe, unterstützt.
+                    Nutzerprofilen und interaktiven Formularen, wie die Formulare zum melden vermisster oder gefundener Tiere oder das Formular zum anbieten von Hilfe, unterstützt.
                 </p><br /><p>
                     Eine zentrale Herausforderung im Entwurfsprozess bestand darin, Redundanzen zu vermeiden und gleichzeitig alle Anforderungen bestmöglich zu erfüllen. Besonders bei der Tabelle „Helfen“ standen wir vor einer Abwägung: Es war unklar, 
                     ob separate Tabellen für „Wochentage“ und „Datum“ erforderlich wären, um zwischen regelmäßigem und einmaligem Hilfsangebot zu unterscheiden. 
@@ -537,14 +537,14 @@
                 </p><p>
                     Im darauffolgenden Schritt wurden die entsprechenden SQL Befehle erstellt.
                 </p><br /><p>
-                    Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells sowie das dazugehörige Relationale Schema.
+                    Die folgenden Abbildungen zeigen den finalen Entwurf des Entity-Relationship-Modells sowie das dazugehörige Relationenmodell.
                 </p><br />
 
                 <img src="../public/imgDokumentationDWP/E-R-Modell_cleaned.png" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
                 <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
                 <br/>
                 <img src="../public/imgDokumentationDWP/RelationalesSchema.png" title="Relationales Schema" alt="Relationales Schema" draggable="false">
-                <div class="caption">Abbildung 08: Relationales Schema</div>
+                <div class="caption">Abbildung 08: Relationalenmodell</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -556,27 +556,17 @@
                 <hr class="underHeadline" />
                 <p>
                     Für die Verwaltung der Datenbank wird eine relationale MariaDB Datenbank verwendet. Die Struktur der Datenbank wurde in einem
-                    E-R-Diagramm modelliert, welches die Beziehungen zwischen Tabellen wie Tiere, Nutzer, Artikel und deren Eigenschaften beschreibt.
+                    ER-Diagramm modelliert, welches die Beziehungen zwischen Tabellen wie Tiere, Nutzer, Artikel und deren Eigenschaften beschreibt.
                 </p>
                 <p>
-                    Die Datenbank wird mithilfe der bereitgestellten SQL Skripte im Ordner "database" erstellt.<br/>
-                    Die Datei tierheimat.sql enthält die vollständige Struktur der Tabellen sowie Test und Beispielsdaten.<br/>
-                    Alternativ kann das Skript "databaseInit.php" verwendet werden, um die Datenbank programmgesteuert zu initialisieren.
+                    Die Datenbank wird mithilfe des bereitgestellten SQL (CREATE und INSERT) erstellt. Eine Anleitung zur Initialisierung ist dem README zu entnehmen.
+                    Die Datei tierheimat.sql enthält dabei die vollständige Struktur der Tabellen sowie Beispieldaten.
                 </p>
                 <p>
-                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core".<br/>
-                    Diese Klasse implementiert ein Singleton-Pattern, um eine einzige, wiederverwendbare Verbindung zur Datenbank zu gewährleisten.<br/>
-                    Die Verbindungseinstellungen sind standardmäßig auf den lokalen MariaDB Server (localhost) mit dem Benutzer "root" und einem leeren Passwort konfiguriert.<br/>
+                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core".
+                    Die Verbindungseinstellungen sind standardmäßig auf den lokalen MariaDB Server (localhost) mit dem Benutzer "root" und einem leeren Passwort konfiguriert.
                     Der Name der Datenbank lautet "tierheimat".
                 </p>
-                <p>
-                    Falls ein Verbindungsfehler auftritt, wird eine Exception geworfen, um den Fehler zu melden.
-                </p>
-                <!--<img src="../public/imgDokumentationDWP/HerstellungDerVerbindung.png" title="Datenbank Anbindung" alt="Code: Herstellung der Datenbankverbindung" draggable="false">
-                <div class="caption">Abbildung ...: Herstellung der Datenbankverbindung</div>-->
-                <br/>
-                <img src="../public/imgDokumentationDWP/ProtectedFunction.png" title="Datenbank Anbindung" alt="Code: Herstellung der Datenbankverbindung" draggable="false">
-                <div class="caption">Abbildung 09: Herstellung der Datenbankverbindung</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -601,12 +591,11 @@
                 </p>
                 <p>
                     Die Views im Verzeichnis "app/View" sind für die Darstellung der Benutzeroberfläche verantwortlich und greifen auf Daten aus den Modellen zu.
+                    Dort gibt es einen Unterordner "page", welcher alle statischen Seiten enthält. Der Unterordner "includes" enthält alle Informationen, die auf mehreren Seiten zu finden sind.
                 </p>
-                <p>
-                    Die Verbindung zur Datenbank erfolgt über die Klasse "Connection" im Verzeichnis "core". Diese Klasse stellt die Verbindung zur MySQL Datenbank her und ermöglicht sichere und effiziente Datenabfragen.
-                </p><br/>
-                <img src="../public/imgDokumentationDWP/MVC.png" title="Model View Controller" alt="Übersicht der MVC Struktur" draggable="false"> <!--class="centered-image"-->
-                <div class="caption">Abbildung 10: Übersicht der MVC Struktur</div>
+
+                <!-- TODO: Funktionalität des Routings beschreiben -->
+
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
