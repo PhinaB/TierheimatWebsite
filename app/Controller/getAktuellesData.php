@@ -1,36 +1,52 @@
 <?php
+
+declare(strict_types=1);
+
+namespace App\Controller;
+
 header('Content-Type: application/json');
 
-// Beispiel-Daten zum Testen
 $categories = [
-    ['id' => 1, 'name' => 'Events'],
-    ['id' => 2, 'name' => 'News'],
-    ['id' => 3, 'name' => 'Ankündigungen']
+    ['id' => 1, 'name' => '15 Jahre Tierheimat'],
+    ['id' => 2, 'name' => 'Sieger des Thüringer Tierheimwettbewerb'],
+    ['id' => 3, 'name' => 'Wir begrüßen unsere neuen Veterinärstudenten']
 ];
 
 $news = [
     1 => [
-        ['title' => 'Weihnachtsfest', 'description' => 'Feiern Sie mit uns das Weihnachtsfest im Tierheim.'],
-        ['title' => 'Sommerfest', 'description' => 'Große Veranstaltung im Juli!']
+        ['title' => '15 Jahre Tierheimat', 'description' => 'Bla Bla Blub.'],
     ],
     2 => [
-        ['title' => 'Neuer Hund angekommen', 'description' => 'Ein neuer Hund wurde aufgenommen.'],
-        ['title' => 'Katzenbaby gerettet', 'description' => 'Wir haben ein Katzenbaby ausgesetzt gefunden.']
+        ['title' => 'Sieger des Thüringer Tierheimwettbewerb', 'description' => 'Blub Blub Bla.'],
     ],
     3 => [
-        ['title' => 'Umbauarbeiten', 'description' => 'Das Tierheim wird renoviert.'],
-        ['title' => 'Spendenaktion', 'description' => 'Unterstützen Sie uns mit Ihrer Spende!']
+        ['title' => 'Wir begrüßen unsere neuen Veterinärstudenten', 'description' => 'Blub Bla Blub.'],
     ]
 ];
 
-$type = $_GET['type'] ?? '';
-$category = $_GET['category'] ?? '';
-
-if ($type === 'categories') {
-    echo json_encode($categories);
-} elseif ($type === 'news' && isset($news[$category])) {
-    echo json_encode($news[$category]);
-} else {
-    echo json_encode([]);
+function jsonResponse(array $data, int $statusCode = 200): void
+{
+    http_response_code($statusCode);
+    echo json_encode($data);
+    exit;
 }
 
+$type = filter_input(INPUT_GET, 'type', FILTER_SANITIZE_STRING);
+$category = filter_input(INPUT_GET, 'category', FILTER_VALIDATE_INT);
+
+switch ($type) {
+    case 'categories':
+        jsonResponse($categories);
+        break;
+
+    case 'news':
+        if ($category !== false && isset($news[$category])) {
+            jsonResponse($news[$category]);
+        } else {
+            jsonResponse(['error' => 'Ungültige Kategorie'], 400);
+        }
+        break;
+
+    default:
+        jsonResponse(['error' => 'Ungültiger Typ'], 400);
+}

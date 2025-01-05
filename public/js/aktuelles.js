@@ -4,6 +4,42 @@ document.addEventListener('DOMContentLoaded', function () {
     const loading = document.getElementById('spinner'); // Geändert zu 'spinner'
     const content = document.getElementById('current-content'); // Geändert zu 'current-content'
 
+/* Das ist der Spinner von Steph, muss ich noch anpassen auf aktuelles
+
+    function loadAllForHome () {
+        const spinner = document.getElementById('loading');
+        spinner.classList.remove('hidden');
+
+        const page = document.getElementById('page');
+
+        const errorGeneral = document.querySelector('.errorGeneral');
+        errorGeneral.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
+
+        // Ajax:
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4) {
+                if (xhttp.status >= 200 && xhttp.status < 300) {
+                    const response = JSON.parse(this.response);
+
+                    setAnimalsToPage(response.tiere);
+
+                    page.classList.remove('hidden');
+                }
+                else {
+                    errorGeneral.innerHTML = "Die Tiere konnten nicht geladen werden!";
+                }
+
+                spinner.classList.add('hidden');
+            }
+        }
+        xhttp.open('POST', '../public/load/all/for/home');
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send();
+    }
+    */
+
     // Lade die Kategorien dynamisch, hoffe das klappt
     fetch('/current/getData?type=categories')
         .then(response => response.json())
