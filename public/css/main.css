@@ -281,6 +281,14 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     justify-content: center;
 }
 
+.user {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #768569;
+    font-size: 14px;
+}
+
 @media only screen and (max-width: 1600px) {
     .grid, .gridIndex {
         padding-top: 67px;

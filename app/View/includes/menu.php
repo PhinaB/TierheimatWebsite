@@ -12,6 +12,14 @@ function renderMenu ($currentPage): void {
                     </a>
                 </span>
 
+                <?php
+                    session_start();
+
+                    if(isset($_SESSION['user_logged_in'])&& $_SESSION['user_logged_in'] === true) {
+                        echo '<span class ="user"><i class="fa-solid fa-user"></i>  ' . htmlspecialchars($_SESSION['username']) . ' </span>';
+                    }
+                ?>
+
                 <div id="menuRight">
                     <a <?php if ($currentPage === 'index') { echo 'class="disabled"'; } else { echo 'href="'.$baseDir.'"'; } ?> draggable="false">
                         <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
@@ -51,10 +59,7 @@ function renderMenu ($currentPage): void {
                     </a>
 
                     <?php
-                    session_start();
-
                     if(isset($_SESSION['user_logged_in'])&& $_SESSION['user_logged_in'] === true) {
-                        echo '<a href="#" class ="disabled" style="color:black"><i class="fa-solid fa-user menuIcon onlySmallMenu"></i>' . htmlspecialchars($_SESSION['username']) . ' </a>';
                         echo '<a href="logout"><i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i> Logout</a>';
                     }
                     else {

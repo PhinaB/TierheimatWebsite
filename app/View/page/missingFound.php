@@ -15,12 +15,12 @@
 <div id="page" >
     <?php if ($currentPage === "Vermisste / Gefundene Tiere") { ?>
         <div class="druckenOhneSeitenumbruch">
-            <form class="formTiereAuswaehlen druckenNichtDarstellen" action="#" method="post">
+            <form id="selectAnimalStatus" class="formTiereAuswaehlen druckenNichtDarstellen" method="post">
                 <label for="tierstatusAuswählen"> Welche Tiere anzeigen: </label>
                 <select name="tierstatusAuswählen" id="tierstatusAuswählen">
-                    <option value="alle">Alle</option>
-                    <option value="vermisst">Vermisste Tiere</option>
-                    <option value="gefunden">Gefundene Tiere</option>
+                    <option value="Vermisste / Gefundene Tiere">Alle</option>
+                    <option value="Vermisste Tiere">Vermisste Tiere</option>
+                    <option value="Gefundene Tiere">Gefundene Tiere</option>
                 </select>
                 <button class="button" type="submit" title="Button Suchen" draggable="false"><i class="fa fa-search"></i> Suchen</button>
             </form>
@@ -30,9 +30,12 @@
 
 <?php if ($currentPage === "Vermisste Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
 <div id="missingAnimals" class="tile druckenOhneSeitenumbruch hidden">
-    <h2 class ="heading"></h2>
-    <hr class="underHeadline" />
-    <div id="hiddenFirstMissingAnimal" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+    <h2 id="headingMissingAnimals" class ="heading"></h2>
+    <hr id="missingUnderHeadline" class="underHeadline" />
+
+    <div id="copyFirstMissingAnimalHere"></div>
+
+    <div id="hiddenFirstMissingAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
         <div class="animalImageContainer">
             <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
         </div>
@@ -71,9 +74,12 @@
 
 <?php if ($currentPage === "Gefundene Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
     <div id="foundAnimals" class="tile druckenOhneSeitenumbruch hidden">
-        <h2 class="heading"></h2>
-        <hr class="underHeadline" />
-        <div id="hiddenFirstFoundAnimal" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+        <h2 id="headingFoundAnimals" class="heading"></h2>
+        <hr id="foundUnderHeadline" class="underHeadline" />
+
+        <div id="copyFirstFoundAnimalHere"></div>
+
+        <div id="hiddenFirstFoundAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
             <div class="animalImageContainer">
                 <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
             </div>
@@ -91,8 +97,8 @@
                 <br />
                 <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
             </div>
-
         </div>
+
         <div id ="copyAllFoundAnimalsHere"></div>
 
         <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition ">
