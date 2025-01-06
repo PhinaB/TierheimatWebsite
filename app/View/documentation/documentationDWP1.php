@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="../public/lib/fontawesome-6.5.2/css/all.min.css" />
 
-    <title>Projektdokumentation dynamische Webprogrammierung Tierheimat</title>
+    <title>Tierheimat Projektdokumentation dynamische Webprogrammierung</title>
 </head>
 <body>
     <header>
@@ -62,18 +62,19 @@
             <hr class="underHeadline" />
             <dl>
                 <dt><a href="#einleitung" draggable="false">1 Einleitung</a></dt>
-                <dd><a href="#ziel" draggable="false">1.1 Projektziel und Anfroderungen</a></dd>
+                <dd><a href="#ziel" draggable="false">1.1 Projektziel und Anforderungen</a></dd>
                 <dd><a href="#rückblick" draggable="false">1.2 Projektrückblick</a></dd>
                 <dd><a href="#erweiterung" draggable="false">1.3 Geplante Erweiterungen</a></dd>
                 <dt><a href="#planung" draggable="false">2 Konzeption und Planung</a></dt>
                 <dd><a href="#technologien" draggable="false">2.1 Technologie- und Architekturwahl</a></dd>
                 <dd><a href="#zeitplanMeilensteine" draggable="false">2.2 Zeitplan und Meilensteine</a></dd>
                 <dd><a href="#aufgabenaufteilung" draggable="false">2.3 Geplante Aufgabenteilung</a></dd>
-                <dd><a href="#funktionalität" draggable="false">2.4 Übersicht der Funktionalitäten und Seitenstruktur</a> </dd>
+                <dd><a href="#funktionalitaet" draggable="false">2.4 Übersicht der Funktionalitäten und Seitenstruktur</a> </dd>
                 <dt><a href="#backend" draggable="false">3 Backend-Entwicklung</a></dt>
                 <dd><a href="#datenbankentwurf" draggable="false">3.1 Datenbankentwurf</a></dd>
                 <dd><a href="#datenbankAnbindung" draggable="false">3.2 Datenbank-Setup und Anbindung</a></dd>
                 <dd><a href="#php" draggable="false">3.3 PHP-Skripte und Logik</a></dd>
+                <dd><a href="#rollenkonzept" draggable="false">3.4 Rollenkonzept</a></dd>
                 <dt><a href="#interaktiveFeatures" draggable="false">4 Interaktive Features</a></dt>
                 <dd><a href="#benutzerinteraktion" draggable="false">4.1 Benutzerinteraktion</a></dd>
                 <dd><a href="#formulare" draggable="false">4.2 Dynamische Formulare und Eingabevalidierung</a></dd>
@@ -88,7 +89,6 @@
                 <dt><a href="#anlagen" draggable="false">8 Anlagenverzeichnis</a></dt>
                 <dd class="emptyDD">&nbsp;</dd>
                 <dt><a href="#quellen" draggable="false">9 Quellen</a></dt>
-                <dd class="emptyDD">&nbsp;</dd>
             </dl>
         </div>
 
@@ -97,35 +97,14 @@
                 <h2 id="einleitung">1 Einleitung</h2>
                 <hr class="underHeadline" />
                 <p>
-                    Diese Seite dokumentiert den zweiten Teil des Projektes
-                    <img src="../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">.
-                </p><br />
-                <p>
-                    Das Projekt ist in zwei Phasen gegliedert, die über zwei Semester laufen. 
-                    Hier wird der zweite Teil ausführlich beschrieben, während eine detaillierte Dokumentation des ersten Teils <a href="dokuGWP" draggable="false">hier </a> verfügbar ist.
+                    Diese Seite dokumentiert den zweiten Teil des Projekts
+                    <img src="../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">, das über zwei Semester in den Modulen
+                    "Grundlegende Webprogrammierung" und "Dynamische Webprogrammierung" entwickelt wurde. Eine detaillierte Dokumentation des ersten Teils ist <a href="dokuGWP" draggable="false">hier</a> verfügbar.
+                </p><br /><p>
+                    Die Dokumentation ist in Abschnitte gegliedert, die die Projektziele, die Planung und Konzeption, die Backend-Entwicklung sowie die durchgeführten Tests abdecken.
+                    Abschließend werden Lessons Learned und mögliche Weiterentwicklungen beschrieben.
                 </p> <br /> <p>
-                    Diese Dokumentation ist in mehrere Abschnitte gegliedert, die einen umfassenden Überblick über alle Phasen und Aspekte des Projekts bieten. 
-                    Sie beginnt mit einer Einleitung, in der das Projektziel und die Anforderungen beschrieben werden. 
-                    Zudem enthält dieser Abschnitt einen Rückblick auf den bisherigen Projektverlauf sowie eine Übersicht über die geplanten Erweiterungen.
-                </p> <br /> <p>
-                    Im Anschluss folgt der Bereich Konzeption und Planung, der die Auswahl der Technologien und Architektur beleuchtet, 
-                    den Zeitplan mit wichtigen Meilensteinen darstellt und die Ressourcenplanung sowie die Aufgabenverteilung im Team beschreibt.
-                </p> <br /> <p>
-                    Daraufhin widmet sich die Dokumentation der Backend-Entwicklung, einschließlich des Datenbankentwurfs und -setups sowie der PHP-basierten Skript-Logik, 
-                    die die Kernfunktionalität der Webseite unterstützt.
-                </p> <br /> <p>
-                    Der Abschnitt Interaktive Features geht auf die Umsetzung der Benutzerinteraktionen ein, wie etwa dynamische Formulare und Eingabevalidierungen, um eine benutzerfreundliche Oberfläche zu gewährleisten.
-                </p> <br /> <p>
-                    Im Kapitel zu Tests und Optimierung werden die durchgeführten Frontend- und Backend-Tests beschrieben, die zur Sicherstellung der Funktionalität und Stabilität dienen.
-                </p> <br /> <p>
-                    Ein abschließender Abschnitt Fazit und Ausblick bietet einen Vergleich zwischen dem Ist- und Soll-Zustand, eine Reflexion der gewonnenen Erkenntnisse (Lessons Learned) und einen Ausblick auf mögliche Weiterentwicklungen. 
-                    Ergänzend werden in den Anlagen und im Quellenverzeichnis unterstützende Materialien und die genutzten Quellen bereitgestellt.
-                </p> <br /> <p>
-                    Der folgende Abschnitt beginnt mit einer Erläuterung des Projektziels und der Anforderungen. 
-                    Anschließend wird ein kurzer Rückblick auf die im ersten Teil umgesetzten Frontend-Entwicklungen gegeben, gefolgt von einer Übersicht der geplanten Erweiterungen.
-                </p> <br /> <p>
-                    Zur besseren Lesbarkeit wird in dieser Dokumentation auf geschlechtsneutrale Sprachformen verzichtet; 
-                    alle Personenbezeichnungen gelten für alle Geschlechter gleichermaßen.                
+                    Zur besseren Lesbarkeit wird auf geschlechtsneutrale Sprachformen verzichtet; alle Personenbezeichnungen gelten für alle Geschlechter gleichermaßen.
                 </p>
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -135,18 +114,13 @@
                     <h3 id="ziel">1.1 Projektziel und Anforderung</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Während unserer Projektrecherche erkannten wir schnell, dass viele Tierheime in der digitalen Welt hinter ihren Möglichkeiten zurückbleiben. 
-                        Veraltete Webseiten beeinträchtigen oft die Nutzererfahrung erheblich, was das Auffinden von Informationen und die Kontaktaufnahme erschwert. 
-                        Aus dieser Beobachtung entstand die Idee für unser Projekt: die Entwicklung einer modernen, benutzerfreundlichen Webseite für Tierheime, die durch eine klare Struktur, hilfreiche Funktionen und ein ansprechendes Design überzeugt. 
-                        Dynamische und interaktive Elemente sollen dabei den Nutzern eine möglichst intuitive und angenehme Bedienung ermöglichen.
+                        Im Rahmen des Moduls "Dynamische Webprogrammierung" wurde die Aufgabe gestellt, eine dynamische Website zu entwickeln, die PHP und JavaScript integriert.
+                    </p><p>
+                        Für dieses Projekt nutzen wir die Grundlage unseres früheren Projekts aus dem Modul "Grundlegende Webprogrammierung" und erweitern es um dynamische und interaktive Elemente. Eine zugehörige Projektdokumentation aus dem ersten Modul ist <a href="dokuGWP" draggable="false">hier</a> verfügbar.
                     </p><br /><p>
-                        Das Hauptziel der Webseite ist es, die Vermittlung von Tieren zu unterstützen, indem sie strukturierte und umfassende Informationen wie Fotos, detaillierte Beschreibungen und Kontaktdaten bereitstellt. 
-                        Darüber hinaus soll die Webseite die Sichtbarkeit des Tierheims in der Öffentlichkeit erhöhen und interne Abläufe durch digitale Prozesse effizienter gestalten. So werden Funktionen wie Formulare für Hilfsangebote und für das Melden vermisster oder gefundener Tiere integriert, um die Interaktion der Nutzer mit dem Tierheim zu fördern und das Gemeinschaftsengagement zu stärken. 
-                        Informationsseiten und regelmäßige Ankündigungen sollen Besucher über aktuelle Geschehnisse und Aktionen stets auf dem Laufenden halten.
-                    </p><br /><p>
-                        Um diese Ziele zu erreichen, wurde das Projekt in zwei Phasen gegliedert, die sich jeweils über ein Semester erstrecken: 
-                        Der erste Teil konzentrierte sich auf die Entwicklung eines benutzerfreundlichen und übersichtlichen Designs sowie die Bereitstellung grundlegender Funktionen mithilfe von HTML und CSS, um eine solide Basis zu schaffen. 
-                        Der zweite Teil widmet sich nun der Entwicklung eines strukturierten Backends und der Integration dynamischer Elemente und interaktiver Features, die das Nutzererlebnis weiter verbessern und der Webseite zusätzliche Funktionalität verleihen.
+                        Im ersten Abschnitt des Projekts lag der Schwerpunkt auf der Gestaltung eines benutzerfreundlichen und klar strukturierten Designs sowie der Implementierung grundlegender Funktionen mithilfe von HTML und CSS, um eine solide Basis für die Webseite zu schaffen.
+                    </p><p>
+                        Im zweiten Abschnitt wird nun das Backend strukturiert entwickelt und um dynamische sowie interaktive Features ergänzt. Ziel ist es, das Nutzererlebnis zu verbessern und der Website zusätzliche Funktionalitäten zu verleihen.
                     </p><br /><p>
                         Dieser Teil des Projekt startete am 21.10.2024 und soll bis zum 19.01.2025 abgeschlossen sein. 
                         Mit der Fertigstellung wird eine nutzerfreundliche, voll funktionsfähige Webseite bereitgestellt, die die grundlegenden Anforderungen von Tierheimen und ihrer Webseitenbesucher erfüllt.
@@ -160,33 +134,17 @@
                     <h3 id="rückblick">1.2 Projektrückblick</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Der erste Teil des Projekts befasste sich mit dem Entwurf der Webseite mithilfe von HTML und CSS.  
-                        Im Folgenden sind Links hinterlegt, die auf die detaillierte Dokumentation der Zwischenschritte des ersten Projektteils verweisen und diese nachvollziehbar beschreiben. 
-                    </p><br /><p>
-                        Zu Beginn des ersten Projektteils wurde eine <a href="dokuGWP#istAnalyse">Ist-Analyse</a> durchgeführt, bei der bestehende Tierheim-Webseiten untersucht und positive sowie negative Aspekte identifiziert wurden.
-                        Die Erkenntnisse daraus dienten als Orientierung für das eigene Projekt: Positive Eigenschaften, wie die klare Darstellung vermisster und gefundener Tiere auf der Webseite des Tierheims Jena, sollten übernommen werden, während negative Merkmale, wie das unstimmige Farbschema der Webseite des Tierheims Erfurt, bewusst vermieden wurden.
-                    </p><br /><p>
-                        Anschließend wurde die <a href="dokuGWP#zielgruppe">Zielgruppe</a> der Webseite genauer definiert, um die Gestaltung und Funktionalität gezielt auf die Bedürfnisse der Nutzer abzustimmen.
+                        Der erste Teil des Projekts konzentrierte sich auf den Entwurf und die Umsetzung der Webseite mithilfe von HTML und CSS. Dazu gehörten eine <a href="dokuGWP#istAnalyse">Ist-Analyse</a>
+                        bestehender Tierheim-Webseiten, die Definition der <a href="dokuGWP#zielgruppe">Zielgruppe</a> und die Ableitung zentraler Funktionen wie interaktiver Formulare.
                     </p>
-                    </p><br />
-                    <div class="divAroundImgEffekt">
-                        <img src="../public/imgDokumentation/zielgruppenanalyse.jpg" title="Zielgruppenanalyse" alt="Tabelle der Zielgruppenanalyse" draggable="false">
-                    </div>
-                    <div class="caption">Abbildung 02: Tabelle Zielgruppenanalyse</div>
-                    <br />
-
-                    <br /><p>
-                        Aus dieser Zielgruppenanalyse wurden <a href="dokuGWP#zielplattform">Struktur</a> und Funktionen der „Tierheimat“-Webseite abgeleitet.
-                        Zu den wichtigen Funktionen zählten interaktive Formulare, die das Melden vermisster und gefundener Tiere sowie das Anbieten von Unterstützung erleichtern.
-                    </p><br />
 
                     <img src="../public/imgDokumentation/webseitenstruktur.jpg" title="Webseitenstruktur" alt="Webseitenstruktur" draggable="false">
                     <div class="caption">Abbildung 03: Aufbau der Webseite</div>
                     <br />
 
                     <p>
-                        Daraufhin wurde das <a href="dokuGWP#entwurfLogo">Logo</a> der „Tierheimat“ entworfen und ein einheitliches Design für die <a href="dokuGWP#entwurfBenutzeroberfläche">Benutzeroberfläche</a> der Webseite entwickelt.
-                        Die grüne Farbgestaltung und die gewählte Schriftart tragen zur Identität der „Tierheimat“ bei und spiegeln die Werte dieser wider.
+                        Darauf aufbauend wurden das <a href="dokuGWP#entwurfLogo">Logo</a>, ein einheitliches Design und eine responsive Struktur entwickelt. Abschließend erfolgten
+                        <a href="dokuGWP#testen">Nutzertests</a> und eine Reflexion der <a href="dokuGWP#lessonsLearned">Lessons Learned</a>.
                     </p><br />
 
                     <img src="../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
@@ -194,11 +152,7 @@
 
                     <br />
                     <p>
-                        Auf Basis der entworfenen Designs wurden die Seiten schließlich in HTML und CSS umgesetzt. Dazu gehörte auch die Entwicklung eines responsive Designs, um eine optimale Darstellung auf verschiedenen Geräten sicherzustellen.
-                        Das Teilprojekt wurde abgeschlossen durch <a href="dokuGWP#testen">Nutzertests und die Einholung externen Feedbacks</a> zur Webseite sowie eine Reflexion der <a href="dokuGWP#lessonsLearned">Lessons Learned</a>.
-                    </p><br /><p>
-                        Die gesamte Projektarbeit wurde parallel in der <a href="dokuGWP">Projektdokumentation</a> festgehalten. Mit der finalen, strukturierten und nutzerfreundlichen Webseite, die ein ansprechendes und responsive Design sowie nützliche Funktionen bietet, wurde das Ziel des ersten Projektteils erfolgreich erreicht.
-                        Diese Webseite bildet nun die Grundlage für die geplanten Erweiterungen im zweiten Teil des Projekts.
+                        Eine detaillierte Dokumentation aller Zwischenschritte ist <a href="dokuGWP">hier</a> zu finden. Die Ergebnisse des ersten Projektteils bilden die Grundlage für die Erweiterungen im zweiten Teil.
                     </p>
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -209,37 +163,41 @@
                     <h3 id="erweiterung">1.3 Geplante Erweiterungen</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Im zweiten Teil des Projekts liegt der Schwerpunkt auf der Entwicklung des Backends sowie der Integration interaktiver Funktionen, um die Webseite benutzerfreundlicher und funktionaler zu gestalten. 
+                        Im zweiten Teil des Projekts liegt der Schwerpunkt auf der Entwicklung des Backends mit PHP sowie der Integration interaktiver Funktionen mit JavaScript, um die Webseite benutzerfreundlicher und funktionaler zu gestalten.
                     </p><br /><p>
                         Zunächst ist eine strukturierte Anbindung der Webseite an eine Datenbank vorgesehen. Diese ermöglicht eine effiziente Datenverwaltung, reduziert redundanten Code und bildet die Grundlage für verschiedene Formular- und Filterfunktionen. 
-                        Dazu wird ein Entity-Relationship-Modell entworfen, welches die spezifischen Anforderungen der Webseite abbildet beispielsweise eine „Tiere“ Tabelle, die zwischen zur Adoption freigegebenen, vermissten und gefundenen Tieren unterscheidet.
-                        Aus diesem Modell werden mithilfe von SQL die entsprechenden Tabellen in MariaDB erstellt. 
+                        Dazu wird ein Entity-Relationship-Modell entworfen, welches die spezifischen Anforderungen der Webseite abbildet. Beispielsweise eine „Tiere“ Tabelle, die zur Adoption freigegebene Tiere verwaltet.
+                        Aus diesem Modell werden mithilfe von SQL die entsprechenden Tabellen in MariaDB erstellt.
                         Anschließend erfolgt die Einrichtung einer Datenbankverbindung über ein PHP-Skript, um den sicheren Austausch von Daten zwischen der Webseite und der Datenbank zu gewährleisten.
-                    </p><br /><p>
-                        Anschließend sollen für die weitere Backend Entwicklung die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
-                        Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, neue Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese aus dem System zu entfernen.
-                        Die CRUD-Funktionen finden unter anderem in der Verarbeitung der Formulardaten Anwendung. 
-                        Hierfür sind separate PHP-Dateien vorgesehen, die zudem Sicherheitsmaßnahmen, wie etwa gegen SQL-Injection, beinhalten. Nutzern, die vermisste oder gefundene Tiere melden, wird außerdem die Möglichkeit geboten, ihre Einträge zu bearbeiten oder zu löschen. Dies gewährleistet eine stets aktuelle Tierdatenbank und eine effiziente Datenverwaltung. 
+                    </p>
+
+                    <!-- TODO: ERM und Relationenmodell als Bild einfügen -->
+                    <br /><p>
+                        Für die weitere Backend Entwicklung sollen die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
+                        Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, vermisste Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese aus dem System zu entfernen.
+                    </p><p>
+                        Hierfür sind separate PHP-Dateien vorgesehen, die zudem Sicherheitsmaßnahmen, wie etwa gegen SQL-Injection, beinhalten. Nutzern, die vermisste oder gefundene Tiere melden, wird außerdem die Möglichkeit geboten, ihre Einträge zu bearbeiten oder zu löschen. Administratoren sollen dabei alle Einträge löschen und bearbeiten können. Dies gewährleistet eine stets aktuelle Tierdatenbank und eine effiziente Datenverwaltung.
+                    </p><p>
                         Abschließend soll die Backend-Logik umfassenden Tests unterzogen werden, um eine fehlerfreie Datenverarbeitung sicherzustellen.
                     </p><br /><p>
-                        Neben der Backend Entwicklung ist auch die Einbindung interaktiver Elemente mithilfe von JavaScript geplant, um das Nutzererlebnis zu verbessern.
-                        Eine der vorgesehenen Funktionen ist ein Filter, mit dem Nutzer gezielt nach Tierarten oder Status (vermisst/gefunden) suchen können. Diese dynamische Filteroption erleichtert die Navigation und ermöglicht den Nutzern, die für sie relevanten Informationen schnell zu finden. 
-                        Da die zu erwartende Datenmenge gering bleibt weniger als 200 Einträge, bestehend aus zur Adoption freigegebenen oder vermissten und gefundenen Tieren – planen wir eine clientseitige Filterung direkt im Browser mithilfe von JavaScript.
-                        Auf diese Weise werden alle relevanten Daten bereits beim Laden der Seite vollständig in den Browser geladen und können dort ohne zusätzliche Serveranfragen gefiltert werden. 
-                        Dies sorgt für eine schnelle, unmittelbare Reaktionszeit der Filterfunktion und verbessert das Nutzungserlebnis durch eine flüssige, verzögerungsfreie Interaktion.
-                        Darüber hinaus soll ein „Gefällt mir“ Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern und später leichter darauf zugreifen können.
-                    </p><br /><p class="zuBearbeiten">
-                        <!--Anmerkung: Je nachdem ob es über den Server laufen soll (in mehreren Browsern und Geräten über längere Zeit sichtbar) oder nicht (nur in dem Browser), wird auch die Verwendung des Backends notwendig. Hierbei sendet ein JavaScript-Event eine Anfrage an das Backend (z.B. per AJAX), um favorisierte Tiere in der Datenbank zu speichern.
-                        Wenn wir das so umsetzten müssen wir die Datenbank noch anpassen und noch eine Relation Favorisiert erstellen die in n:m Beziehung zwischen Personen und Tieren steht. Eventuell so: Favoriten (FavoritenID, TierID, PersonID, Datum) -->
-                    </p><p>
+                        Neben der Backend-Entwicklung ist auch die Einbindung interaktiver Elemente mithilfe von JavaScript geplant, um das Nutzererlebnis zu verbessern.
+                        Eine der vorgesehenen Funktionen ist ein Filter, mit dem Nutzer bei den Tieren gezielt nach Tierart, Rasse oder Geschlecht suchen können. Diese dynamische Filteroption erleichtert die Navigation und ermöglicht den Nutzern, die für sie relevanten Informationen schnell zu finden.
+                        Darüber hinaus soll ein „Gefällt mir“-Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern können. Diese Speicherung soll als Cookie umgesetzt werden.
+                    </p><br /><p>
                         Zusätzlich ist die Integration weiterer dynamischer Inhalte geplant, die sich auf Nutzereingaben basierend anpassen. 
-                        So sollen „Weiterlesen“ Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular durch Klicken zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
-                        Auch die Funktion „weitere Tiere anzeigen“ soll es den Nutzern ermöglichen, zusätzliche Einträge anzuzeigen, ohne die gesamte Webseite zu aktualisieren. Darüber hinaus soll JavaScript genutzt werden, um Benutzereingaben bereits im Browser zu prüfen, bevor sie an den Server gesendet werden. 
+                        So sollen „Weiterlesen“ Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
+                        Ein weiteres Formular soll es dem Nutzer ermöglichen vermisste oder gefundene Tiere hochzuladen. Diese werden auf der Seite direkt angezeigt, ohne sie neu zu laden. Nutzer, die ein solches Tier hochgeladen haben, sollen dieses später auch löschen oder bearbeiten können.
+                    </p><p>
+                        Auch die Funktion „weitere Tiere anzeigen“ soll es den Nutzern ermöglichen, zusätzliche Tiere anzuzeigen, ohne die gesamte Webseite zu aktualisieren.
+                    </p><p>
+                        Darüber hinaus soll JavaScript genutzt werden, um Benutzereingaben bereits im Browser zu prüfen, bevor sie an den Server gesendet werden.
                         Dies erlaubt die direkte Erkennung und Korrektur unvollständiger oder fehlerhafter Eingaben im Formular.
                     </p><br /><p>
+                        Des Weiteren sollen, sich wiederholende Elemente, wie beispielsweise das Menü oder der Footer, in einer Datei zusammen gefasst und überall eingebunden werden.
+                    </p><p>
+                        Die Formulare sollen außerdem nur von angemeldeten Nutzern verwendet werden. Daher wird auch ein Login und eine Registration integriert.
+                    </p><br /><p>
                         Diese geplanten Erweiterungen sollen die Webseite strukturiert und interaktiv ausbauen, um den Anforderungen einer modernen Tierheim-Plattform gerecht zu werden und den Nutzern eine angenehme und effiziente Bedienung zu bieten.
-                    </p><br /><p>
-                    </p><br /><p>
                     </p>
 
                     <div class="backButton">
@@ -268,31 +226,17 @@
                     <h3 id="technologien">2.1 Technologie- und Architekturwahl</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Für die Entwicklung der Webseite wurde eine Kombination aus verschiedenen Technologien und Tools gewählt, um eine funktionale und benutzerfreundliche Plattform zu erstellen. 
-                        Zu den eingesetzten Technologien zählen XAMPP, PHP, HTML, MariaDB, JavaScript und die integrierte Entwicklungsumgebung PHPStorm.
-                    </p><br /><p>
-                        XAMPP stellt eine umfassende lokale Serverumgebung bereit, die den Apache Webserver, das Datenbankmanagementsystem MariaDB und die Programmiersprache PHP vereint.
-                        Dank dieser integrierten Lösung wird die Verwaltung und Zusammenarbeit der erforderlichen Komponenten erheblich vereinfacht.
-                        Zudem ermöglicht die benutzerfreundliche Installation und Konfiguration von XAMPP dem Entwicklungsteam ein effizientes und reibungsloses Arbeiten am Projekt.
-                        Der integrierte Apache-Webserver simuliert dabei die Funktionalität eines echten Servers auf dem lokalen Computer. 
-                        So kann die Webseite lokal entwickelt und getestet werden, was schnelle Iterationen und Anpassungen während der Entwicklungsphase ermöglicht.
-                    </p><br /><p>
-                        PHP wird als Programmiersprache für das Backend verwendet, da sie sich ideal für die Formularverarbeitung und Datenbankinteraktionen eignet. 
-                        Durch PHP lassen sich Daten zuverlässig speichern, abrufen und verarbeiten eine zentrale Voraussetzung für die Kernfunktionen der Webseite.
-                    </p><br /><p>
+                        Für die Entwicklung der Webseite wurden XAMPP mit PHP und MariaDB sowie JavaScript verwendet. PHP dient als Backendsprache für die Verarbeitung von Formularen und Datenbankinteraktionen, während MariaDB eine zuverlässige Speicherung von Nutzer- und Tierdaten ermöglicht.
+                    </p><p>
+                        JavaScript sorgt für eine interaktive Benutzeroberfläche mit Funktionen wie Filtern und asynchronen Datenanfragen.
+                    </p><p>
                         MariaDB wird als relationales Datenbankmanagementsystem eingesetzt, um alle relevanten Daten, wie Nutzer und Tierdaten, strukturiert zu speichern.
                         MariaDB bietet dabei hohe Leistungsfähigkeit und Zuverlässigkeit, was für die konsistente Datenverwaltung der Anwendung entscheidend ist.
-                    </p><br /><p>
-                        JavaScript wird für die Gestaltung der interaktiven Benutzeroberfläche genutzt. Durch JavaScript können dynamische Inhalte umgesetzt werden, die auf Nutzereingaben reagieren. 
-                        Funktionen wie Filteroptionen, „Weiterlesen“ Buttons und asynchrone Datenanfragen tragen wesentlich zu einem reibungslosen und intuitiven Nutzererlebnis bei.
-                    </p><br /><p>
-                        Für die Programmierung und Verwaltung des Codes wurde die Entwicklungsumgebung PHP Storm gewählt. Mit Funktionen wie integrierter Syntaxprüfung und Debugging Tools unterstützt PHP Storm eine effiziente und strukturierte Umsetzung der Webseite.
-                        Diese Tools erleichtern das schnelle Erkennen und Beheben von Fehlern und sorgen für eine optimierte, fehlerfreie Entwicklung.
-                    </p><br /><p>
-                        Die Architektur der Anwendung basiert auf dem klassischen Client Server Modell. In diesem Modell sendet der Client (Webbrowser) Anfragen an den Server (XAMPP mit PHP und MariaDB) und empfängt die entsprechenden Antworten.
-                        Die klare Trennung von Frontend und Backend sorgt für eine übersichtliche Struktur des Codes und vereinfacht die Wartung und Erweiterung der Anwendung.
-                    </p><br /><p>
-                        Zusammenfassend ermöglicht die gewählte Kombination von Technologien und die Architekturwahl eine moderne, interaktive und benutzerfreundliche Webseite, die den Anforderungen der Nutzer entspricht und eine effiziente Entwicklungsumgebung für das Team schafft.
+                        <!-- TODO: beschreiben, dass wir kein pdo genutzt haben? -->
+                    </p><p>
+                        Für die Programmierung und Verwaltung des Codes wurde die Entwicklungsumgebung PHP Storm gewählt.
+                    </p><p>
+                        Die gewählte Kombination aus Technologien und Architektur ermöglicht eine moderne, benutzerfreundliche und effiziente Webseite.
                     </p>
 
                     <div class="backButton">
@@ -305,7 +249,7 @@
                     <h3 id="zeitplanMeilensteine">2.2 Zeitplan und Meilensteine</h3>
                     <hr class="underHeadline" />
                     <p>
-                        In der nachfolgenden Tabelle ist ein grober Zeitplan für den zweiten Teil des Projektes hinterlegt.
+                        In der nachfolgenden Tabelle ist ein grober Zeitplan für den diesen Teil des Projektes hinterlegt.
                         Die detaillierte Zeitplanung ist in <a href="#detaillierteZeitplanung" draggable="false">Anlage 1</a> zu finden.
                     </p>
 
@@ -318,10 +262,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Backend-Entwicklung</td>
-                                <td class="time redColor"> h </td>
+                                <td>Backend-Entwicklung mit PHP</td>
+                                <td class="time redColor"> h </td> <!-- TODO: Zeiten -->
                             </tr><tr>
-                                <td>Implementierung interaktive Features</td>
+                                <td>Frontend-Entwicklung mit JavaScript</td>
                                 <td class="time greenColor"> h </td>
                             </tr><tr>
                                 <td>Dokumentation</td>
@@ -336,17 +280,17 @@
                     <div class="caption">Tabelle 1</div>
 
                     <p>
-                        Der Zeitplan für das Projekt ist in die Bereiche der Backend Entwicklung, der Implementierung interaktiver Features und der Ausarbeitung der Dokumentation unterteilt.
-                    </p><br />
-                        Die Backend Entwicklung beginnt mit dem Kick-Off am 21.10.2024 und soll bis zum 05.01.2025 Abgeschlossen und Implementiert werden.
-                        Die Entwicklung wird durch abschließende Nutzertests beendet.
+                        Der Zeitplan für das Projekt ist in die Bereiche der Backend-Entwicklung mit PHP, der Frontend-Entwicklung mit JavaScript und der Ausarbeitung der Dokumentation unterteilt.
+                    </p><br /><p>
+                        Die Backend-Entwicklung beginnt mit dem Kick-Off am 21.10.2024. Ab Anfang Dezember 2024 soll die Frontend-Entwicklung mit JavaScript beginnen. Beides soll
+                        bis zum 07.01.2025 abgeschlossen und implementiert werden.
+                        Die Entwicklung wird durch abschließende Nutzertests beendet. Final soll das Projekt am 19.01.2025 abgegeben werden.
                     </p><p>
                         Durch wöchentliche Konsultationen werden die Fortschritte der jeweiligen Bearbeiter präsentiert, reflektiert und analysiert.
                     </p><br /><p>
                         Die Dokumentation läuft dabei parallel zum Projekt. Eine abschließende Präsentation rundet das ganze Projekt ab.
-                    </p><p>
-                        Wichtige Meilensteine sind unter anderem die Einbindung des Backends, der Abschluss des Nutzertests und die finale Projektabgabe am 19.01.2025, genauere Informationen können ebenfalls folgender Abbildung entnommen werden.
-                    </p><br/>
+                    </p>
+                    <br/>
 
                     <img src="../public/imgDokumentationDWP/Meilensteine.png" title="Meilensteine und Zeitachse" alt="Meilensteine und Zeitachse" draggable="false">
                     <div class="caption">Abbildung 05: Zeitachse mit Meilensteinen</div>
@@ -360,21 +304,22 @@
                     <h3 id="aufgabenaufteilung">2.3 Geplante Aufgabenteilung</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Die Aufgabenaufteilungen sind nach gemeinschaftlicher, interner Abstimmung getroffen wurden.
-                    </p><br />
+                        Die Aufgabenaufteilung ist nach gemeinschaftlicher, interner Abstimmung getroffen wurden.
+                    </p><br /><p>
                         Regelmäßige Team Meetings und Status-Updates stellen sicher, dass alle Teammitglieder stets auf dem neuesten Stand sind und effizient zusammenarbeiten.
                     </p><p>
-                        Webgestütze Tools wie "Jira Software" und "Whats App" haben dazu beigetragen eine klare Übersicht und eine direkte Kommunikation zu gewährleisten.
-                        Nachfolgend, ein Ausschnitt unserer Aufgaben in Jira (Stand: 50% der Projekt Entwicklung):
+                        Webgestütze Tools wie "Jira" und "WhatsApp" haben dazu beigetragen eine klare Übersicht und eine direkte Kommunikation zu gewährleisten.
+                        Nachfolgend, ein Ausschnitt unserer Aufgaben in Jira: <!-- TODO: überall gleichmäßige Anführungszeichen -->
                     </p>
                     <div class="divAroundImgEffekt">
-                        <img src="../public/imgDokumentationDWP/Jira Auszug.png" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
+                        <img src="../public/imgDokumentationDWP/jiraAuszug.jpg" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
                     </div><div class="caption">Abbildung 06</div>
                     <br />
                     <p>
-                        Die genaue Aufgabenteilung lässt sich der folgenden Tabelle entnehmen. In der letzten Zeile der Tabelle sind die Aufgaben verzeichnet, die von allen Projektmitgliedern vorgenommen wurden.
+                        Die genaue Aufgabenteilung lässt sich der folgenden Tabelle entnehmen. In der letzten Zeile der Tabelle sind die Aufgaben verzeichnet,
+                        die von allen Projektmitgliedern zusammen vorgenommen wurden.
                     </p><br />
-                    <table>
+                    <table class="divisionTasks">
                         <thead>
                             <tr class="headlineTable">
                                 <th>Lucas-Manfred Herpe</th>
@@ -384,48 +329,54 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td> •SQL-Befehle zur Erstellung der Tabellen <br />
-                                    •Entwicklung der Datenbankstruktur und der Grundstruktur "databaseInit" <br />
-                                    •Weiterentwicklung der Dokumentation <br />
-                                    •Implementierung der dynamischen Features auf der "aktuelles" Seite <br/>
-                                    •Erarbeitung der Projektpräsentation
+                                <td>
+                                    <ul class="tasks">
+                                        <li>SQL-Befehle zur Erstellung der Tabellen </li>
+                                        <li>Erst-Entwicklung der databaseInit </li>
+                                        <li>Weiterentwicklung der Dokumentation </li>
+                                        <li>Implementierung der dynamischen Features auf der "Aktuelles"-Seite (Weiterlesen eines einzelnen Artikels)</li>
+                                        <li>Erarbeitung der Projektpräsentationen </li>
+                                    </ul>
                                 </td>
-                                <td> •Entwicklung des Routings, Formular "Helfen", dynamisches Laden der Seite "unsere Tiere" (Laden der Tiere aus DB" <br />
-                                    •Entwicklung des Menüs und Footers für alle Seiten <br />
-                                    •Implementierung dynamischer Inhalte wie Filter bei unserer Tiere uvw. <br />
-                                    •Erarbeitung der Controller Klassen <br/>
-                                    •Einbindung der "Gefällt mir Funktion" <br/>
-                                    •Dynamische Weiterlesen Funktion bei "unsere Tiere" <br/>
-                                    •Implementierung der "Fehlerbehandlung 404" Unterseite <br/>
-                                    •Validierung der Eingabefelder <br/>
-                                    •Komplettierung und Funktionsanalyse der databaeInit Datei
+                                <td>
+                                    <ul class="tasks">
+                                        <li>Vereinheitlichung des Menüs, des Breadcrumb Menüs und des Footers für alle Seiten </li>
+                                        <li>StaticPageController und Vereinheitlichung aller redundanten Elemente </li>
+                                        <li>Entwicklung des Routings + Implementierung der Fehlerseite 404 </li>
+                                        <li>Umsetzung der MVC-Ordnerstruktur (mit Josephina) </li>
+                                        <li>Umwandlung der Startseite (3 zufällige Tiere aus der Datenbank laden) </li>
+                                        <li>Formular "Helfen" (Validierung der Eingabefelder, Hochladen in Datenbank, "Art der Hilfe" aus Datenbank laden und ins Formular schreiben) </li>
+                                        <li>dynamisches Laden der Seite "unsere Tiere" (Laden der Tiere aus Datenbank, Filterung der Tiere durch das Menü, Filterung der Tiere durch 3 Dropdown-Menüs,
+                                    "Gefällt mir"-Funktion der Tiere, Nachladen der Tiere, Weiterlesen eines einzelnen Tieres) </li>
+                                        <li>Fertigstellung der databaseInit Datei</li>
+                                        <li>Prüfung und Fertigstellung der Dokumentation</li>
+                                        <li>Fertigstellung der "Aktuelles"-Seite (Weiterlesen eines einzelnen Artikels)</li>
+                                        <li>Unterstützung bei Komplikationen</li>
+                                    </ul>
                                 </td>
-                                <td> •Beginn der Dokumentation <br />
-                                    •Umsetung der MVC-Ordnerstruktur <br />
-                                    Für "LoginRegistrationForm" & "MissingFoundForm"<br/>
-                                    •Formular Validierung mit Java Script <br />
-                                    •Backend Verarbeitung der Daten und Implementierung der Daten aus DB <br/>
-                                    •Einbindung von Sessions, damit der Nutzer eingeloggt bleibt <br />
-                                    Für "MissingFoundAnimals" <br/>
-                                    •Implementierung des dynamischen Ladens sowie das Bearbeiten und Löschen
+                                <td>
+                                    <ul class="tasks">
+                                        <li>Beginn der Dokumentation </li>
+                                        <li>Umsetzung der MVC-Ordnerstruktur (mit Stephanie) </li>
+                                        <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen in Datenbank, Weiterlesen der Tier-Informationen,
+                                    Bearbeiten und Löschen der Tiere mit Prüfung des Nutzers, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
+                                        <li>Login und Registration von Nutzern mit Sessions (+ Hashing der Passwörter, + Anzeige des Nutzernamens und
+                                            Veränderung des Menüs nach dem Login) </li>
+                                    </ul>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    •Entwurf des E-R-Modells <br />
-                                    •Einhaltung des Clean Codes<br/>
-                                    •Korrekturlesen der Dokumentation <br />
-                                    •Projekt auf redundante Daten prüfen<br/>
-                                    •persönliche Meetings und Unterstützung bei Komplikationen <br/>
-                                    •Nutzung der Tools Jira, Whats-App zur Kommunikation und Organisation <br />
-                                    •Recherche und Erarbeitung von Informationen bei Komplikationen während der Programmierung<br/>
+                                    <ul class="tasks">
+                                        <li>Entwurf des Entity-Relationship- und des Relationenmodells </li>
+                                        <li>Einhaltung des Clean Codes</li>
+                                        <li>Fertigstellung der Projektpräsentationen </li>
+                                    </ul>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="caption">Tabelle 02</div>
-
-
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -433,157 +384,114 @@
                 </div>
 
                 <div class="section">
-                    <h3 id="funktionalität">2.4 Übersicht der Funktionalitäten und Seitenstruktur</h3>
+                    <h3 id="funktionalitaet">2.4 Übersicht der Funktionalitäten und Seitenstruktur</h3>
                     <hr class="underHeadline" />
+                    <p>
+                        Das Folgende zeigt einen detaillierten Überblick über die einzelnen Abschnitte, die in diesem Teil des Projekts (dynamische Webprogrammierung)
+                        verändert wurden. Programmcode, welcher durch das Modul Grundlagen Webprogrammierung erstellt wurde, wird hier nicht weiter erwähnt.
+                    </p>
+
+                    <br/><br/><p>
+                        <b>Allgemein</b>
+                    </p>
+                    <p>
+                        Sowohl Menü, das Breadcrumb Menü ("Startseite > Unterseite"), als auch der Footer wurden vereinheitlicht, sodass diese nicht mehr auf jeder Seite
+                        einzeln zu finden sind. In diesem Zuge wurden auch alle anderen redundanten Elemente zusammengefasst.
+                    </p><p>
+                        Weiterhin wurde das Routing und die Fehlerseite 404 erstellt, um URL Routen korrekt umzuleiten.
+                    </p><p>
+                        Für die Umsetzung des MVC Modells wurden verschiedene Ordner und Unterordner angelegt und die entsprechenden Dateien zugewiesen.
+                    </p><p>
+                        Für die Erst-Initialisierung der Datenbank wurde eine databaseInit.php-Datei angelegt. Diese speichert automatisch alle Inhalte in der lokalen tierheimat Datenbank ab.
+                        Informationen über die Initialisierung sind der README zu entnehmen.
+                    </p>
+
                     <br/><p>
-                        Im folgenden Abschnitt wird die Funktionalität und Struktur der Webseite "Tierheimat" im Detail beschrieben.
-                        Die Plattform wurde entwickelt um, um Tierfreunden und potentiellen Adoptanten eine benutzerfreundliche und interkative Umgebung zu bieten.
-                        </p>
+                        <b>Startseite</b>
+                    </p>
                     <p>
-                        Das Herzstück der Webseite bildet ein klar strukturiertes Desing mit dynamischen Inhalten, das sowohl Informationsseiten als auch interkative Features umfasst.
-                        Besonderes Augenmerk wurde au die Navigation, die Benutzerfreundlichkeit und dynamische Inhalte gelegt.
-                    </p><br/>
-                    <p>
-                        Die verschiedenen Seiten des Projekts decken zentrale Anforderungen ab:
-                    </p><br/>
-                    <p>
-                        • Tierverwaltung: Präsentation von Tieren, inklusive Filter und Suchfunktionen
-                    </p><p>
-                        • Aktuelles und Neuigkeiten: Artikel zu Ereignissen und Entwicklungen im Tierheim oder Spendenmöglichkeiten
-                    </p><p>
-                        • Hilfe und Unterstützung: Formulare zur Registrierung für freiwillige Tätigkeiten oder Spendenmöglichkeiten
-                    </p><p>
-                        • Vermisste und gefundene Tiere: Verwaltung von Meldungen über verschwundene oder gefundene Tiere
-                    </p><p>
-                        • Benutzerverwaltung: Registrierung, Login und rollenbasierte Zugriffskontrolle für Administrator und Nutzer
-                    </p><br/>
-                    <p>
-                        Zielsetzung der Funktionalitäten:
-                    </p><br/><p>
-                        • Effizienz: Einfache Bedienung durch intuitive Formulare und Filteroptionen
-                    </p><p>
-                        • Transparenz: Übersichtliche Präsentation von Inhalten, z.B. Tierprofile oder Artikel
-                    </p><p>
-                        • Interaktivität: Dynamische Datenverarbeitung und Live Updates auf verschiedenen Seiten
-                    </p><p>
-                        • Zugriffsmanagement: Steuerung der Berechtigung je nach Nutzerrolle ( z.B. Administator oder Besucher)
-                    </p><br/>
-                    <p>
-                        Die Nachfolgenden Abschnitte geben eine detaillierten Überblick über die einzelnen Seiten der Webseite, deren Funktionen sowie wichtige Einblicke, die diese Funktionalitäten untersützen.
-                    </p><p>
-                        Jede Seite wird anhand von Screenshots und einer Funktionsbeschreibung vorgestellt.
-                    </p><br/><br/>
-                    <p>
-                        <b>1. Startseite</b>
-                    </p><br/>
+                        Auf der Startseite werden verschiedene Informationen angepriesen. Unter anderem drei verschiedene Tiere, die auch im Abschnitt
+                        "Unsere Tiere" zu finden sind. Um für etwas Abwechslung zu sorgen, werden beim neu laden immer drei unterschiedliche Tiere angezeigt.
+                        Die Tiere werden dynamisch mit Ajax nachgeladen, weswegen anfangs ein kurzes Ladesymbol zu sehen ist.
+                    </p>
+
+                    <br/>
                     <img src="../public/imgDokumentationDWP/Startseite.png" title="Startseite" alt="Startseite" draggable="false">
                     <div class="caption">Abbildung : Startseite</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/TeamUndAnlage.png" title="Team und Anlage" alt="Team und Anlage" draggable="false">
-                    <div class="caption">Abbildung : Team und Anlage</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/StartAktuelles.png" title="Startseite Aktuelles" alt="Startseite Aktuelles" draggable="false">
-                    <div class="caption">Abbildung : Startseite Aktuelles</div>
+
                     <br/><p>
-                        • Zeigt eine Übersicht der Tiere und das Team des Tierheims, gibt einen ersten Eindruck auf den User
-                    </p><p>
-                        • Informiert über die Anlage und aktuelle Neuigkeiten
-                    </p><p>
-                        • Enthält Buttons zum Anzeigen weiterer Tiere und Artikel
-                    </p><br/>
+                        <b>Unsere Tiere</b>
+                    </p>
                     <p>
-                        <b>2. Unsere Tiere</b>
-                    </p><br/>
+                        Die Seite "Unsere Tiere" zeigt alle Tiere, die die Tierheimat zur Adoption freigibt. Diese lassen sich durch das Menü oder durch die drei Filteroptionen
+                        (Tierart, Rasse, Geschlecht) filtern. Eine Rasse kann dabei nur ausgewählt werden, wenn eine Tierart ausgewählt wurde. Denn erst dann werden die entsprechenden Rassen in das Dropdown-Menü geschrieben. Die Rassen werden beim Laden der Seite mit übergeben und versteckt auf der Seite gespeichert.
+                    </p><p>
+                        Beim Laden der Seite werden die Tiere dynamisch durch JavaScript von der Datenbank nachgeladen. Dadurch sieht der Nutzer im ersten Moment ein Ladesymbol, bevor
+                        die Tiere dann angezeigt werden.
+                    </p><p>
+                        Es werden beim Aufruf der Seite immer maximal 8 Tiere angezeigt. Sollten in der Datenbank mehr Tiere mit diesen Filteroptionen vorhanden sein, kann der
+                        Nutzer weitere Tiere durch den Button "Weitere Tiere anzeigen" nachladen.
+                    </p><p>
+                        Möchte ein Nutzer weitere Informationen erhalten, kann er bei jedem Tier auf "Weiterlesen" klicken und erhält daraufhin weitere Informationen zu diesem spezifischen Tier.
+                    </p><p>
+                        Jedem Nutzer ist es erlaubt Tiere, durch das rechts oben angeordnete Herz, zu favorisieren und wieder zu ent-favorisieren. Diese "Gefällt mir"-Angabe wird in Cookies gespeichert.
+                    </p>
                     <img src="../public/imgDokumentationDWP/UnsereTiereOverview.png" title="Unsere Tiere" alt="Unsere Tiere" draggable="false">
                     <div class="caption">Abbildung : Unsere Tiere</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/UnsereTiereOverviewUnsereHunde.png" title="Unsere Hunde" alt="Unsere Hunde" draggable="false">
-                    <div class="caption">Abbildung : Unsere Hunde</div><p>
-                        • Filterbare Übersicht aller Tiere im Tierheim
-                    </p><p>
-                        • Dynamisches Nachladen von Tierdaten basierend auf Auswahlkriterien (Tierart, Rasse, Geschlecht)
-                    </p><br/>
-                    <p>
-                        <b>3. Aktuelles</b>
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/Aktuelles1.png" title="Aktuelles" alt="Aktuelles" draggable="false">
-                    <div class="caption">Abbildung : Aktuelles</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/Aktuelles2.png" title="Aktuelles" alt="Aktuelles" draggable="false">
-                    <div class="caption">Abbildung : Aktuelles</div>
+
                     <br/><p>
-                        • Zeigt Neuigkeiten aus dem Tierheim
-                    </p><p>
-                        • Listet Artikel mit Bildern, Überschriften und Kurzbescheibung auf
-                    </p><p>
-                        • Enthält Buttons welche auf detaillierte Artikelunterseiten weiterleiten
-                    </p><br/>
+                        <b>Aktuelles</b>
+                    </p>
                     <p>
-                        <b>4. Vermisst/Gefunden</b>
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/.png" title="Vermisste Tiere" alt="Vermisste Tiere" draggable="false">
-                    <div class="caption">Abbildung : Vermisste Tiere</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/.png" title="" alt="" draggable="false">
-                    <div class="caption">Abbildung : </div>
+                        Einzelne Artikel können durch einen Klick auf "Weiterlesen" komplett und detailliert gelesen werden.
+                    </p>
+
                     <br/><p>
-                        • Zeigt vermisste und gefundene Tiere mit Informationen zu Fundort und Datum
-                    </p><p>
-                        • Enthält Buttons zur Kontaktaufnahme per E-Mail und zum Login
-                    </p><p>
-                        • Implementierte Weiterlesen Buttons ermöglichen eine detaillierte Anzeige der Tiere
-                    </p><br/>
+                        <b>Vermisst/Gefunden</b>
+                    </p>
                     <p>
-                        <b>5. Service/Infos</b>
-                    </p><br/>
+                        Durch das Menü oder die Filteroption lassen sich entweder vermisste oder gefundene oder alle Tiere anzeigen. Diese Tiere werden dynamisch aus der
+                        Datenbank geladen.
+                    </p><p>
+                        Die Tiere haben einen "Weiterlesen"-Button. Beim Klick auf diesen werden weitere Informationen des spezifischen Tieres angezeigt.
+                    </p><br /><p>
+                        Hat ein Nutzer sich angemeldet, kann er erweiterte Funktionen verwenden. Unter anderem kann er dann das Formular für ein vermisstes oder gefundenes Tier ausfüllen.
+                        In diesem Formular werden die Eingaben des Nutzers, durch JavaScript, noch vor dem Absenden überprüft. Sobald die Daten in der Datenbank hochgeladen wurden, wird das
+                        neue Tier auch direkt auf der Seite angezeigt.
+                    </p><p>
+                        Ein angemeldeter Nutzer kann außerdem seine eigenen Beiträge löschen und bearbeiten. Ist der angemeldete Nutzer ein Administrator, kann er jeden Beitrag löschen und bearbeiten.
+                    </p>
+
+                    <br/><p>
+                        <b>Service/Infos</b>
+                    </p>
+                    <p>
+                        Sobald der Nutzer sich angemeldet hat, kann hier ein weiteres Formular ausgefüllt werden. Dabei wird noch vor dem Absenden des Formulars überprüft, ob alle
+                        Felder korrekt gefüllt sind. Bei der erfolgreichen Eingabe in die Datenbank, wird dem Nutzer eine Erfolgsinformation übermittelt, dass das Hochladen geklappt hat.
+                    </p><p>
+                        Da die "Art der Hilfe" in der Datenbank abgespeichert ist, wird diese beim Laden der Seite dynamisch aus der Datenbank geholt und in das Formular eingesetzt.
+                    </p><p>
+                        Es können maximal 7 Wochentage angegeben werden. Sollte beim Klick auf "Absenden" eine Zeile (Wochentag und Zeit ODER Datum und Zeit) leer sein, wird diese automatisch durch JavaScript gelöscht.
+                        Dadurch verhindern wir die Übergabe von leeren Zeilen an die Datenbank.
+                    </p>
                     <img src="../public/imgDokumentationDWP/ServiceInfos.png" title="Service Infos" alt="Service Infos" draggable="false">
                     <div class="caption">Abbildung : Service Infos</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/ServiceInfos1.png" title="Service Infos" alt="Service Infos" draggable="false">
-                    <div class="caption">Abbildung : Service Infos</div>
-                    <br/><img src="../public/imgDokumentationDWP/ServiceInfos2.png" title="Service Infos" alt="Service Infos" draggable="false">
-                    <div class="caption">Abbildung : Service Infos</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/ServiceInfos3.png" title="Service Infos" alt="Service Infos" draggable="false">
-                    <div class="caption">Abbildung : Service Infos</div>
+
                     <br/><p>
-                        • Formulare zur Angabe von Unterstützunsarten und Verfügbarkeit mit Adaptionsmöglichkeiten
-                    </p><p>
-                        • Informationen zu Spendenmöglichkeiten und Kontaktoptionen
-                    </p><p>
-                        • Übersicht zu allgemeinen Informationen wie Vermittlungsablauf, die Tierpension, Auflagen und Regularien
-                    </p><br/>
+                        <b>Login und Registration</b>
+                    </p>
                     <p>
-                        <b>6. Login</b>
-                    </p><br/>
+                        Ein Nutzer kann sich hier registrieren oder, falls schon ein Account vorhanden ist, auch einloggen. Dabei wird bei der Eingabe schon überprüft, ob alles ausgefüllt wurde.
+                    </p><p>
+                        Nach erfolgreichem Login wird der Nutzer automatisch auf die Startseite umgeleitet. Im Menü ist die Änderung zu sehen, denn dort ist der Nutzername zu finden.
+                        Außerdem gibt es dort jetzt den Untermenüpunkt "Logout" statt "Login".
+                    </p>
                     <img src="../public/imgDokumentationDWP/LoginFormular.png" title="Login" alt="Login" draggable="false">
                     <div class="caption">Abbildung : Login</div>
-                    <br/><p>
-                        • Bietet Login und Registrieungsformulare für Nutzer
-                    </p><p>
-                        • Enthält Validierungen und Fehleranzeigen
-                    </p><br/>
-                    <p>
-                        <b>7. Impressum</b>
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/Impressum.png" title="Impressum" alt="Impressum" draggable="false">
-                    <div class="caption">Abbildung : Impressum</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/Impressum1.png" title="Impressum" alt="Impressum" draggable="false">
-                    <div class="caption">Abbildung : Impressum</div>
-                    <br/><p>
-                        • Rechtliche Informationen über das Proekt, Team und Datenschutz
-                    </p><p>
-                        • Links zu den Dokumentationen und Bildnachweisen
-                    </p><br/>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
-
-
-
-
                 </div>
 
             </div>
@@ -614,7 +522,7 @@
                 </p><br /><p>
                     Im nächsten Schritt wurden diese individuellen Entwürfe im Team zusammengetragen und besprochen, um eine ganzheitliche Sicht auf die Anforderungen zu erhalten. 
                     Gemeinsam wurde daraus ein umfassendes ER-Modell entwickelt, das die Kernfunktionen der Webseite, wie beispielsweise die Verwaltung von Tierinformationen, 
-                    Nutzerprofilen und interaktiven Formularen, wie die Formulare zum Melden vermisster oder gefundener Tiere oder das Formular zum Anbieten von Hilfe, unterstützt.
+                    Nutzerprofilen und interaktiven Formularen, wie die Formulare zum melden vermisster oder gefundener Tiere oder das Formular zum anbieten von Hilfe, unterstützt.
                 </p><br /><p>
                     Eine zentrale Herausforderung im Entwurfsprozess bestand darin, Redundanzen zu vermeiden und gleichzeitig alle Anforderungen bestmöglich zu erfüllen. Besonders bei der Tabelle „Helfen“ standen wir vor einer Abwägung: Es war unklar, 
                     ob separate Tabellen für „Wochentage“ und „Datum“ erforderlich wären, um zwischen regelmäßigem und einmaligem Hilfsangebot zu unterscheiden. 
@@ -627,14 +535,14 @@
                 </p><p>
                     Im darauffolgenden Schritt wurden die entsprechenden SQL Befehle erstellt.
                 </p><br /><p>
-                    Die folgenden Abbildungen zeigt den finalen Entwurf des Entity-Realtionship-Modells sowie das dazugehörige Relationale Schema.
+                    Die folgenden Abbildungen zeigen den finalen Entwurf des Entity-Relationship-Modells sowie das dazugehörige Relationenmodell.
                 </p><br />
 
                 <img src="../public/imgDokumentationDWP/E-R-Modell_cleaned.png" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
                 <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
                 <br/>
                 <img src="../public/imgDokumentationDWP/RelationalesSchema.png" title="Relationales Schema" alt="Relationales Schema" draggable="false">
-                <div class="caption">Abbildung 08: Relationales Schema</div>
+                <div class="caption">Abbildung 08: Relationenmodell</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -645,28 +553,18 @@
                 <h3 id="datenbankAnbindung">3.2 Datenbank-Setup und Anbindung</h3>
                 <hr class="underHeadline" />
                 <p>
-                    Für die Verwaltung der Datenbank wird eine relationale MySQL Datenbank verwendet. Die Struktur der Datenbank wurde in einem
-                    E-R-Diagramm modelliert, welches die Beziehungen zwischen Tabellen wie Tiere, Nutzer, Artikel und deren Eigenschaften beschreibt.
+                    Für die Verwaltung der Datenbank wird eine relationale MariaDB Datenbank verwendet. Die Struktur der Datenbank wurde in einem
+                    ER-Diagramm modelliert, welches die Beziehungen zwischen Tabellen wie Tiere, Nutzer, Artikel und deren Eigenschaften beschreibt.
                 </p>
                 <p>
-                    Die Datenbank wird mithilfe der bereitgestellten SQL Skripte im Ordner "database" erstellt.<br/>
-                    Die Datei tierheimat.sql enthält die vollständige Struktur der Tabellen sowie Test und Beispielsdaten.<br/>
-                    Alternativ kann das Skript "databaseInit.php" verwendet werden, um die Datenbank programmgesteuert zu initialisieren.
+                    Die Datenbank wird mithilfe des bereitgestellten SQL (CREATE und INSERT) erstellt. Eine Anleitung zur Initialisierung ist dem README zu entnehmen.
+                    Die Datei tierheimat.sql enthält dabei die vollständige Struktur der Tabellen sowie Beispieldaten.
                 </p>
                 <p>
-                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core".<br/>
-                    Diese Klasse implementiert ein Singleton-Pattern, um eine einzige, wiederverwendbare Verbindung zur Datenbank zu gewährleisten.<br/>
-                    Die Verbindungseinstellungen sind standardmäßig auf den lokalen MySQL Server (localhost) mit dem Benutzer "root" und einem leeren Passwort konfiguriert.<br/>
+                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core".
+                    Die Verbindungseinstellungen sind standardmäßig auf den lokalen MariaDB Server (localhost) mit dem Benutzer "root" und einem leeren Passwort konfiguriert.
                     Der Name der Datenbank lautet "tierheimat".
                 </p>
-                <p>
-                    Falls ein Verbindungsfehler auftritt, wird eine Exception geworfen, um den Fehler zu melden.
-                </p>
-                <!--<img src="../public/imgDokumentationDWP/HerstellungDerVerbindung.png" title="Datenbank Anbindung" alt="Code: Herstellung der Datenbankverbindung" draggable="false">
-                <div class="caption">Abbildung ...: Herstellung der Datenbankverbindung</div>-->
-                <br/>
-                <img src="../public/imgDokumentationDWP/ProtectedFunction.png" title="Datenbank Anbindung" alt="Code: Herstellung der Datenbankverbindung" draggable="false">
-                <div class="caption">Abbildung 09: Herstellung der Datenbankverbindung</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -691,12 +589,47 @@
                 </p>
                 <p>
                     Die Views im Verzeichnis "app/View" sind für die Darstellung der Benutzeroberfläche verantwortlich und greifen auf Daten aus den Modellen zu.
+                    Dort gibt es einen Unterordner "page", welcher alle statischen Seiten enthält. Der Unterordner "includes" enthält alle Informationen, die auf mehreren Seiten zu finden sind.
                 </p>
+
+                <!-- TODO: Funktionalität des Routings beschreiben -->
+
+                <div class="backButton">
+                    <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <h3 id="rollenkonzept">3.4 Rollenkonzept</h3>
+                <hr class="underHeadline" />
                 <p>
-                    Die Verbindung zur Datenbank erfolgt über die Klasse "Connection" im Verzeichnis "core". Diese Klasse stellt die Verbindung zur MySQL Datenbank her und ermöglicht sichere und effiziente Datenabfragen.
+                    Das Rollenmodell dieses Projekts dient dazu, unterschiedliche Berechtigungsstufen für Nutzer festzulegen. Dadurch wird sichergestellt, dass bestimmte Aktionen nur von
+                    autorisierten Personen durchgeführt werden können. Dies ist besonders wichtig, um sensible Daten zu schützen und die Integrität der Ihnalte zu gewährleisten.
+                </p><br/><p>
+                    Die Nutzerverwaltung basiert auf drei Hauptrollen:
+                </p>
+                <ul class="tasks" style="padding-left: 20px;">
+                    <li>Gast - kann Inhalte nur Lesen aber keine Änderungen vornehmen</li>
+                    <li>Nutzer - hat die Rechte eines Gastes und kann Inhalte erstellen sowie eigene Einträge (vermisste / gefundene Tiere) Bearbeiten und Löschen</li>
+                    <li>Administrator - hat die Rechte eines Nutzers und kann zusätzlich alle Einträge (vermisste / gefundene Tiere) Bearbeiten und Löschen</li>
+                </ul>
+                <br/>
+                <p>
+                    Die Anmeldung erfolgt über das Login Formular:
                 </p><br/>
-                <img src="../public/imgDokumentationDWP/MVC.png" title="Model View Controller" alt="Übersicht der MVC Struktur" draggable="false"> <!--class="centered-image"-->
-                <div class="caption">Abbildung 10: Übersicht der MVC Struktur</div>
+                <img src="../public/imgDokumentationDWP/LoginFormular.png" title="" alt="Login Oberfläche" draggable="false">
+                <div class="caption">Abbildung : Login Oberfläche</div>
+
+                <br /><br/>
+
+                <p>
+                    Die Rollen und deren Berechtigung werden innerhalb der Datenkbanktabelle "Nutzerrollen" definiert. Dabei werden die Rechte als Boolean in der Tabelle mit verwaltet (kannLesen, kannSchreiben, kannEigenesBearbeitenUndLoeschen, kannAllesLoeschen).
+                    Dadurch kann sichergestellt werden, dass die jeweiligen Nutzer auch nur die entsprechenden Rechte erhalten.
+                </p><br/>
+                <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
+                <div class="caption">Abbildung : DB Create Nutzerrollen</div>
+
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
@@ -708,99 +641,38 @@
                 <h2 id="interaktiveFeatures">4 Interaktive Features</h2>
                 <hr class="underHeadline" />
                 <p>
-                    Die Anwendung bietet eine Vielzahl interaktiver Features, die die Benutzerfreundlichkeit erhöhen und dynamische Funktionen bereitstellen. Diese wurden durch JavaScript und PHP umgesetzt.
+                    Die Anwendung bietet eine Vielzahl interaktiver Features, die die Benutzerfreundlichkeit erhöhen und dynamische Funktionen bereitstellen. Diese wurden bereits unter
+                    <a href="#funktionalitaet" draggable="false">"2.4 Übersicht der Funktionalitäten und Seitenstruktur"</a> beschrieben. Nachfolgend werden lediglich ein paar JavaScript Features beschrieben.
                 </p>
-                <p>
-                    Dynamische Inhalte werden beispielsweise auf der Startseite und im Bereich "Aktuelles" geladen. Hierfür sorgen Skripte wie aktuelles.js und loadHome.js, die Inhalte nachladen und aktualisieren.
-                    <br /> Dies geschieht mittels AJAX, vorteile von AJAX sind unter anderem schnellere Ladezeiten, da nur die benötigten Dateien geladen werden und nicht die gesamte Seite, bessere Benutzererfahrung da Daten im Hintergrund geladen werden und der Nutzer noch weiterhin mit der Seite interagieren kann.
-                </p>
-                <p>
-                    Filter und Suchfunktionen ermöglichen es den Nutzern, Tiere basierend auf spezifischen Kriterien wie Art, Rasse oder Status (vermisst/gefunden) zu filtern.
-                </p>
-                <p>
-                    Zusätzlich können Nutzer Tiere als Favoriten markieren, indem sie auf ein Herz Symbol klicken. Diese Favoritenfunktion ermöglicht eine personalisierte Nutzung und könnte in der Datenbank gespeichert werden, um später darauf zugreifen zu können (aktuell nicht implementiert, die Daten werden in Cookies gespeichert).
-                </p>
-                <p>
-                    Formulare zur Registrierung, Anmeldung und zum Melden vermisster Tiere beinhalten Validierungen und dynamische Eingabefelder. Diese Funktionalitäten werden durch Skripte wie loginRegisterForm.js und missingFoundForm.js umgesetzt.
-                </p>
-                <p>
-                    Für eine moderne und intuitive Benutzeroberfläche wurden Icons und Symbole aus der FontAwesome Bibliothek integriert. Zusätzlich sorgen responsive Navigationselemente für eine optimale Darstellung auf verschiedenen Geräten.
-                </p>
-                <p>
-                    Alle Skripte befinden sich im Verzeichnis "public/js" und sind modular aufgebaut, um eine einfache Erweiterbarkeit und Wartung zu gewährleisten.
-                </p><br/>
-                <img src="../public/imgDokumentationDWP/Favoritenfunktion.png" title="" alt="Code: Favoritenfunktion" draggable="false">
-                <div class="caption">Abbildung 11: Umsetzung der Favoritenfunktion</div>
+
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
-
-
 
                 <div class="section">
                     <h3 id="benutzerinteraktion">4.1 Benutzerinteraktion</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Die Anwendung bietet eine Vielzahl von Benutzerinteraktionen, die eine dynamische und personalisierte Nutzung ermöglichen.
-                    </p>                    <p>
-                        Nutzer können Tiere in einer Liste durch Filter und Suchfunktionen gezielt finden. Hierbei werden Kriterien wie Tierart, Rasse und Status (vermisst oder gefunden) verwendet, um die Ergebnisse anzupassen.
-                    </p>                    <p>
-                        Eine Favoritenfunktion ermöglicht es den Nutzern, Tiere durch Klicken auf ein Herz Symbol als Favoriten zu markieren.
-                    </p>                    <p>
-                        Formulare zur Registrierung, Anmeldung und Meldung vermisster Tiere bieten interaktive Validierungen. Nutzereingaben werden in Echtzeit geprüft, um Fehler zu vermeiden und die Benutzerfreundlichkeit zu verbessern.
-                    </p>                    <p>
-                        Inhalte auf der Startseite werden dynamisch geladen, sodass Nutzer stets aktuelle Informationen erhalten, ohne die Seite neu laden zu müssen.
-                    </p>                    <p>
-                        Die Benutzeroberfläche wurde für unterschiedliche Bildschirmgrößen optimiert und passt sich dynamisch an. Dies sorgt für eine reibungslose Bedienung.
-                    </p>                    <p>
-                        Es wurde auf eine Logik und Unterteilung der Interaktiven Features geachtet, um diese klar zu trennen wurden ebenfalls Nutzerrollen eingefügt, auf diese möchten wir nun näher eingehen.
-                    </p><br/>
-                    <h3> Einführung </h3>
-                    <p><br/>
-                        Das Rollenmodell in der Anwendung Tierheimat dient dazu, unterschiedliche Berechtigungsstufen für Nutzer festzulegen. Dadurch wird sichergestellt, dass bestimmte Aktionen nur von autorisierten Personen durchgeführt werden können.
-                    </p>                    <p>
-                        Dies ist besonders wichtig, um sensible Daten zu schützen und die Integrität der Ihnalte zu gewährleisten.
-                    </p><p><br/>
-                        Die Nutzerverwaltung basiert auf drei Hauptrollen:
+                        Die Inhalte mehrerer Seiten (beispielsweise bei der Seite "Unsere Tiere") werden dynamisch mit Ajax beim Aufrufen der Seite nachgeladen. So besteht die Möglichkeit, dass sich der Nutzer die
+                        Seite bereits anschauen kann, während die Inhalte aus der Datenbank noch geladen werden. Dem Nutzer wird hier jeweils ein Ladesymbol angezeigt, damit dieser weiß, dass der Inhalt der Seite noch lädt.
                     </p><p>
-                        • Administrator - hat alle Rechte, einschließlich Bearbeiten und Löschen <br/>
-                        • Nutzer        - kann Inhalte erstellen, eigene Bearbeiten und Löschen <br/>
-                        • Gast          - kann Inhalte nur Lesen aber keine Änderungen vornehmen
-                    </p><br/>
-                    <p>
-                        Die Anmeldung erfolgt über folgende Oberfläche.
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/LoginFormular.png" title="" alt="Login Oberfläche" draggable="false">
-                    <div class="caption">Abbildung : Login Oberfläche</div>
-                    <p><br/>
-                        In der Nachfolgenden Abbildung kann ein Auszug der Webseite aus Sicht des Gastes nachempfunden werden.
+                        Auf verschiedenen Seiten besteht außerdem die Möglichkeit einen "Weiterlesen"-Button anzuklicken. Dieser ermöglicht es detaillierte Informationen über das angeklickte Element zu erhalten (u.a. bei "Unsere Tiere").
                     </p><p>
-                        Eine präzise und gut aufbereitete Darstellung der Informationen macht leicht erkenntlich, dass es verschiedene Nutzerrollen und Berechtigungsumpfänge gibt.
-                    </p><br/>
+                        Die "Unsere Tiere"-Seite bietet noch weitere Features. Unter anderem können Tiere favorisiert werden, wenn sie dem Nutzer gefallen. Dies wurde mit Cookies durch JavaScript umgesetzt. Weiterhin können die
+                        Nutzer die Tiere nach Tierart, Rasse und Geschlecht filtern. Gibt es mit den eingestellten Filtern mehr als 8 Tiere, wird ein "Weitere Tiere anzeigen"-Button angezeigt, welcher es ermöglicht weitere Tiere mit AJAX nachzuladen.
+                    </p><p>
+                        Ein Besucher der Seite wird erstmal als Gast angezeigt. Er sieht an verschiedenen Stellen, dass man sich anmelden kann, um weitere Inhalte zu sehen. Das sieht beispielsweise so aus:
+                    </p>
+
+                    <br />
                     <img src="../public/imgDokumentationDWP/BeforeRegistration.png" title="" alt="Gast Nutzerrollen" draggable="false">
                     <div class="caption">Abbildung : Gast Nutzerrollen</div>
-                    <br/>
-                    <h3> Umsetzung in der Datenbank</h3>
-                    <p><br/>
-                        Die Rollen und deren Berechtigung werden innerhalb der Tabelle "Nutzerrollen" definiert.
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung : DB Create Nutzerrollen</div>
-                    <br/>
                     <p>
-                        • Rolle:                            Der Name der Rolle (Administator, Nutzer, Gast)<br/>
-                        • kannLesen:                        Gibt an, ob der Nutzer Inhalte lesen darf <br/>
-                        • kannSchreiben:                    Gibt an, ob der Nutzer neue Inhalte erstellen darf <br/>
-                        • kannEigenesBearbeitenUndLoeschen: Bestimmt, ob der Nutzer seine eigenen Inhalte bearbeiten und löschen darf <br/>
-                        • kannAllesLoeschen:                Legt fest, ob der Nutzer Inhalte anderer löschen darf <br/>
-                    </p><br/><p>
-                        Ein beispielhafter Insert kann den folgenden Abbildung entnommen werden.
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/InsertNutzerrollen.png" title="" alt="DB Insert Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung : DB Insert Nutzerrollen</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/Bsp.Nutzerrollen.png" title="" alt="Bsp. Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung : Bsp. Nutzerrollen</div>
+                        Sobald sich ein Nutzer angemeldet hat, kann er auf verschiedene weitere Informationen zugreifen. Unter anderem kann er nun Tiere als vermisst oder gefunden melden. Sollte er eine Anzeige eingestellt haben,
+                        kann er diese später auch bearbeiten oder löschen. Ein Administrator kann alle Anzeigen löschen.
+                    </p><p>
+                        Weitere Informationen über die Nutzerrollen sind <a href="#rollenkonzept" draggable="false">hier</a> zu finden.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -812,22 +684,19 @@
                     <h3 id="formulare">4.2 Dynamische Formulare und Eingabevalidierung</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Die Anwendung bietet dynamische Formulare, die eine benutzerfreundliche Eingabe und Validierung in Echtzeit ermöglichen. Mithilfe von JavaScript werden Eingaben direkt beim Ausfüllen geprüft, um fehlerhafte oder unvollständige Daten zu vermeiden.
+                        Die Anwendung bietet mehrere Formulare, die eine benutzerfreundliche Eingabe und Validierung in Echtzeit ermöglichen. Mithilfe von JavaScript werden Eingaben direkt beim Ausfüllen geprüft,
+                        um fehlerhafte oder unvollständige Daten zu vermeiden. Dabei werden Fehlermeldungen bei ungültigen Eingaben oder fehlenden Pflichtfeldern ausgegeben. Diese weisen den Nutzer schon bei Eingabe,
+                        in die Felder, an, mehr Buchstaben einzugeben. Gut zu sehen ist dies beispielsweise beim "Ort" im vermisst/gefunden Formular. In diesem Formular können auch Bilder hochgeladen werden. Es wird auch überprüft,
+                        ob das richtige Dateiformat vorliegt.
                     </p>
                     <p>
-                        Formulare für die Registrierung, Anmeldung und das Melden von vermissten Tieren bieten folgende Funktionen:
-                    </p>
-                    <ul>
-                        <li>Echtzeit Validierungen von E-Mail-Adressen und Passwörtern während der Eingabe.</li> <!-- public/js/loginRegisterForm.js -->
-                        <li>Fehlermeldungen bei ungültigen Eingaben oder fehlenden Pflichtfeldern.</li> <!-- public/js/loginRegisterForm.js -->
-                        <li>Validierung von Bild Uploads im Formular für vermisste Tiere, um Dateitypen zu überprüfen.</li> <!-- public/js/missingFoundForm.js -->
-                    </ul>
-                    <p>
-                        Die Formulare zur Anmeldung und Registrierung verwenden JavaScript und AJAX, um Daten zu senden und eine sofortige Rückmeldung zu erhalten. Dies verbessert die Benutzererfahrung und vermeidet unnötige Seitenreloads.
+                        Das Helfen Formular (zu finden im Menü unter Service/Infos) wird beispielsweise bei jedem neu laden der Seite zurückgesetzt. Dann werden neue Inputs geladen, während die alten entfernt werden.
                     </p>
                     <p>
-                        Diese Funktionen stellen sicher, dass die Formulare sowohl benutzerfreundlich als auch effizient sind und tragen zur Verbesserung der Datenqualität bei.
+                        Die Formulare, aber auch die Filterfunktion bei "Unsere Tiere", verwenden AJAX, um Daten zu senden und eine sofortige Rückmeldung zu erhalten. Dies verbessert die Benutzererfahrung und vermeidet
+                        unnötige Seiten-Reloads.
                     </p>
+
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
@@ -841,30 +710,28 @@
                 <h2 id="tests">5 Tests und Optimierungen</h2>
                 <hr class="underHeadline" />
                 <p>
-                    Die Anwendung wurde umfassend getestet, um Funktionalität, Benutzerfreundlichkeit und Leistung sicherzustellen. Dabei kamen manuelle Testverfahren zum Einsatz.
+                    Die Anwendung wurde umfassend getestet, um Funktionalität, Benutzerfreundlichkeit und Leistung sicherzustellen. Dabei kamen manuelle Testverfahren zum Einsatz. Dadurch wurde sichergestellt, dass alle Anforderungen entsprechend funktionieren und fehlerfrei arbeiten.
                 </p><br/>
                 <p>
                     <b>Funktionale Tests:</b><br>
-                    Alle Hauptfunktionen wie Registrierung, Anmeldung, Filter und Suchfunktionen sowie das Melden vermisster Tiere und der Bild Upload wurden getestet, um sicherzustellen, dass sie den Anforderungen entsprechen und fehlerfrei arbeiten. <!-- enthalten in  loginRegisterForm.js, missingFoundForm.js, loadHome.js, Bild Upload noch in missingFoundForm.js von Phina enthalten -->
+                    Alle Hauptfunktionen wie Registrierung, Anmeldung, Filter und Suchfunktionen sowie das Melden vermisster und gefundener Tiere wurden getestet.
                 </p><br/>
                 <p>
                     <b>Validierung Tests:</b><br>
-                    Formulare wurden auf korrekte Eingabevalidierung überprüft, insbesondere die Echtzeitprüfungen. Fehlerhafte Eingaben wurden erfolgreich erkannt und dem Benutzer gemeldet.
+                    Formulare wurden auf korrekte Eingabevalidierung überprüft, insbesondere die Echtzeitprüfungen. Fehlerhafte Eingaben werden erfolgreich erkannt und dem Benutzer gemeldet.
                 </p>
                 <p><br/>
                     <b>Performance Tests:</b><br>
-                    Die Ladezeiten der dynamischen Inhalte wurden getestet, um sicherzustellen, dass die Daten schnell geladen und angezeigt werden. Hierbei wurde insbesondere die AJAX Funktionalität optimiert.
+                    Die Ladezeiten der dynamischen Inhalte wurden getestet, um sicherzustellen, dass die Daten schnell geladen und angezeigt werden.
                 </p>
                 <p><br/>
                     <b>Sicherheitsüberprüfungen:</b><br>
-                    Es wurden Tests zur SQL Injection Prävention und zur sicheren Speicherung von Passwörtern durchgeführt.  <!-- ist in Connection.php enthalten, wurde mit den prepare statement umgesetzt -->
+                    Es wurden Tests zur SQL Injection Prävention und zur sicheren Speicherung von Passwörtern durchgeführt.
                 </p>
                 <p><br/>
                     <b>Optimierungen:</b><br>
-                    Basierend auf den Testergebnissen wurden Optimierungen an der Performance, den Validierungen und der Fehlerbehandlung vorgenommen, um klare Rückmeldungen zu bieten.
-                </p><br/>
-                <img src="../public/imgDokumentationDWP/Front-Backend.png" title="" alt="Front-Backend" draggable="false">
-                <div class="caption">Abbildung 12: Frontend vs Backend</div>
+                    Basierend auf den Testergebnissen wurden Optimierungen an der Performance, den Validierungen und der Fehlerbehandlung vorgenommen.
+                </p>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -877,16 +744,12 @@
                         Im Rahmen der Frontend-Tests wurden die Benutzeroberfläche und die interaktiven Features der Anwendung ausführlich getestet. Dabei wurde besonderes Augenmerk auf Funktionalität, Benutzerfreundlichkeit und Kompatibilität gelegt.
                     </p>
                     <p><br/>
-                        <b>Responsives Design:</b><br>
-                        Die Anwendung wurde auf unterschiedlichen Bildschirmauflösungen getestet. Das Layout passt sich flexibel an, um eine optimale Darstellung zu gewährleisten.
-                    </p>
-                    <p><br/>
                         <b>Interaktive Elemente:</b><br>
                         Dynamische Inhalte, Filterfunktionen und Formulare wurden getestet, um sicherzustellen, dass die AJAX und Validierungsfunktionen korrekt arbeiten. Dies umfasst das Laden von Inhalten ohne Seitenreload sowie die Echtzeitprüfung von Eingaben.
                     </p>
                     <p><br/>
                         <b>Formularvalidierungen:</b><br>
-                        Die Formularvalidierungen für E-Mail Adressen, Passwörter und Bild Uploads wurden getestet. Fehlerhafte Eingaben wurden erkannt und den Nutzern entsprechende Hinweise angezeigt.
+                        Die Formularvalidierungen für E-Mail-Adressen, Passwörter und Bild Uploads wurden getestet. Fehlerhafte Eingaben wurden erkannt und den Nutzern entsprechende Hinweise angezeigt.
                     </p><br/>
                     <p>
                         <b>Browser Kompatibilität:</b><br>
@@ -906,7 +769,7 @@
                     <h3 id="backendTests">5.2 Backend-Tests</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Im Rahmen der Backend Tests wurden die Datenbankanbindung und Sicherheitsaspekte überprüft. Dabei lag der Fokus auf den implementierten Funktionen und deren Stabilität.
+                        Im Rahmen der Backend-Tests wurden die Datenbankanbindung und Sicherheitsaspekte überprüft. Dabei lag der Fokus auf den implementierten Funktionen und deren Stabilität.
                     </p><br/>
                     <p>
                         <b>Datenbankoperationen:</b><br>
@@ -915,10 +778,6 @@
                     <p>
                         <b>Sicherheitsüberprüfungen:</b><br>
                         SQL Injection Schutz wurde durch Prepared Statements in der Datei <code>Connection.php</code> getestet und als sicher befunden. <!-- haben wir passwort hashing? -->
-                    </p><br/>
-                    <p>
-                        <b>Optimierungen:</b><br>
-                        Aktuell wurden keine spezifischen Performance Optimierungen implementiert und konnten daher nicht getestet werden.
                     </p>
 
                     <div class="backButton">
