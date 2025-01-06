@@ -69,11 +69,12 @@
                 <dd><a href="#technologien" draggable="false">2.1 Technologie- und Architekturwahl</a></dd>
                 <dd><a href="#zeitplanMeilensteine" draggable="false">2.2 Zeitplan und Meilensteine</a></dd>
                 <dd><a href="#aufgabenaufteilung" draggable="false">2.3 Geplante Aufgabenteilung</a></dd>
-                <dd><a href="#funktionalität" draggable="false">2.4 Übersicht der Funktionalitäten und Seitenstruktur</a> </dd>
+                <dd><a href="#funktionalitaet" draggable="false">2.4 Übersicht der Funktionalitäten und Seitenstruktur</a> </dd>
                 <dt><a href="#backend" draggable="false">3 Backend-Entwicklung</a></dt>
                 <dd><a href="#datenbankentwurf" draggable="false">3.1 Datenbankentwurf</a></dd>
                 <dd><a href="#datenbankAnbindung" draggable="false">3.2 Datenbank-Setup und Anbindung</a></dd>
                 <dd><a href="#php" draggable="false">3.3 PHP-Skripte und Logik</a></dd>
+                <dd><a href="#rollenkonzept" draggable="false">3.4 Rollenkonzept</a></dd>
                 <dt><a href="#interaktiveFeatures" draggable="false">4 Interaktive Features</a></dt>
                 <dd><a href="#benutzerinteraktion" draggable="false">4.1 Benutzerinteraktion</a></dd>
                 <dd><a href="#formulare" draggable="false">4.2 Dynamische Formulare und Eingabevalidierung</a></dd>
@@ -88,7 +89,6 @@
                 <dt><a href="#anlagen" draggable="false">8 Anlagenverzeichnis</a></dt>
                 <dd class="emptyDD">&nbsp;</dd>
                 <dt><a href="#quellen" draggable="false">9 Quellen</a></dt>
-                <dd class="emptyDD">&nbsp;</dd>
             </dl>
         </div>
 
@@ -349,7 +349,7 @@
                                         <li>dynamisches Laden der Seite "unsere Tiere" (Laden der Tiere aus Datenbank, Filterung der Tiere durch das Menü, Filterung der Tiere durch 3 Dropdown-Menüs,
                                     "Gefällt mir"-Funktion der Tiere, Nachladen der Tiere, Weiterlesen eines einzelnen Tieres) </li>
                                         <li>Fertigstellung der databaseInit Datei</li>
-                                        <li>Prüfung und Ergänzung der Dokumentation</li>
+                                        <li>Prüfung und Fertigstellung der Dokumentation</li>
                                         <li>Fertigstellung der "Aktuelles"-Seite (Weiterlesen eines einzelnen Artikels)</li>
                                         <li>Unterstützung bei Komplikationen</li>
                                     </ul>
@@ -384,10 +384,8 @@
                 </div>
 
                 <div class="section">
-                    <h3 id="funktionalität">2.4 Übersicht der Funktionalitäten und Seitenstruktur</h3>
+                    <h3 id="funktionalitaet">2.4 Übersicht der Funktionalitäten und Seitenstruktur</h3>
                     <hr class="underHeadline" />
-                    <br/>
-
                     <p>
                         Das Folgende zeigt einen detaillierten Überblick über die einzelnen Abschnitte, die in diesem Teil des Projekts (dynamische Webprogrammierung)
                         verändert wurden. Programmcode, welcher durch das Modul Grundlagen Webprogrammierung erstellt wurde, wird hier nicht weiter erwähnt.
@@ -544,7 +542,7 @@
                 <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
                 <br/>
                 <img src="../public/imgDokumentationDWP/RelationalesSchema.png" title="Relationales Schema" alt="Relationales Schema" draggable="false">
-                <div class="caption">Abbildung 08: Relationalenmodell</div>
+                <div class="caption">Abbildung 08: Relationenmodell</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -600,6 +598,42 @@
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
             </div>
+
+
+            <div class="section">
+                <h3 id="rollenkonzept">3.4 Rollenkonzept</h3>
+                <hr class="underHeadline" />
+                <p>
+                    Das Rollenmodell dieses Projekts dient dazu, unterschiedliche Berechtigungsstufen für Nutzer festzulegen. Dadurch wird sichergestellt, dass bestimmte Aktionen nur von
+                    autorisierten Personen durchgeführt werden können. Dies ist besonders wichtig, um sensible Daten zu schützen und die Integrität der Ihnalte zu gewährleisten.
+                </p><br/><p>
+                    Die Nutzerverwaltung basiert auf drei Hauptrollen:
+                </p>
+                <ul class="tasks" style="padding-left: 20px;">
+                    <li>Gast - kann Inhalte nur Lesen aber keine Änderungen vornehmen</li>
+                    <li>Nutzer - hat die Rechte eines Gastes und kann Inhalte erstellen sowie eigene Einträge (vermisste / gefundene Tiere) Bearbeiten und Löschen</li>
+                    <li>Administrator - hat die Rechte eines Nutzers und kann zusätzlich alle Einträge (vermisste / gefundene Tiere) Bearbeiten und Löschen</li>
+                </ul>
+                <br/>
+                <p>
+                    Die Anmeldung erfolgt über das Login Formular:
+                </p><br/>
+                <img src="../public/imgDokumentationDWP/LoginFormular.png" title="" alt="Login Oberfläche" draggable="false">
+                <div class="caption">Abbildung : Login Oberfläche</div>
+
+                <br /><br/>
+
+                <p>
+                    Die Rollen und deren Berechtigung werden innerhalb der Datenkbanktabelle "Nutzerrollen" definiert. Dabei werden die Rechte als Boolean in der Tabelle mit verwaltet (kannLesen, kannSchreiben, kannEigenesBearbeitenUndLoeschen, kannAllesLoeschen).
+                    Dadurch kann sichergestellt werden, dass die jeweiligen Nutzer auch nur die entsprechenden Rechte erhalten.
+                </p><br/>
+                <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
+                <div class="caption">Abbildung : DB Create Nutzerrollen</div>
+
+                <div class="backButton">
+                    <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
+                </div>
+            </div>
         </div>
 
         <div class="container">
@@ -607,99 +641,38 @@
                 <h2 id="interaktiveFeatures">4 Interaktive Features</h2>
                 <hr class="underHeadline" />
                 <p>
-                    Die Anwendung bietet eine Vielzahl interaktiver Features, die die Benutzerfreundlichkeit erhöhen und dynamische Funktionen bereitstellen. Diese wurden durch JavaScript und PHP umgesetzt.
+                    Die Anwendung bietet eine Vielzahl interaktiver Features, die die Benutzerfreundlichkeit erhöhen und dynamische Funktionen bereitstellen. Diese wurden bereits unter
+                    <a href="#funktionalitaet" draggable="false">"2.4 Übersicht der Funktionalitäten und Seitenstruktur"</a> beschrieben. Nachfolgend werden lediglich ein paar JavaScript Features beschrieben.
                 </p>
-                <p>
-                    Dynamische Inhalte werden beispielsweise auf der Startseite und im Bereich "Aktuelles" geladen. Hierfür sorgen Skripte wie aktuelles.js und loadHome.js, die Inhalte nachladen und aktualisieren.
-                    <br /> Dies geschieht mittels AJAX, vorteile von AJAX sind unter anderem schnellere Ladezeiten, da nur die benötigten Dateien geladen werden und nicht die gesamte Seite, bessere Benutzererfahrung da Daten im Hintergrund geladen werden und der Nutzer noch weiterhin mit der Seite interagieren kann.
-                </p>
-                <p>
-                    Filter und Suchfunktionen ermöglichen es den Nutzern, Tiere basierend auf spezifischen Kriterien wie Art, Rasse oder Status (vermisst/gefunden) zu filtern.
-                </p>
-                <p>
-                    Zusätzlich können Nutzer Tiere als Favoriten markieren, indem sie auf ein Herz Symbol klicken. Diese Favoritenfunktion ermöglicht eine personalisierte Nutzung und könnte in der Datenbank gespeichert werden, um später darauf zugreifen zu können (aktuell nicht implementiert, die Daten werden in Cookies gespeichert).
-                </p>
-                <p>
-                    Formulare zur Registrierung, Anmeldung und zum Melden vermisster Tiere beinhalten Validierungen und dynamische Eingabefelder. Diese Funktionalitäten werden durch Skripte wie loginRegisterForm.js und missingFoundForm.js umgesetzt.
-                </p>
-                <p>
-                    Für eine moderne und intuitive Benutzeroberfläche wurden Icons und Symbole aus der FontAwesome Bibliothek integriert. Zusätzlich sorgen responsive Navigationselemente für eine optimale Darstellung auf verschiedenen Geräten.
-                </p>
-                <p>
-                    Alle Skripte befinden sich im Verzeichnis "public/js" und sind modular aufgebaut, um eine einfache Erweiterbarkeit und Wartung zu gewährleisten.
-                </p><br/>
-                <img src="../public/imgDokumentationDWP/Favoritenfunktion.png" title="" alt="Code: Favoritenfunktion" draggable="false">
-                <div class="caption">Abbildung 11: Umsetzung der Favoritenfunktion</div>
+
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                 </div>
-
-
 
                 <div class="section">
                     <h3 id="benutzerinteraktion">4.1 Benutzerinteraktion</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Die Anwendung bietet eine Vielzahl von Benutzerinteraktionen, die eine dynamische und personalisierte Nutzung ermöglichen.
-                    </p>                    <p>
-                        Nutzer können Tiere in einer Liste durch Filter und Suchfunktionen gezielt finden. Hierbei werden Kriterien wie Tierart, Rasse und Status (vermisst oder gefunden) verwendet, um die Ergebnisse anzupassen.
-                    </p>                    <p>
-                        Eine Favoritenfunktion ermöglicht es den Nutzern, Tiere durch Klicken auf ein Herz Symbol als Favoriten zu markieren.
-                    </p>                    <p>
-                        Formulare zur Registrierung, Anmeldung und Meldung vermisster Tiere bieten interaktive Validierungen. Nutzereingaben werden in Echtzeit geprüft, um Fehler zu vermeiden und die Benutzerfreundlichkeit zu verbessern.
-                    </p>                    <p>
-                        Inhalte auf der Startseite werden dynamisch geladen, sodass Nutzer stets aktuelle Informationen erhalten, ohne die Seite neu laden zu müssen.
-                    </p>                    <p>
-                        Die Benutzeroberfläche wurde für unterschiedliche Bildschirmgrößen optimiert und passt sich dynamisch an. Dies sorgt für eine reibungslose Bedienung.
-                    </p>                    <p>
-                        Es wurde auf eine Logik und Unterteilung der Interaktiven Features geachtet, um diese klar zu trennen wurden ebenfalls Nutzerrollen eingefügt, auf diese möchten wir nun näher eingehen.
-                    </p><br/>
-                    <h3> Einführung </h3>
-                    <p><br/>
-                        Das Rollenmodell in der Anwendung Tierheimat dient dazu, unterschiedliche Berechtigungsstufen für Nutzer festzulegen. Dadurch wird sichergestellt, dass bestimmte Aktionen nur von autorisierten Personen durchgeführt werden können.
-                    </p>                    <p>
-                        Dies ist besonders wichtig, um sensible Daten zu schützen und die Integrität der Ihnalte zu gewährleisten.
-                    </p><p><br/>
-                        Die Nutzerverwaltung basiert auf drei Hauptrollen:
+                        Die Inhalte mehrerer Seiten (beispielsweise bei der Seite "Unsere Tiere") werden dynamisch mit Ajax beim Aufrufen der Seite nachgeladen. So besteht die Möglichkeit, dass sich der Nutzer die
+                        Seite bereits anschauen kann, während die Inhalte aus der Datenbank noch geladen werden. Dem Nutzer wird hier jeweils ein Ladesymbol angezeigt, damit dieser weiß, dass der Inhalt der Seite noch lädt.
                     </p><p>
-                        • Administrator - hat alle Rechte, einschließlich Bearbeiten und Löschen <br/>
-                        • Nutzer        - kann Inhalte erstellen, eigene Bearbeiten und Löschen <br/>
-                        • Gast          - kann Inhalte nur Lesen aber keine Änderungen vornehmen
-                    </p><br/>
-                    <p>
-                        Die Anmeldung erfolgt über folgende Oberfläche.
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/LoginFormular.png" title="" alt="Login Oberfläche" draggable="false">
-                    <div class="caption">Abbildung : Login Oberfläche</div>
-                    <p><br/>
-                        In der Nachfolgenden Abbildung kann ein Auszug der Webseite aus Sicht des Gastes nachempfunden werden.
+                        Auf verschiedenen Seiten besteht außerdem die Möglichkeit einen "Weiterlesen"-Button anzuklicken. Dieser ermöglicht es detaillierte Informationen über das angeklickte Element zu erhalten (u.a. bei "Unsere Tiere").
                     </p><p>
-                        Eine präzise und gut aufbereitete Darstellung der Informationen macht leicht erkenntlich, dass es verschiedene Nutzerrollen und Berechtigungsumpfänge gibt.
-                    </p><br/>
+                        Die "Unsere Tiere"-Seite bietet noch weitere Features. Unter anderem können Tiere favorisiert werden, wenn sie dem Nutzer gefallen. Dies wurde mit Cookies durch JavaScript umgesetzt. Weiterhin können die
+                        Nutzer die Tiere nach Tierart, Rasse und Geschlecht filtern. Gibt es mit den eingestellten Filtern mehr als 8 Tiere, wird ein "Weitere Tiere anzeigen"-Button angezeigt, welcher es ermöglicht weitere Tiere mit AJAX nachzuladen.
+                    </p><p>
+                        Ein Besucher der Seite wird erstmal als Gast angezeigt. Er sieht an verschiedenen Stellen, dass man sich anmelden kann, um weitere Inhalte zu sehen. Das sieht beispielsweise so aus:
+                    </p>
+
+                    <br />
                     <img src="../public/imgDokumentationDWP/BeforeRegistration.png" title="" alt="Gast Nutzerrollen" draggable="false">
                     <div class="caption">Abbildung : Gast Nutzerrollen</div>
-                    <br/>
-                    <h3> Umsetzung in der Datenbank</h3>
-                    <p><br/>
-                        Die Rollen und deren Berechtigung werden innerhalb der Tabelle "Nutzerrollen" definiert.
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung : DB Create Nutzerrollen</div>
-                    <br/>
                     <p>
-                        • Rolle:                            Der Name der Rolle (Administator, Nutzer, Gast)<br/>
-                        • kannLesen:                        Gibt an, ob der Nutzer Inhalte lesen darf <br/>
-                        • kannSchreiben:                    Gibt an, ob der Nutzer neue Inhalte erstellen darf <br/>
-                        • kannEigenesBearbeitenUndLoeschen: Bestimmt, ob der Nutzer seine eigenen Inhalte bearbeiten und löschen darf <br/>
-                        • kannAllesLoeschen:                Legt fest, ob der Nutzer Inhalte anderer löschen darf <br/>
-                    </p><br/><p>
-                        Ein beispielhafter Insert kann den folgenden Abbildung entnommen werden.
-                    </p><br/>
-                    <img src="../public/imgDokumentationDWP/InsertNutzerrollen.png" title="" alt="DB Insert Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung : DB Insert Nutzerrollen</div>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/Bsp.Nutzerrollen.png" title="" alt="Bsp. Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung : Bsp. Nutzerrollen</div>
+                        Sobald sich ein Nutzer angemeldet hat, kann er auf verschiedene weitere Informationen zugreifen. Unter anderem kann er nun Tiere als vermisst oder gefunden melden. Sollte er eine Anzeige eingestellt haben,
+                        kann er diese später auch bearbeiten oder löschen. Ein Administrator kann alle Anzeigen löschen.
+                    </p><p>
+                        Weitere Informationen über die Nutzerrollen sind <a href="#rollenkonzept" draggable="false">hier</a> zu finden.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -711,22 +684,19 @@
                     <h3 id="formulare">4.2 Dynamische Formulare und Eingabevalidierung</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Die Anwendung bietet dynamische Formulare, die eine benutzerfreundliche Eingabe und Validierung in Echtzeit ermöglichen. Mithilfe von JavaScript werden Eingaben direkt beim Ausfüllen geprüft, um fehlerhafte oder unvollständige Daten zu vermeiden.
+                        Die Anwendung bietet mehrere Formulare, die eine benutzerfreundliche Eingabe und Validierung in Echtzeit ermöglichen. Mithilfe von JavaScript werden Eingaben direkt beim Ausfüllen geprüft,
+                        um fehlerhafte oder unvollständige Daten zu vermeiden. Dabei werden Fehlermeldungen bei ungültigen Eingaben oder fehlenden Pflichtfeldern ausgegeben. Diese weisen den Nutzer schon bei Eingabe,
+                        in die Felder, an, mehr Buchstaben einzugeben. Gut zu sehen ist dies beispielsweise beim "Ort" im vermisst/gefunden Formular. In diesem Formular können auch Bilder hochgeladen werden. Es wird auch überprüft,
+                        ob das richtige Dateiformat vorliegt.
                     </p>
                     <p>
-                        Formulare für die Registrierung, Anmeldung und das Melden von vermissten Tieren bieten folgende Funktionen:
-                    </p>
-                    <ul>
-                        <li>Echtzeit Validierungen von E-Mail-Adressen und Passwörtern während der Eingabe.</li> <!-- public/js/loginRegisterForm.js -->
-                        <li>Fehlermeldungen bei ungültigen Eingaben oder fehlenden Pflichtfeldern.</li> <!-- public/js/loginRegisterForm.js -->
-                        <li>Validierung von Bild Uploads im Formular für vermisste Tiere, um Dateitypen zu überprüfen.</li> <!-- public/js/missingFoundForm.js -->
-                    </ul>
-                    <p>
-                        Die Formulare zur Anmeldung und Registrierung verwenden JavaScript und AJAX, um Daten zu senden und eine sofortige Rückmeldung zu erhalten. Dies verbessert die Benutzererfahrung und vermeidet unnötige Seitenreloads.
+                        Das Helfen Formular (zu finden im Menü unter Service/Infos) wird beispielsweise bei jedem neu laden der Seite zurückgesetzt. Dann werden neue Inputs geladen, während die alten entfernt werden.
                     </p>
                     <p>
-                        Diese Funktionen stellen sicher, dass die Formulare sowohl benutzerfreundlich als auch effizient sind und tragen zur Verbesserung der Datenqualität bei.
+                        Die Formulare, aber auch die Filterfunktion bei "Unsere Tiere", verwenden AJAX, um Daten zu senden und eine sofortige Rückmeldung zu erhalten. Dies verbessert die Benutzererfahrung und vermeidet
+                        unnötige Seiten-Reloads.
                     </p>
+
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
