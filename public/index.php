@@ -51,6 +51,8 @@ $router->add('/load/all/for/home', 'HomeController', "loadAllForHome", '');
 $router->add('/user/login', 'UserController', 'login', '');
 $router->add('/logout', 'UserController', 'logout', '');
 $router->add('/user/register', 'UserController', 'register', '');
+$router->add('/load/article/detail', 'CurrentController', "loadArticleDetail", '');
+
 
 // get URL - which page to open:
 $baseUrl = str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['SCRIPT_FILENAME']);
