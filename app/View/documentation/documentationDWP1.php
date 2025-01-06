@@ -710,30 +710,28 @@
                 <h2 id="tests">5 Tests und Optimierungen</h2>
                 <hr class="underHeadline" />
                 <p>
-                    Die Anwendung wurde umfassend getestet, um Funktionalität, Benutzerfreundlichkeit und Leistung sicherzustellen. Dabei kamen manuelle Testverfahren zum Einsatz.
+                    Die Anwendung wurde umfassend getestet, um Funktionalität, Benutzerfreundlichkeit und Leistung sicherzustellen. Dabei kamen manuelle Testverfahren zum Einsatz. Dadurch wurde sichergestellt, dass alle Anforderungen entsprechend funktionieren und fehlerfrei arbeiten.
                 </p><br/>
                 <p>
                     <b>Funktionale Tests:</b><br>
-                    Alle Hauptfunktionen wie Registrierung, Anmeldung, Filter und Suchfunktionen sowie das Melden vermisster Tiere und der Bild Upload wurden getestet, um sicherzustellen, dass sie den Anforderungen entsprechen und fehlerfrei arbeiten. <!-- enthalten in  loginRegisterForm.js, missingFoundForm.js, loadHome.js, Bild Upload noch in missingFoundForm.js von Phina enthalten -->
+                    Alle Hauptfunktionen wie Registrierung, Anmeldung, Filter und Suchfunktionen sowie das Melden vermisster und gefundener Tiere wurden getestet.
                 </p><br/>
                 <p>
                     <b>Validierung Tests:</b><br>
-                    Formulare wurden auf korrekte Eingabevalidierung überprüft, insbesondere die Echtzeitprüfungen. Fehlerhafte Eingaben wurden erfolgreich erkannt und dem Benutzer gemeldet.
+                    Formulare wurden auf korrekte Eingabevalidierung überprüft, insbesondere die Echtzeitprüfungen. Fehlerhafte Eingaben werden erfolgreich erkannt und dem Benutzer gemeldet.
                 </p>
                 <p><br/>
                     <b>Performance Tests:</b><br>
-                    Die Ladezeiten der dynamischen Inhalte wurden getestet, um sicherzustellen, dass die Daten schnell geladen und angezeigt werden. Hierbei wurde insbesondere die AJAX Funktionalität optimiert.
+                    Die Ladezeiten der dynamischen Inhalte wurden getestet, um sicherzustellen, dass die Daten schnell geladen und angezeigt werden.
                 </p>
                 <p><br/>
                     <b>Sicherheitsüberprüfungen:</b><br>
-                    Es wurden Tests zur SQL Injection Prävention und zur sicheren Speicherung von Passwörtern durchgeführt.  <!-- ist in Connection.php enthalten, wurde mit den prepare statement umgesetzt -->
+                    Es wurden Tests zur SQL Injection Prävention und zur sicheren Speicherung von Passwörtern durchgeführt.
                 </p>
                 <p><br/>
                     <b>Optimierungen:</b><br>
-                    Basierend auf den Testergebnissen wurden Optimierungen an der Performance, den Validierungen und der Fehlerbehandlung vorgenommen, um klare Rückmeldungen zu bieten.
-                </p><br/>
-                <img src="../public/imgDokumentationDWP/Front-Backend.png" title="" alt="Front-Backend" draggable="false">
-                <div class="caption">Abbildung 12: Frontend vs Backend</div>
+                    Basierend auf den Testergebnissen wurden Optimierungen an der Performance, den Validierungen und der Fehlerbehandlung vorgenommen.
+                </p>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -746,16 +744,12 @@
                         Im Rahmen der Frontend-Tests wurden die Benutzeroberfläche und die interaktiven Features der Anwendung ausführlich getestet. Dabei wurde besonderes Augenmerk auf Funktionalität, Benutzerfreundlichkeit und Kompatibilität gelegt.
                     </p>
                     <p><br/>
-                        <b>Responsives Design:</b><br>
-                        Die Anwendung wurde auf unterschiedlichen Bildschirmauflösungen getestet. Das Layout passt sich flexibel an, um eine optimale Darstellung zu gewährleisten.
-                    </p>
-                    <p><br/>
                         <b>Interaktive Elemente:</b><br>
                         Dynamische Inhalte, Filterfunktionen und Formulare wurden getestet, um sicherzustellen, dass die AJAX und Validierungsfunktionen korrekt arbeiten. Dies umfasst das Laden von Inhalten ohne Seitenreload sowie die Echtzeitprüfung von Eingaben.
                     </p>
                     <p><br/>
                         <b>Formularvalidierungen:</b><br>
-                        Die Formularvalidierungen für E-Mail Adressen, Passwörter und Bild Uploads wurden getestet. Fehlerhafte Eingaben wurden erkannt und den Nutzern entsprechende Hinweise angezeigt.
+                        Die Formularvalidierungen für E-Mail-Adressen, Passwörter und Bild Uploads wurden getestet. Fehlerhafte Eingaben wurden erkannt und den Nutzern entsprechende Hinweise angezeigt.
                     </p><br/>
                     <p>
                         <b>Browser Kompatibilität:</b><br>
@@ -775,7 +769,7 @@
                     <h3 id="backendTests">5.2 Backend-Tests</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Im Rahmen der Backend Tests wurden die Datenbankanbindung und Sicherheitsaspekte überprüft. Dabei lag der Fokus auf den implementierten Funktionen und deren Stabilität.
+                        Im Rahmen der Backend-Tests wurden die Datenbankanbindung und Sicherheitsaspekte überprüft. Dabei lag der Fokus auf den implementierten Funktionen und deren Stabilität.
                     </p><br/>
                     <p>
                         <b>Datenbankoperationen:</b><br>
@@ -784,10 +778,6 @@
                     <p>
                         <b>Sicherheitsüberprüfungen:</b><br>
                         SQL Injection Schutz wurde durch Prepared Statements in der Datei <code>Connection.php</code> getestet und als sicher befunden. <!-- haben wir passwort hashing? -->
-                    </p><br/>
-                    <p>
-                        <b>Optimierungen:</b><br>
-                        Aktuell wurden keine spezifischen Performance Optimierungen implementiert und konnten daher nicht getestet werden.
                     </p>
 
                     <div class="backButton">
