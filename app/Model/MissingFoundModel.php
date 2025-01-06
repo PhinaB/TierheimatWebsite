@@ -183,8 +183,14 @@ class MissingFoundModel extends AbstractModel
         $userRoleArray = $userRoleModel->getUserRoles($currentUserId);
 
         $canEditAndDeleteOwn = $userRoleArray->isKannEigenesBearbeitenUndLoeschen();
+        $canDeleteAll = $userRoleArray->isKannAllesLoeschen();
 
-        if (!$canEditAndDeleteOwn && $createdById === $currentUserId) {
+        if($canDeleteAll)
+        {
+            return true;
+        }
+
+        if ($canEditAndDeleteOwn && $createdById === $currentUserId) {
             return true;
         } else {
             return false;

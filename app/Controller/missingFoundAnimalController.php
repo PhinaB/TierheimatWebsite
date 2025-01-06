@@ -90,20 +90,10 @@ class missingFoundAnimalController
                 $missingAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('vermisst');
                 $foundAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('gefunden');
 
-                if(empty($missingAnimals)&& empty($foundAnimals)){
-                    echo json_encode(['message' => 'Keine Tiere gefunden.']);
-                    return;
-                }
-
                 echo json_encode(['missingAnimals' => $missingAnimals, 'foundAnimals' => $foundAnimals]);
                 return;
             } else {
                 $animals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
-
-                if(empty($animals)){
-                    echo json_encode(['message' => 'Keine Tiere gefunden.']);
-                    return;
-                }
 
                 echo json_encode(['animals' => $animals]);
             }
