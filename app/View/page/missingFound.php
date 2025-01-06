@@ -41,7 +41,7 @@
     <p id="errorMissingAnimals" class="fehlermeldung"></p>
     <div id="copyFirstMissingAnimalHere"></div>
 
-    <div id="hiddenFirstMissingAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+    <div id="hiddenFirstMissingAnimalTemplate" class="animal hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
         <div class="animalImageContainer">
             <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
         </div>

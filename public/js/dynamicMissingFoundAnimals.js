@@ -126,16 +126,15 @@ function displayAnimals(animals, type) {
         console.log(`copyFirst${type==="Vermisste Tiere" ? 'Missing' : 'Found'}AnimalHere`)
         copyFirstAnimalHere.appendChild(cloneFirstAnimal);
 
-        cloneFirstAnimal.querySelector('.firstAnimalId').innerHTML = animals[0].VermisstGefundenTierID;
+        cloneFirstAnimal.id="";
+        cloneFirstAnimal.setAttribute('data-animal-id', animals[0].VermisstGefundenTiereID);
+        console.log(cloneFirstAnimal.querySelector('#data-animal-id'));
         cloneFirstAnimal.querySelector('.firstAnimalImage').src = animals[0].Bildadresse;
         cloneFirstAnimal.querySelector('.firstAnimalDate').innerHTML = '<span class="boldText animalDate">am: </span> ' + formatDate(animals[0].Datum);
         cloneFirstAnimal.querySelector('.firstAnimalPlace').innerHTML = '<span class="boldText">in: </span>' + animals[0].Ort;
         cloneFirstAnimal.querySelector('.firstAnimalDescription').innerHTML = animals[0].Beschreibung;
 
         cloneFirstAnimal.classList.remove('hidden');
-
-        cloneFirstAnimal.id="";
-        cloneFirstAnimal.setAttribute('data-firstAnimal-id', animals[0].VermisstGefundenTierID);
 
         //----------Dynamisches Anlegen der maximal vier Tiere ------------------------
         let counter = 0;
@@ -156,9 +155,8 @@ function displayAnimals(animals, type) {
             clone.classList.remove('hidden');
             clone.classList.add('completeAnimal');
             clone.id = "";
-
-
-            clone.setAttribute('data-animal-id', animals[i].VermisstGefundenTierID);
+            clone.setAttribute('data-animal-id', animals[i].VermisstGefundenTiereID);
+            console.log(clone.querySelector('#data-animal-id'));
 
             const imageElement = clone.querySelector('.animalImage');
             const imageUrl = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
