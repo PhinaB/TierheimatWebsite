@@ -19,18 +19,44 @@
     <!--
     TODO WICHTIG!!!!
 
-
-
-
-    -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung
-
-
-    -Rollenmodell für die Nutzer -> Teilweise Implementiert, würde noch gerne mehr Code Beispiele einbringen, Feedback ausstehend um Aufwand und Sinnhaftigkeit abzuschätzen
-
-     -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ... → abgeschlossen, ist z.B mit der favourite Funktion benannnt, dass diese als Cookies gespeichert werden und nicht in der DB
     -Auflistung Tätigkeiten jeder Person und benötigter Aufwand → integriert bis auf die h per person
-    -ERM und relationales Modell für die DB!  → integriert
--Beschreibung der Funktionalitäten für jede Seite (beschriftete Screenshots) -> done
+
+  -falls Druck css funktioniert: diese noch irgendwo erwähnen (2.4 > vermisst/gefunden)
+
+TODO:
+    -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung (Login) -> in etwa so:
+    Startpunkt:
+
+                Der Benutzer ruft die erste Seite des Formulars oder den Login-Bereich auf.
+
+            Login (falls erforderlich):
+
+                Der Benutzer gibt Anmeldedaten ein.
+                Diese werden überprüft (z. B. gegen eine Datenbank).
+                Erfolg: Der Benutzer wird weitergeleitet.
+                Fehler: Eine Fehlermeldung wird angezeigt, und der Benutzer versucht es erneut.
+
+            Schrittweises Ausfüllen des Formulars:
+
+                Mehrere Seiten (Schritte) des Formulars werden durchlaufen.
+                Der Benutzer gibt Daten ein und klickt auf „Weiter“ oder „Absenden“.
+                Jede Seite wird validiert:
+                    Validierung auf der Client-Seite (Frontend): Überprüft, ob die Felder korrekt ausgefüllt sind (z. B. Pflichtfelder, Format).
+                    Validierung auf der Server-Seite (Backend): Überprüft die Daten nochmals serverseitig.
+
+            Fehlerbehandlung:
+
+                Bei einem Fehler (z. B. ungültige Eingabe) wird der Benutzer auf der aktuellen Seite gehalten und sieht Hinweise zur Korrektur.
+                Die Navigation ist blockiert, bis der Fehler behoben ist.
+
+            Speichern und Weiterleitung:
+
+                Die Daten werden auf dem Server gespeichert (z. B. in einer Datenbank).
+                Der Benutzer wird zu einer Bestätigungsseite oder nächsten Seite weitergeleitet.
+
+            Abschluss:
+
+                Nach erfolgreicher Eingabe und Validierung aller Daten wird der Prozess abgeschlossen (z. B. durch eine Dankes- oder Bestätigungsseite).
     -->
 
     <main>
@@ -100,6 +126,7 @@
                     Diese Seite dokumentiert den zweiten Teil des Projekts
                     <img src="../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">, das über zwei Semester in den Modulen
                     "Grundlegende Webprogrammierung" und "Dynamische Webprogrammierung" entwickelt wurde. Eine detaillierte Dokumentation des ersten Teils ist <a href="dokuGWP" draggable="false">hier</a> verfügbar.
+                    Informationen, wie die Wahl des Layouts und der Farben, aber auch die Zielgruppe, sind dort zu finden und werden in folgender Dokumentation nicht erneut erwähnt.
                 </p><br /><p>
                     Die Dokumentation ist in Abschnitte gegliedert, die die Projektziele, die Planung und Konzeption, die Backend-Entwicklung sowie die durchgeführten Tests abdecken.
                     Abschließend werden Lessons Learned und mögliche Weiterentwicklungen beschrieben.
@@ -166,14 +193,12 @@
                         Im zweiten Teil des Projekts liegt der Schwerpunkt auf der Entwicklung des Backends mit PHP sowie der Integration interaktiver Funktionen mit JavaScript, um die Webseite benutzerfreundlicher und funktionaler zu gestalten.
                     </p><br /><p>
                         Zunächst ist eine strukturierte Anbindung der Webseite an eine Datenbank vorgesehen. Diese ermöglicht eine effiziente Datenverwaltung, reduziert redundanten Code und bildet die Grundlage für verschiedene Formular- und Filterfunktionen. 
-                        Dazu wird ein Entity-Relationship-Modell entworfen, welches die spezifischen Anforderungen der Webseite abbildet. Beispielsweise eine „Tiere“ Tabelle, die zur Adoption freigegebene Tiere verwaltet.
+                        Dazu wird ein Entity-Relationship-Modell entworfen, welches die spezifischen Anforderungen der Webseite abbildet. Beispielsweise eine "Tiere" Tabelle, die zur Adoption freigegebene Tiere verwaltet.
                         Aus diesem Modell werden mithilfe von SQL die entsprechenden Tabellen in MariaDB erstellt.
                         Anschließend erfolgt die Einrichtung einer Datenbankverbindung über ein PHP-Skript, um den sicheren Austausch von Daten zwischen der Webseite und der Datenbank zu gewährleisten.
                     </p>
-
-                    <!-- TODO: ERM und Relationenmodell als Bild einfügen -->
                     <br /><p>
-                        Für die weitere Backend Entwicklung sollen die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
+                        Für die weitere Backend-Entwicklung sollen die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
                         Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, vermisste Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese aus dem System zu entfernen.
                     </p><p>
                         Hierfür sind separate PHP-Dateien vorgesehen, die zudem Sicherheitsmaßnahmen, wie etwa gegen SQL-Injection, beinhalten. Nutzern, die vermisste oder gefundene Tiere melden, wird außerdem die Möglichkeit geboten, ihre Einträge zu bearbeiten oder zu löschen. Administratoren sollen dabei alle Einträge löschen und bearbeiten können. Dies gewährleistet eine stets aktuelle Tierdatenbank und eine effiziente Datenverwaltung.
@@ -182,13 +207,13 @@
                     </p><br /><p>
                         Neben der Backend-Entwicklung ist auch die Einbindung interaktiver Elemente mithilfe von JavaScript geplant, um das Nutzererlebnis zu verbessern.
                         Eine der vorgesehenen Funktionen ist ein Filter, mit dem Nutzer bei den Tieren gezielt nach Tierart, Rasse oder Geschlecht suchen können. Diese dynamische Filteroption erleichtert die Navigation und ermöglicht den Nutzern, die für sie relevanten Informationen schnell zu finden.
-                        Darüber hinaus soll ein „Gefällt mir“-Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern können. Diese Speicherung soll als Cookie umgesetzt werden.
+                        Darüber hinaus soll ein "Gefällt mir"-Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern können. Diese Speicherung soll als Cookie umgesetzt werden.
                     </p><br /><p>
                         Zusätzlich ist die Integration weiterer dynamischer Inhalte geplant, die sich auf Nutzereingaben basierend anpassen. 
-                        So sollen „Weiterlesen“ Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
+                        So sollen "Weiterlesen" Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
                         Ein weiteres Formular soll es dem Nutzer ermöglichen vermisste oder gefundene Tiere hochzuladen. Diese werden auf der Seite direkt angezeigt, ohne sie neu zu laden. Nutzer, die ein solches Tier hochgeladen haben, sollen dieses später auch löschen oder bearbeiten können.
                     </p><p>
-                        Auch die Funktion „weitere Tiere anzeigen“ soll es den Nutzern ermöglichen, zusätzliche Tiere anzuzeigen, ohne die gesamte Webseite zu aktualisieren.
+                        Auch die Funktion "weitere Tiere anzeigen" soll es den Nutzern ermöglichen, zusätzliche Tiere anzuzeigen, ohne die gesamte Webseite zu aktualisieren.
                     </p><p>
                         Darüber hinaus soll JavaScript genutzt werden, um Benutzereingaben bereits im Browser zu prüfen, bevor sie an den Server gesendet werden.
                         Dies erlaubt die direkte Erkennung und Korrektur unvollständiger oder fehlerhafter Eingaben im Formular.
@@ -232,7 +257,6 @@
                     </p><p>
                         MariaDB wird als relationales Datenbankmanagementsystem eingesetzt, um alle relevanten Daten, wie Nutzer und Tierdaten, strukturiert zu speichern.
                         MariaDB bietet dabei hohe Leistungsfähigkeit und Zuverlässigkeit, was für die konsistente Datenverwaltung der Anwendung entscheidend ist.
-                        <!-- TODO: beschreiben, dass wir kein pdo genutzt haben? -->
                     </p><p>
                         Für die Programmierung und Verwaltung des Codes wurde die Entwicklungsumgebung PHP Storm gewählt.
                     </p><p>
@@ -309,7 +333,7 @@
                         Regelmäßige Team Meetings und Status-Updates stellen sicher, dass alle Teammitglieder stets auf dem neuesten Stand sind und effizient zusammenarbeiten.
                     </p><p>
                         Webgestütze Tools wie "Jira" und "WhatsApp" haben dazu beigetragen eine klare Übersicht und eine direkte Kommunikation zu gewährleisten.
-                        Nachfolgend, ein Ausschnitt unserer Aufgaben in Jira: <!-- TODO: überall gleichmäßige Anführungszeichen -->
+                        Nachfolgend, ein Ausschnitt unserer Aufgaben in Jira:
                     </p>
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentationDWP/jiraAuszug.jpg" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
@@ -432,6 +456,9 @@
                         Es werden beim Aufruf der Seite immer maximal 8 Tiere angezeigt. Sollten in der Datenbank mehr Tiere mit diesen Filteroptionen vorhanden sein, kann der
                         Nutzer weitere Tiere durch den Button "Weitere Tiere anzeigen" nachladen.
                     </p><p>
+                        Sollten die Tiere nicht geladen werden können, wird dem Nutzer auch die Ausgabe angezeigt, dass die Tiere nicht geladen werden. Da ein Nutzer nichts mit php Fehlern anfangen kann, zeigen wir ihm lediglich an, dass die Tiere nicht geladen werden können.
+                        In PHP selbst werden alle möglichen Fehler durch Exceptions gefangen.
+                    </p><p>
                         Möchte ein Nutzer weitere Informationen erhalten, kann er bei jedem Tier auf "Weiterlesen" klicken und erhält daraufhin weitere Informationen zu diesem spezifischen Tier.
                     </p><p>
                         Jedem Nutzer ist es erlaubt Tiere, durch das rechts oben angeordnete Herz, zu favorisieren und wieder zu ent-favorisieren. Diese "Gefällt mir"-Angabe wird in Cookies gespeichert.
@@ -524,9 +551,9 @@
                     Gemeinsam wurde daraus ein umfassendes ER-Modell entwickelt, das die Kernfunktionen der Webseite, wie beispielsweise die Verwaltung von Tierinformationen, 
                     Nutzerprofilen und interaktiven Formularen, wie die Formulare zum melden vermisster oder gefundener Tiere oder das Formular zum anbieten von Hilfe, unterstützt.
                 </p><br /><p>
-                    Eine zentrale Herausforderung im Entwurfsprozess bestand darin, Redundanzen zu vermeiden und gleichzeitig alle Anforderungen bestmöglich zu erfüllen. Besonders bei der Tabelle „Helfen“ standen wir vor einer Abwägung: Es war unklar, 
-                    ob separate Tabellen für „Wochentage“ und „Datum“ erforderlich wären, um zwischen regelmäßigem und einmaligem Hilfsangebot zu unterscheiden. 
-                    Der Wochentag im Hilfsformular steht für ein wiederkehrendes Angebot (z. B. „jeden Montag“), während das Datum ein einmaliges Angebot darstellt.
+                    Eine zentrale Herausforderung im Entwurfsprozess bestand darin, Redundanzen zu vermeiden und gleichzeitig alle Anforderungen bestmöglich zu erfüllen. Besonders bei der Tabelle "Helfen" standen wir vor einer Abwägung: Es war unklar,
+                    ob separate Tabellen für "Wochentage" und "Datum" erforderlich wären, um zwischen regelmäßigem und einmaligem Hilfsangebot zu unterscheiden.
+                    Der Wochentag im Hilfsformular steht für ein wiederkehrendes Angebot (z. B. "jeden Montag"), während das Datum ein einmaliges Angebot darstellt.
                 </p><br /><p>
                     Nach reiflicher Überlegung entschieden wir uns, beide Angaben in einer einzigen Tabelle abzubilden, sodass jeder Wochentag oder jedes Datum ein eigenständiges Tupel darstellt. 
                     Die Herausforderung in der Umsetzung besteht nun darin sicherzustellen, dass entweder ein Datum oder ein Wochentag im Tupel angegeben ist, jedoch niemals beides.
@@ -609,7 +636,7 @@
                     Die Datei tierheimat.sql enthält dabei die vollständige Struktur der Tabellen sowie Beispieldaten.
                 </p>
                 <p>
-                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core".
+                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core". Dabei haben wir uns entschieden mysqli und nicht pdo zu verwenden.
                     Die Verbindungseinstellungen sind standardmäßig auf den lokalen MariaDB Server (localhost) mit dem Benutzer "root" und einem leeren Passwort konfiguriert.
                     Der Name der Datenbank lautet "tierheimat".
                 </p>
@@ -1149,7 +1176,7 @@
                 <p>
                     Im Quellverzeichnis können alle verwendeten Pfade der erhobenen Daten nach Über- und Unterpunkten sortiert nachvollzogen werden.
                 </p><p>
-                    Bilder welche nicht im Quellverzeichnis aufgelistet sind stammen aus privaten Quellen und werden nicht näher benannt.
+                    Bilder, welche nicht im Quellverzeichnis aufgelistet sind, stammen aus privaten Quellen und werden nicht näher benannt.
                 </p>
             </div>
 
