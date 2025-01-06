@@ -4,21 +4,23 @@ document.addEventListener("DOMContentLoaded", function() {
     const type = document.getElementById('currentMissingOrFound').value;
     loadMissingFoundAnimalsToPage(type);
 
-    document.querySelector('#selectAnimalStatus').addEventListener('submit', function (event) {
-        event.preventDefault();
-        let formSubmitted = true;
+    if(document.querySelector('#selectAnimalStatus')) {
+        document.querySelector('#selectAnimalStatus').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let formSubmitted = true;
 
-        const selectType = document.querySelector('#tierstatusAuswählen').value;
+            const selectType = document.querySelector('#tierstatusAuswählen').value;
 
-        loadMissingFoundAnimalsToPage(selectType);
+            loadMissingFoundAnimalsToPage(selectType);
 
 
-        if (!formSubmitted) {
-            const type = document.getElementById('currentMissingOrFound').value;
-            loadMissingFoundAnimalsToPage(type);
-        }
+            if (!formSubmitted) {
+                const type = document.getElementById('currentMissingOrFound').value;
+                loadMissingFoundAnimalsToPage(type);
+            }
 
-    })
+        })
+    }
 })
 
 function setBack() {
@@ -53,6 +55,16 @@ function setBack() {
         copyFirstMissingAnimalHere.innerHTML="";
     }
 
+    const errorMissingAnimals = document.querySelector('#errorMissingAnimals');
+    if (errorMissingAnimals){
+        errorMissingAnimals.innerHTML ="";
+    }
+
+    const errorFoundAnimals = document.querySelector('#errorFoundAnimals');
+    if (errorFoundAnimals){
+        errorFoundAnimals.innerHTML ="";
+    }
+
 }
 
     function loadMissingFoundAnimalsToPage(type){
@@ -76,8 +88,6 @@ function setBack() {
             if(type === "Vermisste / Gefundene Tiere") {
                 displayAnimals(data.missingAnimals, "Vermisste Tiere");
                 displayAnimals(data.foundAnimals, "Gefundene Tiere");
-                console.log('Missing ANimals:', data.missingAnimals); // Gibt das missingAnimals-Array aus
-                console.log('Found Anials:', data.foundAnimals);
             }
             else {
                 displayAnimals(data.animals, type);
@@ -88,12 +98,6 @@ function setBack() {
 }
 
 function displayAnimals(animals, type) {
-    if (!Array.isArray(animals)) {
-        console.error('Die übergebenen Tiere sind kein Array:', animals);
-        let container, template, heading, subheading, firstAnimalContainer;
-        return;
-    }
-    console.log(animals);
 
     if (type === "Vermisste Tiere") {
         container = document.querySelector('#missingAnimals');
@@ -122,7 +126,6 @@ function displayAnimals(animals, type) {
         console.log(`copyFirst${type==="Vermisste Tiere" ? 'Missing' : 'Found'}AnimalHere`)
         copyFirstAnimalHere.appendChild(cloneFirstAnimal);
 
-        cloneFirstAnimal.getElementsByTagName('h3')[0].innerHTML = heading;
         cloneFirstAnimal.querySelector('.firstAnimalId').innerHTML = animals[0].VermisstGefundenTierID;
         cloneFirstAnimal.querySelector('.firstAnimalImage').src = animals[0].Bildadresse;
         cloneFirstAnimal.querySelector('.firstAnimalDate').innerHTML = '<span class="boldText animalDate">am: </span> ' + formatDate(animals[0].Datum);
@@ -161,7 +164,6 @@ function displayAnimals(animals, type) {
             const imageUrl = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
             imageElement.src = imageUrl;
 
-            clone.getElementsByTagName('h3')[0].innerHTML = heading;
             clone.querySelector('.animalSubheading').innerHTML = '<span class="boldText">' + subheading + '</span>';
             clone.querySelector('.animalDate').innerHTML = '<span class="boldText">am: </span>' + formatDate(animals[i].Datum);
             clone.querySelector('.animalPlace').innerHTML = '<span class="boldText">in: </span>' + animals[i].Ort;
@@ -170,10 +172,43 @@ function displayAnimals(animals, type) {
             const descriptionWords = animals[i].Beschreibung.split(' ');
             descriptionStart.innerHTML = '<span class="boldText">Beschreibung: </span>' + descriptionWords.slice(0, 2).join(' ') + ' ...';
 
+            //--------------------Weiterlesen-------------------------------------------------------------------
+            let allAElements = clone.getElementsByTagName('a');
+            for (let i = 0; i < allAElements.length; i++) {
+                if (allAElements[i].classList.contains('weiterlesen')) {
+                    allAElements[i].setAttribute('onclick', 'openWeiterlesenField(this)');
+                }
+            }
+
+            let hiddenTemplateReadMore = document.querySelector('#hiddenTemplateWeiterlesen');
+
+            let cloneReadMore = hiddenTemplateReadMore.cloneNode(true);
+            outsideDiv.appendChild(cloneReadMore);
+
+            cloneReadMore.id = "";
+            cloneReadMore.getElementsByTagName('h3')[0].innerHTML = heading;
+            cloneReadMore.querySelector('.hohesBild').src = animals[i].Bildadresse || '../public/img/defaultImage.jpg';
+            cloneReadMore.querySelector('.date').innerHTML = '<span class="boldText">' + subheading + ' am: </span> ' + formatDate(animals[i].Datum);
+            cloneReadMore.querySelector('.place').innerHTML = '<span class="boldText">' + subheading + ' in: </span> ' + animals[i].Ort;
+            cloneReadMore.querySelector('.species').innerHTML = '<span class="boldText">Tierart: </span> ' + animals[i].Tierart;
+            cloneReadMore.querySelector('.description').innerHTML = animals[i].Beschreibung;
+            cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenField(this)');
+
             counter++;
         }
+
+        document.querySelector('#loading').classList.add('hidden');
+
     } else {
-        displayErrorMessage(type, "Keine Tiere gefunden.");
+        document.querySelector('#loading').classList.add('hidden');
+
+        container.querySelector('.heading').innerHTML = type;
+        container.querySelector('.underHeadline').classList.remove('hidden')
+        document.querySelector('#missingAnimals').classList.remove('hidden');
+        if(document.querySelector('#selectAnimalStatus')) {
+            document.querySelector('#selectAnimalStatus').classList.remove('hidden');
+        }
+        document.querySelector(`#error${type === 'Vermisste Tiere' ? 'Missing' : 'Found'}Animals`).innerHTML =  type + ' nicht vorhanden.';
     }
 }
 
@@ -201,4 +236,71 @@ function formatDate(dateString){
 
 function searchType(){
     const typeInput = document.querySelector('select[name=tierstatusAuswählen]')
+}
+
+function closeWeiterlesenField (buttonElement) {
+    let thisDiv = findExplicitParentElement(buttonElement, 'completeWeiterlesen');
+    thisDiv.classList.add('hidden');
+
+    let allAnimals = document.querySelectorAll('.completeAnimal');
+    for (let i = 0; i < allAnimals.length; i++) {
+        allAnimals[i].style.opacity = 1;
+    }
+
+    setCapacityStyle(1);
+
+}
+
+function openWeiterlesenField (buttonElement) {
+    let allFields = document.querySelectorAll('.completeWeiterlesen');
+    for (let i = 0; i < allFields.length; i++) {
+        allFields[i].classList.add('hidden');
+    }
+
+    let allAnimals = document.querySelectorAll('.completeAnimal');
+    for (let i = 0; i < allAnimals.length; i++) {
+        allAnimals[i].style.opacity = 0.4;
+    }
+
+    setCapacityStyle(0.4);
+
+    let thisDiv = findExplicitParentElement(buttonElement, 'completeAnimal');
+    thisDiv.nextSibling.classList.remove('hidden');
+
+    window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
+}
+
+function findExplicitParentElement (element, searchedClassName) {
+    while ((element = element.parentElement) && !element.classList.contains(searchedClassName));
+    return element;
+}
+
+function setCapacityStyle(capacity){
+    if (document.querySelector('#formContainer')){
+        document.querySelector('#formContainer').style.opacity = capacity;
+    }
+    if (document.querySelector('#reportContainer')){
+        document.querySelector('#reportContainer').style.opacity=capacity;
+    }
+    if (document.querySelector('#copyFirstMissingAnimalHere')){
+        document.querySelector('#copyFirstMissingAnimalHere').style.opacity = capacity;
+    }
+    if (document.querySelector('#copyFirstFoundAnimalHere')){
+        document.querySelector('#copyFirstFoundAnimalHere').style.opacity=capacity;
+    }
+    if (document.querySelector('#selectAnimalStatus')){
+        document.querySelector('#selectAnimalStatus').style.opacity=capacity;
+    }
+    if (document.querySelector('#headingMissingAnimals')){
+        document.querySelector('#headingMissingAnimals').style.opacity=capacity;
+    }
+    if (document.querySelector('#missingUnderHeadline')){
+        document.querySelector('#missingUnderHeadline').style.opacity=capacity;
+    }
+    if (document.querySelector('#headingFoundAnimals')){
+        document.querySelector('#headingFoundAnimals').style.opacity=capacity;
+    }
+    if (document.querySelector('#foundUnderHeadline')){
+        document.querySelector('#foundUnderHeadline').style.opacity=capacity;
+    }
 }

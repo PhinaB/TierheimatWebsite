@@ -51,7 +51,7 @@ class StaticPageController
         $currentPage = $categoryMissingFound;
 
 
-        $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
+        $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css', 'readMore.css'];
         $js = ['dynamicMissingFoundAnimals.js','missingFoundForm.js'];
 
         $this->renderPage($stylesheets, $currentPage, $js, 'missingFound');
