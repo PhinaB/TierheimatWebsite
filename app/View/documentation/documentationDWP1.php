@@ -262,19 +262,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Backend-Entwicklung mit PHP</td>
-                                <td class="time redColor"> h </td> <!-- TODO: Zeiten -->
+                                <td>Vorbereitungsphase</td>
+                                <td class="time"> h </td> <!-- TODO: Zeiten -->
                             </tr><tr>
-                                <td>Frontend-Entwicklung mit JavaScript</td>
-                                <td class="time greenColor"> h </td>
+                                <td>Implementierungsphase</td>
+                                <td class="time"> h </td>
                             </tr><tr>
-                                <td>Dokumentation</td>
-                                <td class="time redColor"> h </td>
+                                <td>Dokumentationsphase</td>
+                                <td class="time"> h </td>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Gesamt</td>
-                                <td class="time greenColor"> h </td>
+                                <td class="time"> h </td>
                         </tfoot>
                     </table>
                     <div class="caption">Tabelle 1</div>
@@ -814,7 +814,7 @@
             <div class="section">
                 <h2 id="fazit">7 Fazit</h2>
                 <hr class="underHeadline" />
-                <p>
+                <p> <!-- TODO:  -->
                 </p>
 
                 <div class="backButton">
@@ -840,8 +840,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Planungs- und Entwurfsphase</td>
-                                <td class="time"> h </td>
+                                <td>Vorbereitungsphase</td>
+                                <td class="time"> h </td> <!-- TODO: Zeiten -->
                                 <td class="time greenColor">h</td>
                             </tr>
                             <tr>
@@ -866,7 +866,7 @@
                     <div class="caption">Tabelle 3</div>
 
                     <p>
-                        Insgesamt wurden für das Projekt ... Stunden aufgewendet, während ursprünglich ... Stunden geplant waren. 
+                        Insgesamt wurden für das Projekt ... Stunden aufgewendet, während ursprünglich ... Stunden geplant waren.  <!-- TODO: Satz vollenden -->
                     </p>
 
                     <div class="backButton">
@@ -877,12 +877,12 @@
                 <div class="section">
                     <h3 id="lessonsLearned">7.2 Lessons Learned</h3>
                     <hr class="underHeadline" />
-                    <ol
+                    <ol>
                         <li class="list-item">
                             <strong>Bedeutung einer klaren Projektplanung:</strong>
                             <p>Wir haben gelernt, dass eine sorgfältige und detaillierte Planung der Schlüssel zum Erfolg eines Projektes ist.</p>
                             <p>Die Erstellung eines klaren Projektplans, einschließlich Meilensteine und Zeitpläne, hat uns geholfen den Überblick zu behalten und sicherzustellen, dass alle Teammitglieder auf dem gleichen Stand sind.</p>
-                        </li><br/>
+                        </li>
                         <li class="list-item">
                             <strong>Kommunikation und Teamarbeit:</strong>
                             <p>Effektive Kommunikation innerhalb des Teams war ein entscheidender Faktor für den Projekterfolg.</p>
@@ -901,107 +901,27 @@
                         </li>
                         <li class="list-item">
                             <strong>Organisation:</strong>
-                            <p>Eine getaktete Arbeitsweise sowie Fristen haben das Arbeiten produktiver allerdings auch Fehleranfälliger gestaltet, diese Fristen haben uns dabei geholfen stets eine Orientierung über das Projekt und den aktuellen Standpunkt zu haben</p>
+                            <p>Eine getaktete Arbeitsweise sowie Fristen haben das Arbeiten produktiver, allerdings auch fehleranfälliger gestaltet. Diese Fristen haben uns dabei geholfen stets eine Orientierung über das Projekt und den aktuellen Standpunkt zu haben.
+                            </p>
                         </li>
                     </ol>
 
 
                     <br />
                     <p>
-                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretische Wissen als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen. </p>
+                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretisches Wissen, als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen. </p>
                     <p>
                         Dabei konnten wir nicht nur unser technisches Know-how im Bereich der Webentwicklung, Datenbankanbindung und interaktiven Features ausbauen, sondern auch wichtige Erkenntnisse im Hinblick auf Teamarbeit, Organisation und Projektmanagement gewinnen.</p>
                     <P>
                         Insbesondere die Zusammenarbeit im Team förderte unsere Kommunikationsfähigkeiten und verdeutlichte, wie essenziell klare Absprachen, regelmäßige Abstimmungen und die flexible Anpassung an neue Herausforderungen für den Projekterfolg sind.</P>
                     <p>
-                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.</p>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
-                    <div class="caption">Abbildung 14: Visualisierung Lessons Learned</div>
+                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
                 </div>
-
-
-
-
-
-
-
-                <div class="section">
-                    <h3 id="lessonsLearned">7.2 Lessons Learned</h3>
-                    <hr class="underHeadline" />
-                    <ol>
-                        <li class="list-item">
-                            <strong>Effektive Kommunikation:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Regelmäßige Meetings und klare Kommunikationswege (z.B. über Tools wie Jira und WhatsApp) haben dazu beigetragen, Missverständnisse zu vermeiden und die Zusammenarbeit zu erleichtern.</p><br/>
-                            <p>Lernpunkt: Zukünftig sollten feste Meeting Strukturen und Protokolle eingeführt werden, um Diskussionen effizienter zu gestalten und Aufgaben klar zu dokumentieren.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Aufgabenverteilung:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Eine klare Zuweisung von Verantwortlichkeiten hat geholfen, Engpässe zu vermeiden und den Fortschritt transparent zu halten.</p><br/>
-                            <p>Lernpunkt: Für kommende Projekte könnte eine noch detailliertere Aufgabenplanung mit Zwischenschritten sinnvoll sein, um Zeitpläne besser einzuhalten.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Nutzung von Tools:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Der Einsatz von Jira zur Aufgabenverwaltung war hilfreich, um den Überblick über den Projektfortschritt zu behalten.</p><br/>
-                            <p>Lernpunkt: Zukünftig sollte eine Schulung zur optimalen Nutzung von Tools vor Projektstart eingeplant werden, um deren Funktionen besser auszuschöpfen.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Zeitmanagement:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Eng getaktete Fristen haben teilweise zu Zeitdruck geführt, was die Qualität beeinflussen könnte.</p><br/>
-                            <p>Lernpunkt: Eine realistischere Zeitplanung mit Puffern für unerwartete Herausforderungen wäre für zukünftige Projekte empfehlenswert.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Dokumentation und Nachverfolgung:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Eine kontinuierliche Aktualisierung der Projektdokumentation war hilfreich, um den Überblick zu behalten.</p><br/>
-                            <p>Lernpunkt: In zukünftigen Projekten könnte ein zentraler Dokumentenspeicher noch klarer organisiert werden, um Versionskonflikte zu vermeiden.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Flexibilität und Anpassungsfähigkeit:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Unvorhergesehene Probleme konnten durch kurzfristige Anpassungen im Ablauf bewältigt werden.</p><br/>
-                            <p>Lernpunkt: Flexibilität sollte beibehalten, jedoch mit einem "Notfallplan" ergänzt werden, um kritische Probleme schneller zu lösen.</p>
-                        </li>
-                    </ol>
-
-                    <br />
-                    <p>
-                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretisches Wissen als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen.
-                    </p>
-                    <p>
-                        Dabei konnten wir nicht nur unser technisches Know-how im Bereich der Webentwicklung, Datenbankanbindung und interaktiven Features ausbauen, sondern auch wichtige Erkenntnisse im Hinblick auf Teamarbeit, Organisation und Projektmanagement gewinnen.
-                    </p>
-                    <p>
-                        Insbesondere die Zusammenarbeit im Team förderte unsere Kommunikationsfähigkeiten und verdeutlichte, wie essenziell klare Absprachen, regelmäßige Abstimmungen und die flexible Anpassung an neue Herausforderungen für den Projekterfolg sind.
-                    </p>
-                    <p>
-                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.
-                    </p>
-                    <br/>
-                </div>
-                <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
-                <div class="caption">Abbildung 14: Visualisierung Lessons Learned</div>
-
-                <div class="backButton">
-                    <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
-                </div>
-
-
-
-
-
-
-
-
-
 
                 <div class="section">
                     <h3 id="ausblick">7.3 Ausblick</h3>
@@ -1013,14 +933,14 @@
                     <p>
                         In einem fortführenden Modul könnten weitere Funktionen implementiert werden, um die Benutzererfahrung und den Verwaltungsprozess zu optimieren. Dazu gehören:
                     </p><br/>
-                    <ul>
-                        <li>•Ein erweitertes Benutzerrollen und Berechtigungssystem, um unterschiedliche Zugriffsebenen für Administratoren, Mitarbeiter und Nutzer zu schaffen.</li>
-                        <li>•Eine Nachrichten und Benachrichtigungsfunktion, die es Nutzern ermöglicht, direkt mit dem Tierheim zu kommunizieren.</li>
-                        <li>•Erweiterte Filter und Suchfunktionen, um die Navigation und Auffindbarkeit von Tieren weiter zu verbessern.</li>
-                        <li>•Ein Event und Terminverwaltungssystem, um Veranstaltungen und Adoptionstermine effizient zu organisieren.</li>
-                        <li>•Die Integration eines Zahlungssystems für Spenden und Adoptionsgebühren.</li>
-                        <li>•Ein verbessertes Berichtswesen zur Auswertung von Daten für das Tierheimmanagement, in Form von Statistiken u.v.m.</li>
-                    </ul>
+                    <ul class="tasks" style="padding-left: 20px;">
+                        <li>Administratorseite zur Verwaltung von Nutzern</li>
+                        <li>Administratorseite zur Verwaltung von hochgeladenen Hilfsangeboten (aus dem Formular Service/Infos)</li>
+                        <li>Eine Übersichtsseite über favorisierte Tiere (für jeden Nutzer)</li>
+                        <li>Eine Benachrichtigungsfunktion, die es Nutzern ermöglicht, direkt mit dem Tierheim (oder einem Chatbot) zu kommunizieren</li>
+                        <li>Erweiterte Filter und Suchfunktionen, um die Navigation und Auffindbarkeit von Tieren weiter zu verbessern</li>
+                        <li>Eine Überblickseite zur Auswertung von Daten für das Tierheimmanagement, in Form von Statistiken u.v.m.</li>
+                    </ul><br/>
                     <p>
                         Diese Erweiterungen würden das Projekt auf ein neues Level heben und die Effizienz sowie die Benutzerfreundlichkeit weiter steigern.
                         Zudem könnte die Plattform langfristig durch die Einbindung neuer Technologien wie KI gestützte Bild und Mustererkennung zur Identifikation vermisster Tiere ausgebaut werden.
@@ -1048,51 +968,103 @@
             <table class="table">
                 <tbody>
                     <tr class="headlineTable">
-                        <td colspan="2">Planungs- und Entwurfsphase</td>
-                        <td class="time"> h</td>
+                        <td colspan="2">Vorbereitungsphase</td>
+                        <td class="time"> h</td> <!-- TODO: Zeiten gesamt -->
                     </tr>
                     <tr>
-                        <td>Ideenfindung</td>
-                        <td class="time"> h</td>
+                        <td>Erstellen von Entity-Relationship- und Relationenmodell</td>
+                        <td class="time">5 h</td>
                         <td rowspan="3"></td>
                     </tr>
                     <tr>
-                        <td>Benutzeroberfläche entwerfen und abstimmen</td>
-                        <td class="time"> h</td>
+                        <td>Erstellen der Datenbank Befehle (CREATE, INSERT) und kreieren einer Datei zur Erst-Initialisierung</td>
+                        <td class="time">10 h</td>
                     </tr>
                     <tr>
-                        <td>Recherche (Bildersuche, ...)</td>
-                        <td class="time"> h</td>
+                        <td>Erstellung einer funktionierenden Datenbankverbindung in einer Connection Klasse</td>
+                        <td class="time">3 h</td>
                     </tr>
                     <tr class="headlineTable">
                         <td colspan="2">Implementierungsphase</td>
                         <td class="time"> h</td>
                     </tr>
                     <tr>
-                        <td>Umsetzung des Mockups, auch im Responsive Design</td>
-                        <td class="time"> h</td>
-                        <td rowspan="3"></td>
+                        <td>Erstellen des Routings + 404 Fehlerseite</td>
+                        <td class="time">5 h</td>
+                        <td rowspan="15"></td>
                     </tr>
                     <tr>
-                        <td>Umsetzung der Formulare (required, ...)</td>
-                        <td class="time"> h</td>
+                        <td>Erstellen des MVC Patterns</td>
+                        <td class="time">3 h</td>
                     </tr>
                     <tr>
-                        <td>Testen aller Eingaben und Ansichten</td>
-                        <td class="time"> h</td>
+                        <td>Vereinheitlichung von Menü, Footer und Breadcrumbmenü auf einer Seite</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Anzeige der Tiere in "Unsere Tiere" (aus der Datenbank)</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Filterung der Tiere in "Unsere Tiere" nach Tierart, Rasse und Geschlecht</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Weiterlesen der Tier-Informationen bei "Unsere Tiere"</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>"Gefällt mir"-Angabe einzelner Tiere in "Unsere Tiere"</td>
+                        <td class="time">2 h</td>
+                    </tr>
+                    <tr>
+                        <td>Weiterlesen der Artikel in "Aktuelles"</td>
+                        <td class="time">2 h</td>
+                    </tr>
+                    <tr>
+                        <td>Anzeige der Tiere in "Vermisste / Gefundene Tiere" (aus der Datenbank)</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Filterung der Tiere in "Vermisst / Gefunden"</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Weiterlesen der Tier-Informationen bei "Vermisste / Gefundene Tiere"</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Validierung und Upload des Formulars bei "Vermisste / Gefundene Tiere"</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Validierung und Upload des Formulars bei "Service / Infos"</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Bearbeiten und Löschen von vermissten und gefundenen Tieren</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Login und Registration</td>
+                        <td class="time">10 h</td>
                     </tr>
                     <tr class="headlineTable">
                         <td colspan="2">Dokumentationsphase</td>
-                        <td class="time"> h</td>
+                        <td class="time"> 51 h</td>
                     </tr>
                     <tr>
                         <td>Erstellen der Projektdokumentation</td>
-                        <td class="time"> h</td>
-                        <td rowspan="2"></td>
+                        <td class="time">40 h</td>
+                        <td rowspan="3"></td>
                     </tr>
                     <tr>
                         <td>Prüfung der Projektdokumentation durch die anderen Projektmitglieder</td>
-                        <td class="time"> h</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Erstellung der README</td>
+                        <td class="time">1 h</td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -1109,7 +1081,7 @@
 
 
         <div class="container" id="quellen">
-            <h1>Quellen</h1>
+            <h1>Quellen</h1> <!-- TODO: aktuelle Quellen hinterlegen -->
             <hr class="underHeadline" />
             <ul>
                 <li><a href="#quelleDeckblatt" draggable="false">Quelle: Deckblatt</a></li>
