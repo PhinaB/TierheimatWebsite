@@ -1156,27 +1156,19 @@ TODO:
 
 
         <div class="container" id="quellen">
-            <h1>Quellen</h1> <!-- TODO: aktuelle Quellen hinterlegen -->
+            <h1>Quellen</h1>
             <hr class="underHeadline" />
             <ul>
                 <li><a href="#quelleDeckblatt" draggable="false">Quelle: Deckblatt</a></li>
-                <li><a href="#quelleEinleitung" draggable="false">Quelle: 1 Einleitung</a></li>
-                <li><a href="#quellePlanung" draggable="false">Quelle: 2 Konzeption und Planung</a></li>
-                <li><a href="#quelleBackend" draggable="false">Quelle: 3 Backend-Entwicklung</a></li>
-                <li><a href="#quelleInteraktiveFeatures" draggable="false">Quelle: 4. Interaktive Features</a></li>
-                <li><a href="#quelleTests" draggable="false">Quelle: 5 Tests und Optimierung</a></li>
                 <li><a href="#quelleDokumentation" draggable="false">Quelle: 6 Dokumentation</a></li>
-                <li><a href="#quelleFazit" draggable="false">Quelle: Fazit und Ausblick</a></li>
-                <li><a href="#quelleAnlagen" draggable="false">Quelle: Anlagen</a></li>
-                <li>&nbsp;</li>
-                <li><a href="#quelleWebsite" draggable="false">Bildquellen komplette Website</a></li>
             </ul>
 
             <div class="section">
                 <p>
                     Im Quellverzeichnis können alle verwendeten Pfade der erhobenen Daten nach Über- und Unterpunkten sortiert nachvollzogen werden.
                 </p><p>
-                    Bilder, welche nicht im Quellverzeichnis aufgelistet sind, stammen aus privaten Quellen und werden nicht näher benannt.
+                    Für diesen Teil des Projekts wurden keine neuen Bilder verwendet. Die Quellen der Bilder sind im Quellverzeichnis der
+                    <a href="dokuGWP#quelleDeckblatt" draggable="false">Dokumentation "Grundlagen Webprogrammierung"</a> zu finden.
                 </p>
             </div>
 
@@ -1189,271 +1181,13 @@ TODO:
             </div>
 
             <div class="section">
-                <h2 id="quelleEinleitung">Quelle: 1 Einleitung</h2>
-                <hr class="underHeadline" />
-                <p>
-                    Logo Tierheimat (Abbildung 01):
-                </p>
-                <p>
-                    Erstellt durch Stephanie Wachs
-                </p>
-                <a href="https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0" draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0</a>
-                <br/><br/>
-                <p>
-                    1.2 Projektrückblick
-                </p><br/>
-                <p>
-                    Tabelle Zielgruppenanalyse (Abbildung 02):
-                </p><p>Aufbau der Webseite (Abbildung 03):</p>
-                <p>Auszug "Unsere Tiere" (Abbildung 04):</p>
-                <p>Erstellt durch Josephina Burger
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quellePlanung">Quelle: 2 Konzeption und Planung</h2>
-                <hr class="underHeadline" />
-                <p>
-                   2.2 Zeitplan und Meilensteine
-                </p><br/>
-                <p>
-                    Zeitachse mit Meilensteine (Abbildung 05):
-                </p>
-                <p>
-                    Erstellt durch Lucas-Manfred Herpe
-                </p><br/>
-                <p>
-                    2.3 Geplante Aufgabenteilung
-                </p><br/>
-                <p>Jira Übersicht (Abbildung 06):</p>
-                <P>Erstellt durch das Projektteam</P>
-                <a href="https://tierheimat.atlassian.net/jira/software/projects/SCRUM/boards/1" draggable="false">https://tierheimat.atlassian.net/jira/software/projects/SCRUM/boards/1</a>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleBackend">Quelle: 3 Backend-Entwicklung</h2>
-                <hr class="underHeadline" />
-                <p>
-                    3.1 Datenbankentwurf
-                </p><br/>
-                <p>Entity-Relationshop-Modell (Abbildung 07):</p>
-                <p>Relationales Schema (Abbildung 08):</p>
-                <p>
-                    Erstellt durch das Projektteam
-                </p>
-                <p><br/>
-                    3.2 Datenbank- Setup und Anbindung
-                </p><br/>
-                <p>
-                    Herstellung der Datenbankverbindung (Abbildung 09):
-                </p>
-                <p>Erstellt durch das Projektteam</p>
-                <p><br/>
-                    3.3 PHP- Skripte und Logik
-                </p><br/>
-                <p>
-                    Übersicht der MVC Struktur (Abbildung 10):
-                </p>
-                <p>
-                    Erstellt durch das Projektteam
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleInteraktiveFeatures">Quelle: 4 Interaktive Features</h2>
-                <hr class="underHeadline" />
-
-                <p>Umsetzung der Favoritenfunktion (Abbildung 11):</p>
-                <p>
-                    Entwickelt durch das Projektteam.
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleTests">Quelle: 5 Tests und Optimierung</h2>
-                <hr class="underHeadline" />
-
-                <p>Frontend vs Backend (Abbildung:12)</p>
-                <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic"
-                   draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic</a>
-
-            </div>
-
-            <div class="section">
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 13):</p>
+                <p>Prozess Dokumentation (Abbildung 13):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
-            <div class="section">
-                <h2 id="quelleFazit">Quelle: 7 Fazit und Ausblick</h2>
-                <hr class="underHeadline" />
-
-                <p>7.2 Lessons Learned</p>
-                <p>Lessons Learned (Abbildung 14):</p>
-                <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic"
-                   draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic</a>
-                <p>
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleAnlagen"> Quelle: 8. Anlagen</h2>
-                <hr class="underHeadline" />
-
-                <p>
-                    Anlage 2: Detaillierte Zeitplanung (Tabelle 3):
-                </p>
-                <p>
-                </p>
-
-            </div>
-
-            <div class="section">
-                <h2 id="quelleWebsite">Bildquellen komplette Website</h2>
-                <hr class="underHeadline" />
-
-                <h3>Bildquellen Startseite:</h3>
-                <p>
-                    Deine-Tierwelt [online] URL:
-                    <a href="https://www.deine-tierwelt.de/magazin/wp-content/uploads/sites/7/2018/10/Hund-und-Katze-schlafen.jpg" draggable="false">https://www.deine-tierwelt.de/magazin/wp-content/uploads/sites/7/2018/10/Hund-und-Katze-schlafen.jpg</a>
-                    [Stand 30.06.2024]
-                </p>
-                <p>
-                    Flickr.com [online] URL: <a href="https://www.flickr.com/photos/68555868@N04/16403083195/in/pool-terrarium/" draggable="false">https://www.flickr.com/photos/68555868@N04/16403083195/in/pool-terrarium/</a> [Stand 30.06.2024]
-                </p>
-
-                <br />
-                <h3>Bildquellen: Unsere Tiere</h3>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/cashew/" draggable="false">https://www.tierheim-leipzig.de/Project/cashew/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155557.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155557.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155545.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155545.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_151007.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_151007.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_150829.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_150829.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240519_115028.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240519_115028.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/IMG-20240519-WA0014.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/IMG-20240519-WA0014.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230318_113947.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230318_113947.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230314_162813.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230314_162813.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/FFBD96E4-F74E-47CC-8FB5-D801AE1E5CA1.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/FFBD96E4-F74E-47CC-8FB5-D801AE1E5CA1.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/19C315C2-71AA-4DEB-801B-825C693DCC82.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/19C315C2-71AA-4DEB-801B-825C693DCC82.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0007.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0007.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0021.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0021.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/01/Pino.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/01/Pino.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2021/10/20220115_132018.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2021/10/20220115_132018.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162006.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162006.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162232.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162232.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20240113_130739.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20240113_130739.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20231216_131633.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20231216_131633.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143241.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143241.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143304.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143304.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4334-2.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4334-2.jpg</a>  [Stand 05.07.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4342.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4342.jpg</a> [Stand 05.07.2024]
-                </p>
-                <br />
-                <h3>Bildquellen: Vermisst / Gefunden</h3>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/carlo-moechte-nicht-ins-tierheim/" draggable="false">https://www.tierheim-leipzig.de/Project/carlo-moechte-nicht-ins-tierheim/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/cello/" draggable="false">https://www.tierheim-leipzig.de/Project/cello/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/gnocchi/" draggable="false">https://www.tierheim-leipzig.de/Project/gnocchi/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="" draggable="false">https://www.tierheim-leipzig.de/Project/privatvermittlung-floyd/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/stitch/" draggable="false">https://www.tierheim-leipzig.de/Project/stitch/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/05/20230525_160027.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/05/20230525_160027.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/01/IMG_20230119_145515_edit_465193045793598.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/01/IMG_20230119_145515_edit_465193045793598.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/04/IMG-20220403-WA0001.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/04/IMG-20220403-WA0001.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240525_120351.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240525_120351.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/10/C440C255-1ED9-41FD-9919-DEBFC091A9E8.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/10/C440C255-1ED9-41FD-9919-DEBFC091A9E8.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1652631822225-0b9e423cd3c8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHN0cmV1bmVuZGUlMjBrYXR6ZXxlbnwwfHwwfHx8MA%3D%3D" draggable="false">https://images.unsplash.com/photo-1652631822225-0b9e423cd3c8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHN0cmV1bmVuZGUlMjBrYXR6ZXxlbnwwfHwwfHx8MA%3D%3D</a> [Stand 30.06.2024]
-                </p>
-
-                <br />
-                <h3>Bildquellen: Service / Infos</h3>
-                <p>
-                    Tierbedarf-Disount [online] URL: <a href="https://www.tierbedarf-discount.ch/media/image/ee/32/0f/katze-spielt-katze-beschaftigen-intro.jpg" draggable="false">https://www.tierbedarf-discount.ch/media/image/ee/32/0f/katze-spielt-katze-beschaftigen-intro.jpg</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlcnNvbiUyMGhvbGRpbmclMjBhJTIwY2F0fGVufDB8fDB8fHww" draggable="false">https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlcnNvbiUyMGhvbGRpbmclMjBhJTIwY2F0fGVufDB8fDB8fHww</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1706920147354-77d76004177f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false">https://images.unsplash.com/photo-1706920147354-77d76004177f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://unsplash.com/de/fotos/flachfokusfotografie-eines-weissen-shih-tzu-welpen-der-auf-dem-gras-lauft-qO-PIF84Vxg" draggable="false">https://unsplash.com/de/fotos/flachfokusfotografie-eines-weissen-shih-tzu-welpen-der-auf-dem-gras-lauft-qO-PIF84Vxg</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1570745526295-8223b49b3c53?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHx0cmF1cmlnZXIlMjBodW5kfGVufDB8fDB8fHww" draggable="false">https://images.unsplash.com/photo-1570745526295-8223b49b3c53?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHx0cmF1cmlnZXIlMjBodW5kfGVufDB8fDB8fHww</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Zurich-Versicherung [online] URL: <a href="https://www.zurich.de/-/media/project/zwp/germany/br/images/product/op-versicherung-fuer-katzen_1200x630_2021_07.jpg?rev=331bf83073e14538b45159cf39b53789" draggable="false">https://www.zurich.de/-/media/project/zwp/germany/br/images/product/op-versicherung-fuer-katzen_1200x630_2021_07.jpg?rev=331bf83073e14538b45159cf39b53789</a> [Stand 05.07.2024]
-                </p>
-            </div>
-
 
             <div class="backButton">
                 <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
