@@ -1194,7 +1194,5 @@ TODO:
             </div>
         </div>
     </main>
-
-    <?php include __DIR__ . '/../includes/generalJS.php'; ?>
 </body>
 </html>
