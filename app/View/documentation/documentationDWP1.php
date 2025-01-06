@@ -538,11 +538,59 @@
                     Die folgenden Abbildungen zeigen den finalen Entwurf des Entity-Relationship-Modells sowie das dazugehörige Relationenmodell.
                 </p><br />
 
-                <img src="../public/imgDokumentationDWP/E-R-Modell_cleaned.png" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
+                <img src="../public/imgDokumentationDWP/ERM.jpg" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
                 <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
                 <br/>
-                <img src="../public/imgDokumentationDWP/RelationalesSchema.png" title="Relationales Schema" alt="Relationales Schema" draggable="false">
-                <div class="caption">Abbildung 08: Relationenmodell</div>
+
+                <p>
+                    <b>Nutzerrollen</b>
+                    (<u>NutzerrollenID</u>, Rolle, kannLesen, kannSchreiben, kannEigenesBearbeitenUndLoeschen, kannAllesLoeschen)
+                </p>
+
+                <p>
+                    <b>Nutzer</b>
+                    (<u>NutzerID</u>, NutzerrollenID → Nutzerrollen(NutzerrollenID), Name, Email, Passwort)
+                </p>
+
+                <p>
+                    <b>Tierart</b>
+                    (<u>TierartID</u>, Tierart)
+                </p>
+
+                <p>
+                    <b>Rasse</b>
+                    (<u>RasseID</u>, TierartID → Tierart(TierartID), Rasse)
+                </p>
+
+                <p>
+                    <b>VermisstGefundenTiere</b>
+                    (<u>VermisstGefundenTierID</u>, ZuletztGeaendertNutzerID → Nutzer(NutzerID), TierartID → Tierart(TierartID), Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert)
+                </p>
+
+                <p>
+                    <b>Tiere</b>
+                    (<u>TierID</u>, RasseID → Rasse(RasseID), Geschlecht, Beschreibung, Geburtsjahr, Name, Charakter, Datum)
+                </p>
+
+                <p>
+                    <b>BilderTiere</b>
+                    (<u>BilderID</u>, TierID → Tier(TierID), Bildadresse, Hauptbild, Alternativtext)
+                </p>
+
+                <p>
+                    <b>Artikel</b>
+                    (<u>ArtikelID</u>, Ueberschrift, Text, Datum, Bildadresse)
+                </p>
+
+                <p>
+                    <b>ArtDerHilfe</b>
+                    (<u>ArtID</u>, ArtDerHilfe)
+                </p>
+
+                <p>
+                    <b>Helfen</b>
+                    (<u>HelfenID</u>, NutzerID → Nutzer(NutzerID), ArtDerHilfe → ArtDerHilfe(ArtID), Angenommen, Zeit, Datum, Wochentag)
+                </p>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
