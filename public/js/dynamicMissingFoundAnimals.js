@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
-    checkLoginStatus();
+document.addEventListener("DOMContentLoaded", async function() {
+    await checkLoginStatus();
 
     const type = document.getElementById('currentMissingOrFound').value;
     loadMissingFoundAnimalsToPage(type);
@@ -78,7 +78,6 @@ function setBack() {
     let formData= new FormData();
     formData.append('type', type)
 
-    console.log(formData); 
 
     fetch ('../public/loadMissingFoundAnimals', {
         method: 'POST',
@@ -86,7 +85,6 @@ function setBack() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log('Serverantwort:', data);
             
             if(type === "Vermisste / Gefundene Tiere") {
                 displayAnimals(data.missingAnimals, "Vermisste Tiere");
@@ -126,7 +124,6 @@ function displayAnimals(animals, type) {
         //------------Breites Feld für missingFoundAnimal------------------------------
         let cloneFirstAnimal = firstAnimalTemplate.cloneNode(true);
         const copyFirstAnimalHere = document.getElementById(`copyFirst${type==="Vermisste Tiere" ? 'Missing' : 'Found'}AnimalHere`);
-        console.log(`copyFirst${type==="Vermisste Tiere" ? 'Missing' : 'Found'}AnimalHere`)
         copyFirstAnimalHere.appendChild(cloneFirstAnimal);
 
         cloneFirstAnimal.id="";
@@ -140,9 +137,9 @@ function displayAnimals(animals, type) {
         cloneFirstAnimal.classList.remove('hidden');
 
         //Überprüft Rechte und NutzerID
-        $creatorID= animals[0].ZuletztGeaendertNutzerID;
-        displayDelete($creatorID, cloneFirstAnimal);
-        displayEdit($creatorID, cloneFirstAnimal);
+        console.log(animals[0]);
+        console.log(animals[0].ZuletztGeaendertNutzerID)
+        displayEditDelete(animals[0].ZuletztGeaendertNutzerID, cloneFirstAnimal);
         //----------Dynamisches Anlegen der maximal vier Tiere ------------------------
         let counter = 0;
         const copyHere = document.getElementById(`copyAll${type === "Vermisste Tiere" ? 'Missing' : 'Found'}AnimalsHere`)
@@ -163,7 +160,7 @@ function displayAnimals(animals, type) {
             clone.classList.add('completeAnimal');
             clone.id = "";
             clone.setAttribute('data-animal-id', animals[i].VermisstGefundenTiereID);
-            console.log(clone.querySelector('#data-animal-id'));
+
 
             const imageElement = clone.querySelector('.animalImage');
             const imageUrl = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
@@ -178,10 +175,12 @@ function displayAnimals(animals, type) {
             const descriptionWords = animals[i].Beschreibung.split(' ');
             descriptionStart.innerHTML = '<span class="boldText">Beschreibung: </span>' + descriptionWords.slice(0, 2).join(' ') + ' ...';
 
+            console.log(animals[i]);
             //Überprüft Rechte und NutzerID
-            $creatorID= animals[i].ZuletztGeaendertNutzerID;
-            displayDelete($creatorID, clone);
-            displayEdit($creatorID, clone);
+            creatorID= animals[i].ZuletztGeaendertNutzerID;
+            console.log('creator Oben:', creatorID);
+            console.log('user oben: ', userId)
+            displayEditDelete(creatorID, clone);
             //--------------------Weiterlesen-------------------------------------------------------------------
             let allAElements = clone.getElementsByTagName('a');
             for (let i = 0; i < allAElements.length; i++) {
@@ -222,22 +221,36 @@ function displayAnimals(animals, type) {
     }
 }
 
-function displayEdit(creatorId, clone) {
+function displayEditDelete(creatorId, clone){
 
-    if (userId === creatorId){
-        const editButton = document.createElement('a');
-        editButton.href = "";
-        editButton.title = "Anzeige bearbeiten";
-        editButton.className = "edit";
-        editButton.draggable = false;
-        editButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
 
-        clone.getElementsByTagName('h3')[0].appendChild(editButton);
+    if(userRoles)
+    {
+        let userCreatesAnimal = createdAnimal(creatorId);
+        let userCanDeleteAll = canDeleteAll(creatorId);
+        let userCanEditAndDelete = canEditAndDeleteOwn(creatorId);
+
+        if(createdAnimal(creatorId) && canEditAndDeleteOwn(creatorId) || canDeleteAll(creatorId)){
+            displayDelete(creatorId, clone);
+            displayEdit(creatorId, clone);
+        }
     }
 }
 
-function displayDelete(creatorId, clone) {
+function displayEdit(creatorId, clone) {
 
+    const editButton = document.createElement('a');
+    editButton.href = "";
+    editButton.title = "Anzeige bearbeiten";
+    editButton.className = "edit";
+    editButton.draggable = false;
+    editButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+    clone.getElementsByTagName('h3')[0].appendChild(editButton);
+
+}
+
+function displayDelete(creatorId, clone) {
 
     const deleteButton = document.createElement('a');
     deleteButton.href = "";
@@ -249,24 +262,39 @@ function displayDelete(creatorId, clone) {
     clone.getElementsByTagName('h3')[0].appendChild(deleteButton);
 }
 
-function checkLoginStatus() {
-    fetch('../public/checkLogin')
-        .then(response => response.json())
-        .then(data => {
-            if (data.loggedIn) {
-                userId=data.userId;
-                console.log('data');
-                console.log(data);
-                document.getElementById('formContainer').innerHTML = data.formMissing;
-                initializeFormEventListeners();
-            }
-            else{
-                document.getElementById('reportContainer').innerHTML= data.report;
-            }
-        })
-        .catch(error =>{
-            document.getElementById('errorContainer').textContent = 'Ein Fehler ist aufgetreten';
-        });
+function createdAnimal(creatorId) {
+    return userId === creatorId;
+}
+
+function canDeleteAll(){
+    return userRoles.kannAllesLoeschen;
+}
+
+function canEditAndDeleteOwn(){
+    return userRoles.kannEigenesBearbeitenUndLoeschen;
+}
+
+async function checkLoginStatus() {
+    try {
+        const response = await fetch('../public/checkLogin');
+        const data = await response.json();
+
+        if (data.loggedIn) {
+            userId=data.userId;
+            console.log(data.userId)
+            console.log(userId)
+            userRoles = data.userRoles;
+            console.log(data.userRoles);
+            console.log(userRoles);
+            document.getElementById('formContainer').innerHTML = data.formMissing;
+            initializeFormEventListeners();
+        } else {
+            console.log('User not logged in');
+            document.getElementById('reportContainer').innerHTML= data.report;
+        }
+    } catch (error) {
+        document.getElementById('errorContainer').textContent = 'Ein Fehler ist aufgetreten';
+    }
 }
 
 function formatDate(dateString){
