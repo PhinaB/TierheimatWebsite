@@ -287,7 +287,7 @@ TODO:
                         <tbody>
                             <tr>
                                 <td>Vorbereitungsphase</td>
-                                <td class="time">18h</td> <!-- TODO: Zeiten -->
+                                <td class="time">18h</td>
                             </tr><tr>
                                 <td>Implementierungsphase</td>
                                 <td class="time">120h</td>
@@ -652,7 +652,6 @@ TODO:
                 </div>
             </div>
 
-
             <div class="section">
                 <h3 id="php">3.3 PHP-Skripte und Logik</h3>
                 <hr class="underHeadline" />
@@ -672,8 +671,6 @@ TODO:
                     Die Views im Verzeichnis "app/View" sind für die Darstellung der Benutzeroberfläche verantwortlich und greifen auf Daten aus den Modellen zu.
                     Dort gibt es einen Unterordner "page", welcher alle statischen Seiten enthält. Der Unterordner "includes" enthält alle Informationen, die auf mehreren Seiten zu finden sind.
                 </p>
-
-                <!-- TODO: Funktionalität des Routings beschreiben -->
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -710,6 +707,34 @@ TODO:
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
                 <div class="caption">Abbildung 13: DB Create Nutzerrollen</div>
+
+                <div class="backButton">
+                    <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 id="routing">3.5 Routing</h3>
+                <hr class="underHeadline" />
+
+                <p>
+                    Das Routing in unserer Anwendung wird durch eine zentrale Routing-Klasse gesteuert, die es ermöglicht, sowohl Seitenaufrufe als auch AJAX-Anfragen effizient zu verarbeiten. In der index.php definieren wir alle erforderlichen Routen, die sowohl für die Anzeige von Seiten als auch für die Bearbeitung von AJAX-Anfragen genutzt werden. Jede Route ist mit einem spezifischen Controller und einer zugehörigen Methode verknüpft, was die Handhabung der verschiedenen Anfragen vereinfacht.
+                </p>
+                <p>
+                    Das Routing funktioniert, indem wir die aufgerufene URL ermitteln und mit den definierten Routen abgleichen. Ist eine Übereinstimmung vorhanden, wird der zugehörige Controller instanziiert und die passende Methode ausgeführt. Sollte keine Übereinstimmung gefunden werden, sorgt die Anwendung dafür, dass eine 404-Seite angezeigt wird.
+                </p><br />
+                <p>
+                    Die Seiten in der Anwendung werden über den StaticPageController verwaltet. Jede Seite hat eine eigene Methode, die dafür sorgt, dass die richtigen Inhalte mit den entsprechenden CSS- und JavaScript-Dateien geladen werden. Zum Beispiel wird für die Seite "Unsere Tiere" eine spezielle Methode verwendet, die die Tiere anhand der übergebenen Kategorie lädt und die Seite entsprechend rendert. Diese Methode sorgt dafür, dass je nach ausgewählter Kategorie, wie etwa "Hunde", "Katzen" oder "Exoten", die richtigen Daten aus der Datenbank abgerufen und angezeigt werden.
+                </p>
+                <p>
+                    Zusätzlich dazu kümmert sich jede Methode des Controllers darum, die benötigten Stylesheets und JavaScript-Dateien zu laden, um die Funktionalität der Seite zu gewährleisten. Jede Seite wird so optimiert, dass sie das passende visuelle Design und interaktive Elemente erhält.
+                </p><br />
+                <p>
+                    Ein weiterer wichtiger Bestandteil unseres Routings ist die Handhabung von AJAX-Anfragen. Wenn eine Anfrage per AJAX an das Backend gestellt wird, wird die entsprechende Route verarbeitet und die Antwort als JSON an das JavaScript zurückgesendet. Dadurch können Daten dynamisch ohne vollständiges Neuladen der Seite geladen und angezeigt werden.
+                </p><br />
+                <p>
+                    Zusammenfassend stellt unser Routing-System sicher, dass sowohl statische Seiten als auch dynamische AJAX-Anfragen effizient verarbeitet werden, um eine reibungslose Benutzererfahrung zu gewährleisten. Dieses System sorgt für klare Strukturierung und Optimierung der Anwendungslogik, was die Wartung und Erweiterung der Anwendung in der Zukunft erleichtert.
+                </p>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -1077,7 +1102,7 @@ TODO:
                 <tbody>
                     <tr class="headlineTable">
                         <td colspan="2">Vorbereitungsphase</td>
-                        <td class="time">18h</td> <!-- TODO: Zeiten gesamt -->
+                        <td class="time">18h</td>
                     </tr>
                     <tr>
                         <td>Erstellen von Entity-Relationship- und Relationenmodell</td>
@@ -1217,7 +1242,7 @@ TODO:
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 16):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
+                <p>Prozess Dokumentation (Abbildung 16):</p>
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
