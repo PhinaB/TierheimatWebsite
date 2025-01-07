@@ -5,6 +5,8 @@ namespace app\model;
 use Exception;
 use InvalidArgumentException;
 
+require_once __DIR__ . '/AbstractModel.php';
+
 class UserRoleModel extends AbstractModel
 {
     public function __construct()
@@ -17,6 +19,10 @@ class UserRoleModel extends AbstractModel
      */
     public function getUserRoles(int $currentUserId){
 
+        if ($currentUserId <= 0) {
+            throw new InvalidArgumentException('Ungültige Nutzer-ID.');
+        }
+
         $sql = "SELECT NutzerrollenID FROM Nutzer WHERE NutzerID = ?";
         $stmt = $this->db->prepare($sql);
         if (!$stmt) {
@@ -25,12 +31,14 @@ class UserRoleModel extends AbstractModel
         $stmt->bind_param('i', $currentUserId);
         $stmt->execute();
 
-        $userRoleArray = $stmt->get_result()->fetch_assoc();
-        $userRoleId = $userRoleArray['NutzerrollenID'];
+        $userResult = $stmt->get_result();
 
-        if (!$userRoleId) {
+        if ($userResult->num_rows === 0) {
             throw new InvalidArgumentException('Keine Nutzerrolle für diesen Nutzer gefunden.');
         }
+
+        $userArray = $userResult->fetch_assoc();
+        $userRoleId = $userArray['NutzerrollenID'];
 
         $sqlUserRoles = "SELECT * FROM Nutzerrollen WHERE NutzerrollenID = ?";
         $stmtUserRoles = $this->db->prepare($sqlUserRoles);
@@ -40,19 +48,10 @@ class UserRoleModel extends AbstractModel
         $stmtUserRoles->bind_param('i', $userRoleId);
         $stmtUserRoles->execute();
 
-        $userRole = $stmtUserRoles->get_result()->fetch_assoc();
+        $userRoleResult = $stmtUserRoles->get_result();
 
-        if (!$userRole) {
-            throw new InvalidArgumentException('Nutzerrolle konnte nicht geladen werden.');
-        }
 
-        return new UserRole(
-            $userRole['NutzerrollenID'],
-            $userRole['Rolle'],
-            $userRole['kannLesen'],
-            $userRole['kannSchreiben'],
-            $userRole['kannEigenesBearbeitenUndLoeschen'],
-            $userRole['kannAllesLoeschen']);
+        return $userRoleResult->fetch_assoc();
     }
 
 }
