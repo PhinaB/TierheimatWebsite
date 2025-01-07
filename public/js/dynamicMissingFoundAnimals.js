@@ -254,6 +254,9 @@ function checkLoginStatus() {
         .then(response => response.json())
         .then(data => {
             if (data.loggedIn) {
+                userId=data.userId;
+                console.log('data');
+                console.log(data);
                 document.getElementById('formContainer').innerHTML = data.form;
                 initializeFormEventListeners();
             }

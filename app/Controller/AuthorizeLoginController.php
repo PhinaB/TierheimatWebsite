@@ -12,6 +12,7 @@ class AuthorizeLoginController
                 'loggedIn' => true,
                 'userId' => $_SESSION['nutzer_id'],
                 'userName' => $_SESSION['username'],
+                'userRoles' => $_SESSION['roles'], //enthält auch die Rechte
                 'form' => file_get_contents(__DIR__ . '/../View/includes/missingFoundForm.php'),
             ]);
         } else {
