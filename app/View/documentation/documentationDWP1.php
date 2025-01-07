@@ -523,6 +523,13 @@ TODO:
                     <img src="../public/imgDokumentationDWP/LoginFormular.png" title="Login" alt="Login" draggable="false">
                     <div class="caption">Abbildung 10: Auszug "Login"</div>
 
+                    <br/><br/>
+                    <p>
+                        Für die Seite "Unsere Tiere" haben wir bewusst XMLHttpRequest für das Nachladen von Daten über AJAX verwendet, während wir auf den anderen Seiten auf die moderne fetch-Methode gesetzt haben. Diese Entscheidung basiert auf der bestehenden Struktur und den spezifischen Anforderungen der jeweiligen Seiten.
+                    </p><p>
+                        Durch den Einsatz beider Methoden haben wir nicht nur flexibel auf unterschiedliche Anforderungen reagiert, sondern auch unser Wissen über unterschiedliche Techniken zur Handhabung von AJAX-Anfragen unter Beweis gestellt. Da beide Ansätze gut in das Gesamtkonzept passen und die Funktionalität zuverlässig gewährleisten, haben wir entschieden, diese beizubehalten, ohne den Fortschritt des Projekts unnötig zu verzögern.
+                    </p>
+
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
