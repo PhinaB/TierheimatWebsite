@@ -14,7 +14,7 @@ class AuthorizeLoginController
                 'userId' => $_SESSION['nutzer_id'],
                 'userName' => $_SESSION['username'],
                 'userRoles' => $_SESSION['roles'],
-                'form' => file_get_contents(__DIR__ . '/../View/includes/missingFoundForm.php'),
+                'formMissing' => file_get_contents(__DIR__ . '/../View/includes/missingFoundForm.php'),
             ]);
         } else {
             echo json_encode([
