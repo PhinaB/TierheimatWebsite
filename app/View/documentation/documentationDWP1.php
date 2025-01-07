@@ -480,10 +480,13 @@ TODO:
                         <b>Vermisst/Gefunden</b>
                     </p>
                     <p>
-                        Durch das Menü oder die Filteroption lassen sich entweder vermisste oder gefundene oder alle Tiere anzeigen. Diese Tiere werden dynamisch aus der
-                        Datenbank geladen.
+                        Über das Menü oder die Filteroptionen können die Nutzer entweder vermisste, gefundene oder alle Tiere anzeigen lassen. Diese Tiere werden dynamisch aus der Datenbank geladen, um eine aktuelle und benutzerfreundliche Darstellung zu gewährleisten.
                     </p><p>
-                        Die Tiere haben einen "Weiterlesen"-Button. Beim Klick auf diesen werden weitere Informationen des spezifischen Tieres angezeigt.
+                        Jedes Tier verfügt über einen "Weiterlesen"-Button, der ursprünglich dazu vorgesehen war, beim Klick weitere Informationen zu einem spezifischen
+                        Tier anzuzeigen. Diese Funktion haben wir bereits auf den Seiten "Unsere Tiere" und "Aktuelles" erfolgreich umgesetzt. Aufgrund der verbleibenden
+                        Zeit und der Tatsache, dass ähnliche Funktionen bereits an anderen Stellen der Webseite erfolgreich implementiert wurden, haben wir uns
+                        entschieden, diese zusätzliche Funktionalität nicht weiter zu vertiefen. Die bestehende Lösung bietet dennoch eine klare und benutzerfreundliche
+                        Darstellung der Tierinformationen.
                     </p><br /><p>
                         Hat ein Nutzer sich angemeldet, kann er erweiterte Funktionen verwenden. Unter anderem kann er dann das Formular für ein vermisstes oder gefundenes Tier ausfüllen.
                         In diesem Formular werden die Eingaben des Nutzers, durch JavaScript, noch vor dem Absenden überprüft. Sobald die Daten in der Datenbank hochgeladen wurden, wird das
