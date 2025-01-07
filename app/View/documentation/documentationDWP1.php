@@ -337,7 +337,7 @@ TODO:
                     </p>
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentationDWP/jiraAuszug.jpg" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
-                    </div><div class="caption">Abbildung 06</div>
+                    </div><div class="caption">Abbildung 06: Ausschnitt aus Aufgabenmanagement Tool "Jira"</div>
                     <br />
                     <p>
                         Die genaue Aufgabenteilung lässt sich der folgenden Tabelle entnehmen. In der letzten Zeile der Tabelle sind die Aufgaben verzeichnet,
@@ -441,7 +441,7 @@ TODO:
 
                     <br/>
                     <img src="../public/imgDokumentationDWP/Startseite.png" title="Startseite" alt="Startseite" draggable="false">
-                    <div class="caption">Abbildung : Startseite</div>
+                    <div class="caption">Abbildung 07: Auszug "Startseite"</div>
 
                     <br/><p>
                         <b>Unsere Tiere</b>
@@ -464,7 +464,7 @@ TODO:
                         Jedem Nutzer ist es erlaubt Tiere, durch das rechts oben angeordnete Herz, zu favorisieren und wieder zu ent-favorisieren. Diese "Gefällt mir"-Angabe wird in Cookies gespeichert.
                     </p>
                     <img src="../public/imgDokumentationDWP/UnsereTiereOverview.png" title="Unsere Tiere" alt="Unsere Tiere" draggable="false">
-                    <div class="caption">Abbildung : Unsere Tiere</div>
+                    <div class="caption">Abbildung 08: Auszug "Unsere Tiere"</div>
 
                     <br/><p>
                         <b>Aktuelles</b>
@@ -502,7 +502,7 @@ TODO:
                         Dadurch verhindern wir die Übergabe von leeren Zeilen an die Datenbank.
                     </p>
                     <img src="../public/imgDokumentationDWP/ServiceInfos.png" title="Service Infos" alt="Service Infos" draggable="false">
-                    <div class="caption">Abbildung : Service Infos</div>
+                    <div class="caption">Abbildung 09: Auszug "Service Infos"</div>
 
                     <br/><p>
                         <b>Login und Registration</b>
@@ -514,7 +514,7 @@ TODO:
                         Außerdem gibt es dort jetzt den Untermenüpunkt "Logout" statt "Login".
                     </p>
                     <img src="../public/imgDokumentationDWP/LoginFormular.png" title="Login" alt="Login" draggable="false">
-                    <div class="caption">Abbildung : Login</div>
+                    <div class="caption">Abbildung 10: Auszug "Login"</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -566,7 +566,7 @@ TODO:
                 </p><br />
 
                 <img src="../public/imgDokumentationDWP/ERM.jpg" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
-                <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
+                <div class="caption">Abbildung 11: Entity-Relationship-Modell</div>
                 <br/>
 
                 <p>
@@ -694,7 +694,7 @@ TODO:
                     Die Anmeldung erfolgt über das Login Formular:
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/LoginFormular.png" title="" alt="Login Oberfläche" draggable="false">
-                <div class="caption">Abbildung : Login Oberfläche</div>
+                <div class="caption">Abbildung 12: Auszug "Login Oberfläche"</div>
 
                 <br /><br/>
 
@@ -703,7 +703,7 @@ TODO:
                     Dadurch kann sichergestellt werden, dass die jeweiligen Nutzer auch nur die entsprechenden Rechte erhalten.
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
-                <div class="caption">Abbildung : DB Create Nutzerrollen</div>
+                <div class="caption">Abbildung 13: DB Create Nutzerrollen</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -741,7 +741,7 @@ TODO:
 
                     <br />
                     <img src="../public/imgDokumentationDWP/BeforeRegistration.png" title="" alt="Gast Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung : Gast Nutzerrollen</div>
+                    <div class="caption">Abbildung 14: Auszug "Gast Nutzerrollen"</div>
                     <p>
                         Sobald sich ein Nutzer angemeldet hat, kann er auf verschiedene weitere Informationen zugreifen. Unter anderem kann er nun Tiere als vermisst oder gefunden melden. Sollte er eine Anzeige eingestellt haben,
                         kann er diese später auch bearbeiten oder löschen. Ein Administrator kann alle Anzeigen löschen.
@@ -876,7 +876,7 @@ TODO:
                 </p>
                 <div class="Dokumentation">
                     <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
-                </div><div class="caption">Abbildung 13: Prozess Dokumentation</div>
+                </div><div class="caption">Abbildung 15: Prozess Dokumentation</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
