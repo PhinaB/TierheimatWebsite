@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../../../public/css/main.css" />
     <link rel="stylesheet" href="../../../public/css/footer.css" />
     <link rel="stylesheet" href="../../../public/css/loggedInPage.css" />
-    <link rel="stylesheet" href="../../../public/css/aktuelles.css" />
-    <link rel="stylesheet" href="../../../public/css/weiterlesen.css" />
+    <link rel="stylesheet" href="../../../public/css/current.css" />
+    <link rel="stylesheet" href="../../../public/css/readMore.css" />
 
     <link rel="stylesheet" href="../../../public/lib/fontawesome-6.5.2/css/all.min.css">
 
@@ -30,7 +30,7 @@
     <header>
         <nav>
             <span class="linkLogo">
-                <a href="indexLogin.html" class="logo" draggable="false">
+                <a href="indexLogin.php" class="logo" draggable="false">
                     <img class="logoPicture" src="../../../public/img/logo.jpg" alt="Logo" title="Logo - mit Linksklick geht's zur Startseite" draggable="false" />
                 </a>
             </span>
@@ -40,7 +40,7 @@
             </span>
 
             <div id="menuRight">
-                <a href="indexLogin.html" draggable="false">
+                <a href="indexLogin.php" draggable="false">
                     <i class="fa-solid fa-house menuIcon onlySmallMenu"></i>
                     Start
                 </a>
@@ -50,7 +50,7 @@
                         Unsere <br class="onlySmallMenu" />Tiere
                     </a>
                     <div class="submenu smallWidthSubmenu">
-                        <a href="unsereTiere.html">Alle Tiere</a>
+                        <a href="unsereTiere.">Alle Tiere</a>
                         <a href="unsereHunde.html">Hunde</a>
                         <a href="unsereKatzen.html">Katzen</a>
                         <a href="unsereKleintiere.html">Kleintiere</a>
@@ -86,7 +86,7 @@
     <div class="grid">
         <main>
             <div class="tile tileBorder">
-                <a href="indexLogin.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+                <a href="indexLogin.php" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
                 >
                 <a class="disabled" draggable="false">Aktuelles</a>
             </div>
@@ -94,7 +94,7 @@
             <div class="box-absolute">
                 <div class="kopfelement">
                     <h3 class="inline">15 Jahre Tierheimat</h3>
-                    <a href="aktuelles.html" title="Button Abbrechen" draggable="false">
+                    <a href="aktuelles.php" title="Button Abbrechen" draggable="false">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </a>
                     <br />
@@ -143,7 +143,7 @@
                         <div class="hiddenOnBigScreen">
                             <p>Dank Ihrer großzügigen Spenden und ... </p>
                             <br />
-                            <a href="aktuellesWeiterlesenAusbauTierheim.html" draggable="false" class="button">
+                            <a href="aktuellesWeiterlesen15JahreTierheimat.php" draggable="false" class="button">
                                 <i class="fa-solid fa-newspaper"></i> Zum Artikel
                             </a>
                         </div>
@@ -162,7 +162,7 @@
                             Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück.
                             Seit unserer Gründung ...
                         </p>
-                        <a href="aktuellesWeiterlesen.html" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
+                        <a href="aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
                     </div>
                     <div>
                         <img src="../public/img/pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
