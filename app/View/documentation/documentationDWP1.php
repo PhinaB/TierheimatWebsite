@@ -108,7 +108,7 @@ TODO:
                 <dd><a href="#frontendTests" draggable="false">5.1 Frontend-Tests</a></dd>
                 <dd><a href="#backendTests" draggable="false">5.2 Backend-Tests</a></dd>
                 <dt><a href="#dokumentation" draggable="false">6 Dokumentation</a></dt>
-                <dt><a href="#fazit" draggable="false">7 Fazit und Ausblick</a></dt>
+                <dt><a href="#fazit" draggable="false">7 Fazit</a></dt>
                 <dd><a href="#sollIst" draggable="false">7.1 Soll- / Ist-Vergleich</a></dd>
                 <dd><a href="#lessonsLearned" draggable="false">7.2 Lessons Learned</a></dd>
                 <dd><a href="#ausblick" draggable="false">7.3 Ausblick</a></dd>
@@ -887,24 +887,17 @@ TODO:
 
         <div class="container">
             <div class="section">
-                <h2 id="fazit">7 Fazit und Ausblick</h2>
+                <h2 id="fazit">7 Fazit</h2>
                 <hr class="underHeadline" />
-                <p> Das aktuelle Projekt erweitert und verbessert die bestehende "Tierheimat" Webseite durch die Implementierung vieler dynamischer und interaktiven Inhalte.
-                </p><p>
-                    Alle Seiten wurden mit den neuen Features ausgestattet und sollen das Nutzererlebnis merkbar anheben.
-                </p>
-                    Technisch basiert die Erweiterung auf einem modernen und modularen Aufbau, der eine effiziente Verwaltung und Präsentation von Inhalten aus einer zentralen Datenbank ermöglicht.
-
-                    Die Verwendung von PHP und MYSQL für die serverseitige Logik sorgt für eine stabile Datenanbindung und performante Datenverarbeitung.
                 <p>
-                    Ergänzt wird dies durch dynamische JavaScript Komponenten, die eine reibungslose Benutzerinteraktion und ein nahtloses Laden von Inhalten gewährleisten.
+                    Das Ziel des Projekts war die Erweiterung der bestehenden 'Tierheimat'-Webseite durch die Implementierung dynamischer Inhalte mit PHP und JavaScript.
+                    Insgesamt konnten wir viele der geplanten Funktionen erfolgreich umsetzen.
                 </p><p>
-                    Die Benutzeroberfläche bleibt durch das responsive Design der bestehen Webseite konsistent, sodass die Darstellung auf verschiedenen Geräten und Bildschirmgrößen optimiert ist.
-                </p>
-                    Dabei wurde bewärhte Elemente aus der Tierdarstellung übernommen und auf die neue Struktur angewendet, um ein einheitliches Erscheinungsbild und eine intuitive Navigation zu gewährleisten.
-                    Zusammenfassend bietet die neu überarbeitete Webseite eine moderne, flexible und technisch ausgereifte Lösung, die den Informationsfluss für die Nutzer verbessert.
-                <p>
-                    Das Projekt zeigt, wie durch gezielte Erweiterungen bestehende Systeme funktional erweitert und gleichzeitig die Benutzerfreundlichekti erhalten bleiben können.
+                    Eine besondere Herausforderung bestand darin, sich die notwendigen Kenntnisse eigenständig anzueignen. Dies erforderte einen erheblichen Aufwand an
+                    Recherche, um die technischen Konzepte und Werkzeuge vollständig zu verstehen und richtig anzuwenden. Durch gute Teamarbeit und den Austausch von Tipps und Erfahrungen konnten wir uns gegenseitig unterstützen und die Aufgaben erfolgreich bewältigen.
+                </p><p>
+                    Wir sind mit dem Ergebnis zufrieden. Das Projekt war eine wertvolle Erfahrung, die unsere
+                    Fähigkeiten in der Webentwicklung mit PHP und JavaScript weiter gestärkt hat.
                 </p>
 
                 <div class="backButton">
@@ -956,9 +949,13 @@ TODO:
                     <div class="caption">Tabelle 3</div>
 
                     <p>
-                        Insgesamt wurden für das Projekt 219 Stunden aufgewendet, während ursprünglich 189 Stunden geplant waren.  <!-- TODO: Satz vollenden -->
+                        Insgesamt wurden für das Projekt 219 Stunden aufgewendet, während ursprünglich 189 Stunden geplant waren.
+                        Die zusätzlichen 30 Stunden ergaben sich durch den erhöhten Einarbeitungsaufwand einiger Teammitglieder, die bisher keine Vorerfahrung
+                        in diesem Bereich hatten. Dadurch verlängerte sich die Implementierungsphase, insbesondere durch die notwendige Aneignung von Grundlagenwissen
+                        und die schrittweise Verbesserung der Umsetzung.
                     </p><p>
-                        Aufgrund von anfänglich fehlerhaften Implementierungen und mehrfacher Ausbesserung der jeweilige Dateien wurden 30h mehr benötigt als ursprünglich kalkuliert.
+                        Dieser Mehraufwand trug jedoch wesentlich zur Vertiefung der Kenntnisse aller Beteiligten bei
+                        und führte letztlich zu einem besseren Verständnis der Projektinhalte.
                     </p>
 
                     <div class="backButton">
