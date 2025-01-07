@@ -529,6 +529,10 @@ TODO:
                     </p><p>
                         Durch den Einsatz beider Methoden haben wir nicht nur flexibel auf unterschiedliche Anforderungen reagiert, sondern auch unser Wissen über unterschiedliche Techniken zur Handhabung von AJAX-Anfragen unter Beweis gestellt. Da beide Ansätze gut in das Gesamtkonzept passen und die Funktionalität zuverlässig gewährleisten, haben wir entschieden, diese beizubehalten, ohne den Fortschritt des Projekts unnötig zu verzögern.
                     </p>
+                    <br/>
+                    <p>
+                        Die Druck-CSS-Datei aus dem letzten Semester wurde übernommen, da sie nach wie vor funktioniert. Es wurden keine Änderungen vorgenommen, da sie die gewünschten Ergebnisse auch weiterhin zuverlässig liefert. Wir haben damit sichergestellt, dass dieser Aspekt des Projekts berücksichtigt wurde.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
