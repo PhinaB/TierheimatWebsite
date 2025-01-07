@@ -287,18 +287,18 @@ TODO:
                         <tbody>
                             <tr>
                                 <td>Vorbereitungsphase</td>
-                                <td class="time"> h </td> <!-- TODO: Zeiten -->
+                                <td class="time">18h</td> <!-- TODO: Zeiten -->
                             </tr><tr>
                                 <td>Implementierungsphase</td>
-                                <td class="time"> h </td>
+                                <td class="time">120h</td>
                             </tr><tr>
                                 <td>Dokumentationsphase</td>
-                                <td class="time"> h </td>
+                                <td class="time">51h</td>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Gesamt</td>
-                                <td class="time"> h </td>
+                                <td class="time">189h</td>
                         </tfoot>
                     </table>
                     <div class="caption">Tabelle 1</div>
@@ -931,32 +931,34 @@ TODO:
                         <tbody>
                             <tr>
                                 <td>Vorbereitungsphase</td>
-                                <td class="time"> h </td> <!-- TODO: Zeiten -->
-                                <td class="time greenColor">h</td>
+                                <td class="time">18h</td>
+                                <td class="time greenColor">18h</td>
                             </tr>
                             <tr>
                                 <td>Implementierungsphase</td>
-                                <td class="time"> h </td>
-                                <td class="time redColor">h</td>
+                                <td class="time">120h</td>
+                                <td class="time redColor">150h</td>
                             </tr>
                             <tr>
                                 <td>Dokumentationsphase</td>
-                                <td class="time"> h </td>
-                                <td class="time greenColor">h</td>
+                                <td class="time">51h</td>
+                                <td class="time greenColor">51h</td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Gesamt</td>
-                                <td class="time"> h </td>
-                                <td class="time redColor">h</td>
+                                <td class="time">189h</td>
+                                <td class="time redColor">219h</td>
                             </tr>
                         </tfoot>
                     </table>
                     <div class="caption">Tabelle 3</div>
 
                     <p>
-                        Insgesamt wurden für das Projekt ... Stunden aufgewendet, während ursprünglich ... Stunden geplant waren.  <!-- TODO: Satz vollenden -->
+                        Insgesamt wurden für das Projekt 219 Stunden aufgewendet, während ursprünglich 189 Stunden geplant waren.  <!-- TODO: Satz vollenden -->
+                    </p><p>
+                        Aufgrund von anfänglich fehlerhaften Implementierungen und mehrfacher Ausbesserung der jeweilige Dateien wurden 30h mehr benötigt als ursprünglich kalkuliert.
                     </p>
 
                     <div class="backButton">
@@ -1059,108 +1061,108 @@ TODO:
                 <tbody>
                     <tr class="headlineTable">
                         <td colspan="2">Vorbereitungsphase</td>
-                        <td class="time"> h</td> <!-- TODO: Zeiten gesamt -->
+                        <td class="time">18h</td> <!-- TODO: Zeiten gesamt -->
                     </tr>
                     <tr>
                         <td>Erstellen von Entity-Relationship- und Relationenmodell</td>
-                        <td class="time">5 h</td>
+                        <td class="time">5h</td>
                         <td rowspan="3"></td>
                     </tr>
                     <tr>
                         <td>Erstellen der Datenbank Befehle (CREATE, INSERT) und kreieren einer Datei zur Erst-Initialisierung</td>
-                        <td class="time">10 h</td>
+                        <td class="time">10h</td>
                     </tr>
                     <tr>
                         <td>Erstellung einer funktionierenden Datenbankverbindung in einer Connection Klasse</td>
-                        <td class="time">3 h</td>
+                        <td class="time">3h</td>
                     </tr>
                     <tr class="headlineTable">
                         <td colspan="2">Implementierungsphase</td>
-                        <td class="time"> h</td>
+                        <td class="time">120h</td>
                     </tr>
                     <tr>
                         <td>Erstellen des Routings + 404 Fehlerseite</td>
-                        <td class="time">5 h</td>
+                        <td class="time">10h</td>
                         <td rowspan="15"></td>
                     </tr>
                     <tr>
                         <td>Erstellen des MVC Patterns</td>
-                        <td class="time">3 h</td>
+                        <td class="time">7h</td>
                     </tr>
                     <tr>
                         <td>Vereinheitlichung von Menü, Footer und Breadcrumbmenü auf einer Seite</td>
-                        <td class="time">3 h</td>
+                        <td class="time">7h</td>
                     </tr>
                     <tr>
                         <td>Anzeige der Tiere in "Unsere Tiere" (aus der Datenbank)</td>
-                        <td class="time">3 h</td>
+                        <td class="time">7h</td>
                     </tr>
                     <tr>
                         <td>Filterung der Tiere in "Unsere Tiere" nach Tierart, Rasse und Geschlecht</td>
-                        <td class="time">3 h</td>
+                        <td class="time">7h</td>
                     </tr>
                     <tr>
                         <td>Weiterlesen der Tier-Informationen bei "Unsere Tiere"</td>
-                        <td class="time">3 h</td>
+                        <td class="time">7h</td>
                     </tr>
                     <tr>
                         <td>"Gefällt mir"-Angabe einzelner Tiere in "Unsere Tiere"</td>
-                        <td class="time">2 h</td>
+                        <td class="time">8h</td>
                     </tr>
                     <tr>
                         <td>Weiterlesen der Artikel in "Aktuelles"</td>
-                        <td class="time">2 h</td>
+                        <td class="time">10h</td>
                     </tr>
                     <tr>
                         <td>Anzeige der Tiere in "Vermisste / Gefundene Tiere" (aus der Datenbank)</td>
-                        <td class="time">3 h</td>
+                        <td class="time">6h</td>
                     </tr>
                     <tr>
                         <td>Filterung der Tiere in "Vermisst / Gefunden"</td>
-                        <td class="time">3 h</td>
+                        <td class="time">6h</td>
                     </tr>
                     <tr>
                         <td>Weiterlesen der Tier-Informationen bei "Vermisste / Gefundene Tiere"</td>
-                        <td class="time">3 h</td>
+                        <td class="time">5h</td>
                     </tr>
                     <tr>
                         <td>Validierung und Upload des Formulars bei "Vermisste / Gefundene Tiere"</td>
-                        <td class="time">10 h</td>
+                        <td class="time">10h</td>
                     </tr>
                     <tr>
                         <td>Validierung und Upload des Formulars bei "Service / Infos"</td>
-                        <td class="time">10 h</td>
+                        <td class="time">10h</td>
                     </tr>
                     <tr>
                         <td>Bearbeiten und Löschen von vermissten und gefundenen Tieren</td>
-                        <td class="time">10 h</td>
+                        <td class="time">10h</td>
                     </tr>
                     <tr>
                         <td>Login und Registration</td>
-                        <td class="time">10 h</td>
+                        <td class="time">10h</td>
                     </tr>
                     <tr class="headlineTable">
                         <td colspan="2">Dokumentationsphase</td>
-                        <td class="time"> 51 h</td>
+                        <td class="time">51h</td>
                     </tr>
                     <tr>
                         <td>Erstellen der Projektdokumentation</td>
-                        <td class="time">40 h</td>
+                        <td class="time">40h</td>
                         <td rowspan="3"></td>
                     </tr>
                     <tr>
                         <td>Prüfung der Projektdokumentation durch die anderen Projektmitglieder</td>
-                        <td class="time">10 h</td>
+                        <td class="time">10h</td>
                     </tr>
                     <tr>
                         <td>Erstellung der README</td>
-                        <td class="time">1 h</td>
+                        <td class="time">1h</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="2">Gesamt</td>
-                        <td class="time"> h</td>
+                        <td class="time">189h</td>
                     </tr>
                 </tfoot>
             </table>
@@ -1191,7 +1193,7 @@ TODO:
                 <h2 id="quelleDeckblatt">Quelle: Deckblatt</h2>
                 <hr class="underHeadline" />
 
-                <p>Logo FHE:</p>
+                <p>Logo FHE (Abbildung 01):</p>
                 <a href="https://www.fh-erfurt.de/" draggable="false">https://www.fh-erfurt.de/</a>
             </div>
 
@@ -1199,7 +1201,7 @@ TODO:
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 13):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
+                <p>Prozess Dokumentation (Abbildung 15):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
