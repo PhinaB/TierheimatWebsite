@@ -29,9 +29,7 @@ class MissingFoundModel extends AbstractModel
            session_start();
            $nutzerID = $_SESSION['nutzer_id']??null;
            if(!$nutzerID){
-               $nutzerID= 1;
-               /*TODO: später diesen Teil verwenden
-               throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');*/
+               throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');
            }
 
            //---------------------------------------------Species-----------------------------------------------

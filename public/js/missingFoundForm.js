@@ -247,12 +247,12 @@ function sendMissingFoundForm(){
                     resetMissingFoundForm();
 
                     const successMessage = document.getElementById('successfulSubmit');
-                    successMessage.textContent = 'Daten wurden erfolgreich verarbeitet';
+                    successMessage.innerHTML = 'Daten wurden erfolgreich verarbeitet. <b>Laden Sie die Seite neu.</b>';
                     successMessage.classList.remove('hidden');
 
                     setTimeout(()=>{
                         successMessage.classList.add('hidden');},
-                        5000);
+                        10000);
                 } else {
                 if(data.errors && data.errors.length > 0){
                     document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.';

@@ -257,7 +257,7 @@ function checkLoginStatus() {
                 userId=data.userId;
                 console.log('data');
                 console.log(data);
-                document.getElementById('formContainer').innerHTML = data.form;
+                document.getElementById('formContainer').innerHTML = data.formMissing;
                 initializeFormEventListeners();
             }
             else{

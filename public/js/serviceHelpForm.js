@@ -1,22 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    reloadingPage();
-    loadContentToPage();
-
-    document.getElementById('newWeekDay').addEventListener('click', function() {
-        addNewWeekday();
-    });
-
-    document.getElementById('newDay').addEventListener('click', function() {
-        addNewDay();
-    });
-
-    document.querySelector('button[type=submit]').addEventListener('click', function() {
-        send();
-    });
-
-    document.querySelector('button[type=reset]').addEventListener('click', function() {
-        reset();
-    });
+    checkLoginStatus();
 });
 
 function loadContentToPage () {
@@ -471,4 +454,39 @@ function send () {
     xhttp.open('POST', '../public/add/help');
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send(jsonData);
+}
+
+function checkLoginStatus() {
+    fetch('../public/checkLogin')
+        .then(response => response.json())
+        .then(data => {
+            if (data.loggedIn) {
+                document.getElementById('formContainer').innerHTML = data.formHelp;
+
+                reloadingPage();
+                loadContentToPage();
+
+                document.getElementById('newWeekDay').addEventListener('click', function() {
+                    addNewWeekday();
+                });
+
+                document.getElementById('newDay').addEventListener('click', function() {
+                    addNewDay();
+                });
+
+                document.querySelector('button[type=submit]').addEventListener('click', function() {
+                    send();
+                });
+
+                document.querySelector('button[type=reset]').addEventListener('click', function() {
+                    reset();
+                });
+            }
+            else{
+                document.getElementById('formContainer').innerHTML= data.reportHelp;
+            }
+        })
+        .catch(error =>{
+            document.getElementById('errorContainer').textContent = 'Ein Fehler ist aufgetreten';
+        });
 }
