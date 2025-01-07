@@ -85,5 +85,12 @@ function renderMenu ($currentPage): void {
         else { echo '<div class="grid">'; }
     ?>
         <main>
+
+            <noscript>
+                <div class="jsInfoBox">
+                    Diese Seite benötigt JavaScript, um korrekt zu funktionieren. Bitte aktivieren Sie JavaScript in Ihrem Browser.
+                </div>
+            </noscript>
+
         <?php renderBreadcrumb($currentPage);
 }

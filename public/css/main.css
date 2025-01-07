@@ -289,6 +289,14 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     font-size: 14px;
 }
 
+.jsInfoBox {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffe0e0;
+}
+
 @media only screen and (max-width: 1600px) {
     .grid, .gridIndex {
         padding-top: 67px;

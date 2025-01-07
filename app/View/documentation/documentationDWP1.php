@@ -750,7 +750,14 @@ TODO:
                         kann er diese später auch bearbeiten oder löschen. Ein Administrator kann alle Anzeigen löschen.
                     </p><p>
                         Weitere Informationen über die Nutzerrollen sind <a href="#rollenkonzept" draggable="false">hier</a> zu finden.
+                    </p><br /><p>
+                        Eine Anforderung des Projekts war, die Webseite so zu gestalten, dass sie auch ohne JavaScript funktionsfähig bleibt. Um dieser Anforderung gerecht zu werden, haben wir einen Hinweis implementiert, der Nutzer darauf aufmerksam macht, wenn JavaScript deaktiviert ist. Dieser Hinweis erscheint, sobald JavaScript nicht aktiv ist, und informiert die Nutzer darüber, wie sie alle Funktionen der Seite vollständig nutzen können.
+                    </p><p>
+                        Aufgrund des hohen Umfangs an dynamischen Inhalten und der begrenzten Zeitressourcen konnten wir jedoch keinen vollständigen serverseitigen Fallback für alle Funktionen umsetzen. Die wesentlichen Inhalte sind für Nutzer mit aktiviertem JavaScript vollständig und performant verfügbar, während der Hinweis sicherstellt, dass Nutzer ohne JavaScript nicht ohne Orientierung bleiben.
                     </p>
+                    <br />
+                    <img src="../public/imgDokumentationDWP/jsFallback.png" title="" alt="Gast Nutzerrollen" draggable="false">
+                    <div class="caption">Abbildung 15: Anzeige, wenn JavaScript deaktiviert ist</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -879,7 +886,7 @@ TODO:
                 </p>
                 <div class="Dokumentation">
                     <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
-                </div><div class="caption">Abbildung 15: Prozess Dokumentation</div>
+                </div><div class="caption">Abbildung 16: Prozess Dokumentation</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -1201,7 +1208,7 @@ TODO:
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 15):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
+                <p>Prozess Dokumentation (Abbildung 16):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
