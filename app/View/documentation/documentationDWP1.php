@@ -890,15 +890,20 @@ TODO:
                 <h2 id="fazit">7 Fazit und Ausblick</h2>
                 <hr class="underHeadline" />
                 <p> Das aktuelle Projekt erweitert und verbessert die bestehende "Tierheimat" Webseite durch die Implementierung vieler dynamischer und interaktiven Inhalte.
+                </p><p>
                     Alle Seiten wurden mit den neuen Features ausgestattet und sollen das Nutzererlebnis merkbar anheben.
+                </p>
                     Technisch basiert die Erweiterung auf einem modernen und modularen Aufbau, der eine effiziente Verwaltung und Präsentation von Inhalten aus einer zentralen Datenbank ermöglicht.
+
                     Die Verwendung von PHP und MYSQL für die serverseitige Logik sorgt für eine stabile Datenanbindung und performante Datenverarbeitung.
+                <p>
                     Ergänzt wird dies durch dynamische JavaScript Komponenten, die eine reibungslose Benutzerinteraktion und ein nahtloses Laden von Inhalten gewährleisten.
-
+                </p><p>
                     Die Benutzeroberfläche bleibt durch das responsive Design der bestehen Webseite konsistent, sodass die Darstellung auf verschiedenen Geräten und Bildschirmgrößen optimiert ist.
+                </p>
                     Dabei wurde bewärhte Elemente aus der Tierdarstellung übernommen und auf die neue Struktur angewendet, um ein einheitliches Erscheinungsbild und eine intuitive Navigation zu gewährleisten.
-
                     Zusammenfassend bietet die neu überarbeitete Webseite eine moderne, flexible und technisch ausgereifte Lösung, die den Informationsfluss für die Nutzer verbessert.
+                <p>
                     Das Projekt zeigt, wie durch gezielte Erweiterungen bestehende Systeme funktional erweitert und gleichzeitig die Benutzerfreundlichekti erhalten bleiben können.
                 </p>
 
