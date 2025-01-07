@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../public/css/main.css" />
     <link rel="stylesheet" href="../../../public/css/footer.css" />
     <link rel="stylesheet" href="../../../public/css/loggedInPage.css" />
-    <link rel="stylesheet" href="../../../public/css/aktuelles.css" />
+    <link rel="stylesheet" href="../../../public/css/current.css" />
 
     <link rel="stylesheet" href="../../../public/lib/fontawesome-6.5.2/css/all.min.css">
 
@@ -18,7 +18,7 @@
 <header>
     <nav>
         <span class="linkLogo">
-            <a href="indexLogin.html" class="logo" draggable="false">
+            <a href="indexLogin.php" class="logo" draggable="false">
                 Tierheimat
             </a>
         </span>
@@ -28,7 +28,7 @@
 <div class="grid">
     <main>
         <div class="tile tileBorder">
-            <a href="indexLogin.html" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
+            <a href="indexLogin.php" draggable="false"><i class="fa-solid fa-house"></i> Startseite</a>
             >
             <a class="disabled" draggable="false">Aktuelles</a>
         </div>
