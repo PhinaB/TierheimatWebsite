@@ -101,6 +101,7 @@ TODO:
                 <dd><a href="#datenbankAnbindung" draggable="false">3.2 Datenbank-Setup und Anbindung</a></dd>
                 <dd><a href="#php" draggable="false">3.3 PHP-Skripte und Logik</a></dd>
                 <dd><a href="#rollenkonzept" draggable="false">3.4 Rollenkonzept</a></dd>
+                <dd><a href="#routing" draggable="false">3.5 Routing</a></dd>
                 <dt><a href="#interaktiveFeatures" draggable="false">4 Interaktive Features</a></dt>
                 <dd><a href="#benutzerinteraktion" draggable="false">4.1 Benutzerinteraktion</a></dd>
                 <dd><a href="#formulare" draggable="false">4.2 Dynamische Formulare und Eingabevalidierung</a></dd>
