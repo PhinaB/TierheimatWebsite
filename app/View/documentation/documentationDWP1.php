@@ -375,6 +375,8 @@ TODO:
                                         <li>Fertigstellung der databaseInit Datei</li>
                                         <li>Prüfung und Fertigstellung der Dokumentation</li>
                                         <li>Fertigstellung der "Aktuelles"-Seite (Weiterlesen eines einzelnen Artikels)</li>
+                                        <li>Bearbeiten der Tiere auf der vermisst / gefunden Seite</li>
+                                        <li>Update der README</li>
                                         <li>Unterstützung bei Komplikationen</li>
                                     </ul>
                                 </td>
@@ -382,8 +384,9 @@ TODO:
                                     <ul class="tasks">
                                         <li>Beginn der Dokumentation </li>
                                         <li>Umsetzung der MVC-Ordnerstruktur (mit Stephanie) </li>
-                                        <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen in Datenbank, Weiterlesen der Tier-Informationen,
-                                    Bearbeiten und Löschen der Tiere mit Prüfung des Nutzers, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
+                                        <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen
+                                            in Datenbank, Weiterlesen der Tier-Informationen, Anzeige der Bearbeiten und Löschen Buttons mit Prüfung des Nutzers,
+                                            Löschen der Tiere mit Prüfung des Nutzers, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
                                         <li>Login und Registration von Nutzern mit Sessions (+ Hashing der Passwörter, + Anzeige des Nutzernamens und
                                             Veränderung des Menüs nach dem Login) </li>
                                     </ul>
