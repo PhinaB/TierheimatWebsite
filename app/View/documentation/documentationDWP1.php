@@ -19,18 +19,44 @@
     <!--
     TODO WICHTIG!!!!
 
-
-
-
-    -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung
-
-
-    -Rollenmodell für die Nutzer -> Teilweise Implementiert, würde noch gerne mehr Code Beispiele einbringen, Feedback ausstehend um Aufwand und Sinnhaftigkeit abzuschätzen
-
-     -> Hinweis v.a. auf besondere techn. Anforderungen, bekannte Fehler, unvollständige Implementierung, "versteckte" Features, ... → abgeschlossen, ist z.B mit der favourite Funktion benannnt, dass diese als Cookies gespeichert werden und nicht in der DB
     -Auflistung Tätigkeiten jeder Person und benötigter Aufwand → integriert bis auf die h per person
-    -ERM und relationales Modell für die DB!  → integriert
--Beschreibung der Funktionalitäten für jede Seite (beschriftete Screenshots) -> done
+
+  -falls Druck css funktioniert: diese noch irgendwo erwähnen (2.4 > vermisst/gefunden)
+
+TODO:
+    -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung (Login) -> in etwa so:
+    Startpunkt:
+
+                Der Benutzer ruft die erste Seite des Formulars oder den Login-Bereich auf.
+
+            Login (falls erforderlich):
+
+                Der Benutzer gibt Anmeldedaten ein.
+                Diese werden überprüft (z. B. gegen eine Datenbank).
+                Erfolg: Der Benutzer wird weitergeleitet.
+                Fehler: Eine Fehlermeldung wird angezeigt, und der Benutzer versucht es erneut.
+
+            Schrittweises Ausfüllen des Formulars:
+
+                Mehrere Seiten (Schritte) des Formulars werden durchlaufen.
+                Der Benutzer gibt Daten ein und klickt auf „Weiter“ oder „Absenden“.
+                Jede Seite wird validiert:
+                    Validierung auf der Client-Seite (Frontend): Überprüft, ob die Felder korrekt ausgefüllt sind (z. B. Pflichtfelder, Format).
+                    Validierung auf der Server-Seite (Backend): Überprüft die Daten nochmals serverseitig.
+
+            Fehlerbehandlung:
+
+                Bei einem Fehler (z. B. ungültige Eingabe) wird der Benutzer auf der aktuellen Seite gehalten und sieht Hinweise zur Korrektur.
+                Die Navigation ist blockiert, bis der Fehler behoben ist.
+
+            Speichern und Weiterleitung:
+
+                Die Daten werden auf dem Server gespeichert (z. B. in einer Datenbank).
+                Der Benutzer wird zu einer Bestätigungsseite oder nächsten Seite weitergeleitet.
+
+            Abschluss:
+
+                Nach erfolgreicher Eingabe und Validierung aller Daten wird der Prozess abgeschlossen (z. B. durch eine Dankes- oder Bestätigungsseite).
     -->
 
     <main>
@@ -100,6 +126,7 @@
                     Diese Seite dokumentiert den zweiten Teil des Projekts
                     <img src="../public/img/logo.jpg" class="inlineLogo" alt="Tierheimat Logo" title="Tierheimat Logo" draggable="false">, das über zwei Semester in den Modulen
                     "Grundlegende Webprogrammierung" und "Dynamische Webprogrammierung" entwickelt wurde. Eine detaillierte Dokumentation des ersten Teils ist <a href="dokuGWP" draggable="false">hier</a> verfügbar.
+                    Informationen, wie die Wahl des Layouts und der Farben, aber auch die Zielgruppe, sind dort zu finden und werden in folgender Dokumentation nicht erneut erwähnt.
                 </p><br /><p>
                     Die Dokumentation ist in Abschnitte gegliedert, die die Projektziele, die Planung und Konzeption, die Backend-Entwicklung sowie die durchgeführten Tests abdecken.
                     Abschließend werden Lessons Learned und mögliche Weiterentwicklungen beschrieben.
@@ -166,14 +193,12 @@
                         Im zweiten Teil des Projekts liegt der Schwerpunkt auf der Entwicklung des Backends mit PHP sowie der Integration interaktiver Funktionen mit JavaScript, um die Webseite benutzerfreundlicher und funktionaler zu gestalten.
                     </p><br /><p>
                         Zunächst ist eine strukturierte Anbindung der Webseite an eine Datenbank vorgesehen. Diese ermöglicht eine effiziente Datenverwaltung, reduziert redundanten Code und bildet die Grundlage für verschiedene Formular- und Filterfunktionen. 
-                        Dazu wird ein Entity-Relationship-Modell entworfen, welches die spezifischen Anforderungen der Webseite abbildet. Beispielsweise eine „Tiere“ Tabelle, die zur Adoption freigegebene Tiere verwaltet.
+                        Dazu wird ein Entity-Relationship-Modell entworfen, welches die spezifischen Anforderungen der Webseite abbildet. Beispielsweise eine "Tiere" Tabelle, die zur Adoption freigegebene Tiere verwaltet.
                         Aus diesem Modell werden mithilfe von SQL die entsprechenden Tabellen in MariaDB erstellt.
                         Anschließend erfolgt die Einrichtung einer Datenbankverbindung über ein PHP-Skript, um den sicheren Austausch von Daten zwischen der Webseite und der Datenbank zu gewährleisten.
                     </p>
-
-                    <!-- TODO: ERM und Relationenmodell als Bild einfügen -->
                     <br /><p>
-                        Für die weitere Backend Entwicklung sollen die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
+                        Für die weitere Backend-Entwicklung sollen die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
                         Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, vermisste Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese aus dem System zu entfernen.
                     </p><p>
                         Hierfür sind separate PHP-Dateien vorgesehen, die zudem Sicherheitsmaßnahmen, wie etwa gegen SQL-Injection, beinhalten. Nutzern, die vermisste oder gefundene Tiere melden, wird außerdem die Möglichkeit geboten, ihre Einträge zu bearbeiten oder zu löschen. Administratoren sollen dabei alle Einträge löschen und bearbeiten können. Dies gewährleistet eine stets aktuelle Tierdatenbank und eine effiziente Datenverwaltung.
@@ -182,13 +207,13 @@
                     </p><br /><p>
                         Neben der Backend-Entwicklung ist auch die Einbindung interaktiver Elemente mithilfe von JavaScript geplant, um das Nutzererlebnis zu verbessern.
                         Eine der vorgesehenen Funktionen ist ein Filter, mit dem Nutzer bei den Tieren gezielt nach Tierart, Rasse oder Geschlecht suchen können. Diese dynamische Filteroption erleichtert die Navigation und ermöglicht den Nutzern, die für sie relevanten Informationen schnell zu finden.
-                        Darüber hinaus soll ein „Gefällt mir“-Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern können. Diese Speicherung soll als Cookie umgesetzt werden.
+                        Darüber hinaus soll ein "Gefällt mir"-Button für die Tiere integriert werden, sodass Interessenten ihre Favoriten speichern können. Diese Speicherung soll als Cookie umgesetzt werden.
                     </p><br /><p>
                         Zusätzlich ist die Integration weiterer dynamischer Inhalte geplant, die sich auf Nutzereingaben basierend anpassen. 
-                        So sollen „Weiterlesen“ Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
+                        So sollen "Weiterlesen" Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
                         Ein weiteres Formular soll es dem Nutzer ermöglichen vermisste oder gefundene Tiere hochzuladen. Diese werden auf der Seite direkt angezeigt, ohne sie neu zu laden. Nutzer, die ein solches Tier hochgeladen haben, sollen dieses später auch löschen oder bearbeiten können.
                     </p><p>
-                        Auch die Funktion „weitere Tiere anzeigen“ soll es den Nutzern ermöglichen, zusätzliche Tiere anzuzeigen, ohne die gesamte Webseite zu aktualisieren.
+                        Auch die Funktion "weitere Tiere anzeigen" soll es den Nutzern ermöglichen, zusätzliche Tiere anzuzeigen, ohne die gesamte Webseite zu aktualisieren.
                     </p><p>
                         Darüber hinaus soll JavaScript genutzt werden, um Benutzereingaben bereits im Browser zu prüfen, bevor sie an den Server gesendet werden.
                         Dies erlaubt die direkte Erkennung und Korrektur unvollständiger oder fehlerhafter Eingaben im Formular.
@@ -232,7 +257,6 @@
                     </p><p>
                         MariaDB wird als relationales Datenbankmanagementsystem eingesetzt, um alle relevanten Daten, wie Nutzer und Tierdaten, strukturiert zu speichern.
                         MariaDB bietet dabei hohe Leistungsfähigkeit und Zuverlässigkeit, was für die konsistente Datenverwaltung der Anwendung entscheidend ist.
-                        <!-- TODO: beschreiben, dass wir kein pdo genutzt haben? -->
                     </p><p>
                         Für die Programmierung und Verwaltung des Codes wurde die Entwicklungsumgebung PHP Storm gewählt.
                     </p><p>
@@ -262,19 +286,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Backend-Entwicklung mit PHP</td>
-                                <td class="time redColor"> h </td> <!-- TODO: Zeiten -->
+                                <td>Vorbereitungsphase</td>
+                                <td class="time"> h </td> <!-- TODO: Zeiten -->
                             </tr><tr>
-                                <td>Frontend-Entwicklung mit JavaScript</td>
-                                <td class="time greenColor"> h </td>
+                                <td>Implementierungsphase</td>
+                                <td class="time"> h </td>
                             </tr><tr>
-                                <td>Dokumentation</td>
-                                <td class="time redColor"> h </td>
+                                <td>Dokumentationsphase</td>
+                                <td class="time"> h </td>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Gesamt</td>
-                                <td class="time greenColor"> h </td>
+                                <td class="time"> h </td>
                         </tfoot>
                     </table>
                     <div class="caption">Tabelle 1</div>
@@ -309,7 +333,7 @@
                         Regelmäßige Team Meetings und Status-Updates stellen sicher, dass alle Teammitglieder stets auf dem neuesten Stand sind und effizient zusammenarbeiten.
                     </p><p>
                         Webgestütze Tools wie "Jira" und "WhatsApp" haben dazu beigetragen eine klare Übersicht und eine direkte Kommunikation zu gewährleisten.
-                        Nachfolgend, ein Ausschnitt unserer Aufgaben in Jira: <!-- TODO: überall gleichmäßige Anführungszeichen -->
+                        Nachfolgend, ein Ausschnitt unserer Aufgaben in Jira:
                     </p>
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentationDWP/jiraAuszug.jpg" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
@@ -432,6 +456,9 @@
                         Es werden beim Aufruf der Seite immer maximal 8 Tiere angezeigt. Sollten in der Datenbank mehr Tiere mit diesen Filteroptionen vorhanden sein, kann der
                         Nutzer weitere Tiere durch den Button "Weitere Tiere anzeigen" nachladen.
                     </p><p>
+                        Sollten die Tiere nicht geladen werden können, wird dem Nutzer auch die Ausgabe angezeigt, dass die Tiere nicht geladen werden. Da ein Nutzer nichts mit php Fehlern anfangen kann, zeigen wir ihm lediglich an, dass die Tiere nicht geladen werden können.
+                        In PHP selbst werden alle möglichen Fehler durch Exceptions gefangen.
+                    </p><p>
                         Möchte ein Nutzer weitere Informationen erhalten, kann er bei jedem Tier auf "Weiterlesen" klicken und erhält daraufhin weitere Informationen zu diesem spezifischen Tier.
                     </p><p>
                         Jedem Nutzer ist es erlaubt Tiere, durch das rechts oben angeordnete Herz, zu favorisieren und wieder zu ent-favorisieren. Diese "Gefällt mir"-Angabe wird in Cookies gespeichert.
@@ -524,9 +551,9 @@
                     Gemeinsam wurde daraus ein umfassendes ER-Modell entwickelt, das die Kernfunktionen der Webseite, wie beispielsweise die Verwaltung von Tierinformationen, 
                     Nutzerprofilen und interaktiven Formularen, wie die Formulare zum melden vermisster oder gefundener Tiere oder das Formular zum anbieten von Hilfe, unterstützt.
                 </p><br /><p>
-                    Eine zentrale Herausforderung im Entwurfsprozess bestand darin, Redundanzen zu vermeiden und gleichzeitig alle Anforderungen bestmöglich zu erfüllen. Besonders bei der Tabelle „Helfen“ standen wir vor einer Abwägung: Es war unklar, 
-                    ob separate Tabellen für „Wochentage“ und „Datum“ erforderlich wären, um zwischen regelmäßigem und einmaligem Hilfsangebot zu unterscheiden. 
-                    Der Wochentag im Hilfsformular steht für ein wiederkehrendes Angebot (z. B. „jeden Montag“), während das Datum ein einmaliges Angebot darstellt.
+                    Eine zentrale Herausforderung im Entwurfsprozess bestand darin, Redundanzen zu vermeiden und gleichzeitig alle Anforderungen bestmöglich zu erfüllen. Besonders bei der Tabelle "Helfen" standen wir vor einer Abwägung: Es war unklar,
+                    ob separate Tabellen für "Wochentage" und "Datum" erforderlich wären, um zwischen regelmäßigem und einmaligem Hilfsangebot zu unterscheiden.
+                    Der Wochentag im Hilfsformular steht für ein wiederkehrendes Angebot (z. B. "jeden Montag"), während das Datum ein einmaliges Angebot darstellt.
                 </p><br /><p>
                     Nach reiflicher Überlegung entschieden wir uns, beide Angaben in einer einzigen Tabelle abzubilden, sodass jeder Wochentag oder jedes Datum ein eigenständiges Tupel darstellt. 
                     Die Herausforderung in der Umsetzung besteht nun darin sicherzustellen, dass entweder ein Datum oder ein Wochentag im Tupel angegeben ist, jedoch niemals beides.
@@ -538,11 +565,59 @@
                     Die folgenden Abbildungen zeigen den finalen Entwurf des Entity-Relationship-Modells sowie das dazugehörige Relationenmodell.
                 </p><br />
 
-                <img src="../public/imgDokumentationDWP/E-R-Modell_cleaned.png" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
+                <img src="../public/imgDokumentationDWP/ERM.jpg" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
                 <div class="caption">Abbildung 07: Entity-Relationship-Modell</div>
                 <br/>
-                <img src="../public/imgDokumentationDWP/RelationalesSchema.png" title="Relationales Schema" alt="Relationales Schema" draggable="false">
-                <div class="caption">Abbildung 08: Relationenmodell</div>
+
+                <p>
+                    <b>Nutzerrollen</b>
+                    (<u>NutzerrollenID</u>, Rolle, kannLesen, kannSchreiben, kannEigenesBearbeitenUndLoeschen, kannAllesLoeschen)
+                </p>
+
+                <p>
+                    <b>Nutzer</b>
+                    (<u>NutzerID</u>, NutzerrollenID → Nutzerrollen(NutzerrollenID), Name, Email, Passwort)
+                </p>
+
+                <p>
+                    <b>Tierart</b>
+                    (<u>TierartID</u>, Tierart)
+                </p>
+
+                <p>
+                    <b>Rasse</b>
+                    (<u>RasseID</u>, TierartID → Tierart(TierartID), Rasse)
+                </p>
+
+                <p>
+                    <b>VermisstGefundenTiere</b>
+                    (<u>VermisstGefundenTierID</u>, ZuletztGeaendertNutzerID → Nutzer(NutzerID), TierartID → Tierart(TierartID), Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert)
+                </p>
+
+                <p>
+                    <b>Tiere</b>
+                    (<u>TierID</u>, RasseID → Rasse(RasseID), Geschlecht, Beschreibung, Geburtsjahr, Name, Charakter, Datum)
+                </p>
+
+                <p>
+                    <b>BilderTiere</b>
+                    (<u>BilderID</u>, TierID → Tier(TierID), Bildadresse, Hauptbild, Alternativtext)
+                </p>
+
+                <p>
+                    <b>Artikel</b>
+                    (<u>ArtikelID</u>, Ueberschrift, Text, Datum, Bildadresse)
+                </p>
+
+                <p>
+                    <b>ArtDerHilfe</b>
+                    (<u>ArtID</u>, ArtDerHilfe)
+                </p>
+
+                <p>
+                    <b>Helfen</b>
+                    (<u>HelfenID</u>, NutzerID → Nutzer(NutzerID), ArtDerHilfe → ArtDerHilfe(ArtID), Angenommen, Zeit, Datum, Wochentag)
+                </p>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -561,7 +636,7 @@
                     Die Datei tierheimat.sql enthält dabei die vollständige Struktur der Tabellen sowie Beispieldaten.
                 </p>
                 <p>
-                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core".
+                    Die Anbindung erfolgt über die Klasse "Connection" im Verzeichnis "core". Dabei haben wir uns entschieden mysqli und nicht pdo zu verwenden.
                     Die Verbindungseinstellungen sind standardmäßig auf den lokalen MariaDB Server (localhost) mit dem Benutzer "root" und einem leeren Passwort konfiguriert.
                     Der Name der Datenbank lautet "tierheimat".
                 </p>
@@ -814,7 +889,7 @@
             <div class="section">
                 <h2 id="fazit">7 Fazit</h2>
                 <hr class="underHeadline" />
-                <p>
+                <p> <!-- TODO:  -->
                 </p>
 
                 <div class="backButton">
@@ -840,8 +915,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Planungs- und Entwurfsphase</td>
-                                <td class="time"> h </td>
+                                <td>Vorbereitungsphase</td>
+                                <td class="time"> h </td> <!-- TODO: Zeiten -->
                                 <td class="time greenColor">h</td>
                             </tr>
                             <tr>
@@ -866,7 +941,7 @@
                     <div class="caption">Tabelle 3</div>
 
                     <p>
-                        Insgesamt wurden für das Projekt ... Stunden aufgewendet, während ursprünglich ... Stunden geplant waren. 
+                        Insgesamt wurden für das Projekt ... Stunden aufgewendet, während ursprünglich ... Stunden geplant waren.  <!-- TODO: Satz vollenden -->
                     </p>
 
                     <div class="backButton">
@@ -877,12 +952,12 @@
                 <div class="section">
                     <h3 id="lessonsLearned">7.2 Lessons Learned</h3>
                     <hr class="underHeadline" />
-                    <ol
+                    <ol>
                         <li class="list-item">
                             <strong>Bedeutung einer klaren Projektplanung:</strong>
                             <p>Wir haben gelernt, dass eine sorgfältige und detaillierte Planung der Schlüssel zum Erfolg eines Projektes ist.</p>
                             <p>Die Erstellung eines klaren Projektplans, einschließlich Meilensteine und Zeitpläne, hat uns geholfen den Überblick zu behalten und sicherzustellen, dass alle Teammitglieder auf dem gleichen Stand sind.</p>
-                        </li><br/>
+                        </li>
                         <li class="list-item">
                             <strong>Kommunikation und Teamarbeit:</strong>
                             <p>Effektive Kommunikation innerhalb des Teams war ein entscheidender Faktor für den Projekterfolg.</p>
@@ -901,107 +976,27 @@
                         </li>
                         <li class="list-item">
                             <strong>Organisation:</strong>
-                            <p>Eine getaktete Arbeitsweise sowie Fristen haben das Arbeiten produktiver allerdings auch Fehleranfälliger gestaltet, diese Fristen haben uns dabei geholfen stets eine Orientierung über das Projekt und den aktuellen Standpunkt zu haben</p>
+                            <p>Eine getaktete Arbeitsweise sowie Fristen haben das Arbeiten produktiver, allerdings auch fehleranfälliger gestaltet. Diese Fristen haben uns dabei geholfen stets eine Orientierung über das Projekt und den aktuellen Standpunkt zu haben.
+                            </p>
                         </li>
                     </ol>
 
 
                     <br />
                     <p>
-                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretische Wissen als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen. </p>
+                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretisches Wissen, als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen. </p>
                     <p>
                         Dabei konnten wir nicht nur unser technisches Know-how im Bereich der Webentwicklung, Datenbankanbindung und interaktiven Features ausbauen, sondern auch wichtige Erkenntnisse im Hinblick auf Teamarbeit, Organisation und Projektmanagement gewinnen.</p>
                     <P>
                         Insbesondere die Zusammenarbeit im Team förderte unsere Kommunikationsfähigkeiten und verdeutlichte, wie essenziell klare Absprachen, regelmäßige Abstimmungen und die flexible Anpassung an neue Herausforderungen für den Projekterfolg sind.</P>
                     <p>
-                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.</p>
-                    <br/>
-                    <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
-                    <div class="caption">Abbildung 14: Visualisierung Lessons Learned</div>
+                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
                 </div>
-
-
-
-
-
-
-
-                <div class="section">
-                    <h3 id="lessonsLearned">7.2 Lessons Learned</h3>
-                    <hr class="underHeadline" />
-                    <ol>
-                        <li class="list-item">
-                            <strong>Effektive Kommunikation:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Regelmäßige Meetings und klare Kommunikationswege (z.B. über Tools wie Jira und WhatsApp) haben dazu beigetragen, Missverständnisse zu vermeiden und die Zusammenarbeit zu erleichtern.</p><br/>
-                            <p>Lernpunkt: Zukünftig sollten feste Meeting Strukturen und Protokolle eingeführt werden, um Diskussionen effizienter zu gestalten und Aufgaben klar zu dokumentieren.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Aufgabenverteilung:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Eine klare Zuweisung von Verantwortlichkeiten hat geholfen, Engpässe zu vermeiden und den Fortschritt transparent zu halten.</p><br/>
-                            <p>Lernpunkt: Für kommende Projekte könnte eine noch detailliertere Aufgabenplanung mit Zwischenschritten sinnvoll sein, um Zeitpläne besser einzuhalten.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Nutzung von Tools:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Der Einsatz von Jira zur Aufgabenverwaltung war hilfreich, um den Überblick über den Projektfortschritt zu behalten.</p><br/>
-                            <p>Lernpunkt: Zukünftig sollte eine Schulung zur optimalen Nutzung von Tools vor Projektstart eingeplant werden, um deren Funktionen besser auszuschöpfen.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Zeitmanagement:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Eng getaktete Fristen haben teilweise zu Zeitdruck geführt, was die Qualität beeinflussen könnte.</p><br/>
-                            <p>Lernpunkt: Eine realistischere Zeitplanung mit Puffern für unerwartete Herausforderungen wäre für zukünftige Projekte empfehlenswert.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Dokumentation und Nachverfolgung:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Eine kontinuierliche Aktualisierung der Projektdokumentation war hilfreich, um den Überblick zu behalten.</p><br/>
-                            <p>Lernpunkt: In zukünftigen Projekten könnte ein zentraler Dokumentenspeicher noch klarer organisiert werden, um Versionskonflikte zu vermeiden.</p>
-                        </li><br/>
-                        <li class="list-item">
-                            <strong>Flexibilität und Anpassungsfähigkeit:</strong>
-                            <br/><br/>
-                            <p>Erkenntnis: Unvorhergesehene Probleme konnten durch kurzfristige Anpassungen im Ablauf bewältigt werden.</p><br/>
-                            <p>Lernpunkt: Flexibilität sollte beibehalten, jedoch mit einem "Notfallplan" ergänzt werden, um kritische Probleme schneller zu lösen.</p>
-                        </li>
-                    </ol>
-
-                    <br />
-                    <p>
-                        Insgesamt stellte das Projekt "Tierheimat" eine äußerst wertvolle und bereichernde Lernerfahrung dar. Es bot uns die Möglichkeit, sowohl unser theoretisches Wissen als auch unsere praktischen Fähigkeiten erheblich zu erweitern und zu vertiefen.
-                    </p>
-                    <p>
-                        Dabei konnten wir nicht nur unser technisches Know-how im Bereich der Webentwicklung, Datenbankanbindung und interaktiven Features ausbauen, sondern auch wichtige Erkenntnisse im Hinblick auf Teamarbeit, Organisation und Projektmanagement gewinnen.
-                    </p>
-                    <p>
-                        Insbesondere die Zusammenarbeit im Team förderte unsere Kommunikationsfähigkeiten und verdeutlichte, wie essenziell klare Absprachen, regelmäßige Abstimmungen und die flexible Anpassung an neue Herausforderungen für den Projekterfolg sind.
-                    </p>
-                    <p>
-                        Abschließend lässt sich festhalten, dass das Projekt nicht nur ein wichtiger Meilenstein in unserer akademischen Laufbahn war, sondern auch einen nachhaltigen Einfluss auf unsere persönliche und berufliche Entwicklung hatte.
-                    </p>
-                    <br/>
-                </div>
-                <img src="../public/imgDokumentationDWP/LessonsLearned.jpg" title="" alt="Lessons Learned" draggable="false">
-                <div class="caption">Abbildung 14: Visualisierung Lessons Learned</div>
-
-                <div class="backButton">
-                    <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
-                </div>
-
-
-
-
-
-
-
-
-
 
                 <div class="section">
                     <h3 id="ausblick">7.3 Ausblick</h3>
@@ -1013,14 +1008,14 @@
                     <p>
                         In einem fortführenden Modul könnten weitere Funktionen implementiert werden, um die Benutzererfahrung und den Verwaltungsprozess zu optimieren. Dazu gehören:
                     </p><br/>
-                    <ul>
-                        <li>•Ein erweitertes Benutzerrollen und Berechtigungssystem, um unterschiedliche Zugriffsebenen für Administratoren, Mitarbeiter und Nutzer zu schaffen.</li>
-                        <li>•Eine Nachrichten und Benachrichtigungsfunktion, die es Nutzern ermöglicht, direkt mit dem Tierheim zu kommunizieren.</li>
-                        <li>•Erweiterte Filter und Suchfunktionen, um die Navigation und Auffindbarkeit von Tieren weiter zu verbessern.</li>
-                        <li>•Ein Event und Terminverwaltungssystem, um Veranstaltungen und Adoptionstermine effizient zu organisieren.</li>
-                        <li>•Die Integration eines Zahlungssystems für Spenden und Adoptionsgebühren.</li>
-                        <li>•Ein verbessertes Berichtswesen zur Auswertung von Daten für das Tierheimmanagement, in Form von Statistiken u.v.m.</li>
-                    </ul>
+                    <ul class="tasks" style="padding-left: 20px;">
+                        <li>Administratorseite zur Verwaltung von Nutzern</li>
+                        <li>Administratorseite zur Verwaltung von hochgeladenen Hilfsangeboten (aus dem Formular Service/Infos)</li>
+                        <li>Eine Übersichtsseite über favorisierte Tiere (für jeden Nutzer)</li>
+                        <li>Eine Benachrichtigungsfunktion, die es Nutzern ermöglicht, direkt mit dem Tierheim (oder einem Chatbot) zu kommunizieren</li>
+                        <li>Erweiterte Filter und Suchfunktionen, um die Navigation und Auffindbarkeit von Tieren weiter zu verbessern</li>
+                        <li>Eine Überblickseite zur Auswertung von Daten für das Tierheimmanagement, in Form von Statistiken u.v.m.</li>
+                    </ul><br/>
                     <p>
                         Diese Erweiterungen würden das Projekt auf ein neues Level heben und die Effizienz sowie die Benutzerfreundlichkeit weiter steigern.
                         Zudem könnte die Plattform langfristig durch die Einbindung neuer Technologien wie KI gestützte Bild und Mustererkennung zur Identifikation vermisster Tiere ausgebaut werden.
@@ -1048,51 +1043,103 @@
             <table class="table">
                 <tbody>
                     <tr class="headlineTable">
-                        <td colspan="2">Planungs- und Entwurfsphase</td>
-                        <td class="time"> h</td>
+                        <td colspan="2">Vorbereitungsphase</td>
+                        <td class="time"> h</td> <!-- TODO: Zeiten gesamt -->
                     </tr>
                     <tr>
-                        <td>Ideenfindung</td>
-                        <td class="time"> h</td>
+                        <td>Erstellen von Entity-Relationship- und Relationenmodell</td>
+                        <td class="time">5 h</td>
                         <td rowspan="3"></td>
                     </tr>
                     <tr>
-                        <td>Benutzeroberfläche entwerfen und abstimmen</td>
-                        <td class="time"> h</td>
+                        <td>Erstellen der Datenbank Befehle (CREATE, INSERT) und kreieren einer Datei zur Erst-Initialisierung</td>
+                        <td class="time">10 h</td>
                     </tr>
                     <tr>
-                        <td>Recherche (Bildersuche, ...)</td>
-                        <td class="time"> h</td>
+                        <td>Erstellung einer funktionierenden Datenbankverbindung in einer Connection Klasse</td>
+                        <td class="time">3 h</td>
                     </tr>
                     <tr class="headlineTable">
                         <td colspan="2">Implementierungsphase</td>
                         <td class="time"> h</td>
                     </tr>
                     <tr>
-                        <td>Umsetzung des Mockups, auch im Responsive Design</td>
-                        <td class="time"> h</td>
-                        <td rowspan="3"></td>
+                        <td>Erstellen des Routings + 404 Fehlerseite</td>
+                        <td class="time">5 h</td>
+                        <td rowspan="15"></td>
                     </tr>
                     <tr>
-                        <td>Umsetzung der Formulare (required, ...)</td>
-                        <td class="time"> h</td>
+                        <td>Erstellen des MVC Patterns</td>
+                        <td class="time">3 h</td>
                     </tr>
                     <tr>
-                        <td>Testen aller Eingaben und Ansichten</td>
-                        <td class="time"> h</td>
+                        <td>Vereinheitlichung von Menü, Footer und Breadcrumbmenü auf einer Seite</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Anzeige der Tiere in "Unsere Tiere" (aus der Datenbank)</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Filterung der Tiere in "Unsere Tiere" nach Tierart, Rasse und Geschlecht</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Weiterlesen der Tier-Informationen bei "Unsere Tiere"</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>"Gefällt mir"-Angabe einzelner Tiere in "Unsere Tiere"</td>
+                        <td class="time">2 h</td>
+                    </tr>
+                    <tr>
+                        <td>Weiterlesen der Artikel in "Aktuelles"</td>
+                        <td class="time">2 h</td>
+                    </tr>
+                    <tr>
+                        <td>Anzeige der Tiere in "Vermisste / Gefundene Tiere" (aus der Datenbank)</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Filterung der Tiere in "Vermisst / Gefunden"</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Weiterlesen der Tier-Informationen bei "Vermisste / Gefundene Tiere"</td>
+                        <td class="time">3 h</td>
+                    </tr>
+                    <tr>
+                        <td>Validierung und Upload des Formulars bei "Vermisste / Gefundene Tiere"</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Validierung und Upload des Formulars bei "Service / Infos"</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Bearbeiten und Löschen von vermissten und gefundenen Tieren</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Login und Registration</td>
+                        <td class="time">10 h</td>
                     </tr>
                     <tr class="headlineTable">
                         <td colspan="2">Dokumentationsphase</td>
-                        <td class="time"> h</td>
+                        <td class="time"> 51 h</td>
                     </tr>
                     <tr>
                         <td>Erstellen der Projektdokumentation</td>
-                        <td class="time"> h</td>
-                        <td rowspan="2"></td>
+                        <td class="time">40 h</td>
+                        <td rowspan="3"></td>
                     </tr>
                     <tr>
                         <td>Prüfung der Projektdokumentation durch die anderen Projektmitglieder</td>
-                        <td class="time"> h</td>
+                        <td class="time">10 h</td>
+                    </tr>
+                    <tr>
+                        <td>Erstellung der README</td>
+                        <td class="time">1 h</td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -1113,23 +1160,15 @@
             <hr class="underHeadline" />
             <ul>
                 <li><a href="#quelleDeckblatt" draggable="false">Quelle: Deckblatt</a></li>
-                <li><a href="#quelleEinleitung" draggable="false">Quelle: 1 Einleitung</a></li>
-                <li><a href="#quellePlanung" draggable="false">Quelle: 2 Konzeption und Planung</a></li>
-                <li><a href="#quelleBackend" draggable="false">Quelle: 3 Backend-Entwicklung</a></li>
-                <li><a href="#quelleInteraktiveFeatures" draggable="false">Quelle: 4. Interaktive Features</a></li>
-                <li><a href="#quelleTests" draggable="false">Quelle: 5 Tests und Optimierung</a></li>
                 <li><a href="#quelleDokumentation" draggable="false">Quelle: 6 Dokumentation</a></li>
-                <li><a href="#quelleFazit" draggable="false">Quelle: Fazit und Ausblick</a></li>
-                <li><a href="#quelleAnlagen" draggable="false">Quelle: Anlagen</a></li>
-                <li>&nbsp;</li>
-                <li><a href="#quelleWebsite" draggable="false">Bildquellen komplette Website</a></li>
             </ul>
 
             <div class="section">
                 <p>
                     Im Quellverzeichnis können alle verwendeten Pfade der erhobenen Daten nach Über- und Unterpunkten sortiert nachvollzogen werden.
                 </p><p>
-                    Bilder welche nicht im Quellverzeichnis aufgelistet sind stammen aus privaten Quellen und werden nicht näher benannt.
+                    Für diesen Teil des Projekts wurden keine neuen Bilder verwendet. Die Quellen der Bilder sind im Quellverzeichnis der
+                    <a href="dokuGWP#quelleDeckblatt" draggable="false">Dokumentation "Grundlagen Webprogrammierung"</a> zu finden.
                 </p>
             </div>
 
@@ -1142,278 +1181,18 @@
             </div>
 
             <div class="section">
-                <h2 id="quelleEinleitung">Quelle: 1 Einleitung</h2>
-                <hr class="underHeadline" />
-                <p>
-                    Logo Tierheimat (Abbildung 01):
-                </p>
-                <p>
-                    Erstellt durch Stephanie Wachs
-                </p>
-                <a href="https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0" draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0</a>
-                <br/><br/>
-                <p>
-                    1.2 Projektrückblick
-                </p><br/>
-                <p>
-                    Tabelle Zielgruppenanalyse (Abbildung 02):
-                </p><p>Aufbau der Webseite (Abbildung 03):</p>
-                <p>Auszug "Unsere Tiere" (Abbildung 04):</p>
-                <p>Erstellt durch Josephina Burger
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quellePlanung">Quelle: 2 Konzeption und Planung</h2>
-                <hr class="underHeadline" />
-                <p>
-                   2.2 Zeitplan und Meilensteine
-                </p><br/>
-                <p>
-                    Zeitachse mit Meilensteine (Abbildung 05):
-                </p>
-                <p>
-                    Erstellt durch Lucas-Manfred Herpe
-                </p><br/>
-                <p>
-                    2.3 Geplante Aufgabenteilung
-                </p><br/>
-                <p>Jira Übersicht (Abbildung 06):</p>
-                <P>Erstellt durch das Projektteam</P>
-                <a href="https://tierheimat.atlassian.net/jira/software/projects/SCRUM/boards/1" draggable="false">https://tierheimat.atlassian.net/jira/software/projects/SCRUM/boards/1</a>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleBackend">Quelle: 3 Backend-Entwicklung</h2>
-                <hr class="underHeadline" />
-                <p>
-                    3.1 Datenbankentwurf
-                </p><br/>
-                <p>Entity-Relationshop-Modell (Abbildung 07):</p>
-                <p>Relationales Schema (Abbildung 08):</p>
-                <p>
-                    Erstellt durch das Projektteam
-                </p>
-                <p><br/>
-                    3.2 Datenbank- Setup und Anbindung
-                </p><br/>
-                <p>
-                    Herstellung der Datenbankverbindung (Abbildung 09):
-                </p>
-                <p>Erstellt durch das Projektteam</p>
-                <p><br/>
-                    3.3 PHP- Skripte und Logik
-                </p><br/>
-                <p>
-                    Übersicht der MVC Struktur (Abbildung 10):
-                </p>
-                <p>
-                    Erstellt durch das Projektteam
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleInteraktiveFeatures">Quelle: 4 Interaktive Features</h2>
-                <hr class="underHeadline" />
-
-                <p>Umsetzung der Favoritenfunktion (Abbildung 11):</p>
-                <p>
-                    Entwickelt durch das Projektteam.
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleTests">Quelle: 5 Tests und Optimierung</h2>
-                <hr class="underHeadline" />
-
-                <p>Frontend vs Backend (Abbildung:12)</p>
-                <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic"
-                   draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIIRIEX8ix_e-5ouaEsoyPuKI9f5dg:1735948678525&q=frontend&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGv3dh0WX48pQ0OijG3Ir_Ily36WNjIM66TUeQQm6v5pCxPr2gtqfjkC7ffv6Tr7pov6Kj4r20q4qdHCSHuZ8l9l_oCqEwoxOcaGtTQ9oNU0Tr95ug&sa=X&sqi=2&ved=2ahUKEwjxvNPi4NqKAxVb2AIHHbH3FIoQtKgLegQIFBAB&biw=1718&bih=1304&dpr=1#vhid=aQIUZHyPg8uDIM&vssid=mosaic</a>
-
-            </div>
-
-            <div class="section">
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 13):</p>
+                <p>Prozess Dokumentation (Abbildung 13):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
-            <div class="section">
-                <h2 id="quelleFazit">Quelle: 7 Fazit und Ausblick</h2>
-                <hr class="underHeadline" />
-
-                <p>7.2 Lessons Learned</p>
-                <p>Lessons Learned (Abbildung 14):</p>
-                <a href="https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic"
-                   draggable="false">https://www.google.com/search?sca_esv=4a5ffd8fc2d1e287&sxsrf=ADLYWIKkl1VWl1Qr4-WzTNhDUJCnQ8txeg:1735950692452&q=lessons+learned&udm=2&fbs=AEQNm0A6bwEop21ehxKWq5cj-cHa02QUie7apaStVTrDAEoT1CkRGSL-1wA3X2bR5dRYtRGt1ztFQQ-ZMaiiQH8OsJ7799eMJP-7XlPoj36rPpwK-1vdcfTAsltFyhCvCGIhZPYMvaZjqFDRXT5PbIuHJkj2BUNUc4x--zXWApIorNb_-71dLmg&sa=X&sqi=2&ved=2ahUKEwj34vui6NqKAxVn0AIHHRSOKsoQtKgLegQIChAB&biw=1718&bih=1304&dpr=1#vhid=16LqQyLmyPXW8M&vssid=mosaic</a>
-                <p>
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 id="quelleAnlagen"> Quelle: 8. Anlagen</h2>
-                <hr class="underHeadline" />
-
-                <p>
-                    Anlage 2: Detaillierte Zeitplanung (Tabelle 3):
-                </p>
-                <p>
-                </p>
-
-            </div>
-
-            <div class="section">
-                <h2 id="quelleWebsite">Bildquellen komplette Website</h2>
-                <hr class="underHeadline" />
-
-                <h3>Bildquellen Startseite:</h3>
-                <p>
-                    Deine-Tierwelt [online] URL:
-                    <a href="https://www.deine-tierwelt.de/magazin/wp-content/uploads/sites/7/2018/10/Hund-und-Katze-schlafen.jpg" draggable="false">https://www.deine-tierwelt.de/magazin/wp-content/uploads/sites/7/2018/10/Hund-und-Katze-schlafen.jpg</a>
-                    [Stand 30.06.2024]
-                </p>
-                <p>
-                    Flickr.com [online] URL: <a href="https://www.flickr.com/photos/68555868@N04/16403083195/in/pool-terrarium/" draggable="false">https://www.flickr.com/photos/68555868@N04/16403083195/in/pool-terrarium/</a> [Stand 30.06.2024]
-                </p>
-
-                <br />
-                <h3>Bildquellen: Unsere Tiere</h3>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/cashew/" draggable="false">https://www.tierheim-leipzig.de/Project/cashew/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155557.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155557.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155545.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155545.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_151007.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_151007.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_150829.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_150829.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240519_115028.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240519_115028.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/IMG-20240519-WA0014.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/IMG-20240519-WA0014.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230318_113947.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230318_113947.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230314_162813.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230314_162813.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/FFBD96E4-F74E-47CC-8FB5-D801AE1E5CA1.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/FFBD96E4-F74E-47CC-8FB5-D801AE1E5CA1.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/19C315C2-71AA-4DEB-801B-825C693DCC82.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/19C315C2-71AA-4DEB-801B-825C693DCC82.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0007.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0007.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0021.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0021.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/01/Pino.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/01/Pino.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2021/10/20220115_132018.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2021/10/20220115_132018.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162006.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162006.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162232.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162232.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20240113_130739.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20240113_130739.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20231216_131633.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20231216_131633.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143241.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143241.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143304.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143304.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4334-2.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4334-2.jpg</a>  [Stand 05.07.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4342.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4342.jpg</a> [Stand 05.07.2024]
-                </p>
-                <br />
-                <h3>Bildquellen: Vermisst / Gefunden</h3>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/carlo-moechte-nicht-ins-tierheim/" draggable="false">https://www.tierheim-leipzig.de/Project/carlo-moechte-nicht-ins-tierheim/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/cello/" draggable="false">https://www.tierheim-leipzig.de/Project/cello/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/gnocchi/" draggable="false">https://www.tierheim-leipzig.de/Project/gnocchi/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="" draggable="false">https://www.tierheim-leipzig.de/Project/privatvermittlung-floyd/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/stitch/" draggable="false">https://www.tierheim-leipzig.de/Project/stitch/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/05/20230525_160027.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/05/20230525_160027.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/01/IMG_20230119_145515_edit_465193045793598.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/01/IMG_20230119_145515_edit_465193045793598.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/04/IMG-20220403-WA0001.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/04/IMG-20220403-WA0001.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240525_120351.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240525_120351.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/10/C440C255-1ED9-41FD-9919-DEBFC091A9E8.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/10/C440C255-1ED9-41FD-9919-DEBFC091A9E8.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1652631822225-0b9e423cd3c8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHN0cmV1bmVuZGUlMjBrYXR6ZXxlbnwwfHwwfHx8MA%3D%3D" draggable="false">https://images.unsplash.com/photo-1652631822225-0b9e423cd3c8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHN0cmV1bmVuZGUlMjBrYXR6ZXxlbnwwfHwwfHx8MA%3D%3D</a> [Stand 30.06.2024]
-                </p>
-
-                <br />
-                <h3>Bildquellen: Service / Infos</h3>
-                <p>
-                    Tierbedarf-Disount [online] URL: <a href="https://www.tierbedarf-discount.ch/media/image/ee/32/0f/katze-spielt-katze-beschaftigen-intro.jpg" draggable="false">https://www.tierbedarf-discount.ch/media/image/ee/32/0f/katze-spielt-katze-beschaftigen-intro.jpg</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlcnNvbiUyMGhvbGRpbmclMjBhJTIwY2F0fGVufDB8fDB8fHww" draggable="false">https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlcnNvbiUyMGhvbGRpbmclMjBhJTIwY2F0fGVufDB8fDB8fHww</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1706920147354-77d76004177f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false">https://images.unsplash.com/photo-1706920147354-77d76004177f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://unsplash.com/de/fotos/flachfokusfotografie-eines-weissen-shih-tzu-welpen-der-auf-dem-gras-lauft-qO-PIF84Vxg" draggable="false">https://unsplash.com/de/fotos/flachfokusfotografie-eines-weissen-shih-tzu-welpen-der-auf-dem-gras-lauft-qO-PIF84Vxg</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1570745526295-8223b49b3c53?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHx0cmF1cmlnZXIlMjBodW5kfGVufDB8fDB8fHww" draggable="false">https://images.unsplash.com/photo-1570745526295-8223b49b3c53?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHx0cmF1cmlnZXIlMjBodW5kfGVufDB8fDB8fHww</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Zurich-Versicherung [online] URL: <a href="https://www.zurich.de/-/media/project/zwp/germany/br/images/product/op-versicherung-fuer-katzen_1200x630_2021_07.jpg?rev=331bf83073e14538b45159cf39b53789" draggable="false">https://www.zurich.de/-/media/project/zwp/germany/br/images/product/op-versicherung-fuer-katzen_1200x630_2021_07.jpg?rev=331bf83073e14538b45159cf39b53789</a> [Stand 05.07.2024]
-                </p>
-            </div>
-
 
             <div class="backButton">
                 <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
             </div>
         </div>
     </main>
-
-    <?php include __DIR__ . '/../includes/generalJS.php'; ?>
 </body>
 </html>

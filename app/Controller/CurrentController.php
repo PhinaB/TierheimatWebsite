@@ -15,7 +15,11 @@ class CurrentController
 
         $db = Connection::connect();
 
-        $query = "SELECT ArtikelID, Ueberschrift, SUBSTRING(Text, 1, 150) AS VorschauText, Bildadresse, Datum FROM Artikel ORDER BY Datum DESC LIMIT :limit OFFSET :offset";
+        $query = "SELECT ArtikelID, Ueberschrift, SUBSTRING(Text, 1, 150) AS VorschauText, Bildadresse, Datum 
+                  FROM Artikel 
+                  ORDER BY Datum DESC 
+                  LIMIT :limit OFFSET :offset";
+
         $statement = $db->prepare($query);
         $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
         $statement->bindValue(':offset', (int)$offset, \PDO::PARAM_INT);
@@ -38,9 +42,10 @@ class CurrentController
     {
         header('Content-Type: application/json');
 
-        $id = $_GET['id'] ?? null;
+        // ID über POST statt GET empfangen
+        $newsId = $_POST['newsId'] ?? null;
 
-        if (!$id) {
+        if (!$newsId) {
             http_response_code(400);
             echo json_encode(['error' => 'Keine ID angegeben.']);
             return;
@@ -48,9 +53,11 @@ class CurrentController
 
         $db = Connection::connect();
 
-        $query = "SELECT Ueberschrift, Text, Bildadresse, Datum FROM Artikel WHERE ArtikelID = :id";
+        $query = "SELECT Ueberschrift, Text, Bildadresse, Datum 
+                  FROM Artikel 
+                  WHERE ArtikelID = :newsId";
         $statement = $db->prepare($query);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->bindValue(':newsId', $newsId, \PDO::PARAM_INT);
         $statement->execute();
 
         $article = $statement->fetch(\PDO::FETCH_ASSOC);
