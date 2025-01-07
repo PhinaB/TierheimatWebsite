@@ -758,6 +758,12 @@ TODO:
                     <br />
                     <img src="../public/imgDokumentationDWP/jsFallback.png" title="" alt="Gast Nutzerrollen" draggable="false">
                     <div class="caption">Abbildung 15: Anzeige, wenn JavaScript deaktiviert ist</div>
+                    <br />
+                    <p>
+                        Im Rahmen der Entwicklung haben wir uns außerdem für die Verwendung einer Singleton-Datenbankklasse (Connection) entschieden, um die Verwaltung der Datenbankverbindung zu zentralisieren und unnötige Instanzierungen zu vermeiden. Obwohl in der Clean Code Literatur darauf hingewiesen wird, dass Datenbankinstanzen nicht als Singleton implementiert werden sollten, sind wir überzeugt, dass diese Lösung in unserem Projektkontext aufgrund der Einfachheit und Effizienz die richtige Wahl darstellt.
+                    </p><p>
+                        Im Verlauf des Projekts haben wir auch die Bezeichner in unserem Code optimiert. Zu Beginn verwendeten wir deutsche Begriffe, sind jedoch später auf englische Bezeichner umgestiegen, um die Lesbarkeit und Zukunftsfähigkeit des Codes zu verbessern. Aufgrund der verbleibenden Zeit und der Tatsache, dass das Projekt kurz vor der Fertigstellung stand, haben wir uns entschieden, die letzten Anpassungen nicht mehr vorzunehmen, um den Fokus auf den Abschluss des Projekts zu legen. Wir sind jedoch zuversichtlich, dass diese Entscheidungen das Projekt nicht negativ beeinflussen, sondern die Umsetzung effektiv und zielgerichtet vorangetrieben haben.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
