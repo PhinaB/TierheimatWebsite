@@ -12,7 +12,9 @@ require_once __DIR__ . '/../app/Model/MissingFoundAnimal.php';
 require_once __DIR__ . '/../app/Model/AbstractModel.php';
 require_once __DIR__ . '/../app/Model/MissingFoundModel.php';
 require_once __DIR__ . '/../app/Model/UserModel.php';
+require_once __DIR__ . '/../app/Model/UserRoleModel.php';
 require_once __DIR__ . '/../app/Model/User.php';
+require_once __DIR__ . '/../app/Model/UserRole.php';
 
 include_once __DIR__ . '/../app/Controller/ServiceHelpController.php';
 include_once __DIR__ . '/../app/Controller/OurAnimalsController.php';

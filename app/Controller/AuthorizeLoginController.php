@@ -8,11 +8,12 @@ class AuthorizeLoginController
     {
         session_start();
         if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true){
+
             echo json_encode([
                 'loggedIn' => true,
                 'userId' => $_SESSION['nutzer_id'],
                 'userName' => $_SESSION['username'],
-                'userRoles' => $_SESSION['roles'], //enthält auch die Rechte
+                'userRoles' => $_SESSION['roles'],
                 'form' => file_get_contents(__DIR__ . '/../View/includes/missingFoundForm.php'),
             ]);
         } else {

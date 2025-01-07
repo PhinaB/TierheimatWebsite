@@ -179,7 +179,6 @@ function handleLogin(){
         formData.append('type', 'login');
 
         fetch('../public/user/login', {method: 'POST', body: formData})
-
             .then(response => {
                 if (!response.ok) {
                     console.error('Fehler beim Abrufen der Antwort:', response.status);
@@ -187,24 +186,23 @@ function handleLogin(){
                 }
                 return response.json();
             })
-        .then (data => {
-            console.log(data);
-            if(data.success){
-                window.location.href='../public/'
-            }
-            else {
-                if (data.errors.email) {
-                    setErrorFieldInnerHTML(document.querySelector('input[name=email]'), document.querySelector('#emailError'), data.errors.email);
+            .then (data => {
+                console.log(data);
+                if(data.success){
+                    window.location.href='../public/'
                 }
-                if (data.errors.password) {
-                    setErrorFieldInnerHTML(document.querySelector('input[name=password]'), document.querySelector('#passwordError'), data.errors.password);
+                else {
+                    if (data.errors.email) {
+                        setErrorFieldInnerHTML(document.querySelector('input[name=email]'), document.querySelector('#emailError'), data.errors.email);
+                    }
+                    if (data.errors.password) {
+                        setErrorFieldInnerHTML(document.querySelector('input[name=password]'), document.querySelector('#passwordError'), data.errors.password);
+                    }
+                    if(data.errors.general) {
+                        document.getElementById('loginError').textContent ='Login fehlgeschlagen.';
+                    }
                 }
-                if(data.errors.general) {
-                    document.getElementById('loginError').textContent ='Login fehlgeschlagen.';
-                }
-            }
-        })
-
+            })
             .catch (error => {console.error('Fehler beim Login:', error);})
             .finally (()=>{
                 enableFormFields();
