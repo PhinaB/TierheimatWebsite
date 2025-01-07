@@ -54,4 +54,5 @@ class UserRoleModel extends AbstractModel
             $userRole['kannEigenesBearbeitenUndLoeschen'],
             $userRole['kannAllesLoeschen']);
     }
+
 }

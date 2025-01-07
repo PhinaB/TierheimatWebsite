@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\Controller;
 
 use app\model\UserModel;
+use app\model\UserRoleModel;
 use Exception;
 
 
@@ -123,6 +124,7 @@ class UserController
                 $nutzermodel = new UserModel;
 
                 $nutzer = $nutzermodel->getNutzerByEmail($email);
+                $nutzerID = $nutzer['NutzerID'];
 
                 if (!$nutzer){
                     $response['errors']['email']= 'Email nicht gefunden oder nicht korrekt';
@@ -135,10 +137,14 @@ class UserController
                     return;
                 }
 
+                $rolesModel = new UserRoleModel();
+                $userRoles = $rolesModel->getUserRoles($nutzerID);
+
                 session_start();
                 $_SESSION['nutzer_id'] = $nutzer['NutzerID'];
                 $_SESSION['username'] = $nutzer['Name'];
                 $_SESSION['user_logged_in']= true;
+                $_SESSION['roles'] = $userRoles;
 
                 $response['success'] = true;
             }catch (Exception $e){

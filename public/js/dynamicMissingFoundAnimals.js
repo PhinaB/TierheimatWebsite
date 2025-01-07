@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 })
 
+let userRoles = null;
+let userId= null;
+
 function setBack() {
 
     const copyAllFoundAnimalsHere = document.querySelector('#copyAllFoundAnimalsHere');
@@ -127,8 +130,8 @@ function displayAnimals(animals, type) {
         copyFirstAnimalHere.appendChild(cloneFirstAnimal);
 
         cloneFirstAnimal.id="";
+        cloneFirstAnimal.getElementsByTagName('h3')[0].innerHTML = heading;
         cloneFirstAnimal.setAttribute('data-animal-id', animals[0].VermisstGefundenTiereID);
-        console.log(cloneFirstAnimal.querySelector('#data-animal-id'));
         cloneFirstAnimal.querySelector('.firstAnimalImage').src = animals[0].Bildadresse;
         cloneFirstAnimal.querySelector('.firstAnimalDate').innerHTML = '<span class="boldText animalDate">am: </span> ' + formatDate(animals[0].Datum);
         cloneFirstAnimal.querySelector('.firstAnimalPlace').innerHTML = '<span class="boldText">in: </span>' + animals[0].Ort;
@@ -136,6 +139,10 @@ function displayAnimals(animals, type) {
 
         cloneFirstAnimal.classList.remove('hidden');
 
+        //Überprüft Rechte und NutzerID
+        $creatorID= animals[0].ZuletztGeaendertNutzerID;
+        displayDelete($creatorID, cloneFirstAnimal);
+        displayEdit($creatorID, cloneFirstAnimal);
         //----------Dynamisches Anlegen der maximal vier Tiere ------------------------
         let counter = 0;
         const copyHere = document.getElementById(`copyAll${type === "Vermisste Tiere" ? 'Missing' : 'Found'}AnimalsHere`)
@@ -162,6 +169,7 @@ function displayAnimals(animals, type) {
             const imageUrl = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
             imageElement.src = imageUrl;
 
+            clone.getElementsByTagName('h3')[0].innerHTML = heading;
             clone.querySelector('.animalSubheading').innerHTML = '<span class="boldText">' + subheading + '</span>';
             clone.querySelector('.animalDate').innerHTML = '<span class="boldText">am: </span>' + formatDate(animals[i].Datum);
             clone.querySelector('.animalPlace').innerHTML = '<span class="boldText">in: </span>' + animals[i].Ort;
@@ -170,6 +178,10 @@ function displayAnimals(animals, type) {
             const descriptionWords = animals[i].Beschreibung.split(' ');
             descriptionStart.innerHTML = '<span class="boldText">Beschreibung: </span>' + descriptionWords.slice(0, 2).join(' ') + ' ...';
 
+            //Überprüft Rechte und NutzerID
+            $creatorID= animals[i].ZuletztGeaendertNutzerID;
+            displayDelete($creatorID, clone);
+            displayEdit($creatorID, clone);
             //--------------------Weiterlesen-------------------------------------------------------------------
             let allAElements = clone.getElementsByTagName('a');
             for (let i = 0; i < allAElements.length; i++) {
@@ -210,11 +222,38 @@ function displayAnimals(animals, type) {
     }
 }
 
-function checkLoginStatus(){
+function displayEdit(creatorId, clone) {
+
+    if (userId === creatorId){
+        const editButton = document.createElement('a');
+        editButton.href = "";
+        editButton.title = "Anzeige bearbeiten";
+        editButton.className = "edit";
+        editButton.draggable = false;
+        editButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+        clone.getElementsByTagName('h3')[0].appendChild(editButton);
+    }
+}
+
+function displayDelete(creatorId, clone) {
+
+
+    const deleteButton = document.createElement('a');
+    deleteButton.href = "";
+    deleteButton.title = "Anzeige löschen";
+    deleteButton.className = "delete";
+    deleteButton.draggable = false;
+    deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+
+    clone.getElementsByTagName('h3')[0].appendChild(deleteButton);
+}
+
+function checkLoginStatus() {
     fetch('../public/checkLogin')
         .then(response => response.json())
         .then(data => {
-            if (data.loggedIn){
+            if (data.loggedIn) {
                 document.getElementById('formContainer').innerHTML = data.form;
                 initializeFormEventListeners();
             }

@@ -41,22 +41,13 @@
     <p id="errorMissingAnimals" class="fehlermeldung"></p>
     <div id="copyFirstMissingAnimalHere"></div>
 
-    <div id="hiddenFirstMissingAnimalTemplate" class="animal hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+    <div id="hiddenFirstMissingAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
         <div class="animalImageContainer">
             <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
         </div>
         <div class="vermisstGefundenText">
 
-
-
-            <h3 class="headlineWithButtons">Vermisst
-                <a href="" title="Anzeige löschen" class="delete" draggable="false">
-                    <i class="fa-solid fa-trash"></i>
-                </a>
-                <a href="" title="Anzeige bearbeiten" class="edit" draggable="false">
-                    <i class="fa-solid fa-pen"></i>
-                </a>
-            </h3>
+            <h3 class="headlineWithButtons"> </h3>
             <p class="firstAnimalId hidden"></p>
             <p class="firstAnimalDate"></p>
             <p class="firstAnimalPlace"></p>
@@ -75,14 +66,7 @@
 
     <div id="hiddenTemplateMissingAnimals" class="hidden relativePosition ">
         <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
-        <h3 class="headlineWithButtons">Vermisst
-            <a href="" title="Anzeige löschen" class="delete" draggable="false">
-                <i class="fa-solid fa-trash"></i>
-            </a>
-            <a href="" title="Anzeige bearbeiten" class="edit" draggable="false">
-                <i class="fa-solid fa-pen"></i>
-            </a>
-        </h3>
+        <h3 class="headlineWithButtons"></h3>
         <p class="absatzfrei animalSubheading"></p>
         <p class="absatzfrei animalDate"></p>
         <p class="absatzfrei animalPlace"></p>
@@ -108,14 +92,7 @@
                 <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
             </div>
             <div class="vermisstGefundenText">
-                <h3 class="headlineWithButtons">Gefunden
-                    <a href="" title="Anzeige löschen" class="delete" draggable="false">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                    <a href="" title="Anzeige bearbeiten" class="edit" draggable="false">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
-                </h3>
+                <h3 class="headlineWithButtons"></h3>
                 <p class="firstAnimalId hidden"></p>
                 <p class="firstAnimalDate"></p>
                 <p class="firstAnimalPlace"></p>
@@ -134,15 +111,7 @@
 
         <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition ">
             <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
-            <h3 class="headlineWithButtons">
-                <a href="" title="Anzeige löschen" class="delete" draggable="false">
-                    <i class="fa-solid fa-trash"></i>
-                </a>
-                <a href="" title="Anzeige bearbeiten" class="edit" draggable="false">
-                    <i class="fa-solid fa-pen"></i>
-                </a>
-            </h3>
-
+            <h3 class="headlineWithButtons"></h3>
             <p class="absatzfrei animalSubheading"></p>
             <p class="absatzfrei animalDate"></p>
             <p class="absatzfrei animalPlace"></p>
