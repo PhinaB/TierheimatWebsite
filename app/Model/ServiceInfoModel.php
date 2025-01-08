@@ -35,9 +35,7 @@ class ServiceInfoModel extends AbstractModel
                     session_start();
                     $nutzerID = $_SESSION['nutzer_id']??null;
                     if(!$nutzerID){
-                        $nutzerID= 1;
-                        /*TODO: später diesen Teil verwenden
-                        throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');*/
+                        throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');
                     }
                     $angenommen = false;
                     $zeit = $times[$i];
@@ -69,7 +67,11 @@ class ServiceInfoModel extends AbstractModel
                         throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmt->error);
                     }
 
-                    $nutzerID = 1; // TODO: User hinzufügen
+                    session_start();
+                    $nutzerID = $_SESSION['nutzer_id']??null;
+                    if(!$nutzerID){
+                        throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');
+                    }
                     $angenommen = false;
                     $zeit = $weekdayTimes[$i];
                     $datum = null;
