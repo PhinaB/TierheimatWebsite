@@ -143,7 +143,7 @@ class UserController
                 session_start();
                 $_SESSION['nutzer_id'] = $nutzer['NutzerID'];
                 $_SESSION['username'] = $nutzer['Name'];
-                $_SESSION['user_logged_in']= true;
+                $_SESSION['loggedIn']= true;
                 $_SESSION['roles'] = $userRoles;
 
                 $response['success'] = true;

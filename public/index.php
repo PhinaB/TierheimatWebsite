@@ -45,6 +45,7 @@ $router->add('/dokuDWP1', 'StaticPageController', 'loadDocumentationDWP1Action',
 // all Routes for js:
 $router->add('/animal/report', 'missingFoundAnimalController', "addVermisstGefundenTier", '');
 $router->add('/loadMissingFoundAnimals', 'missingFoundAnimalController', "loadAllMissingFoundAnimals", '');
+$router->add('/deleteMissingFoundAnimals', 'missingFoundAnimalController', "deleteMissingOrFoundAnimal", '');
 $router->add('/checkLogin', 'AuthorizeLoginController', 'checkLogin', '');
 $router->add('/load/all/our/animals', 'OurAnimalsController', "loadAllAnimals", '');
 $router->add('/add/help', 'ServiceHelpController', "addServiceInfo", '');

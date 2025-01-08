@@ -6,8 +6,10 @@ class AuthorizeLoginController
 {
     public function checkLogin(): void
     {
-        session_start();
-        if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true){
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true){
 
             echo json_encode([
                 'loggedIn' => true,

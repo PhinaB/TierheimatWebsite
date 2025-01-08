@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", async function() {
-    await checkLoginStatus();
+document.addEventListener("DOMContentLoaded", function() {
+
+    checkLoginStatus();
 
     const type = document.getElementById('currentMissingOrFound').value;
     loadMissingFoundAnimalsToPage(type);
@@ -85,7 +86,12 @@ function setBack() {
     })
         .then(response => response.json())
         .then(data => {
-            
+
+            userRoles = data.loginData.userRoles;
+            userId = data.loginData.userRoles.NutzerrollenID;
+            console.log(data.loginData.userRoles)
+            console.log(userId)
+
             if(type === "Vermisste / Gefundene Tiere") {
                 displayAnimals(data.missingAnimals, "Vermisste Tiere");
                 displayAnimals(data.foundAnimals, "Gefundene Tiere");
@@ -259,6 +265,23 @@ function displayDelete(creatorId, clone) {
     deleteButton.draggable = false;
     deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
 
+    deleteButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Verhindert das Neuladen der Seite
+        console.log('Delete button clicked!');
+
+        console.log('Delete Button: ');
+
+        const animalElement = deleteButton.closest('[data-animal-id]');
+        console.log(animalElement);
+        const animalID = animalElement.getAttribute('data-animal-id')
+        console.log(animalID);
+
+        if (animalID) {
+            deleteMissingOrFoundAnimal(animalID);
+        }
+
+    });
+
     clone.getElementsByTagName('h3')[0].appendChild(deleteButton);
 }
 
@@ -274,26 +297,43 @@ function canEditAndDeleteOwn(){
     return userRoles.kannEigenesBearbeitenUndLoeschen;
 }
 
-async function checkLoginStatus() {
-    try {
-        const response = await fetch('../public/checkLogin');
-        const data = await response.json();
+function checkLoginStatus() {
+    fetch('../public/checkLogin')
+        .then(response => response.json())
+        .then(data => {
+            if (data.loggedIn) {
+                document.getElementById('formContainer').innerHTML = data.formMissing;
+                initializeFormEventListeners();
+            } else {
+                document.getElementById('reportContainer').innerHTML = data.report;
+            }
+        })
+        .catch(error => {
+            document.getElementById('errorContainer').textContent = 'Ein Fehler ist aufgetreten';
+        });
+}
 
-        if (data.loggedIn) {
-            userId=data.userId;
-            console.log(data.userId)
-            console.log(userId)
-            userRoles = data.userRoles;
-            console.log(data.userRoles);
-            console.log(userRoles);
-            document.getElementById('formContainer').innerHTML = data.formMissing;
-            initializeFormEventListeners();
-        } else {
-            console.log('User not logged in');
-            document.getElementById('reportContainer').innerHTML= data.report;
-        }
-    } catch (error) {
-        document.getElementById('errorContainer').textContent = 'Ein Fehler ist aufgetreten';
+function deleteMissingOrFoundAnimal(animalID){
+    if(confirm('Möchten Sie das Tier wirklich löschen?')){
+        let formData = new FormData();
+        formData.append('animalID', animalID)
+
+        fetch ('../public/deleteMissingFoundAnimals',
+            {method: 'POST', body: formData,})
+       .then (response=>response.json())
+            .then(data => {
+                if (data.success){
+                    document.querySelector(`[data-animal-id = "${animalID}"]`).remove();
+                    alert('Das Tier wurde erfolgreich gelöscht.')
+                } else {
+                    const errorMessage = data.errors ? data.errors.join(', '): 'Unbekannter Fehler';
+                    alert(`Fehler: {$errorMessage}`)
+                }
+            })
+            .catch(error=>{
+                console.error('Fehler beim Löschen: ', error);
+                alert('Es gab einen Fehler beim Löschen des Tieres');
+            })
     }
 }
 

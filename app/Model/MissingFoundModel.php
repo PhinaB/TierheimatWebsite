@@ -150,85 +150,28 @@ class MissingFoundModel extends AbstractModel
             throw new Exception("Kein Tier mit der angegebenen ID gefunden.");
         }
 
-        return new MissingFoundAnimal(
-            $animal['VermisstGefundenTierID'],
-            $animal['TierartID'],
-            $animal['Typ'],
-            $animal['Datum'],
-            $animal['Beschreibung'],
-            $animal['Kontaktaufnahme'],
-            $animal['Bildadresse'],
-            $animal['Geloescht'],
-            $animal['ZuletztGeaendert']
-        );
+        return $animal;
     }
 
     /**
      * @throws Exception
      */
-    public function creatorIsCurrentUserHasEditDeleteOwnRights(int $createdById){
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
+    public function deleteMissingFoundAnimal (int $missingFoundAnimalId){
+        //Tier wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt, indem geloescht= 1 gesetzt wird
+        $sql = "UPDATE VermisstGefundenTiere SET Geloescht=? WHERE VermisstGefundenTiereID = ?";
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) {
+            throw new Exception("Fehler bei der Vorbereitung der SQL-Abfrage: " . $stmt->error);
         }
-        if (!isset($_SESSION['nutzer_id'])){
-            throw new InvalidArgumentException('Nutzer ist nicht eingeloggt oder Nutzer-ID ist nicht gesetzt.');
+        $animalDeleted= 1;
+        $stmt->bind_param('ii', $animalDeleted, $missingFoundAnimalId);
+        if (!$stmt->execute()) {
+            throw new Exception("Fehler beim Ausführen der SQL-Abfrage: " . $stmt->error);
         }
-
-        $currentUserId = (int)$_SESSION['nutzer_id'];
-
-        //Rechte des Nutzers beim Attribut KannEigenesBearbeitenUndLoeschen überprüfen
-        $userRoleModel = new UserRoleModel();
-        $userRoleArray = $userRoleModel->getUserRoles($currentUserId);
-
-        $canEditAndDeleteOwn = $userRoleArray->isKannEigenesBearbeitenUndLoeschen();
-        $canDeleteAll = $userRoleArray->isKannAllesLoeschen();
-
-        if($canDeleteAll)
-        {
+        if($stmt->affected_rows >0){
             return true;
-        }
-
-        if ($canEditAndDeleteOwn && $createdById === $currentUserId) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    /**
-     * @throws Exception
-     */
-    public function deleteMissingFoundAnimal (int $missingFoundAnimalId): void{
-        //Animal wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt indem geloescht= 1 gesetzt wird
-        //TODO: vermisstGefundenID hidden im HTML Code und von dort holen
-
-        $missingFoundAnimal = $this->getMissingFoundAnimalById($missingFoundAnimalId);
-
-        $missingFoundAnimalCreatorId= $missingFoundAnimal->getZuletztGeaendertNutzerID();
-
-        if ($this->creatorIsCurrentUserHasEditDeleteOwnRights($missingFoundAnimalCreatorId)) {
-            $sql = "UPDATE VermisstGefundenTier SET Geloescht=? WHERE VermisstGefundenTiereID = ?";
-            $stmt = $this->db->prepare($sql);
-            if (!$stmt) {
-                throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->getError());
-            }
-            $animalDeleted= 1;
-            $stmt->bind_param('ii', $animalDeleted, $missingFoundAnimalId);
-            if (!$stmt->execute()) {
-                throw new Exception('Fehler bei der Ausführung des SQL-Statements: ' . $stmt ->error);
-            }
-        }
-        else {
-            throw new Exception("Der aktuelle Nutzer hat keine Berechtigung, dieses Tier zu löschen.");
-        }
-    }
-
-    public function editMissingFoundAnimal (int $missingFoundAnimalId): void{
-        //TODO: implementieren
-        if ($this->creatorIsCurrentUserHasEditDeleteOwnRights($missingFoundAnimalId)) {
-            //TODO: implementieren
-        }
-        else {
-            throw new Exception("Der aktuelle Nutzer hat keine Berechtigung, dieses Tier zu löschen.");
+        } else{
+            throw new InvalidArgumentException("Kein Tier wurde gelöscht.");
         }
     }
 }

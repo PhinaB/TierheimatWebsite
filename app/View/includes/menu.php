@@ -15,7 +15,7 @@ function renderMenu ($currentPage): void {
                 <?php
                     session_start();
 
-                    if(isset($_SESSION['user_logged_in'])&& $_SESSION['user_logged_in'] === true) {
+                    if(isset($_SESSION['loggedIn'])&& $_SESSION['loggedIn'] === true) {
                         echo '<span class ="user"><i class="fa-solid fa-user"></i>  ' . htmlspecialchars($_SESSION['username']) . ' </span>';
                     }
                 ?>
@@ -59,7 +59,7 @@ function renderMenu ($currentPage): void {
                     </a>
 
                     <?php
-                    if(isset($_SESSION['user_logged_in'])&& $_SESSION['user_logged_in'] === true) {
+                    if(isset($_SESSION['loggedIn'])&& $_SESSION['loggedIn'] === true) {
                         echo '<a href="logout"><i class="fa-solid fa-right-from-bracket menuIcon onlySmallMenu"></i> Logout</a>';
                     }
                     else {

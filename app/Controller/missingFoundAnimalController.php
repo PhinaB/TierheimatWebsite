@@ -7,8 +7,11 @@ namespace app\Controller;
 use app\Model\MissingFoundModel;
 use app\Model\MissingFoundAnimal;
 use app\Model\Species;
+use app\model\UserModel;
+use app\model\UserRoleModel;
 use DateTime;
 use Exception;
+use InvalidArgumentException;
 
 class missingFoundAnimalController
 {
@@ -85,17 +88,24 @@ class missingFoundAnimalController
 
             $missingFoundAnimalModel = new MissingFoundModel();
 
+            //mit den Tieren müssen auch die aktuelle NutzerID und Rollenrechte übergeben werden, um delete und edit Buttons zu setzen
+            $userRoleModel = new UserRoleModel();
+            $loginData = $userRoleModel->checkLoginRolesUserIDWithSession();
+
             if ($type === 'Vermisste / Gefundene Tiere') {
 
                 $missingAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('vermisst');
                 $foundAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('gefunden');
 
-                echo json_encode(['missingAnimals' => $missingAnimals, 'foundAnimals' => $foundAnimals]);
-                return;
+                echo json_encode([
+                    'missingAnimals' => $missingAnimals,
+                    'foundAnimals' => $foundAnimals,
+                    'loginData' => $loginData,
+                ]);
             } else {
                 $animals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
 
-                echo json_encode(['animals' => $animals]);
+                echo json_encode(['animals' => $animals, 'loginData' => $loginData]);
             }
 
         } catch (Exception $e) {
@@ -149,5 +159,39 @@ class missingFoundAnimalController
         }
 
         return $zielPfad;
+    }
+
+    public function deleteMissingOrFoundAnimal(){
+
+        $animalID = $_POST['animalID'];
+        $animalID = intval($animalID);
+        $response = ['success'=> false, 'errors' => []];
+        try {
+            //Aktueller Session Nutzer
+            $userModel = new UserModel();
+            $currentUserID = $userModel->getCurrentUserIdWithSession();
+
+            //ZuletzGeandertNutzerID
+            $missingFoundModel = new MissingFoundModel();
+            $missingFoundAnimalObject = $missingFoundModel->getMissingFoundAnimalById($animalID);
+            $animalCreator = $missingFoundAnimalObject['ZuletztGeaendertNutzerID'];
+
+            //Rechte
+            $userRoleModel = new UserRoleModel();
+            $userRolesArray = $userRoleModel->getUserRoles($animalCreator);
+            $canDeleteAndEditOwn = $userRolesArray['kannEigenesBearbeitenUndLoeschen'];
+            $canDeleteAll =$userRolesArray['kannAllesLoeschen'];
+
+            if($currentUserID === $animalCreator && $canDeleteAndEditOwn || $canDeleteAll){
+                $missingFoundModel->deleteMissingFoundAnimal($animalID);
+                $response = ['success'=> true, 'errors' => [], ];
+            }else {
+                $response = ['success'=> false, 'errors' => ['Keine Berechtigung zum Löschen']];
+            }
+        }
+        catch(InvalidArgumentException|Exception $e){
+            $response = ['success' => false, 'errors' => $e->getMessage()];
+        }
+        echo json_encode($response);
     }
 }

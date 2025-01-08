@@ -9,7 +9,7 @@
 
 .box-containerUnsereTiere {
     display: flex; 
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
     gap: 30px 20px;
     z-index: 0; 

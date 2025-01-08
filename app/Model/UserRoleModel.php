@@ -5,7 +5,6 @@ namespace app\model;
 use Exception;
 use InvalidArgumentException;
 
-require_once __DIR__ . '/AbstractModel.php';
 
 class UserRoleModel extends AbstractModel
 {
@@ -54,4 +53,19 @@ class UserRoleModel extends AbstractModel
         return $userRoleResult->fetch_assoc();
     }
 
+    public function checkLoginRolesUserIDWithSession()
+    {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true){
+
+            return [
+                'loggedIn' => true,
+                'userRoles' => $_SESSION['roles'],
+            ];
+        } else {
+           return ['loggedIn' => false,];
+        }
+    }
 }
