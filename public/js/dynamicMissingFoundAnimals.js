@@ -80,11 +80,11 @@ function loadMissingFoundAnimalsToPage(type){
     })
         .then(response => response.json())
         .then(data => {
-
-            userRoles = data.loginData.userRoles;
-            userId = data.loginData.userRoles.NutzerrollenID;
-            console.log(data.loginData.userRoles)
-            console.log(userId)
+            console.log('UserId:', data.loginData.userId)
+            if (data.loginData.loggedIn){
+                userRoles = data.loginData.userRoles;
+                userId = data.loginData.userId;
+            }
 
             if(type === "Vermisste / Gefundene Tiere") {
                 displayAnimals(data.missingAnimals, "Vermisste Tiere");
@@ -217,7 +217,7 @@ function displayAnimals(animals, type) {
 }
 
 function displayEditDelete(creatorId, clone){
-    if(userRoles) {
+    if(userRoles && userId) {
         if(createdAnimal(creatorId) && canEditAndDeleteOwn(creatorId) || canDeleteAll(creatorId)){
             displayDelete(creatorId, clone);
             displayEdit(creatorId, clone);
@@ -305,8 +305,8 @@ function deleteMissingOrFoundAnimal(animalID){
                     document.querySelector(`[data-animal-id = "${animalID}"]`).remove();
                     alert('Das Tier wurde erfolgreich gelöscht.')
                 } else {
-                    const errorMessage = data.errors ? data.errors.join(', '): 'Unbekannter Fehler';
-                    alert(`Fehler: {$errorMessage}`)
+                    alert('Fehler: ' + data.errors.join(', '));
+                    console.log(data.errors);
                 }
             })
             .catch(error=>{

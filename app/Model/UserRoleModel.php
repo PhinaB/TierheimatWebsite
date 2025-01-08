@@ -62,6 +62,7 @@ class UserRoleModel extends AbstractModel
 
             return [
                 'loggedIn' => true,
+                'userId' => $_SESSION['nutzer_id'],
                 'userRoles' => $_SESSION['roles'],
             ];
         } else {
