@@ -74,77 +74,75 @@
 
         <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
     </div>
-
 </div>
 <?php } ?>
 
 <?php if ($currentPage === "Gefundene Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
-    <div id="foundAnimals" class="tile druckenOhneSeitenumbruch hidden">
-        <h2 id="headingFoundAnimals" class="heading"></h2>
-        <hr id="foundUnderHeadline" class="underHeadline" />
+<div id="foundAnimals" class="tile druckenOhneSeitenumbruch hidden">
+    <h2 id="headingFoundAnimals" class="heading"></h2>
+    <hr id="foundUnderHeadline" class="underHeadline" />
 
-        <p id="errorFoundAnimals" class="fehlermeldung"></p>
+    <p id="errorFoundAnimals" class="fehlermeldung"></p>
 
-        <div id="copyFirstFoundAnimalHere"></div>
+    <div id="copyFirstFoundAnimalHere"></div>
 
-        <div id="hiddenFirstFoundAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
-            <div class="animalImageContainer">
-                <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
-            </div>
-            <div class="vermisstGefundenText">
-                <h3 class="headlineWithButtons"></h3>
-                <p class="firstAnimalId hidden"></p>
-                <p class="firstAnimalDate"></p>
-                <p class="firstAnimalPlace"></p>
-                <p class="boldText">Beschreibung:</p>
-                <p class="firstAnimalDescription"></p>
-                <br />
-                <p class="kursivText">
-                    Bitte kontaktieren Sie das Tierheim per Email, wenn Sie Hinweise haben oder das Tier gefunden haben:
-                </p>
-                <br />
-                <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
-            </div>
+    <div id="hiddenFirstFoundAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+        <div class="animalImageContainer">
+            <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
         </div>
-
-        <div id ="copyAllFoundAnimalsHere"></div>
-
-        <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition ">
-            <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
+        <div class="vermisstGefundenText">
             <h3 class="headlineWithButtons"></h3>
-            <p class="absatzfrei animalSubheading"></p>
-            <p class="absatzfrei animalDate"></p>
-            <p class="absatzfrei animalPlace"></p>
-            <p class="absatzfrei animalDescriptionBeginning"></p>
-
-            <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+            <p class="firstAnimalId hidden"></p>
+            <p class="firstAnimalDate"></p>
+            <p class="firstAnimalPlace"></p>
+            <p class="boldText">Beschreibung:</p>
+            <p class="firstAnimalDescription"></p>
+            <br />
+            <p class="kursivText">
+                Bitte kontaktieren Sie das Tierheim per Email, wenn Sie Hinweise haben oder das Tier gefunden haben:
+            </p>
+            <br />
+            <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
         </div>
-        <?php } ?>
-        <div class="hidden completeWeiterlesen" id="hiddenTemplateWeiterlesen">
-            <div class="box-absolute zIndex">
-                <div class="kopfelement">
-                    <h3 class="inline"></h3>
-                    <a title="Button Abbrechen" draggable="false">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                    </a>
-                    <br />
-                </div>
-                <div class="flexWeiterlesen">
-                    <div class="unterelement bildWeiter">
-                        <img src="" class="hohesBild" alt="" draggable="false" />
-                    </div>
-                    <div class="unterelement scrollbar">
-                        <p class="date"></p>
-                        <p class="place"></p>
-                        <p class="species"></p>
-                        <br />
-                        <p class="textTrennung description"></p>
-
-                        <div class="unterelementScrollbar"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
+    <div id ="copyAllFoundAnimalsHere"></div>
+
+    <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition ">
+        <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
+        <h3 class="headlineWithButtons"></h3>
+        <p class="absatzfrei animalSubheading"></p>
+        <p class="absatzfrei animalDate"></p>
+        <p class="absatzfrei animalPlace"></p>
+        <p class="absatzfrei animalDescriptionBeginning"></p>
+
+        <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+    </div>
+</div>
+<?php } ?>
+
+<div class="hidden completeWeiterlesen" id="hiddenTemplateWeiterlesen">
+    <div class="box-absolute zIndex">
+        <div class="kopfelement">
+            <h3 class="inline"></h3>
+            <a title="Button Abbrechen" draggable="false">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </a>
+            <br />
+        </div>
+        <div class="flexWeiterlesen">
+            <div class="unterelement bildWeiter">
+                <img src="" class="hohesBild" alt="" draggable="false" />
+            </div>
+            <div class="unterelement scrollbar">
+                <p class="date"></p>
+                <p class="place"></p>
+                <p class="species"></p>
+                <br />
+                <p class="textTrennung description"></p>
+
+                <div class="unterelementScrollbar"></div>
+            </div>
+        </div>
+    </div>
+</div>
