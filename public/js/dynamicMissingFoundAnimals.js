@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
             loadMissingFoundAnimalsToPage(selectType);
 
-
             if (!formSubmitted) {
                 const type = document.getElementById('currentMissingOrFound').value;
                 loadMissingFoundAnimalsToPage(type);
@@ -27,7 +26,6 @@ let userRoles = null;
 let userId= null;
 
 function setBack() {
-
     const copyAllFoundAnimalsHere = document.querySelector('#copyAllFoundAnimalsHere');
     if (copyAllFoundAnimalsHere) {
         copyAllFoundAnimalsHere.innerHTML = "";
@@ -67,17 +65,13 @@ function setBack() {
     if (errorFoundAnimals){
         errorFoundAnimals.innerHTML ="";
     }
-
 }
 
-    function loadMissingFoundAnimalsToPage(type){
-
+function loadMissingFoundAnimalsToPage(type){
     setBack();
-
 
     let formData= new FormData();
     formData.append('type', type)
-
 
     fetch ('../public/loadMissingFoundAnimals', {
         method: 'POST',
@@ -85,7 +79,6 @@ function setBack() {
     })
         .then(response => response.json())
         .then(data => {
-            
             if(type === "Vermisste / Gefundene Tiere") {
                 displayAnimals(data.missingAnimals, "Vermisste Tiere");
                 displayAnimals(data.foundAnimals, "Gefundene Tiere");
@@ -99,7 +92,6 @@ function setBack() {
 }
 
 function displayAnimals(animals, type) {
-
     if (type === "Vermisste Tiere") {
         container = document.querySelector('#missingAnimals');
         template = document.querySelector('#hiddenTemplateMissingAnimals');
@@ -112,7 +104,6 @@ function displayAnimals(animals, type) {
         firstAnimalTemplate = document.querySelector('#hiddenFirstFoundAnimalTemplate');
         heading = "Gefunden";
         subheading = "Aufgetaucht";
-
     }
 
     if (animals.length > 0) {
@@ -137,8 +128,6 @@ function displayAnimals(animals, type) {
         cloneFirstAnimal.classList.remove('hidden');
 
         //Überprüft Rechte und NutzerID
-        console.log(animals[0]);
-        console.log(animals[0].ZuletztGeaendertNutzerID)
         displayEditDelete(animals[0].ZuletztGeaendertNutzerID, cloneFirstAnimal);
         //----------Dynamisches Anlegen der maximal vier Tiere ------------------------
         let counter = 0;
@@ -175,7 +164,6 @@ function displayAnimals(animals, type) {
             const descriptionWords = animals[i].Beschreibung.split(' ');
             descriptionStart.innerHTML = '<span class="boldText">Beschreibung: </span>' + descriptionWords.slice(0, 2).join(' ') + ' ...';
 
-            console.log(animals[i]);
             //Überprüft Rechte und NutzerID
             creatorID= animals[i].ZuletztGeaendertNutzerID;
             console.log('creator Oben:', creatorID);
@@ -222,14 +210,7 @@ function displayAnimals(animals, type) {
 }
 
 function displayEditDelete(creatorId, clone){
-
-
-    if(userRoles)
-    {
-        let userCreatesAnimal = createdAnimal(creatorId);
-        let userCanDeleteAll = canDeleteAll(creatorId);
-        let userCanEditAndDelete = canEditAndDeleteOwn(creatorId);
-
+    if(userRoles) {
         if(createdAnimal(creatorId) && canEditAndDeleteOwn(creatorId) || canDeleteAll(creatorId)){
             displayDelete(creatorId, clone);
             displayEdit(creatorId, clone);
@@ -238,7 +219,6 @@ function displayEditDelete(creatorId, clone){
 }
 
 function displayEdit(creatorId, clone) {
-
     const editButton = document.createElement('a');
     editButton.href = "";
     editButton.title = "Anzeige bearbeiten";
@@ -247,11 +227,9 @@ function displayEdit(creatorId, clone) {
     editButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
 
     clone.getElementsByTagName('h3')[0].appendChild(editButton);
-
 }
 
 function displayDelete(creatorId, clone) {
-
     const deleteButton = document.createElement('a');
     deleteButton.href = "";
     deleteButton.title = "Anzeige löschen";
@@ -316,7 +294,6 @@ function closeWeiterlesenField (buttonElement) {
     }
 
     setCapacityStyle(1);
-
 }
 
 function openWeiterlesenField (buttonElement) {
