@@ -49,8 +49,8 @@
 
             <h3 class="headlineWithButtons"> </h3>
             <p class="firstAnimalId hidden"></p>
-            <p class="firstAnimalDate"></p>
-            <p class="firstAnimalPlace"></p>
+            <p class="firstAnimalDate animalDate"></p>
+            <p class="firstAnimalPlace animalPlace"></p>
             <p class="boldText">Beschreibung:</p>
             <p class="firstAnimalDescription"></p>
             <br />
@@ -59,6 +59,9 @@
             </p>
             <br />
             <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
+
+            <input type="hidden" id="hiddenSpecies">
+            <input type="hidden" id="hiddenContact">
         </div>
 
     </div>
@@ -71,6 +74,8 @@
         <p class="absatzfrei animalDate"></p>
         <p class="absatzfrei animalPlace"></p>
         <p class="absatzfrei animalDescriptionBeginning"></p>
+
+        <input type="hidden" id="hiddenContact">
 
         <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
     </div>
@@ -93,8 +98,8 @@
         <div class="vermisstGefundenText">
             <h3 class="headlineWithButtons"></h3>
             <p class="firstAnimalId hidden"></p>
-            <p class="firstAnimalDate"></p>
-            <p class="firstAnimalPlace"></p>
+            <p class="firstAnimalDate animalDate"></p>
+            <p class="firstAnimalPlace animalPlace"></p>
             <p class="boldText">Beschreibung:</p>
             <p class="firstAnimalDescription"></p>
             <br />
@@ -103,18 +108,23 @@
             </p>
             <br />
             <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
+
+            <input type="hidden" id="hiddenSpecies">
+            <input type="hidden" id="hiddenContact">
         </div>
     </div>
 
     <div id ="copyAllFoundAnimalsHere"></div>
 
-    <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition ">
+    <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition "> <!-- TODO: nur ein template für beide Arten! -->
         <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
         <h3 class="headlineWithButtons"></h3>
         <p class="absatzfrei animalSubheading"></p>
         <p class="absatzfrei animalDate"></p>
         <p class="absatzfrei animalPlace"></p>
         <p class="absatzfrei animalDescriptionBeginning"></p>
+
+        <input type="hidden" id="hiddenContact">
 
         <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
     </div>

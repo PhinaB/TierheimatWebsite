@@ -45,8 +45,7 @@ class ServiceHelpController
                 throw new InvalidArgumentException('You have to fill the fields "Datum" and "Zeit" or "Wochentag" and "Zeit".');
             }
 
-        } catch (InvalidArgumentException | Exception $e) {
-            // $errorMessage = $e->getMessage(); // TODO: nur fürs debuggen
+        } catch (InvalidArgumentException) {
             http_response_code(400);
 
             echo json_encode(false);
@@ -68,8 +67,7 @@ class ServiceHelpController
 
             echo json_encode($response);
             exit;
-        } catch (InvalidArgumentException | Exception $e) {
-            // $errorMessage = $e->getMessage(); // TODO: nur fürs debuggen
+        } catch (InvalidArgumentException) {
             http_response_code(400);
 
             echo json_encode(false);

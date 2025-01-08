@@ -33,7 +33,7 @@
                     <option value="Katzen">Katze</option>
                     <option value="Hunde">Hund</option>
                     <option value="Kleintiere">Kleintier</option>
-                    <option value="Sonstiges">Sonstiges</option>
+                    <option value="Exoten">Exot</option>
                 </select>
                 <p id="tierartError" class="fehlermeldung"></p>
 
@@ -90,6 +90,9 @@
             <button class="button" type="submit" value="absenden" title="Button absenden" draggable="false"><i class="fa-regular fa-paper-plane"></i>  Absenden</button>
             <button class="button" type="reset" value="zurücksetzen" title="Button zurücksetzen" draggable="false"> <i class="fa-solid fa-arrow-rotate-left"></i>  Zurücksetzen</button>
         </div>
+
+        <input type="hidden" id="animalId">
+        <input type="hidden" id="editMode" value="false">
     </form>
     <p class="redPflichtfeld borderTopPflichtfeld">* Pflichtfelder</p>
 </div>

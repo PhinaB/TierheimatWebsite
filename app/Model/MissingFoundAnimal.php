@@ -59,6 +59,11 @@ class MissingFoundAnimal
         return $this->vermisstGefundenTierID;
     }
 
+    public function setVermisstGefundenTierID(?int $vermisstGefundenTierID): void
+    {
+        $this->vermisstGefundenTierID = $vermisstGefundenTierID;
+    }
+
     public function getZuletztGeaendertNutzerID(): int
     {
         return $this->zuletztGeaendertNutzerID;
@@ -159,14 +164,9 @@ class MissingFoundAnimal
         $this->zuletztGeaendert = $zuletztGeaendert;
     }
 
-
-
-    //TierartID wird übergeben nachdem es generiert wurde
-    // Datum wird aus dem aktuellen Datum generiert im Controller
-    //zuletztGeändertNutzer wird aus der ID des aktuellen Nutzers erstellt
-    public function getValuesForInsert(int $zuletztGeaendertNutzerID, int $tierartID): array {
+    public function getValuesForInsert(int $tierartID): array {
         return [
-            $zuletztGeaendertNutzerID,
+            $this->getZuletztGeaendertNutzerID(),
             $tierartID,
             $this->getTyp(),
             $this->getDatum(),
@@ -176,6 +176,20 @@ class MissingFoundAnimal
             $this->getBildadresse(),
             $this->isGeloescht(),
             $this->getZuletztGeaendert(),
+        ];
+    }
+
+    public function getValuesForEdit(int $tierartID, string $bildadresse): array {
+        return [
+            $tierartID,
+            $this->getTyp(),
+            $this->getDatum(),
+            $this->getOrt(),
+            $this->getBeschreibung(),
+            $this->getKontaktaufnahme(),
+            $bildadresse,
+            $this->getZuletztGeaendert(),
+            $this->getVermisstGefundenTierID(),
         ];
     }
 }
