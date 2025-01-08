@@ -57,22 +57,6 @@ class StaticPageController
         $this->renderPage($stylesheets, $currentPage, $js, 'missingFound');
     }
 
-    public function loadMissingAction(): void
-    {
-        $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
-        $js = ['missingFoundForm.js'];
-
-        $this->renderPage($stylesheets, 'Vermisste Tiere', $js, 'missing');
-    }
-
-    public function loadFoundAction(): void
-    {
-        $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css'];
-        $js = ['missingFoundForm.js'];
-
-        $this->renderPage($stylesheets, 'Gefundene Tiere', $js, 'found');
-    }
-
     public function loadServiceInfoAction(): void
     {
         $stylesheets = ['serviceInfoHelpLogin.css', 'serviceInfo.css', 'form.css'];

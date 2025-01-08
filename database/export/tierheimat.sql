@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Dez 2024 um 20:12
+-- Erstellungszeit: 07. Jan 2025 um 21:05
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.3.12
 
@@ -305,7 +305,7 @@ CREATE TABLE `vermisstgefundentiere` (
   `Ort` varchar(250) NOT NULL,
   `Beschreibung` varchar(500) NOT NULL,
   `Kontaktaufnahme` varchar(50) NOT NULL,
-  `Bildadresse` varchar(255) NOT NULL,
+  `Bildadresse` varchar(255) DEFAULT NULL,
   `Geloescht` tinyint(1) NOT NULL,
   `ZuletztGeaendert` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -321,7 +321,7 @@ INSERT INTO `vermisstgefundentiere` (`VermisstGefundenTiereID`, `ZuletztGeaender
 (4, 2, 3, 'vermisst', '2024-06-07 00:00:00', 'Erfurt', 'Unsere Schildkröte Raspun ist am 7. Juni in Erfurt verschwunden. Jeder Hinweis hilft uns, sie wiederzufinden. Bitte melden Sie sich per E-Mail!', 'email', '../public/img/raspun.jpg', 0, '2024-12-06 00:00:00'),
 (5, 1, 2, 'vermisst', '2024-05-02 00:00:00', 'Arnstadt', 'Drako, unser schwarz-weißer Kater, wird seit dem 2. Mai in Arnstadt vermisst. Er trägt ein grünes Halsband mit unserer Telefonnummer. Bitte melden Sie sich per E-Mail, falls Sie ihn gesehen haben.', 'email', '../public/img/drako.jpg', 0, '2024-11-04 00:00:00'),
 (6, 2, 2, 'gefunden', '2024-05-23 00:00:00', 'Weimar', 'Ich habe die Katze am Mittwoch Abend in Erfurt an der Altonaer Straße gefunden. Sie wirkte verschreckt, abgemagert und hatte Flöhe. Ich habe sie mit nach Hause genommen und sie wieder aufgepäppelt. Jetzt geht es ihr wieder besser.', 'telefon', '../public/img/gefundeneKatze.jpg', 0, '2024-01-05 00:00:00'),
-(7, 2, 1, 'gefunden', '2023-09-27 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 27. September in Erfurt zugelaufen. Falls Sie ihn vermissen, melden Sie sich bitte per E-Mail, damit er wieder nach Hause kann', 'email', 'max.jpg', 0, '2024-06-04 00:00:00'),
+(7, 2, 1, 'gefunden', '2023-09-27 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 27. September in Erfurt zugelaufen. Falls Sie ihn vermissen, melden Sie sich bitte per E-Mail, damit er wieder nach Hause kann', 'email', '../public/img/max.jpg', 0, '2024-06-04 00:00:00'),
 (8, 1, 2, 'gefunden', '2024-02-25 00:00:00', 'Vieselbach', 'Ich habe diese Katze am 25. Februar in Vieselbach gefunden. Sie scheint ein Zuhause zu suchen. Bitte melden Sie sich telefonisch, falls Sie sie kennen.', 'telefon', '../public/img/flo.jpg', 0, '2024-02-04 00:00:00'),
 (9, 1, 1, 'gefunden', '2024-04-26 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 26. April in Erfurt begegnet. Er war allein unterwegs. Falls Sie ihn suchen, melden Sie sich bitte per E-Mail!', 'email', '../public/img/nick.jpeg', 0, '2024-03-04 00:00:00'),
 (10, 2, 2, 'gefunden', '2024-06-19 00:00:00', 'Hohenfelden', 'Ich habe diesen Kater am 19. Juni in Hohenfelden gefunden. Er ist zutraulich und gut gepflegt. Bitte melden Sie sich telefonisch, falls er Ihnen gehört.', 'telefon', '../public/img/stan.jpg', 0, '2024-01-07 00:00:00');
@@ -453,7 +453,7 @@ ALTER TABLE `rasse`
 -- AUTO_INCREMENT für Tabelle `tierart`
 --
 ALTER TABLE `tierart`
-  MODIFY `TierartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `TierartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT für Tabelle `tiere`

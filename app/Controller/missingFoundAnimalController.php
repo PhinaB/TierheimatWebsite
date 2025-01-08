@@ -75,7 +75,8 @@ class missingFoundAnimalController
         }
     }
 
-    public function loadAllMissingFoundAnimals(){
+    public function loadAllMissingFoundAnimals(): void
+    {
         $type = $_POST['type'];
 
         if ($type === 'Vermisste Tiere') {

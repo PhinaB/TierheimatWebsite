@@ -101,6 +101,7 @@ TODO:
                 <dd><a href="#datenbankAnbindung" draggable="false">3.2 Datenbank-Setup und Anbindung</a></dd>
                 <dd><a href="#php" draggable="false">3.3 PHP-Skripte und Logik</a></dd>
                 <dd><a href="#rollenkonzept" draggable="false">3.4 Rollenkonzept</a></dd>
+                <dd><a href="#routing" draggable="false">3.5 Routing</a></dd>
                 <dt><a href="#interaktiveFeatures" draggable="false">4 Interaktive Features</a></dt>
                 <dd><a href="#benutzerinteraktion" draggable="false">4.1 Benutzerinteraktion</a></dd>
                 <dd><a href="#formulare" draggable="false">4.2 Dynamische Formulare und Eingabevalidierung</a></dd>
@@ -108,7 +109,7 @@ TODO:
                 <dd><a href="#frontendTests" draggable="false">5.1 Frontend-Tests</a></dd>
                 <dd><a href="#backendTests" draggable="false">5.2 Backend-Tests</a></dd>
                 <dt><a href="#dokumentation" draggable="false">6 Dokumentation</a></dt>
-                <dt><a href="#fazit" draggable="false">7 Fazit und Ausblick</a></dt>
+                <dt><a href="#fazit" draggable="false">7 Fazit</a></dt>
                 <dd><a href="#sollIst" draggable="false">7.1 Soll- / Ist-Vergleich</a></dd>
                 <dd><a href="#lessonsLearned" draggable="false">7.2 Lessons Learned</a></dd>
                 <dd><a href="#ausblick" draggable="false">7.3 Ausblick</a></dd>
@@ -287,7 +288,7 @@ TODO:
                         <tbody>
                             <tr>
                                 <td>Vorbereitungsphase</td>
-                                <td class="time">18h</td> <!-- TODO: Zeiten -->
+                                <td class="time">18h</td>
                             </tr><tr>
                                 <td>Implementierungsphase</td>
                                 <td class="time">120h</td>
@@ -375,6 +376,8 @@ TODO:
                                         <li>Fertigstellung der databaseInit Datei</li>
                                         <li>Prüfung und Fertigstellung der Dokumentation</li>
                                         <li>Fertigstellung der "Aktuelles"-Seite (Weiterlesen eines einzelnen Artikels)</li>
+                                        <li>Bearbeiten der Tiere auf der vermisst / gefunden Seite</li>
+                                        <li>Update der README</li>
                                         <li>Unterstützung bei Komplikationen</li>
                                     </ul>
                                 </td>
@@ -382,8 +385,9 @@ TODO:
                                     <ul class="tasks">
                                         <li>Beginn der Dokumentation </li>
                                         <li>Umsetzung der MVC-Ordnerstruktur (mit Stephanie) </li>
-                                        <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen in Datenbank, Weiterlesen der Tier-Informationen,
-                                    Bearbeiten und Löschen der Tiere mit Prüfung des Nutzers, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
+                                        <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen
+                                            in Datenbank, Weiterlesen der Tier-Informationen, Anzeige der Bearbeiten und Löschen Buttons mit Prüfung des Nutzers,
+                                            Löschen der Tiere mit Prüfung des Nutzers, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
                                         <li>Login und Registration von Nutzern mit Sessions (+ Hashing der Passwörter, + Anzeige des Nutzernamens und
                                             Veränderung des Menüs nach dem Login) </li>
                                     </ul>
@@ -477,10 +481,9 @@ TODO:
                         <b>Vermisst/Gefunden</b>
                     </p>
                     <p>
-                        Durch das Menü oder die Filteroption lassen sich entweder vermisste oder gefundene oder alle Tiere anzeigen. Diese Tiere werden dynamisch aus der
-                        Datenbank geladen.
+                        Über das Menü oder die Filteroptionen können die Nutzer entweder vermisste, gefundene oder alle Tiere anzeigen lassen. Diese Tiere werden dynamisch aus der Datenbank geladen, um eine aktuelle und benutzerfreundliche Darstellung zu gewährleisten.
                     </p><p>
-                        Die Tiere haben einen "Weiterlesen"-Button. Beim Klick auf diesen werden weitere Informationen des spezifischen Tieres angezeigt.
+                        Jedes Tier verfügt über einen "Weiterlesen"-Button, der beim Klick weitere Informationen zu einem spezifischen Tier anzeigt.
                     </p><br /><p>
                         Hat ein Nutzer sich angemeldet, kann er erweiterte Funktionen verwenden. Unter anderem kann er dann das Formular für ein vermisstes oder gefundenes Tier ausfüllen.
                         In diesem Formular werden die Eingaben des Nutzers, durch JavaScript, noch vor dem Absenden überprüft. Sobald die Daten in der Datenbank hochgeladen wurden, wird das
@@ -515,6 +518,17 @@ TODO:
                     </p>
                     <img src="../public/imgDokumentationDWP/LoginFormular.png" title="Login" alt="Login" draggable="false">
                     <div class="caption">Abbildung 10: Auszug "Login"</div>
+
+                    <br/><br/>
+                    <p>
+                        Für die Seite "Unsere Tiere" haben wir bewusst XMLHttpRequest für das Nachladen von Daten über AJAX verwendet, während wir auf den anderen Seiten auf die moderne fetch-Methode gesetzt haben. Diese Entscheidung basiert auf der bestehenden Struktur und den spezifischen Anforderungen der jeweiligen Seiten.
+                    </p><p>
+                        Durch den Einsatz beider Methoden haben wir nicht nur flexibel auf unterschiedliche Anforderungen reagiert, sondern auch unser Wissen über unterschiedliche Techniken zur Handhabung von AJAX-Anfragen unter Beweis gestellt. Da beide Ansätze gut in das Gesamtkonzept passen und die Funktionalität zuverlässig gewährleisten, haben wir entschieden, diese beizubehalten, ohne den Fortschritt des Projekts unnötig zu verzögern.
+                    </p>
+                    <br/>
+                    <p>
+                        Die Druck-CSS-Datei aus dem letzten Semester wurde übernommen, da sie nach wie vor funktioniert. Es wurden keine Änderungen vorgenommen, da sie die gewünschten Ergebnisse auch weiterhin zuverlässig liefert. Wir haben damit sichergestellt, dass dieser Aspekt des Projekts berücksichtigt wurde.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -646,7 +660,6 @@ TODO:
                 </div>
             </div>
 
-
             <div class="section">
                 <h3 id="php">3.3 PHP-Skripte und Logik</h3>
                 <hr class="underHeadline" />
@@ -666,8 +679,6 @@ TODO:
                     Die Views im Verzeichnis "app/View" sind für die Darstellung der Benutzeroberfläche verantwortlich und greifen auf Daten aus den Modellen zu.
                     Dort gibt es einen Unterordner "page", welcher alle statischen Seiten enthält. Der Unterordner "includes" enthält alle Informationen, die auf mehreren Seiten zu finden sind.
                 </p>
-
-                <!-- TODO: Funktionalität des Routings beschreiben -->
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -704,6 +715,34 @@ TODO:
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
                 <div class="caption">Abbildung 13: DB Create Nutzerrollen</div>
+
+                <div class="backButton">
+                    <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 id="routing">3.5 Routing</h3>
+                <hr class="underHeadline" />
+
+                <p>
+                    Das Routing in unserer Anwendung wird durch eine zentrale Routing-Klasse gesteuert, die es ermöglicht, sowohl Seitenaufrufe als auch AJAX-Anfragen effizient zu verarbeiten. In der index.php definieren wir alle erforderlichen Routen, die sowohl für die Anzeige von Seiten als auch für die Bearbeitung von AJAX-Anfragen genutzt werden. Jede Route ist mit einem spezifischen Controller und einer zugehörigen Methode verknüpft, was die Handhabung der verschiedenen Anfragen vereinfacht.
+                </p>
+                <p>
+                    Das Routing funktioniert, indem wir die aufgerufene URL ermitteln und mit den definierten Routen abgleichen. Ist eine Übereinstimmung vorhanden, wird der zugehörige Controller instanziiert und die passende Methode ausgeführt. Sollte keine Übereinstimmung gefunden werden, sorgt die Anwendung dafür, dass eine 404-Seite angezeigt wird.
+                </p><br />
+                <p>
+                    Die Seiten in der Anwendung werden über den StaticPageController verwaltet. Jede Seite hat eine eigene Methode, die dafür sorgt, dass die richtigen Inhalte mit den entsprechenden CSS- und JavaScript-Dateien geladen werden. Zum Beispiel wird für die Seite "Unsere Tiere" eine spezielle Methode verwendet, die die Tiere anhand der übergebenen Kategorie lädt und die Seite entsprechend rendert. Diese Methode sorgt dafür, dass je nach ausgewählter Kategorie, wie etwa "Hunde", "Katzen" oder "Exoten", die richtigen Daten aus der Datenbank abgerufen und angezeigt werden.
+                </p>
+                <p>
+                    Zusätzlich dazu kümmert sich jede Methode des Controllers darum, die benötigten Stylesheets und JavaScript-Dateien zu laden, um die Funktionalität der Seite zu gewährleisten. Jede Seite wird so optimiert, dass sie das passende visuelle Design und interaktive Elemente erhält.
+                </p><br />
+                <p>
+                    Ein weiterer wichtiger Bestandteil unseres Routings ist die Handhabung von AJAX-Anfragen. Wenn eine Anfrage per AJAX an das Backend gestellt wird, wird die entsprechende Route verarbeitet und die Antwort als JSON an das JavaScript zurückgesendet. Dadurch können Daten dynamisch ohne vollständiges Neuladen der Seite geladen und angezeigt werden.
+                </p><br />
+                <p>
+                    Zusammenfassend stellt unser Routing-System sicher, dass sowohl statische Seiten als auch dynamische AJAX-Anfragen effizient verarbeitet werden, um eine reibungslose Benutzererfahrung zu gewährleisten. Dieses System sorgt für klare Strukturierung und Optimierung der Anwendungslogik, was die Wartung und Erweiterung der Anwendung in der Zukunft erleichtert.
+                </p>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -747,6 +786,19 @@ TODO:
                         kann er diese später auch bearbeiten oder löschen. Ein Administrator kann alle Anzeigen löschen.
                     </p><p>
                         Weitere Informationen über die Nutzerrollen sind <a href="#rollenkonzept" draggable="false">hier</a> zu finden.
+                    </p><br /><p>
+                        Eine Anforderung des Projekts war, die Webseite so zu gestalten, dass sie auch ohne JavaScript funktionsfähig bleibt. Um dieser Anforderung gerecht zu werden, haben wir einen Hinweis implementiert, der Nutzer darauf aufmerksam macht, wenn JavaScript deaktiviert ist. Dieser Hinweis erscheint, sobald JavaScript nicht aktiv ist, und informiert die Nutzer darüber, wie sie alle Funktionen der Seite vollständig nutzen können.
+                    </p><p>
+                        Aufgrund des hohen Umfangs an dynamischen Inhalten und der begrenzten Zeitressourcen konnten wir jedoch keinen vollständigen serverseitigen Fallback für alle Funktionen umsetzen. Die wesentlichen Inhalte sind für Nutzer mit aktiviertem JavaScript vollständig und performant verfügbar, während der Hinweis sicherstellt, dass Nutzer ohne JavaScript nicht ohne Orientierung bleiben.
+                    </p>
+                    <br />
+                    <img src="../public/imgDokumentationDWP/jsFallback.png" title="" alt="Gast Nutzerrollen" draggable="false">
+                    <div class="caption">Abbildung 15: Anzeige, wenn JavaScript deaktiviert ist</div>
+                    <br />
+                    <p>
+                        Im Rahmen der Entwicklung haben wir uns außerdem für die Verwendung einer Singleton-Datenbankklasse (Connection) entschieden, um die Verwaltung der Datenbankverbindung zu zentralisieren und unnötige Instanzierungen zu vermeiden. Obwohl in der Clean Code Literatur darauf hingewiesen wird, dass Datenbankinstanzen nicht als Singleton implementiert werden sollten, sind wir überzeugt, dass diese Lösung in unserem Projektkontext aufgrund der Einfachheit und Effizienz die richtige Wahl darstellt.
+                    </p><p>
+                        Im Verlauf des Projekts haben wir auch die Bezeichner in unserem Code optimiert. Zu Beginn verwendeten wir deutsche Begriffe, sind jedoch später auf englische Bezeichner umgestiegen, um die Lesbarkeit und Zukunftsfähigkeit des Codes zu verbessern. Aufgrund der verbleibenden Zeit und der Tatsache, dass das Projekt kurz vor der Fertigstellung stand, haben wir uns entschieden, die letzten Anpassungen nicht mehr vorzunehmen, um den Fokus auf den Abschluss des Projekts zu legen. Wir sind jedoch zuversichtlich, dass diese Entscheidungen das Projekt nicht negativ beeinflussen, sondern die Umsetzung effektiv und zielgerichtet vorangetrieben haben.
                     </p>
 
                     <div class="backButton">
@@ -876,7 +928,7 @@ TODO:
                 </p>
                 <div class="Dokumentation">
                     <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
-                </div><div class="caption">Abbildung 15: Prozess Dokumentation</div>
+                </div><div class="caption">Abbildung 16: Prozess Dokumentation</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -887,24 +939,17 @@ TODO:
 
         <div class="container">
             <div class="section">
-                <h2 id="fazit">7 Fazit und Ausblick</h2>
+                <h2 id="fazit">7 Fazit</h2>
                 <hr class="underHeadline" />
-                <p> Das aktuelle Projekt erweitert und verbessert die bestehende "Tierheimat" Webseite durch die Implementierung vieler dynamischer und interaktiven Inhalte.
-                </p><p>
-                    Alle Seiten wurden mit den neuen Features ausgestattet und sollen das Nutzererlebnis merkbar anheben.
-                </p>
-                    Technisch basiert die Erweiterung auf einem modernen und modularen Aufbau, der eine effiziente Verwaltung und Präsentation von Inhalten aus einer zentralen Datenbank ermöglicht.
-
-                    Die Verwendung von PHP und MYSQL für die serverseitige Logik sorgt für eine stabile Datenanbindung und performante Datenverarbeitung.
                 <p>
-                    Ergänzt wird dies durch dynamische JavaScript Komponenten, die eine reibungslose Benutzerinteraktion und ein nahtloses Laden von Inhalten gewährleisten.
+                    Das Ziel des Projekts war die Erweiterung der bestehenden 'Tierheimat'-Webseite durch die Implementierung dynamischer Inhalte mit PHP und JavaScript.
+                    Insgesamt konnten wir viele der geplanten Funktionen erfolgreich umsetzen.
                 </p><p>
-                    Die Benutzeroberfläche bleibt durch das responsive Design der bestehen Webseite konsistent, sodass die Darstellung auf verschiedenen Geräten und Bildschirmgrößen optimiert ist.
-                </p>
-                    Dabei wurde bewärhte Elemente aus der Tierdarstellung übernommen und auf die neue Struktur angewendet, um ein einheitliches Erscheinungsbild und eine intuitive Navigation zu gewährleisten.
-                    Zusammenfassend bietet die neu überarbeitete Webseite eine moderne, flexible und technisch ausgereifte Lösung, die den Informationsfluss für die Nutzer verbessert.
-                <p>
-                    Das Projekt zeigt, wie durch gezielte Erweiterungen bestehende Systeme funktional erweitert und gleichzeitig die Benutzerfreundlichekti erhalten bleiben können.
+                    Eine besondere Herausforderung bestand darin, sich die notwendigen Kenntnisse eigenständig anzueignen. Dies erforderte einen erheblichen Aufwand an
+                    Recherche, um die technischen Konzepte und Werkzeuge vollständig zu verstehen und richtig anzuwenden. Durch gute Teamarbeit und den Austausch von Tipps und Erfahrungen konnten wir uns gegenseitig unterstützen und die Aufgaben erfolgreich bewältigen.
+                </p><p>
+                    Wir sind mit dem Ergebnis zufrieden. Das Projekt war eine wertvolle Erfahrung, die unsere
+                    Fähigkeiten in der Webentwicklung mit PHP und JavaScript weiter gestärkt hat.
                 </p>
 
                 <div class="backButton">
@@ -956,9 +1001,13 @@ TODO:
                     <div class="caption">Tabelle 3</div>
 
                     <p>
-                        Insgesamt wurden für das Projekt 219 Stunden aufgewendet, während ursprünglich 189 Stunden geplant waren.  <!-- TODO: Satz vollenden -->
+                        Insgesamt wurden für das Projekt 219 Stunden aufgewendet, während ursprünglich 189 Stunden geplant waren.
+                        Die zusätzlichen 30 Stunden ergaben sich durch den erhöhten Einarbeitungsaufwand einiger Teammitglieder, die bisher keine Vorerfahrung
+                        in diesem Bereich hatten. Dadurch verlängerte sich die Implementierungsphase, insbesondere durch die notwendige Aneignung von Grundlagenwissen
+                        und die schrittweise Verbesserung der Umsetzung.
                     </p><p>
-                        Aufgrund von anfänglich fehlerhaften Implementierungen und mehrfacher Ausbesserung der jeweilige Dateien wurden 30h mehr benötigt als ursprünglich kalkuliert.
+                        Dieser Mehraufwand trug jedoch wesentlich zur Vertiefung der Kenntnisse aller Beteiligten bei
+                        und führte letztlich zu einem besseren Verständnis der Projektinhalte.
                     </p>
 
                     <div class="backButton">
@@ -1061,7 +1110,7 @@ TODO:
                 <tbody>
                     <tr class="headlineTable">
                         <td colspan="2">Vorbereitungsphase</td>
-                        <td class="time">18h</td> <!-- TODO: Zeiten gesamt -->
+                        <td class="time">18h</td>
                     </tr>
                     <tr>
                         <td>Erstellen von Entity-Relationship- und Relationenmodell</td>
@@ -1201,7 +1250,7 @@ TODO:
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 15):</p> <!-- TODO: Ziffer korrekt hinterlegen -->
+                <p>Prozess Dokumentation (Abbildung 16):</p>
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
