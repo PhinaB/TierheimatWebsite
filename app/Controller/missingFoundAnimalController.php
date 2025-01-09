@@ -92,12 +92,16 @@ class missingFoundAnimalController
 
             $vermisstGefundenTier = new MissingFoundAnimal($zuletztGeanderterNutzerID, $anliegenVermisstGefunden, $datumFormatiert, $ort, $tierbeschreibung, $kontaktaufnahme, $tierbildAdresse, false, $zuletztGeaendert);
 
-            if ($editMode) {
+            if ($editMode === 'true') {
                 $vermisstGefundenTier->setVermisstGefundenTierID((int)$tierId);
+                $eMode = true;
+            }
+            else {
+                $eMode = false;
             }
 
             try {
-                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierartName, (bool)$editMode);
+                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierartName, $eMode);
                 $response['success']=true;
             }
             catch (Exception $exception) {
