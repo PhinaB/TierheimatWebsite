@@ -193,7 +193,7 @@ class MissingFoundModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function deleteMissingFoundAnimal (int $missingFoundAnimalId): true
+    public function deleteMissingFoundAnimal (int $missingFoundAnimalId): bool
     {
         //Tier wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt, indem geloescht= 1 gesetzt wird
         $sql = "UPDATE vermisstgefundentiere SET Geloescht = ? WHERE VermisstGefundenTiereID = ?";
