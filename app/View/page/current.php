@@ -104,3 +104,45 @@
         </div>
     </div>
 </div>
+
+
+
+
+<!--dynamisierung der webseite -->
+
+<!--
+
+<div class="tile">
+    <h2>Neues aus dem Tierheim</h2>
+    <hr class="underHeadline" />
+
+     Ladeanimation
+<div id="loading">
+    <p>Die Artikel werden geladen...</p>
+    <img class="spinnerGifHeight" alt="loading..." src="../public/img/spinner.gif">
+</div>
+
+ Container für die Artikel
+<div id="articles-container" class="hidden">
+     Vorlage für einzelne Artikel
+    <div id="hiddenArticleTemplate" class="hidden relativePosition">
+        <i class="fa-solid fa-heart" title="Klicke, um den Artikel zu liken!" onclick="setCookie(this, true);"></i>
+        <div class="aussenboxBildwechselKlein">
+            <a class="bildwechsel" draggable="false">
+                <img src="" alt="" draggable="false">
+            </a>
+        </div>
+        <h3 class="article-title"></h3>
+        <p class="beschreibungBeginn"></p>
+        <a class="button weiterlesen" title="Button Weiterlesen" draggable="false">
+            <i class="fa-solid fa-newspaper"></i> Weiterlesen
+        </a>
+    </div>
+</div>
+
+Button zum Laden weiterer Artikel
+<a id="load-more-articles" class="button hidden" draggable="false">
+    <i class="fa-solid fa-plus"></i> Weitere Artikel anzeigen
+</a>
+</div>
+ -->

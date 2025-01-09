@@ -45,7 +45,66 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+/*
 
+document.addEventListener('DOMContentLoaded', () => {
+    const articlesContainer = document.getElementById('articles-container');
+    const loadingElement = document.getElementById('loading');
+
+    // Funktion zum Laden von Artikeln
+    const loadArticles = () => {
+        loadingElement.classList.remove('hidden'); // Ladeanimation anzeigen
+
+        fetch('/load/all/articles', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(response => response.json())
+            .then(data => {
+                loadingElement.classList.add('hidden'); // Ladeanimation ausblenden
+
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
+
+                if (data.length === 0) {
+                    articlesContainer.innerHTML = '<p>Es gibt derzeit keine Artikel!</p>';
+                    return;
+                }
+
+                setArticlesToPage(data);
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Artikel:', error);
+                loadingElement.classList.add('hidden'); // Ladeanimation ausblenden
+            });
+    };
+
+    // Funktion zur Anzeige der Artikel auf der Seite
+    const setArticlesToPage = (articles) => {
+        articles.forEach(article => {
+            const articleTemplate = document.getElementById('hiddenArticleTemplate');
+            const clone = articleTemplate.cloneNode(true);
+
+            clone.classList.remove('hidden');
+            clone.classList.add('completeArticle');
+            clone.id = ""; // Sicherstellen, dass die ID entfernt wird
+
+            clone.querySelector('.bildwechsel img').src = `../public/img/${article.Bildadresse}`;
+            clone.querySelector('.bildwechsel img').alt = article.Ueberschrift;
+            clone.querySelector('.article-title').innerText = article.Ueberschrift;
+            clone.querySelector('.beschreibungBeginn').innerText = article.Text.substring(0, 200) + '...';
+            clone.querySelector('.weiterlesen').href = `/aktuellesDetail.php?articleId=${article.id}`;
+
+            articlesContainer.appendChild(clone);
+        });
+    };
+
+    // Initial Artikel laden
+    loadArticles();
+});
+*/
 
 
 /*
