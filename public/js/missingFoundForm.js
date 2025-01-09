@@ -1,7 +1,6 @@
 function initializeFormEventListeners() {
     const form = document.getElementById('missingFoundForm');
     if (!form) {
-        console.log('Nutzer ist nicht angemeldet.')
         return;
     }
     document.querySelector('input[name=ort]').addEventListener('keyup', function (event) {
@@ -16,18 +15,23 @@ function initializeFormEventListeners() {
         document.querySelector('#tierbild-upload').click();
     });
 
-    document.querySelector('#tierbild-upload').addEventListener('change', function (event) {
+    document.querySelector('#tierbild-upload').addEventListener('change', function () {
         if (validateFileUpload('tierbild-upload', 'fileError')) {
-            document.getElementById('fileSuccess').textContent = 'Upload war erfolgreich!'
+            document.getElementById('fileSuccess').textContent = 'Upload war erfolgreich!';
         }
     });
 
     form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Verhindert den normalen Seitenwechsel
-        sendMissingFoundForm(); //Absenden des Formulars mit Ajax
+        event.preventDefault();
+        if (form.querySelector('input[id=editMode]').value === 'true') {
+            sendMissingFoundForm('true');
+        }
+        else {
+            sendMissingFoundForm('false');
+        }
     });
 
-    form.addEventListener('reset', function (event) {
+    form.addEventListener('reset', function () {
         resetMissingFoundForm();
     });
 }
@@ -194,7 +198,7 @@ function removeErrorFieldNoOutline (errorField) {
     }
 }
 
-function sendMissingFoundForm(){
+function sendMissingFoundForm(editMode){
     disableFormFields();
 
     let anliegen = document.getElementById('anliegenVermisstGefunden').value;
@@ -204,6 +208,8 @@ function sendMissingFoundForm(){
     let beschreibung = document.getElementById('tierbeschreibung').value;
     let tierbild = document.getElementById('tierbild-upload').files[0] || null;
     let kontakt = document.querySelector('input[name="kontaktaufnahme"]:checked').value;
+
+    let id = document.getElementById('animalId').value;
 
     let isValid =
         validateSelectField('anliegenVermisstGefunden', 'anliegenError', 'Wählen Sie ein Anliegen aus.') &&
@@ -220,53 +226,60 @@ function sendMissingFoundForm(){
         return;
     }
 
-        let formData = new FormData();
-        formData.append('anliegenVermisstGefunden', anliegen);
-        formData.append('tierart', tierart);
-        formData.append('datum', datum);
-        formData.append('ort', ort);
-        formData.append('tierbeschreibung', beschreibung);
+    let formData = new FormData();
+    formData.append('anliegenVermisstGefunden', anliegen);
+    formData.append('tierart', tierart);
+    formData.append('datum', datum);
+    formData.append('ort', ort);
+    formData.append('tierbeschreibung', beschreibung);
 
-        if (tierbild){
-            formData.append('tierbild', tierbild);
-        }
+    if (tierbild){
+        formData.append('tierbild', tierbild);
+    }
+    if (id !== ''){
+        formData.append('tierId', id);
+    }
 
-        formData.append('kontaktaufnahme', kontakt);
-        fetch('../public/animal/report', {method: 'POST', body: formData})
+    formData.append('kontaktaufnahme', kontakt);
+    formData.append('editMode', editMode);
 
-            .then(response => {
-                if (!response.ok) {
-                    console.error('Fehler beim Abrufen der Antwort:', response.status);
-                    return Promise.reject('Fehler beim Abrufen der Antwort');
-                }
-                return response.json();
-            })
-            .then (data => {
-                console.log(data);
-                if (data.success) {
-                    resetMissingFoundForm();
+    fetch('../public/animal/report', {method: 'POST', body: formData})
 
-                    const successMessage = document.getElementById('successfulSubmit');
-                    successMessage.innerHTML = 'Daten wurden erfolgreich verarbeitet. <b>Laden Sie die Seite neu.</b>';
-                    successMessage.classList.remove('hidden');
+        .then(response => {
+            if (!response.ok) {
+                console.error('Fehler beim Abrufen der Antwort:', response.status);
+                return Promise.reject('Fehler beim Abrufen der Antwort');
+            }
+            return response.json();
+        })
+        .then (data => {
+            if (data.success) {
+                resetMissingFoundForm();
 
-                    setTimeout(()=>{
-                        successMessage.classList.add('hidden');},
-                        10000);
-                } else {
-                if(data.errors && data.errors.length > 0){
-                    document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.';
-                }
-                }
-            })
+                const successMessage = document.getElementById('successfulSubmit');
+                successMessage.innerHTML = 'Daten wurden erfolgreich verarbeitet. <b>Laden Sie die Seite neu.</b>';
+                successMessage.classList.remove('hidden');
 
-            .catch (error => {
-                console.error('Fehler beim Login:', error);
-                document.getElementById('errorSubmit').textContent = 'Ein Fehler ist aufgetreten.';
-            })
-            .finally (()=>{
-                enableFormFields();
-            })
+                const form = document.getElementById('missingFoundForm');
+                form.querySelector('input[id=editMode]').value = 'false';
+
+                setTimeout(()=>{
+                    successMessage.classList.add('hidden');},
+                    10000);
+            } else {
+            if(data.errors && data.errors.length > 0){
+                document.getElementById('errorSubmit').textContent = 'Füllen Sie alle Pflichtfelder aus.';
+            }
+            }
+        })
+
+        .catch (error => {
+            console.error('Fehler beim Login:', error);
+            document.getElementById('errorSubmit').textContent = 'Ein Fehler ist aufgetreten.';
+        })
+        .finally (()=>{
+            enableFormFields();
+        })
 
 }
 
@@ -288,6 +301,7 @@ function resetMissingFoundForm(){
     document.getElementById('datum').value = '';
     document.getElementById('ort').value = '';
     document.getElementById('tierbeschreibung').value = '';
+    document.getElementById('fileSuccess').innerHTML = '';
 
     const fileInput = document.getElementById('tierbild-upload');
 

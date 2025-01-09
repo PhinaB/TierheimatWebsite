@@ -18,40 +18,25 @@ class MissingFoundModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function insertVermisstGefundenTiere(MissingFoundAnimal $vermisstGefundenTier, Species $tierart, ?string $tierbildAdresse): void
+    public function insertVermisstGefundenTiere(MissingFoundAnimal $vermisstGefundenTier, string $tierart, bool $editMode): void
     {
-       // Start einer Transaktion, um Konsistenz zu gewährleisten
        $this->db->begin_transaction();
 
        try {
-
-           //--------------------------------------------NutzerID-----------------------------------------------
-           session_start();
-           $nutzerID = $_SESSION['nutzer_id']??null;
-           if(!$nutzerID){
-               throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');
-           }
-
-           //---------------------------------------------Species-----------------------------------------------
            $queryTierartSelect = "SELECT TierartID FROM Tierart WHERE Tierart = ?";
            $stmtTierartSelect = $this->db->prepare($queryTierartSelect);
            if ($stmtTierartSelect->error !== "") {
                throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierartSelect->error);
            }
-           $handedTierart = $tierart->getTierart();
-           $stmtTierartSelect->bind_param ('s', $handedTierart);
+           $stmtTierartSelect->bind_param ('s', $tierart);
            if (!$stmtTierartSelect->execute()) {
-               throw new \Exception('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtTierartSelect->error);
+               throw new Exception('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtTierartSelect->error);
            }
 
-
-           // Ergebnis abrufen
            $result = $stmtTierartSelect->get_result();
            if ($result->num_rows > 0) {
-               // Species existiert bereits -> TierartID abrufen
                $row = $result->fetch_assoc();
                $tierartID = $row['TierartID'];
-               $stmtTierartSelect->close();
            } else {
                $queryTierart = "INSERT INTO Tierart (Tierart) VALUES (?)";
                $stmtTierart = $this->db->prepare($queryTierart);
@@ -60,46 +45,95 @@ class MissingFoundModel extends AbstractModel
                    throw new InvalidArgumentException('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierart->error);
                }
 
-               $stmtTierart->bind_param('s', $handedTierart);
+               $stmtTierart->bind_param('s', $tierart);
 
                if (!$stmtTierart->execute()) {
                    throw new InvalidArgumentException('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtTierart->error);
                } else {
-                   //Holt die generierte TierartID
                    $tierartID = $this->db->getInsertId();
                }
                $stmtTierart->close();
            }
+           $stmtTierartSelect->close();
 
-           //--------------------------------------------MissingFoundAnimal---------------------------------------
 
-           $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+           if ($editMode === true) {
+               $queryAnimalSelect = "SELECT * FROM vermisstgefundentiere WHERE VermisstGefundenTiereID = ?";
+               $stmtAnimalSelect = $this->db->prepare($queryAnimalSelect);
+               if ($stmtAnimalSelect->error !== "") {
+                   throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtAnimalSelect->error);
+               }
+               $vermisstGefundenTierID = $vermisstGefundenTier->getVermisstGefundenTierID();
+               $stmtAnimalSelect->bind_param ('i', $vermisstGefundenTierID);
+               if (!$stmtAnimalSelect->execute()) {
+                   throw new Exception('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtAnimalSelect->error);
+               }
 
-           $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
+               $resultAnimal = $stmtAnimalSelect->get_result();
+               $thisAnimal = $resultAnimal->fetch_assoc();
 
-           if ($stmtVermisstGefundenTier->error !== "") {
-               throw new InvalidArgumentException('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtVermisstGefundenTier->error);
+               $queryUser = "SELECT r.* FROM  Nutzer n
+                             JOIN nutzerrollen r ON n.NutzerrollenID = r.NutzerrollenID WHERE NutzerID = ?";
+               $stmtUserSelect = $this->db->prepare($queryUser);
+               if ($stmtUserSelect->error !== "") {
+                   throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtUserSelect->error);
+               }
+               $theUser = $vermisstGefundenTier->getZuletztGeaendertNutzerID();
+               $stmtUserSelect->bind_param ('i', $theUser);
+               if (!$stmtUserSelect->execute()) {
+                   throw new Exception('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtUserSelect->error);
+               }
+
+               $resultUser = $stmtUserSelect->get_result();
+               $thisUser = $resultUser->fetch_assoc();
+
+               if ($thisUser['kannAllesLoeschen'] === 0 && $thisAnimal['ZuletztGeaendertNutzerID'] !== $thisUser['NutzerrollenID']) {
+                   throw new Exception('Dieser Nutzer darf diesen Beitrag nicht bearbeiten!');
+               }
+
+               $queryVermisstGefundenTier = 'UPDATE vermisstgefundentiere
+                    SET TierartID = ?, Typ = ?, Datum = ?, Ort = ?, Beschreibung = ?, Kontaktaufnahme = ?, Bildadresse = ?, ZuletztGeaendert = ?
+                    WHERE VermisstGefundenTiereID = ?;';
+
+               $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
+
+               if ($stmtVermisstGefundenTier->error !== "") {
+                   throw new InvalidArgumentException('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtVermisstGefundenTier->error);
+               }
+
+               $bildadresse = $vermisstGefundenTier->getBildadresse();
+               if ($bildadresse === null || $bildadresse === 'null') {
+                   $bildadresse = $thisAnimal['Bildadresse'];
+               }
+
+               $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForEdit($tierartID, $bildadresse);
+
+           }
+           else {
+               $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+               $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
+
+               if ($stmtVermisstGefundenTier->error !== "") {
+                   throw new InvalidArgumentException('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtVermisstGefundenTier->error);
+               }
+
+               $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForInsert($tierartID);
+
            }
 
-
-           $valuesVermisstGefundenTier = $vermisstGefundenTier->getValuesForInsert($nutzerID, $tierartID);
-
            $typesVermisstGefundenTier = self::determineType($valuesVermisstGefundenTier);
-
            $stmtVermisstGefundenTier->bind_param($typesVermisstGefundenTier, ...$valuesVermisstGefundenTier);
-
            if (!$stmtVermisstGefundenTier->execute()) {
                throw new InvalidArgumentException('Fehler bei der Ausführung der SQL-Abfrage:' . $stmtVermisstGefundenTier->error);
            }
-
            $stmtVermisstGefundenTier->close();
            $this->db->commit();
-
        } catch (Exception $exception) {
             $this->db->rollback();
             throw $exception;
        }
-   }
+    }
 
     /**
      * @throws Exception

@@ -96,6 +96,7 @@ function loadMissingFoundAnimalsToPage(type){
 
         })
         .catch(error => console.error('Fehler beim Laden der Tiere:', error));
+    // TODO: Fehler für Nutzer ausgeben
 }
 
 function displayAnimals(animals, type) {
@@ -132,6 +133,10 @@ function displayAnimals(animals, type) {
         cloneFirstAnimal.querySelector('.firstAnimalPlace').innerHTML = '<span class="boldText">in: </span>' + animals[0].Ort;
         cloneFirstAnimal.querySelector('.firstAnimalDescription').innerHTML = animals[0].Beschreibung;
 
+        cloneFirstAnimal.querySelector('#hiddenSpecies').value = animals[0].Tierart;
+        cloneFirstAnimal.querySelector('#hiddenContact').value = animals[0].Kontaktaufnahme;
+
+        cloneFirstAnimal.classList.add('completeAnimalForEdit');
         cloneFirstAnimal.classList.remove('hidden');
 
         //Überprüft Rechte und NutzerID
@@ -154,6 +159,7 @@ function displayAnimals(animals, type) {
 
             clone.classList.remove('hidden');
             clone.classList.add('completeAnimal');
+            clone.classList.add('completeAnimalForEdit');
             clone.id = "";
             clone.setAttribute('data-animal-id', animals[i].VermisstGefundenTiereID);
 
@@ -171,10 +177,10 @@ function displayAnimals(animals, type) {
             const descriptionWords = animals[i].Beschreibung.split(' ');
             descriptionStart.innerHTML = '<span class="boldText">Beschreibung: </span>' + descriptionWords.slice(0, 2).join(' ') + ' ...';
 
+            clone.querySelector('#hiddenContact').value = animals[0].Kontaktaufnahme;
+
             //Überprüft Rechte und NutzerID
             creatorID= animals[i].ZuletztGeaendertNutzerID;
-            console.log('creator Oben:', creatorID);
-            console.log('user oben: ', userId)
             displayEditDelete(creatorID, clone);
             //--------------------Weiterlesen-------------------------------------------------------------------
             let allAElements = clone.getElementsByTagName('a');
@@ -227,11 +233,12 @@ function displayEditDelete(creatorId, clone){
 
 function displayEdit(creatorId, clone) {
     const editButton = document.createElement('a');
-    editButton.href = "";
     editButton.title = "Anzeige bearbeiten";
     editButton.className = "edit";
     editButton.draggable = false;
     editButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
+    editButton.style.cursor = "pointer";
+    editButton.setAttribute('onclick', 'openEditField(this)');
 
     clone.getElementsByTagName('h3')[0].appendChild(editButton);
 }
@@ -321,7 +328,7 @@ function formatDate(dateString){
     return `${day}.${month}.${year}`;
 }
 
-function searchType(){
+function searchType(){ // TODO: wird das benötigt
     const typeInput = document.querySelector('select[name=tierstatusAuswählen]')
 }
 
@@ -389,4 +396,74 @@ function setCapacityStyle(capacity){
     if (document.querySelector('#foundUnderHeadline')){
         document.querySelector('#foundUnderHeadline').style.opacity=capacity;
     }
+}
+
+function openEditField(editButton) {
+    let animal = findExplicitParentElement(editButton, 'completeAnimalForEdit');
+
+    let place = animal.querySelector('.animalPlace');
+    let textOnlyPlace = place.textContent.replace(place.querySelector('span').textContent, '').trim();
+
+    let issue = animal.querySelector('.headlineWithButtons');
+    let textOnlyIssue = issue.textContent.replace(issue.querySelector('a').textContent, '').trim().toLowerCase();
+
+    let date = animal.querySelector('.animalDate');
+    let textOnlyDate = date.textContent.replace(date.querySelector('span').textContent, '').trim();
+    let [day, month, year] = textOnlyDate.split(".");
+    let isoDate = `${year}-${month}-${day}`;
+
+    let imgSrc = animal.getElementsByTagName('img')[0].src.split('/').pop();
+    let animalId = animal.getAttribute('data-animal-id');
+    let contact = animal.querySelector('#hiddenContact').value;
+
+    if (imgSrc === "null") {
+        imgSrc = "kein Bild vorhanden";
+    }
+
+    let description = '';
+    let species = '';
+
+    // this is the small field -> else is the big field
+    if (animal.classList.contains('completeAnimal')) {
+        let animalReadMoreField = animal.nextSibling;
+        description = animalReadMoreField.querySelector('.description').innerHTML;
+
+        let specie = animalReadMoreField.querySelector('.species');
+        species = specie.textContent.replace(specie.querySelector('span').textContent, '').trim();
+    }
+    else {
+        description = animal.querySelector('.firstAnimalDescription').innerHTML;
+        species = animal.querySelector('#hiddenSpecies').value;
+    }
+
+    let form = document.querySelector('#formContainer');
+    let issueInForm = form.querySelector('select[id=anliegenVermisstGefunden]');
+    let speciesInForm = form.querySelector('select[id=tierart]');
+    let dateInForm = form.querySelector('input[id=datum]');
+    let placeInForm = form.querySelector('input[id=ort]');
+    let descriptionInForm = form.querySelector('textarea[id=tierbeschreibung]');
+    let emailContactInForm = form.querySelector('input[value=email]');
+    let telefonContactInForm = form.querySelector('input[value=telefon]');
+    let successMessageImage = form.querySelector('#fileSuccess');
+
+    let animalIdInForm = form.querySelector('input[id=animalId]');
+    form.querySelector('input[id=editMode]').value = true;
+
+    let offset = window.scrollY + form.getBoundingClientRect().top;
+    window.scrollTo({left: 0, top: offset - 250, behavior: 'smooth'});
+
+    if (contact === "email") {
+        emailContactInForm.checked = true;
+    }
+    if (contact === "telefon") {
+        telefonContactInForm.checked = true;
+    }
+
+    issueInForm.value = textOnlyIssue;
+    speciesInForm.value = species;
+    dateInForm.value = isoDate;
+    placeInForm.value = textOnlyPlace;
+    descriptionInForm.value = description;
+    successMessageImage.innerHTML = 'hochgeladenes Foto: '+ imgSrc;
+    animalIdInForm.value = animalId;
 }

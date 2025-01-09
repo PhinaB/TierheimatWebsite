@@ -27,7 +27,6 @@ class missingFoundAnimalController
      */
     public function addVermisstGefundenTier(): void
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $response = ['success'=> false, 'errors' => []];
 
@@ -37,33 +36,37 @@ class missingFoundAnimalController
             $ort = $_POST['ort'] ?? null;
             $tierbeschreibung = $_POST['tierbeschreibung'] ?? null;
             $kontaktaufnahme = $_POST['kontaktaufnahme'] ?? null;
+            $editMode = $_POST['editMode'] ?? null;
+            $tierId = $_POST['tierId'] ?? null;
 
-            //Pflichtfelder
             if (!$anliegenVermisstGefunden || !$tierartName || !$datum || !$ort || !$tierbeschreibung || !$kontaktaufnahme) {
                 $response['errors']['general']="Alle Pflichtfelder müssen ausgefüllt werden!";
             }
 
             //Bildvalidierung und -speicherung
-            $tierbildAdresse= null; //defualt Wert, wenn kein Bild hochgeladen wird
+            $tierbildAdresse= null;
             if (isset($_FILES['tierbild']) && $_FILES['tierbild']['error'] === UPLOAD_ERR_OK) {
                 $tierbildAdresse = $this->speichereBild($_FILES['tierbild'], $tierartName);
             }
 
-           $datumFormatiert = new DateTime($datum);
-           $datumFormatiert = $datumFormatiert->format('Y-m-d');
+            $datumFormatiert = new DateTime($datum);
+            $datumFormatiert = $datumFormatiert->format('Y-m-d');
 
-            //Instanz der Klasse Species mit String (Hund, Katze, ...)
-            $tierart = new Species ($tierartName);
+            session_start();
+            $zuletztGeanderterNutzerID = $_SESSION['nutzer_id']??null; // TODO: PRüfung, ob Nutzer das darf
+            if(!$zuletztGeanderterNutzerID){
+                throw new Exception('Keine gültige User-ID gefunden. Bitte einloggen.');
+            }
+            $zuletztGeaendert = date('Y-m-d H:i:s');
 
-            $zuletztGeanderterNutzerID = 1; //TODO: NutzerID auslesen
-            $geloescht = false;
-            $zuletztGeandertet = date('Y-m-d H:i:s'); //erstellt aktuelles Datum; Alternative über SQL: DATE DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            $vermisstGefundenTier = new MissingFoundAnimal($zuletztGeanderterNutzerID, $anliegenVermisstGefunden, $datumFormatiert, $ort, $tierbeschreibung, $kontaktaufnahme, $tierbildAdresse, false, $zuletztGeaendert);
 
-            // Konstruktor ohne Fremdschlüssel, da diese erst im Model generiert werden. Dort werden sie dann gesetzt
-            $vermisstGefundenTier = new MissingFoundAnimal($zuletztGeanderterNutzerID, $anliegenVermisstGefunden, $datumFormatiert, $ort, $tierbeschreibung, $kontaktaufnahme, $tierbildAdresse, $geloescht, $zuletztGeandertet);
+            if ($editMode) {
+                $vermisstGefundenTier->setVermisstGefundenTierID((int)$tierId);
+            }
 
             try {
-                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierart, $tierbildAdresse);
+                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierartName, (bool)$editMode);
                 $response['success']=true;
             }
             catch (Exception $exception) {
