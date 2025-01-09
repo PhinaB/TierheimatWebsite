@@ -200,7 +200,7 @@ TODO:
                     </p>
                     <br /><p>
                         Für die weitere Backend-Entwicklung sollen die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
-                        Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, vermisste Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese aus dem System zu entfernen.
+                        Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, vermisste Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese von der Webseite zu entfernen.
                     </p><p>
                         Hierfür sind separate PHP-Dateien vorgesehen, die zudem Sicherheitsmaßnahmen, wie etwa gegen SQL-Injection, beinhalten. Nutzern, die vermisste oder gefundene Tiere melden, wird außerdem die Möglichkeit geboten, ihre Einträge zu bearbeiten oder zu löschen. Administratoren sollen dabei alle Einträge löschen und bearbeiten können. Dies gewährleistet eine stets aktuelle Tierdatenbank und eine effiziente Datenverwaltung.
                     </p><p>
@@ -212,7 +212,7 @@ TODO:
                     </p><br /><p>
                         Zusätzlich ist die Integration weiterer dynamischer Inhalte geplant, die sich auf Nutzereingaben basierend anpassen. 
                         So sollen "Weiterlesen" Buttons eine detailliertere Ansicht zu einem Tier oder Artikel bieten, während im Hilfsformular zusätzliche Termineingaben hinzugefügt werden können, ohne die Seite neu laden zu müssen.
-                        Ein weiteres Formular soll es dem Nutzer ermöglichen vermisste oder gefundene Tiere hochzuladen. Diese werden auf der Seite direkt angezeigt, ohne sie neu zu laden. Nutzer, die ein solches Tier hochgeladen haben, sollen dieses später auch löschen oder bearbeiten können.
+                        Ein weiteres Formular soll es dem Nutzer ermöglichen vermisste oder gefundene Tiere hochzuladen. Diese sollen nach dem neu laden der Seite dort angezeigt werden können. Nutzer, die ein solches Tier hochgeladen haben, sollen dieses später auch löschen oder bearbeiten können.
                     </p><p>
                         Auch die Funktion "weitere Tiere anzeigen" soll es den Nutzern ermöglichen, zusätzliche Tiere anzuzeigen, ohne die gesamte Webseite zu aktualisieren.
                     </p><p>
@@ -274,7 +274,7 @@ TODO:
                     <h3 id="zeitplanMeilensteine">2.2 Zeitplan und Meilensteine</h3>
                     <hr class="underHeadline" />
                     <p>
-                        In der nachfolgenden Tabelle ist ein grober Zeitplan für den diesen Teil des Projektes hinterlegt.
+                        In der nachfolgenden Tabelle ist ein grober Zeitplan für diesen Teil des Projektes hinterlegt.
                         Die detaillierte Zeitplanung ist in <a href="#detaillierteZeitplanung" draggable="false">Anlage 1</a> zu finden.
                     </p>
 
@@ -385,11 +385,14 @@ TODO:
                                     <ul class="tasks">
                                         <li>Beginn der Dokumentation </li>
                                         <li>Umsetzung der MVC-Ordnerstruktur (mit Stephanie) </li>
-                                        <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen
-                                            in Datenbank, Weiterlesen der Tier-Informationen, Anzeige der Bearbeiten und Löschen Buttons mit Prüfung des Nutzers,
-                                            Löschen der Tiere mit Prüfung des Nutzers, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
+                                        <li>Formular "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen
+                                            in Datenbank)</li>
+                                        <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Weiterlesen der Tier-Informationen, Anzeige der Bearbeiten und Löschen Buttons mit Prüfung des Nutzers und der Nutzerrechte,
+                                            Löschen der Tiere mit Prüfung des Nutzers und der Nutzerrechte, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
+                                        <li>Löschen der Tiere auf der vermisst / gefunden Seite</li>
                                         <li>Login und Registration von Nutzern mit Sessions (+ Hashing der Passwörter, + Anzeige des Nutzernamens und
                                             Veränderung des Menüs nach dem Login) </li>
+                                        <li>Prüfung und Ergänzung der Dokumentation</li>
                                     </ul>
                                 </td>
                             </tr>
@@ -486,10 +489,16 @@ TODO:
                         Jedes Tier verfügt über einen "Weiterlesen"-Button, der beim Klick weitere Informationen zu einem spezifischen Tier anzeigt.
                     </p><br /><p>
                         Hat ein Nutzer sich angemeldet, kann er erweiterte Funktionen verwenden. Unter anderem kann er dann das Formular für ein vermisstes oder gefundenes Tier ausfüllen.
-                        In diesem Formular werden die Eingaben des Nutzers, durch JavaScript, noch vor dem Absenden überprüft. Sobald die Daten in der Datenbank hochgeladen wurden, wird das
-                        neue Tier auch direkt auf der Seite angezeigt.
+                        In diesem Formular werden die Eingaben des Nutzers, durch JavaScript überprüft. Es wird überprüft, ob alle Pflichtfelder ausgefüllt wurden, das Datum in der Vergangenheit liegt,
+                        die Ortsangabe und Beschreibung mindestens drei und maximal 20 oder mindestens sechs und maximal 500 Zeichen haben und ob, wenn ein Bild hochgeladen wurde, es den gängigen Dateitypen entspricht (.jpg, .jpeg, .png).
                     </p><p>
-                        Ein angemeldeter Nutzer kann außerdem seine eigenen Beiträge löschen und bearbeiten. Ist der angemeldete Nutzer ein Administrator, kann er jeden Beitrag löschen und bearbeiten.
+                        Sobald die Daten in der Datenbank hochgeladen wurden, wird das
+                        neue Tier nach dem Laden der Seite dort angezeigt.
+                    </p><p>
+                        Ein angemeldeter Nutzer kann außerdem seine eigenen Beiträge löschen und bearbeiten.
+                        Ist der angemeldete Nutzer ein Administrator, kann er jeden Beitrag löschen und bearbeiten.
+                        Hierbei wird zum einen geprüft, ob Nutzer und Ersteller des Tieres übereinstimmen und zum anderen, ob die Rollenrechte das Löschen erlauben.
+                        Dies wird mithilfe einer Session umgesetzt, in welcher die aktuelle NutzerId und dessen Rollenrechte gespeichert werden.
                     </p>
 
                     <br/><p>
@@ -511,7 +520,11 @@ TODO:
                         <b>Login und Registration</b>
                     </p>
                     <p>
-                        Ein Nutzer kann sich hier registrieren oder, falls schon ein Account vorhanden ist, auch einloggen. Dabei wird bei der Eingabe schon überprüft, ob alles ausgefüllt wurde.
+                        Ein Nutzer kann sich hier registrieren oder, falls schon ein Account vorhanden ist, auch einloggen. Dabei wird mit Javascript bei der Eingabe schon überprüft, ob die Eingaben korrekt ist und alle Pflichtfelder ausgefüllt sind.
+                        Es wird zum Beispiel überprüft, ob das Passwort mehr als sechs Zeichen hat, der Nutzername mehr als drei Zeichen hat und die Email dem gängigen Email-Format entspricht.
+                        Sind die eingaben nicht korrekt wird der Nutzer darauf hingewiesen. Im Backend werden die Eingaben im Anschluss auch validiert. Bei Eingaben die nicht den gesetzten Kriterien entsprechen wird dies als json-Format an das Forntend geschickt.
+                    </p><p>
+                        Das Passwort wird außerdem vor dem Speichern in der Datenbank gehasht.
                     </p><p>
                         Nach erfolgreichem Login wird der Nutzer automatisch auf die Startseite umgeleitet. Im Menü ist die Änderung zu sehen, denn dort ist der Nutzername zu finden.
                         Außerdem gibt es dort jetzt den Untermenüpunkt "Logout" statt "Login".
@@ -527,7 +540,7 @@ TODO:
                     </p>
                     <br/>
                     <p>
-                        Die Druck-CSS-Datei aus dem letzten Semester wurde übernommen, da sie nach wie vor funktioniert. Es wurden keine Änderungen vorgenommen, da sie die gewünschten Ergebnisse auch weiterhin zuverlässig liefert. Wir haben damit sichergestellt, dass dieser Aspekt des Projekts berücksichtigt wurde.
+                        Die Druck-CSS-Datei aus dem letzten Semester wurde übernommen, da sie nach wie vor das Drucken der Vermisst / Gefunden Tiere in Chrome oder im Internet Explorer ermöglicht. Es wurden keine Änderungen vorgenommen, da sie die gewünschten Ergebnisse auch weiterhin zuverlässig liefert. Wir haben damit sichergestellt, dass dieser Aspekt des Projekts berücksichtigt wurde.
                     </p>
 
                     <div class="backButton">
@@ -814,7 +827,7 @@ TODO:
                         Die Anwendung bietet mehrere Formulare, die eine benutzerfreundliche Eingabe und Validierung in Echtzeit ermöglichen. Mithilfe von JavaScript werden Eingaben direkt beim Ausfüllen geprüft,
                         um fehlerhafte oder unvollständige Daten zu vermeiden. Dabei werden Fehlermeldungen bei ungültigen Eingaben oder fehlenden Pflichtfeldern ausgegeben. Diese weisen den Nutzer schon bei Eingabe,
                         in die Felder, an, mehr Buchstaben einzugeben. Gut zu sehen ist dies beispielsweise beim "Ort" im vermisst/gefunden Formular. In diesem Formular können auch Bilder hochgeladen werden. Es wird auch überprüft,
-                        ob das richtige Dateiformat vorliegt.
+                        ob das richtige Dateiformat vorliegt und das Meldedatum des vermissten oder gefundenen Tieres in der Vergangenheit liegt.
                     </p>
                     <p>
                         Das Helfen Formular (zu finden im Menü unter Service/Infos) wird beispielsweise bei jedem neu laden der Seite zurückgesetzt. Dann werden neue Inputs geladen, während die alten entfernt werden.
@@ -1002,8 +1015,8 @@ TODO:
 
                     <p>
                         Insgesamt wurden für das Projekt 219 Stunden aufgewendet, während ursprünglich 189 Stunden geplant waren.
-                        Die zusätzlichen 30 Stunden ergaben sich durch den erhöhten Einarbeitungsaufwand einiger Teammitglieder, die bisher keine Vorerfahrung
-                        in diesem Bereich hatten. Dadurch verlängerte sich die Implementierungsphase, insbesondere durch die notwendige Aneignung von Grundlagenwissen
+                        Die zusätzlichen 30 Stunden ergaben sich dadurch, dass zwei der drei Teammitglieder keine Vorerfahrungen in PHP und Javascript hatten und dadurch einen höheren Einarbeitungsaufwand hatten.
+                        Dadurch verlängerte sich die Implementierungsphase, insbesondere durch die notwendige Aneignung von Wissen
                         und die schrittweise Verbesserung der Umsetzung.
                     </p><p>
                         Dieser Mehraufwand trug jedoch wesentlich zur Vertiefung der Kenntnisse aller Beteiligten bei

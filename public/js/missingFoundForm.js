@@ -9,7 +9,7 @@ function initializeFormEventListeners() {
     });
 
     document.querySelector('textarea[name=tierbeschreibung]').addEventListener('keyup', function (event) {
-        validateTextField(1, 500, event, document.getElementById('beschreibungError'));
+        validateTextField(6, 500, event, document.getElementById('beschreibungError'));
     });
 
     document.querySelector('.tierbild-upload').addEventListener('click', function () {
