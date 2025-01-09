@@ -35,55 +35,60 @@ class UserController
             $name = $email = $password = '';
             $nameErr = $emailErr = $passwordErr = '';
 
+            //-----------Nutzername-----------------------------
             if (empty($_POST["usernameReg"])) {
-                $nameErr = "Name ist ein Pflichtfeld";
-                $response['errors']['usernameReg'] = $nameErr;
+                $response['errors']['usernameReg'] = "Name ist ein Pflichtfeld";
             } else {
                 $name = $this->test_input($_POST["usernameReg"]);
+                if (strlen($name) < 3 || strlen($name) > 10) {
+                    $response['errors']['usernameReg'] = "Name muss mindestens drei Zeichen lang sein.";
+                }
                 // Nutzername kann nur aus Buchstaben, Zahlen oder Bindestrich bestehen
-                if (!preg_match("/^[a-zA-Z0-9-]*$/", $name)) {
-                    $nameErr = "Nur Buchstaben, Zahlen und Bindestrich erlaubt.";
-                    $response['errors']['usernameReg'] = $nameErr;
+                elseif (!preg_match("/^[a-zA-Z0-9-]*$/", $name)) {
+                    $response['errors']['usernameReg'] = "Nur Buchstaben, Zahlen und Bindestrich erlaubt.";
                 }
-                if (empty($_POST["emailReg"])) {
-                    $emailErr = "Email ist ein Pflichtfeld";
-                    $response['errors']['emailReg'] = $emailErr;
-                } else {
-                    $email = $this->test_input($_POST["emailReg"]);
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $emailErr = "Falsches Email Format.";
-                        $response['errors']['emailReg'] = $emailErr;
-                    }
+            }
+
+            //------------Email--------------------------------
+            if (empty($_POST["emailReg"])) {
+                $response['errors']['emailReg'] = "Email ist ein Pflichtfeld";
+            } else {
+                $email = $this->test_input($_POST["emailReg"]);
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $response['errors']['emailReg'] = "Falsches Email Format.";
                 }
+            }
 
-                if (empty($_POST["passwordReg"])) {
-                    $passwordErr = "Passwort ist ein Pflichtfeld";
-                    $response['errors']['passwordReg'] = $passwordErr;
-                } else {
-                    $password = $this->test_input($_POST["passwordReg"]);
+            //-------------Passwort------------------------
+            if (empty($_POST["passwordReg"])) {
+                $response['errors']['passwordReg'] = "Passwort ist ein Pflichtfeld";
+            } else {
+                $password = $this->test_input($_POST["passwordReg"]);
+                if(strlen($password) < 6 || strlen($password) > 30) {
+                    $response['errors']['passwordReg'] = "Das Passwort muss mindestens 6 Zeichen lang sein.";
                 }
+            }
 
-                if ($nameErr || $emailErr || $passwordErr) {
-                    echo json_encode($response);
-                    return;
-                }
-
-                //Passwort hashen
-                $password = password_hash($password, PASSWORD_DEFAULT);
-
-                $nutzer = new User($name, $email, $password);
-
-                try {
-                    $this->nutzerModel->insertNutzer($nutzer);
-                    $response['success'] = true;
-                } catch (Exception $e) {
-                    $response['success'] = false;
-                    $response['errors']['general'] = "Fehler bei Registrierung: " . $e->getMessage();
-                }
-
+            if (!empty($response['errors'])) {
                 echo json_encode($response);
                 exit();
             }
+
+            //Passwort hashen
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            $nutzer = new User($name, $email, $password);
+
+            try {
+                $this->nutzerModel->insertNutzer($nutzer);
+                $response['success'] = true;
+            } catch (Exception $e) {
+                $response['success'] = false;
+                $response['errors']['general'] = "Fehler bei Registrierung: " . $e->getMessage();
+            }
+
+            echo json_encode($response);
+            exit();
         }
     }
 

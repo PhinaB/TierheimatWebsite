@@ -58,7 +58,7 @@ class MissingFoundModel extends AbstractModel
 
 
            if ($editMode === true) {
-               $queryAnimalSelect = "SELECT * FROM vermisstgefundentiere WHERE VermisstGefundenTiereID = ?";
+               $queryAnimalSelect = "SELECT * FROM vermisstGefundenTiere WHERE VermisstGefundenTiereID = ?";
                $stmtAnimalSelect = $this->db->prepare($queryAnimalSelect);
                if ($stmtAnimalSelect->error !== "") {
                    throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtAnimalSelect->error);
