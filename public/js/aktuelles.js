@@ -1,3 +1,55 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const articlesContainer = document.getElementById('articles-container');
+    let offset = 0;
+
+    const loadArticles = () => {
+        fetch('/load/all/articles', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ offset }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
+
+                data.forEach(article => {
+                    const articleDiv = document.createElement('div');
+                    articleDiv.classList.add('articlePreview');
+                    articleDiv.innerHTML = `
+                        <h3>${article.Ueberschrift}</h3>
+                        <p>${article.Text.substring(0, 500)}...</p> <!--anzuzeigender text-->
+                        <button class="detailsButton" data-article-id="${article.ArtikelID}">Zum Artikel</button>
+                    `;
+                    articlesContainer.appendChild(articleDiv);
+                });
+
+                offset += 8;
+
+                if (data.length < 8) {
+                    loadMoreButton.classList.add('hidden');
+                }
+            })
+            .catch(error => console.error('Fehler beim Laden der Artikel:', error));
+    };
+
+    articlesContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('detailsButton')) {
+            const articleId = event.target.getAttribute('data-article-id');
+            window.location.href = `/aktuellesDetail.php?articleId=${articleId}`;
+        }
+    });
+
+});
+
+
+
+
+
+/*
+
 document.addEventListener('DOMContentLoaded', function () {
     const categorySelect = document.getElementById('categorySelect');
     const newsContainer = document.getElementById('current-content');
@@ -66,3 +118,5 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     };
 });
+
+ */

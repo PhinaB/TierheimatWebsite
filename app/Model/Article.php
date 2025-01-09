@@ -1,17 +1,29 @@
 <?php
+namespace App\Model;
 
-declare(strict_types=1);
+use App\Core\Database;
 
-namespace app\model;
-class Article {
-    private ?int $artikelID = null;
-    private int $nutzerID;
-    private int $artID;
+class Article
+{
+    private $db;
 
-    private string $ueberschrift;
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
 
-    private string $zwischenueberschrift;
+    public function findAllArticles(): array
+    {
+        $sql = "SELECT * FROM artikel ORDER BY Datum DESC;";
+        return $this->db->executeQuery($sql);
+    }
 
-    private string $text;
-
+    public function findArticleById(int $articleId): array
+    {
+        $sql = "SELECT * FROM artikel WHERE ArtikelID = ?;";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param('i', $articleId);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
 }
