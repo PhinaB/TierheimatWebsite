@@ -18,7 +18,7 @@ class OurAnimalsModel extends AbstractModel
      */
     public function findAllAnimals($species, $offset, $breed, $gender): array
     {
-        $sql = "SELECT * FROM Tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON r.TierartID = ta.TierartID";
+        $sql = "SELECT * FROM tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON r.TierartID = ta.TierartID";
 
         $conditions = [];
         $params = [];
@@ -158,7 +158,7 @@ class OurAnimalsModel extends AbstractModel
      */
     public function findThreeRandomAnimals(): array
     {
-        $sql = "SELECT * FROM Tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON ta.TierartID = r.TierartID ORDER BY RAND() LIMIT 3;";
+        $sql = "SELECT * FROM tiere AS t JOIN rasse AS r ON t.RasseID = r.RasseID JOIN tierart AS ta ON ta.TierartID = r.TierartID ORDER BY RAND() LIMIT 3;";
 
         $stmt = $this->db->prepare($sql);
 
@@ -175,7 +175,7 @@ class OurAnimalsModel extends AbstractModel
     {
         $allAnimals = [];
         foreach ($animalResult as $row) {
-            $pictureSql = "SELECT * FROM  bildertiere AS b WHERE b.TierID = ".$row['TierID'];
+            $pictureSql = "SELECT * FROM bildertiere AS b WHERE b.TierID = ".$row['TierID'];
 
             $resultPictures = $this->db->executeQuery($pictureSql);
 

@@ -16,9 +16,6 @@ class UserController
 
     private UserModel $nutzerModel;
 
-    /**
-     * @param $nutzerModel
-     */
     public function __construct()
     {
         $this->nutzerModel = new UserModel();
@@ -92,12 +89,11 @@ class UserController
         }
     }
 
-    function test_input($data)
+    function test_input($data): string
     {
         $data = trim($data);
         $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
+        return htmlspecialchars($data);
     }
 
     public function login(): void

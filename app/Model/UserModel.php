@@ -26,7 +26,7 @@ class UserModel extends AbstractModel
             //-----------------UserRole-------------------------------------
             //wenn sie existiert wird ID ausgelesen, wenn sie nicht existiert Exception
 
-            $sqlNutzerrolleExists = "SELECT * FROM Nutzerrollen WHERE Rolle= ?";
+            $sqlNutzerrolleExists = "SELECT * FROM nutzerrollen WHERE Rolle= ?";
             $stmtNutzerrolleExists = $this->db->prepare($sqlNutzerrolleExists);
             if ($stmtNutzerrolleExists->error !== "") {
                 throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerrolleExists->error);
@@ -51,7 +51,7 @@ class UserModel extends AbstractModel
 
 
             //-----------------User-------------------------------------------
-            $sqlNutzerExists = "SELECT * FROM Nutzer WHERE email= ?";
+            $sqlNutzerExists = "SELECT * FROM nutzer WHERE email= ?";
             $stmtNutzerExists = $this->db->prepare($sqlNutzerExists);
             if ($stmtNutzerExists->error !== "") {
                 throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerExists->error);
@@ -71,7 +71,7 @@ class UserModel extends AbstractModel
             } else {
 
                 //User existiert nicht: anlegen
-                $sqlNewNutzer = "INSERT INTO Nutzer (NutzerrollenID, Name, Email, Passwort) VALUES (?, ?, ?, ?)";
+                $sqlNewNutzer = "INSERT INTO nutzer (NutzerrollenID, Name, Email, Passwort) VALUES (?, ?, ?, ?)";
                 $stmtNewNutzer = $this->db->prepare($sqlNewNutzer);
 
                 $valuesNutzer = $nutzer->getValuesForInsert($nutzerrollenID);
@@ -98,7 +98,7 @@ class UserModel extends AbstractModel
      */
     public function getNutzerByEmail(string $email): ?array
     {
-        $sqlNutzerEmail = "SELECT * FROM Nutzer WHERE Email = ?";
+        $sqlNutzerEmail = "SELECT * FROM nutzer WHERE Email = ?";
         $stmtNutzerEmail = $this->db->prepare($sqlNutzerEmail);
         if ($stmtNutzerEmail ->error !== "") {
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerEmail ->error);

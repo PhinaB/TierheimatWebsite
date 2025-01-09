@@ -22,7 +22,7 @@ class UserRoleModel extends AbstractModel
             throw new InvalidArgumentException('Ungültige Nutzer-ID.');
         }
 
-        $sql = "SELECT NutzerrollenID FROM Nutzer WHERE NutzerID = ?";
+        $sql = "SELECT NutzerrollenID FROM nutzer WHERE NutzerID = ?";
         $stmt = $this->db->prepare($sql);
         if (!$stmt) {
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage.');
@@ -39,7 +39,7 @@ class UserRoleModel extends AbstractModel
         $userArray = $userResult->fetch_assoc();
         $userRoleId = $userArray['NutzerrollenID'];
 
-        $sqlUserRoles = "SELECT * FROM Nutzerrollen WHERE NutzerrollenID = ?";
+        $sqlUserRoles = "SELECT * FROM nutzerrollen WHERE NutzerrollenID = ?";
         $stmtUserRoles = $this->db->prepare($sqlUserRoles);
         if (!$stmtUserRoles) {
             throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage.');
