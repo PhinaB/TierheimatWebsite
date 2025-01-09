@@ -23,7 +23,7 @@ class MissingFoundModel extends AbstractModel
        $this->db->begin_transaction();
 
        try {
-           $queryTierartSelect = "SELECT TierartID FROM Tierart WHERE Tierart = ?";
+           $queryTierartSelect = "SELECT TierartID FROM tierart WHERE Tierart = ?";
            $stmtTierartSelect = $this->db->prepare($queryTierartSelect);
            if ($stmtTierartSelect->error !== "") {
                throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtTierartSelect->error);
@@ -38,7 +38,7 @@ class MissingFoundModel extends AbstractModel
                $row = $result->fetch_assoc();
                $tierartID = $row['TierartID'];
            } else {
-               $queryTierart = "INSERT INTO Tierart (Tierart) VALUES (?)";
+               $queryTierart = "INSERT INTO tierart (Tierart) VALUES (?)";
                $stmtTierart = $this->db->prepare($queryTierart);
 
                if ($stmtTierart->error !== "") {
@@ -72,7 +72,7 @@ class MissingFoundModel extends AbstractModel
                $resultAnimal = $stmtAnimalSelect->get_result();
                $thisAnimal = $resultAnimal->fetch_assoc();
 
-               $queryUser = "SELECT r.* FROM  Nutzer n
+               $queryUser = "SELECT r.* FROM nutzer n
                              JOIN nutzerrollen r ON n.NutzerrollenID = r.NutzerrollenID WHERE NutzerID = ?";
                $stmtUserSelect = $this->db->prepare($queryUser);
                if ($stmtUserSelect->error !== "") {
@@ -110,7 +110,7 @@ class MissingFoundModel extends AbstractModel
 
            }
            else {
-               $queryVermisstGefundenTier = "INSERT INTO VermisstGefundenTiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+               $queryVermisstGefundenTier = "INSERT INTO vermisstgefundentiere (ZuletztGeaendertNutzerID, TierartID, Typ, Datum, Ort, Beschreibung, Kontaktaufnahme, Bildadresse, Geloescht, ZuletztGeaendert) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                $stmtVermisstGefundenTier = $this->db->prepare($queryVermisstGefundenTier);
 
@@ -140,7 +140,7 @@ class MissingFoundModel extends AbstractModel
      */
     public function getAllMissingOrFoundAnimals(string $vermisstOrGefunden): array
     {
-        $sql = "SELECT * FROM VermisstGefundenTiere AS v 
+        $sql = "SELECT * FROM vermisstgefundentiere AS v 
         JOIN Tierart AS t ON v.TierartID = t.TierartID 
          WHERE v.typ = ? AND v.geloescht=0 ORDER BY v.Datum DESC";
         $stmtVermisstOrGefundenTier = $this->db->prepare($sql);
@@ -167,8 +167,11 @@ class MissingFoundModel extends AbstractModel
         return $alleVermisstTiere;
     }
 
+    /**
+     * @throws Exception
+     */
     public function getMissingFoundAnimalById(int $missingFoundAnimalId) {
-        $sql = "SELECT * FROM VermisstGefundenTiere WHERE VermisstGefundenTiereID = ?";
+        $sql = "SELECT * FROM vermisstgefundentiere WHERE VermisstGefundenTiereID = ?";
         $stmtMissingFoundAnimal = $this->db->prepare($sql);
         if (!$stmtMissingFoundAnimal ) {
             throw new InvalidArgumentException("Fehler bei der Vorbereitung der SQL-Abfrage: " . $this->db->getError());
@@ -190,9 +193,10 @@ class MissingFoundModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function deleteMissingFoundAnimal (int $missingFoundAnimalId){
+    public function deleteMissingFoundAnimal (int $missingFoundAnimalId): true
+    {
         //Tier wird nicht aus der Datenbank gelöscht. Es wird nur nicht mehr angezeigt, indem geloescht= 1 gesetzt wird
-        $sql = "UPDATE VermisstGefundenTiere SET Geloescht=? WHERE VermisstGefundenTiereID = ?";
+        $sql = "UPDATE vermisstgefundentiere SET Geloescht = ? WHERE VermisstGefundenTiereID = ?";
         $stmt = $this->db->prepare($sql);
         if (!$stmt) {
             throw new Exception("Fehler bei der Vorbereitung der SQL-Abfrage: " . $stmt->error);
