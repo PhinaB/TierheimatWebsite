@@ -37,7 +37,6 @@ function loadAnimals () {
         }
     }
 
-    // Ajax:
     const xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -141,7 +140,7 @@ function setAnimalsToPage (animals) {
         let cloneReadMore = hiddenTemplateReadMore.cloneNode(true);
         outsideDiv.appendChild(cloneReadMore);
 
-        const currentYear = new Date().getFullYear(); // Aktuelles Jahr
+        const currentYear = new Date().getFullYear();
         let age = currentYear - animals[i].Geburtsjahr;
 
         cloneReadMore.id = "";
@@ -153,7 +152,6 @@ function setAnimalsToPage (animals) {
         cloneReadMore.querySelector('.beschreibung').innerHTML = animals[i].Beschreibung;
         cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenAnimalField(this)');
 
-        // Pictures:
         let imageChangeBlock = clone.querySelector('.bildwechsel');
 
         const animalPictures = animals[i].Bilder;
@@ -163,7 +161,6 @@ function setAnimalsToPage (animals) {
                 imageChangeBlock.style.setProperty('--before-image', "url('../img/"+picture.Bildadresse+"')");
                 imageChangeBlock.alt = picture.Alternativtext;
 
-                // Bild für weiterlesen Feld:
                 let weiterlesenBild = cloneReadMore.querySelector('.hohesBild');
                 weiterlesenBild.src = "../public/img/" + picture.Bildadresse;
                 weiterlesenBild.alt = picture.Alternativtext;

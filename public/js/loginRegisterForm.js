@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     document.querySelector('#loginForm').addEventListener('submit', function(event){
-        event.preventDefault(); //für Ajax, verhindert normales Absenden des Formulars
-        handleLogin(); //Absenden des Formulars mit Ajax
+        event.preventDefault();
+        handleLogin();
     })
 
     //--------------------Registrierung----------------------------------------------------
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     document.querySelector('#registerForm').addEventListener('submit', function(event){
-        event.preventDefault(); //für Ajax, verhindert normales Absenden des Formulars
-        handleRegistration(); //Absenden des Formulars mit Ajax
+        event.preventDefault();
+        handleRegistration();
     })
 })
 
@@ -91,14 +91,10 @@ function setErrorFieldInnerHTML (textElm, errorField, innerHTML) {
 function removeErrorField (field, errorField) {
     if (field) {
         field.classList.remove('falseInputOrTextarea');
-    } else {
-        console.error('Field element not found:', field);
     }
 
     if (errorField) {
         errorField.classList.add('hidden');
-    } else {
-        console.error('Error field element not found:', errorField);
     }
 }
 
@@ -159,9 +155,6 @@ function enableFormFields(){
     formElements.forEach(function(element) {element.disabled = false;});
 }
 
-//------Ajax---------------
-
-
 function handleLogin(){
     disableFormFields();
 
@@ -181,13 +174,12 @@ function handleLogin(){
         fetch('../public/user/login', {method: 'POST', body: formData})
             .then(response => {
                 if (!response.ok) {
-                    console.error('Fehler beim Abrufen der Antwort:', response.status);
+                    alert('Fehler beim Abrufen der Antwort: '+ response.status);
                     return Promise.reject('Fehler beim Abrufen der Antwort');
                 }
                 return response.json();
             })
             .then (data => {
-                console.log(data);
                 if(data.success){
                     window.location.href='../public/'
                 }
@@ -203,7 +195,9 @@ function handleLogin(){
                     }
                 }
             })
-            .catch (error => {console.error('Fehler beim Login:', error);})
+            .catch(error=>{
+                alert('Fehler beim Login ' + error);
+            })
             .finally (()=>{
                 enableFormFields();
             })
@@ -237,16 +231,11 @@ function handleRegistration(){
 
         fetch('../public/user/register', { method: 'POST', body: formData })
             .then(response => {
-                // Debugging: Prüfe, was vom Server zurückkommt
-                console.log('Server Response Status:', response.status);  // Gibt den Statuscode der Antwort aus
-                return response.text();  // Wir holen uns den Antworttext anstelle von JSON
+                return response.text();
             })
             .then(data => {
-                console.log('Raw Response Data:', data);  // Zeigt die rohe Antwort, bevor sie geparsed wird
-
                 try {
-                    const jsonData = JSON.parse(data);  // Versuche, die Antwort als JSON zu parsen
-                    console.log('Parsed JSON:', jsonData);
+                    const jsonData = JSON.parse(data);
                     if (jsonData.success) {
                         resetRegistration();
 
@@ -258,7 +247,6 @@ function handleRegistration(){
                                 successMessage.classList.add('hidden');},
                             5000);
                     } else {
-                        // Fehlerbehandlung für einzelne Formulareingabefelder
                         if (jsonData.errors.emailReg) {
                             setErrorFieldInnerHTML(document.querySelector('input[name=emailReg]'), document.querySelector('#emailRegError'), jsonData.errors.emailReg);
                         }
@@ -273,11 +261,11 @@ function handleRegistration(){
                         }
                     }
                 } catch (e) {
-                    console.error('Fehler beim Parsen der JSON-Antwort:', e);  // Falls das Parsing der JSON-Antwort fehlschlägt
+                    alert('Fehler beim Parsen der JSON-Antwort: '+e);
                 }
             })
             .catch(error => {
-                console.error('Fehler:', error);})  // Fehlerbehandlung bei Fetch-Fehlern});
+                alert('Fehler:'+ error);})
             .finally (()=>{
                 enableFormFields();
             })
@@ -293,8 +281,6 @@ function resetLogin() {
 
     document.getElementById('email').value = '';
     document.getElementById('password').value = '';
-
-    console.log('Formular zurückgesetzt.')
 }
 
 function resetRegistration() {
@@ -303,8 +289,6 @@ function resetRegistration() {
     document.getElementById('emailReg').value = '';
     document.getElementById('passwordReg').value = '';
     document.getElementById('username').value = '';
-
-    console.log('Formular zurückgesetzt.')
 }
 
 

@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadContentToPage () {
-    // Ajax:
     const xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -40,9 +39,6 @@ function loadContentToPage () {
                     let br = document.createElement('br');
                     copyHereTypeOfHelpInputs.appendChild(br);
                 }
-            }
-            else {
-               // TODO fehlerGesamt.innerHTML = "";
             }
         }
     }
@@ -228,7 +224,7 @@ function send () {
 
         for (let i = 0; i < inputsSupportType.length; i++) {
             setErrorField(inputsSupportType[i], errorFieldSupport, "Gib eine Hilfe an");
-            inputsSupportType[i].setAttribute('aria-invalid', 'true'); // Barrierefreiheit
+            inputsSupportType[i].setAttribute('aria-invalid', 'true');
         }
 
         return;
@@ -255,13 +251,12 @@ function send () {
         }
     }
 
-    let combinations = []; // Array zum Speichern der Kombinationen
+    let combinations = [];
 
     for (let i = 0; i < dateFields.length; i++) {
         if (dateFields[i].value && timeFields[i].value) {
             let combination = dateFields[i].value + ' ' + timeFields[i].value;
 
-            // Prüfen, ob die Kombination bereits im Array existiert
             if (combinations.includes(combination)) {
                 removeTableTr(dateFields[i]);
             }
@@ -283,13 +278,12 @@ function send () {
         }
     }
 
-    let combinationsWeekday = []; // Array zum Speichern der Kombinationen
+    let combinationsWeekday = [];
 
     for (let i = 0; i < weekdayFields.length; i++) {
         if (weekdayFields[i].value && timeWeekdayFields[i].value) {
             let combinationWeekday = weekdayFields[i].value + ' ' + timeWeekdayFields[i].value;
 
-            // Prüfen, ob die Kombination bereits im Array existiert
             if (combinationsWeekday.includes(combinationWeekday)) {
                 removeTableTr(weekdayFields[i]);
             }
@@ -335,10 +329,9 @@ function send () {
 
     if (weekdayTimeEmpty || dateTimeALittleBitFilled) {
         const now = new Date();
-        const currentDate = now.toISOString().split('T')[0]; // Datum im Format 'YYYY-MM-DD'
-        const currentTime = now.toTimeString().split(' ')[0]; // Zeit im Format 'HH:MM:SS'
+        const currentDate = now.toISOString().split('T')[0];
+        const currentTime = now.toTimeString().split(' ')[0];
 
-        // day Felder:
         for (let i = 0; i < newDateFields.length; i++) {
             if (newDateFields[i].value === '') {
                 setErrorField(newDateFields[i], errorFieldDay, "Fülle dieses Feld");
@@ -356,7 +349,6 @@ function send () {
             if (!(dateValid && timeValid)) {
                 setErrorField(newDateFields[i], errorFieldDay, "Datum und Zeit muss in der Zukunft liegen");
                 newTimeFields[i].classList.add('falseInputOrTextarea');
-                // TODO: wenn hier beide Felde rot werden, müssen auch beide wieder schwarz werden, sobald in eine der beiden Felder etwas geändert wird
                 return;
             }
         }
