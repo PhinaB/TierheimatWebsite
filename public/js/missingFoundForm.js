@@ -109,7 +109,7 @@ function validateDateField(dateId, errorId){
     const currentDate = new Date();
 
 
-    currentDate.setHours(0,0,0,0); //um nur Datum zu vergleichen
+    currentDate.setHours(0,0,0,0);
 
     if (!dateValue){
         setErrorFieldInnerHTML(dateInput, errorInput, 'Wählen Sie ein Datum aus');
@@ -139,8 +139,8 @@ function validateFileUpload(fileId, errorId){
     }
 
     if (file){
-        const fileName = file.name; //wählt aus dem File-Objekt den Namen
-        const fileExtension = fileName.split('.').pop().toLowerCase(); //extrahiert Dateiendung
+        const fileName = file.name;
+        const fileExtension = fileName.split('.').pop().toLowerCase();
 
         if (!['jpg', 'jpeg', 'png'].includes(fileExtension)){
             setErrorFieldInnerHTMLNoOutline (errorInput, 'Nur .jpg, .jpeg und .png Dateien sind erlaubt.');
@@ -168,7 +168,6 @@ function setErrorFieldInnerHTML (element, errorField, innerHTML) {
     errorField.innerHTML = "<i class='fa-solid fa-circle-exclamation'></i> <b>Hinweis:</b> "+innerHTML;
 }
 
-//für Radio-Button und Datei-Upload
 function setErrorFieldInnerHTMLNoOutline (errorField, innerHTML) {
     errorField.classList.remove('hidden');
     errorField.innerHTML = "<i class='fa-solid fa-circle-exclamation'></i> <b>Hinweis:</b> "+innerHTML;
@@ -179,22 +178,21 @@ function removeErrorField (field, errorField) {
     if (field) {
         field.classList.remove('falseInputOrTextarea');
     } else {
-        console.error('Field element not found:', field);
+        alert('Field element not found:'+ field);
     }
 
     if (errorField) {
         errorField.classList.add('hidden');
     } else {
-        console.error('Error field element not found:', errorField);
+        alert('Error field element not found:'+ errorField);
     }
 }
 
-//für Radio-Button und Datei-Upload
 function removeErrorFieldNoOutline (errorField) {
     if (errorField) {
         errorField.classList.add('hidden');
     } else {
-        console.error('Error field element not found:', errorField);
+        alert('Error field element not found:'+ errorField);
     }
 }
 
@@ -217,7 +215,7 @@ function sendMissingFoundForm(editMode){
         validateDateField('datum', 'datumError')&&
         validateTextFieldOnSubmit(3, 20, 'ort', 'ortError') &&
         validateTextFieldOnSubmit(3, 500, 'tierbeschreibung', 'beschreibungError') &&
-        (tierbild ? validateFileUpload('tierbild-upload', 'fileError') : true) && // Validierung nur bei vorhandenem Bild
+        (tierbild ? validateFileUpload('tierbild-upload', 'fileError') : true) &&
         validateRadioButtons();
 
     if(!isValid){
@@ -247,7 +245,7 @@ function sendMissingFoundForm(editMode){
 
         .then(response => {
             if (!response.ok) {
-                console.error('Fehler beim Abrufen der Antwort:', response.status);
+                alert('Fehler beim Abrufen der Antwort:'+ response.status);
                 return Promise.reject('Fehler beim Abrufen der Antwort');
             }
             return response.json();
@@ -274,12 +272,12 @@ function sendMissingFoundForm(editMode){
         })
 
         .catch (error => {
-            console.error('Fehler beim Login:', error);
+            alert('Fehler beim Login:'+ error);
             document.getElementById('errorSubmit').textContent = 'Ein Fehler ist aufgetreten.';
         })
         .finally (()=>{
             enableFormFields();
-        })
+        });
 
 }
 
@@ -311,7 +309,4 @@ function resetMissingFoundForm(){
 
     const kontaktRadios = document.querySelectorAll('input[name="kontaktaufnahme"]')
     kontaktRadios.forEach(radio => radio.checked=false);
-
-
-    console.log('Formular zurückgesetzt.')
 }

@@ -1,40 +1,23 @@
-<!--
-<div id="spinner" style="display:none;">
-    <div class="loading-spinner"></div>
-</div>
--->
-
 <div id="loading">
-    <p>Der Inhalt wird geladen...</p>
+    <p>Die Artikel werden geladen...</p>
     <img class="spinnerGifHeight" alt="loading..." src="../public/img/spinner.gif">
 </div>
 
-<div class="tile">
-    <h2>Neues aus dem Tierheim</h2>
+<p class="fehlermeldung fehlerLoading"></p>
+
+<div class="tile hidden" id="firstArticleHere">
+    <h2></h2>
     <hr class="underHeadline" />
     <div class="flexWir tileBorder">
-        <img src="../public/img/ausbauTierheim.jpg" alt="Lageplan Tierheim" title="Lageplan Tierheim" draggable="false" />
+        <img src="" alt="" draggable="false" />
         <div class="text">
-            <p>
-                Sehr geehrte Unterstützer und Freunde unseres Tierheims,
-            </p><br /><p>
-                wir freuen uns sehr, Ihnen mitteilen zu können, dass die bauliche Erweiterung unseres Tierheims erfolgreich begonnen hat.
-            </p>
+            <span class="textSeenEverytime"></span><span class="hiddenOnBigScreenInline">...</span>
 
-            <div class="hiddenOnSmallScreen">
-                <p>
-                    Dank Ihrer großzügigen Spenden und Unterstützung konnten wir neue Unterkünfte und moderne Einrichtungen für unsere Tiere schaffen.
-                </p><br /><p>
-                    Diese Erweiterung ermöglicht es uns noch mehr Tieren in Not zu helfen und ihnen ein vorübergehendes Zuhause zu bieten.
-                    Ein herzliches Dankeschön an alle Spender, freiwilligen Helfer und Partner, die dieses Projekt möglich gemacht haben.
-                    Ihr Engagement und Ihre Großzügigkeit sind ein bedeutender Beitrag zu unserem gemeinsamen Ziel, den Tieren in unserer Obhut das bestmögliche Leben zu ermöglichen.
-                </p>
-            </div>
+            <span class="hiddenOnSmallScreen"></span>
             <div class="hiddenOnBigScreen">
-                <p>Dank Ihrer großzügigen Spenden und ... </p>
                 <br />
-                <a href="aktuellesWeiterlesenAusbauTierheim.php" draggable="false" class="button">
-                    <i class="fa-solid fa-newspaper"></i> Zum Artikel
+                <a draggable="false" class="button">
+                    <i class="fa-solid fa-newspaper"></i> Weiterlesen
                 </a>
             </div>
         </div>
@@ -44,105 +27,36 @@
 <div class="tile">
     <h2>Weitere Artikel</h2>
     <hr class="underHeadline" />
-    <div class="box-container box-container-button">
+
+    <div class="box-container" id="copyArticlesHere">
+    </div>
+
+    <div class="hidden" id="hiddenArticle">
+        <img src="" alt="" draggable="false" />
+        <h3></h3>
+        <p class="text"></p>
+        <a class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum kompletten Artikel</a>
+    </div>
+
+    <div class="hidden completeWeiterlesen box-absolute zIndex" id="hiddenTemplateReadMore">
         <div>
-            <img src="../public/img/tierheimFest.jpg" alt="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" title="Bild eines Hundes mit dem Schriftzug 'Tierheimfest'" draggable="false" />
-            <h3>15 Jahre Tierheimat</h3>
-            <p>
-                Unser Tierheim feiert dieses Jahr sein 15-jähriges Bestehen und blickt auf eine bewegte Geschichte zurück.
-                Seit unserer Gründung ...
-            </p>
-            <a href="aktuellesWeiterlesen.php" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
-        </div>
-        <div>
-            <img src="../public/img/Pokal.jpg" alt="Bild eines Pokals" title="Bild eines Pokals" draggable="false" />
-            <h3>Sieger des Thüringer Tierheimwettbewerb</h3>
-            <p>
-                Wir freuen uns außerordentlich, bekannt zu geben, dass unser Tierheim den Thüringer Tierheimwettbewerb gewonnen hat.
-            </p><p>
-                Diese Auszeichnung ist ein Beweis für ...
-            </p>
-            <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
-        </div>
-        <div>
-            <img src="../public/img/tierarztStudent.jpg" alt="Bild eines Tierarztes, der einen Hund untersucht" title="Bild eines Tierarztes, der einen Hund untersucht" draggable="false" />
-            <h3>Wir begrüßen unsere neuen Veterinärstudenten</h3>
-            <p>
-                Wir heißen einen neuen Veterinärstudenten in unserem Team herzlich willkommen.
-            </p><p>
-                Seine frischen Kenntnisse und ...
-            </p>
-            <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
-        </div>
-        <div>
-            <img src="../public/img/friedhof.jpg" alt="Bild eines Friedhofs" title="Bild eines Friedhofs" draggable="false" />
-            <h3>Erneuerung der Ruhestätte</h3>
-            <p>
-                Mit großem Respekt und Hingabe haben wir die Ruhestätte unseres Tierheims erneuert.
-            </p><p>
-                Dieser Ort bietet ...
-            </p>
-            <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
-        </div>
-        <div id="tiervermittlung">
-            <img src="../public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
-            <h3>Erfolgreiche Tiervermittlung</h3>
-            <p>
-                In den letzten Monaten konnten wir zahlreiche Tiere erfolgreich in liebevolle Zuhause vermitteln.
-            </p><p>
-                Dank der intensiven Betreuung und Pflege ...
-            </p>
-            <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
-        </div>
-        <div>
-            <img src="../public/img/tierschutzLogo.jpg" alt="Bild von Pfoten und menschlichen Händen, die sich festhalten" title="Bild von Pfoten und menschlichen Händen, die sich festhalten" draggable="false" />
-            <h3>Erfolgreiche Spendenaktion</h3>
-            <p>
-                Unsere jüngste Spendenaktion war ein großer Erfolg! Dank der Großzügigkeit unserer Unterstützer konnten wir eine beträchtliche Summe sammeln, die direkt in ...
-            </p>
-            <a href="" class="button" draggable="false"><i class="fa-solid fa-newspaper"></i> Zum Artikel</a>
+            <div class="kopfelement">
+                <h3 class="inline"></h3>
+                <a title="Button Abbrechen" draggable="false">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </a>
+                <br />
+            </div>
+            <div class="flexWeiterlesen">
+                <div class="unterelement bildWeiter">
+                    <img src="" class="hohesBild" alt="" draggable="false" />
+                </div>
+                <div class="unterelement scrollbar">
+                    <p class="textTrennung beschreibung"></p>
+
+                    <div class="unterelementScrollbar"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-
-
-
-<!--dynamisierung der webseite -->
-
-<!--
-
-<div class="tile">
-    <h2>Neues aus dem Tierheim</h2>
-    <hr class="underHeadline" />
-
-     Ladeanimation
-<div id="loading">
-    <p>Die Artikel werden geladen...</p>
-    <img class="spinnerGifHeight" alt="loading..." src="../public/img/spinner.gif">
-</div>
-
- Container für die Artikel
-<div id="articles-container" class="hidden">
-     Vorlage für einzelne Artikel
-    <div id="hiddenArticleTemplate" class="hidden relativePosition">
-        <i class="fa-solid fa-heart" title="Klicke, um den Artikel zu liken!" onclick="setCookie(this, true);"></i>
-        <div class="aussenboxBildwechselKlein">
-            <a class="bildwechsel" draggable="false">
-                <img src="" alt="" draggable="false">
-            </a>
-        </div>
-        <h3 class="article-title"></h3>
-        <p class="beschreibungBeginn"></p>
-        <a class="button weiterlesen" title="Button Weiterlesen" draggable="false">
-            <i class="fa-solid fa-newspaper"></i> Weiterlesen
-        </a>
-    </div>
-</div>
-
-Button zum Laden weiterer Artikel
-<a id="load-more-articles" class="button hidden" draggable="false">
-    <i class="fa-solid fa-plus"></i> Weitere Artikel anzeigen
-</a>
-</div>
- -->

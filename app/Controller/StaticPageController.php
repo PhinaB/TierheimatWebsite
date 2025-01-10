@@ -26,15 +26,15 @@ class StaticPageController
         $currentPage = $category;
 
         $stylesheets = ['ourAnimals.css', 'imageChange.css', 'readMore.css'];
-        $js = ['ourAnimals.js'];
+        $js = ['ourAnimals.js', 'readMore.js', 'findParent.js'];
 
         $this->renderPage($stylesheets, $currentPage, $js, 'ourAnimals');
     }
 
     public function loadCurrentPageAction(): void
     {
-        $stylesheets = ['current.css'];
-        $js = ['aktuelles.js'];
+        $stylesheets = ['current.css', 'readMore.css'];
+        $js = ['current.js', 'readMore.js', 'findParent.js'];
 
         $this->renderPage($stylesheets, 'Aktuelles', $js, 'current');
     }
@@ -50,9 +50,8 @@ class StaticPageController
 
         $currentPage = $categoryMissingFound;
 
-
         $stylesheets = ['missingFoundLogin.css', 'missingFound.css', 'ourAnimals.css', 'form.css', 'missingFoundPrint.css', 'readMore.css'];
-        $js = ['dynamicMissingFoundAnimals.js','missingFoundForm.js'];
+        $js = ['dynamicMissingFoundAnimals.js', 'missingFoundForm.js', 'findParent.js'];
 
         $this->renderPage($stylesheets, $currentPage, $js, 'missingFound');
     }

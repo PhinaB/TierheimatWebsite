@@ -18,7 +18,7 @@ function loadAnimals () {
     spinner.classList.remove('hidden');
 
     const errorGeneral = document.querySelector('.fehlerLoading');
-    errorGeneral.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
+    errorGeneral.innerHTML = "";
 
     const currentSpecies = document.querySelector('#currentTierart').value;
     const offset = document.querySelector('input[name=offset]').value;
@@ -37,7 +37,6 @@ function loadAnimals () {
         }
     }
 
-    // Ajax:
     const xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -126,7 +125,7 @@ function setAnimalsToPage (animals) {
         let allAElements = clone.getElementsByTagName('a');
         for (let i = 0; i < allAElements.length; i++) {
             if (allAElements[i].classList.contains('weiterlesen')) {
-                allAElements[i].setAttribute('onclick', 'openWeiterlesenField(this)');
+                allAElements[i].setAttribute('onclick', 'openWeiterlesenAnimalField(this)');
             }
         }
 
@@ -141,7 +140,7 @@ function setAnimalsToPage (animals) {
         let cloneReadMore = hiddenTemplateReadMore.cloneNode(true);
         outsideDiv.appendChild(cloneReadMore);
 
-        const currentYear = new Date().getFullYear(); // Aktuelles Jahr
+        const currentYear = new Date().getFullYear();
         let age = currentYear - animals[i].Geburtsjahr;
 
         cloneReadMore.id = "";
@@ -151,9 +150,8 @@ function setAnimalsToPage (animals) {
         cloneReadMore.querySelector('.beiUnsSeit').innerHTML = '<span class="boldText">In der Tierheimat seit:</span> ' + animals[i].Datum;
         cloneReadMore.querySelector('.charakter').innerHTML = '<span class="boldText">Charaktereigenschaften:</span> ' + animals[i].Charakter;
         cloneReadMore.querySelector('.beschreibung').innerHTML = animals[i].Beschreibung;
-        cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenField(this)');
+        cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenAnimalField(this)');
 
-        // Pictures:
         let imageChangeBlock = clone.querySelector('.bildwechsel');
 
         const animalPictures = animals[i].Bilder;
@@ -163,7 +161,6 @@ function setAnimalsToPage (animals) {
                 imageChangeBlock.style.setProperty('--before-image', "url('../img/"+picture.Bildadresse+"')");
                 imageChangeBlock.alt = picture.Alternativtext;
 
-                // Bild für weiterlesen Feld:
                 let weiterlesenBild = cloneReadMore.querySelector('.hohesBild');
                 weiterlesenBild.src = "../public/img/" + picture.Bildadresse;
                 weiterlesenBild.alt = picture.Alternativtext;
@@ -177,38 +174,16 @@ function setAnimalsToPage (animals) {
     }
 }
 
-function findExplicitParentElement (element, searchedClassName) {
-    while ((element = element.parentElement) && !element.classList.contains(searchedClassName));
-    return element;
-}
-
-function openWeiterlesenField (buttonElement) {
-    let allFields = document.querySelectorAll('.completeWeiterlesen');
-    for (let i = 0; i < allFields.length; i++) {
-        allFields[i].classList.add('hidden');
-    }
-
-    let allAnimals = document.querySelectorAll('.completeAnimal');
-    for (let i = 0; i < allAnimals.length; i++) {
-        allAnimals[i].style.opacity = 0.4;
-    }
+function openWeiterlesenAnimalField (buttonElement) {
     document.querySelector('#weitereTiereAnzeigen').style.opacity = 0.4;
 
-    let thisDiv = findExplicitParentElement(buttonElement, 'completeAnimal');
-    thisDiv.nextSibling.classList.remove('hidden');
-
-    window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
+    openWeiterlesenField(buttonElement, 'completeAnimal');
 }
 
-function closeWeiterlesenField (buttonElement) {
-    let thisDiv = findExplicitParentElement(buttonElement, 'completeWeiterlesen');
-    thisDiv.classList.add('hidden');
-
-    let allAnimals = document.querySelectorAll('.completeAnimal');
-    for (let i = 0; i < allAnimals.length; i++) {
-        allAnimals[i].style.opacity = 1;
-    }
+function closeWeiterlesenAnimalField (buttonElement) {
     document.querySelector('#weitereTiereAnzeigen').style.opacity = 1;
+
+    closeWeiterlesenField(buttonElement, 'completeAnimal');
 }
 
 function addFilteroptionToSelect (select, options) {

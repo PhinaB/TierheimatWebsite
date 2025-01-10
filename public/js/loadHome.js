@@ -9,9 +9,8 @@ function loadAllForHome () {
     const page = document.getElementById('page');
 
     const errorGeneral = document.querySelector('.errorGeneral');
-    errorGeneral.innerHTML = "";  // TODO: Fehlermeldung ausblenden, wenn etwas anderes gedrückt wurde
+    errorGeneral.innerHTML = "";
 
-    // Ajax:
     const xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -64,8 +63,4 @@ function setAnimalsToPage(animals) {
             }
         });
     }
-}
-
-function goToAnimalPage (button) {
-
 }

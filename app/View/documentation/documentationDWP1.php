@@ -359,7 +359,7 @@ TODO:
                                         <li>SQL-Befehle zur Erstellung der Tabellen </li>
                                         <li>Erst-Entwicklung der databaseInit </li>
                                         <li>Weiterentwicklung der Dokumentation </li>
-                                        <li>Implementierung der dynamischen Features auf der "Aktuelles"-Seite (Weiterlesen eines einzelnen Artikels)</li>
+                                        <li>Erst-Entwurf einer Implementierung der dynamischen Features auf der "Aktuelles"-Seite</li>
                                         <li>Erarbeitung der Projektpräsentationen </li>
                                     </ul>
                                 </td>
@@ -373,10 +373,10 @@ TODO:
                                         <li>Formular "Helfen" (Validierung der Eingabefelder, Hochladen in Datenbank, "Art der Hilfe" aus Datenbank laden und ins Formular schreiben) </li>
                                         <li>dynamisches Laden der Seite "unsere Tiere" (Laden der Tiere aus Datenbank, Filterung der Tiere durch das Menü, Filterung der Tiere durch 3 Dropdown-Menüs,
                                     "Gefällt mir"-Funktion der Tiere, Nachladen der Tiere, Weiterlesen eines einzelnen Tieres) </li>
-                                        <li>Fertigstellung der databaseInit Datei</li>
+                                        <li>Fertigstellung der databaseInit Datei (auch: Erstellung von SQL Befehlen - CREATE und INSERT)</li>
                                         <li>Prüfung und Fertigstellung der Dokumentation</li>
-                                        <li>Fertigstellung der "Aktuelles"-Seite (Weiterlesen eines einzelnen Artikels)</li>
-                                        <li>Bearbeiten der Tiere auf der vermisst / gefunden Seite</li>
+                                        <li>Fertigstellung der "Aktuelles"-Seite (Laden der Artikel und Weiterlesen eines einzelnen Artikels)</li>
+                                        <li>Bearbeiten der Tiere auf der vermisst / gefunden Seite mit Prüfung des Nutzers und der Nutzerrechte</li>
                                         <li>Update der README</li>
                                         <li>Unterstützung bei Komplikationen</li>
                                     </ul>
@@ -388,8 +388,8 @@ TODO:
                                         <li>Formular "Vermisst / Gefunden" (Validierung der Eingaben im Formular, absenden des Formulars und Hochladen
                                             in Datenbank)</li>
                                         <li>dynamisches Laden der Seite "Vermisst / Gefunden" (Weiterlesen der Tier-Informationen, Anzeige der Bearbeiten und Löschen Buttons mit Prüfung des Nutzers und der Nutzerrechte,
-                                            Löschen der Tiere mit Prüfung des Nutzers und der Nutzerrechte, Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
-                                        <li>Löschen der Tiere auf der vermisst / gefunden Seite</li>
+                                            Filterung der Tiere durch das Menü und das Dropdown-Menü)</li>
+                                        <li>Löschen der Tiere auf der vermisst / gefunden Seite mit Prüfung des Nutzers und der Nutzerrechte</li>
                                         <li>Login und Registration von Nutzern mit Sessions (+ Hashing der Passwörter, + Anzeige des Nutzernamens und
                                             Veränderung des Menüs nach dem Login) </li>
                                         <li>Prüfung und Ergänzung der Dokumentation</li>
@@ -457,7 +457,7 @@ TODO:
                         Die Seite "Unsere Tiere" zeigt alle Tiere, die die Tierheimat zur Adoption freigibt. Diese lassen sich durch das Menü oder durch die drei Filteroptionen
                         (Tierart, Rasse, Geschlecht) filtern. Eine Rasse kann dabei nur ausgewählt werden, wenn eine Tierart ausgewählt wurde. Denn erst dann werden die entsprechenden Rassen in das Dropdown-Menü geschrieben. Die Rassen werden beim Laden der Seite mit übergeben und versteckt auf der Seite gespeichert.
                     </p><p>
-                        Beim Laden der Seite werden die Tiere dynamisch durch JavaScript von der Datenbank nachgeladen. Dadurch sieht der Nutzer im ersten Moment ein Ladesymbol, bevor
+                        Beim Laden der Seite werden die Tiere dynamisch durch JavaScript von der Datenbank nachgeladen. PHP erhält die AJAX Anfrage und formatiert die Daten. Anschließend werden sie im JSON Format zurück gegeben. Dadurch sieht der Nutzer im ersten Moment ein Ladesymbol, bevor
                         die Tiere dann angezeigt werden.
                     </p><p>
                         Es werden beim Aufruf der Seite immer maximal 8 Tiere angezeigt. Sollten in der Datenbank mehr Tiere mit diesen Filteroptionen vorhanden sein, kann der
@@ -520,9 +520,9 @@ TODO:
                         <b>Login und Registration</b>
                     </p>
                     <p>
-                        Ein Nutzer kann sich hier registrieren oder, falls schon ein Account vorhanden ist, auch einloggen. Dabei wird mit Javascript bei der Eingabe schon überprüft, ob die Eingaben korrekt ist und alle Pflichtfelder ausgefüllt sind.
-                        Es wird zum Beispiel überprüft, ob das Passwort mehr als sechs Zeichen hat, der Nutzername mehr als drei Zeichen hat und die Email dem gängigen Email-Format entspricht.
-                        Sind die eingaben nicht korrekt wird der Nutzer darauf hingewiesen. Im Backend werden die Eingaben im Anschluss auch validiert. Bei Eingaben die nicht den gesetzten Kriterien entsprechen wird dies als json-Format an das Forntend geschickt.
+                        Ein Nutzer kann sich hier registrieren oder, falls schon ein Account vorhanden ist, auch einloggen. Dabei wird mit Javascript bei der Eingabe schon überprüft, ob die Eingaben korrekt und alle Pflichtfelder ausgefüllt sind.
+                        Es wird zum Beispiel überprüft, ob das Passwort mehr als sechs Zeichen hat, der Nutzername mehr als drei Zeichen hat und die E-Mail dem gängigen E-Mail-Format entspricht.
+                        Sind die Eingaben nicht korrekt, wird der Nutzer darauf hingewiesen. Im Backend werden die Eingaben im Anschluss auch validiert. Bei Eingaben die nicht den gesetzten Kriterien entsprechen wird dies als json-Format an das Forntend geschickt.
                     </p><p>
                         Das Passwort wird außerdem vor dem Speichern in der Datenbank gehasht.
                     </p><p>

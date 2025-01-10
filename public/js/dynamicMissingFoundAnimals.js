@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
     checkLoginStatus();
 
     const type = document.getElementById('currentMissingOrFound').value;
@@ -80,7 +79,6 @@ function loadMissingFoundAnimalsToPage(type){
     })
         .then(response => response.json())
         .then(data => {
-            console.log('UserId:', data.loginData.userId)
             if (data.loginData.loggedIn){
                 userRoles = data.loginData.userRoles;
                 userId = data.loginData.userId;
@@ -95,8 +93,9 @@ function loadMissingFoundAnimalsToPage(type){
             }
 
         })
-        .catch(error => console.error('Fehler beim Laden der Tiere:', error));
-    // TODO: Fehler für Nutzer ausgeben
+        .catch(error=>{
+            alert('Es gab einen Fehler ' + error);
+        });
 }
 
 function displayAnimals(animals, type) {
@@ -114,18 +113,18 @@ function displayAnimals(animals, type) {
         subheading = "Aufgetaucht";
     }
 
+    let creatorID;
     if (animals.length > 0) {
         container.classList.remove('hidden');
 
         container.querySelector('.heading').innerHTML = type;
         container.querySelector('.underHeadline').classList.remove('hidden')
 
-        //------------Breites Feld für missingFoundAnimal------------------------------
         let cloneFirstAnimal = firstAnimalTemplate.cloneNode(true);
-        const copyFirstAnimalHere = document.getElementById(`copyFirst${type==="Vermisste Tiere" ? 'Missing' : 'Found'}AnimalHere`);
+        const copyFirstAnimalHere = document.getElementById(`copyFirst${type === "Vermisste Tiere" ? 'Missing' : 'Found'}AnimalHere`);
         copyFirstAnimalHere.appendChild(cloneFirstAnimal);
 
-        cloneFirstAnimal.id="";
+        cloneFirstAnimal.id = "";
         cloneFirstAnimal.getElementsByTagName('h3')[0].innerHTML = heading;
         cloneFirstAnimal.setAttribute('data-animal-id', animals[0].VermisstGefundenTiereID);
         cloneFirstAnimal.querySelector('.firstAnimalImage').src = animals[0].Bildadresse;
@@ -139,9 +138,8 @@ function displayAnimals(animals, type) {
         cloneFirstAnimal.classList.add('completeAnimalForEdit');
         cloneFirstAnimal.classList.remove('hidden');
 
-        //Überprüft Rechte und NutzerID
         displayEditDelete(animals[0].ZuletztGeaendertNutzerID, cloneFirstAnimal);
-        //----------Dynamisches Anlegen der maximal vier Tiere ------------------------
+
         let counter = 0;
         const copyHere = document.getElementById(`copyAll${type === "Vermisste Tiere" ? 'Missing' : 'Found'}AnimalsHere`)
         let outsideDiv;
@@ -165,8 +163,7 @@ function displayAnimals(animals, type) {
 
 
             const imageElement = clone.querySelector('.animalImage');
-            const imageUrl = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
-            imageElement.src = imageUrl;
+            imageElement.src = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
 
             clone.getElementsByTagName('h3')[0].innerHTML = heading;
             clone.querySelector('.animalSubheading').innerHTML = '<span class="boldText">' + subheading + '</span>';
@@ -179,10 +176,9 @@ function displayAnimals(animals, type) {
 
             clone.querySelector('#hiddenContact').value = animals[0].Kontaktaufnahme;
 
-            //Überprüft Rechte und NutzerID
-            creatorID= animals[i].ZuletztGeaendertNutzerID;
+            creatorID = animals[i].ZuletztGeaendertNutzerID;
             displayEditDelete(creatorID, clone);
-            //--------------------Weiterlesen-------------------------------------------------------------------
+
             let allAElements = clone.getElementsByTagName('a');
             for (let i = 0; i < allAElements.length; i++) {
                 if (allAElements[i].classList.contains('weiterlesen')) {
@@ -215,10 +211,10 @@ function displayAnimals(animals, type) {
         container.querySelector('.heading').innerHTML = type;
         container.querySelector('.underHeadline').classList.remove('hidden')
         document.querySelector('#missingAnimals').classList.remove('hidden');
-        if(document.querySelector('#selectAnimalStatus')) {
+        if (document.querySelector('#selectAnimalStatus')) {
             document.querySelector('#selectAnimalStatus').classList.remove('hidden');
         }
-        document.querySelector(`#error${type === 'Vermisste Tiere' ? 'Missing' : 'Found'}Animals`).innerHTML =  type + ' nicht vorhanden.';
+        document.querySelector(`#error${type === 'Vermisste Tiere' ? 'Missing' : 'Found'}Animals`).innerHTML = type + ' nicht vorhanden.';
     }
 }
 
@@ -252,20 +248,14 @@ function displayDelete(creatorId, clone) {
     deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
 
     deleteButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Verhindert das Neuladen der Seite
-        console.log('Delete button clicked!');
-
-        console.log('Delete Button: ');
+        event.preventDefault();
 
         const animalElement = deleteButton.closest('[data-animal-id]');
-        console.log(animalElement);
-        const animalID = animalElement.getAttribute('data-animal-id')
-        console.log(animalID);
+        const animalID = animalElement.getAttribute('data-animal-id');
 
         if (animalID) {
             deleteMissingOrFoundAnimal(animalID);
         }
-
     });
 
     clone.getElementsByTagName('h3')[0].appendChild(deleteButton);
@@ -313,23 +303,17 @@ function deleteMissingOrFoundAnimal(animalID){
                     alert('Das Tier wurde erfolgreich gelöscht.')
                 } else {
                     alert('Fehler: ' + data.errors.join(', '));
-                    console.log(data.errors);
                 }
             })
             .catch(error=>{
-                console.error('Fehler beim Löschen: ', error);
-                alert('Es gab einen Fehler beim Löschen des Tieres');
-            })
+                alert('Es gab einen Fehler beim Löschen des Tieres ' + error);
+            });
     }
 }
 
 function formatDate(dateString){
     const [year, month, day] = dateString.split(" ")[0].split("-")
     return `${day}.${month}.${year}`;
-}
-
-function searchType(){ // TODO: wird das benötigt
-    const typeInput = document.querySelector('select[name=tierstatusAuswählen]')
 }
 
 function closeWeiterlesenField (buttonElement) {
@@ -361,11 +345,6 @@ function openWeiterlesenField (buttonElement) {
     thisDiv.nextSibling.classList.remove('hidden');
 
     window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
-}
-
-function findExplicitParentElement (element, searchedClassName) {
-    while ((element = element.parentElement) && !element.classList.contains(searchedClassName));
-    return element;
 }
 
 function setCapacityStyle(capacity){
