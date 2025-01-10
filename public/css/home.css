@@ -21,6 +21,12 @@
     padding-top: calc(100% / (1920 / 800));
 }
 
+.box-container > div {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
 @keyframes bilder {
     0% {
         opacity: 1;

@@ -279,7 +279,7 @@ function sendMissingFoundForm(editMode){
         })
         .finally (()=>{
             enableFormFields();
-        })
+        });
 
 }
 

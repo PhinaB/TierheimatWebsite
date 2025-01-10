@@ -70,7 +70,7 @@
         <h2>Aktuelles</h2>
         <hr class="underHeadline" />
 
-        <div class="box-container box-container-button">
+        <div class="box-container">
             <div>
                 <img src="../public/img/ausbauTierheim.jpg" alt="Lageplan des Tierheims Tierheimat" title="Lageplan des Tierheims Tierheimat" draggable="false" />
                 <h3>Erweiterung des Tierheims</h3>

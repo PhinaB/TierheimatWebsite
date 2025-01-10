@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
     checkLoginStatus();
 
     const type = document.getElementById('currentMissingOrFound').value;
@@ -165,8 +164,7 @@ function displayAnimals(animals, type) {
 
 
             const imageElement = clone.querySelector('.animalImage');
-            const imageUrl = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
-            imageElement.src = imageUrl;
+            imageElement.src = animals[i].Bildadresse || '../public/img/defaultImage.jpg'; // Wenn keine Bildadresse vorhanden ist, wird das alternative Bild verwendet
 
             clone.getElementsByTagName('h3')[0].innerHTML = heading;
             clone.querySelector('.animalSubheading').innerHTML = '<span class="boldText">' + subheading + '</span>';
@@ -318,7 +316,7 @@ function deleteMissingOrFoundAnimal(animalID){
             })
             .catch(error=>{
                 console.error('Fehler beim Löschen: ', error);
-                alert('Es gab einen Fehler beim Löschen des Tieres');
+                alert('Es gab einen Fehler beim Löschen des Tieres'); // TODO: alerts raus nehmen und console Fehler zu Fehlermeldung umwandeln (s. current)
             })
     }
 }
@@ -361,11 +359,6 @@ function openWeiterlesenField (buttonElement) {
     thisDiv.nextSibling.classList.remove('hidden');
 
     window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
-}
-
-function findExplicitParentElement (element, searchedClassName) {
-    while ((element = element.parentElement) && !element.classList.contains(searchedClassName));
-    return element;
 }
 
 function setCapacityStyle(capacity){

@@ -6,17 +6,17 @@
     display:block;
 }
 
-.hiddenOnBigScreen {
+.hiddenOnBigScreen, .hiddenOnBigScreenInline {
     display: none;
 }
 
  /* Effekt zum anheben der divs: */
-.box-container > div {
+.box-container > div.completeArticle {
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     transition-delay: 0.1s;
 }
 
-.box-container > div:hover {
+.box-container > div.completeArticle:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -34,6 +34,9 @@
     .hiddenOnBigScreen {
         display: block;
     }
+    .hiddenOnBigScreenInline {
+        display: inline-block;
+    }
     .text {
         padding-top:10px;
         padding-bottom:20px;
@@ -41,10 +44,10 @@
 }
 
 @media only screen and (max-width: 900px) {
-    .box-container > div {
+    .box-container > div.completeArticle {
         transition: none;
     }
-    .box-container > div:hover {
+    .box-container > div.completeArticle:hover {
         transform: none;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     }
