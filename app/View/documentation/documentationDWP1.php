@@ -199,7 +199,7 @@ TODO:
                         Anschließend erfolgt die Einrichtung einer Datenbankverbindung über ein PHP-Skript, um den sicheren Austausch von Daten zwischen der Webseite und der Datenbank zu gewährleisten.
                     </p>
                     <br /><p>
-                        Für die weitere Backend-Entwicklung sollen die CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden.
+                        Für die weitere Backend-Entwicklung sollen CRUD-Funktionen (Create, Read, Update, Delete) in PHP implementiert werden, abhängig von den spezifischen Anforderungen des Projekts.
                         Diese Funktionen ermöglichen es, neue Datensätze hinzuzufügen, bestehende Daten zu lesen, zu aktualisieren oder zu löschen. So wird es beispielsweise möglich sein, vermisste Tiere in die Datenbank aufzunehmen, deren Informationen zu bearbeiten oder diese von der Webseite zu entfernen.
                     </p><p>
                         Hierfür sind separate PHP-Dateien vorgesehen, die zudem Sicherheitsmaßnahmen, wie etwa gegen SQL-Injection, beinhalten. Nutzern, die vermisste oder gefundene Tiere melden, wird außerdem die Möglichkeit geboten, ihre Einträge zu bearbeiten oder zu löschen. Administratoren sollen dabei alle Einträge löschen und bearbeiten können. Dies gewährleistet eine stets aktuelle Tierdatenbank und eine effiziente Datenverwaltung.
@@ -491,9 +491,9 @@ TODO:
                         Hat ein Nutzer sich angemeldet, kann er erweiterte Funktionen verwenden. Unter anderem kann er dann das Formular für ein vermisstes oder gefundenes Tier ausfüllen.
                         In diesem Formular werden die Eingaben des Nutzers, durch JavaScript überprüft. Es wird überprüft, ob alle Pflichtfelder ausgefüllt wurden, das Datum in der Vergangenheit liegt,
                         die Ortsangabe und Beschreibung mindestens drei und maximal 20 oder mindestens sechs und maximal 500 Zeichen haben und ob, wenn ein Bild hochgeladen wurde, es den gängigen Dateitypen entspricht (.jpg, .jpeg, .png).
+                        Im Backend werden die eingegebenen Daten mit PHP validiert, bevor das Speichern der Daten in der Datenbank erfolgt.
                     </p><p>
-                        Sobald die Daten in der Datenbank hochgeladen wurden, wird das
-                        neue Tier nach dem Laden der Seite dort angezeigt.
+                        Sobald die Daten in der Datenbank hochgeladen wurden, wird das neue Tier nach dem Laden der Seite dort angezeigt.
                     </p><p>
                         Ein angemeldeter Nutzer kann außerdem seine eigenen Beiträge löschen und bearbeiten.
                         Ist der angemeldete Nutzer ein Administrator, kann er jeden Beitrag löschen und bearbeiten.
@@ -526,7 +526,10 @@ TODO:
                     </p><p>
                         Das Passwort wird außerdem vor dem Speichern in der Datenbank gehasht.
                     </p><p>
-                        Nach erfolgreichem Login wird der Nutzer automatisch auf die Startseite umgeleitet. Im Menü ist die Änderung zu sehen, denn dort ist der Nutzername zu finden.
+                        Es wird mit einer Session gearbeitet, um zustandsbehaftete Daten, wie den Login-Status, die Nutzer-ID, den Nutzernamen und die Rollenrechte, zu speichern.
+                        Dadurch bleiben diese Daten über mehrere Seiten hinweg verfügbar und können zum Beispiel bei den Formularen verwendet werden, um Daten in der Datenbank mit der passenden Nutzer-ID zu speichern.
+                    </p><p>
+                        Nach erfolgreichem Login wird der Nutzer automatisch auf die Startseite umgeleitet. Im Menü ist die Änderung zu sehen, denn dort ist der Nutzername zu finden (dies wird auch mithilfe der Session umgesetzt).
                         Außerdem gibt es dort jetzt den Untermenüpunkt "Logout" statt "Login".
                     </p>
                     <img src="../public/imgDokumentationDWP/LoginFormular.png" title="Login" alt="Login" draggable="false">
@@ -534,6 +537,12 @@ TODO:
 
                     <br/><br/>
                     <p>
+                        Wir haben uns dazu entschieden, auf der Startseite sowie den Seiten "Unsere Tiere", "Aktuelles", "Helfen" und "Vermisst / Gefundene Tiere" Ajax einzusetzen, um eine asynchrone Kommunikation mit dem Server zu ermöglichen.
+                        Durch den Einsatz von Ajax wird nur ein bestimmter Teil der Webseite aktualisiert, anstatt die gesamte Seite neu zu laden. Dies führt zu einer verbesserten Nutzererfahrung und einer gesteigerten Effizienz, da lediglich die benötigten Informationen vom Server abgerufen werden.
+                        Insbesondere bei einer großen Anzahl an Datenbankeinträgen, wie unter anderem bei den vermissten oder gefundenen Tiere – was wir in Zukunft erwarten – zeigt sich der Vorteil dieser Lösung. So wird etwa beim Absenden des Formulars "Vermisst / Gefunden" nicht die gesamte Seite mit den Tieren neu geladen, sondern nur der relevante Abschnitt, also das Formular selbst.
+                        Außerdem werden auf der Unterseite "Alle Tiere" im Bereich "Vermisst / Gefundene Tiere" lediglich die Tierdaten aktualisiert, während das Formular weiterhin sichtbar und uneingeschränkt nutzbar bleibt. Dadurch kann der Nutzer parallel mit dem Formular oder anderen Funktionen der Seite interagieren.
+                        Auch auf der Seite "Unsere Tiere" ermöglicht Ajax eine nahtlose Nutzung. Beim Klicken auf den "Weiterlesen"-Button werden lediglich die weiteren Tiere nachgeladen, ohne die gesamte Seite neu zu laden. Während des Ladevorgangs können die zuvor angezeigten Inhalte weiterhin betrachtet werden, was die Nutzerfreundlichkeit erheblich steigert.
+                    </p><p>
                         Für die Seite "Unsere Tiere" haben wir bewusst XMLHttpRequest für das Nachladen von Daten über AJAX verwendet, während wir auf den anderen Seiten auf die moderne fetch-Methode gesetzt haben. Diese Entscheidung basiert auf der bestehenden Struktur und den spezifischen Anforderungen der jeweiligen Seiten.
                     </p><p>
                         Durch den Einsatz beider Methoden haben wir nicht nur flexibel auf unterschiedliche Anforderungen reagiert, sondern auch unser Wissen über unterschiedliche Techniken zur Handhabung von AJAX-Anfragen unter Beweis gestellt. Da beide Ansätze gut in das Gesamtkonzept passen und die Funktionalität zuverlässig gewährleisten, haben wir entschieden, diese beizubehalten, ohne den Fortschritt des Projekts unnötig zu verzögern.
@@ -836,6 +845,9 @@ TODO:
                         Die Formulare, aber auch die Filterfunktion bei "Unsere Tiere", verwenden AJAX, um Daten zu senden und eine sofortige Rückmeldung zu erhalten. Dies verbessert die Benutzererfahrung und vermeidet
                         unnötige Seiten-Reloads.
                     </p>
+                    <p>
+                        Die Eingaben im Formular werden nach dem Absenden der Formulare im Backend validiert.
+                    </p>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -1093,6 +1105,7 @@ TODO:
                         <li>Eine Übersichtsseite über favorisierte Tiere (für jeden Nutzer)</li>
                         <li>Eine Benachrichtigungsfunktion, die es Nutzern ermöglicht, direkt mit dem Tierheim (oder einem Chatbot) zu kommunizieren</li>
                         <li>Erweiterte Filter und Suchfunktionen, um die Navigation und Auffindbarkeit von Tieren weiter zu verbessern</li>
+                        <li>Ein direktes Laden der neu  gemeldeten vermissten / gefundenen Tiere nach Erstellung</li>
                         <li>Eine Überblickseite zur Auswertung von Daten für das Tierheimmanagement, in Form von Statistiken u.v.m.</li>
                     </ul><br/>
                     <p>
