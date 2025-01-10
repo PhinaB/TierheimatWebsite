@@ -10,14 +10,12 @@ use mysqli_result;
 use mysqli_stmt;
 
 class Connection {
-    private static ?Connection $instance = null; //Singleton-Instanz
-    private mysqli $connection; //Variable zum Abspeichern der Datenbankverbindung
+    private static ?Connection $instance = null;
+    private mysqli $connection;
     private string $host = "localhost";
     private string $user = "root";
     private string $pass = "";
     private string $db = "tierheimat";
-
-    // TODO: kein Singleton -> steht im Repository von Herr Spehr!!!!
 
     /**
      * @throws Exception
@@ -28,10 +26,8 @@ class Connection {
         if ($this->connection->connect_error) {
             throw new Exception('Verbindung fehlgeschlagen: ' . mysqli_connect_error());
         }
-        //echo "Verbindung erfolgreich!";
     }
 
-    //Singleton-Methode, um die Instanz der Klasse zu erhalten
     public static function getInstance(): ?Connection
     {
        if (self::$instance === null){
@@ -40,7 +36,6 @@ class Connection {
        return self::$instance;
     }
 
-    //Methode, um die Verbindung zu erhalten
     public function getConnection(): mysqli
     {
         return $this->connection;
@@ -58,18 +53,16 @@ class Connection {
         return $stmt;
     }
 
-    /* wird aus best practice Gründen gemacht, ist eigentlich nicht notwendig*/
     public function __destruct() {
         if ($this->connection) {
             $this->connection->close();
-            //echo "Verbindung geschlossen./n";
         }
     }
 
     /**
      * @throws Exception
      */
-    public function query(string $sql)
+    public function query(string $sql): array|int|string
     {
         $result = $this->connection->query($sql);
 
@@ -93,7 +86,7 @@ class Connection {
     /**
      * @throws Exception
      */
-    public function executeQuery($sql)
+    public function executeQuery($sql): int|array|string // TODO: überall verwenden
     {
         try {
             $result = $this->query($sql);

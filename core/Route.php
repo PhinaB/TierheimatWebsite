@@ -8,14 +8,15 @@ use app\Controller\StaticPageController;
 
 class Route
 {
-    protected $routes = [];
+    protected array $routes = [];
 
-    public function add($route, $controller, $method, $attribut)
+    public function add($route, $controller, $method, $attribut): void
     {
         $this->routes[$route] = ['controller' => $controller, 'method' => $method, 'attribut' => $attribut];
     }
 
-    public function match($url) {
+    public function match($url): void
+    {
         if (array_key_exists($url, $this->routes)) {
             $controllerName = 'app\\Controller\\' . $this->routes[$url]['controller'];
             $controller = new $controllerName();

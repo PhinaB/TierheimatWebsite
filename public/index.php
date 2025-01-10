@@ -2,11 +2,17 @@
 use core\Route;
 
 require_once __DIR__ . '/../core/Route.php';
+require_once __DIR__ . '/../core/Connection.php';
+
 require_once __DIR__ . '/../app/Controller/StaticPageController.php';
 require_once __DIR__ . '/../app/Controller/missingFoundAnimalController.php';
 require_once __DIR__ . '/../app/Controller/AuthorizeLoginController.php';
+include_once __DIR__ . '/../app/Controller/ServiceHelpController.php';
+include_once __DIR__ . '/../app/Controller/OurAnimalsController.php';
+include_once __DIR__ . '/../app/Controller/HomeController.php';
+include_once __DIR__ . '/../app/Controller/UserController.php';
+include_once __DIR__ . '/../app/Controller/CurrentController.php';
 
-require_once __DIR__ . '/../core/Connection.php';
 require_once __DIR__ . '/../app/Model/Species.php';
 require_once __DIR__ . '/../app/Model/MissingFoundAnimal.php';
 require_once __DIR__ . '/../app/Model/AbstractModel.php';
@@ -15,13 +21,9 @@ require_once __DIR__ . '/../app/Model/UserModel.php';
 require_once __DIR__ . '/../app/Model/UserRoleModel.php';
 require_once __DIR__ . '/../app/Model/User.php';
 require_once __DIR__ . '/../app/Model/UserRole.php';
-
-include_once __DIR__ . '/../app/Controller/ServiceHelpController.php';
-include_once __DIR__ . '/../app/Controller/OurAnimalsController.php';
-include_once __DIR__ . '/../app/Controller/HomeController.php';
-include_once __DIR__ . '/../app/Controller/UserController.php';
 include_once __DIR__ . '/../app/Model/ServiceInfoModel.php';
 include_once __DIR__ . '/../app/Model/OurAnimalsModel.php';
+include_once __DIR__ . '/../app/Model/CurrentModel.php';
 
 $router = new Route();
 
