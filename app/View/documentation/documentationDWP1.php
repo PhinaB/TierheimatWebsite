@@ -15,44 +15,6 @@
     <header>
         <a href="impressum" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
     </header>
-
-    <!--
-TODO:
-    -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung (Login) -> in etwa so:
-    Startpunkt:
-
-                Der Benutzer ruft die erste Seite des Formulars oder den Login-Bereich auf.
-
-            Login (falls erforderlich):
-
-                Der Benutzer gibt Anmeldedaten ein.
-                Diese werden überprüft (z. B. gegen eine Datenbank).
-                Erfolg: Der Benutzer wird weitergeleitet.
-                Fehler: Eine Fehlermeldung wird angezeigt, und der Benutzer versucht es erneut.
-
-            Schrittweises Ausfüllen des Formulars:
-
-                Mehrere Seiten (Schritte) des Formulars werden durchlaufen.
-                Der Benutzer gibt Daten ein und klickt auf „Weiter“ oder „Absenden“.
-                Jede Seite wird validiert:
-                    Validierung auf der Client-Seite (Frontend): Überprüft, ob die Felder korrekt ausgefüllt sind (z. B. Pflichtfelder, Format).
-                    Validierung auf der Server-Seite (Backend): Überprüft die Daten nochmals serverseitig.
-
-            Fehlerbehandlung:
-
-                Bei einem Fehler (z. B. ungültige Eingabe) wird der Benutzer auf der aktuellen Seite gehalten und sieht Hinweise zur Korrektur.
-                Die Navigation ist blockiert, bis der Fehler behoben ist.
-
-            Speichern und Weiterleitung:
-
-                Die Daten werden auf dem Server gespeichert (z. B. in einer Datenbank).
-                Der Benutzer wird zu einer Bestätigungsseite oder nächsten Seite weitergeleitet.
-
-            Abschluss:
-
-                Nach erfolgreicher Eingabe und Validierung aller Daten wird der Prozess abgeschlossen (z. B. durch eine Dankes- oder Bestätigungsseite).
-    -->
-
     <main>
         <div class="container deckblatt">
             <div>
