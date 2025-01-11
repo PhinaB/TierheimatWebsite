@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace app\model;
 
-use core\Connection;
+use app\Model\Entity\User;
 use Exception;
 use InvalidArgumentException;
-use mysqli;
 
 class UserModel extends AbstractModel
 {
@@ -19,19 +18,15 @@ class UserModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function insertNutzer(User $nutzer){
-
+    public function insertNutzer(User $nutzer): void
+    {
         $this->db->begin_transaction();
         try {
-            //-----------------UserRole-------------------------------------
-            //wenn sie existiert wird ID ausgelesen, wenn sie nicht existiert Exception
-
             $sqlNutzerrolleExists = "SELECT * FROM nutzerrollen WHERE Rolle= ?";
             $stmtNutzerrolleExists = $this->db->prepare($sqlNutzerrolleExists);
             if ($stmtNutzerrolleExists->error !== "") {
                 throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmtNutzerrolleExists->error);
             }
-            //per default bei Anlegen User
             $defaultNutzerrolle = "Nutzer";
             $stmtNutzerrolleExists->bind_param("s", $defaultNutzerrolle);
             if (!$stmtNutzerrolleExists->execute()) {
@@ -40,17 +35,13 @@ class UserModel extends AbstractModel
 
             $resultNutzerrolle = $stmtNutzerrolleExists->get_result();
             if ($resultNutzerrolle->num_rows > 0) {
-                // UserRole existiert bereits -> NutzerrollenID abrufen
                 $row = $resultNutzerrolle->fetch_assoc();
                 $nutzerrollenID = $row['NutzerrollenID'];
                 $stmtNutzerrolleExists->close();
             } else {
-                //UserRole existiert nicht: wird vom Admin verwaltet, wenn nicht gesetzt Fehlermeldung
                 throw new Exception('Die UserRole existiert nicht.');
             }
 
-
-            //-----------------User-------------------------------------------
             $sqlNutzerExists = "SELECT * FROM nutzer WHERE email= ?";
             $stmtNutzerExists = $this->db->prepare($sqlNutzerExists);
             if ($stmtNutzerExists->error !== "") {
@@ -66,11 +57,8 @@ class UserModel extends AbstractModel
             $stmtNutzerExists->close();
 
             if ($result->num_rows > 0) {
-                //User existiert bereits: abbruch
-                throw new Exception('Der User existiert bereits!');
+                throw new Exception('Der Nutzer existiert bereits!');
             } else {
-
-                //User existiert nicht: anlegen
                 $sqlNewNutzer = "INSERT INTO nutzer (NutzerrollenID, Name, Email, Passwort) VALUES (?, ?, ?, ?)";
                 $stmtNewNutzer = $this->db->prepare($sqlNewNutzer);
 
@@ -87,7 +75,6 @@ class UserModel extends AbstractModel
             }
         }
         catch (Exception $e) {
-            // Falls ein Fehler auftritt, rollback die Transaktion
             $this->db->rollback();
             throw new Exception("Fehler bei der Registrierung: " . $e->getMessage());
         }
@@ -112,7 +99,7 @@ class UserModel extends AbstractModel
         if ($resultNutzer->num_rows === 0){
             return null;
         }
-        // Daten werden als Array zurückgegeben: Array ([NutzerID] => 1 ...)
+
         return $resultNutzer->fetch_assoc();
     }
 
@@ -125,7 +112,7 @@ class UserModel extends AbstractModel
             throw new InvalidArgumentException('Nutzer ist nicht eingeloggt oder Nutzer-ID ist nicht gesetzt.');
         }
 
-        return $currentUserId = $_SESSION['nutzer_id'];
+        return $_SESSION['nutzer_id'];
     }
 }
 

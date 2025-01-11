@@ -4,21 +4,20 @@ declare(strict_types=1);
 
 namespace app\Controller;
 
+use app\Model\Entity\User;
 use app\model\UserModel;
 use app\model\UserRoleModel;
 use Exception;
 
 
-use app\Model\User;
-
-class UserController
-{
-
+class UserController {
     private UserModel $nutzerModel;
+    private UserRoleModel $userRoleModel;
 
     public function __construct()
     {
         $this->nutzerModel = new UserModel();
+        $this->userRoleModel = new UserRoleModel();
     }
 
     /**
@@ -30,9 +29,7 @@ class UserController
             $response = ['success' => false, 'errors' => []];
 
             $name = $email = $password = '';
-            $nameErr = $emailErr = $passwordErr = '';
 
-            //-----------Nutzername-----------------------------
             if (empty($_POST["usernameReg"])) {
                 $response['errors']['usernameReg'] = "Name ist ein Pflichtfeld";
             } else {
@@ -40,13 +37,11 @@ class UserController
                 if (strlen($name) < 3 || strlen($name) > 10) {
                     $response['errors']['usernameReg'] = "Name muss mindestens drei Zeichen lang sein.";
                 }
-                // Nutzername kann nur aus Buchstaben, Zahlen oder Bindestrich bestehen
                 elseif (!preg_match("/^[a-zA-Z0-9-]*$/", $name)) {
                     $response['errors']['usernameReg'] = "Nur Buchstaben, Zahlen und Bindestrich erlaubt.";
                 }
             }
 
-            //------------Email--------------------------------
             if (empty($_POST["emailReg"])) {
                 $response['errors']['emailReg'] = "Email ist ein Pflichtfeld";
             } else {
@@ -56,7 +51,6 @@ class UserController
                 }
             }
 
-            //-------------Passwort------------------------
             if (empty($_POST["passwordReg"])) {
                 $response['errors']['passwordReg'] = "Passwort ist ein Pflichtfeld";
             } else {
@@ -71,7 +65,6 @@ class UserController
                 exit();
             }
 
-            //Passwort hashen
             $password = password_hash($password, PASSWORD_DEFAULT);
 
             $nutzer = new User($name, $email, $password);
@@ -118,10 +111,7 @@ class UserController
             }
 
             try {
-                //Nutzerdaten aus der DB holen zum Überprüfen: prüfen, ob vorhanden und zum Setzen der NutzerID in der Session
-                $nutzermodel = new UserModel;
-
-                $nutzer = $nutzermodel->getNutzerByEmail($email);
+                $nutzer = $this->nutzerModel->getNutzerByEmail($email);
                 $nutzerID = $nutzer['NutzerID'];
 
                 if (!$nutzer) {
@@ -135,8 +125,7 @@ class UserController
                     return;
                 }
 
-                $rolesModel = new UserRoleModel();
-                $userRoles = $rolesModel->getUserRoles($nutzerID);
+                $userRoles = $this->userRoleModel->getUserRoles($nutzerID);
 
                 session_start();
                 $_SESSION['nutzer_id'] = $nutzer['NutzerID'];
@@ -150,7 +139,6 @@ class UserController
             }
 
             echo json_encode($response);
-            return;
         }
     }
 

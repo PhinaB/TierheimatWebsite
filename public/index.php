@@ -13,14 +13,14 @@ include_once __DIR__ . '/../app/Controller/HomeController.php';
 include_once __DIR__ . '/../app/Controller/UserController.php';
 include_once __DIR__ . '/../app/Controller/CurrentController.php';
 
-require_once __DIR__ . '/../app/Model/Species.php';
-require_once __DIR__ . '/../app/Model/MissingFoundAnimal.php';
+require_once __DIR__ . '/../app/Model/Entity/MissingFoundAnimal.php';
+require_once __DIR__ . '/../app/Model/Entity/User.php';
+require_once __DIR__ . '/../app/Model/Entity/UserRole.php';
+
 require_once __DIR__ . '/../app/Model/AbstractModel.php';
 require_once __DIR__ . '/../app/Model/MissingFoundModel.php';
 require_once __DIR__ . '/../app/Model/UserModel.php';
 require_once __DIR__ . '/../app/Model/UserRoleModel.php';
-require_once __DIR__ . '/../app/Model/User.php';
-require_once __DIR__ . '/../app/Model/UserRole.php';
 include_once __DIR__ . '/../app/Model/ServiceInfoModel.php';
 include_once __DIR__ . '/../app/Model/OurAnimalsModel.php';
 include_once __DIR__ . '/../app/Model/CurrentModel.php';
@@ -45,7 +45,7 @@ $router->add('/dokuGWP', 'StaticPageController', 'loadDocumentationGWPAction', "
 $router->add('/dokuDWP1', 'StaticPageController', 'loadDocumentationDWP1Action', "");
 
 // all Routes for js:
-$router->add('/animal/report', 'missingFoundAnimalController', "addVermisstGefundenTier", '');
+$router->add('/animal/report', 'missingFoundAnimalController', "addOrEditMissedFoundAnimal", '');
 $router->add('/loadMissingFoundAnimals', 'missingFoundAnimalController', "loadAllMissingFoundAnimals", '');
 $router->add('/deleteMissingFoundAnimals', 'missingFoundAnimalController', "deleteMissingOrFoundAnimal", '');
 $router->add('/checkLogin', 'AuthorizeLoginController', 'checkLogin', '');

@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace app\Controller;
 
+use app\Model\Entity\MissingFoundAnimal;
 use app\Model\MissingFoundModel;
-use app\Model\MissingFoundAnimal;
-use app\Model\Species;
 use app\model\UserModel;
 use app\model\UserRoleModel;
 use DateTime;
@@ -15,18 +14,24 @@ use InvalidArgumentException;
 
 class missingFoundAnimalController
 {
-    private MissingFoundModel $vermisstGefundenTierModel;
+    private MissingFoundModel $missingFoundAnimalModel;
+    private UserRoleModel $userRoleModel;
+    private UserModel $userModel;
 
     public function __construct()
     {
-        $this->vermisstGefundenTierModel = new MissingFoundModel();
+        $this->missingFoundAnimalModel = new MissingFoundModel();
+        $this->userRoleModel = new UserRoleModel();
+        $this->userModel = new UserModel();
     }
 
     /**
      * @throws Exception
      */
-    public function addVermisstGefundenTier(): void
+    public function addOrEditMissedFoundAnimal(): void
     {
+        http_response_code(201);
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $response = ['success'=> false, 'errors' => []];
 
@@ -37,14 +42,13 @@ class missingFoundAnimalController
             $tierbeschreibung = $_POST['tierbeschreibung'] ?? null;
             $kontaktaufnahme = $_POST['kontaktaufnahme'] ?? null;
             $editMode = $_POST['editMode'] ?? null;
-            $tierId = $_POST['tierId'] ?? null;
+            $animalID = $_POST['tierId'] ?? null;
 
-            //---------------------Eingabevalidierung----------------------------------------------------
-            if(!$anliegenVermisstGefunden || !in_array($anliegenVermisstGefunden, ['vermisst','gefunden'])){
+            if(!in_array($anliegenVermisstGefunden, ['vermisst','gefunden'])){
                 $response['errors']['anliegenVermisstGefunden'] = "Bitte ein gültiges Anliegen auswählen.";
             }
 
-            if(!$tierartName || !in_array($tierartName, ['Katzen','Hunde', 'Kleintiere', 'Exoten'])){
+            if(!in_array($tierartName, ['Katzen','Hunde', 'Kleintiere', 'Exoten'])){
                 $response['errors']['tierart'] = "Bitte eine gültige Tierart auswählen.";
             }
 
@@ -60,7 +64,7 @@ class missingFoundAnimalController
                 $response['errors']['tierbeschreibung'] = "Die Tierbeschreibung ist ein Pflichtfeld und darf minimal und maximal 500 Zeichen lang sein.";
             }
 
-            if(!$kontaktaufnahme || !in_array($kontaktaufnahme, ['telefon', 'email'])){
+            if(!in_array($kontaktaufnahme, ['telefon', 'email'])){
                 $response['errors']['kontaktaufnahme'] = "Bitte eine gültige Kontaktaufnahme-Methode auswählen.";
             }
 
@@ -69,7 +73,6 @@ class missingFoundAnimalController
                 exit();
             }
 
-            //Bildvalidierung und -speicherung
             $tierbildAdresse= null;
             if (isset($_FILES['tierbild']) && $_FILES['tierbild']['error'] === UPLOAD_ERR_OK) {
                 $tierbildAdresse = $this->speichereBild($_FILES['tierbild'], $tierartName);
@@ -93,18 +96,34 @@ class missingFoundAnimalController
             $vermisstGefundenTier = new MissingFoundAnimal($zuletztGeanderterNutzerID, $anliegenVermisstGefunden, $datumFormatiert, $ort, $tierbeschreibung, $kontaktaufnahme, $tierbildAdresse, false, $zuletztGeaendert);
 
             if ($editMode === 'true') {
-                $vermisstGefundenTier->setVermisstGefundenTierID((int)$tierId);
-                $eMode = true;
+                $currentUserID = $this->userModel->getCurrentUserIdWithSession();
+
+                $missingFoundAnimalObject = $this->missingFoundAnimalModel->getMissingFoundAnimalById((int)$animalID);
+                $animalCreator = $missingFoundAnimalObject['ZuletztGeaendertNutzerID'];
+
+                $userRolesArray = $this->userRoleModel->getUserRoles($animalCreator);
+                $canDeleteAndEditOwn = $userRolesArray['kannEigenesBearbeitenUndLoeschen'];
+                $canDeleteAll =$userRolesArray['kannAllesLoeschen'];
+
+                if($currentUserID === $animalCreator && $canDeleteAndEditOwn || $canDeleteAll){
+                    $vermisstGefundenTier->setVermisstGefundenTierID((int)$animalID);
+                    $eMode = true;
+                }
+                else {
+                    throw new Exception('Der Nutzer darf diesen Beitrag nicht bearbeiten.');
+                }
             }
             else {
                 $eMode = false;
             }
 
             try {
-                $this->vermisstGefundenTierModel->insertVermisstGefundenTiere($vermisstGefundenTier, $tierartName, $eMode);
+                $this->missingFoundAnimalModel->insertOrUpdateMissedFoundAnimal($vermisstGefundenTier, $tierartName, $eMode);
                 $response['success']=true;
             }
             catch (Exception $exception) {
+               http_response_code(400);
+
                $response['errors']['general']="Fehler beim Einfügen der Daten" . $exception->getMessage();
             }
 
@@ -124,17 +143,11 @@ class missingFoundAnimalController
         }
 
         try {
-
-            $missingFoundAnimalModel = new MissingFoundModel();
-
-            //mit den Tieren müssen auch die aktuelle NutzerID und Rollenrechte übergeben werden, um delete und edit Buttons zu setzen
-            $userRoleModel = new UserRoleModel();
-            $loginData = $userRoleModel->checkLoginRolesUserIDWithSession();
+            $loginData = $this->userRoleModel->checkLoginRolesUserIDWithSession();
 
             if ($type === 'Vermisste / Gefundene Tiere') {
-
-                $missingAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('vermisst');
-                $foundAnimals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals('gefunden');
+                $missingAnimals = $this->missingFoundAnimalModel->getAllMissingOrFoundAnimals('vermisst');
+                $foundAnimals = $this->missingFoundAnimalModel->getAllMissingOrFoundAnimals('gefunden');
 
                 echo json_encode([
                     'missingAnimals' => $missingAnimals,
@@ -142,13 +155,13 @@ class missingFoundAnimalController
                     'loginData' => $loginData,
                 ]);
             } else {
-                $animals = $missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
+                $animals = $this->missingFoundAnimalModel->getAllMissingOrFoundAnimals($type);
 
                 echo json_encode(['animals' => $animals, 'loginData' => $loginData]);
             }
 
         } catch (Exception $e) {
-            http_response_code(500);
+            http_response_code(400);
             echo json_encode(['errors'=> $e->getMessage()]);
         }
 
@@ -159,21 +172,17 @@ class missingFoundAnimalController
      */
     private function speichereBild(array $tierbild, string $tierartName): string
     {
-        // Zielordner für die Bilder
         $zielOrdner =  '../public/uploads/';
         if (!is_dir($zielOrdner)) {
             mkdir($zielOrdner, 0755, true);
         }
 
-        // Dateiname und -pfad
         $dateiName = uniqid('', true) . '_' . $tierartName;
         $targetFile = $zielOrdner . $dateiName;
         $imageFileType = strtolower(pathinfo($tierbild['name'], PATHINFO_EXTENSION));
 
-        // Erlaubte Formate
         $erlaubteFormate = ['jpg', 'jpeg', 'png'];
 
-        // Validierung des Bildes
         $check = getimagesize($tierbild['tmp_name']);
         if ($check === false) {
             throw new Exception('Die Datei ist kein gültiges Bild.');
@@ -191,7 +200,6 @@ class missingFoundAnimalController
             throw new Exception('Die Datei ist zu groß. Maximal erlaubt: 500 KB.');
         }
 
-        // Datei speichern
         $zielPfad = $targetFile . '.' . $imageFileType;
         if (!move_uploaded_file($tierbild['tmp_name'], $zielPfad)) {
             throw new Exception('Fehler beim Speichern der Datei.');
@@ -200,35 +208,30 @@ class missingFoundAnimalController
         return $zielPfad;
     }
 
-    public function deleteMissingOrFoundAnimal(){
-
+    public function deleteMissingOrFoundAnimal(): void
+    {
         $animalID = $_POST['animalID'];
         $animalID = intval($animalID);
-        $response = ['success'=> false, 'errors' => []];
         try {
-            //Aktueller Session Nutzer
-            $userModel = new UserModel();
-            $currentUserID = $userModel->getCurrentUserIdWithSession();
+            $currentUserID = $this->userModel->getCurrentUserIdWithSession();
 
-            //ZuletzGeandertNutzerID
-            $missingFoundModel = new MissingFoundModel();
-            $missingFoundAnimalObject = $missingFoundModel->getMissingFoundAnimalById($animalID);
+            $missingFoundAnimalObject = $this->missingFoundAnimalModel->getMissingFoundAnimalById($animalID);
             $animalCreator = $missingFoundAnimalObject['ZuletztGeaendertNutzerID'];
 
-            //Rechte
-            $userRoleModel = new UserRoleModel();
-            $userRolesArray = $userRoleModel->getUserRoles($animalCreator);
+            $userRolesArray = $this->userRoleModel->getUserRoles($animalCreator);
             $canDeleteAndEditOwn = $userRolesArray['kannEigenesBearbeitenUndLoeschen'];
             $canDeleteAll =$userRolesArray['kannAllesLoeschen'];
 
             if($currentUserID === $animalCreator && $canDeleteAndEditOwn || $canDeleteAll){
-                $missingFoundModel->deleteMissingFoundAnimal($animalID);
+                $this->missingFoundAnimalModel->deleteMissingFoundAnimal($animalID);
                 $response = ['success'=> true, 'errors' => [], ];
             }else {
                 $response = ['success'=> false, 'errors' => ['Keine Berechtigung zum Löschen']];
             }
         }
         catch(InvalidArgumentException|Exception $e){
+            http_response_code(400);
+
             $response = ['success' => false, 'errors' => $e->getMessage()];
         }
         echo json_encode($response);

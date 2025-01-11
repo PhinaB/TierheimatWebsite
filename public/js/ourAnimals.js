@@ -45,7 +45,7 @@ function loadAnimals () {
                 const response = JSON.parse(this.response);
 
                 if (response.tiere.length === 0) {
-                    errorGeneral.innerHTML = "Wir haben leider gerade kein Animal mit diesen Einstellungen!";
+                    errorGeneral.innerHTML = "Wir haben leider gerade kein Tier mit diesen Einstellungen da!";
                 }
                 else {
                     setAnimalsToPage(response.tiere);
@@ -59,7 +59,7 @@ function loadAnimals () {
                     }
 
                     animalSpeciesWithBreed = response.tierarten;
-                    if (response.countedAnimals > (offset + 8)) {
+                    if (parseInt(response.countedAnimals) > (parseInt(offset) + 8)) {
                         document.querySelector('#weitereTiereAnzeigen').classList.remove('hidden');
                     }
                 }

@@ -1,5 +1,6 @@
 <?php
-function renderFooter($js) { ?>
+function renderFooter($js): void
+{ ?>
         </main>
         <footer>
             <div>

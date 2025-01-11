@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace app\Model;
 
-use core\Connection;
 use Exception;
-use mysqli;
 
 class ServiceInfoModel extends AbstractModel
 {
@@ -42,10 +40,8 @@ class ServiceInfoModel extends AbstractModel
                     $datum = $dates[$i];
                     $wochentag = null;
 
-                    // Binde die Parameter an das Statement (s = string, i = integer, b = boolean)
                     $stmt->bind_param("iiisss", $nutzerID, $unterstuetzungsart, $angenommen, $zeit, $datum, $wochentag);
 
-                    // Führe das Statement aus
                     if ($stmt->error !== "") {
                         throw new Exception('Fehler bei der Vorbereitung der SQL-Abfrage: ' . $stmt->error);
                     }
@@ -77,7 +73,6 @@ class ServiceInfoModel extends AbstractModel
                     $datum = null;
                     $wochentag = $weekdays[$i];
 
-                    // Binde die Parameter an das Statement (s = string, i = integer, b = boolean)
                     $stmt->bind_param("iiisss", $nutzerID, $unterstuetzungsart, $angenommen, $zeit, $datum, $wochentag);
 
                     if ($stmt->error !== "") {
@@ -89,8 +84,9 @@ class ServiceInfoModel extends AbstractModel
                     }
                 }
             }
-        } catch (Exception) {
-            // TODO: Anweisungen, die jetzt auf die db geschrieben wurden wieder rückgängig machen
+        } catch (Exception $exception) {
+            $this->db->rollback();
+            throw $exception;
         }
     }
 

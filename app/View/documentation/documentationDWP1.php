@@ -17,12 +17,6 @@
     </header>
 
     <!--
-    TODO WICHTIG!!!!
-
-    -Auflistung Tätigkeiten jeder Person und benötigter Aufwand → integriert bis auf die h per person
-
-  -falls Druck css funktioniert: diese noch irgendwo erwähnen (2.4 > vermisst/gefunden)
-
 TODO:
     -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung (Login) -> in etwa so:
     Startpunkt:

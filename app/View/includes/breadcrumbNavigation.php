@@ -1,8 +1,5 @@
 <?php
 function renderBreadcrumb ($currentPage): void {
-    $page = "page/";
-    $baseDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '../../../' : '';
-    $pageDir = str_contains($_SERVER['PHP_SELF'], '/'.$page) ? '' : $page;
     ?>
 
     <div class="tile tileBorder">
