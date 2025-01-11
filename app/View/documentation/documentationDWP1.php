@@ -170,7 +170,7 @@ TODO:
                     </p><br />
 
                     <img src="../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
-                    <div class="caption">Abbildung 04: Auszug "Unsere Tiere"</div>
+                    <div class="caption">Abbildung 04: Auszug "Unsere Tiere" aus dem Projekt "Grundlagen Webprogrammierung"</div>
 
                     <br />
                     <p>
@@ -460,7 +460,9 @@ TODO:
                         Sollten die Tiere nicht geladen werden können, wird dem Nutzer auch die Ausgabe angezeigt, dass die Tiere nicht geladen werden. Da ein Nutzer nichts mit php Fehlern anfangen kann, zeigen wir ihm lediglich an, dass die Tiere nicht geladen werden können.
                         In PHP selbst werden alle möglichen Fehler durch Exceptions gefangen.
                     </p><p>
-                        Möchte ein Nutzer weitere Informationen erhalten, kann er bei jedem Tier auf "Weiterlesen" klicken und erhält daraufhin weitere Informationen zu diesem spezifischen Tier.
+                        Möchte ein Nutzer weitere Informationen erhalten, kann er bei jedem Tier auf "Weiterlesen" klicken und erhält daraufhin weitere Informationen zu diesem spezifischen Tier. Diese "Weiterlesen" Option ist auch auf
+                        den Seiten "Aktuelles" und "Vermisste / Gefundene Tiere" zu finden. Da alle drei Fälle auf einem ähnlichen Prinzip basieren, haben wir eine einheitliche Funktion für
+                        das schließen und öffnen der Felder erstellt. Diese ist in der readMore.js zu finden. Dadurch wird v.a. redundanter Code vermieden.
                     </p><p>
                         Jedem Nutzer ist es erlaubt Tiere, durch das rechts oben angeordnete Herz, zu favorisieren und wieder zu ent-favorisieren. Diese "Gefällt mir"-Angabe wird in Cookies gespeichert.
                     </p>
