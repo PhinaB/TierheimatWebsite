@@ -23,42 +23,7 @@
 
   -falls Druck css funktioniert: diese noch irgendwo erwähnen (2.4 > vermisst/gefunden)
 
-TODO:
-    -Flussbild für Dateneingabe per mehrseitigem Formular mit Validierung (Login) -> in etwa so:
-    Startpunkt:
-
-                Der Benutzer ruft die erste Seite des Formulars oder den Login-Bereich auf.
-
-            Login (falls erforderlich):
-
-                Der Benutzer gibt Anmeldedaten ein.
-                Diese werden überprüft (z. B. gegen eine Datenbank).
-                Erfolg: Der Benutzer wird weitergeleitet.
-                Fehler: Eine Fehlermeldung wird angezeigt, und der Benutzer versucht es erneut.
-
-            Schrittweises Ausfüllen des Formulars:
-
-                Mehrere Seiten (Schritte) des Formulars werden durchlaufen.
-                Der Benutzer gibt Daten ein und klickt auf „Weiter“ oder „Absenden“.
-                Jede Seite wird validiert:
-                    Validierung auf der Client-Seite (Frontend): Überprüft, ob die Felder korrekt ausgefüllt sind (z. B. Pflichtfelder, Format).
-                    Validierung auf der Server-Seite (Backend): Überprüft die Daten nochmals serverseitig.
-
-            Fehlerbehandlung:
-
-                Bei einem Fehler (z. B. ungültige Eingabe) wird der Benutzer auf der aktuellen Seite gehalten und sieht Hinweise zur Korrektur.
-                Die Navigation ist blockiert, bis der Fehler behoben ist.
-
-            Speichern und Weiterleitung:
-
-                Die Daten werden auf dem Server gespeichert (z. B. in einer Datenbank).
-                Der Benutzer wird zu einer Bestätigungsseite oder nächsten Seite weitergeleitet.
-
-            Abschluss:
-
-                Nach erfolgreicher Eingabe und Validierung aller Daten wird der Prozess abgeschlossen (z. B. durch eine Dankes- oder Bestätigungsseite).
-    -->
-
+-->
     <main>
         <div class="container deckblatt">
             <div>
@@ -418,11 +383,23 @@ TODO:
                     <h3 id="funktionalitaet">2.4 Übersicht der Funktionalitäten und Seitenstruktur</h3>
                     <hr class="underHeadline" />
                     <p>
-                        Das Folgende zeigt einen detaillierten Überblick über die einzelnen Abschnitte, die in diesem Teil des Projekts (dynamische Webprogrammierung)
-                        verändert wurden. Programmcode, welcher durch das Modul Grundlagen Webprogrammierung erstellt wurde, wird hier nicht weiter erwähnt.
+                        Im folgenden Abschnitt wird eine detaillierte Übersicht über die vorgenommenen Veränderungen gegeben.
+                        Das folgende Flussdiagramm dient als Orientierungshilfe und bietet eine klare Übersicht über die Navigation der Webseite.
+                        Es zeigt die Übergänge zwischen den verschiedenen Seiten und verdeutlicht, welche Möglichkeiten und Funktionalitäten den Benutzern sowohl ohne Login als auch nach dem Login zur Verfügung stehen
+                    </p><p>
+                        Benutzer können sich registrieren, falls sie noch kein Konto besitzen, oder sich direkt anmelden.
+                        Nach erfolgreicher Anmeldung gelangen sie in den eingeloggten Bereich der Webseite.
+                        In diesem Bereich stehen ihnen zusätzliche Funktionen wie das Ausfüllen von Formularen oder weitere spezifische Aktionen zur Verfügung.
+                    </p><p>
+                        Im Anschluss wird ein detaillierter Überblick über die einzelnen Abschnitte gegeben, die im Rahmen dieses Projektteils, der dynamischen Webprogrammierung, verändert wurden.
+                        Programmcode, der im Zuge des Moduls Grundlagen Webprogrammierung erstellt wurde, wird in dieser Dokumentation nicht weiter berücksichtigt. Der Fokus liegt stattdessen auf den neuen Entwicklungen und Anpassungen, die speziell in diesem Abschnitt realisiert wurden.
                     </p>
+                    <br/>
+                    <img src="../public/imgDokumentationDWP/flussdiagramm.png" title="Flussdiagramm" alt="Flussdiagramm" draggable="false">
+                    <div class="caption">Abbildung 07: Flussdiagramm</div>
 
-                    <br/><br/><p>
+
+                    <br/><p>
                         <b>Allgemein</b>
                     </p>
                     <p>
@@ -448,7 +425,7 @@ TODO:
 
                     <br/>
                     <img src="../public/imgDokumentationDWP/Startseite.png" title="Startseite" alt="Startseite" draggable="false">
-                    <div class="caption">Abbildung 07: Auszug "Startseite"</div>
+                    <div class="caption">Abbildung 08: Auszug "Startseite"</div>
 
                     <br/><p>
                         <b>Unsere Tiere</b>
@@ -471,7 +448,7 @@ TODO:
                         Jedem Nutzer ist es erlaubt Tiere, durch das rechts oben angeordnete Herz, zu favorisieren und wieder zu ent-favorisieren. Diese "Gefällt mir"-Angabe wird in Cookies gespeichert.
                     </p>
                     <img src="../public/imgDokumentationDWP/UnsereTiereOverview.png" title="Unsere Tiere" alt="Unsere Tiere" draggable="false">
-                    <div class="caption">Abbildung 08: Auszug "Unsere Tiere"</div>
+                    <div class="caption">Abbildung 09: Auszug "Unsere Tiere"</div>
 
                     <br/><p>
                         <b>Aktuelles</b>
@@ -514,7 +491,7 @@ TODO:
                         Dadurch verhindern wir die Übergabe von leeren Zeilen an die Datenbank.
                     </p>
                     <img src="../public/imgDokumentationDWP/ServiceInfos.png" title="Service Infos" alt="Service Infos" draggable="false">
-                    <div class="caption">Abbildung 09: Auszug "Service Infos"</div>
+                    <div class="caption">Abbildung 10: Auszug "Service Infos"</div>
 
                     <br/><p>
                         <b>Login und Registration</b>
@@ -533,7 +510,7 @@ TODO:
                         Außerdem gibt es dort jetzt den Untermenüpunkt "Logout" statt "Login".
                     </p>
                     <img src="../public/imgDokumentationDWP/LoginFormular.png" title="Login" alt="Login" draggable="false">
-                    <div class="caption">Abbildung 10: Auszug "Login"</div>
+                    <div class="caption">Abbildung 11: Auszug "Login"</div>
 
                     <br/><br/>
                     <p>
@@ -602,7 +579,7 @@ TODO:
                 </p><br />
 
                 <img src="../public/imgDokumentationDWP/ERM.jpg" title="ER-Modell" alt="ER-Modell" draggable="false"> <!-- Hover Effekt kann ich hier nicht implementieren da es auf den container beschränkt wäre und das ild füllt diesen bereits aus -->
-                <div class="caption">Abbildung 11: Entity-Relationship-Modell</div>
+                <div class="caption">Abbildung 12: Entity-Relationship-Modell</div>
                 <br/>
 
                 <p>
@@ -727,7 +704,7 @@ TODO:
                     Die Anmeldung erfolgt über das Login Formular:
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/LoginFormular.png" title="" alt="Login Oberfläche" draggable="false">
-                <div class="caption">Abbildung 12: Auszug "Login Oberfläche"</div>
+                <div class="caption">Abbildung 13: Auszug "Login Oberfläche"</div>
 
                 <br /><br/>
 
@@ -736,7 +713,7 @@ TODO:
                     Dadurch kann sichergestellt werden, dass die jeweiligen Nutzer auch nur die entsprechenden Rechte erhalten.
                 </p><br/>
                 <img src="../public/imgDokumentationDWP/CreateNutzerrollen.png" title="" alt="DB Create Nutzerrollen" draggable="false">
-                <div class="caption">Abbildung 13: DB Create Nutzerrollen</div>
+                <div class="caption">Abbildung 14: DB Create Nutzerrollen</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -802,7 +779,7 @@ TODO:
 
                     <br />
                     <img src="../public/imgDokumentationDWP/BeforeRegistration.png" title="" alt="Gast Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung 14: Auszug "Gast Nutzerrollen"</div>
+                    <div class="caption">Abbildung 15: Auszug "Gast Nutzerrollen"</div>
                     <p>
                         Sobald sich ein Nutzer angemeldet hat, kann er auf verschiedene weitere Informationen zugreifen. Unter anderem kann er nun Tiere als vermisst oder gefunden melden. Sollte er eine Anzeige eingestellt haben,
                         kann er diese später auch bearbeiten oder löschen. Ein Administrator kann alle Anzeigen löschen.
@@ -815,7 +792,7 @@ TODO:
                     </p>
                     <br />
                     <img src="../public/imgDokumentationDWP/jsFallback.png" title="" alt="Gast Nutzerrollen" draggable="false">
-                    <div class="caption">Abbildung 15: Anzeige, wenn JavaScript deaktiviert ist</div>
+                    <div class="caption">Abbildung 16: Anzeige, wenn JavaScript deaktiviert ist</div>
                     <br />
                     <p>
                         Im Rahmen der Entwicklung haben wir uns außerdem für die Verwendung einer Singleton-Datenbankklasse (Connection) entschieden, um die Verwaltung der Datenbankverbindung zu zentralisieren und unnötige Instanzierungen zu vermeiden. Obwohl in der Clean Code Literatur darauf hingewiesen wird, dass Datenbankinstanzen nicht als Singleton implementiert werden sollten, sind wir überzeugt, dass diese Lösung in unserem Projektkontext aufgrund der Einfachheit und Effizienz die richtige Wahl darstellt.
@@ -953,7 +930,7 @@ TODO:
                 </p>
                 <div class="Dokumentation">
                     <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
-                </div><div class="caption">Abbildung 16: Prozess Dokumentation</div>
+                </div><div class="caption">Abbildung 17: Prozess Dokumentation</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -1276,7 +1253,7 @@ TODO:
                 <h2 id="quelleDokumentation">Quelle: 6 Dokumentation</h2>
                 <hr class="underHeadline" />
 
-                <p>Prozess Dokumentation (Abbildung 16):</p>
+                <p>Prozess Dokumentation (Abbildung 17):</p>
                 <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0"
                    draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
             </div>
