@@ -9,9 +9,8 @@
     <img class="spinnerGifHeight" alt="loading..." src="../public/img/spinner.gif">
 </div>
 
-<div id="formContainer">
-    <!-- Je nach Login-Status wird hier entweder das Formular oder der Verweis zum Login angezeigt (siehe dynamicMissingFoundAnimals)-->
-</div>
+<div id="formContainer"></div>
+
 <div id="reportContainer" class="tile druckenNichtDarstellen"></div>
 <p id="errorContainer" class="fehlermeldung"></p>
 
@@ -33,6 +32,8 @@
     <?php } ?>
 </div>
 
+<p id="errorGeneral" class="fehlermeldung"></p>
+
 <?php if ($currentPage === "Vermisste Tiere" || $currentPage === "Vermisste / Gefundene Tiere" ) { ?>
 <div id="missingAnimals" class="tile druckenOhneSeitenumbruch hidden">
     <h2 id="headingMissingAnimals" class ="heading"></h2>
@@ -40,45 +41,7 @@
 
     <p id="errorMissingAnimals" class="fehlermeldung"></p>
     <div id="copyFirstMissingAnimalHere"></div>
-
-    <div id="hiddenFirstMissingAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
-        <div class="animalImageContainer">
-            <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
-        </div>
-        <div class="vermisstGefundenText">
-
-            <h3 class="headlineWithButtons"> </h3>
-            <p class="firstAnimalId hidden"></p>
-            <p class="firstAnimalDate animalDate"></p>
-            <p class="firstAnimalPlace animalPlace"></p>
-            <p class="boldText">Beschreibung:</p>
-            <p class="firstAnimalDescription"></p>
-            <br />
-            <p class="kursivText">
-                Bitte kontaktieren Sie das Tierheim per Email, wenn Sie Hinweise haben oder das Tier gefunden haben:
-            </p>
-            <br />
-            <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
-
-            <input type="hidden" id="hiddenSpecies">
-            <input type="hidden" id="hiddenContact">
-        </div>
-
-    </div>
-    <div id ="copyAllMissingAnimalsHere"></div>
-
-    <div id="hiddenTemplateMissingAnimals" class="hidden relativePosition ">
-        <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
-        <h3 class="headlineWithButtons"></h3>
-        <p class="absatzfrei animalSubheading"></p>
-        <p class="absatzfrei animalDate"></p>
-        <p class="absatzfrei animalPlace"></p>
-        <p class="absatzfrei animalDescriptionBeginning"></p>
-
-        <input type="hidden" id="hiddenContact">
-
-        <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
-    </div>
+    <div id="copyAllMissingAnimalsHere"></div>
 </div>
 <?php } ?>
 
@@ -88,48 +51,46 @@
     <hr id="foundUnderHeadline" class="underHeadline" />
 
     <p id="errorFoundAnimals" class="fehlermeldung"></p>
-
     <div id="copyFirstFoundAnimalHere"></div>
-
-    <div id="hiddenFirstFoundAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
-        <div class="animalImageContainer">
-            <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
-        </div>
-        <div class="vermisstGefundenText">
-            <h3 class="headlineWithButtons"></h3>
-            <p class="firstAnimalId hidden"></p>
-            <p class="firstAnimalDate animalDate"></p>
-            <p class="firstAnimalPlace animalPlace"></p>
-            <p class="boldText">Beschreibung:</p>
-            <p class="firstAnimalDescription"></p>
-            <br />
-            <p class="kursivText">
-                Bitte kontaktieren Sie das Tierheim per Email, wenn Sie Hinweise haben oder das Tier gefunden haben:
-            </p>
-            <br />
-            <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
-
-            <input type="hidden" id="hiddenSpecies">
-            <input type="hidden" id="hiddenContact">
-        </div>
-    </div>
-
-    <div id ="copyAllFoundAnimalsHere"></div>
-
-    <div id="hiddenTemplateFoundAnimals" class="hidden relativePosition "> <!-- TODO: nur ein template für beide Arten! -->
-        <img class="animalImage" src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" draggable="false" />
-        <h3 class="headlineWithButtons"></h3>
-        <p class="absatzfrei animalSubheading"></p>
-        <p class="absatzfrei animalDate"></p>
-        <p class="absatzfrei animalPlace"></p>
-        <p class="absatzfrei animalDescriptionBeginning"></p>
-
-        <input type="hidden" id="hiddenContact">
-
-        <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
-    </div>
+    <div id="copyAllFoundAnimalsHere"></div>
 </div>
 <?php } ?>
+
+<div id="hiddenFirstAnimalTemplate" class="hidden relativePosition box-containerVermisstGefundenMelden tileBorder">
+    <div class="animalImageContainer">
+        <img src="" alt="Bild eines vermissten Tieres" title="Bild eines vermissten Tieres" class="firstAnimalImage" draggable="false" />
+    </div>
+    <div class="vermisstGefundenText">
+        <h3 class="headlineWithButtons"> </h3>
+        <p class="firstAnimalId hidden"></p>
+        <p class="firstAnimalDate animalDate"></p>
+        <p class="firstAnimalPlace animalPlace"></p>
+        <p class="boldText">Beschreibung:</p>
+        <p class="firstAnimalDescription"></p>
+        <br />
+        <p class="kursivText">
+            Bitte kontaktieren Sie das Tierheim per E-Mail, wenn Sie Hinweise haben oder das Tier gefunden haben:
+        </p>
+        <br />
+        <a href="mailto:tiere@tierheimat.de" class="button" title="Button E-Mail" draggable="false"><i class="fa-solid fa-envelope"></i>  E-Mail schreiben</a>
+
+        <input type="hidden" id="hiddenSpecies">
+        <input type="hidden" id="hiddenContact">
+    </div>
+</div>
+
+<div id="hiddenTemplateAnimals" class="hidden relativePosition ">
+    <img class="animalImage" src="" alt="Bild eines Tieres" title="Bild eines Tieres" draggable="false" />
+    <h3 class="headlineWithButtons"></h3>
+    <p class="absatzfrei animalSubheading"></p>
+    <p class="absatzfrei animalDate"></p>
+    <p class="absatzfrei animalPlace"></p>
+    <p class="absatzfrei animalDescriptionBeginning"></p>
+
+    <input type="hidden" id="hiddenContact">
+
+    <a class="button weiterlesen" title="Button weiterlesen" draggable="false"><i class="fa-solid fa-newspaper"></i>  Weiterlesen</a>
+</div>
 
 <div class="hidden completeWeiterlesen" id="hiddenTemplateWeiterlesen">
     <div class="box-absolute zIndex">

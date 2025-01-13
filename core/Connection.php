@@ -86,7 +86,7 @@ class Connection {
     /**
      * @throws Exception
      */
-    public function executeQuery($sql): int|array|string // TODO: überall verwenden
+    public function executeQuery($sql): int|array|string
     {
         try {
             $result = $this->query($sql);

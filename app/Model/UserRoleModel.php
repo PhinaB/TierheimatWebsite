@@ -5,7 +5,6 @@ namespace app\model;
 use Exception;
 use InvalidArgumentException;
 
-
 class UserRoleModel extends AbstractModel
 {
     public function __construct()
@@ -16,7 +15,8 @@ class UserRoleModel extends AbstractModel
     /**
      * @throws Exception
      */
-    public function getUserRoles(int $currentUserId){
+    public function getUserRoles(int $currentUserId): false|array|null
+    {
 
         if ($currentUserId <= 0) {
             throw new InvalidArgumentException('Ungültige Nutzer-ID.');
@@ -53,7 +53,7 @@ class UserRoleModel extends AbstractModel
         return $userRoleResult->fetch_assoc();
     }
 
-    public function checkLoginRolesUserIDWithSession()
+    public function checkLoginRolesUserIDWithSession(): array
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();

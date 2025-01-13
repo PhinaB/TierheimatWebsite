@@ -26,6 +26,8 @@ let userRoles = null;
 let userId= null;
 
 function setBack() {
+    document.querySelector('#errorGeneral').innerHTML = "";
+
     const copyAllFoundAnimalsHere = document.querySelector('#copyAllFoundAnimalsHere');
     if (copyAllFoundAnimalsHere) {
         copyAllFoundAnimalsHere.innerHTML = "";
@@ -93,22 +95,27 @@ function loadMissingFoundAnimalsToPage(type){
             }
 
         })
-        .catch(error=>{
-            alert('Es gab einen Fehler ' + error);
+        .catch(() => {
+            document.querySelector('#errorGeneral').innerHTML = "Die Tiere konnten nicht geladen werden!";
+        })
+        .finally( () => {
+            document.querySelector('#loading').classList.add('hidden');
         });
 }
 
 function displayAnimals(animals, type) {
+    let template = document.querySelector('#hiddenTemplateAnimals');
+    let firstAnimalTemplate = document.querySelector('#hiddenFirstAnimalTemplate');
+    let container;
+    let heading;
+    let subheading;
+
     if (type === "Vermisste Tiere") {
         container = document.querySelector('#missingAnimals');
-        template = document.querySelector('#hiddenTemplateMissingAnimals');
-        firstAnimalTemplate = document.querySelector('#hiddenFirstMissingAnimalTemplate');
         heading = "Vermisst";
         subheading = "Verschwunden";
     } else if (type === "Gefundene Tiere") {
         container = document.querySelector('#foundAnimals');
-        template = document.querySelector('#hiddenTemplateFoundAnimals');
-        firstAnimalTemplate = document.querySelector('#hiddenFirstFoundAnimalTemplate');
         heading = "Gefunden";
         subheading = "Aufgetaucht";
     }
@@ -182,7 +189,7 @@ function displayAnimals(animals, type) {
             let allAElements = clone.getElementsByTagName('a');
             for (let i = 0; i < allAElements.length; i++) {
                 if (allAElements[i].classList.contains('weiterlesen')) {
-                    allAElements[i].setAttribute('onclick', 'openWeiterlesenField(this)');
+                    allAElements[i].setAttribute('onclick', 'openAnimalReadMoreField(this)');
                 }
             }
 
@@ -198,16 +205,11 @@ function displayAnimals(animals, type) {
             cloneReadMore.querySelector('.place').innerHTML = '<span class="boldText">' + subheading + ' in: </span> ' + animals[i].Ort;
             cloneReadMore.querySelector('.species').innerHTML = '<span class="boldText">Tierart: </span> ' + animals[i].Tierart;
             cloneReadMore.querySelector('.description').innerHTML = animals[i].Beschreibung;
-            cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeWeiterlesenField(this)');
+            cloneReadMore.getElementsByTagName('a')[0].setAttribute('onclick', 'closeAnimalReadMoreField(this)');
 
             counter++;
         }
-
-        document.querySelector('#loading').classList.add('hidden');
-
     } else {
-        document.querySelector('#loading').classList.add('hidden');
-
         container.querySelector('.heading').innerHTML = type;
         container.querySelector('.underHeadline').classList.remove('hidden')
         document.querySelector('#missingAnimals').classList.remove('hidden');
@@ -220,7 +222,7 @@ function displayAnimals(animals, type) {
 
 function displayEditDelete(creatorId, clone){
     if(userRoles && userId) {
-        if(createdAnimal(creatorId) && canEditAndDeleteOwn(creatorId) || canDeleteAll(creatorId)){
+        if(userId === creatorId && userRoles.kannEigenesBearbeitenUndLoeschen || userRoles.kannAllesLoeschen){
             displayDelete(creatorId, clone);
             displayEdit(creatorId, clone);
         }
@@ -261,18 +263,6 @@ function displayDelete(creatorId, clone) {
     clone.getElementsByTagName('h3')[0].appendChild(deleteButton);
 }
 
-function createdAnimal(creatorId) {
-    return userId === creatorId;
-}
-
-function canDeleteAll(){
-    return userRoles.kannAllesLoeschen;
-}
-
-function canEditAndDeleteOwn(){
-    return userRoles.kannEigenesBearbeitenUndLoeschen;
-}
-
 function checkLoginStatus() {
     fetch('../public/checkLogin')
         .then(response => response.json())
@@ -300,7 +290,7 @@ function deleteMissingOrFoundAnimal(animalID){
             .then(data => {
                 if (data.success){
                     document.querySelector(`[data-animal-id = "${animalID}"]`).remove();
-                    alert('Das Tier wurde erfolgreich gelöscht.')
+                    alert('Das Tier wurde erfolgreich gelöscht.');
                 } else {
                     alert('Fehler: ' + data.errors.join(', '));
                 }
@@ -316,35 +306,14 @@ function formatDate(dateString){
     return `${day}.${month}.${year}`;
 }
 
-function closeWeiterlesenField (buttonElement) {
-    let thisDiv = findExplicitParentElement(buttonElement, 'completeWeiterlesen');
-    thisDiv.classList.add('hidden');
-
-    let allAnimals = document.querySelectorAll('.completeAnimal');
-    for (let i = 0; i < allAnimals.length; i++) {
-        allAnimals[i].style.opacity = 1;
-    }
-
+function closeAnimalReadMoreField (buttonElement) {
+    closeWeiterlesenField(buttonElement, 'completeAnimal');
     setCapacityStyle(1);
 }
 
-function openWeiterlesenField (buttonElement) {
-    let allFields = document.querySelectorAll('.completeWeiterlesen');
-    for (let i = 0; i < allFields.length; i++) {
-        allFields[i].classList.add('hidden');
-    }
-
-    let allAnimals = document.querySelectorAll('.completeAnimal');
-    for (let i = 0; i < allAnimals.length; i++) {
-        allAnimals[i].style.opacity = 0.4;
-    }
-
+function openAnimalReadMoreField (buttonElement) {
+    openWeiterlesenField(buttonElement, 'completeAnimal');
     setCapacityStyle(0.4);
-
-    let thisDiv = findExplicitParentElement(buttonElement, 'completeAnimal');
-    thisDiv.nextSibling.classList.remove('hidden');
-
-    window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
 }
 
 function setCapacityStyle(capacity){
@@ -402,7 +371,6 @@ function openEditField(editButton) {
     let description = '';
     let species = '';
 
-    // this is the small field -> else is the big field
     if (animal.classList.contains('completeAnimal')) {
         let animalReadMoreField = animal.nextSibling;
         description = animalReadMoreField.querySelector('.description').innerHTML;

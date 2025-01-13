@@ -177,22 +177,16 @@ function setErrorFieldInnerHTMLNoOutline (errorField, innerHTML) {
 function removeErrorField (field, errorField) {
     if (field) {
         field.classList.remove('falseInputOrTextarea');
-    } else {
-        alert('Field element not found:'+ field);
     }
 
     if (errorField) {
         errorField.classList.add('hidden');
-    } else {
-        alert('Error field element not found:'+ errorField);
     }
 }
 
 function removeErrorFieldNoOutline (errorField) {
     if (errorField) {
         errorField.classList.add('hidden');
-    } else {
-        alert('Error field element not found:'+ errorField);
     }
 }
 
@@ -242,10 +236,9 @@ function sendMissingFoundForm(editMode){
     formData.append('editMode', editMode);
 
     fetch('../public/animal/report', {method: 'POST', body: formData})
-
         .then(response => {
             if (!response.ok) {
-                alert('Fehler beim Abrufen der Antwort:'+ response.status);
+                document.getElementById('errorSubmit').textContent = 'Ein Fehler ist aufgetreten.';
                 return Promise.reject('Fehler beim Abrufen der Antwort');
             }
             return response.json();
@@ -271,8 +264,7 @@ function sendMissingFoundForm(editMode){
             }
         })
 
-        .catch (error => {
-            alert('Fehler beim Login:'+ error);
+        .catch (() => {
             document.getElementById('errorSubmit').textContent = 'Ein Fehler ist aufgetreten.';
         })
         .finally (()=>{

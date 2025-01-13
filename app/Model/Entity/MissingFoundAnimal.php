@@ -2,17 +2,14 @@
 
 declare(strict_types=1);
 
-namespace app\model;
-
-//Klasse dient als Datentransportobjekt
+namespace app\Model\Entity;
 
 class MissingFoundAnimal
 {
-    //Object Mapping
-    private ?int $vermisstGefundenTierID = null; // erst beim Speichern in der DB wird ID generiert, somit muss sie hier null sein
+    private ?int $vermisstGefundenTierID = null;
     private int $zuletztGeaendertNutzerID;
-    private ?int $tierartID = null; //Fremdschlüssel wird im Model nach dem Aufruf des Konstruktors erstellt und dann eingefügt
-    private string $typ; //vermisst oder gefunden
+    private ?int $tierartID = null;
+    private string $typ;
     private string $datum;
     private string $ort;
     private string $beschreibung;
@@ -21,17 +18,6 @@ class MissingFoundAnimal
     private bool $geloescht;
     private string $zuletztGeaendert;
 
-    /**
-     * @param int $zuletztGeaendertNutzerID
-     * @param int $tierartID
-     * @param string $typ
-     * @param string $ort
-     * @param string $beschreibung
-     * @param string $kontaktaufnahme
-     * @param string $bildadresse
-     * @param bool $geloescht
-     * @param string $zuletztGeaendert
-     */
     public function __construct(
         int $zuletztGeaendertNutzerID,
         string $typ,
@@ -69,29 +55,9 @@ class MissingFoundAnimal
         return $this->zuletztGeaendertNutzerID;
     }
 
-    public function setZuletztGeaendertNutzerID(int $zuletztGeaendertNutzerID): void
-    {
-        $this->zuletztGeaendertNutzerID = $zuletztGeaendertNutzerID;
-    }
-
-    public function getTierartID(): int
-    {
-        return $this->tierartID;
-    }
-
-    public function setTierartID(int $tierartID): void
-    {
-        $this->tierartID = $tierartID;
-    }
-
     public function getTyp(): string
     {
         return $this->typ;
-    }
-
-    public function setTyp(string $typ): void
-    {
-        $this->typ = $typ;
     }
 
     public function getDatum(): string
@@ -99,19 +65,9 @@ class MissingFoundAnimal
         return $this->datum;
     }
 
-    public function setDatum(string $datum): void
-    {
-        $this->datum = $datum;
-    }
-
     public function getOrt(): string
     {
         return $this->ort;
-    }
-
-    public function setOrt(string $ort): void
-    {
-        $this->ort = $ort;
     }
 
     public function getBeschreibung(): string
@@ -119,19 +75,9 @@ class MissingFoundAnimal
         return $this->beschreibung;
     }
 
-    public function setBeschreibung(string $beschreibung): void
-    {
-        $this->beschreibung = $beschreibung;
-    }
-
     public function getKontaktaufnahme(): string
     {
         return $this->kontaktaufnahme;
-    }
-
-    public function setKontaktaufnahme(string $kontaktaufnahme): void
-    {
-        $this->kontaktaufnahme = $kontaktaufnahme;
     }
 
     public function getBildadresse(): ?string
@@ -139,29 +85,14 @@ class MissingFoundAnimal
         return $this->bildadresse;
     }
 
-    public function setBildadresse(string $bildadresse): void
-    {
-        $this->bildadresse = $bildadresse;
-    }
-
     public function isGeloescht(): bool
     {
         return $this->geloescht;
     }
 
-    public function setGeloescht(bool $geloescht): void
-    {
-        $this->geloescht = $geloescht;
-    }
-
     public function getZuletztGeaendert(): string
     {
         return $this->zuletztGeaendert;
-    }
-
-    public function setZuletztGeaendert(string $zuletztGeaendert): void
-    {
-        $this->zuletztGeaendert = $zuletztGeaendert;
     }
 
     public function getValuesForInsert(int $tierartID): array {

@@ -9,7 +9,7 @@
                 Ihr Tier als vermisst zu melden.
             </p>
             <br />
-            <a href="login.php" class="button" title="Button zum Login" draggable="false"><i class="fa-solid fa-right-to-bracket"></i>  Zum Login</a>
+            <a href="login" class="button" title="Button zum Login" draggable="false"><i class="fa-solid fa-right-to-bracket"></i>  Zum Login</a>
         </div>
 
         <div>

@@ -291,6 +291,11 @@ a.bildwechsel:hover::after, a.bildwechsel::before {
     background-color: #ffe0e0;
 }
 
+.errorTemplateText {
+    text-align: center;
+    padding: 20px 0;
+}
+
 @media only screen and (max-width: 1600px) {
     .grid, .gridIndex {
         padding-top: 67px;

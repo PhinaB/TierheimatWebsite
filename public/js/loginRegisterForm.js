@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-    //--------------------Login----------------------------------------------------
     document.querySelector('input[name=email]').addEventListener('keyup', function(event){
         validateEmailField(event, document.querySelector('#emailError'));
     });
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
         handleLogin();
     })
 
-    //--------------------Registrierung----------------------------------------------------
     document.querySelector('input[name=emailReg]').addEventListener('keyup', function(event){
         validateEmailField(event, document.querySelector('#emailRegError'));
     });
@@ -156,6 +154,8 @@ function enableFormFields(){
 }
 
 function handleLogin(){
+    document.querySelector('#loginError').innerHTML = '';
+    document.querySelector('#errorRegistration').innerHTML = '';
     disableFormFields();
 
     const emailInput = document.querySelector('input[name=email]');
@@ -174,7 +174,7 @@ function handleLogin(){
         fetch('../public/user/login', {method: 'POST', body: formData})
             .then(response => {
                 if (!response.ok) {
-                    alert('Fehler beim Abrufen der Antwort: '+ response.status);
+                    document.querySelector('#loginError').innerHTML = 'Fehler beim Login.';
                     return Promise.reject('Fehler beim Abrufen der Antwort');
                 }
                 return response.json();
@@ -195,8 +195,8 @@ function handleLogin(){
                     }
                 }
             })
-            .catch(error=>{
-                alert('Fehler beim Login ' + error);
+            .catch(()=>{
+                document.querySelector('#loginError').innerHTML = 'Fehler beim Login.';
             })
             .finally (()=>{
                 enableFormFields();
@@ -208,10 +208,11 @@ function handleLogin(){
     }
 }
 
-
-
 function handleRegistration(){
+    document.querySelector('#loginError').innerHTML = '';
+    document.querySelector('#errorRegistration').innerHTML = '';
     disableFormFields();
+
     const emailRegInput = document.querySelector('input[name=emailReg]');
     const passwordRegInput = document.querySelector('input[name=passwordReg]');
     const usernameRegInput = document.querySelector('input[name=usernameReg]');
@@ -234,53 +235,43 @@ function handleRegistration(){
                 return response.text();
             })
             .then(data => {
-                try {
-                    const jsonData = JSON.parse(data);
-                    if (jsonData.success) {
-                        resetRegistration();
+                const jsonData = JSON.parse(data);
+                if (jsonData.success) {
+                    resetRegistration();
 
-                        const successMessage = document.getElementById('successfulRegistration');
-                        successMessage.textContent = 'Registrierung war erfolgreich';
-                        successMessage.classList.remove('hidden');
+                    const successMessage = document.getElementById('successfulRegistration');
+                    successMessage.textContent = 'Registrierung war erfolgreich';
+                    successMessage.classList.remove('hidden');
 
-                        setTimeout(()=>{
-                                successMessage.classList.add('hidden');},
-                            5000);
-                    } else {
-                        if (jsonData.errors.emailReg) {
-                            setErrorFieldInnerHTML(document.querySelector('input[name=emailReg]'), document.querySelector('#emailRegError'), jsonData.errors.emailReg);
-                        }
-                        if (jsonData.errors.passwordReg) {
-                            setErrorFieldInnerHTML(document.querySelector('input[name=passwordReg]'), document.querySelector('#passwordRegError'), jsonData.errors.passwordReg);
-                        }
-                        if (jsonData.errors.usernameReg) {
-                            setErrorFieldInnerHTML(document.querySelector('input[name=usernameReg]'), document.querySelector('#usernameRegError'), jsonData.errors.usernameReg);
-                        }
-                        if (jsonData.errors.general) {
-                            document.getElementById('errorRegistration').textContent = 'Nutzer existiert bereits.'
-                        }
+                    setTimeout(()=>{
+                        successMessage.classList.add('hidden');},
+                    5000);
+                } else {
+                    if (jsonData.errors.emailReg) {
+                        setErrorFieldInnerHTML(document.querySelector('input[name=emailReg]'), document.querySelector('#emailRegError'), jsonData.errors.emailReg);
                     }
-                } catch (e) {
-                    alert('Fehler beim Parsen der JSON-Antwort: '+e);
+                    if (jsonData.errors.passwordReg) {
+                        setErrorFieldInnerHTML(document.querySelector('input[name=passwordReg]'), document.querySelector('#passwordRegError'), jsonData.errors.passwordReg);
+                    }
+                    if (jsonData.errors.usernameReg) {
+                        setErrorFieldInnerHTML(document.querySelector('input[name=usernameReg]'), document.querySelector('#usernameRegError'), jsonData.errors.usernameReg);
+                    }
+                    if (jsonData.errors.general) {
+                        document.getElementById('errorRegistration').textContent = 'Nutzer existiert bereits.';
+                    }
                 }
             })
-            .catch(error => {
-                alert('Fehler:'+ error);})
+            .catch(() => {
+                document.querySelector('#errorRegistration').innerHTML = 'Fehler bei der Registration';
+            })
             .finally (()=>{
                 enableFormFields();
-            })
+            });
     }
     else {
         document.getElementById('errorRegistration').textContent = 'Füllen Sie alle Pflichtfelder aus.';
         enableFormFields();
     }
-}
-
-function resetLogin() {
-    document.querySelectorAll('.fehlermeldung').forEach(element =>element.textContent = '');
-
-    document.getElementById('email').value = '';
-    document.getElementById('password').value = '';
 }
 
 function resetRegistration() {

@@ -15,15 +15,6 @@
     <header>
         <a href="impressum" class="button" draggable="false"><i class="fa-solid fa-arrow-left"></i> Zurück zum Impressum</a>
     </header>
-
-    <!--
-    TODO WICHTIG!!!!
-
-    -Auflistung Tätigkeiten jeder Person und benötigter Aufwand → integriert bis auf die h per person
-
-  -falls Druck css funktioniert: diese noch irgendwo erwähnen (2.4 > vermisst/gefunden)
-
--->
     <main>
         <div class="container deckblatt">
             <div>
@@ -141,7 +132,7 @@
                     </p><br />
 
                     <img src="../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
-                    <div class="caption">Abbildung 04: Auszug "Unsere Tiere"</div>
+                    <div class="caption">Abbildung 04: Auszug "Unsere Tiere" aus dem Projekt "Grundlagen Webprogrammierung"</div>
 
                     <br />
                     <p>
@@ -443,7 +434,9 @@
                         Sollten die Tiere nicht geladen werden können, wird dem Nutzer auch die Ausgabe angezeigt, dass die Tiere nicht geladen werden. Da ein Nutzer nichts mit php Fehlern anfangen kann, zeigen wir ihm lediglich an, dass die Tiere nicht geladen werden können.
                         In PHP selbst werden alle möglichen Fehler durch Exceptions gefangen.
                     </p><p>
-                        Möchte ein Nutzer weitere Informationen erhalten, kann er bei jedem Tier auf "Weiterlesen" klicken und erhält daraufhin weitere Informationen zu diesem spezifischen Tier.
+                        Möchte ein Nutzer weitere Informationen erhalten, kann er bei jedem Tier auf "Weiterlesen" klicken und erhält daraufhin weitere Informationen zu diesem spezifischen Tier. Diese "Weiterlesen" Option ist auch auf
+                        den Seiten "Aktuelles" und "Vermisste / Gefundene Tiere" zu finden. Da alle drei Fälle auf einem ähnlichen Prinzip basieren, haben wir eine einheitliche Funktion für
+                        das schließen und öffnen der Felder erstellt. Diese ist in der readMore.js zu finden. Dadurch wird v.a. redundanter Code vermieden.
                     </p><p>
                         Jedem Nutzer ist es erlaubt Tiere, durch das rechts oben angeordnete Herz, zu favorisieren und wieder zu ent-favorisieren. Diese "Gefällt mir"-Angabe wird in Cookies gespeichert.
                     </p>
@@ -522,7 +515,7 @@
                     </p><p>
                         Für die Seite "Unsere Tiere" haben wir bewusst XMLHttpRequest für das Nachladen von Daten über AJAX verwendet, während wir auf den anderen Seiten auf die moderne fetch-Methode gesetzt haben. Diese Entscheidung basiert auf der bestehenden Struktur und den spezifischen Anforderungen der jeweiligen Seiten.
                     </p><p>
-                        Durch den Einsatz beider Methoden haben wir nicht nur flexibel auf unterschiedliche Anforderungen reagiert, sondern auch unser Wissen über unterschiedliche Techniken zur Handhabung von AJAX-Anfragen unter Beweis gestellt. Da beide Ansätze gut in das Gesamtkonzept passen und die Funktionalität zuverlässig gewährleisten, haben wir entschieden, diese beizubehalten, ohne den Fortschritt des Projekts unnötig zu verzögern.
+                        Durch den Einsatz beider Methoden haben wir nicht nur flexibel auf unterschiedliche Anforderungen reagiert, sondern auch unser Wissen über unterschiedliche Techniken zur Handhabung von AJAX-Anfragen unter Beweis gestellt.
                     </p>
                     <br/>
                     <p>
@@ -1082,7 +1075,7 @@
                         <li>Eine Übersichtsseite über favorisierte Tiere (für jeden Nutzer)</li>
                         <li>Eine Benachrichtigungsfunktion, die es Nutzern ermöglicht, direkt mit dem Tierheim (oder einem Chatbot) zu kommunizieren</li>
                         <li>Erweiterte Filter und Suchfunktionen, um die Navigation und Auffindbarkeit von Tieren weiter zu verbessern</li>
-                        <li>Ein direktes Laden der neu  gemeldeten vermissten / gefundenen Tiere nach Erstellung</li>
+                        <li>Ein direktes anzeigen der neu gemeldeten vermissten / gefundenen Tiere nach Erstellung</li>
                         <li>Eine Überblickseite zur Auswertung von Daten für das Tierheimmanagement, in Form von Statistiken u.v.m.</li>
                     </ul><br/>
                     <p>

@@ -8,8 +8,6 @@ use core\Connection;
 use DateTime;
 use Exception;
 use InvalidArgumentException;
-use PDO;
-use Throwable;
 
 class AbstractModel
 {
@@ -24,46 +22,6 @@ class AbstractModel
             $this->db = Connection::getInstance();
         } catch (Exception $e) {
             throw new Exception("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
-        }
-    }
-
-    protected static function delete(string $where = '', array $whereParameter = []): bool
-    {
-        $db = Connection::getInstance()->getConnection();
-        $className = self::getClassname();
-
-        try {
-            // Prüfen, ob eine WHERE-Bedingung übergeben wurde
-            if (empty($where)) {
-                throw new \InvalidArgumentException("WHERE-Klausel erforderlich, um DELETE auszuführen.");
-            }
-
-            $sql = "DELETE FROM {$className} WHERE {$where}";
-            $stmt = $db->prepare($sql);
-            if (!$stmt) {
-                throw new \RuntimeException("Fehler beim Vorbereiten des Statements: " . $db->error);
-            }
-
-            if (!empty($whereParameter)) {
-
-                $types = self::determineType($whereParameter);
-                $stmt->bind_param($types, ...$whereParameter);
-            }
-            // SQL-Statement ausführen
-            $stmt->execute();
-            if (!$stmt->execute()){
-                throw new \RuntimeException("Fehler beim Löschen der Daten: " . $stmt->error);
-            }
-
-            if ($stmt->affected_rows === 0){
-                error_log ("Keine Datensätze wurde gelöscht aus {$className}");
-                return false;
-            }
-
-            return true;
-
-        } catch (Throwable $exception) {
-            die ("Fehler beim Löschen der Daten der Tabelle {$className} :" . $exception->getMessage());
         }
     }
 
@@ -90,10 +48,4 @@ class AbstractModel
 
         return $types;
     }
-
-    private static function getClassname (): string
-    {
-        return strtolower(str_replace('Model\\', '', get_called_class()));
-    }
-
 }

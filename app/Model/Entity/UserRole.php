@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\Model\Entity;
 class UserRole {
 
-    private ?int $nutzerrolleID = null;
-
+    private ?int $nutzerrolleID;
     private string $rolle;
     private bool $kannLesen;
     private bool $kannSchreiben;
@@ -41,19 +40,9 @@ class UserRole {
         return $this->rolle;
     }
 
-    public function setRolle(string $rolle): void
-    {
-        $this->rolle = $rolle;
-    }
-
     public function isKannLesen(): bool
     {
         return $this->kannLesen;
-    }
-
-    public function setKannLesen(bool $kannLesen): void
-    {
-        $this->kannLesen = $kannLesen;
     }
 
     public function isKannSchreiben(): bool
@@ -61,19 +50,9 @@ class UserRole {
         return $this->kannSchreiben;
     }
 
-    public function setKannSchreiben(bool $kannSchreiben): void
-    {
-        $this->kannSchreiben = $kannSchreiben;
-    }
-
     public function isKannEigenesBearbeitenUndLoeschen(): bool
     {
         return $this->kannEigenesBearbeitenUndLoeschen;
-    }
-
-    public function setKannEigenesBearbeitenUndLoeschen(bool $kannEigenesBearbeitenUndLoeschen): void
-    {
-        $this->kannEigenesBearbeitenUndLoeschen = $kannEigenesBearbeitenUndLoeschen;
     }
 
     public function isKannAllesLoeschen(): bool
@@ -81,12 +60,8 @@ class UserRole {
         return $this->kannAllesLoeschen;
     }
 
-    public function setKannAllesLoeschen(bool $kannAllesLoeschen): void
+    public function getValuesForInsert(): array
     {
-        $this->kannAllesLoeschen = $kannAllesLoeschen;
-    }
-
-    public function getValuesForInsert(){
         return [
             $this->isKannLesen(),
             $this->isKannSchreiben(),
