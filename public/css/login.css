@@ -1,0 +1,43 @@
+main {
+    min-height:450px;
+}
+
+.loginAndRegristration {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.loginAndRegristration > div {
+    width: 47%;
+    box-sizing: border-box;
+}
+
+.marginButton {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: calc(100% - 10px);
+    margin:5px 0;
+}
+
+.loginAndRegristration h3 {
+    margin-top:15px;
+}
+
+.loginAndRegristration h3:first-child {
+    margin-top:0;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .loginAndRegristration {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .loginAndRegristration > div {
+        width:100%;
+    }
+}

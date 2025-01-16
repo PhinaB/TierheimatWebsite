@@ -1,0 +1,82 @@
+.formUnsereTiere {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formUnsereTiere select {
+    width: 150px;
+}
+
+.box-containerUnsereTiere {
+    display: flex; 
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 30px 20px;
+    z-index: 0; 
+}
+
+.box-containerUnsereTiere > div.completeAnimal {
+    width: 30%;
+    height: auto; 
+    box-sizing: border-box;
+    padding-bottom: 10px;   
+}
+
+.box-containerUnsereTiere > div.completeAnimal {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.box-containerUnsereTiere div.completeAnimal img ~ *, .box-containerUnsereTiere div.completeAnimal div ~ * {
+    margin: 10px 15px;
+}
+
+.box-containerUnsereTiere div.completeAnimal img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+select {
+    font-size: 12px;
+    padding:5px;
+}
+
+.relativePosition {
+    position: relative;
+}
+
+.heartForLike {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    z-index: 10;
+    font-size: 24px;
+    color: #eee;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.heartForLike.liked {
+    color: #dc2929;
+}
+
+@media only screen and (max-width: 1086px) {
+    .box-containerUnsereTiere {
+        flex-wrap:wrap;
+    }
+    .box-containerUnsereTiere > div {
+        width:calc(50% - 25px);
+    }
+    .formUnsereTiere {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .box-containerUnsereTiere > div {
+        width: 100%;
+    }
+}

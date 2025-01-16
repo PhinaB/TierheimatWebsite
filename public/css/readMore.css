@@ -1,0 +1,128 @@
+/*Informationen die für die Weiterlesen-Boxen allgemein gelten */
+.box-absolute {
+    box-sizing: border-box;
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    top: 105px;
+    background-color: var(--background-color);
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 2% 4% 3% 3%;
+}
+
+.zIndex {
+    z-index: 1;
+}
+
+.boldText {
+    font-weight: bold; 
+}
+  
+.kopfelement {
+    width: 100%;
+    padding-bottom: 1%; 
+}
+
+.kopfelement a {
+    float: right; 
+    font-size: 1.5em; 
+    color: black;
+    cursor: pointer;
+}
+
+.kopfelement a:hover{
+    color: var(--primary-color);
+}
+
+.unterelement {
+    width: calc(50% - 10px);  
+}  
+
+/* div um das Bild mit der Klasse BildWeiter */
+.bildWeiter {
+    display: flex;
+}
+
+.hohesBild {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.inline {
+    display: inline; 
+}
+
+.textTrennung {
+    column-count: 2;
+    text-align: justify;
+    column-gap: 30px;   
+}
+
+.flexWeiterlesen {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+@media only screen and (max-width: 1750px) {
+    .box-absolute {
+        top: 100px;
+    }
+}
+
+@media only screen and (max-width: 1277px) {
+    .box-absolute {
+        top: 65px; 
+    }
+}
+
+@media only screen and (max-width: 1243px) {
+    .box-absolute {
+        left: 9%;
+        right: 9%;
+    }
+    .hohesBild {
+        width: 50%;
+    }
+    .unterelement {
+        width: 98%;
+        display: block;
+    }
+    .flexWeiterlesen {
+        flex-direction: column;
+    }
+    .scrollbar {
+        overflow-y: scroll; 
+        scrollbar-color:  var(--primary-color) var(--background-menu-smallDisplay); 
+        scrollbar-width: thin; 
+        border-radius: 4px 4px 4px 4px;
+    } 
+}
+
+@media only screen and (max-width: 900px) {
+    .box-absolute {
+        top: 135px; 
+    }
+}
+
+ @media only screen and (max-width: 882px){
+    .unterelement {
+        width: 100%;
+        padding-left: 5px; 
+        padding-right: 5px; 
+    }
+ }
+
+ @media only screen and (max-width: 620px){
+    .box-absolute {
+        top: 140px; 
+    }
+    .unterelement {
+        width: 95%;
+    }
+    .textTrennung {
+        column-count: 1;     
+    }
+}

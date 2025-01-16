@@ -1,0 +1,9 @@
+.bildwechsel::before {
+    content: '';
+    background-image: var(--before-image);
+}
+
+.bildwechsel::after {
+    content: '';
+    background-image: var(--after-image);
+}
