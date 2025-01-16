@@ -117,11 +117,12 @@ function validateDateField(dateId, errorId){
     }
     else{
         const selectedDate = new Date(dateValue);
+        selectedDate.setHours(0, 0, 0, 0);
 
          if (selectedDate > currentDate){
             setErrorFieldInnerHTML(dateInput, errorInput, 'Datum darf nicht in der Zukunft liegen');
             return false;
-        }
+         }
          else {
              removeErrorField(dateInput, errorInput);
          }
