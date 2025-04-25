@@ -1,3 +1,4 @@
 # Ignoriere den .idea-Ordner
 .idea/
 database/.$ERM.drawio.bkp
+.DS_Store
