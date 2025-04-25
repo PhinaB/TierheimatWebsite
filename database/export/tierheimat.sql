@@ -89,38 +89,38 @@ CREATE TABLE `bildertiere` (
 --
 
 INSERT INTO `bildertiere` (`BilderID`, `TierID`, `Bildadresse`, `Hauptbild`, `Alternativtext`) VALUES
-(1, 6, 'hund.jpg', 1, 'Bella'),
-(2, 6, 'hund2.jpeg', 0, ''),
+(1, 6, 'bella.jpeg', 1, 'Bella'),
+(2, 6, 'bella2.jpeg', 0, ''),
 (3, 3, 'greta.jpg', 1, 'Greta, eine aktive Ratte'),
 (4, 3, 'greta2.jpg', 0, ''),
 (5, 15, 'greta2.jpg', 1, 'Kira, eine schmusige Ratte'),
 (6, 15, 'greta.jpg', 0, ''),
-(7, 2, 'natter2.jpg', 1, 'eine tolle Tigerpython'),
-(8, 2, 'natter.jpg', 0, ''),
-(9, 4, 'papagei.jpeg', 1, 'eine Gruppe Wellensittiche'),
-(10, 4, 'papagei2.jpg', 0, ''),
-(11, 5, 'katze.jpg', 1, 'Katze'),
-(12, 5, 'katze2.jpg', 0, ''),
-(13, 7, 'hund2.jpg', 1, 'Hund Rex'),
-(14, 7, 'hund.jpg', 0, ''),
-(15, 8, 'hund.jpg', 1, 'Hund Mila'),
-(16, 8, 'hund2.jpeg', 0, ''),
-(17, 1, 'hund2.jpeg', 1, 'Lila'),
-(18, 1, 'hund.jpg', 0, ''),
-(19, 16, 'hund2.jpeg', 1, 'Lilly'),
-(20, 16, 'hund.jpg', 0, ''),
-(21, 9, 'hase.jpeg', 1, 'Hase Fluffy'),
-(22, 9, 'hase2.jpg', 0, ''),
-(23, 10, 'hase2.jpg', 1, 'Hase Hoppel'),
-(24, 10, 'hase.jpeg', 0, ''),
-(25, 11, 'natter2.jpeg', 1, 'Kornnatter Korni'),
-(26, 11, 'natter.jpg', 0, ''),
-(27, 12, 'papagei2.jpg', 1, 'Jendayasittich Lora'),
-(28, 12, 'papagei.jpeg', 0, ''),
-(29, 13, 'papagei.jpeg', 1, 'Rosella'),
-(30, 13, 'papagei2.jpg', 0, ''),
-(31, 14, 'natter.jpg', 1, 'Kornnatter Monster'),
-(32, 14, 'natter2.jpeg', 0, '');
+(7, 2, 'tigerpython.jpg', 1, 'eine tolle Tigerpython'),
+(8, 2, 'tigerpython2.jpg', 0, ''),
+(9, 4, 'wellensittiche.jpg', 1, 'eine Gruppe Wellensittiche'),
+(10, 4, 'wellensittiche2.jpg', 0, ''),
+(11, 5, 'simba.jpg', 1, 'Katze'),
+(12, 5, 'simba2.jpg', 0, ''),
+(13, 7, 'rocky.jpg', 1, 'Hund Rex'),
+(14, 7, 'rocky2.jpg', 0, ''),
+(15, 8, 'lilly.jpg', 1, 'Hund Mila'),
+(16, 8, 'lilly2.jpg', 0, ''),
+(17, 1, 'lila.jpg', 1, 'Lila'),
+(18, 1, 'lila2.jpg', 0, ''),
+(19, 16, 'lila2.jpg', 1, 'Lilly'),
+(20, 16, 'lila.jpg', 0, ''),
+(21, 9, 'fluffy.jpg', 1, 'Hase Fluffy'),
+(22, 9, 'fluffy2.jpg', 0, ''),
+(23, 10, 'hoppel.jpg', 1, 'Hase Hoppel'),
+(24, 10, 'hoppel2.jpg', 0, ''),
+(25, 11, 'kornnatter.jpg', 1, 'Kornnatter Korni'),
+(26, 11, 'kornnatter2.jpg', 0, ''),
+(27, 12, 'loraJendayasittich.jpg', 1, 'Jendayasittich Lora'),
+(28, 12, 'loraJendayasittich2.jpg', 0, ''),
+(29, 13, 'prachtrosella.jpg', 1, 'Rosella'),
+(30, 13, 'prachtrosella2.jpg', 0, ''),
+(31, 14, 'kornnatter2.jpg', 1, 'Kornnatter Monster'),
+(32, 14, 'kornnatter.jpg', 0, '');
 
 -- --------------------------------------------------------
 
@@ -315,16 +315,16 @@ CREATE TABLE `vermisstgefundentiere` (
 --
 
 INSERT INTO `vermisstgefundentiere` (`VermisstGefundenTiereID`, `ZuletztGeaendertNutzerID`, `TierartID`, `Typ`, `Datum`, `Ort`, `Beschreibung`, `Kontaktaufnahme`, `Bildadresse`, `Geloescht`, `ZuletztGeaendert`) VALUES
-(1, 1, 1, 'vermisst', '2024-01-02 00:00:00', 'Weimar', 'Wir waren am Samstag Abend mit Pablo in Weimar am Park an der Ilm spazieren und haben ihn nur kurz aus den Augen gelassen. Wir vermissen ihn sehr. Jeder Hinweis könnte uns bei der Suche helfen.', 'telefon', '../public/img/hund.jpg', 0, '2024-01-02 00:00:00'),
-(2, 2, 3, 'vermisst', '2024-03-02 00:00:00', 'Vieselbach', 'Unser Degu Luke wird seit dem 2. März in Vieselbach vermisst. Hinweise nehmen wir dankend telefonisch entgegen. Bitte helfen Sie uns, ihn wiederzufinden!', 'telefon', '../public/img/katze.jpg', 0, '2024-01-02 00:00:00'),
-(3, 2, 2, 'vermisst', '2024-01-03 00:00:00', 'Stotternheim', 'Lotta, unsere getigerte Katze mit einem weißen Fleck auf der Brust, wird seit dem 3. Januar in Stotternheim vermisst. Sie ist scheu, aber sehr lieb. Bitte melden Sie sich per E-Mail, falls Sie sie sehen.', 'email', '../public/img/katze2.jpg', 0, '2024-01-04 00:00:00'),
-(4, 2, 3, 'vermisst', '2024-06-07 00:00:00', 'Erfurt', 'Unsere Schildkröte Raspun ist am 7. Juni in Erfurt verschwunden. Jeder Hinweis hilft uns, sie wiederzufinden. Bitte melden Sie sich per E-Mail!', 'email', '../public/img/papagei.jpeg', 0, '2024-12-06 00:00:00'),
-(5, 1, 2, 'vermisst', '2024-05-02 00:00:00', 'Arnstadt', 'Drako, unser schwarz-weißer Kater, wird seit dem 2. Mai in Arnstadt vermisst. Er trägt ein grünes Halsband mit unserer Telefonnummer. Bitte melden Sie sich per E-Mail, falls Sie ihn gesehen haben.', 'email', '../public/img/katze.jpg', 0, '2024-11-04 00:00:00'),
-(6, 2, 2, 'gefunden', '2024-05-23 00:00:00', 'Weimar', 'Ich habe die Katze am Mittwoch Abend in Erfurt an der Altonaer Straße gefunden. Sie wirkte verschreckt, abgemagert und hatte Flöhe. Ich habe sie mit nach Hause genommen und sie wieder aufgepäppelt. Jetzt geht es ihr wieder besser.', 'telefon', '../public/img/katze2.jpg', 0, '2024-01-05 00:00:00'),
-(7, 2, 1, 'gefunden', '2023-09-27 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 27. September in Erfurt zugelaufen. Falls Sie ihn vermissen, melden Sie sich bitte per E-Mail, damit er wieder nach Hause kann', 'email', '../public/img/hund2.jpeg', 0, '2024-06-04 00:00:00'),
-(8, 1, 2, 'gefunden', '2024-02-25 00:00:00', 'Vieselbach', 'Ich habe diese Katze am 25. Februar in Vieselbach gefunden. Sie scheint ein Zuhause zu suchen. Bitte melden Sie sich telefonisch, falls Sie sie kennen.', 'telefon', '../public/img/katze2.jpg', 0, '2024-02-04 00:00:00'),
-(9, 1, 1, 'gefunden', '2024-04-26 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 26. April in Erfurt begegnet. Er war allein unterwegs. Falls Sie ihn suchen, melden Sie sich bitte per E-Mail!', 'email', '../public/img/hund.jpg', 0, '2024-03-04 00:00:00'),
-(10, 2, 2, 'gefunden', '2024-06-19 00:00:00', 'Hohenfelden', 'Ich habe diesen Kater am 19. Juni in Hohenfelden gefunden. Er ist zutraulich und gut gepflegt. Bitte melden Sie sich telefonisch, falls er Ihnen gehört.', 'telefon', '../public/img/katze2.jpg', 0, '2024-01-07 00:00:00');
+(1, 1, 1, 'vermisst', '2024-01-02 00:00:00', 'Weimar', 'Wir waren am Samstag Abend mit Pablo in Weimar am Park an der Ilm spazieren und haben ihn nur kurz aus den Augen gelassen. Wir vermissen ihn sehr. Jeder Hinweis könnte uns bei der Suche helfen.', 'telefon', '../public/img/pablo.jpg', 0, '2024-01-02 00:00:00'),
+(2, 2, 3, 'vermisst', '2024-03-02 00:00:00', 'Vieselbach', 'Unser Degu Luke wird seit dem 2. März in Vieselbach vermisst. Hinweise nehmen wir dankend telefonisch entgegen. Bitte helfen Sie uns, ihn wiederzufinden!', 'telefon', '../public/img/luke.jpg', 0, '2024-01-02 00:00:00'),
+(3, 2, 2, 'vermisst', '2024-01-03 00:00:00', 'Stotternheim', 'Lotta, unsere getigerte Katze mit einem weißen Fleck auf der Brust, wird seit dem 3. Januar in Stotternheim vermisst. Sie ist scheu, aber sehr lieb. Bitte melden Sie sich per E-Mail, falls Sie sie sehen.', 'email', '../public/img/lotta.jpg', 0, '2024-01-04 00:00:00'),
+(4, 2, 3, 'vermisst', '2024-06-07 00:00:00', 'Erfurt', 'Unsere Schildkröte Raspun ist am 7. Juni in Erfurt verschwunden. Jeder Hinweis hilft uns, sie wiederzufinden. Bitte melden Sie sich per E-Mail!', 'email', '../public/img/raspun.jpg', 0, '2024-12-06 00:00:00'),
+(5, 1, 2, 'vermisst', '2024-05-02 00:00:00', 'Arnstadt', 'Drako, unser schwarz-weißer Kater, wird seit dem 2. Mai in Arnstadt vermisst. Er trägt ein grünes Halsband mit unserer Telefonnummer. Bitte melden Sie sich per E-Mail, falls Sie ihn gesehen haben.', 'email', '../public/img/drako.jpg', 0, '2024-11-04 00:00:00'),
+(6, 2, 2, 'gefunden', '2024-05-23 00:00:00', 'Weimar', 'Ich habe die Katze am Mittwoch Abend in Erfurt an der Altonaer Straße gefunden. Sie wirkte verschreckt, abgemagert und hatte Flöhe. Ich habe sie mit nach Hause genommen und sie wieder aufgepäppelt. Jetzt geht es ihr wieder besser.', 'telefon', '../public/img/gefundeneKatze.jpg', 0, '2024-01-05 00:00:00'),
+(7, 2, 1, 'gefunden', '2023-09-27 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 27. September in Erfurt zugelaufen. Falls Sie ihn vermissen, melden Sie sich bitte per E-Mail, damit er wieder nach Hause kann', 'email', '../public/img/max.jpg', 0, '2024-06-04 00:00:00'),
+(8, 1, 2, 'gefunden', '2024-02-25 00:00:00', 'Vieselbach', 'Ich habe diese Katze am 25. Februar in Vieselbach gefunden. Sie scheint ein Zuhause zu suchen. Bitte melden Sie sich telefonisch, falls Sie sie kennen.', 'telefon', '../public/img/flo.jpg', 0, '2024-02-04 00:00:00'),
+(9, 1, 1, 'gefunden', '2024-04-26 00:00:00', 'Erfurt', 'Dieser Hund ist mir am 26. April in Erfurt begegnet. Er war allein unterwegs. Falls Sie ihn suchen, melden Sie sich bitte per E-Mail!', 'email', '../public/img/nick.jpeg', 0, '2024-03-04 00:00:00'),
+(10, 2, 2, 'gefunden', '2024-06-19 00:00:00', 'Hohenfelden', 'Ich habe diesen Kater am 19. Juni in Hohenfelden gefunden. Er ist zutraulich und gut gepflegt. Bitte melden Sie sich telefonisch, falls er Ihnen gehört.', 'telefon', '../public/img/stan.jpg', 0, '2024-01-07 00:00:00');
 
 --
 -- Indizes der exportierten Tabellen
