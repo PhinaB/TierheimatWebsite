@@ -5,8 +5,8 @@
     <hr class="underHeadline" />
     <div class="box-containerserviceInfo">
         <div>
-            <img src="../public/img/helfenSpenden3.jpg" class="hohesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
-            <img src="../public/img/helfenspeden2.jpg" class="quadratischesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
+            <img src="../public/img/spielendeKatze.jpg" class="hohesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
+            <img src="../public/img/spielendeKatze.jpg" class="quadratischesBild  schattenBild" alt="Bild einer spielenden Katze" draggable="false"/>
         </div>
 
         <div>
@@ -33,7 +33,7 @@
     <hr class="underHeadline" />
     <div class="box-containerserviceInfo zentrierterButton">
         <div>
-            <img src="../public/img/vermittlungsablauf.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
+            <img src="../public/img/vermittlungsablauf.jpg" class="schattenBild" alt="Bild einer Frau die Dokuemnte ausfüllt" title="Bild einer Frau die Dokuemnte ausfüllt" draggable="false"/>
         </div>
 
         <div>
@@ -94,7 +94,7 @@
     <hr class="underHeadline" />
     <div class="box-containerserviceInfo zentrierterButton">
         <div>
-            <img src="../public/img/tierAbgeben.jpg" class="schattenBild" alt="Bild eines Hundes der im Wald spazieren geht" title="Bild eines Hundes der im Wald spazieren geht" draggable="false"/>
+            <img src="../public/img/tierAbgeben.jpg" class="schattenBild" alt="Bild eines Hundes auf einer Straße" title="Bild eines Hundes auf einer Straße" draggable="false"/>
         </div>
 
         <div>
@@ -121,7 +121,7 @@
     <hr class="underHeadline" />
     <div class="box-containerserviceInfo zentrierterButton">
         <div>
-            <img src="../public/img/kastrationspflicht.jpg" class="schattenBild" alt="Bild einer Katze beim Tierartzt" title="Bild einer Katze beim Tierartzt" draggable="false"/>
+            <img src="../public/img/tierarztStudent.jpg" class="schattenBild" alt="Bild einer Katze beim Tierartzt" title="Bild einer Katze beim Tierartzt" draggable="false"/>
         </div>
 
         <div>

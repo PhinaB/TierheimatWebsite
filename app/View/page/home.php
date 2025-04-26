@@ -88,7 +88,7 @@
                 </p>
             </div>
             <div>
-                <img src="../public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze" title="Bild einer glücklichen Katze" draggable="false" />
+                <img src="../public/img/glücklicheKatze.jpg" alt="Bild einer glücklichen Katze und eines glücklichen Hundes" title="Bild einer glücklichen Katze und eines glücklichen Hundes" draggable="false" />
                 <h3>Erfolgreiche Tiervermittlung</h3>
                 <p>
                     In den letzten Monaten konnten wir zahlreiche Tiere erfolgreich in liebevolle Zuhause vermitteln.
