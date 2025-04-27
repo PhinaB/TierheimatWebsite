@@ -39,7 +39,6 @@ header a {
     margin: 20px auto;
     padding: 40px 60px;
     box-sizing: border-box;
-    border: 1px solid var(--border-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }

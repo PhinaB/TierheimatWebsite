@@ -134,8 +134,6 @@
                         Während dieser Zeit wird ein besonderes Augenmerk auf eine intuitive Benutzerführung und eine ansprechende Darstellung der Inhalte gelegt.
                     </p>
                     <br />
-                    <img src="../public/imgDokumentation/tierschutzLogo.png" title="Tierschutz" alt="Tierschutz Logo, ein Herz für Tiere" draggable="false">
-                    <div class="caption">Abbildung 1</div>
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
                     </div>
@@ -176,26 +174,7 @@
                         dass "Tierheimat" die Bedürfnisse der Nutzer optimal erfüllt und sich von bestehenden Angeboten positiv abhebt.
                     </p><p>
                         Während der Untersuchung wurden die Websites der Tierheime in Erfurt, Leipzig und Jena genauer betrachtet. Diese Analyse half uns, positive und negative Eigenschaften sowie das Design zu bewerten. Es zeigte sich, dass die Websites von Erfurt und Leipzig veraltet und wenig benutzerfreundlich sind. Die Website des Tierheims Jena fiel jedoch durch ihr modernes und benutzerfreundliches Design positiv auf.
-                    </p><p>
-                        Unter diesem Abschnitt finden sich Screenshots der untersuchten Websites. Weitere Screenshots der sind in <a href="#screenshotsAndereSeiten" draggable="false">Anlage 1</a> zu finden.
                     </p>
-                    <div class="divAroundImgEffekt">
-                        <img src="../public/imgDokumentation/tierheimErfurt-1.PNG" class="imgEffekt" title="Erfurt Tierheim" alt="Erfurt Tierheim aktuelles Seite" draggable="false">
-                        <img src="../public/imgDokumentation/tierheimErfurt-2.PNG" class="imgEffekt" title="Erfurt Tierheim" alt="Erfurt Tierheim Interessantes Seite" draggable="false">
-                    </div><div class="caption">Abbildung 2 und 3</div>
-                    <br class="pageToSmall" />
-
-                    <div class="divAroundImgEffekt">
-                        <img src="../public/imgDokumentation/tierheimLeipzig.PNG" class="imgEffekt" title="Tierheim Leipzig" alt="Tierheim Leipzig Startseite" draggable="false">
-                        <img src="../public/imgDokumentation/tierheimLeipzig-1.PNG" class="imgEffekt" title="Tierheim Leipzig" alt="Tierheim Leipzig Detaillansicht eines Tieres" draggable="false">
-                    </div><div class="caption">Abbildung 4 und 5</div>
-                    <br class="pageToSmall" />
-
-                    <div class="divAroundImgEffekt">
-                        <img src="../public/imgDokumentation/tierheimJena.PNG" class="imgEffekt" title="Tierheim Jena" alt="Tierheim Jena Startseite" draggable="false">
-                        <img src="../public/imgDokumentation/tierheimJena-1.PNG" class="imgEffekt" title="Tierheim Jena" alt="Tierheim Jena unsere Tiere" draggable="false">
-                    </div><div class="caption">Abbildung 6 und 7</div>
-
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -219,7 +198,7 @@
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentation/zielgruppenanalyse.jpg" title="Zielgruppenanalyse" alt="Tabelle der Zielgruppenanalyse" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 8</div>
+                    <div class="caption">Abbildung 1</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -241,7 +220,7 @@
                         <img src="../public/imgDokumentation/projektanforderung-1.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
                         <img src="../public/imgDokumentation/projektanforderung-2.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
                         <img src="../public/imgDokumentation/projektanforderung-3.PNG" class="imgEffekt" title="Projektanforderung Vorlesung" alt="Projektanforderung Vorlesung Prof. Kruse" draggable="false">
-                    </div><div class="caption">Abbildung 9, 10 und 11</div>
+                    </div><div class="caption">Abbildung 2, 3 und 4</div>
 
                     <br /><p>
                         Dieses Projekt stellt auch Anforderungen an die Projektmitglieder. Dabei soll die Teamarbeit gestärkt, die interne Kommunikation verbessert, die Zuverlässigkeit sowie die Erweiterung der Fachkenntnisse gefördert werden.
@@ -314,7 +293,7 @@
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentation/arbeitsplanDokumentation.PNG" title="Arbeitsplanung Phase 1-4" alt="Arbeitsplanung Phase 1-4" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 12</div>
+                    <div class="caption">Abbildung 5</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -340,7 +319,7 @@
                     </p>
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentation/jiraAufteilung.PNG" title="Jira Auszug Projekt: Tierheimat" alt="Jira Auszug Projekt: Tierheimat" draggable="false">
-                    </div><div class="caption">Abbildung 13</div>
+                    </div><div class="caption">Abbildung 6</div>
                     <br />
                     <p>
                         Im Anschluss führt jedes Projektmitglied eine Prüfung der gesamten Website durch.
@@ -422,7 +401,7 @@
                     <p>In der folgenden Abbildung ist die Struktur grafisch dargestellt.</p>
 
                     <img src="../public/imgDokumentation/webseitenstruktur.jpg" title="Webseitenstruktur" alt="Webseitenstruktur" draggable="false">
-                    <div class="caption">Abbildung 14</div>
+                    <div class="caption">Abbildung 7</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -436,7 +415,7 @@
                     <div class="alternative">
                         <img src="../public/img/logo.jpg" title="Tierheimat Logo" alt="Tierheimat Logo" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 15</div>
+                    <div class="caption">Abbildung 8</div>
 
                     <br />
 
@@ -506,7 +485,7 @@
                         <img src="../public/imgDokumentation/figmaModel-3.5.PNG" class="imgEffekt" title="Figma 3.5" alt="Figma Model 3.5" draggable="false">
                         <img src="../public/imgDokumentation/figmaModel-3.7.PNG" class="imgEffekt" title="Figma 3.7" alt="Figma Model 3.7" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 16, 17, 18 und 19</div>
+                    <div class="caption">Abbildung 9, 10, 11 und 12</div>
                     <br />
 
                     <p>
@@ -520,7 +499,7 @@
                     <img src="../public/imgDokumentation/logoObenLinksFarbig.jpg" title="Bild der ersten Entüwrfe, Logo oben links farbig" alt="Logo oben linksbündig" draggable="false">
                     <img src="../public/imgDokumentation/logoObenMitte.jpg" title="Bild der ersten Entüwrfe, Logo oben mittig" alt="Logo oben mittig und farbig" draggable="false">
                     <img src="../public/imgDokumentation/logoObenMitteFarbig.jpg" title="Bild der ersten Entüwrfe, Logo oben mittig mit Farbe" alt="Logo oben mittig mit Farbe" draggable="false">
-                    <div class="caption">Abbildung 20</div>
+                    <div class="caption">Abbildung 13</div>
                     <br />
                     <p>
                         Es ist entscheidend, dass das Erlebnis des Nutzers nicht negativ beeinträchtigt wird und eine gute Übersicht sowie Navigierung weiterhin bestehen bleibt.
@@ -530,7 +509,7 @@
                     </p>
                     <br />
                     <img src="../public/imgDokumentation/logoFinal.PNG" title="Finales Logo" alt="Finales Logo im Design und Bsp." draggable="false">
-                    <div class="caption">Abbildung 21</div>
+                    <div class="caption">Abbildung 14</div>
 
                     <div class="backButton">
                         <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -596,7 +575,7 @@
                         <img src="../public/imgDokumentation/formKleinVermisstGefunden.jpg" class="imgEffekt" title="Screenshot der Filterung für die Seite 'Vermisst / Gefunden'" alt="Screenshot der Filterung für die Seite 'Vermisst / Gefunden'" draggable="false">
                         <img src="../public/imgDokumentation/unsereTiereWeitereTiere.jpg" class="imgEffekt" title="Screenshot Button für die Seite 'Unsere Tiere', um weitere Tiere anzuzeigen" alt="Screenshot Button für die Seite 'Unsere Tiere', um weitere Tiere anzuzeigen" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 22, 23 und 24</div>
+                    <div class="caption">Abbildung 15, 16 und 17</div>
 
                     <p>
                         Eine weitere nicht-funktionale Abhängigkeit sind die Formulare zum Login und zur Registration. Dadurch, dass diese nicht funktional sind, wird beim Klick auf "Anmelden" direkt auf die Seite im eingeloggten Bereich weitergeleitet. Der Nutzername des angemeldeten Nutzers soll anschließend oben erscheinen. Wir haben uns bewusst dagegen entschieden einen Logout durch einen Klick über den Nutzernamen auszuführen.
@@ -604,7 +583,7 @@
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentation/formLoginRegistration.jpg" class="imgEffekt" title="Screenshot Formulare Login und Registration" alt="Screenshot Formulare Login und Registration" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 25</div>
+                    <div class="caption">Abbildung 18</div>
 
                     <p>
                         Die Formulare auf den Seiten "Vermisst / Gefunden" und "Service / Infos" sind lediglich erreichbar, wenn der Nutzer sich erfolgreich angemeldet hat, um somit gegen Spam besser vorzugehen. Hier kann der Nutzer sein Tier vermisst melden oder ein gefundenes Tier anzeigen. Im Formular "Helfen" kann der Nutzer seine Hilfe für das Tierheim anbieten. Beispielsweise kann er sich hier für eine Gassirunde mit den Tierheimhunden anmelden.
@@ -613,7 +592,7 @@
                         <img src="../public/imgDokumentation/formVermisstGefunden.jpg" class="imgEffekt" title="Screenshot Formular vermisste und gefundene Tiere melden" alt="Screenshot Formular vermisste und gefundene Tiere melden" draggable="false">
                         <img src="../public/imgDokumentation/formHelfen.jpg" class="imgEffekt" title="Screenshot Formular Helfen" alt="Screenshot Formular Helfen" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 26 und 27</div>
+                    <div class="caption">Abbildung 19 und 20</div>
 
                     <p>
                         Hat ein Nutzer ein Tier als vermisst gemeldet oder ein gefundenes Tier angegeben, kann er diese Anzeige jederzeit bearbeiten und löschen. Dafür wurden beispielhaft Icons an mehreren Vermisst-Anzeigen angebracht. Jeder Nutzer soll nur seine eigenen Anzeigen bearbeiten und löschen dürfen.
@@ -621,7 +600,7 @@
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentation/beispielLoeschenBearbeiten.jpg" class="imgEffekt" title="Screenshot Löschen und Bearbeiten Buttons" alt="Screenshot Löschen und Bearbeiten Buttons" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 28</div>
+                    <div class="caption">Abbildung 21</div>
                     <br />
                     <p>
                         Ein weiteres wichtiges Ziel, das wir umgesetzt haben, ist sicherzustellen, dass alle Nutzer, einschließlich Menschen mit Beeinträchtigungen, einfachen und uneingeschränkten Zugang zu unseren Inhalten haben. Zur Erhöhung der Barrierefreiheit haben wir daher verschiedene Komponenten ergänzt, unter anderem alt- und title-Attribute bei Bildern und Verlinkungen sowie labels in den Formularen.
@@ -632,7 +611,7 @@
                         Weiterhin wollten wir einen sauberen, strukturierten Quellcode und einheitlichen Codestyle erreichen. Dies gelang uns durch effektive Klassen, die auch auf jeder Seite genutzt werden können. Ein Beispiel ist in folgendem Quellcodeausschnitt zu finden:
                     </p>
                     <img src="../public/imgDokumentation/richtigerCodestyle.PNG" title="richtiger Codestyle" alt="Bild von einem verbesserten Codestyle" draggable="false">
-                    <div class="caption">Abbildung 29</div>
+                    <div class="caption">Abbildung 22</div>
 
                     <p>
                         Durch den Befehl "draggable='false'" kann beispielsweise das verschieben von Bildern unterbunden werden.
@@ -692,9 +671,6 @@
                     Ein wichtiger Aspekt der Nachvollziehbarkeit stellen auch die <a href="#anlagen" draggable="false">Anlagen</a> und <a href="#quellen" draggable="false">Quellen</a> dar.
                     Aus diesen Abschnitten können alle wichtigen erhobenen Daten klar und nachvollziehbar betrachtet werden.
                 </p>
-                <div class="Dokumentation">
-                    <img src="../public/imgDokumentation/processDocumentation.jpg" title="Process Documentation" alt="Ablauf der Process Documentation" draggable="false">
-                </div><div class="caption">Abbildung 30</div>
 
                 <div class="backButton">
                     <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
@@ -815,12 +791,7 @@
                     <div class="divAroundImgEffekt">
                         <img src="../public/imgDokumentation/ordnerStruktur.PNG" title="ordnerStruktur" alt="Bild der Ordnerstruktur" draggable="false">
                     </div>
-                    <div class="caption">Abbildung 31</div>
-
-                    <div class="divAroundImgEffekt">
-                        <img src="../public/imgDokumentation/ordnerstrukturierung.PNG" title="ordnerstrukturierung" alt="gute Ordnerführung" draggable="false">
-                    </div>
-                    <div class="caption">Abbildung 32</div>
+                    <div class="caption">Abbildung 23</div>
 
                     <br />
                     <p>
@@ -872,29 +843,10 @@
             <hr class="underHeadline" />
 
             <h3>Tierheim Erfurt:</h3>
-            <div class="divAroundImgEffekt">
-                <img src="../public/imgDokumentation/tierheimErfurt-3.PNG" title="Erfurt Tierheim" alt="Erfurt Tierheim detaillierte Ansicht des Tieres" draggable="false">
-            </div><div class="caption">Abbildung 33</div>
-            <div class="divAroundImgEffekt">
-                <img src="../public/imgDokumentation/tierheimErfurt-4.PNG" title="Erfurt Tierheim" alt="Erfurt Tierheim Foto Galerie" draggable="false">
-            </div><div class="caption">Abbildung 34</div>
-            <br />
 
             <h3>Tierheim Leipzig:</h3>
-            <div class="divAroundImgEffekt">
-                <img src="../public/imgDokumentation/tierheimLeipzig-2.PNG" title="Tierheim Leipzig" alt="Leipzig Tierheim Tier entlaufen und gefunden" draggable="false">
-            </div><div class="caption">Abbildung 35</div>
-            <div class="divAroundImgEffekt">
-                <img src="../public/imgDokumentation/tierheimLeipzig-3.PNG" title="Tierheim Leipzig" alt="Leipzig Tierheim vermittlungsbedingungen" draggable="false">
-            </div><div class="caption">Abbildung 36</div>
 
             <h3>Tierheim Jena:</h3>
-            <div class="divAroundImgEffekt">
-                <img src="../public/imgDokumentation/tierheimJena-2.PNG" title="Tierheim Jena" alt="Tierheim Jena Kontaktformular" draggable="false">
-            </div><div class="caption">Abbildung 37</div>
-            <div class="divAroundImgEffekt">
-                <img src="../public/imgDokumentation/tierheimJena-3.PNG" title="Tierheim Jena" alt="Tierheim Jena Aktuelle Nachrichten" draggable="false">
-            </div><div class="caption">Abbildung 38</div>
 
             <h2 id="detaillierteZeitplanung">Anlage 2: Detaillierte Zeitplanung</h2>
             <hr class="underHeadline" />
@@ -1130,17 +1082,6 @@
             </div>
 
             <div class="section">
-                <h2 id="quelleZielsetzung">Quelle: 1.2 Zielsetzung</h2>
-                <hr class="underHeadline" />
-
-                <p>
-                    Tierschutz Foto (Abbildung 1):
-                </p>
-                <a href="https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0" draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=ZPXi5DE9&id=ECCFF162B8DE1569D7E4534875D37EEFAC526A42&thid=OIP.ZPXi5DE9NMIBSTh26ixcTgHaCX&mediaurl=https%3a%2f%2fwww.zooplus.co.uk%2fbilder%2f1%2f2017_01_CharitySupport_1000x320_DE_1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.64f5e2e4313d34c201493876ea2c5c4e%3frik%3dQmpSrO9%252b03VIUw%26pid%3dImgRaw%26r%3d0&exph=320&expw=1000&q=tierschutz&simid=608028981758609405&FORM=IRPRST&ck=3F72AE4447F2CCAD2C1123D0B146826D&selectedIndex=27&itb=0&ajaxhist=0&ajaxserp=0</a>
-
-            </div>
-
-            <div class="section">
                 <h2 id="quelleIstAnalyse">Quelle: 2.1 Ist-Analyse</h2>
                 <hr class="underHeadline" />
 
@@ -1268,14 +1209,6 @@
             </div>
 
             <div class="section">
-                <h2 id="quelleDokumentation">Quelle: 5. Dokumentation</h2>
-                <hr class="underHeadline" />
-
-                <p>Foto Prozess Dokumentation (Abbildung 30):</p>
-                <a href="https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0" draggable="false">https://www.bing.com/images/search?view=detailV2&ccid=3yUARhkc&id=B868D94755CD197FCF8A98FCFF1461B9E5E68189&thid=OIP.3yUARhkcIxmF9NnVDH4w8wHaEK&mediaurl=https%3a%2f%2fwww.marketing91.com%2fwp-content%2fuploads%2f2020%2f11%2fProcess-Documentation.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.df250046191c231985f4d9d50c7e30f3%3frik%3diYHm5blhFP%252f8mA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=documentation+image&simid=608003890566794839&FORM=IRPRST&ck=10053D9DE211BF4ECEF8F382AC847D2D&selectedIndex=18&itb=0&ajaxhist=0&ajaxserp=0</a>
-            </div>
-
-            <div class="section">
                 <h2 id="quelleSollIstVergleich">Quelle: 6.1 Soll-/Ist-Vergleich</h2>
                 <hr class="underHeadline" />
 
@@ -1343,151 +1276,6 @@
                     Erstellt durch Projektmitglieder
                 </p>
             </div>
-
-            <div class="section">
-                <h2 id="quelleWebsite">Bildquellen komplette Website</h2>
-                <hr class="underHeadline" />
-
-                <h3>Bildquellen Startseite:</h3>
-                <p>
-                    Deine-Tierwelt [online] URL:
-                    <a href="https://www.deine-tierwelt.de/magazin/wp-content/uploads/sites/7/2018/10/Hund-und-Katze-schlafen.jpg" draggable="false">https://www.deine-tierwelt.de/magazin/wp-content/uploads/sites/7/2018/10/Hund-und-Katze-schlafen.jpg</a>
-                    [Stand 30.06.2024]
-                </p>
-                <p>
-                    Flickr.com [online] URL: <a href="https://www.flickr.com/photos/68555868@N04/16403083195/in/pool-terrarium/" draggable="false">https://www.flickr.com/photos/68555868@N04/16403083195/in/pool-terrarium/</a> [Stand 30.06.2024]
-                </p>
-
-                <br />
-                <h3>Bildquellen: Unsere Tiere</h3>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/cashew/" draggable="false">https://www.tierheim-leipzig.de/Project/cashew/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155557.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155557.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155545.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240320_155545.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_151007.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_151007.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_150829.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/02/IMG_20230213_150829.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240519_115028.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240519_115028.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/IMG-20240519-WA0014.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/IMG-20240519-WA0014.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230318_113947.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230318_113947.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230314_162813.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/03/20230314_162813.jpg</a>  [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/FFBD96E4-F74E-47CC-8FB5-D801AE1E5CA1.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/FFBD96E4-F74E-47CC-8FB5-D801AE1E5CA1.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/19C315C2-71AA-4DEB-801B-825C693DCC82.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/07/19C315C2-71AA-4DEB-801B-825C693DCC82.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0007.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0007.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0021.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/IMG-20240422-WA0021.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/01/Pino.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/01/Pino.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2021/10/20220115_132018.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2021/10/20220115_132018.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162006.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162006.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162232.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2019/06/20230527_162232.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20240113_130739.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20240113_130739.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20231216_131633.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/12/20231216_131633.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143241.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143241.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143304.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/04/20240414_143304.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4334-2.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4334-2.jpg</a>  [Stand 05.07.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4342.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/11/DSC_4342.jpg</a> [Stand 05.07.2024]
-                </p>
-                <br />
-                <h3>Bildquellen: Vermisst / Gefunden</h3>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/carlo-moechte-nicht-ins-tierheim/" draggable="false">https://www.tierheim-leipzig.de/Project/carlo-moechte-nicht-ins-tierheim/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/cello/" draggable="false">https://www.tierheim-leipzig.de/Project/cello/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/gnocchi/" draggable="false">https://www.tierheim-leipzig.de/Project/gnocchi/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="" draggable="false">https://www.tierheim-leipzig.de/Project/privatvermittlung-floyd/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/Project/stitch/" draggable="false">https://www.tierheim-leipzig.de/Project/stitch/</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/05/20230525_160027.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/05/20230525_160027.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/01/IMG_20230119_145515_edit_465193045793598.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/01/IMG_20230119_145515_edit_465193045793598.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2022/04/IMG-20220403-WA0001.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2022/04/IMG-20220403-WA0001.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240525_120351.jpg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2024/05/20240525_120351.jpg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Tierheim-Leipzig [online] URL: <a href="https://www.tierheim-leipzig.de/wp-content/uploads/2023/10/C440C255-1ED9-41FD-9919-DEBFC091A9E8.jpeg" draggable="false">https://www.tierheim-leipzig.de/wp-content/uploads/2023/10/C440C255-1ED9-41FD-9919-DEBFC091A9E8.jpeg</a> [Stand 29.05.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1652631822225-0b9e423cd3c8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHN0cmV1bmVuZGUlMjBrYXR6ZXxlbnwwfHwwfHx8MA%3D%3D" draggable="false">https://images.unsplash.com/photo-1652631822225-0b9e423cd3c8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHN0cmV1bmVuZGUlMjBrYXR6ZXxlbnwwfHwwfHx8MA%3D%3D</a> [Stand 30.06.2024]
-                </p>
-
-                <br />
-                <h3>Bildquellen: Service / Infos</h3>
-                <p>
-                    Tierbedarf-Disount [online] URL: <a href="https://www.tierbedarf-discount.ch/media/image/ee/32/0f/katze-spielt-katze-beschaftigen-intro.jpg" draggable="false">https://www.tierbedarf-discount.ch/media/image/ee/32/0f/katze-spielt-katze-beschaftigen-intro.jpg</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlcnNvbiUyMGhvbGRpbmclMjBhJTIwY2F0fGVufDB8fDB8fHww" draggable="false">https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlcnNvbiUyMGhvbGRpbmclMjBhJTIwY2F0fGVufDB8fDB8fHww</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1706920147354-77d76004177f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false">https://images.unsplash.com/photo-1706920147354-77d76004177f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://unsplash.com/de/fotos/flachfokusfotografie-eines-weissen-shih-tzu-welpen-der-auf-dem-gras-lauft-qO-PIF84Vxg" draggable="false">https://unsplash.com/de/fotos/flachfokusfotografie-eines-weissen-shih-tzu-welpen-der-auf-dem-gras-lauft-qO-PIF84Vxg</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Unsplash [online] URL: <a href="https://images.unsplash.com/photo-1570745526295-8223b49b3c53?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHx0cmF1cmlnZXIlMjBodW5kfGVufDB8fDB8fHww" draggable="false">https://images.unsplash.com/photo-1570745526295-8223b49b3c53?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHx0cmF1cmlnZXIlMjBodW5kfGVufDB8fDB8fHww</a> [Stand 30.06.2024]
-                </p>
-                <p>
-                    Zurich-Versicherung [online] URL: <a href="https://www.zurich.de/-/media/project/zwp/germany/br/images/product/op-versicherung-fuer-katzen_1200x630_2021_07.jpg?rev=331bf83073e14538b45159cf39b53789" draggable="false">https://www.zurich.de/-/media/project/zwp/germany/br/images/product/op-versicherung-fuer-katzen_1200x630_2021_07.jpg?rev=331bf83073e14538b45159cf39b53789</a> [Stand 05.07.2024]
-                </p>
-            </div>
-
-
             <div class="backButton">
                 <a href="#inhaltsverzeichnis" draggable="false"><i class="fa-solid fa-arrow-up"></i> Zurück zum Inhaltsverzeichnis</a>
             </div>
