@@ -3,7 +3,6 @@ Tierheimat
 Tierheimat ist eine Website, die es ermöglicht, Informationen über Tiere im Tierheim, vermisste und gefundene Tiere sowie aktuelle Neuigkeiten und Services rund um das Tierheim zu erhalten. Diese Website wurde mit HTML, CSS, PHP und JavaScript erstellt und kann lokal auf jedem Gerät genutzt werden.
 
 Seitenübersicht
-
 - Startseite: Einführung und allgemeine Informationen.
 - Unsere Tiere: Anzeigen von Tieren im Tierheim mit Filter- und „Weiterlesen“-Funktion.
 - Aktuelles: Neuigkeiten und Updates mit „Weiterlesen“-Option.
