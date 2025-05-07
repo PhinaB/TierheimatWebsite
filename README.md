@@ -37,6 +37,7 @@ Sie können sich mit den folgenden Benutzerdaten anmelden:
 - Nutzer:
     - E-Mail: tierarzt@example.com
     - Passwort: securepassword3
+
 Alternativ können Sie sich registrieren, um einen neuen Nutzer zu erstellen. Dieser verfügt über die gleichen Rechte wie ein angemeldeter Standard-Nutzer, jedoch keine Administratorberechtigungen.
 
 Ideen für die Zukunft
